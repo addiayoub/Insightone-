@@ -1,0 +1,36 @@
+#content {
+  position: relative;
+  width: calc(100% - 50px);
+  left: 50px;
+  transition: all 0.3s ease;
+}
+
+#sidebar.hide + #content {
+  width: calc(100%);
+  left: 0;
+}
+
+.main-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 24px 20px 20px 20px;
+  position: relative;
+}
+
+.main-container .scroll-top-btn {
+  position: fixed;
+  right: 15px;
+  bottom: 100px;
+  z-index: 100;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  #content {
+    position: relative;
+    left: 0;
+    width: calc(100%);
+    transition: all 0.3s ease;
+  }
+}

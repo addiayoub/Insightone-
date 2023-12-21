@@ -1,0 +1,2504 @@
+{
+    "data": [
+        [
+            {
+                "Indices": "MASI",
+                "Valeur": 10557.7099609375,
+                "perf_prec": -0.014485324930293975,
+                "perf_ytd": -0.015161963486159391
+            },
+            {
+                "Indices": "Morocco Stock Index 20",
+                "Valeur": 843.5599975585938,
+                "perf_prec": -0.016910053540820758,
+                "perf_ytd": -0.016176242067184265
+            },
+            {
+                "Indices": "MASI RENTABILITE BRUT",
+                "Valeur": 31796.4609375,
+                "perf_prec": -0.0144855559717747,
+                "perf_ytd": -0.01516228225683458
+            }
+        ],
+        [
+            {
+                "marche": "Marché central",
+                "Volume": 311140031.05999994,
+                "perf": 0.9989776286930476,
+                "vqm": 62228006.21199999
+            },
+            {
+                "marche": "Transferts",
+                "Volume": 318426.18999999994,
+                "perf": 0.001022371306952205,
+                "vqm": 63685.23799999999
+            },
+            {
+                "marche": "Marché globale",
+                "Volume": 311458457.25,
+                "perf": 1,
+                "vqm": 62291691.45
+            }
+        ],
+        [
+            {
+                "LIBELLE": "TAQA MOROCCO",
+                "COURS": 1000,
+                "perf_prec": 0.020408163265306145,
+                "contrib_prec": 0.0005008344164936987,
+                "perf_ytd": -0.08925318761384338,
+                "contrib_YTD": -0.0024560674089448395
+            },
+            {
+                "LIBELLE": "ARADEI CAPITAL",
+                "COURS": 413.95,
+                "perf_prec": 0.022098765432098766,
+                "contrib_prec": 0.00035515996914141596,
+                "perf_ytd": 0.022098765432098766,
+                "contrib_YTD": 0.00031990170591028025
+            },
+            {
+                "LIBELLE": "COSUMAR",
+                "COURS": 176,
+                "perf_prec": 0.0051399200456883065,
+                "contrib_prec": 0.00024073932062725778,
+                "perf_ytd": -0.0736842105263158,
+                "contrib_YTD": -0.0037478533916066696
+            },
+            {
+                "LIBELLE": "DISWAY",
+                "COURS": 750,
+                "perf_prec": 0.04456824512534818,
+                "contrib_prec": 0.00017083177840784817,
+                "perf_ytd": 0.11940298507462677,
+                "contrib_YTD": 0.00042742380652106105
+            },
+            {
+                "LIBELLE": "BMCI",
+                "COURS": 480,
+                "perf_prec": 0.016949152542372836,
+                "contrib_prec": 0.00015037184195078933,
+                "perf_ytd": 0.35440180586907455,
+                "contrib_YTD": 0.002362741497310607
+            },
+            {
+                "LIBELLE": "ATLANTASANAD",
+                "COURS": 120,
+                "perf_prec": -0.08987485779294646,
+                "contrib_prec": -0.0007583689883052407,
+                "perf_ytd": -0.040000000000000036,
+                "contrib_YTD": -0.0003202449250995012
+            },
+            {
+                "LIBELLE": "LAFARGEHOLCIM MAR",
+                "COURS": 1367,
+                "perf_prec": -0.015838732901367836,
+                "contrib_prec": -0.0010944880403745288,
+                "perf_ytd": 0.012592592592592489,
+                "contrib_YTD": 0.0008464226918079603
+            },
+            {
+                "LIBELLE": "CIMENTS DU MAROC",
+                "COURS": 1201,
+                "perf_prec": -0.054330708661417315,
+                "contrib_prec": -0.002114896661052674,
+                "perf_ytd": -0.061718750000000044,
+                "contrib_YTD": -0.0024233558370735635
+            },
+            {
+                "LIBELLE": "ITISSALAT AL-MAGHRIB",
+                "COURS": 88,
+                "perf_prec": -0.022222222222222254,
+                "contrib_prec": -0.0024886726877890114,
+                "perf_ytd": -0.0736842105263158,
+                "contrib_YTD": -0.00871737769540936
+            },
+            {
+                "LIBELLE": "ATTIJARIWAFA BANK",
+                "COURS": 399,
+                "perf_prec": -0.0265918516711392,
+                "contrib_prec": -0.004979003401538631,
+                "perf_ytd": 0.017857142857142794,
+                "contrib_YTD": 0.0032001033322567427
+            }
+        ],
+        [],
+        [
+            {
+                "INSTRUMENT": "BMCI",
+                "COURS": 499.9291366125187,
+                "QUANTITE": 197976,
+                "VOLUME": 98973970.75,
+                "poids": 0.31810143040809624
+            },
+            {
+                "INSTRUMENT": "BCP",
+                "COURS": 234.39810566678673,
+                "QUANTITE": 194290,
+                "VOLUME": 45541207.949999996,
+                "poids": 0.14636902290198925
+            },
+            {
+                "INSTRUMENT": "ATLANTASANAD",
+                "COURS": 117.81512071510832,
+                "QUANTITE": 197117,
+                "VOLUME": 23223363.150000006,
+                "poids": 0.07463967526938566
+            },
+            {
+                "INSTRUMENT": "BANK OF AFRICA",
+                "COURS": 163.7374850903415,
+                "QUANTITE": 135818,
+                "VOLUME": 22238497.75,
+                "poids": 0.07147432694471571
+            },
+            {
+                "INSTRUMENT": "ATTIJARIWAFA BANK",
+                "COURS": 399.35345550759627,
+                "QUANTITE": 41007,
+                "VOLUME": 16376287.15,
+                "poids": 0.052633236069178586
+            }
+        ],
+        [
+            {
+                "num_comment": 1,
+                "commentaire": "En l’absence de toute mesure à même de redynamiser le marché Action, la Bourse des Valeurs de Casablanca refuse, catégoriquement, de se détacher de son engrenage baissier. Elle clôture, ainsi, sur une baisse non négligeable et ce pour la 2ème semaine consécutive. Au final, le MASI s’est déprécié de 1.45% à 10,557.71 points, tandis que le Morocco Stock Index 20 s’est déprécié de 1.69% à 843.56. Leurs performances Year-To-Date ressortent respectivement à -1.52% pour le MASI et -1.62% pour le MSI.",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 2,
+                "commentaire": "Le mouvement baissier de la cote casablancaise provient, notamment, de la  mauvaise tenue de certaines grandes capitalisations telles que:ATTIJARIWAFA BANK (-2.66% avec une contribution de -0.50%), ITISSALAT AL-MAGHRIB (-2.22% avec une contribution de -0.25%), CIMENTS DU MAROC (-5.43% avec une contribution de -0.21%), LAFARGEHOLCIM MAR (-1.58% avec une contribution de -0.11%), ATLANTASANAD (-8.99% avec une contribution de -0.08%).",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 3,
+                "commentaire": "Le mouvement baissier qu'a connu la place bourisère casablancaise depuis le début de l'année provient, principalement de la  mauvaise tenue de certaines grandes capitalisations telles que: ITISSALAT AL-MAGHRIB (-7.37% avec une contribution de -0.87%), COSUMAR (-7.37% avec une contribution de -0.37%), BANK OF AFRICA (-5.23% avec une contribution de -0.33%), TAQA MOROCCO (-8.93% avec une contribution de -0.25%), CIMENTS DU MAROC (-6.17% avec une contribution de -0.24%).",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 4,
+                "commentaire": "Par ailleurs, la capitalisation s’établit à 550.37 Md MAD en perte de -8,227.22 MMAD, soit une variation sur cette semaine de -1.47% et enregistre une variation YTD de -1.64%.",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 5,
+                "commentaire": "La place casablancaise a drainé un volume de 311.46 MMAD sur le marché global dont 99.90% sur le marché central, il a été porté essentiellement par BMCI ( 98.97 MMAD ), BCP ( 45.54 MMAD ), ATLANTASANAD ( 23.22 MMAD ). le flux transactionnel Hebdomadaire baisse de -77.14 MMAD, enregistrant ainsi une variation par rapport à la semaine précédente de -19.85%.",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 6,
+                "commentaire": "Le volume global depuis le début de l’année 2023 atteint 13.64 Mrd MAD, avec une part de 30.09% pour le marché central et 4.50% pour le marché de blocs. il a été porté essentiellement par ATTIJARIWAFA BANK ( 731.21 MMAD ), ITISSALAT AL-MAGHRIB ( 718.24 MMAD ), BCP ( 386.26 MMAD ). Le volume quotidien moyen (VQM) depuis début 2023 s’établit, quant à lui, à 278.43 MMAD.",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 7,
+                "commentaire": "Au cours de cette semaine, la majorité des secteurs ( 78.79% ) étaient dans le rouge. \rLes secteurs les plus performants étaient le secteur 'ELECTRICITE' ( 2.04% s'établissant à 2,234.64 points ) grâce à TAQA MOROCCO ( 2.04% ), le secteur 'SOCIETES DE PLACEMENT IMMOBILIER' ( 1.71% s'établissant à 992.33 points ) grâce à ARADEI CAPITAL ( 2.21% ), IMMORENTE INVEST ( 0.03% ), le secteur 'SANTE' ( 0.69% s'établissant à 973.33 points ) grâce à AKDITAL ( 0.69% ).\rLes secteurs les moins performants étaient le secteur 'CHIMIE' ( -7.11% s'établissant à 4,476.58 points ) à cause de SNEP ( -7.21% ), MAGHREB OXYGENE ( -5.92% ), le secteur 'LOISIRS ET HOTELS' ( -4.02% s'établissant à 508 points ) à cause de RISMA ( -4.02% ), le secteur 'PARTICIPATION ET PROMOTION IMMOBILIERES' ( -3.22% s'établissant à 2,362.29 points ) à cause de DOUJA PROM ADDOHA ( -4.72% ).",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            },
+            {
+                "num_comment": 8,
+                "commentaire": "Depuis le début de l’année 2023, la majorité des secteurs ( 78.13% ) étaient dans le rouge. \rLes secteurs les plus performants étaient le secteur 'INDUSTRIE PHARMACEUTIQUE' ( 7.91% s'établissant à 8,021.71 points ) grâce à SOTHEMA ( 9.09% ), le secteur 'SANTE' ( 5.80% s'établissant à 973.33 points ) grâce à AKDITAL ( 5.80% ), le secteur 'SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES' ( 4.45% s'établissant à 7,367.12 points ) grâce à EQDOM ( 12.27% ), SALAFIN ( 3.51% ), MAROC LEASING ( 1.98% ).\rLes secteurs les moins performants étaient le secteur 'CHIMIE' ( -15.41% s'établissant à 4,476.58 points ) à cause de SNEP ( -16.94% ), le secteur 'TRANSPORT' ( -10.23% s'établissant à 2,133.8 points ) à cause de CTM ( -10.97% ), le secteur 'ELECTRICITE' ( -8.93% s'établissant à 2,234.64 points ) à cause de TAQA MOROCCO ( -8.93% ).",
+                "seance_deb_fin": "Du 06/03/2023  Au 10/03/2023 "
+            }
+        ],
+        [
+            {
+                "seance": "2023-03-10T00:00:00.000Z",
+                "COURS_OUVERTURE": 10557.47,
+                "COURS_CLOTURE": 10557.71,
+                "COURS_PLUS_HAUT": 10577.54,
+                "COURS_PLUS_BAS": 10525.79,
+                "VARIATION": 0
+            },
+            {
+                "seance": "2023-03-09T00:00:00.000Z",
+                "COURS_OUVERTURE": 10592.56,
+                "COURS_CLOTURE": 10557.47,
+                "COURS_PLUS_HAUT": 10622.15,
+                "COURS_PLUS_BAS": 10543.94,
+                "VARIATION": -0.33
+            },
+            {
+                "seance": "2023-03-08T00:00:00.000Z",
+                "COURS_OUVERTURE": 10603.47,
+                "COURS_CLOTURE": 10592.56,
+                "COURS_PLUS_HAUT": 10632.78,
+                "COURS_PLUS_BAS": 10581.31,
+                "VARIATION": -0.1
+            },
+            {
+                "seance": "2023-03-07T00:00:00.000Z",
+                "COURS_OUVERTURE": 10643.91,
+                "COURS_CLOTURE": 10603.47,
+                "COURS_PLUS_HAUT": 10651.72,
+                "COURS_PLUS_BAS": 10595.55,
+                "VARIATION": -0.38
+            },
+            {
+                "seance": "2023-03-06T00:00:00.000Z",
+                "COURS_OUVERTURE": 10712.89,
+                "COURS_CLOTURE": 10643.91,
+                "COURS_PLUS_HAUT": 10738.16,
+                "COURS_PLUS_BAS": 10643.91,
+                "VARIATION": -0.64
+            }
+        ],
+        [
+            {
+                "seance": "2023-03-10T00:00:00.000Z",
+                "Volume_MB": 0,
+                "Volume_MC": 101498946.83,
+                "moyen_volume_ytd": 278434389.11428577,
+                "moyen_volume_1an": 244332795.99484262
+            },
+            {
+                "seance": "2023-03-09T00:00:00.000Z",
+                "Volume_MB": 0,
+                "Volume_MC": 25602125.76,
+                "moyen_volume_ytd": 278434389.11428577,
+                "moyen_volume_1an": 244332795.99484262
+            },
+            {
+                "seance": "2023-03-08T00:00:00.000Z",
+                "Volume_MB": 0,
+                "Volume_MC": 51151840,
+                "moyen_volume_ytd": 278434389.11428577,
+                "moyen_volume_1an": 244332795.99484262
+            },
+            {
+                "seance": "2023-03-07T00:00:00.000Z",
+                "Volume_MB": 0,
+                "Volume_MC": 18167933.69,
+                "moyen_volume_ytd": 278434389.11428577,
+                "moyen_volume_1an": 244332795.99484262
+            },
+            {
+                "seance": "2023-03-06T00:00:00.000Z",
+                "Volume_MB": 0,
+                "Volume_MC": 114719184.78,
+                "moyen_volume_ytd": 278434389.11428577,
+                "moyen_volume_1an": 244332795.99484262
+            }
+        ],
+        [
+            {
+                "Société": "EQDOM",
+                "Volume_moyen_YTD": 1398722.8199999998,
+                "Volume": 0,
+                "variation": -1,
+                "perf": 0
+            },
+            {
+                "Société": "MAROC LEASING",
+                "Volume_moyen_YTD": 1624.855,
+                "Volume": 0,
+                "variation": -1,
+                "perf": 0
+            },
+            {
+                "Société": "UNIMER",
+                "Volume_moyen_YTD": 9989.220000000001,
+                "Volume": 0,
+                "variation": -1,
+                "perf": 0
+            },
+            {
+                "Société": "COLORADO",
+                "Volume_moyen_YTD": 66073.816,
+                "Volume": 3045.19,
+                "variation": -0.9652924552215126,
+                "perf": -0.02300159416989289
+            },
+            {
+                "Société": "SANLAM MAROC",
+                "Volume_moyen_YTD": 5237581.2700000005,
+                "Volume": 1000,
+                "variation": -0.9642422942144032,
+                "perf": -0.038461538461538436
+            },
+            {
+                "Société": "MUTANDIS SCA",
+                "Volume_moyen_YTD": 5355400.925000001,
+                "Volume": 543351.4,
+                "variation": -0.9471045591177092,
+                "perf": -0.00023364485981314242
+            },
+            {
+                "Société": "TOTALENERGIES MARKETING MAROC",
+                "Volume_moyen_YTD": 2789032.8,
+                "Volume": 630683,
+                "variation": 10.041562352282078,
+                "perf": -0.004108463434675413
+            },
+            {
+                "Société": "TAQA MOROCCO",
+                "Volume_moyen_YTD": 4512731.399999999,
+                "Volume": 4292626.5,
+                "variation": 15.138894925261352,
+                "perf": 0.020408163265306145
+            },
+            {
+                "Société": "REALISATIONS MECANIQUES",
+                "Volume_moyen_YTD": 1731.075,
+                "Volume": 15360,
+                "variation": 35.759602728251764,
+                "perf": -0.05385735080058229
+            },
+            {
+                "Société": "M2M Group",
+                "Volume_moyen_YTD": 145163.24000000002,
+                "Volume": 178940,
+                "variation": 37.28412494651262,
+                "perf": -0.0012836970474967568
+            },
+            {
+                "Société": "BMCI",
+                "Volume_moyen_YTD": 16504954.374999996,
+                "Volume": 98973970.75,
+                "variation": 53.409324906978874,
+                "perf": 0.016949152542372836
+            },
+            {
+                "Société": "ATLANTASANAD",
+                "Volume_moyen_YTD": 5583648.200000001,
+                "Volume": 23223363.150000002,
+                "variation": 77.77922486973374,
+                "perf": -0.08987485779294646
+            }
+        ],
+        [
+            {
+                "s": "Sociétés en hausse",
+                "sur_periode": 14,
+                "depuis_debut_annee": 27
+            },
+            {
+                "s": "Sociétés en baisse",
+                "sur_periode": 41,
+                "depuis_debut_annee": 44
+            },
+            {
+                "s": "Sociétés inchangées",
+                "sur_periode": 19,
+                "depuis_debut_annee": 3
+            }
+        ],
+        [
+            {
+                "sur_52_semaines": "Au-dessus de la moyenne mobile",
+                "Nbre_Societes": 15
+            },
+            {
+                "sur_52_semaines": "En-dessous de la moyenne mobile",
+                "Nbre_Societes": 60
+            },
+            {
+                "sur_52_semaines": "Nouveaux plus bas",
+                "Nbre_Societes": 7
+            },
+            {
+                "sur_52_semaines": "Nouveaux plus hauts",
+                "Nbre_Societes": 3
+            }
+        ],
+        [
+            {
+                "Période": "1 semaine",
+                "Performance_MASI": -0.014485324930293975,
+                "volum_moyen": 311458457.25,
+                "Volume_MB": 0
+            },
+            {
+                "Période": "12 Mois",
+                "Performance_MASI": -0.16367555600079364,
+                "volum_moyen": 1193471734.2825005,
+                "Volume_MB": 20922941921.129997
+            },
+            {
+                "Période": "3 Mois",
+                "Performance_MASI": -0.062152110807172756,
+                "volum_moyen": 2147181544.5130777,
+                "Volume_MB": 8160945433.9
+            },
+            {
+                "Période": "Depuis 30/12/2022",
+                "Performance_MASI": -0.015161963486159391,
+                "volum_moyen": 1364328506.6600003,
+                "Volume_MB": 613293616.4
+            }
+        ],
+        [
+            {
+                "valeur": "BMCI",
+                "volume": 98973970.75,
+                "Cours_Cloture": 480,
+                "variation": 0.016949152542372836
+            },
+            {
+                "valeur": "BCP",
+                "volume": 45541207.949999996,
+                "Cours_Cloture": 235,
+                "variation": -0.004237288135593209
+            },
+            {
+                "valeur": "ATLANTASANAD",
+                "volume": 23223363.150000002,
+                "Cours_Cloture": 120,
+                "variation": -0.08987485779294646
+            },
+            {
+                "valeur": "BANK OF AFRICA",
+                "volume": 22238497.75,
+                "Cours_Cloture": 163,
+                "variation": -0.012121212121212088
+            },
+            {
+                "valeur": "ATTIJARIWAFA BANK",
+                "volume": 16376287.149999999,
+                "Cours_Cloture": 399,
+                "variation": -0.0265918516711392
+            },
+            {
+                "valeur": "ITISSALAT AL-MAGHRIB",
+                "volume": 15989095.54,
+                "Cours_Cloture": 88,
+                "variation": -0.022222222222222254
+            }
+        ],
+        [
+            {
+                "valeur": "ATLANTASANAD",
+                "Cours_Cloture": 120,
+                "variation": -0.08987485779294646,
+                "volume": 23223363.150000002
+            },
+            {
+                "valeur": "IB MAROC.COM",
+                "Cours_Cloture": 22.1,
+                "variation": -0.07531380753138062,
+                "volume": 4841.8
+            },
+            {
+                "valeur": "SNEP",
+                "Cours_Cloture": 515,
+                "variation": -0.07207207207207211,
+                "volume": 4901048.3
+            },
+            {
+                "valeur": "MAGHREB OXYGENE",
+                "Cours_Cloture": 263.1,
+                "variation": -0.059181119256212944,
+                "volume": 8693.2
+            },
+            {
+                "valeur": "SONASID",
+                "Cours_Cloture": 532,
+                "variation": -0.05690480411274601,
+                "volume": 7805400.9
+            },
+            {
+                "valeur": "STOKVIS NORD AFRIQUE",
+                "Cours_Cloture": 12.27,
+                "variation": 0.024207011686143476,
+                "volume": 38179.92
+            },
+            {
+                "valeur": "AFMA",
+                "Cours_Cloture": 1305,
+                "variation": 0.026750590086546122,
+                "volume": 6516
+            },
+            {
+                "valeur": "AGMA",
+                "Cours_Cloture": 6100,
+                "variation": 0.03389830508474567,
+                "volume": 151955
+            },
+            {
+                "valeur": "TIMAR",
+                "Cours_Cloture": 181.9,
+                "variation": 0.03942857142857137,
+                "volume": 3569
+            },
+            {
+                "valeur": "DISWAY",
+                "Cours_Cloture": 750,
+                "variation": 0.04456824512534818,
+                "volume": 2310394.1
+            }
+        ],
+        [
+            {
+                "secteur": "AGROALIMENTAIRE / PRODUCTION",
+                "valeur": 28701.759765625,
+                "perf_prec": 0.00374612648677064,
+                "perf_ytd": -0.03933369105081341
+            },
+            {
+                "secteur": "ASSURANCES",
+                "valeur": 4557.259765625,
+                "perf_prec": -0.01892300537942293,
+                "perf_ytd": -0.006962025181775133
+            },
+            {
+                "secteur": "BANQUES",
+                "valeur": 11804.0498046875,
+                "perf_prec": -0.01988862712612871,
+                "perf_ytd": 0.010470149811462992
+            },
+            {
+                "secteur": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+                "valeur": 13804.3896484375,
+                "perf_prec": -0.029642067763692714,
+                "perf_ytd": -0.01386155757425922
+            },
+            {
+                "secteur": "BOISSONS",
+                "valeur": 14458.5,
+                "perf_prec": 0,
+                "perf_ytd": -0.042449816991581235
+            },
+            {
+                "secteur": "CHIMIE",
+                "valeur": 4476.580078125,
+                "perf_prec": -0.0710600786090031,
+                "perf_ytd": -0.15405183405234335
+            },
+            {
+                "secteur": "DISTRIBUTEURS",
+                "valeur": 42026.6796875,
+                "perf_prec": -0.006748199719975978,
+                "perf_ytd": -0.02030823216339106
+            },
+            {
+                "secteur": "ELECTRICITE",
+                "valeur": 2234.639892578125,
+                "perf_prec": 0.020411496373353266,
+                "perf_ytd": -0.08925143591068241
+            },
+            {
+                "secteur": "INDUSTRIE PHARMACEUTIQUE",
+                "valeur": 8021.7099609375,
+                "perf_prec": -0.006272020726642236,
+                "perf_ytd": 0.0790773714419708
+            },
+            {
+                "secteur": "INGENIERIES & BIENS D'EQUIPEMENT INDUSTRIELS",
+                "valeur": 96.88999938964844,
+                "perf_prec": -0.0007219440540963129,
+                "perf_ytd": -0.06881310381651562
+            },
+            {
+                "secteur": "LOISIRS ET HOTELS",
+                "valeur": 508,
+                "perf_prec": -0.04018746338605739,
+                "perf_ytd": -0.015351184626503311
+            },
+            {
+                "secteur": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+                "valeur": 2592.360107421875,
+                "perf_prec": 0.0035499387283277617,
+                "perf_ytd": 0.007986577021930952
+            },
+            {
+                "secteur": "MINES",
+                "valeur": 35165.51953125,
+                "perf_prec": -0.005082797287995877,
+                "perf_ytd": 0.03459343093719913
+            },
+            {
+                "secteur": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+                "valeur": 2362.2900390625,
+                "perf_prec": -0.03216568674001752,
+                "perf_ytd": -0.056427653511376685
+            },
+            {
+                "secteur": "PETROLE & GAZ",
+                "valeur": 16843.5703125,
+                "perf_prec": -0.0015649339936381068,
+                "perf_ytd": -0.06205072658671895
+            },
+            {
+                "secteur": "SANTE",
+                "valeur": 973.3300170898438,
+                "perf_prec": 0.006889666895042668,
+                "perf_ytd": 0.05796740988026494
+            },
+            {
+                "secteur": "SERVICES DE TRANSPORT",
+                "valeur": 3306.919921875,
+                "perf_prec": -0.012405714730681638,
+                "perf_ytd": -0.0048630053655276395
+            },
+            {
+                "secteur": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+                "valeur": 7367.1201171875,
+                "perf_prec": 0.00021591549795307863,
+                "perf_ytd": 0.04453564676649302
+            },
+            {
+                "secteur": "SOCIETES DE PLACEMENT IMMOBILIER",
+                "valeur": 992.3300170898438,
+                "perf_prec": 0.017075480922345454,
+                "perf_ytd": 0.021630368578017034
+            },
+            {
+                "secteur": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+                "valeur": 3539.169921875,
+                "perf_prec": -0.0317279157874657,
+                "perf_ytd": -0.03051848031429083
+            },
+            {
+                "secteur": "SYLVICULTURE & PAPIER",
+                "valeur": 35.90999984741211,
+                "perf_prec": -0.011016290574231147,
+                "perf_ytd": -0.039068748359715855
+            },
+            {
+                "secteur": "TELECOMMUNICATIONS",
+                "valeur": 1291.5799560546875,
+                "perf_prec": -0.022219267079127802,
+                "perf_ytd": -0.07368465932644386
+            },
+            {
+                "secteur": "TRANSPORT",
+                "valeur": 2133.800048828125,
+                "perf_prec": -0.030588760122753023,
+                "perf_ytd": -0.10234784129632624
+            }
+        ],
+        [
+            {
+                "A": "Market Cap ",
+                "B": 550365974639.87
+            },
+            {
+                "A": "Floatting Cap",
+                "B": 139248711630.335
+            }
+        ],
+        [
+            {
+                "seance": "2023-01-02T00:00:00.000Z",
+                "MASI": 10709.1396484375,
+                "Volume": 14110459.47,
+                "variation": -0.014140229044645403
+            },
+            {
+                "seance": "2023-01-03T00:00:00.000Z",
+                "MASI": 10631.580078125,
+                "Volume": 69619945.07,
+                "variation": -0.0069481786004219614
+            },
+            {
+                "seance": "2023-01-04T00:00:00.000Z",
+                "MASI": 10439.599609375,
+                "Volume": 91594962.17,
+                "variation": 0.011313685963246556
+            },
+            {
+                "seance": "2023-01-05T00:00:00.000Z",
+                "MASI": 10040.91015625,
+                "Volume": 215760243.29,
+                "variation": 0.051469418274379786
+            },
+            {
+                "seance": "2023-01-09T00:00:00.000Z",
+                "MASI": 9806.3203125,
+                "Volume": 49903787.37,
+                "variation": 0.07662299664836691
+            },
+            {
+                "seance": "2023-01-10T00:00:00.000Z",
+                "MASI": 9982.5400390625,
+                "Volume": 149893107.65,
+                "variation": 0.05761759227854957
+            },
+            {
+                "seance": "2023-01-12T00:00:00.000Z",
+                "MASI": 10162.669921875,
+                "Volume": 154967457.72,
+                "variation": 0.03887167861392227
+            },
+            {
+                "seance": "2023-01-13T00:00:00.000Z",
+                "MASI": 10324.6201171875,
+                "Volume": 115475708.34,
+                "variation": 0.02257611816264049
+            },
+            {
+                "seance": "2023-01-16T00:00:00.000Z",
+                "MASI": 10382.73046875,
+                "Volume": 143809886.75,
+                "variation": 0.016852936008900032
+            },
+            {
+                "seance": "2023-01-30T00:00:00.000Z",
+                "MASI": 10119.8203125,
+                "Volume": 66818317.79,
+                "variation": 0.04327049640363856
+            },
+            {
+                "seance": "2023-01-17T00:00:00.000Z",
+                "MASI": 10416.1201171875,
+                "Volume": 35730157.4,
+                "variation": 0.013593338225464935
+            },
+            {
+                "seance": "2023-01-18T00:00:00.000Z",
+                "MASI": 10375.25,
+                "Volume": 129220628.8,
+                "variation": 0.01758607849810856
+            },
+            {
+                "seance": "2023-01-19T00:00:00.000Z",
+                "MASI": 10258.4404296875,
+                "Volume": 114460407.83,
+                "variation": 0.029173004737048203
+            },
+            {
+                "seance": "2023-01-31T00:00:00.000Z",
+                "MASI": 10275.4501953125,
+                "Volume": 50937644.81,
+                "variation": 0.027469333241842975
+            },
+            {
+                "seance": "2023-01-20T00:00:00.000Z",
+                "MASI": 10212.83984375,
+                "Volume": 68024744.14,
+                "variation": 0.03376828800449183
+            },
+            {
+                "seance": "2023-01-23T00:00:00.000Z",
+                "MASI": 10291.490234375,
+                "Volume": 21272151.24,
+                "variation": 0.02586794725542174
+            },
+            {
+                "seance": "2023-01-24T00:00:00.000Z",
+                "MASI": 10233.4296875,
+                "Volume": 43634726.33,
+                "variation": 0.031688327700497565
+            },
+            {
+                "seance": "2023-02-01T00:00:00.000Z",
+                "MASI": 10212.0302734375,
+                "Volume": 273115684.05,
+                "variation": 0.03385024116106927
+            },
+            {
+                "seance": "2023-01-25T00:00:00.000Z",
+                "MASI": 10288.7998046875,
+                "Volume": 28863087.4,
+                "variation": 0.026136202604261527
+            },
+            {
+                "seance": "2023-01-26T00:00:00.000Z",
+                "MASI": 10107.41015625,
+                "Volume": 89527301.94,
+                "variation": 0.044551452620041676
+            },
+            {
+                "seance": "2023-02-02T00:00:00.000Z",
+                "MASI": 10343.76953125,
+                "Volume": 8835790807.83,
+                "variation": 0.020683023634774145
+            },
+            {
+                "seance": "2023-01-27T00:00:00.000Z",
+                "MASI": 10070.1201171875,
+                "Volume": 81604397.67,
+                "variation": 0.04841946650842721
+            },
+            {
+                "seance": "2023-02-03T00:00:00.000Z",
+                "MASI": 10335.3095703125,
+                "Volume": 85370488.82,
+                "variation": 0.02151850306098524
+            },
+            {
+                "seance": "2023-02-06T00:00:00.000Z",
+                "MASI": 10325.3203125,
+                "Volume": 46648035.3,
+                "variation": 0.022506773775934574
+            },
+            {
+                "seance": "2023-02-07T00:00:00.000Z",
+                "MASI": 10463.33984375,
+                "Volume": 82349738.01,
+                "variation": 0.009019119955648636
+            },
+            {
+                "seance": "2023-02-08T00:00:00.000Z",
+                "MASI": 10647.0400390625,
+                "Volume": 384647507.61,
+                "variation": -0.008390132637546288
+            },
+            {
+                "seance": "2023-02-09T00:00:00.000Z",
+                "MASI": 10719.2197265625,
+                "Volume": 142303913.06,
+                "variation": -0.015067306179457729
+            },
+            {
+                "seance": "2023-02-13T00:00:00.000Z",
+                "MASI": 10664,
+                "Volume": 9639764.28,
+                "variation": -0.00996718295784882
+            },
+            {
+                "seance": "2023-02-14T00:00:00.000Z",
+                "MASI": 10522.2001953125,
+                "Volume": 146857394.66,
+                "variation": 0.003374747197911976
+            },
+            {
+                "seance": "2023-02-15T00:00:00.000Z",
+                "MASI": 10555.0703125,
+                "Volume": 48914799.93,
+                "variation": 0.0002500834536718344
+            },
+            {
+                "seance": "2023-02-16T00:00:00.000Z",
+                "MASI": 10573.3701171875,
+                "Volume": 121542626.63,
+                "variation": -0.0014810941144057788
+            },
+            {
+                "seance": "2023-02-17T00:00:00.000Z",
+                "MASI": 10684.599609375,
+                "Volume": 112761136.49,
+                "variation": -0.011875938554231191
+            },
+            {
+                "seance": "2023-02-20T00:00:00.000Z",
+                "MASI": 10691.33984375,
+                "Volume": 51578657.99,
+                "variation": -0.012498890201364077
+            },
+            {
+                "seance": "2023-02-21T00:00:00.000Z",
+                "MASI": 10565.3701171875,
+                "Volume": 155507974.13,
+                "variation": -0.0007250248846027985
+            },
+            {
+                "seance": "2023-02-22T00:00:00.000Z",
+                "MASI": 10625.349609375,
+                "Volume": 254654875.29,
+                "variation": -0.0063658750934482145
+            },
+            {
+                "seance": "2023-02-28T00:00:00.000Z",
+                "MASI": 10907.509765625,
+                "Volume": 51106429.27,
+                "variation": -0.032069630209261235
+            },
+            {
+                "seance": "2023-02-24T00:00:00.000Z",
+                "MASI": 10844.5400390625,
+                "Volume": 137707821.05,
+                "variation": -0.026449261756775866
+            },
+            {
+                "seance": "2023-02-27T00:00:00.000Z",
+                "MASI": 10834.83984375,
+                "Volume": 12647358.75,
+                "variation": -0.02557766305815401
+            },
+            {
+                "seance": "2023-02-23T00:00:00.000Z",
+                "MASI": 10663.2197265625,
+                "Volume": 88277753.12,
+                "variation": -0.009894738018215166
+            },
+            {
+                "seance": "2023-01-06T00:00:00.000Z",
+                "MASI": 9717.990234375,
+                "Volume": 133881739.48,
+                "variation": 0.08640878477035274
+            },
+            {
+                "seance": "2023-02-10T00:00:00.000Z",
+                "MASI": 10728.3095703125,
+                "Volume": 96444380.61,
+                "variation": -0.015901816428478655
+            },
+            {
+                "seance": "2023-03-07T00:00:00.000Z",
+                "MASI": 10603.4697265625,
+                "Volume": 18167933.69,
+                "variation": -0.004315546401794101
+            },
+            {
+                "seance": "2023-03-01T00:00:00.000Z",
+                "MASI": 10842.6201171875,
+                "Volume": 71900516.79,
+                "variation": -0.02627687340981044
+            },
+            {
+                "seance": "2023-03-06T00:00:00.000Z",
+                "MASI": 10643.91015625,
+                "Volume": 114855267.36,
+                "variation": -0.008098545933505896
+            },
+            {
+                "seance": "2023-03-02T00:00:00.000Z",
+                "MASI": 10767.75,
+                "Volume": 17836260.6,
+                "variation": -0.019506400042952343
+            },
+            {
+                "seance": "2023-03-03T00:00:00.000Z",
+                "MASI": 10712.8896484375,
+                "Volume": 235111822.42,
+                "variation": -0.014485324930293975
+            },
+            {
+                "seance": "2023-03-08T00:00:00.000Z",
+                "MASI": 10592.5595703125,
+                "Volume": 51151840,
+                "variation": -0.003290008344411066
+            },
+            {
+                "seance": "2023-03-09T00:00:00.000Z",
+                "MASI": 10557.4697265625,
+                "Volume": 25602219.37,
+                "variation": 0.000022754919618339642
+            },
+            {
+                "seance": "2023-03-10T00:00:00.000Z",
+                "MASI": 10557.7099609375,
+                "Volume": 101681196.83,
+                "variation": 0
+            }
+        ],
+        [
+            {
+                "seance": "2022-10-28T00:00:00.000Z",
+                "MASI": 10850.6298828125,
+                "Volume": 2057175568.08,
+                "variation": -0.026995660624180684
+            },
+            {
+                "seance": "2022-10-31T00:00:00.000Z",
+                "MASI": 10822.580078125,
+                "Volume": 2828093203.68,
+                "variation": -0.024473842214654984
+            },
+            {
+                "seance": "2022-11-10T00:00:00.000Z",
+                "MASI": 10421.009765625,
+                "Volume": 136042552.98,
+                "variation": 0.013117749468330997
+            },
+            {
+                "seance": "2022-11-11T00:00:00.000Z",
+                "MASI": 10355.26953125,
+                "Volume": 389202176.02,
+                "variation": 0.01954950849676851
+            },
+            {
+                "seance": "2022-11-14T00:00:00.000Z",
+                "MASI": 10466.66015625,
+                "Volume": 55589483.74,
+                "variation": 0.008699031336479424
+            },
+            {
+                "seance": "2022-12-07T00:00:00.000Z",
+                "MASI": 11291.0498046875,
+                "Volume": 151721443.53,
+                "variation": -0.06494877415610656
+            },
+            {
+                "seance": "2022-12-08T00:00:00.000Z",
+                "MASI": 11275.9404296875,
+                "Volume": 386378385.55,
+                "variation": -0.0636958374539679
+            },
+            {
+                "seance": "2022-12-28T00:00:00.000Z",
+                "MASI": 10958.349609375,
+                "Volume": 197923456.83,
+                "variation": -0.03656021779910612
+            },
+            {
+                "seance": "2022-12-29T00:00:00.000Z",
+                "MASI": 10848.849609375,
+                "Volume": 220721160.06,
+                "variation": -0.02683599265547132
+            },
+            {
+                "seance": "2022-12-30T00:00:00.000Z",
+                "MASI": 10720.25,
+                "Volume": 902195256.06,
+                "variation": -0.015161963486159391
+            },
+            {
+                "seance": "2023-01-02T00:00:00.000Z",
+                "MASI": 10709.1396484375,
+                "Volume": 14110459.47,
+                "variation": -0.014140229044645403
+            },
+            {
+                "seance": "2023-01-03T00:00:00.000Z",
+                "MASI": 10631.580078125,
+                "Volume": 69619945.07,
+                "variation": -0.0069481786004219614
+            },
+            {
+                "seance": "2023-01-04T00:00:00.000Z",
+                "MASI": 10439.599609375,
+                "Volume": 91594962.17,
+                "variation": 0.011313685963246556
+            },
+            {
+                "seance": "2023-01-05T00:00:00.000Z",
+                "MASI": 10040.91015625,
+                "Volume": 215760243.29,
+                "variation": 0.051469418274379786
+            },
+            {
+                "seance": "2023-01-09T00:00:00.000Z",
+                "MASI": 9806.3203125,
+                "Volume": 49903787.37,
+                "variation": 0.07662299664836691
+            },
+            {
+                "seance": "2023-01-10T00:00:00.000Z",
+                "MASI": 9982.5400390625,
+                "Volume": 149893107.65,
+                "variation": 0.05761759227854957
+            },
+            {
+                "seance": "2023-01-12T00:00:00.000Z",
+                "MASI": 10162.669921875,
+                "Volume": 154967457.72,
+                "variation": 0.03887167861392227
+            },
+            {
+                "seance": "2023-01-13T00:00:00.000Z",
+                "MASI": 10324.6201171875,
+                "Volume": 115475708.34,
+                "variation": 0.02257611816264049
+            },
+            {
+                "seance": "2023-01-16T00:00:00.000Z",
+                "MASI": 10382.73046875,
+                "Volume": 143809886.75,
+                "variation": 0.016852936008900032
+            },
+            {
+                "seance": "2023-01-30T00:00:00.000Z",
+                "MASI": 10119.8203125,
+                "Volume": 66818317.79,
+                "variation": 0.04327049640363856
+            },
+            {
+                "seance": "2023-01-17T00:00:00.000Z",
+                "MASI": 10416.1201171875,
+                "Volume": 35730157.4,
+                "variation": 0.013593338225464935
+            },
+            {
+                "seance": "2023-01-18T00:00:00.000Z",
+                "MASI": 10375.25,
+                "Volume": 129220628.8,
+                "variation": 0.01758607849810856
+            },
+            {
+                "seance": "2023-01-19T00:00:00.000Z",
+                "MASI": 10258.4404296875,
+                "Volume": 114460407.83,
+                "variation": 0.029173004737048203
+            },
+            {
+                "seance": "2023-01-31T00:00:00.000Z",
+                "MASI": 10275.4501953125,
+                "Volume": 50937644.81,
+                "variation": 0.027469333241842975
+            },
+            {
+                "seance": "2023-01-20T00:00:00.000Z",
+                "MASI": 10212.83984375,
+                "Volume": 68024744.14,
+                "variation": 0.03376828800449183
+            },
+            {
+                "seance": "2023-01-23T00:00:00.000Z",
+                "MASI": 10291.490234375,
+                "Volume": 21272151.24,
+                "variation": 0.02586794725542174
+            },
+            {
+                "seance": "2023-01-24T00:00:00.000Z",
+                "MASI": 10233.4296875,
+                "Volume": 43634726.33,
+                "variation": 0.031688327700497565
+            },
+            {
+                "seance": "2023-02-01T00:00:00.000Z",
+                "MASI": 10212.0302734375,
+                "Volume": 273115684.05,
+                "variation": 0.03385024116106927
+            },
+            {
+                "seance": "2023-01-25T00:00:00.000Z",
+                "MASI": 10288.7998046875,
+                "Volume": 28863087.4,
+                "variation": 0.026136202604261527
+            },
+            {
+                "seance": "2023-01-26T00:00:00.000Z",
+                "MASI": 10107.41015625,
+                "Volume": 89527301.94,
+                "variation": 0.044551452620041676
+            },
+            {
+                "seance": "2023-02-02T00:00:00.000Z",
+                "MASI": 10343.76953125,
+                "Volume": 8835790807.83,
+                "variation": 0.020683023634774145
+            },
+            {
+                "seance": "2023-01-27T00:00:00.000Z",
+                "MASI": 10070.1201171875,
+                "Volume": 81604397.67,
+                "variation": 0.04841946650842721
+            },
+            {
+                "seance": "2023-02-03T00:00:00.000Z",
+                "MASI": 10335.3095703125,
+                "Volume": 85370488.82,
+                "variation": 0.02151850306098524
+            },
+            {
+                "seance": "2023-02-06T00:00:00.000Z",
+                "MASI": 10325.3203125,
+                "Volume": 46648035.3,
+                "variation": 0.022506773775934574
+            },
+            {
+                "seance": "2023-02-07T00:00:00.000Z",
+                "MASI": 10463.33984375,
+                "Volume": 82349738.01,
+                "variation": 0.009019119955648636
+            },
+            {
+                "seance": "2023-02-08T00:00:00.000Z",
+                "MASI": 10647.0400390625,
+                "Volume": 384647507.61,
+                "variation": -0.008390132637546288
+            },
+            {
+                "seance": "2023-02-09T00:00:00.000Z",
+                "MASI": 10719.2197265625,
+                "Volume": 142303913.06,
+                "variation": -0.015067306179457729
+            },
+            {
+                "seance": "2023-02-13T00:00:00.000Z",
+                "MASI": 10664,
+                "Volume": 9639764.28,
+                "variation": -0.00996718295784882
+            },
+            {
+                "seance": "2022-10-26T00:00:00.000Z",
+                "MASI": 10741.259765625,
+                "Volume": 67189339.13,
+                "variation": -0.017088293989026337
+            },
+            {
+                "seance": "2022-10-27T00:00:00.000Z",
+                "MASI": 10844.400390625,
+                "Volume": 83398308.51,
+                "variation": -0.02643672488663773
+            },
+            {
+                "seance": "2023-02-14T00:00:00.000Z",
+                "MASI": 10522.2001953125,
+                "Volume": 146857394.66,
+                "variation": 0.003374747197911976
+            },
+            {
+                "seance": "2022-12-15T00:00:00.000Z",
+                "MASI": 11228.4697265625,
+                "Volume": 154615983.96,
+                "variation": -0.05973741586872028
+            },
+            {
+                "seance": "2023-02-15T00:00:00.000Z",
+                "MASI": 10555.0703125,
+                "Volume": 48914799.93,
+                "variation": 0.0002500834536718344
+            },
+            {
+                "seance": "2022-11-01T00:00:00.000Z",
+                "MASI": 10912.3603515625,
+                "Volume": 43050511.06,
+                "variation": -0.032499878962869766
+            },
+            {
+                "seance": "2022-11-02T00:00:00.000Z",
+                "MASI": 10861.3896484375,
+                "Volume": 115275746.41,
+                "variation": -0.027959561099411112
+            },
+            {
+                "seance": "2022-11-03T00:00:00.000Z",
+                "MASI": 10811.0302734375,
+                "Volume": 46831018.72,
+                "variation": -0.0234316532368245
+            },
+            {
+                "seance": "2022-11-04T00:00:00.000Z",
+                "MASI": 10740.8798828125,
+                "Volume": 89664094.64,
+                "variation": -0.017053530425203522
+            },
+            {
+                "seance": "2022-11-07T00:00:00.000Z",
+                "MASI": 10768.1796875,
+                "Volume": 35368964.15,
+                "variation": -0.019545525118495055
+            },
+            {
+                "seance": "2022-11-08T00:00:00.000Z",
+                "MASI": 10686.41015625,
+                "Volume": 105337376.88,
+                "variation": -0.012043351642949007
+            },
+            {
+                "seance": "2022-11-09T00:00:00.000Z",
+                "MASI": 10656.169921875,
+                "Volume": 84431649.29,
+                "variation": -0.009239713861486143
+            },
+            {
+                "seance": "2023-02-16T00:00:00.000Z",
+                "MASI": 10573.3701171875,
+                "Volume": 121542626.63,
+                "variation": -0.0014810941144057788
+            },
+            {
+                "seance": "2023-02-17T00:00:00.000Z",
+                "MASI": 10684.599609375,
+                "Volume": 112761136.49,
+                "variation": -0.011875938554231191
+            },
+            {
+                "seance": "2022-11-17T00:00:00.000Z",
+                "MASI": 10821.8896484375,
+                "Volume": 87974540.64,
+                "variation": -0.024411604265262787
+            },
+            {
+                "seance": "2022-11-21T00:00:00.000Z",
+                "MASI": 10783.8701171875,
+                "Volume": 364889309.96,
+                "variation": -0.02097207716639149
+            },
+            {
+                "seance": "2022-11-15T00:00:00.000Z",
+                "MASI": 10581.1201171875,
+                "Volume": 65320525.1,
+                "variation": -0.002212445940574237
+            },
+            {
+                "seance": "2022-11-16T00:00:00.000Z",
+                "MASI": 10621.26953125,
+                "Volume": 52920288.24,
+                "variation": -0.005984178268472973
+            },
+            {
+                "seance": "2022-12-23T00:00:00.000Z",
+                "MASI": 10955.0703125,
+                "Volume": 104496926.95,
+                "variation": -0.03627182119580763
+            },
+            {
+                "seance": "2022-12-26T00:00:00.000Z",
+                "MASI": 11001.3203125,
+                "Volume": 2568587618.5,
+                "variation": -0.04032337382799933
+            },
+            {
+                "seance": "2022-11-22T00:00:00.000Z",
+                "MASI": 10810.669921875,
+                "Volume": 237350852.65,
+                "variation": -0.023399101329108607
+            },
+            {
+                "seance": "2023-02-20T00:00:00.000Z",
+                "MASI": 10691.33984375,
+                "Volume": 51578657.99,
+                "variation": -0.012498890201364077
+            },
+            {
+                "seance": "2022-11-23T00:00:00.000Z",
+                "MASI": 10852.1396484375,
+                "Volume": 10780678.46,
+                "variation": -0.02713102641859133
+            },
+            {
+                "seance": "2022-11-24T00:00:00.000Z",
+                "MASI": 10805.9697265625,
+                "Volume": 26564620.76,
+                "variation": -0.022974316225849223
+            },
+            {
+                "seance": "2022-11-25T00:00:00.000Z",
+                "MASI": 10835.23046875,
+                "Volume": 81445322.91,
+                "variation": -0.025612792327112888
+            },
+            {
+                "seance": "2022-11-28T00:00:00.000Z",
+                "MASI": 10870.169921875,
+                "Volume": 32000850.35,
+                "variation": -0.028744717256784513
+            },
+            {
+                "seance": "2023-02-21T00:00:00.000Z",
+                "MASI": 10565.3701171875,
+                "Volume": 155507974.13,
+                "variation": -0.0007250248846027985
+            },
+            {
+                "seance": "2022-11-29T00:00:00.000Z",
+                "MASI": 10918.6298828125,
+                "Volume": 91791593.23,
+                "variation": -0.03305542231476677
+            },
+            {
+                "seance": "2022-11-30T00:00:00.000Z",
+                "MASI": 10910.91015625,
+                "Volume": 285677938.42,
+                "variation": -0.03237128619468832
+            },
+            {
+                "seance": "2022-12-01T00:00:00.000Z",
+                "MASI": 11022.1796875,
+                "Volume": 38878444.04,
+                "variation": -0.04213955313115103
+            },
+            {
+                "seance": "2023-02-22T00:00:00.000Z",
+                "MASI": 10625.349609375,
+                "Volume": 254654875.29,
+                "variation": -0.0063658750934482145
+            },
+            {
+                "seance": "2022-12-02T00:00:00.000Z",
+                "MASI": 11028.150390625,
+                "Volume": 405456235.71,
+                "variation": -0.04265814420588787
+            },
+            {
+                "seance": "2022-12-05T00:00:00.000Z",
+                "MASI": 11194.259765625,
+                "Volume": 23474024.93,
+                "variation": -0.05686394795323568
+            },
+            {
+                "seance": "2022-12-06T00:00:00.000Z",
+                "MASI": 11248.580078125,
+                "Volume": 3846287291.83,
+                "variation": -0.06141842902741368
+            },
+            {
+                "seance": "2022-12-19T00:00:00.000Z",
+                "MASI": 11065.16015625,
+                "Volume": 33045443.81,
+                "variation": -0.04586017627823258
+            },
+            {
+                "seance": "2022-12-22T00:00:00.000Z",
+                "MASI": 10968.0400390625,
+                "Volume": 819957018.46,
+                "variation": -0.0374114314557219
+            },
+            {
+                "seance": "2022-12-09T00:00:00.000Z",
+                "MASI": 11257.3798828125,
+                "Volume": 393066719.37,
+                "variation": -0.062152110807172756
+            },
+            {
+                "seance": "2022-12-12T00:00:00.000Z",
+                "MASI": 11285.6796875,
+                "Volume": 39592834.32,
+                "variation": -0.06450384440458634
+            },
+            {
+                "seance": "2022-12-13T00:00:00.000Z",
+                "MASI": 11317.0498046875,
+                "Volume": 157029298.73,
+                "variation": -0.06709697817495541
+            },
+            {
+                "seance": "2022-12-16T00:00:00.000Z",
+                "MASI": 11049.6396484375,
+                "Volume": 82367220.82,
+                "variation": -0.04451997559663068
+            },
+            {
+                "seance": "2022-03-14T00:00:00.000Z",
+                "MASI": 12659.1796875,
+                "Volume": 37740713.62,
+                "variation": -0.16600362570392657
+            },
+            {
+                "seance": "2022-03-15T00:00:00.000Z",
+                "MASI": 12704.7197265625,
+                "Volume": 67875360.86,
+                "variation": -0.16899308381719913
+            },
+            {
+                "seance": "2022-03-16T00:00:00.000Z",
+                "MASI": 12761.9599609375,
+                "Volume": 50085075.91,
+                "variation": -0.1727203350227463
+            },
+            {
+                "seance": "2022-03-17T00:00:00.000Z",
+                "MASI": 12935.509765625,
+                "Volume": 97705285.11,
+                "variation": -0.18381956704994318
+            },
+            {
+                "seance": "2022-03-18T00:00:00.000Z",
+                "MASI": 12877.7998046875,
+                "Volume": 142758055.13,
+                "variation": -0.18016197478900786
+            },
+            {
+                "seance": "2022-03-21T00:00:00.000Z",
+                "MASI": 12867.900390625,
+                "Volume": 55165252.96,
+                "variation": -0.1795312645853714
+            },
+            {
+                "seance": "2022-03-22T00:00:00.000Z",
+                "MASI": 12820.099609375,
+                "Volume": 144285800.91,
+                "variation": -0.17647208035599615
+            },
+            {
+                "seance": "2022-03-23T00:00:00.000Z",
+                "MASI": 12577.91015625,
+                "Volume": 115412611.91,
+                "variation": -0.16061493286376005
+            },
+            {
+                "seance": "2022-03-24T00:00:00.000Z",
+                "MASI": 12558.7099609375,
+                "Volume": 112688001.2,
+                "variation": -0.15933165159669205
+            },
+            {
+                "seance": "2022-03-25T00:00:00.000Z",
+                "MASI": 12602.919921875,
+                "Volume": 112034704.04,
+                "variation": -0.16228064397898867
+            },
+            {
+                "seance": "2022-03-28T00:00:00.000Z",
+                "MASI": 12640.2197265625,
+                "Volume": 70763393.52,
+                "variation": -0.1647526554660088
+            },
+            {
+                "seance": "2022-03-29T00:00:00.000Z",
+                "MASI": 12721.3798828125,
+                "Volume": 106084514.12,
+                "variation": -0.17008138596649203
+            },
+            {
+                "seance": "2022-03-30T00:00:00.000Z",
+                "MASI": 12751.4501953125,
+                "Volume": 137560039.16,
+                "variation": -0.1720384898010605
+            },
+            {
+                "seance": "2022-03-31T00:00:00.000Z",
+                "MASI": 12818.1103515625,
+                "Volume": 89548043.32,
+                "variation": -0.17634427607728176
+            },
+            {
+                "seance": "2022-04-01T00:00:00.000Z",
+                "MASI": 12843.51953125,
+                "Volume": 175971709.59,
+                "variation": -0.17797376838574663
+            },
+            {
+                "seance": "2022-04-04T00:00:00.000Z",
+                "MASI": 12824.2900390625,
+                "Volume": 40463724.64,
+                "variation": -0.17674117407053702
+            },
+            {
+                "seance": "2022-04-05T00:00:00.000Z",
+                "MASI": 12878.419921875,
+                "Volume": 110767458.34,
+                "variation": -0.18020145134385568
+            },
+            {
+                "seance": "2022-04-06T00:00:00.000Z",
+                "MASI": 12893.7998046875,
+                "Volume": 83614480.01,
+                "variation": -0.18117931712424462
+            },
+            {
+                "seance": "2022-04-07T00:00:00.000Z",
+                "MASI": 12926.3603515625,
+                "Volume": 253161269.14,
+                "variation": -0.18324186593936975
+            },
+            {
+                "seance": "2022-04-08T00:00:00.000Z",
+                "MASI": 12946.490234375,
+                "Volume": 153256010.76,
+                "variation": -0.1845118043726559
+            },
+            {
+                "seance": "2022-04-11T00:00:00.000Z",
+                "MASI": 12943.080078125,
+                "Volume": 65327578.91,
+                "variation": -0.18429694499217353
+            },
+            {
+                "seance": "2022-04-12T00:00:00.000Z",
+                "MASI": 12972.98046875,
+                "Volume": 116909419.56,
+                "variation": -0.18617699407091004
+            },
+            {
+                "seance": "2022-04-13T00:00:00.000Z",
+                "MASI": 12971.8896484375,
+                "Volume": 241712641.37,
+                "variation": -0.18610855880899313
+            },
+            {
+                "seance": "2022-04-14T00:00:00.000Z",
+                "MASI": 12971.8896484375,
+                "Volume": 127233453.97,
+                "variation": -0.18610855880899313
+            },
+            {
+                "seance": "2022-04-15T00:00:00.000Z",
+                "MASI": 12999.3095703125,
+                "Volume": 161991084.2,
+                "variation": -0.18782532996606716
+            },
+            {
+                "seance": "2022-04-18T00:00:00.000Z",
+                "MASI": 13038.919921875,
+                "Volume": 26709516.47,
+                "variation": -0.1902925990652684
+            },
+            {
+                "seance": "2022-04-19T00:00:00.000Z",
+                "MASI": 13052.0703125,
+                "Volume": 64269043.83,
+                "variation": -0.1911084059341639
+            },
+            {
+                "seance": "2022-04-20T00:00:00.000Z",
+                "MASI": 13063.73046875,
+                "Volume": 94651504.31,
+                "variation": -0.19183038978086697
+            },
+            {
+                "seance": "2022-04-21T00:00:00.000Z",
+                "MASI": 13096.8701171875,
+                "Volume": 109785150.83,
+                "variation": -0.193875340713486
+            },
+            {
+                "seance": "2022-04-22T00:00:00.000Z",
+                "MASI": 13169.669921875,
+                "Volume": 113488809.37,
+                "variation": -0.19833146741202667
+            },
+            {
+                "seance": "2022-04-25T00:00:00.000Z",
+                "MASI": 13167.3896484375,
+                "Volume": 62855667.04,
+                "variation": -0.19819263781031016
+            },
+            {
+                "seance": "2022-04-26T00:00:00.000Z",
+                "MASI": 13106.8896484375,
+                "Volume": 105101343.31,
+                "variation": -0.1944915808308414
+            },
+            {
+                "seance": "2022-04-27T00:00:00.000Z",
+                "MASI": 13083.669921875,
+                "Volume": 70320490,
+                "variation": -0.19306203657081478
+            },
+            {
+                "seance": "2022-04-28T00:00:00.000Z",
+                "MASI": 13134.6396484375,
+                "Volume": 108382370.36,
+                "variation": -0.1961934058698407
+            },
+            {
+                "seance": "2022-04-29T00:00:00.000Z",
+                "MASI": 13136.650390625,
+                "Volume": 143879139.85,
+                "variation": -0.196316439351082
+            },
+            {
+                "seance": "2022-05-04T00:00:00.000Z",
+                "MASI": 13143.8896484375,
+                "Volume": 35119285.97,
+                "variation": -0.19675908400580921
+            },
+            {
+                "seance": "2022-05-05T00:00:00.000Z",
+                "MASI": 13121.650390625,
+                "Volume": 109662745.24,
+                "variation": -0.19539770938565426
+            },
+            {
+                "seance": "2022-05-06T00:00:00.000Z",
+                "MASI": 13051.009765625,
+                "Volume": 160818280.89,
+                "variation": -0.1910426740507537
+            },
+            {
+                "seance": "2022-05-09T00:00:00.000Z",
+                "MASI": 12984.1796875,
+                "Volume": 85650181.95,
+                "variation": -0.1868789392138871
+            },
+            {
+                "seance": "2022-05-10T00:00:00.000Z",
+                "MASI": 12666.75,
+                "Volume": 124537053.01,
+                "variation": -0.16650206557029235
+            },
+            {
+                "seance": "2022-05-11T00:00:00.000Z",
+                "MASI": 12649.8896484375,
+                "Volume": 49841179.23,
+                "variation": -0.16539114139690725
+            },
+            {
+                "seance": "2022-05-12T00:00:00.000Z",
+                "MASI": 12572.3896484375,
+                "Volume": 76283328.95,
+                "variation": -0.1602463607823661
+            },
+            {
+                "seance": "2022-05-13T00:00:00.000Z",
+                "MASI": 12682.2099609375,
+                "Volume": 75526341.64,
+                "variation": -0.16751812235751318
+            },
+            {
+                "seance": "2022-05-16T00:00:00.000Z",
+                "MASI": 12682.76953125,
+                "Volume": 39634150.69,
+                "variation": -0.16755485188597108
+            },
+            {
+                "seance": "2022-05-17T00:00:00.000Z",
+                "MASI": 12716.650390625,
+                "Volume": 70197161.31,
+                "variation": -0.16977272814538635
+            },
+            {
+                "seance": "2022-05-18T00:00:00.000Z",
+                "MASI": 12679.9599609375,
+                "Volume": 82965721.77,
+                "variation": -0.16737040231498412
+            },
+            {
+                "seance": "2022-05-19T00:00:00.000Z",
+                "MASI": 12680.1298828125,
+                "Volume": 182314923.22,
+                "variation": -0.16738156008574256
+            },
+            {
+                "seance": "2022-05-20T00:00:00.000Z",
+                "MASI": 12626.58984375,
+                "Volume": 169864520.33,
+                "variation": -0.16385104041663068
+            },
+            {
+                "seance": "2022-05-23T00:00:00.000Z",
+                "MASI": 12564.5498046875,
+                "Volume": 20554807.36,
+                "variation": -0.1597223836067172
+            },
+            {
+                "seance": "2022-05-24T00:00:00.000Z",
+                "MASI": 12421.599609375,
+                "Volume": 1141206524.43,
+                "variation": -0.150052304618703
+            },
+            {
+                "seance": "2022-05-25T00:00:00.000Z",
+                "MASI": 12394.3896484375,
+                "Volume": 31943437.88,
+                "variation": -0.1481863762231762
+            },
+            {
+                "seance": "2022-05-26T00:00:00.000Z",
+                "MASI": 12411.5,
+                "Volume": 39865596.56,
+                "variation": -0.1493606767161504
+            },
+            {
+                "seance": "2022-05-27T00:00:00.000Z",
+                "MASI": 12334.9296875,
+                "Volume": 96074365.25,
+                "variation": -0.14408024784798756
+            },
+            {
+                "seance": "2022-05-30T00:00:00.000Z",
+                "MASI": 12321.150390625,
+                "Volume": 67626208.37,
+                "variation": -0.14312303427683815
+            },
+            {
+                "seance": "2022-05-31T00:00:00.000Z",
+                "MASI": 12339.599609375,
+                "Volume": 236519174.45,
+                "variation": -0.14440417070613143
+            },
+            {
+                "seance": "2022-06-01T00:00:00.000Z",
+                "MASI": 12392.7802734375,
+                "Volume": 182848243.52,
+                "variation": -0.14807575636867076
+            },
+            {
+                "seance": "2022-06-02T00:00:00.000Z",
+                "MASI": 12534.9697265625,
+                "Volume": 126760004.11,
+                "variation": -0.1577394926957857
+            },
+            {
+                "seance": "2022-06-03T00:00:00.000Z",
+                "MASI": 12609.8896484375,
+                "Volume": 378969471.48,
+                "variation": -0.1627436674478977
+            },
+            {
+                "seance": "2022-06-06T00:00:00.000Z",
+                "MASI": 12665.150390625,
+                "Volume": 54274850.26,
+                "variation": -0.166396794723217
+            },
+            {
+                "seance": "2022-06-07T00:00:00.000Z",
+                "MASI": 12716.8701171875,
+                "Volume": 149594931.51,
+                "variation": -0.16978707310470875
+            },
+            {
+                "seance": "2022-06-08T00:00:00.000Z",
+                "MASI": 12672.3203125,
+                "Volume": 150083876.91,
+                "variation": -0.1668684423543686
+            },
+            {
+                "seance": "2022-06-09T00:00:00.000Z",
+                "MASI": 12611.849609375,
+                "Volume": 114170109.6,
+                "variation": -0.1628737823602462
+            },
+            {
+                "seance": "2022-06-10T00:00:00.000Z",
+                "MASI": 12564.759765625,
+                "Volume": 137641599.42,
+                "variation": -0.15973642489993634
+            },
+            {
+                "seance": "2022-06-13T00:00:00.000Z",
+                "MASI": 12490.669921875,
+                "Volume": 50650649.18,
+                "variation": -0.15475230496262604
+            },
+            {
+                "seance": "2022-06-14T00:00:00.000Z",
+                "MASI": 12264.6103515625,
+                "Volume": 143511443.14,
+                "variation": -0.1391728185157992
+            },
+            {
+                "seance": "2022-06-15T00:00:00.000Z",
+                "MASI": 12358.98046875,
+                "Volume": 230340600.01,
+                "variation": -0.1457458819007813
+            },
+            {
+                "seance": "2022-06-16T00:00:00.000Z",
+                "MASI": 12258.099609375,
+                "Volume": 616320503.85,
+                "variation": -0.13871560051095044
+            },
+            {
+                "seance": "2022-06-17T00:00:00.000Z",
+                "MASI": 12083.5703125,
+                "Volume": 161990759.16,
+                "variation": -0.12627562153414662
+            },
+            {
+                "seance": "2022-06-20T00:00:00.000Z",
+                "MASI": 12134.2197265625,
+                "Volume": 17373793.08,
+                "variation": -0.1299226321222724
+            },
+            {
+                "seance": "2022-06-21T00:00:00.000Z",
+                "MASI": 12161.3603515625,
+                "Volume": 311012969.86,
+                "variation": -0.1318643921622602
+            },
+            {
+                "seance": "2022-06-22T00:00:00.000Z",
+                "MASI": 12025.509765625,
+                "Volume": 395146193.98,
+                "variation": -0.12205717955368645
+            },
+            {
+                "seance": "2022-06-23T00:00:00.000Z",
+                "MASI": 11946.9697265625,
+                "Volume": 132112380.54,
+                "variation": -0.1162855349449966
+            },
+            {
+                "seance": "2022-06-24T00:00:00.000Z",
+                "MASI": 12014.91015625,
+                "Volume": 191648772.93,
+                "variation": -0.121282654332166
+            },
+            {
+                "seance": "2022-06-27T00:00:00.000Z",
+                "MASI": 11978.7001953125,
+                "Volume": 606799502.2,
+                "variation": -0.11862641281656428
+            },
+            {
+                "seance": "2022-06-28T00:00:00.000Z",
+                "MASI": 12022.9599609375,
+                "Volume": 231569414.6,
+                "variation": -0.12187098724112744
+            },
+            {
+                "seance": "2022-06-29T00:00:00.000Z",
+                "MASI": 12058,
+                "Volume": 324237956.33,
+                "variation": -0.12442279308861337
+            },
+            {
+                "seance": "2022-06-30T00:00:00.000Z",
+                "MASI": 12009.400390625,
+                "Volume": 275467191.6,
+                "variation": -0.12087950958989968
+            },
+            {
+                "seance": "2022-07-01T00:00:00.000Z",
+                "MASI": 11744.2197265625,
+                "Volume": 136045004.79,
+                "variation": -0.1010292546674183
+            },
+            {
+                "seance": "2022-07-04T00:00:00.000Z",
+                "MASI": 11713.849609375,
+                "Volume": 82461351.03,
+                "variation": -0.0986985224321304
+            },
+            {
+                "seance": "2022-07-05T00:00:00.000Z",
+                "MASI": 11546.3095703125,
+                "Volume": 73343542.84,
+                "variation": -0.08562039700692381
+            },
+            {
+                "seance": "2022-07-06T00:00:00.000Z",
+                "MASI": 11631.66015625,
+                "Volume": 84019205.54,
+                "variation": -0.09232991515277711
+            },
+            {
+                "seance": "2022-07-07T00:00:00.000Z",
+                "MASI": 11725.5,
+                "Volume": 84571083.38,
+                "variation": -0.09959405049358239
+            },
+            {
+                "seance": "2022-07-08T00:00:00.000Z",
+                "MASI": 11711.3701171875,
+                "Volume": 246871467.63,
+                "variation": -0.09850770189193314
+            },
+            {
+                "seance": "2022-07-12T00:00:00.000Z",
+                "MASI": 11740.990234375,
+                "Volume": 98596618.11,
+                "variation": -0.10078198259403359
+            },
+            {
+                "seance": "2022-07-13T00:00:00.000Z",
+                "MASI": 11793.1298828125,
+                "Volume": 18567812.57,
+                "variation": -0.10475759481590385
+            },
+            {
+                "seance": "2022-07-14T00:00:00.000Z",
+                "MASI": 11741.7802734375,
+                "Volume": 202637681.42,
+                "variation": -0.1008424859711119
+            },
+            {
+                "seance": "2022-07-15T00:00:00.000Z",
+                "MASI": 11831.419921875,
+                "Volume": 125355080.37,
+                "variation": -0.1076548689293455
+            },
+            {
+                "seance": "2022-07-18T00:00:00.000Z",
+                "MASI": 11868.2998046875,
+                "Volume": 40089625.26,
+                "variation": -0.11042776685101685
+            },
+            {
+                "seance": "2022-07-19T00:00:00.000Z",
+                "MASI": 11956.9599609375,
+                "Volume": 116974036.7,
+                "variation": -0.11702389274290836
+            },
+            {
+                "seance": "2022-07-20T00:00:00.000Z",
+                "MASI": 11944.2197265625,
+                "Volume": 208840819.14,
+                "variation": -0.11608207127516001
+            },
+            {
+                "seance": "2022-07-21T00:00:00.000Z",
+                "MASI": 11943.0400390625,
+                "Volume": 52511311.82,
+                "variation": -0.11599476126630692
+            },
+            {
+                "seance": "2022-07-22T00:00:00.000Z",
+                "MASI": 11923.990234375,
+                "Volume": 34295490.54,
+                "variation": -0.11458247168793612
+            },
+            {
+                "seance": "2022-07-25T00:00:00.000Z",
+                "MASI": 11835.580078125,
+                "Volume": 40757836.12,
+                "variation": -0.1079685244620423
+            },
+            {
+                "seance": "2022-07-26T00:00:00.000Z",
+                "MASI": 11810.0302734375,
+                "Volume": 81631868.92,
+                "variation": -0.10603870468618981
+            },
+            {
+                "seance": "2022-07-27T00:00:00.000Z",
+                "MASI": 11774.58984375,
+                "Volume": 10192786.12,
+                "variation": -0.1033479636200173
+            },
+            {
+                "seance": "2022-07-28T00:00:00.000Z",
+                "MASI": 11834.669921875,
+                "Volume": 11664017.5,
+                "variation": -0.10789992195533815
+            },
+            {
+                "seance": "2022-07-29T00:00:00.000Z",
+                "MASI": 11818.4599609375,
+                "Volume": 30976036.06,
+                "variation": -0.10667633550962174
+            },
+            {
+                "seance": "2022-08-01T00:00:00.000Z",
+                "MASI": 11854.2802734375,
+                "Volume": 44618768.26,
+                "variation": -0.10937570924531725
+            },
+            {
+                "seance": "2022-08-02T00:00:00.000Z",
+                "MASI": 11828.1796875,
+                "Volume": 47288085.18,
+                "variation": -0.10741041818168606
+            },
+            {
+                "seance": "2022-08-03T00:00:00.000Z",
+                "MASI": 11833.2197265625,
+                "Volume": 99864904.51,
+                "variation": -0.10779059250981471
+            },
+            {
+                "seance": "2022-08-04T00:00:00.000Z",
+                "MASI": 11862.2197265625,
+                "Volume": 46657933.98,
+                "variation": -0.10997180929837891
+            },
+            {
+                "seance": "2022-08-05T00:00:00.000Z",
+                "MASI": 11947.2900390625,
+                "Volume": 44625760.04,
+                "variation": -0.11630922774802244
+            },
+            {
+                "seance": "2022-08-08T00:00:00.000Z",
+                "MASI": 11945.83984375,
+                "Volume": 5594760.17,
+                "variation": -0.11620194988121846
+            },
+            {
+                "seance": "2022-08-09T00:00:00.000Z",
+                "MASI": 11985.349609375,
+                "Volume": 23798157.15,
+                "variation": -0.11911539462485043
+            },
+            {
+                "seance": "2022-08-10T00:00:00.000Z",
+                "MASI": 11988.8095703125,
+                "Volume": 40142568.62,
+                "variation": -0.11936961722361372
+            },
+            {
+                "seance": "2022-08-11T00:00:00.000Z",
+                "MASI": 12083.3603515625,
+                "Volume": 82844127.31,
+                "variation": -0.12626043966550393
+            },
+            {
+                "seance": "2022-08-12T00:00:00.000Z",
+                "MASI": 12162.75,
+                "Volume": 73025536.31,
+                "variation": -0.13196358052763557
+            },
+            {
+                "seance": "2022-08-15T00:00:00.000Z",
+                "MASI": 12175.75,
+                "Volume": 26344842.25,
+                "variation": -0.13289037957107364
+            },
+            {
+                "seance": "2022-08-16T00:00:00.000Z",
+                "MASI": 12186.5703125,
+                "Volume": 76658529.54,
+                "variation": -0.13366027600823394
+            },
+            {
+                "seance": "2022-08-17T00:00:00.000Z",
+                "MASI": 12174.08984375,
+                "Volume": 37928212.72,
+                "variation": -0.13277213356876327
+            },
+            {
+                "seance": "2022-08-18T00:00:00.000Z",
+                "MASI": 12173.8095703125,
+                "Volume": 27542375.96,
+                "variation": -0.1327521676793828
+            },
+            {
+                "seance": "2022-08-19T00:00:00.000Z",
+                "MASI": 12185.33984375,
+                "Volume": 44423320.09,
+                "variation": -0.13357279351115758
+            },
+            {
+                "seance": "2022-08-22T00:00:00.000Z",
+                "MASI": 12137.9599609375,
+                "Volume": 46614821.18,
+                "variation": -0.13019074087289595
+            },
+            {
+                "seance": "2022-08-23T00:00:00.000Z",
+                "MASI": 12157,
+                "Volume": 50263831.35,
+                "variation": -0.13155301793719665
+            },
+            {
+                "seance": "2022-08-24T00:00:00.000Z",
+                "MASI": 12187.169921875,
+                "Volume": 64834448.54,
+                "variation": -0.1337028999663613
+            },
+            {
+                "seance": "2022-08-25T00:00:00.000Z",
+                "MASI": 12201.6103515625,
+                "Volume": 26517983.52,
+                "variation": -0.1347281500768861
+            },
+            {
+                "seance": "2022-08-26T00:00:00.000Z",
+                "MASI": 12177.1796875,
+                "Volume": 96562201.39,
+                "variation": -0.13299218440743732
+            },
+            {
+                "seance": "2022-08-29T00:00:00.000Z",
+                "MASI": 12169.0498046875,
+                "Volume": 13651071.76,
+                "variation": -0.13241295496459504
+            },
+            {
+                "seance": "2022-08-30T00:00:00.000Z",
+                "MASI": 12117.3203125,
+                "Volume": 29597356.54,
+                "variation": -0.1287091792030648
+            },
+            {
+                "seance": "2022-08-31T00:00:00.000Z",
+                "MASI": 12128.7197265625,
+                "Volume": 61070410.43,
+                "variation": -0.1295280788939669
+            },
+            {
+                "seance": "2022-09-01T00:00:00.000Z",
+                "MASI": 12127.169921875,
+                "Volume": 30994104.62,
+                "variation": -0.12941683600116027
+            },
+            {
+                "seance": "2022-09-02T00:00:00.000Z",
+                "MASI": 12136.2900390625,
+                "Volume": 45970010.13,
+                "variation": -0.13007105738607927
+            },
+            {
+                "seance": "2022-09-05T00:00:00.000Z",
+                "MASI": 12140.7197265625,
+                "Volume": 41674520.71,
+                "variation": -0.13038846141564053
+            },
+            {
+                "seance": "2022-09-06T00:00:00.000Z",
+                "MASI": 12109.7001953125,
+                "Volume": 40093179.77,
+                "variation": -0.12816091309805955
+            },
+            {
+                "seance": "2022-09-07T00:00:00.000Z",
+                "MASI": 12154.849609375,
+                "Volume": 555454502.32,
+                "variation": -0.13139937553860237
+            },
+            {
+                "seance": "2022-09-08T00:00:00.000Z",
+                "MASI": 12157.419921875,
+                "Volume": 70929910.76,
+                "variation": -0.13158301442390108
+            },
+            {
+                "seance": "2022-09-09T00:00:00.000Z",
+                "MASI": 12128.3701171875,
+                "Volume": 136244441.89,
+                "variation": -0.12950298688726258
+            },
+            {
+                "seance": "2022-09-12T00:00:00.000Z",
+                "MASI": 12132.919921875,
+                "Volume": 65729636.54,
+                "variation": -0.12982942037699274
+            },
+            {
+                "seance": "2022-09-13T00:00:00.000Z",
+                "MASI": 12147.76953125,
+                "Volume": 66594134.15,
+                "variation": -0.1308931294936152
+            },
+            {
+                "seance": "2022-09-14T00:00:00.000Z",
+                "MASI": 12146.0595703125,
+                "Volume": 79686535.92,
+                "variation": -0.13077077386128233
+            },
+            {
+                "seance": "2022-09-15T00:00:00.000Z",
+                "MASI": 12138.0302734375,
+                "Volume": 86885132.64,
+                "variation": -0.13019577945511684
+            },
+            {
+                "seance": "2022-09-16T00:00:00.000Z",
+                "MASI": 12198.6796875,
+                "Volume": 121011867.46,
+                "variation": -0.13452027339024264
+            },
+            {
+                "seance": "2022-09-19T00:00:00.000Z",
+                "MASI": 12174.7099609375,
+                "Volume": 67507405.36,
+                "variation": -0.13281630570158443
+            },
+            {
+                "seance": "2022-09-20T00:00:00.000Z",
+                "MASI": 12212,
+                "Volume": 30778074.78,
+                "variation": -0.13546430061107928
+            },
+            {
+                "seance": "2022-09-21T00:00:00.000Z",
+                "MASI": 12231.150390625,
+                "Volume": 2125490330.58,
+                "variation": -0.13681790970129581
+            },
+            {
+                "seance": "2022-09-22T00:00:00.000Z",
+                "MASI": 12250.740234375,
+                "Volume": 118954083.9,
+                "variation": -0.13819820199002641
+            },
+            {
+                "seance": "2022-09-23T00:00:00.000Z",
+                "MASI": 12259.0498046875,
+                "Volume": 223055438.26,
+                "variation": -0.13878235840916953
+            },
+            {
+                "seance": "2022-09-26T00:00:00.000Z",
+                "MASI": 12191.830078125,
+                "Volume": 230619113.82,
+                "variation": -0.13403402989674984
+            },
+            {
+                "seance": "2022-09-27T00:00:00.000Z",
+                "MASI": 12044.509765625,
+                "Volume": 303111092.61,
+                "variation": -0.12344211874283362
+            },
+            {
+                "seance": "2022-09-28T00:00:00.000Z",
+                "MASI": 11809.9404296875,
+                "Volume": 242992027.95,
+                "variation": -0.1060319039037807
+            },
+            {
+                "seance": "2022-09-29T00:00:00.000Z",
+                "MASI": 11684.0498046875,
+                "Volume": 241128846.57,
+                "variation": -0.09639978111854042
+            },
+            {
+                "seance": "2022-09-30T00:00:00.000Z",
+                "MASI": 11613.1103515625,
+                "Volume": 470854993.35,
+                "variation": -0.09088007938226472
+            },
+            {
+                "seance": "2022-10-03T00:00:00.000Z",
+                "MASI": 11586.1396484375,
+                "Volume": 40232315.19,
+                "variation": -0.08876379179830562
+            },
+            {
+                "seance": "2022-10-04T00:00:00.000Z",
+                "MASI": 11617.8701171875,
+                "Volume": 110402957.02,
+                "variation": -0.09125253988522364
+            },
+            {
+                "seance": "2022-10-05T00:00:00.000Z",
+                "MASI": 11662.849609375,
+                "Volume": 61030170.96,
+                "variation": -0.09475725791312195
+            },
+            {
+                "seance": "2022-10-06T00:00:00.000Z",
+                "MASI": 11738.6904296875,
+                "Volume": 201793403.53,
+                "variation": -0.10060581082905684
+            },
+            {
+                "seance": "2022-10-07T00:00:00.000Z",
+                "MASI": 11724.4404296875,
+                "Volume": 63174144.97,
+                "variation": -0.0995126783019612
+            },
+            {
+                "seance": "2022-10-11T00:00:00.000Z",
+                "MASI": 11782.080078125,
+                "Volume": 31567947.03,
+                "variation": -0.10391799317853101
+            },
+            {
+                "seance": "2022-10-12T00:00:00.000Z",
+                "MASI": 11661.2802734375,
+                "Volume": 70514877.84,
+                "variation": -0.09463543338493918
+            },
+            {
+                "seance": "2022-10-13T00:00:00.000Z",
+                "MASI": 11556.4296875,
+                "Volume": 198340460.32,
+                "variation": -0.08642113122903039
+            },
+            {
+                "seance": "2022-10-14T00:00:00.000Z",
+                "MASI": 11442.1904296875,
+                "Volume": 226526244.42,
+                "variation": -0.07729992558550314
+            },
+            {
+                "seance": "2022-10-17T00:00:00.000Z",
+                "MASI": 11359.7099609375,
+                "Volume": 63340510.46,
+                "variation": -0.07060039409085517
+            },
+            {
+                "seance": "2022-10-18T00:00:00.000Z",
+                "MASI": 11323.8896484375,
+                "Volume": 26621594.34,
+                "variation": -0.06766046926337888
+            },
+            {
+                "seance": "2022-10-19T00:00:00.000Z",
+                "MASI": 11310.8203125,
+                "Volume": 70724852.21,
+                "variation": -0.06658317706012984
+            },
+            {
+                "seance": "2022-10-20T00:00:00.000Z",
+                "MASI": 11066.3095703125,
+                "Volume": 212000623.28,
+                "variation": -0.045959279030058586
+            },
+            {
+                "seance": "2022-10-21T00:00:00.000Z",
+                "MASI": 10954.51953125,
+                "Volume": 64320701.13,
+                "variation": -0.03622336599798104
+            },
+            {
+                "seance": "2022-10-24T00:00:00.000Z",
+                "MASI": 10843.4501953125,
+                "Volume": 14341378.57,
+                "variation": -0.026351412993857126
+            },
+            {
+                "seance": "2022-10-25T00:00:00.000Z",
+                "MASI": 10903.9697265625,
+                "Volume": 38687873.63,
+                "variation": -0.03175538581893689
+            },
+            {
+                "seance": "2022-12-20T00:00:00.000Z",
+                "MASI": 10899.1201171875,
+                "Volume": 704583533.58,
+                "variation": -0.031324561302119136
+            },
+            {
+                "seance": "2022-12-21T00:00:00.000Z",
+                "MASI": 10950.6201171875,
+                "Volume": 1903435054.89,
+                "variation": -0.03588017409473543
+            },
+            {
+                "seance": "2022-12-14T00:00:00.000Z",
+                "MASI": 11271.8603515625,
+                "Volume": 1282760377.11,
+                "variation": -0.06335692320088093
+            },
+            {
+                "seance": "2023-02-28T00:00:00.000Z",
+                "MASI": 10907.509765625,
+                "Volume": 51106429.27,
+                "variation": -0.032069630209261235
+            },
+            {
+                "seance": "2023-02-24T00:00:00.000Z",
+                "MASI": 10844.5400390625,
+                "Volume": 137707821.05,
+                "variation": -0.026449261756775866
+            },
+            {
+                "seance": "2023-02-27T00:00:00.000Z",
+                "MASI": 10834.83984375,
+                "Volume": 12647358.75,
+                "variation": -0.02557766305815401
+            },
+            {
+                "seance": "2023-02-23T00:00:00.000Z",
+                "MASI": 10663.2197265625,
+                "Volume": 88277753.12,
+                "variation": -0.009894738018215166
+            },
+            {
+                "seance": "2022-12-27T00:00:00.000Z",
+                "MASI": 10962.7099609375,
+                "Volume": 5098763827.99,
+                "variation": -0.03694342014365992
+            },
+            {
+                "seance": "2023-01-06T00:00:00.000Z",
+                "MASI": 9717.990234375,
+                "Volume": 133881739.48,
+                "variation": 0.08640878477035274
+            },
+            {
+                "seance": "2023-02-10T00:00:00.000Z",
+                "MASI": 10728.3095703125,
+                "Volume": 96444380.61,
+                "variation": -0.015901816428478655
+            },
+            {
+                "seance": "2023-03-07T00:00:00.000Z",
+                "MASI": 10603.4697265625,
+                "Volume": 18167933.69,
+                "variation": -0.004315546401794101
+            },
+            {
+                "seance": "2023-03-01T00:00:00.000Z",
+                "MASI": 10842.6201171875,
+                "Volume": 71900516.79,
+                "variation": -0.02627687340981044
+            },
+            {
+                "seance": "2023-03-06T00:00:00.000Z",
+                "MASI": 10643.91015625,
+                "Volume": 114855267.36,
+                "variation": -0.008098545933505896
+            },
+            {
+                "seance": "2023-03-02T00:00:00.000Z",
+                "MASI": 10767.75,
+                "Volume": 17836260.6,
+                "variation": -0.019506400042952343
+            },
+            {
+                "seance": "2023-03-03T00:00:00.000Z",
+                "MASI": 10712.8896484375,
+                "Volume": 235111822.42,
+                "variation": -0.014485324930293975
+            },
+            {
+                "seance": "2023-03-08T00:00:00.000Z",
+                "MASI": 10592.5595703125,
+                "Volume": 51151840,
+                "variation": -0.003290008344411066
+            },
+            {
+                "seance": "2023-03-09T00:00:00.000Z",
+                "MASI": 10557.4697265625,
+                "Volume": 25602219.37,
+                "variation": 0.000022754919618339642
+            },
+            {
+                "seance": "2023-03-10T00:00:00.000Z",
+                "MASI": 10557.7099609375,
+                "Volume": 101681196.83,
+                "variation": 0
+            }
+        ]
+    ]
+}

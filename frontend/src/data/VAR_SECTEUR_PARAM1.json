@@ -1,0 +1,140 @@
+[
+  {
+    "secteur": "SYLVICULTURE & PAPIER",
+    "valeur": 30.36,
+    "perf_prec": 0.0062976467,
+    "perf_ytd": -0.1875836
+  },
+  {
+    "secteur": "INGENIERIES & BIENS D'EQUIPEMENT INDUSTRIELS",
+    "valeur": 92.92,
+    "perf_prec": 0.0019409101,
+    "perf_ytd": -0.1069678301
+  },
+  {
+    "secteur": "LOISIRS ET HOTELS",
+    "valeur": 1000.16,
+    "perf_prec": 0.004549883,
+    "perf_ytd": 0.9385951952
+  },
+  {
+    "secteur": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "valeur": 1038.9,
+    "perf_prec": -0.0111929644,
+    "perf_ytd": 0.0695754151
+  },
+  {
+    "secteur": "TELECOMMUNICATIONS",
+    "valeur": 1388.15,
+    "perf_prec": -0.0033743763,
+    "perf_ytd": -0.0044250578
+  },
+  {
+    "secteur": "SANTE",
+    "valeur": 1664.83,
+    "perf_prec": -0.0011039978,
+    "perf_ytd": 0.8095978261
+  },
+  {
+    "secteur": "ELECTRICITE",
+    "valeur": 2368.72,
+    "perf_prec": -0.0176055608,
+    "perf_ytd": -0.0346058236
+  },
+  {
+    "secteur": "TRANSPORT",
+    "valeur": 2390.88,
+    "perf_prec": -0.0168270417,
+    "perf_ytd": 0.0058011735
+  },
+  {
+    "secteur": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "valeur": 2500.17,
+    "perf_prec": -0.0045112483,
+    "perf_ytd": -0.0278596739
+  },
+  {
+    "secteur": "SERVICES DE TRANSPORT",
+    "valeur": 4138.46,
+    "perf_prec": -0.0073802597,
+    "perf_ytd": 0.245368725
+  },
+  {
+    "secteur": "CHIMIE",
+    "valeur": 4223.74,
+    "perf_prec": 0.0021829191,
+    "perf_ytd": -0.2018315223
+  },
+  {
+    "secteur": "ASSURANCES",
+    "valeur": 4946.16,
+    "perf_prec": 0.0020421063,
+    "perf_ytd": 0.0777802807
+  },
+  {
+    "secteur": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "valeur": 5437.08,
+    "perf_prec": 0.0073050309,
+    "perf_ytd": 1.1717393922
+  },
+  {
+    "secteur": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "valeur": 5467.44,
+    "perf_prec": -0.0395159845,
+    "perf_ytd": 0.4976907459
+  },
+  {
+    "secteur": "INDUSTRIE PHARMACEUTIQUE",
+    "valeur": 5867.21,
+    "perf_prec": -0.0255746363,
+    "perf_ytd": -0.2107451435
+  },
+  {
+    "secteur": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "valeur": 7529.85,
+    "perf_prec": -0.0167996125,
+    "perf_ytd": 0.0676080496
+  },
+  {
+    "secteur": "BANQUES",
+    "valeur": 13477.36,
+    "perf_prec": -0.0060555464,
+    "perf_ytd": 0.1537116671
+  },
+  {
+    "secteur": "BOISSONS",
+    "valeur": 15080.63,
+    "perf_prec": -0.015642022,
+    "perf_ytd": -0.0012477078
+  },
+  {
+    "secteur": "PETROLE & GAZ",
+    "valeur": 16100.41,
+    "perf_prec": 0.0248732309,
+    "perf_ytd": -0.1034342731
+  },
+  {
+    "secteur": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "valeur": 19035.87,
+    "perf_prec": 0.0238604795,
+    "perf_ytd": 0.3598575287
+  },
+  {
+    "secteur": "MINES",
+    "valeur": 26194.77,
+    "perf_prec": 0.0069733372,
+    "perf_ytd": -0.2293321035
+  },
+  {
+    "secteur": "AGROALIMENTAIRE / PRODUCTION",
+    "valeur": 32240.11,
+    "perf_prec": -0.0090159568,
+    "perf_ytd": 0.0790971608
+  },
+  {
+    "secteur": "DISTRIBUTEURS",
+    "valeur": 40278.34,
+    "perf_prec": -0.0160054723,
+    "perf_ytd": -0.0610641047
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "valeur": "TIMAR",
+    "volume": 54446523.0,
+    "Cours_Cloture": 600.0,
+    "variation": 0.0733452594
+  },
+  {
+    "valeur": "ATTIJARIWAFA BANK",
+    "volume": 30288254.3499999978,
+    "Cours_Cloture": 460.0,
+    "variation": -0.0064794816
+  },
+  {
+    "valeur": "DOUJA PROM ADDOHA",
+    "volume": 24047604.5300000012,
+    "Cours_Cloture": 15.0,
+    "variation": 0.0135135135
+  },
+  {
+    "valeur": "SODEP-Marsa Maroc",
+    "volume": 19527554.950000003,
+    "Cours_Cloture": 269.0,
+    "variation": -0.0073800738
+  },
+  {
+    "valeur": "LAFARGEHOLCIM MAROC",
+    "volume": 18418189.0,
+    "Cours_Cloture": 1900.0,
+    "variation": 0.0133333333
+  },
+  {
+    "valeur": "LABEL VIE",
+    "volume": 16929982.0,
+    "Cours_Cloture": 4300.0,
+    "variation": -0.020501139
+  }
+]

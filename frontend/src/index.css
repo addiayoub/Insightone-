@@ -1,0 +1,154 @@
+/* @tailwind base; */
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* :root {
+  --main-color: #004eda;
+  --secondary-color: #ffffff;
+  --text-color: #373736;
+  --hover-color: #e7e9f9;
+  --primary-color: #2962ff;
+  --danger-color: #d50000;
+  --success-color: #2e7d32;
+  --warning-color: #ff6d00;
+} */
+
+:root {
+  --light-text-color: "#373736";
+  --light-bg-color: "#fff";
+  --light-card-bg-color: "#fbfaf5";
+  --light-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --dark-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  --bg-color: #1b1b1e;
+  --card-bg-color: #0c0c0d;
+  --card-border: #0c0c0d;
+  --card-border-must: #141415;
+  --card-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.05);
+  --heading-color: #ffffff;
+  --table-odd-color: #0c0c0d;
+  --navbars-bg: #0c0c0d;
+  --sidebar-bg: #0c0c0d;
+  --text-muted: #acb2b7;
+  --text-success: #21cc6d;
+  --dark-buttons-bg: #25232b;
+  --dark-buttons-bg-clicked: #86858c;
+  --table-header-color: #acb2b7;
+  --side-border-color: #262626;
+  --top-border-color: #161619;
+  --primary-color: #444ce7;
+  --dim-color: #1f1f26;
+  --text-warning: #ee4658;
+  --text-button: white;
+  --text-button-light: #ffffff;
+  --card-border-width: 1px;
+  --avwap-color: #ffb744;
+  --chat-bg: #1a1a1c;
+  --sidebar-r-bg: #0c0c0d;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: none; */
+  text-decoration: none;
+  outline: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
+  color: #373736;
+}
+
+body.dark-mode {
+  background-color: var(--bg-color) !important;
+  color: var(--heading-color) !important;
+}
+body.dark-mode #sidebar {
+  background-color: var(--sidebar-bg);
+}
+
+body.dark-mode .side-menu-item:hover > a {
+  color: var(--primary-color) !important;
+}
+body.dark-mode .header {
+  background-color: var(--navbars-bg) !important;
+  color: var(--heading-color) !important;
+}
+
+body.dark-mode .profile-links {
+  background-color: var(--bg-color) !important;
+  color: var(--primary-color) !important;
+}
+
+body.dark-mode .profile-links::before {
+  border-color: transparent transparent var(--navbars-bg) transparent !important;
+}
+
+a {
+  text-decoration: none;
+  color: #373736;
+}
+
+body.dark-mode a {
+  color: var(--heading-color) !important;
+}
+body.dark-mode .profile-links {
+  background-color: var(--navbars-bg);
+}
+body.dark-mode .cards {
+  color: var(--heading-color);
+}
+body.dark-mode .card {
+  background-color: var(--navbars-bg) !important;
+  box-shadow: var(--dark-box-shadow);
+}
+ul {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.cards {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  margin: 20px;
+  color: #373736;
+}
+
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+  gap: 25px;
+  padding: 45px 18px;
+  border-radius: 5px;
+  box-shadow: var(--light-box-shadow);
+}
+
+.highcharts-credits {
+  font-size: 0 !important ;
+}
+
+.seance {
+  box-shadow: var(--light-box-shadow);
+}
+.dark-mode .seance {
+  box-shadow: var(--dark-box-shadow) !important;
+  background-color: rgb(31 41 55 / 1) !important;
+}

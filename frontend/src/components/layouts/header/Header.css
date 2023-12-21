@@ -1,0 +1,98 @@
+.header {
+  box-shadow: 0 4px 7px -3px rgba(0, 0, 0, 0.35);
+  background: white;
+  color: #373736;
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 28px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header-right .profile-icons {
+  border: 1px solid var(--primary-color);
+  padding: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-right .profile {
+  position: relative;
+}
+
+.profile-icons .user {
+  font-weight: 500;
+}
+
+.profile-links {
+  position: absolute;
+  right: 0;
+  top: 150%;
+  min-width: 100%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 15px 20px;
+  background-color: #fbfaf5 !important;
+  color: #373736;
+  visibility: hidden;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.profile-links.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.profile-links::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #fbfaf5 transparent;
+  right: 5px;
+}
+
+.profile-links li {
+  padding: 10px 0;
+}
+.profile-links span {
+  font-size: 25px;
+}
+
+.profile-links li:hover > a,
+.profile-links li:hover span {
+  color: var(--primary-color);
+}
+
+.profile-links a {
+  color: #373736;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-icon {
+  transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width: 992px) {
+  .menu-icon.opened {
+    margin-left: 50px;
+  }
+}

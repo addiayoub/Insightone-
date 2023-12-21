@@ -1,0 +1,62 @@
+[
+  {
+    "valeur": "SALAFIN",
+    "Cours_Cloture": 503.0,
+    "variation": -0.0509433962,
+    "volume": 101923.0
+  },
+  {
+    "valeur": "DELTA HOLDING",
+    "Cours_Cloture": 36.0,
+    "variation": -0.04,
+    "volume": 133720.57
+  },
+  {
+    "valeur": "CTM",
+    "Cours_Cloture": 580.0,
+    "variation": -0.0333333333,
+    "volume": 198599.2
+  },
+  {
+    "valeur": "LESIEUR CRISTAL",
+    "Cours_Cloture": 270.0,
+    "variation": -0.0286022666,
+    "volume": 1843276.7
+  },
+  {
+    "valeur": "SOTHEMA",
+    "Cours_Cloture": 1020.0,
+    "variation": -0.0285714286,
+    "volume": 6917784.0
+  },
+  {
+    "valeur": "ALUMINIUM DU MAROC",
+    "Cours_Cloture": 1315.0,
+    "variation": 0.0354330709,
+    "volume": 14334.0
+  },
+  {
+    "valeur": "STOKVIS NORD AFRIQUE",
+    "Cours_Cloture": 11.29,
+    "variation": 0.0357798165,
+    "volume": 92238.95
+  },
+  {
+    "valeur": "BMCI",
+    "Cours_Cloture": 534.0,
+    "variation": 0.04296875,
+    "volume": 1866375.0
+  },
+  {
+    "valeur": "CIMENTS DU MAROC",
+    "Cours_Cloture": 1680.0,
+    "variation": 0.05,
+    "volume": 4595076.0
+  },
+  {
+    "valeur": "TIMAR",
+    "Cours_Cloture": 600.0,
+    "variation": 0.0733452594,
+    "volume": 54446523.0
+  }
+]

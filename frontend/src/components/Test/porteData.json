@@ -1,0 +1,86 @@
+[
+  {
+    "SECTEUR_ACTIVITE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TICKER": "ADH",
+    "S_CATEGORIE": "PART",
+    "titre": "DOUJA PROM ADDOHA",
+    "PTF_Min_Var": 0
+  },
+  {
+    "SECTEUR_ACTIVITE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TICKER": "ADI",
+    "S_CATEGORIE": "PART",
+    "titre": "ALLIANCES",
+    "PTF_Min_Var": 0
+  },
+  {
+    "SECTEUR_ACTIVITE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TICKER": "AFI",
+    "S_CATEGORIE": "BATI",
+    "titre": "AFRIC INDUSTRIES SA",
+    "PTF_Min_Var": 2.394530705859345
+  },
+  {
+    "SECTEUR_ACTIVITE": "ASSURANCES",
+    "TICKER": "AGMA",
+    "S_CATEGORIE": "ASSU",
+    "titre": "AGMA",
+    "PTF_Min_Var": 2.2422804957377593
+  },
+  {
+    "SECTEUR_ACTIVITE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TICKER": "ALM",
+    "S_CATEGORIE": "BATI",
+    "titre": "ALUMINIUM DU MAROC",
+    "PTF_Min_Var": 0
+  },
+  {
+    "SECTEUR_ACTIVITE": "DISTRIBUTEURS",
+    "TICKER": "ATH",
+    "S_CATEGORIE": "DIST",
+    "titre": "AUTO HALL",
+    "PTF_Min_Var": 3.4046858448836514e-15
+  },
+  {
+    "SECTEUR_ACTIVITE": "ASSURANCES",
+    "TICKER": "ATL",
+    "S_CATEGORIE": "ASSU",
+    "titre": "ATLANTASANAD",
+    "PTF_Min_Var": 0
+  },
+  {
+    "SECTEUR_ACTIVITE": "BANQUES",
+    "TICKER": "ATW",
+    "S_CATEGORIE": "BANQ",
+    "titre": "ATTIJARIWAFA BANK",
+    "PTF_Min_Var": 2.9386630758830687e-16
+  },
+  {
+    "SECTEUR_ACTIVITE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TICKER": "BAL",
+    "S_CATEGORIE": "SOPI",
+    "titre": "BALIMA",
+    "PTF_Min_Var": 1.4341981660658043
+  },
+  {
+    "SECTEUR_ACTIVITE": "BANQUES",
+    "TICKER": "BCI",
+    "S_CATEGORIE": "BANQ",
+    "titre": "BMCI",
+    "PTF_Min_Var": 0.16175606963160039
+  },
+  {
+    "SECTEUR_ACTIVITE": "BANQUES",
+    "TICKER": "BOA",
+    "S_CATEGORIE": "BANQ",
+    "titre": "BANK OF AFRICA",
+    "PTF_Min_Var": 0
+  },
+  {
+    "SECTEUR_ACTIVITE": "BANQUES",
+    "TICKER": "BCP",
+    "S_CATEGORIE": "BANQ",
+    "titre": "BCP",
+    "PTF_Min_Var": 1.977641446980564e-15
+  }
+]

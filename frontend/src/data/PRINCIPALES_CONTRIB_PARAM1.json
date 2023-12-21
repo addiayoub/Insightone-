@@ -1,0 +1,82 @@
+[
+  {
+    "LIBELLE": "CIMENTS DU MAROC",
+    "COURS": 1680.0,
+    "perf_prec": 0.05,
+    "contrib_prec": 0.0021900195,
+    "perf_ytd": 0.3125,
+    "contrib_YTD": 0.0122701561
+  },
+  {
+    "LIBELLE": "LAFARGEHOLCIM MAROC",
+    "COURS": 1900.0,
+    "perf_prec": 0.0133333333,
+    "contrib_prec": 0.0011108266,
+    "perf_ytd": 0.4074074074,
+    "contrib_YTD": 0.0273842636
+  },
+  {
+    "LIBELLE": "AFRIQUIA GAZ",
+    "COURS": 4300.0,
+    "perf_prec": 0.0238095238,
+    "contrib_prec": 0.0005432159,
+    "perf_ytd": -0.0752688172,
+    "contrib_YTD": -0.0021304562
+  },
+  {
+    "LIBELLE": "MANAGEM",
+    "COURS": 1700.0,
+    "perf_prec": 0.0284331518,
+    "contrib_prec": 0.0004452472,
+    "perf_ytd": -0.3280632411,
+    "contrib_YTD": -0.0088107636
+  },
+  {
+    "LIBELLE": "BMCI",
+    "COURS": 534.0,
+    "perf_prec": 0.04296875,
+    "contrib_prec": 0.0003693322,
+    "perf_ytd": 0.506772009,
+    "contrib_YTD": 0.0033785698
+  },
+  {
+    "LIBELLE": "TAQA MOROCCO",
+    "COURS": 1060.0,
+    "perf_prec": -0.0176088971,
+    "contrib_prec": -0.0004249479,
+    "perf_ytd": -0.0346083789,
+    "contrib_YTD": -0.0009523527
+  },
+  {
+    "LIBELLE": "BCP",
+    "COURS": 259.0,
+    "perf_prec": -0.0076628352,
+    "contrib_prec": -0.0005140599,
+    "perf_ytd": 0.1212121212,
+    "contrib_YTD": 0.0080644341
+  },
+  {
+    "LIBELLE": "BANK OF AFRICA",
+    "COURS": 178.0,
+    "perf_prec": -0.0111111111,
+    "contrib_prec": -0.0006718198,
+    "perf_ytd": 0.0348837209,
+    "contrib_YTD": 0.0022180986
+  },
+  {
+    "LIBELLE": "LABEL VIE",
+    "COURS": 4300.0,
+    "perf_prec": -0.020501139,
+    "contrib_prec": -0.0007408612,
+    "perf_ytd": -0.0752688172,
+    "contrib_YTD": -0.0032284531
+  },
+  {
+    "LIBELLE": "ATTIJARIWAFA BANK",
+    "COURS": 460.0,
+    "perf_prec": -0.0064794816,
+    "contrib_prec": -0.0012239259,
+    "perf_ytd": 0.1734693878,
+    "contrib_YTD": 0.0310867181
+  }
+]
