@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../redux/actions/AuthActions";
+import { apiAuth, login } from "../redux/actions/AuthActions";
 import runLogoutTimer from "../utils/runLogoutTimer";
 import theme, { darkTheme, lightTheme } from "../utils/theme";
 import Animation from "./animation/Animation";
@@ -26,7 +26,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://idatech.ma/">
-        IDA TECH
+        ID&A TECH
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -54,6 +54,7 @@ export default function SignIn() {
         // runLogoutTimer(successValue.expiresIn);
         console.log(successValue);
       })
+      .then(() => dispatch(apiAuth()))
       .catch((rejectedValue) => {
         console.log(rejectedValue);
       });

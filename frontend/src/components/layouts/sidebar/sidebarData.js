@@ -1,5 +1,5 @@
 import { BackwardItem, Chart, Document, User } from "iconsax-react";
-import { Activity, Dribbble, Layers, Box } from "react-feather";
+import { Activity, Dribbble, Layers, Box, BarChart2 } from "react-feather";
 
 export const sidebarData = [
   {
@@ -36,6 +36,12 @@ export const sidebarData = [
     icon: Box,
     title: "OPCVM",
     link: "opcvm",
+    isPrivate: false,
+  },
+  {
+    icon: BarChart2,
+    title: "Backtest",
+    link: "backtest",
     isPrivate: false,
   },
 ];

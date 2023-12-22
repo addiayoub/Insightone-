@@ -3,6 +3,7 @@ import axiosClient from "../../axios";
 import apiNewMarko from "../../api/apiNewMarko";
 import { handleActionsError } from "../../utils/handleActionsError";
 import { formatDate } from "../../utils/FormatDate";
+import axios from "axios";
 const apiOPCVMUrl = "OPCVM/";
 
 export const getData = createAsyncThunk(
@@ -312,6 +313,38 @@ export const evolutionB100Frontiere_ = createAsyncThunk(
       );
       console.log("evolutionB100Frontiere_", response);
       return response.data;
+    } catch (error) {
+      console.log("error", error);
+      // thunkAPI.rejectWithValue(error.data.detail);
+    }
+  }
+);
+
+export const testApi = createAsyncThunk(
+  "opcvm/testApi",
+  async (_, thunkAPI) => {
+    try {
+      const urls = [
+        "https://jsonplaceholder.typicode.com/posts",
+        "https://jsonplaceholder.typicode.com/comments",
+        "https://jsonplaceholder.typicode.com/albums",
+        "https://jsonplaceholder.typicode.com/photos",
+        "https://jsonplaceholder.typicode.com/todos",
+        "https://jsonplaceholder.typicode.com/users",
+      ];
+      const requests = urls.map((url) => axios.get(url));
+
+      Promise.all(requests)
+        .then((responses) => {
+          responses.forEach((response, index) => {
+            console.log(`Response for URL ${urls[index]}:`, response.data);
+          });
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      console.log("testApi", requests);
+      return "response.data";
     } catch (error) {
       console.log("error", error);
       // thunkAPI.rejectWithValue(error.data.detail);

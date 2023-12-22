@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getDashboardData,
   getMarketData,
+  getMarketData_2,
   getSliderData,
 } from "../actions/StockActions";
 
@@ -50,14 +51,17 @@ const stockSlice = createSlice({
     });
 
     // Market Data
-    builder.addCase(getMarketData.pending, ({ marketData }) => {
+    builder.addCase(getMarketData_2.pending, ({ marketData }) => {
       marketData.loading = true;
     });
-    builder.addCase(getMarketData.fulfilled, ({ marketData }, { payload }) => {
-      marketData.data = payload;
-      marketData.loading = false;
-    });
-    builder.addCase(getMarketData.rejected, ({ marketData }, { payload }) => {
+    builder.addCase(
+      getMarketData_2.fulfilled,
+      ({ marketData }, { payload }) => {
+        marketData.data = payload;
+        marketData.loading = false;
+      }
+    );
+    builder.addCase(getMarketData_2.rejected, ({ marketData }, { payload }) => {
       if (payload?.status === 401) {
         marketData.error = payload.message;
         marketData.data = [];

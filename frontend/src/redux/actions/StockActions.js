@@ -169,31 +169,109 @@ export const getSecteurs_2 = createAsyncThunk(
 );
 
 export const getMarketData_2 = createAsyncThunk(
-  "stock/getMarketData",
-  async (_, thunkAPI) => {
+  "stock/getMarketData_2",
+  async ({ date }, thunkAPI) => {
     console.log("getMarketData_2");
     try {
       const urls = [
-        "GETAPI?Perf_Indice&",
-        "GETAPI?Perf_volume&",
-        "GETAPI?Perf_contrib&",
+        "Perf_Indice",
+        "Perf_volume",
+        "Perf_contrib",
+        "Perf_volumes_MB",
+        "Perf_volumes_MC",
+        "Evol_masi",
+        "Volume_echange",
+        "Plus_hausses_baisses_volume",
+        "Static_societe",
+        "static_societe2",
+        "Perf_secteurs",
+        "Perf_masi_volume",
+        "Titre_echange",
+        "Hebdo_fortes_var",
+        "Cap_marche",
+        "Masi_volume_ytd",
+        "Masi_volume_1an",
+        "comm_marche",
       ];
-
-      const requests = urls.map((url) => apiMarko.get(`${url}10/10/2023`));
-
-      Promise.all(requests)
-        .then((responses) => {
-          responses.forEach((response, index) => {
-            console.log(`Response for URL ${urls[index]}:`, response.data);
-          });
+      date = formatDate(date["$d"]);
+      console.log("getMarketData_2 date", date);
+      const [
+        Perf_Indice,
+        Perf_volume,
+        Perf_contrib,
+        Perf_volumes_MB,
+        Perf_volumes_MC,
+        Evol_masi,
+        Volume_echange,
+        Plus_hausses_baisses_volume,
+        Static_societe,
+        static_societe2,
+        Perf_secteurs,
+        Perf_masi_volume,
+        Titre_echange,
+        Hebdo_fortes_var,
+        Cap_marche,
+        Masi_volume_ytd,
+        Masi_volume_1an,
+        comm_marche,
+      ] = await Promise.all(
+        urls.map(async (url) => {
+          const response = await apiMarko.get(`GETAPI?${url}&${date}`);
+          return { [url]: response.data };
         })
-        .catch((error) => {
-          // Handle errors here
-          console.error("Error:", error);
-        });
-      return "result";
+      );
+      console.log(
+        "responses market data",
+        Perf_Indice,
+        Perf_volume,
+        Perf_contrib,
+        Perf_volumes_MB,
+        Perf_volumes_MC,
+        Evol_masi,
+        Volume_echange,
+        Plus_hausses_baisses_volume,
+        Static_societe,
+        static_societe2,
+        Perf_masi_volume,
+        Perf_secteurs,
+        Titre_echange,
+        Hebdo_fortes_var,
+        Cap_marche,
+        Masi_volume_ytd,
+        Masi_volume_1an,
+        comm_marche
+      );
+
+      const result = {
+        perfMarche: Perf_Indice.Perf_Indice,
+        volMarche: Perf_volume.Perf_volume,
+        princContrib: Perf_contrib.Perf_contrib.sort(
+          (a, b) => b.perf_prec - a.perf_prec
+        ),
+        princVolumeMB: Perf_volumes_MB.Perf_volumes_MB,
+        princVolumeMC: Perf_volumes_MC.Perf_volumes_MC,
+        evolMasi: Evol_masi.Evol_masi,
+        volumeEchan: Volume_echange.Volume_echange.sort(
+          (a, b) => new Date(a.seance) - new Date(b.seance)
+        ),
+        PlusHaussesBaissesVolume:
+          Plus_hausses_baisses_volume.Plus_hausses_baisses_volume,
+        staticSociete: Static_societe.Static_societe,
+        staticSociete2: static_societe2.static_societe2,
+        perfMasiVolume: Perf_masi_volume.Perf_masi_volume,
+        titreEchange: Titre_echange.Titre_echange,
+        plusFortesVar: Hebdo_fortes_var.Hebdo_fortes_var,
+        perfSecteurs: Perf_secteurs.Perf_secteurs,
+        capmarche: Cap_marche.Cap_marche,
+        masiVolumeYTD: Masi_volume_ytd.Masi_volume_ytd,
+        masiVolume: Masi_volume_1an.Masi_volume_1an,
+        commentaire: comm_marche.comm_marche,
+      };
+
+      return result;
     } catch (error) {
       console.log(error);
+      return thunkAPI.rejectWithValue("Server Error");
       // handleActionsError(error, thunkAPI);
     }
   }

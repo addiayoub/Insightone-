@@ -7,6 +7,7 @@ import {
   getCapitalisationData,
   getDashboardData,
   getMarketData,
+  getMarketData_2,
   getSecteurs_2,
   getSliderData,
   getStockData,
@@ -44,6 +45,7 @@ import DashSlider from "./DashSlider.jsx";
 import Seance from "./Seance.jsx";
 import AccordionBox from "../AccordionBox.jsx";
 import DateComponent from "../DateComponent.jsx";
+import { notyf } from "../../utils/notyf.js";
 
 const textColor = (value) => {
   let className = "";
@@ -97,9 +99,10 @@ function Index() {
   const handelSearch = () => {
     firstCall();
     setRefresh(!refresh);
-    dispatch(getMarketData({ date }))
+    dispatch(getMarketData_2({ date }))
       .unwrap()
       .then((response) => {
+        console.log("response getMarketData_2 actions", response);
         setDataObject({
           ...dataObject,
           PERFORMANCE_DU_MARCHE: response.perfMarche,
@@ -117,7 +120,8 @@ function Index() {
           EVOLUTION_MASI: response.evolMasi,
           VOLUME_ECHANGE: response.volumeEchan,
         });
-      });
+      })
+      .catch(() => notyf.error("Server error"));
   };
   const PERFORMANCE_DU_MARCHE = [
     {

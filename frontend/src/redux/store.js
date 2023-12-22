@@ -9,6 +9,7 @@ import StockReducer from "./slices/StockSlice";
 import SectorialReducer from "./slices/SectorialSlice";
 import authMiddleware from "./middleware/authMiddleware";
 import OpcvmReducer from "./slices/OpcvmSlice";
+import BacktestReducer from "./slices/BacktestSlice";
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
     stock: StockReducer,
     sectorial: SectorialReducer,
     opcvm: OpcvmReducer,
+    backtest: BacktestReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(authMiddleware),
