@@ -78,15 +78,54 @@ export const getIndicateursData = createAsyncThunk(
   "analyse/getIndicateursData",
   async (_, thunkAPI) => {
     try {
-      const response = await apiMarko.get(
-        `/GETAPI?INDICATEURS_TECHNIQUES_BVC&12/12/2023&HPS`
+      const urls = [
+        {
+          url: "INDICATEURS_TECHNIQUES_BVC",
+          params: "&12/12/2023&HPS",
+          varName: "indecateurTech",
+        },
+        {
+          url: "MOYENNE_MOBILE_BVC",
+          params: "&12/12/2023&HPS&0.1",
+          varName: "moyMobileBVC",
+        },
+      ];
+      const [{ indecateurTech }, { moyMobileBVC }] = await Promise.all(
+        urls.map(async ({ url, varName, params }) => {
+          const response = await apiMarko.get(`GETAPI?${url}${params}`);
+          return { [varName]: response.data };
+        })
       );
-      const response2 = await apiMarko.get(
-        `/GETAPI?MOYENNE_MOBILE_BVC&12/12/2023&HPS&0.1`
-      );
-      console.log("getIndicateursData", response.data);
-      console.log("MOYENNE_MOBILE_BVC", response2.data);
-      return response.data;
+      const count = {
+        indecateurTech: countTypePositions(indecateurTech, ["Type_position"]),
+        moyMobileBVC: countTypePositions(moyMobileBVC, [
+          "sign_simple",
+          "sign_expo",
+        ]),
+      };
+      const globalValue =
+        (determineResume(count.moyMobileBVC).value +
+          determineResume(count.indecateurTech).value) /
+        2;
+      const resume = {
+        indecateurTech: {
+          ...count.indecateurTech,
+          resume: determineResume(count.indecateurTech),
+        },
+        moyMobileBVC: {
+          ...count.moyMobileBVC,
+          resume: determineResume(count.moyMobileBVC),
+        },
+        global: {
+          value: globalValue,
+          text: resumeText(globalValue),
+        },
+      };
+      return {
+        indecateurTech,
+        moyMobileBVC,
+        resume,
+      };
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue("indicateurs tech rejected");

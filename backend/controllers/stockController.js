@@ -102,7 +102,6 @@ class _StockController {
       const request = pool.request();
       const { date } = req.query;
       const query = `SELECT TICKER ,[Seance] ,[Cours_Cloture] ,[Evolution] ,[Volume] FROM [ODS_DB].[BVC].[HISTO_VALEUR_AJUSTE] where SEANCE=(select max(seance)  FROM [ODS_DB].[BVC].[HISTO_VALEUR_AJUSTE] where SEANCE<= @date) order by Valeur`;
-      // const query = `SELECT TICKER ,[Seance] ,[Cours_Cloture] ,[Evolution] ,[Volume] FROM [ODS_DB].[BVC].[HISTO_VALEUR_AJUSTE] where SEANCE= @date order by Valeur`;
       const result = await request.input("date", sql.Date, date).query(query);
       return res.json({ data: result.recordsets[0] });
     } catch (error) {

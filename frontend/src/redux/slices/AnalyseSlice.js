@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAnalysesData } from "../actions/AnalyseActions";
+import { getAnalysesData, getIndicateursData } from "../actions/AnalyseActions";
 
 const initialState = {
   loading: false,
@@ -16,14 +16,14 @@ const analyseSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getAnalysesData.pending, (state) => {
+    builder.addCase(getIndicateursData.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(getAnalysesData.fulfilled, (state, { payload }) => {
+    builder.addCase(getIndicateursData.fulfilled, (state, { payload }) => {
       state.data = payload;
       state.loading = false;
     });
-    builder.addCase(getAnalysesData.rejected, (state, { payload }) => {
+    builder.addCase(getIndicateursData.rejected, (state, { payload }) => {
       if (payload?.status === 401) {
         state.error = payload.message;
         state.data = [];
