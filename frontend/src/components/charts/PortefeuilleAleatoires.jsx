@@ -3,10 +3,18 @@ import ReactECharts from "echarts-for-react";
 import { IconButton } from "@mui/material";
 import { Eye, EyeOff } from "react-feather";
 import useChartTheme from "../../hooks/useChartTheme";
+import PtfRange from "./PtfRange";
+import Ptf from "../Markowitz/PortefeuilleFrontiere";
 
-function PortefeuilleAleatoires({ data, frontiere, setName, setOpen }) {
+function PortefeuilleAleatoires({
+  data,
+  frontiere,
+  setOpen,
+  frontiereWeights,
+}) {
   const chart = useRef(null);
   const tabRef = useRef(null);
+  const [name, setName] = useState(null);
   const theme = useChartTheme();
   const results = data.results.map((item) => [item.X, item.Y]);
   const rendement = data.results.map((item) => +item.Y.toFixed(2));
@@ -186,7 +194,7 @@ function PortefeuilleAleatoires({ data, frontiere, setName, setOpen }) {
       ],
     };
   }, [data]);
-  console.log("chart", chart);
+  console.log("chart", chart, "frontiere length", frontiere, frontiere.length);
   const handleClick = (params) => {
     const { seriesType, name } = params;
     console.log(seriesType, name);
@@ -219,7 +227,17 @@ function PortefeuilleAleatoires({ data, frontiere, setName, setOpen }) {
           {isShow ? <Eye /> : <EyeOff />}
         </IconButton>
       </div>
-      <div ref={tabRef}></div>
+      <div ref={tabRef}>
+        {name && (
+          <>
+            <Ptf
+              ptfs={frontiere}
+              data={frontiereWeights.filter((item) => item[name] > 0.01)}
+              field={name}
+            />
+          </>
+        )}
+      </div>
     </>
   );
 }

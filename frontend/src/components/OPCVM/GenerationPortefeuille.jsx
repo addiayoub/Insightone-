@@ -133,16 +133,17 @@ function GenerationPortefeuille() {
           <PortefeuilleAleatoires
             data={data}
             frontiere={frontiere}
-            setName={setName}
+            frontiereWeights={frontiereWeights}
+            // setName={setName}
             setOpen={setOpen}
           />
         )}
-      {name && (
+      {/* {name && (
         <Ptf
           data={frontiereWeights.filter((item) => item[name] > 0.01)}
           field={name}
         />
-      )}
+      )} */}
       {show && !isLoading && evolutionB100Frontiere.data && (
         <PortefeuilleFrontiere data={evolutionB100Frontiere.data} />
       )}

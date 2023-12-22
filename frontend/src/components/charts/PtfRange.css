@@ -1,0 +1,42 @@
+.ptfs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  background: rgb(33, 204, 109);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 204, 109, 1) 0%,
+    rgba(215, 215, 215, 1) 48%,
+    rgba(238, 70, 88, 1) 100%
+  );
+  max-width: 600px;
+  width: 100%;
+}
+
+.ptf {
+  position: relative;
+  text-align: center;
+  padding: 5px;
+}
+
+.ptf .arrow {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ptf:not(:last-child) {
+  border: 1px solid;
+  border-color: transparent #ebe1e1 transparent transparent;
+}
+/* .ptf.active::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: red green black yellow;
+} */

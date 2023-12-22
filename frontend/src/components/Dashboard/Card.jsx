@@ -1,14 +1,9 @@
 import { ArrowDown, ArrowRight, ArrowUp } from "iconsax-react";
 import React from "react";
 import { useSelector } from "react-redux";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 
-const style = {
-  background: "#eee",
-  padding: "10px",
-  borderRadius: "8px",
-};
-
-function Card({ title, value, variation = false }) {
+function Card({ title, value, variation = false, cours }) {
   const { darkTheme } = useSelector((state) => state.theme);
   const determineClassName = (value) => {
     if (!variation) {
@@ -65,7 +60,8 @@ function Card({ title, value, variation = false }) {
   return (
     <div className="card">
       <h3>{title}</h3>
-      <p className="flex item-center gap-2">
+      {cours && <span>{formatNumberWithSpaces(cours)}</span>}
+      <p className="flex items-center gap-2">
         <span className={determineClassName(value)}>
           {variation ? `${value}%` : value}
         </span>

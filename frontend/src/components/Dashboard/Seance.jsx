@@ -1,10 +1,14 @@
 import moment from "moment";
-import React from "react";
+import React, { useMemo } from "react";
 import { Lock } from "react-feather";
 
-function Seance({ data }) {
-  console.log("Seance data ", data);
-  const date = data[0]["Seance"];
+function Seance({ date }) {
+  // console.log("Seance data ", data);
+  // date = data[0]["Seance"];
+  console.log("Seance({ date })", date);
+  const isYesterday = useMemo(() => {
+    return moment(date).isSame(moment().subtract(1, "days"), "day");
+  }, [date]);
   return (
     <div className="pt-1 pb-[14px] md:py-5 print-hidden">
       <div className="max-w-[1058px] rounded-md px-4 py-3 flex gap-6 flex-col lg:flex-row md:items-center justify-between mx-auto print:hidden seance">
@@ -13,7 +17,7 @@ function Seance({ data }) {
             <Lock size={16} />
           </div>
           <h3 className="text-2xl leading-8 font-semibold whitespace-nowrap">
-            Séance fermée de la veille
+            Séance fermée {isYesterday ? " de la veille" : ""}
           </h3>
         </div>
         <p className="text-xs leading-[18px] tracking-[0.4px] md:ml-[18px] md:pl-[18px] md:border-l md:border-white">

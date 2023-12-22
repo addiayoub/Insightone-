@@ -10,6 +10,7 @@ import ContraintesOptimisation from "./ContraintesOptimisation";
 import GenerationPortefeuille from "./GenerationPortefeuille";
 import SelectAllTransferList from "../Test/TransferList";
 import { getMarketData_2 } from "../../redux/actions/StockActions";
+import PtfRange from "../charts/PtfRange";
 
 function Index() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
@@ -27,6 +28,7 @@ function Index() {
         setDateDebut={setDateDebut}
         setDateFin={setDateFin}
       />
+      {/* <PtfRange /> */}
       <Indices dateDebut={dateDebut} dateFin={dateFin} />
       {!isLoading && data.data.length > 0 && (
         <>

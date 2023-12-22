@@ -15,6 +15,7 @@ import { apiAuth, login } from "../redux/actions/AuthActions";
 import runLogoutTimer from "../utils/runLogoutTimer";
 import theme, { darkTheme, lightTheme } from "../utils/theme";
 import Animation from "./animation/Animation";
+import Intro from "./animation/Intro";
 
 function Copyright(props) {
   return (
@@ -65,7 +66,7 @@ export default function SignIn() {
   return (
     <>
       {isHide ? (
-        <Animation isHide={isHide} setIsHide={setIsHide} />
+        <Intro setIsHide={setIsHide} />
       ) : (
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <Container component="main" maxWidth="xs">

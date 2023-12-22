@@ -136,7 +136,7 @@ button {
   justify-content: space-between;
   font-size: 18px;
   gap: 25px;
-  padding: 45px 18px;
+  padding: 30px 18px;
   border-radius: 5px;
   box-shadow: var(--light-box-shadow);
 }

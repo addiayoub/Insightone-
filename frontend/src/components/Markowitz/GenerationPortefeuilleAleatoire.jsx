@@ -152,7 +152,7 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
           <PortefeuilleAleatoires
             data={data}
             frontiere={frontiere}
-            setName={setName}
+            frontiereWeights={frontiereWeights}
             setOpen={setOpen}
           />
         )}
@@ -168,12 +168,6 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
           data={frontiereWeights.filter((item) => item[name] > 0.01)}
           field={name}
         /> */}
-      {name && (
-        <Ptf
-          data={frontiereWeights.filter((item) => item[name] > 0.01)}
-          field={name}
-        />
-      )}
       {/* </Modal> */}
     </>
   );

@@ -135,9 +135,13 @@ export const getMarketData = createAsyncThunk(
 
 export const getSliderData = createAsyncThunk(
   "stock/getSliderData",
-  async (_, thunkAPI) => {
+  async ({ date }, thunkAPI) => {
     try {
-      const response = await axiosClient.get(`/stock/getSliderData`);
+      const response = await axiosClient.get(`/stock/getSliderData`, {
+        params: {
+          date,
+        },
+      });
       console.log("getSliderData resp", response);
       return response.data;
     } catch (error) {

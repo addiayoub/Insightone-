@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { testApi } from "../../redux/actions/OpcvmActions";
 import MainLoader from "../loaders/MainLoader";
 import DfContrib from "./DfContrib";
-import { getMarketData_2 } from "../../redux/actions/StockActions";
-
+import moment from "moment";
+import "moment/locale/fr";
+moment.locale("fr");
 const columns = [
   "df_contrib",
   "Rel_div",
@@ -23,13 +24,12 @@ const columns = [
   "poids_ap",
   "poids_av",
 ];
+
 function Backtest() {
   const { data } = useSelector((state) => state.backtest);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMarketData_2());
-    console.log("jhg");
-  }, []);
+  var deMarch = moment("2017-03");
+  console.log("moment", deMarch.format("MMMM"), moment.locale("fr"));
   return (
     <>
       <Filter />
@@ -37,10 +37,10 @@ function Backtest() {
       {/* {!data.loading && data.data && (
         <DfContrib data={data.data["df_contrib"]} />
       )} */}
-      {columns.map((column) => {
+      {columns.map((column, index) => {
         return (
           data[column].length > 0 && (
-            <DfContrib data={data[column]} title={column} />
+            <DfContrib data={data[column]} title={column} key={index} />
           )
         );
       })}

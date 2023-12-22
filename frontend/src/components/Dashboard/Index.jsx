@@ -46,6 +46,7 @@ import Seance from "./Seance.jsx";
 import AccordionBox from "../AccordionBox.jsx";
 import DateComponent from "../DateComponent.jsx";
 import { notyf } from "../../utils/notyf.js";
+import isTodayOrFuture from "../../utils/isTodayOrFuture.js";
 
 const textColor = (value) => {
   let className = "";
@@ -528,6 +529,7 @@ function Index() {
   const [isShow, setIsShow] = useState(false);
   const [cardData, setCardData] = useState({});
   const [show, setShow] = useState(false);
+  const [seanceDate, setSeanceDate] = useState(dayjs().subtract(1, "day"));
   const dispatch = useDispatch();
   const lastItem = (arr) => {
     return arr[arr.length - 1];
@@ -541,28 +543,27 @@ function Index() {
       return "Bearish";
     }
   };
-  useEffect(() => {
-    console.log("card Data", cardData);
-  }, [cardData]);
 
   const firstCall = () => {
-    console.log("date is", date);
+    getSliderDataAction(date);
     dispatch(getCapitalisationData({ date }))
       .unwrap()
       .then(({ data }) => {
         setCapitalisationData(data);
-        console.log("setCapitalisationData", data);
         const formatedData = transformData(data);
         console.log("formatedData", formatedData);
         const capitalisation = formatedData.Capitalisation;
         const VARIATION_LAST_YEAR = formatedData.VARIATION_LAST_YEAR;
         const VOLUME = formatedData.VOLUME;
         const VARIATION = formatedData.VARIATION;
+        const cours = formatedData.COURS_CLOTURE;
+
         setCardData({
           VARIATION_LAST_YEAR: `${lastItem(VARIATION_LAST_YEAR).toFixed(2)}`,
           capitalisation: (lastItem(capitalisation) / 1000000000).toFixed(2),
           VOLUME: (lastItem(VOLUME) / 1000000).toFixed(2),
           VARIATION: lastItem(VARIATION).toFixed(2),
+          cours: lastItem(cours).toFixed(2),
         });
         setIsShow(true);
       });
@@ -576,9 +577,16 @@ function Index() {
   useEffect(() => {
     firstCall();
   }, [refresh]);
-  useEffect(() => {
-    dispatch(getSliderData());
-  }, []);
+  const getSliderDataAction = (date) => {
+    const sliderDate = date;
+    dispatch(getSliderData({ date: sliderDate }))
+      .unwrap()
+      .then(({ data }) => {
+        const sDate = isTodayOrFuture(date) ? data[0]["Seance"] : date;
+        setSeanceDate(sDate);
+      });
+  };
+
   return (
     <Box className="w-full min-h-[400px] relative mt-[30px]">
       <AccordionBox
@@ -597,12 +605,13 @@ function Index() {
           Rechercher
         </Button>
       </AccordionBox>
-      {sliderData.data.length > 0 && <Seance data={sliderData.data} />}
+      {sliderData.data.length > 0 && seanceDate && <Seance date={seanceDate} />}
       <DashSlider data={sliderData.data} />
       {marketData.loading && <MainLoader />}
       {!loading && isShow && (
         <Cards>
           <Card
+            cours={cardData.cours}
             title={determineMarketStatus(cardData.VARIATION)}
             value={cardData.VARIATION}
             variation={true}

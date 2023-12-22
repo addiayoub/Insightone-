@@ -2,7 +2,6 @@ import React from "react";
 import { FormControl, Typography } from "@mui/material";
 
 const Contrainte = ({ label, children, width = 100 }) => {
-  console.log("width", width);
   return (
     <FormControl className="flex flex-row gap-2.5 items-center mb-4">
       <Typography
