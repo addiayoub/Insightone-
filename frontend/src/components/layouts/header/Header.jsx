@@ -38,10 +38,6 @@ function Header() {
       >
         <IconButton onClick={() => dispatch(toggleSidebar(!isOpen))}>
           {isOpen ? <ChevronsLeft /> : <ChevronsRight />}
-          {/* <HambergerMenu
-            size="25"
-            color={`${theme.darkTheme ? "#fff" : "#373736"}`}
-          /> */}
         </IconButton>
       </div>
       <div className="header-right">

@@ -1,6 +1,6 @@
 .ptfs-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15px, 1fr));
   background: rgb(33, 204, 109);
   background: linear-gradient(
     90deg,
