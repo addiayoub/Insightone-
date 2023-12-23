@@ -195,7 +195,7 @@ export const getMarketData_2 = createAsyncThunk(
         "Cap_marche",
         "Masi_volume_ytd",
         "Masi_volume_1an",
-        "comm_marche",
+        // "comm_marche",
       ];
       date = formatDate(date["$d"]);
       console.log("getMarketData_2 date", date);
@@ -271,7 +271,7 @@ export const getMarketData_2 = createAsyncThunk(
         capmarche: Cap_marche.Cap_marche,
         masiVolumeYTD: Masi_volume_ytd.Masi_volume_ytd,
         masiVolume: Masi_volume_1an.Masi_volume_1an,
-        commentaire: comm_marche.comm_marche,
+        // commentaire: comm_marche.comm_marche,
       };
 
       return result;
@@ -279,6 +279,24 @@ export const getMarketData_2 = createAsyncThunk(
       console.log(error);
       return thunkAPI.rejectWithValue("Server Error");
       // handleActionsError(error, thunkAPI);
+    }
+  }
+);
+
+export const getComments = createAsyncThunk(
+  "stock/getComments",
+  async ({ date }, thunkAPI) => {
+    console.log("getComments");
+    try {
+      date = formatDate(date["$d"]);
+      const response = await apiMarko.get(`GETAPI?comm_marche&${date}`);
+      console.log("comments data", response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(
+        "Une erreur interne est survenue. Veuillez réessayer."
+      );
     }
   }
 );

@@ -3,7 +3,6 @@ import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
 import DfContrib from "./DfContrib";
-import moment from "moment";
 import Clock from "../Clock/Clock";
 const columns = [
   "df_contrib",

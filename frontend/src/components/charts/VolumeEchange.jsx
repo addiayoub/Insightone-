@@ -6,19 +6,14 @@ import { formatDate } from "../../utils/FormatDate";
 import useChartTheme from "../../hooks/useChartTheme";
 
 function VolumeEchange({ chartData }) {
-  console.log("VolumeEchange", chartData);
-  // chartData.sort((a, b) => new Date(a.seance) - new Date(b.seance));
-  console.log(chartData.map((item) => item.seance));
   const data = transformData(chartData);
-  console.log("VolumeEchange dqtq", data);
-
   const theme = useChartTheme();
   const options = {
     grid: {
-      top: "10%", // Adjust the top value based on your needs
+      top: "10%",
       left: "3%",
       right: "3%",
-      bottom: "20%", // Adjust the bottom value based on your needs
+      bottom: "20%",
       containLabel: true,
     },
     tooltip: {
@@ -70,7 +65,7 @@ function VolumeEchange({ chartData }) {
       {
         type: "slider",
         xAxisIndex: 0,
-        start: 99.9,
+        start: chartData.length > 5 ? 99.9 : 0,
         end: 100,
       },
     ],

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getComments,
   getDashboardData,
   getMarketData,
   getMarketData_2,
@@ -22,6 +23,11 @@ const stockSlice = createSlice({
       data: [],
     },
     sliderData: {
+      loading: false,
+      error: null,
+      data: [],
+    },
+    comments: {
       loading: false,
       error: null,
       data: [],
@@ -87,6 +93,20 @@ const stockSlice = createSlice({
         sliderData.error = payload;
       }
       sliderData.loading = false;
+    });
+
+    // Get Comments
+    builder.addCase(getComments.pending, ({ comments }) => {
+      comments.loading = true;
+    });
+    builder.addCase(getComments.fulfilled, ({ comments }, { payload }) => {
+      comments.data = payload.data;
+      comments.loading = false;
+    });
+    builder.addCase(getComments.rejected, ({ comments }, { payload }) => {
+      comments.error = payload;
+      comments.data = [];
+      comments.loading = false;
     });
   },
 });

@@ -8,7 +8,7 @@ const Clock = () => {
   const [hourRotation, setHourRotation] = useState(0);
   const [minuteRotation, setMinuteRotation] = useState(0);
   const [secondRotation, setSecondRotation] = useState(0);
-  const [isHide, setIsHide] = useState(false);
+  const [isHide, setIsHide] = useState(true);
   const updateClock = () => {
     const day = new Date();
     const hh = day.getHours() * 30;

@@ -19,6 +19,7 @@ import resetStates from "../../../utils/resetStates";
 import "./Header.css";
 import { useEffect } from "react";
 import { ChevronsLeft, ChevronsRight } from "react-feather";
+import ToggleTheme from "./ToggleTheme";
 
 function Header() {
   const { isOpen } = useSelector((state) => state.dashboard);
@@ -41,6 +42,7 @@ function Header() {
         </IconButton>
       </div>
       <div className="header-right">
+        {/* <ToggleTheme /> */}
         <IconButton
           sx={{ ml: 1 }}
           onClick={() => dispatch(toggleTheme())}

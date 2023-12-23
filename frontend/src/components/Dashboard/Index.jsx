@@ -23,7 +23,6 @@ import { ArrowDown, ArrowRight, ArrowUp } from "react-feather";
 import P_DU_M from "../../data/PERFORMANCE_DU_MARCHE_PARAM1.json";
 import V_PAR_M_P1 from "../../data/VOLUME_PAR_MARCHE_PARAM1.json";
 import P_V_MC from "../../data/PRINCIPAUX_VOLUMES_MC_PARAM1";
-import COMMENTAIRE from "../../data/COMMENTAIRE_MARCHE_PARAM1.json";
 import T_P_E_P1 from "../../data/TITRES_PLUS_ECHANGES_PARAM1.json";
 import P_F_H_B_V_P1 from "../../data/PLUS_FORTES_HAUSSES_BAISSES_VOLUME_PARAM1.json";
 import P_F_V_P1 from "../../data/PLUS_FORTES_VARIATIONS_PARAM1";
@@ -90,7 +89,6 @@ function Index() {
     STATISTIQUES_SOCIETES_2: S_S2_P1,
     PLUS_FORTES_VARIATIONS: P_F_V_P1,
     SECTEURS: VAR_SECTEURS,
-    COMMENTAIRE: COMMENTAIRE,
     EVOLUTION_MASI: EV,
     VOLUME_ECHANGE: VE,
   });
@@ -115,7 +113,6 @@ function Index() {
           STATISTIQUES_SOCIETES: response.staticSociete,
           PLUS_FORTES_VARIATIONS: response.plusFortesVar,
           SECTEURS: response.perfSecteurs,
-          COMMENTAIRE: response.commentaire,
           EVOLUTION_MASI: response.evolMasi,
           VOLUME_ECHANGE: response.volumeEchan,
         });
@@ -713,7 +710,7 @@ function Index() {
             rowId={"secteur"}
             pagination={true}
           />
-          <Commentaire data={dataObject.COMMENTAIRE} />
+          <Commentaire date={date} />
         </>
       )}
     </Box>
