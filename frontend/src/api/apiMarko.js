@@ -1,6 +1,6 @@
 import axios from "axios";
 const apiUrl = "https://192.168.11.109:9090/";
-const token = localStorage.getItem("apiToken");
+
 const apiMarko = axios.create({
   baseURL: apiUrl,
   withCredentials: true,

@@ -34,6 +34,7 @@ import Scatter from "../Test/Scatter";
 import SelectAll from "../Test/SelectAll";
 import Slider from "../Dashboard/Slider";
 import NewUnivers from "./NewUnivres";
+import { notyf } from "../../utils/notyf";
 
 const textColor = (value) => {
   value = +value;
@@ -111,7 +112,12 @@ export default function Markowitz() {
   const handelClick = () => {
     setError(false);
     setShowData(true);
-    dispatch(filterMarkoAction({ dateDebut, dateFin }));
+    dispatch(filterMarkoAction({ dateDebut, dateFin }))
+      .unwrap()
+      .then()
+      .catch(() => {
+        notyf.error("Une erreur interne est survenue. Veuillez réessayer.");
+      });
   };
 
   const columns = [
