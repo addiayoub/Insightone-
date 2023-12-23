@@ -42,14 +42,14 @@ function Header() {
         </IconButton>
       </div>
       <div className="header-right">
-        {/* <ToggleTheme /> */}
-        <IconButton
+        <ToggleTheme />
+        {/* <IconButton
           sx={{ ml: 1 }}
           onClick={() => dispatch(toggleTheme())}
           color="inherit"
         >
           {theme.darkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+        </IconButton> */}
         <div
           className="profile"
           onClick={() => setIsOpenDropdown(!isOpenDropdown)}
