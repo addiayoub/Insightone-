@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./ToggleTheme.css";
 import ThemeIcon from "../../../icons/ThemeIcon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../../redux/slices/ThemeSlice";
 function ToggleTheme() {
-  const [isChecked, setChecked] = useState(false);
+  const { darkTheme } = useSelector((state) => state.theme);
+  const [isChecked, setChecked] = useState(darkTheme);
+
   const dispatch = useDispatch();
   const handleChange = () => {
     setChecked(!isChecked);
