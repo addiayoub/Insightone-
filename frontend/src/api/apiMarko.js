@@ -6,7 +6,7 @@ const apiMarko = axios.create({
   withCredentials: true,
   responseType: "json",
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
   },
   paramsSerializer: {
     indexes: null,
