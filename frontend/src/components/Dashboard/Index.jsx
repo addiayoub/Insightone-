@@ -45,7 +45,7 @@ import Seance from "./Seance.jsx";
 import AccordionBox from "../AccordionBox.jsx";
 import DateComponent from "../DateComponent.jsx";
 import { notyf } from "../../utils/notyf.js";
-import isTodayOrFuture from "../../utils/isTodayOrFuture.js";
+import Clock from "../Clock/Clock.jsx";
 
 const textColor = (value) => {
   let className = "";
@@ -74,7 +74,6 @@ const gridStyle = {
 };
 
 function Index() {
-  const [indice, setIndice] = useState("");
   const { data, loading, error, marketData, sliderData } = useSelector(
     (state) => state.stock
   );
@@ -528,7 +527,7 @@ function Index() {
   const [isShow, setIsShow] = useState(false);
   const [cardData, setCardData] = useState({});
   const [show, setShow] = useState(false);
-  const [seanceDate, setSeanceDate] = useState(dayjs().subtract(1, "day"));
+  const [seanceDate, setSeanceDate] = useState("");
   const dispatch = useDispatch();
   const lastItem = (arr) => {
     return arr[arr.length - 1];
@@ -581,8 +580,7 @@ function Index() {
     dispatch(getSliderData({ date: sliderDate }))
       .unwrap()
       .then(({ data }) => {
-        const sDate = isTodayOrFuture(date) ? data[0]["Seance"] : date;
-        setSeanceDate(sDate);
+        setSeanceDate(data[0]["Seance"]);
       });
   };
 
@@ -604,6 +602,7 @@ function Index() {
           Rechercher
         </Button>
       </AccordionBox>
+      <Clock />
       {sliderData.data.length > 0 && seanceDate && <Seance date={seanceDate} />}
       <DashSlider data={sliderData.data} />
       {marketData.loading && <MainLoader />}

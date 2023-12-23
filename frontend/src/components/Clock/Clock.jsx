@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Clock.css";
+import { IconButton } from "@mui/material";
+import { ChevronsLeft, ChevronsRight } from "react-feather";
 
 const Clock = () => {
   const deg = 6;
   const [hourRotation, setHourRotation] = useState(0);
   const [minuteRotation, setMinuteRotation] = useState(0);
   const [secondRotation, setSecondRotation] = useState(0);
-
+  const [isHide, setIsHide] = useState(false);
   const updateClock = () => {
     const day = new Date();
     const hh = day.getHours() * 30;
@@ -25,8 +27,11 @@ const Clock = () => {
   }, []);
 
   return (
-    <div className="clock-container">
-      {hourRotation && minuteRotation && secondRotation && (
+    <div className={`clock-main-container ${isHide ? "is-hide" : ""}`}>
+      <IconButton onClick={() => setIsHide(!isHide)} className="toggle-button">
+        {isHide ? <ChevronsLeft /> : <ChevronsRight />}
+      </IconButton>
+      <div className={`clock-container`}>
         <div className="clock">
           <div
             className="hour"
@@ -41,7 +46,7 @@ const Clock = () => {
             style={{ transform: `rotateZ(${secondRotation}deg)` }}
           ></div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

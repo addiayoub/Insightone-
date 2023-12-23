@@ -4,17 +4,36 @@
   --dark-main-bg-color: #1e1f26;
   --dark-main-text-color: #ccc;
 }
+.clock-main-container {
+  position: fixed;
+  right: 0;
+  top: 70px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all ease 0.3s;
+}
+.clock-main-container.is-hide {
+  right: -24%;
+}
+.clock-main-container .toggle-button {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  color: white !important;
+}
 .clock-container {
   margin: 0;
   display: flex;
-  flex-direction: column;
+  gap: 30px;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  position: fixed;
-  z-index: 20;
-  right: 0;
-  transition: all ease 0.2s;
+  position: relative;
+  padding: 5px 10px 5px 0;
+}
+.clock-container.is-hide {
+  right: -26%;
 }
 .clock {
   min-height: 18em;
