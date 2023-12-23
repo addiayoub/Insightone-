@@ -27,7 +27,7 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   const [selectedClasses, setSelectedClasses] = useState([]);
   const disabled =
     selectedClasses.length === 0 ||
-    selectedSocietes === 0 ||
+    selectedSocietes.length === 0 ||
     selectedTypes.length === 0;
   const dispatch = useDispatch();
 
@@ -39,18 +39,6 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   }, []);
   const handleSearch = () => {
     dispatch(
-      getData({
-        dateDebut,
-        dateFin,
-        classes: selectedClasses,
-        societes: selectedSocietes,
-        types: selectedTypes,
-      })
-    )
-      .unwrap()
-      .then()
-      .catch((error) => notyf.error("getData " + error));
-    dispatch(
       getDataSet({
         dateDebut,
         dateFin,
@@ -59,7 +47,20 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
       })
     )
       .unwrap()
-      .then()
+      .then(() =>
+        dispatch(
+          getData({
+            dateDebut,
+            dateFin,
+            classes: selectedClasses,
+            societes: selectedSocietes,
+            types: selectedTypes,
+          })
+        )
+          .unwrap()
+          .then()
+          .catch((error) => notyf.error("getData " + error))
+      )
       .catch((error) => notyf.error(error));
   };
   return (

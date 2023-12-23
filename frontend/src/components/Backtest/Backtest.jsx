@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
-import { testApi } from "../../redux/actions/OpcvmActions";
 import MainLoader from "../loaders/MainLoader";
 import DfContrib from "./DfContrib";
 import moment from "moment";
-import "moment/locale/fr";
-moment.locale("fr");
+import Clock from "../Clock/Clock";
 const columns = [
   "df_contrib",
   "Rel_div",
@@ -28,8 +26,6 @@ const columns = [
 function Backtest() {
   const { data } = useSelector((state) => state.backtest);
   const dispatch = useDispatch();
-  var deMarch = moment("2017-03");
-  console.log("moment", deMarch.format("MMMM"), moment.locale("fr"));
   return (
     <>
       <Filter />
@@ -44,6 +40,7 @@ function Backtest() {
           )
         );
       })}
+      <Clock />
     </>
   );
 }

@@ -3,6 +3,7 @@ import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
+  GridToolbarQuickFilter,
   gridClasses,
 } from "@mui/x-data-grid";
 import React from "react";

@@ -1,10 +1,10 @@
 import moment from "moment";
 import React, { useMemo } from "react";
 import { Lock } from "react-feather";
+import { momentFr } from "../../utils/momentFr";
+moment.locale("fr", momentFr);
 
 function Seance({ date }) {
-  // console.log("Seance data ", data);
-  // date = data[0]["Seance"];
   console.log("Seance({ date })", date);
   const isYesterday = useMemo(() => {
     return moment(date).isSame(moment().subtract(1, "days"), "day");
@@ -21,7 +21,7 @@ function Seance({ date }) {
           </h3>
         </div>
         <p className="text-xs leading-[18px] tracking-[0.4px] md:ml-[18px] md:pl-[18px] md:border-l md:border-white">
-          {moment(date).format("DD-MM-YYYY")}
+          {moment(date).format("dddd DD MMMM YYYY")}
         </p>
       </div>
     </div>

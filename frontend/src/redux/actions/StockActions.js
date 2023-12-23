@@ -199,6 +199,7 @@ export const getMarketData_2 = createAsyncThunk(
       ];
       date = formatDate(date["$d"]);
       console.log("getMarketData_2 date", date);
+
       const [
         Perf_Indice,
         Perf_volume,
@@ -224,6 +225,7 @@ export const getMarketData_2 = createAsyncThunk(
           return { [url]: response.data };
         })
       );
+
       console.log(
         "responses market data",
         Perf_Indice,

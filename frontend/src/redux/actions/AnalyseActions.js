@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axiosClient from "../../axios";
 import apiMarko from "../../api/apiMarko";
+import { formatDate } from "../../utils/FormatDate";
 
 const countTypePositions = (data, propertyNames) => {
   const count = { Achat: 0, Vente: 0, Neutre: 0 };
@@ -76,21 +77,61 @@ export const getAnalysesData = createAsyncThunk(
 
 export const getIndicateursData = createAsyncThunk(
   "analyse/getIndicateursData",
-  async (_, thunkAPI) => {
+  async ({ date, titre }, thunkAPI) => {
     try {
+      date = formatDate(date["$d"]);
       const urls = [
         {
           url: "INDICATEURS_TECHNIQUES_BVC",
-          params: "&12/12/2023&HPS",
+          params: `&${date}&${titre}`,
           varName: "indecateurTech",
         },
         {
           url: "MOYENNE_MOBILE_BVC",
-          params: "&12/12/2023&HPS&0.1",
+          params: `&${date}&${titre}&0.1`,
           varName: "moyMobileBVC",
         },
+        {
+          url: "ANALYSES_TECHNIQUES_BVC",
+          params: `&${date}&${titre}&0.1`,
+          varName: "analyseTech",
+        },
+        {
+          url: "PATTERNS_DE_CHANDELIERS",
+          params: `&${date}&${titre}`,
+          varName: "patternsChand",
+        },
+        {
+          url: "NEWS_BVC",
+          params: `&${date}&${titre}`,
+          varName: "news",
+        },
+        {
+          url: "Bilan",
+          params: `&Annuel&${titre}`,
+          varName: "bilan",
+        },
+        {
+          url: "Compte de résultat",
+          params: `&Annuel&${titre}`,
+          varName: "compteRes",
+        },
+        {
+          url: "EVOLUTION_COURS",
+          params: `&${date}`,
+          varName: "evolCours",
+        },
       ];
-      const [{ indecateurTech }, { moyMobileBVC }] = await Promise.all(
+      const [
+        { indecateurTech },
+        { moyMobileBVC },
+        { analyseTech },
+        { patternsChand },
+        { news },
+        { bilan },
+        { compteRes },
+        { evolCours },
+      ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           const response = await apiMarko.get(`GETAPI?${url}${params}`);
           return { [varName]: response.data };
@@ -124,6 +165,8 @@ export const getIndicateursData = createAsyncThunk(
       return {
         indecateurTech,
         moyMobileBVC,
+        analyseTech,
+        news,
         resume,
       };
     } catch (error) {

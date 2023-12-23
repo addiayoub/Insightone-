@@ -16,6 +16,7 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       localStorage.removeItem("user");
+      localStorage.removeItem("apiToken");
       Cookies.remove("jwt");
     },
     updateUsername: (state, { payload }) => {

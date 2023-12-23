@@ -85,7 +85,9 @@ export const getDataSet = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      return thunkAPI.rejectWithValue("Internal Server Error");
+      return thunkAPI.rejectWithValue(
+        "Une erreur interne est survenue. Veuillez réessayer"
+      );
     }
   }
 );

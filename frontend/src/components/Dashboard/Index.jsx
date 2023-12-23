@@ -40,7 +40,6 @@ import DateComp from "./DateComp.jsx";
 import VE from "../../data/VOLUME_ECHANGE_PARAM1.json";
 import Commentaire from "./Commentaire.jsx";
 import MainLoader from "../loaders/MainLoader.jsx";
-import Slider from "./Slider.jsx";
 import DashSlider from "./DashSlider.jsx";
 import Seance from "./Seance.jsx";
 import AccordionBox from "../AccordionBox.jsx";
