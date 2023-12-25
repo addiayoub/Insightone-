@@ -1,8 +1,8 @@
 import ReactECharts from "echarts-for-react";
 import React, { memo, useMemo } from "react";
-import { useSelector } from "react-redux";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
+import useChartTheme from "../../hooks/useChartTheme";
 
 const upColor = "#ec0000";
 const upBorderColor = "#8A0000";
