@@ -10,6 +10,7 @@ import React from "react";
 import NewsModal from "./Secteurs/NewsModal";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import injectId from "../utils/injectId";
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
     backgroundColor:
@@ -59,8 +60,7 @@ function Table({
       <StripedDataGrid
         className="my-5"
         columns={columns}
-        rows={rows}
-        getRowId={(row) => `${row[rowId]} - ${row[rowId]} ${uuidv4()}`}
+        rows={injectId(rows)}
         hideFooter={rows.length < 5}
         disableRowSelectionOnClick
         localeText={{

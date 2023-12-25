@@ -15,7 +15,7 @@
   transition: all ease 0.3s;
 }
 .clock-main-container.is-hide {
-  right: -24%;
+  right: -298px;
 }
 .clock-main-container .toggle-button {
   background-color: var(--primary-color);
@@ -32,9 +32,7 @@
   position: relative;
   padding: 5px 10px 5px 0;
 }
-.clock-container.is-hide {
-  right: -26%;
-}
+
 .clock {
   min-height: 18em;
   min-width: 18em;

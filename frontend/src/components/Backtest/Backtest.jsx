@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
 import DfContrib from "./DfContrib";
-import Clock from "../Clock/Clock";
 const columns = [
   "df_contrib",
   "Rel_div",
@@ -39,7 +38,6 @@ function Backtest() {
           )
         );
       })}
-      <Clock />
     </>
   );
 }
