@@ -28,6 +28,8 @@ export const apiAuth = createAsyncThunk("auth/apiAuth", async (_, thunkAPI) => {
       }
     );
     localStorage.setItem("apiToken", response.data);
+    console.log("Api token", response.data);
+    console.log("Api token from storage", localStorage.getItem("apiToken"));
     return response.data;
   } catch (error) {
     // return custom error message from backend if present
