@@ -9,7 +9,14 @@ import MainLoader from "../loaders/MainLoader";
 import DateComponent from "../DateComponent";
 import DataTable from "./DataTable";
 import GuageCharts from "./GuageCharts";
-import { columnsIndi, columnsMoy, columnsNews } from "./columns";
+import {
+  columnsBilan,
+  columnsCmptRes,
+  columnsIndi,
+  columnsMoy,
+  columnsNews,
+} from "./columns";
+import PatternsChandeliers from "./PatternsChandeliers";
 
 function Index() {
   const { data, loading, error } = useSelector((state) => state.analyse);
@@ -153,11 +160,24 @@ function Index() {
             resume={data.resume.moyMobileBVC}
           />
           <DataTable
+            title={"Bilan"}
+            rows={data.bilan}
+            columns={columnsBilan}
+            id={"bilan"}
+          />
+          <DataTable
+            title={"Compte de résultat"}
+            rows={data.compteRes}
+            columns={columnsCmptRes}
+            id={"compte-résultat"}
+          />
+          <DataTable
             title={"News"}
             rows={data.news}
             columns={columnsNews}
             id={"news"}
           />
+          <PatternsChandeliers data={data.patternsChand} />
         </>
       )}
     </Box>

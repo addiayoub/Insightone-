@@ -14,38 +14,33 @@ const textColor = (cellValue) => {
   return <span className={`${className} font-semibold`}>{cellValue}</span>;
 };
 
-export const columnsIndi = [
+const columnsIndi = [
   {
     field: "Nom",
     headerName: "Nom",
     width: 360,
     flex: 1.5,
-    filterable: true,
-    // renderCell: (params) => <strong>{params.row.Nom}</strong>,
-    // valueGetter: (params) => {
-    //   console.log(params.row.Nom);
-    //   return params.row.Nom;
-    // },
+    renderCell: (params) => <strong>{params.row.Nom}</strong>,
   },
-  // {
-  //   field: "Valeur",
-  //   headerName: "Valeur",
-  //   width: 360,
-  //   flex: 1,
-  //   renderCell: (params) => params.row?.Valeur?.toFixed(2),
-  // },
-  // {
-  //   field: "Type_position",
-  //   headerName: "Type de position",
-  //   width: 360,
-  //   flex: 1,
-  //   renderCell: (params) => {
-  //     const cellValue = params.row.Type_position;
-  //     return textColor(cellValue);
-  //   },
-  // },
+  {
+    field: "Valeur",
+    headerName: "Valeur",
+    width: 360,
+    flex: 1,
+    renderCell: (params) => params.row?.Valeur?.toFixed(2),
+  },
+  {
+    field: "Type_position",
+    headerName: "Type de position",
+    width: 360,
+    flex: 1,
+    renderCell: (params) => {
+      const cellValue = params.row.Type_position;
+      return textColor(cellValue);
+    },
+  },
 ];
-export const columnsMoy = [
+const columnsMoy = [
   {
     field: "Periode",
     headerName: "Nom",
@@ -79,7 +74,7 @@ export const columnsMoy = [
     },
   },
 ];
-export const columnsNews = [
+const columnsNews = [
   {
     field: "libelle",
     headerName: "Libellé",
@@ -99,3 +94,70 @@ export const columnsNews = [
     renderCell: (params) => params.row.titre,
   },
 ];
+const columnsBilan = [
+  {
+    field: "a",
+    headerName: "A",
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.a}</strong>,
+  },
+  {
+    field: "b",
+    headerName: "B",
+    flex: 0.3,
+  },
+  {
+    field: "c",
+    headerName: "C",
+    flex: 0.3,
+  },
+  {
+    field: "d",
+    headerName: "D",
+    flex: 0.3,
+  },
+  {
+    field: "periodicite",
+    headerName: "Periodicite",
+    flex: 0.3,
+  },
+  {
+    field: "ordre",
+    headerName: "Ordre",
+    flex: 0.3,
+  },
+];
+const columnsCmptRes = [
+  {
+    field: "a",
+    headerName: "A",
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.a}</strong>,
+  },
+  {
+    field: "b",
+    headerName: "B",
+    flex: 0.3,
+  },
+  {
+    field: "c",
+    headerName: "C",
+    flex: 0.3,
+  },
+  {
+    field: "d",
+    headerName: "D",
+    flex: 0.3,
+  },
+  {
+    field: "periodicite",
+    headerName: "Periodicite",
+    flex: 0.3,
+  },
+  {
+    field: "ordre",
+    headerName: "Ordre",
+    flex: 0.3,
+  },
+];
+export { columnsIndi, columnsMoy, columnsNews, columnsBilan, columnsCmptRes };

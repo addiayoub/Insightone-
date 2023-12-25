@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Table from "../Table";
 
 const DataTable = ({
@@ -24,4 +24,4 @@ const DataTable = ({
   );
 };
 
-export default DataTable;
+export default memo(DataTable);

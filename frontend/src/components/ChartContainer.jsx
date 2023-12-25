@@ -1,14 +1,16 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { memo, useMemo } from "react";
 
 function ChartContainer({ height, width, children }) {
-  const style = {
-    display: "grid",
-    gridTemplateColumns: `repeat(auto-fit, minmax(${width}px, 1fr))`,
-    gap: "20px",
-    margin: "20px",
-    alignItems: "center",
-  };
+  const style = useMemo(() => {
+    return {
+      display: "grid",
+      gridTemplateColumns: `repeat(auto-fit, minmax(${width}px, 1fr))`,
+      gap: "20px",
+      margin: "20px",
+      alignItems: "center",
+    };
+  }, [width]);
   return (
     <Box sx={style} className="my-12">
       {children}
@@ -16,4 +18,4 @@ function ChartContainer({ height, width, children }) {
   );
 }
 
-export default ChartContainer;
+export default memo(ChartContainer);

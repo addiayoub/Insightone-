@@ -3,13 +3,11 @@ import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
-  GridToolbarQuickFilter,
   gridClasses,
 } from "@mui/x-data-grid";
-import React from "react";
+import React, { memo, useCallback } from "react";
 import NewsModal from "./Secteurs/NewsModal";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import injectId from "../utils/injectId";
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
@@ -32,7 +30,15 @@ function CustomToolbar() {
     </GridToolbarContainer>
   );
 }
+const getRowClassName = (params) =>
+  params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd";
 
+const localeText = {
+  noRowsLabel: "Aucune donnée à afficher",
+  noResultsOverlayLabel: "Aucun résultat trouvé",
+  toolbarExportCSV: "Télécharger CSV",
+};
+const paginationOptions = [5, 10, 25, 50, 100];
 function Table({
   columns,
   rows,
@@ -48,13 +54,11 @@ function Table({
   const [clickedRowId, setClickedRowId] = useState(null);
   const handleClose = () => setClickedRowId(null);
   const [row, setRow] = useState({});
-  const handleCellClick = (params) => {
+  const handleCellClick = useCallback((params) => {
     setClickedRowId(params.id);
     setRow(params.row);
-  };
+  }, []);
 
-  const getRowClassName = (params) =>
-    params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd";
   return (
     <>
       <StripedDataGrid
@@ -63,11 +67,7 @@ function Table({
         rows={injectId(rows)}
         hideFooter={rows.length < 5}
         disableRowSelectionOnClick
-        localeText={{
-          noRowsLabel: "Aucune donnée à afficher",
-          noResultsOverlayLabel: "Aucun résultat trouvé",
-          toolbarExportCSV: "Télécharger CSV",
-        }}
+        localeText={localeText}
         getRowClassName={getRowClassName}
         componentsProps={{
           pagination: {
@@ -77,7 +77,7 @@ function Table({
         slots={slots}
         onCellClick={handleCellClick}
         getRowHeight={() => (autoHeight ? "auto" : 0)}
-        pageSizeOptions={[5, 10, 25, 50, 100]}
+        pageSizeOptions={paginationOptions}
         initialState={{
           pagination: { paginationModel: { pageSize } },
         }}
@@ -93,4 +93,4 @@ function Table({
   );
 }
 
-export default Table;
+export default memo(Table);

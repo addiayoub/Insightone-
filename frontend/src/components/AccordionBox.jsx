@@ -6,7 +6,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 
 const AccordionBox = ({
   accordionClass = "",
@@ -38,4 +38,4 @@ const AccordionBox = ({
     </Accordion>
   );
 };
-export default AccordionBox;
+export default memo(AccordionBox);

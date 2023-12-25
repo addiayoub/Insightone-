@@ -1,29 +1,35 @@
 import ReactECharts from "echarts-for-react";
 import React, { memo, useMemo } from "react";
-import { useSelector } from "react-redux";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
-
+import useChartTheme from "../../hooks/useChartTheme";
 const upColor = "#ec0000";
 const upBorderColor = "#8A0000";
 const downColor = "#00da3c";
 const downBorderColor = "#008F28";
-function Echart({ data }) {
+
+function PatternsChandeliers({ data }) {
   const theme = useChartTheme();
   const data0 = useMemo(
     () =>
       candelChartTransformData(
         data,
         "SEANCE",
-        "COURS_OUVERTURE",
-        "COURS_CLOTURE",
-        "COURS_PLUS_BAS",
-        "COURS_PLUS_HAUT"
+        "ouverture",
+        "cloture",
+        "plus_haut",
+        "plus_bas"
       ),
     [data]
   );
   const options = useMemo(() => {
     return {
+      title: {
+        text: "PATTERNS DE CHANDELIERS",
+        left: "left",
+        top: "top",
+        ...theme.title,
+      },
       tooltip: {
         trigger: "axis",
         axisPointer: {
@@ -215,5 +221,4 @@ function Echart({ data }) {
 
   return <ReactECharts option={options} style={{ height: "500px" }} />;
 }
-
-export default memo(Echart);
+export default memo(PatternsChandeliers);

@@ -2,7 +2,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import "dayjs/locale/fr";
-import React from "react";
+import React, { memo } from "react";
 
 function DateComponent({ label, date, setDate }) {
   return (
@@ -18,4 +18,4 @@ function DateComponent({ label, date, setDate }) {
   );
 }
 
-export default DateComponent;
+export default memo(DateComponent);

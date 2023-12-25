@@ -1,6 +1,6 @@
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts/highstock";
-import React, { useEffect } from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import { darkTheme, lightTheme } from "../../utils/chart/chartTheme";
 // Highcharts.theme = {
@@ -239,7 +239,6 @@ import { darkTheme, lightTheme } from "../../utils/chart/chartTheme";
 // Highcharts.setOptions(Highcharts.theme);
 
 function LightChart({ options }) {
-  console.log("defalut", Highcharts.getOptions());
   Highcharts.setOptions(lightTheme);
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 }
@@ -252,12 +251,11 @@ function DarkChart({ options }) {
 function ChartContainer({ options }) {
   const { darkTheme } = useSelector((state) => state.theme);
 
-  if (darkTheme) {
-    return <DarkChart options={options} />;
-  }
-  if (!darkTheme) {
-    return <LightChart options={options} />;
-  }
+  return darkTheme ? (
+    <DarkChart options={options} />
+  ) : (
+    <LightChart options={options} />
+  );
 }
 
-export default ChartContainer;
+export default memo(ChartContainer);

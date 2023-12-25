@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   getComparaison,
@@ -14,7 +14,6 @@ import AccordionBox from "../AccordionBox";
 import ComparaisonIndices from "../charts/ComparaisonIndices";
 import IndicesChart from "../charts/IndicesChart";
 import PerformanceChart from "../charts/PerformanceChart";
-import RendementRisqueChart from "../charts/RendementRisqueChart";
 import VolatiliteChart from "../charts/VolatiliteChart";
 import MainLoader from "../loaders/MainLoader";
 import RendementRisqueScatter from "../charts/RendementRisqueScatter";
@@ -22,11 +21,6 @@ import SelectIndices from "./SelectIndices";
 import ChartContainer from "../ChartContainer";
 import RendementRisqueData from "./RendementRisqueData";
 import { notyf } from "../../utils/notyf";
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeate(auto-fit, minmax(250px, 1fr))",
-};
 
 function Indices({ dateDebut, dateFin }) {
   const dispatch = useDispatch();
@@ -49,7 +43,7 @@ function Indices({ dateDebut, dateFin }) {
   const [g2Data, setG2Data] = useState([]);
   const [rendementRisqueData, setRendementRisqueData] = useState([]);
 
-  const showComparaison = () => {
+  const showComparaison = useCallback(() => {
     setLoadingCompa(true);
     dispatch(getComparaison({ dateDebut, dateFin, indices: selectedIndices }))
       .unwrap()
@@ -61,9 +55,9 @@ function Indices({ dateDebut, dateFin }) {
       .finally(() => {
         setLoadingCompa(false);
       });
-  };
+  }, [dateDebut, dateFin, selectedIndices]);
 
-  const showPerformanceChart = () => {
+  const showPerformanceChart = useCallback(() => {
     dispatch(getFirstGraph({ dateDebut, dateFin, indices: selectedIndices }))
       .unwrap()
       .then(({ data }) => {
@@ -72,9 +66,9 @@ function Indices({ dateDebut, dateFin }) {
         setG1Data(groupedData);
         setG2Data(groupedData);
       });
-  };
+  }, [dateDebut, dateFin, selectedIndices]);
 
-  const showRendementRisqueChart = () => {
+  const showRendementRisqueChart = useCallback(() => {
     dispatch(
       getRendementRisqueData({ dateDebut, dateFin, indices: selectedIndices })
     )
@@ -83,24 +77,12 @@ function Indices({ dateDebut, dateFin }) {
         console.log(data);
         setRendementRisqueData(data);
       });
-  };
-
-  // let filtred = indicesData;
-  // useEffect(() => {
-  //   if (selectedClasses.length > 0) {
-  //     filtred = filtred.filter((item) => selectedClasses.includes(item.classe));
-  //   }
-  //   if (selectedCategories.length > 0) {
-  //     console.log(selectedCategories);
-  //     const newScat = filtred.filter((item) =>
-  //       selectedCategories.includes(item.S_CATEGORIE)
-  //     );
-  //     console.log("newScat", newScat);
-  //   }
-  //   const newCat = [...new Set(filtred.map((item) => item.categorie))];
-  //   setCategories(newCat);
-  //   console.log(filtred);
-  // }, [selectedClasses, selectedCategories, selectedSCategories]);
+  }, [dateDebut, dateFin, selectedIndices]);
+  const handleSearch = useCallback(() => {
+    showComparaison();
+    showPerformanceChart();
+    showRendementRisqueChart();
+  }, [dateDebut, dateFin, selectedIndices]);
   useEffect(() => {
     setSelectedCategories([]);
     setSeletedSCategories([]);
@@ -273,11 +255,7 @@ function Indices({ dateDebut, dateFin }) {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={() => {
-              showComparaison();
-              showPerformanceChart();
-              showRendementRisqueChart();
-            }}
+            onClick={handleSearch}
             disabled={
               selectedIndices.length < 1 || loadingCompa || loadingIndicesChart
             }
@@ -307,4 +285,4 @@ function Indices({ dateDebut, dateFin }) {
   );
 }
 
-export default Indices;
+export default memo(Indices);

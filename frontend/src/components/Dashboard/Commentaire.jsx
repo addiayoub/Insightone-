@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
-import React, { useState } from "react";
+import React, { useCallback, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComments } from "../../redux/actions/StockActions";
 import COMMENTAIRE from "../../data/COMMENTAIRE_MARCHE_PARAM1.json";
@@ -13,12 +13,12 @@ function Commentaire({ date }) {
     comments: { loading },
   } = useSelector((state) => state.stock);
   const dispatch = useDispatch();
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     dispatch(getComments({ date }))
       .unwrap()
       .then((success) => setComments(success))
       .catch((error) => notyf.error(error));
-  };
+  }, [date]);
   return (
     <>
       {loading && <MainLoader />}
@@ -47,4 +47,4 @@ function Commentaire({ date }) {
   );
 }
 
-export default Commentaire;
+export default memo(Commentaire);

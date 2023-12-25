@@ -166,6 +166,9 @@ export const getIndicateursData = createAsyncThunk(
         indecateurTech,
         moyMobileBVC,
         analyseTech,
+        bilan,
+        compteRes,
+        patternsChand,
         news,
         resume,
       };

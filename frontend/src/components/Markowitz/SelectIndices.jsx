@@ -21,9 +21,10 @@ function SelectIndices({
   const allSelected = selectedIndices.length === indices.length;
   const handleIndicesChange = (event, value) => {
     if (value.find((option) => option === allOption)) {
-      return setSelectedIndices(allSelected ? [] : indices);
+      setSelectedIndices(allSelected ? [] : indices);
+      return;
     }
-    return setSelectedIndices(value);
+    setSelectedIndices(value);
   };
   return (
     <Autocomplete

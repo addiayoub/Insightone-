@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Slider from "./Slider";
 import { ArrowUp, ArrowDown, ArrowRight } from "react-feather";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
@@ -59,4 +59,4 @@ function DashSlider({ data }) {
   );
 }
 
-export default DashSlider;
+export default memo(DashSlider);

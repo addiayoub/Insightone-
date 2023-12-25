@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Typography from "@mui/material/Typography";
 import { Box, IconButton, Container } from "@mui/material";
 import Modal from "@mui/material/Modal";
@@ -56,4 +56,4 @@ function NewsModal({ clickedRowId, row, handleClose }) {
   );
 }
 
-export default NewsModal;
+export default memo(NewsModal);

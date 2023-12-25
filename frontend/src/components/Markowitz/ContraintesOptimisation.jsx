@@ -1,7 +1,7 @@
 import { Box, Button, Tabs, Tab } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useMemo, useState } from "react";
 import AccordionBox from "../AccordionBox";
 import ContraintesOpResult from "./ContraintesOpResult";
 import ContraintesOpValue from "./ContraintesOpValue";
@@ -57,38 +57,47 @@ export default function ContraintesOptimisation({
     poidsMasi,
     contraintesPoids,
   } = useSelector((state) => state.rapport);
-  const components = [
-    {
-      loading,
-      data,
-      title: "Portefeuille minimum variance",
-      field: "PTF_Min_Var",
-    },
-    {
-      loading,
-      data: poidsEqui,
-      title: "Les poids equipondéré",
-      field: "PTF_equi_pond",
-    },
-    {
-      loading: portefeuilleRendementMaximale.loading,
-      data: portefeuilleRendementMaximale.data,
-      title: "Portefeuille Rendement Maximale",
-      field: "PTF_Max_Rdt",
-    },
-    {
-      loading: portefeuilleMarkowitz.loading,
-      data: portefeuilleMarkowitz.data,
-      title: "portefeuille Markowitz",
-      field: "PTF_Max_Shp",
-    },
-    {
-      loading: poidsMasi.loading,
-      data: poidsMasi.data,
-      title: "Poids MASI",
-      field: "Poids_MASI",
-    },
-  ];
+  const components = useMemo(() => {
+    return [
+      {
+        loading,
+        data,
+        title: "Portefeuille minimum variance",
+        field: "PTF_Min_Var",
+      },
+      {
+        loading,
+        data: poidsEqui,
+        title: "Les poids equipondéré",
+        field: "PTF_equi_pond",
+      },
+      {
+        loading: portefeuilleRendementMaximale.loading,
+        data: portefeuilleRendementMaximale.data,
+        title: "Portefeuille Rendement Maximale",
+        field: "PTF_Max_Rdt",
+      },
+      {
+        loading: portefeuilleMarkowitz.loading,
+        data: portefeuilleMarkowitz.data,
+        title: "portefeuille Markowitz",
+        field: "PTF_Max_Shp",
+      },
+      {
+        loading: poidsMasi.loading,
+        data: poidsMasi.data,
+        title: "Poids MASI",
+        field: "Poids_MASI",
+      },
+    ];
+  }, [
+    portefeuilleRendementMaximale,
+    portefeuilleMarkowitz,
+    poidsEqui,
+    poidsMasi,
+    data,
+    loading,
+  ]);
   console.log("compon", components);
   const dispatch = useDispatch();
   const handleContrainteVal = (array) => {

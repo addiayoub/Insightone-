@@ -1,76 +1,71 @@
-import moment from "moment";
-import React from "react";
+import React, { memo, useMemo } from "react";
 import DarkChart from "./DarkChart";
+import formatIndicesChartData from "../../utils/formatIndicesChartData";
+import moment from "moment";
 
 function IndicesChart({ data }) {
-  const seriesData = [];
-  for (const key in data) {
-    seriesData.push({
-      name: key,
-      data: data[key].map((item) => [
-        moment(item.SEANCE).valueOf(),
-        item.VALEUR,
-      ]),
-      marker: { enabled: false },
-      showInLegend: true,
-    });
-  }
-  const options = {
-    chart: {
-      type: "line",
-      height: 600,
-    },
-    title: {
-      text: "",
-    },
-    xAxis: {
-      type: "datetime",
-      labels: {
-        formatter: function () {
-          return moment(this.value).format("DD-MM-YYYY");
-        },
+  const seriesData = useMemo(
+    () => formatIndicesChartData(data, "VALEUR"),
+    [data]
+  );
+  const options = useMemo(() => {
+    return {
+      chart: {
+        type: "line",
+        height: 600,
       },
-    },
-    yAxis: {
       title: {
-        text: "VALEUR",
+        text: "",
       },
-    },
-    series: seriesData,
-    tooltip: {
-      shared: true,
-      crosshairs: true,
-      xDateFormat: "%d/%m/%Y",
-    },
-    accessibility: { enabled: false },
-    navigator: {
-      enabled: true,
-      height: 15,
       xAxis: {
+        type: "datetime",
         labels: {
-          enabled: false,
+          formatter: function () {
+            return moment(this.value).format("DD-MM-YYYY");
+          },
         },
       },
-    },
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500,
-            maxHeight: 400,
+      yAxis: {
+        title: {
+          text: "VALEUR",
+        },
+      },
+      series: seriesData,
+      tooltip: {
+        shared: true,
+        crosshairs: true,
+        xDateFormat: "%d/%m/%Y",
+      },
+      accessibility: { enabled: false },
+      navigator: {
+        enabled: true,
+        height: 15,
+        xAxis: {
+          labels: {
+            enabled: false,
           },
-          chartOptions: {
-            legend: {
-              layout: "horizontal",
-              align: "center",
-              verticalAlign: "bottom",
+        },
+      },
+      responsive: {
+        rules: [
+          {
+            condition: {
+              maxWidth: 500,
+              maxHeight: 400,
+            },
+            chartOptions: {
+              legend: {
+                layout: "horizontal",
+                align: "center",
+                verticalAlign: "bottom",
+              },
             },
           },
-        },
-      ],
-    },
-  };
+        ],
+      },
+    };
+  }, [seriesData]);
   return <DarkChart options={options} />;
 }
 
-export default IndicesChart;
+export default memo(IndicesChart);
