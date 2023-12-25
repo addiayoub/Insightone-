@@ -5,9 +5,19 @@ import axios from "axios";
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   try {
     const response = await axiosClient.post(`/api/auth/login`, user);
+    const response2 = await axios.post(
+      `https://192.168.11.109:9090/token/generate-token/`,
+      {
+        username: "consumer",
+        password: "consumer",
+      }
+    );
     const data = await response.data;
+    const apiToken = await response2.data;
     localStorage.setItem("user", JSON.stringify(data));
-    return data;
+    localStorage.setItem("apiToken", apiToken);
+    console.log("Api Token ", apiToken);
+    return { data, apiToken };
   } catch (error) {
     // return custom error message from backend if present
     if (error.response && error.response.data.message) {

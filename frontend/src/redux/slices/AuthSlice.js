@@ -7,6 +7,7 @@ const initialState = {
   loading: false,
   user: JSON.parse(localStorage.getItem("user")),
   error: null,
+  apiToken: localStorage.getItem("apiToken"),
 };
 
 const authSlice = createSlice({
@@ -29,14 +30,16 @@ const authSlice = createSlice({
       state.user = null;
       state.error = null;
     });
-    builder.addCase(login.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, (state, { payload }) => {
       state.loading = false;
-      state.user = action.payload;
+      state.user = payload.data;
+      state.apiToken = payload.apiToken;
       state.error = null;
     });
     builder.addCase(login.rejected, (state, action) => {
       state.loading = false;
       state.user = null;
+      state.apiToken = null;
       state.error = action.payload;
     });
   },

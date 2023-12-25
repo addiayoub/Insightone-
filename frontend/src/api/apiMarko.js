@@ -5,9 +5,6 @@ const apiMarko = axios.create({
   baseURL: apiUrl,
   withCredentials: true,
   responseType: "json",
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("apiToken")}`,
-  },
   paramsSerializer: {
     indexes: null,
     encode: (param) => encodeURIComponent(param).replaceAll("%24", "$"),
@@ -15,6 +12,11 @@ const apiMarko = axios.create({
 });
 
 apiMarko.interceptors.request.use((config) => {
+  const token = localStorage.getItem("apiToken");
+  console.log("Token from", localStorage.getItem("apiToken"));
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   config.headers.Accept = `application/json`;
 
   return config;

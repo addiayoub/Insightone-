@@ -55,7 +55,7 @@ export default function SignIn() {
         // runLogoutTimer(successValue.expiresIn);
         console.log(successValue);
       })
-      .then(() => dispatch(apiAuth()))
+      // .then(() => dispatch(apiAuth()))
       .catch((rejectedValue) => {
         console.log(rejectedValue);
       });
