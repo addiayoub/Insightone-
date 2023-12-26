@@ -11,6 +11,7 @@ function PortefeuilleAleatoires({
   frontiere,
   setOpen,
   frontiereWeights,
+  type,
 }) {
   const chart = useRef(null);
   const tabRef = useRef(null);
@@ -234,6 +235,7 @@ function PortefeuilleAleatoires({
               ptfs={frontiere}
               data={frontiereWeights.filter((item) => item[name] > 0.01)}
               field={name}
+              type={type}
             />
           </>
         )}

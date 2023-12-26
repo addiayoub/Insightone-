@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    portefeuilles: {
+      type: Array,
+      default: [],
+    },
   },
   { timestamps: true }
 );

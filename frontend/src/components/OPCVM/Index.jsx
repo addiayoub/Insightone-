@@ -31,11 +31,6 @@ function Index() {
         <>
           <Contraintes />
           <Data data={data} />
-          {/* <Univers
-            dateDebut={dateDebut}
-            dateFin={dateFin}
-            setContraintesOp={setContraintesOp}
-          /> */}
           <SelectAllTransferList
             dateDebut={dateDebut}
             dateFin={dateFin}

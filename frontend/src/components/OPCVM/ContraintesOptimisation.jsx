@@ -56,7 +56,6 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
         operateur: operator,
         value: +value,
       }));
-      // setUserChoices((prevState) => [...prevState, ...selectedChoice]);
       if (choice === "contrainte") {
         if (+value < 0 || +value > 100) {
           setError("La valeur doit être comprise entre 0 et 100");

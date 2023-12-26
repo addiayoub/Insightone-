@@ -128,3 +128,29 @@ export const updateProfile = createAsyncThunk(
     }
   }
 );
+
+export const savePortefeuille = createAsyncThunk(
+  "user/savePortefeuille",
+  async ({ portefeuille }, thunkAPI) => {
+    try {
+      const { id } = thunkAPI.getState().auth.user;
+      console.log("User auth", thunkAPI.getState().auth.user);
+      const response = await axios.post(`/api/users/savePortefeuille`, {
+        id,
+        portefeuille,
+      });
+      console.log(`savePortefeuille`, response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      } else {
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message: error.message,
+        });
+      }
+    }
+  }
+);

@@ -25,5 +25,7 @@ export const store = configureStore({
     backtest: BacktestReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authMiddleware),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(authMiddleware),
 });

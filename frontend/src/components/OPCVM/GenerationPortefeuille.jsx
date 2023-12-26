@@ -135,6 +135,7 @@ function GenerationPortefeuille() {
             frontiere={frontiere}
             frontiereWeights={frontiereWeights}
             // setName={setName}
+            type={"OPCVM"}
             setOpen={setOpen}
           />
         )}

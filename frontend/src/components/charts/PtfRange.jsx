@@ -4,7 +4,7 @@ import { ChevronDown } from "react-feather";
 
 function PtfRange({ ptfs, selected }) {
   return (
-    <div className="flex items-center gap-x-3 mt-8 gap-y-6  flex-wrap">
+    <div className="flex items-center gap-x-3 my-8 gap-y-6  flex-wrap">
       <span className="font-bold">Prudent</span>
       <div className="ptfs-container">
         {ptfs.map(({ ptf }, index) => {

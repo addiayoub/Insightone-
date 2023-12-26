@@ -6,7 +6,7 @@ import {
   getDataWithContraints,
   filterMarkoAction,
 } from "../../redux/actions/DataActions";
-import { resetContraints } from "../../redux/slices/DataSlice";
+import { resetContraints, setParams } from "../../redux/slices/DataSlice";
 import AccordionBox from "../AccordionBox";
 import ContraintesOptimisation from "./ContraintesOptimisation";
 import Indices from "./Indices";
@@ -38,6 +38,7 @@ function Markowitz() {
   const handelClick = useCallback(() => {
     setError(false);
     setShowData(true);
+    dispatch(setParams({ dateDebut, dateFin }));
     dispatch(filterMarkoAction({ dateDebut, dateFin }))
       .unwrap()
       .then()

@@ -52,9 +52,9 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
           )
         )
         .then(() => {
-          setIsLoading(false);
           setIsShow(true);
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
   };
   useEffect(() => {
@@ -154,6 +154,7 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
             frontiere={frontiere}
             frontiereWeights={frontiereWeights}
             setOpen={setOpen}
+            type={"Markowitz"}
           />
         )}
       {isShow &&

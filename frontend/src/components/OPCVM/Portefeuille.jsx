@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import Table from "../Table";
 import { Box } from "@mui/material";
 import PortefeuilleSunburst from "./PortefeuilleSunburst";
+import SavePortefeuille from "../SavePortefeuille";
+import { useSelector } from "react-redux";
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
@@ -18,11 +20,6 @@ function Portefeuille({ title, data, field }) {
     }))
     .sort((a, b) => b[field] - a[field]);
   console.log("rows", rows);
-  const secteurSums = rows.reduce((acc, row) => {
-    const secteur = row.SECTEUR_ACTIVITE;
-    acc[secteur] = (acc[secteur] || 0) + (row[field] || 0);
-    return acc;
-  }, {});
   const columns = [
     {
       field: "Societe_Gestion",
@@ -57,7 +54,12 @@ function Portefeuille({ title, data, field }) {
   return (
     <Box sx={gridStyle} className="mb-10">
       <Table columns={columns} rows={rows} pageSize={25} />
-      <PortefeuilleSunburst data={rows} field={field} />
+      <Box>
+        {rows.length > 0 && (
+          <SavePortefeuille data={rows} title={title} type={"OPCVM"} />
+        )}
+        <PortefeuilleSunburst data={rows} field={field} />
+      </Box>
       {/* <PortefeuilleDonut data={rows} field={field} /> */}
     </Box>
   );

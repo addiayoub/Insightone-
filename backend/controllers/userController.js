@@ -246,6 +246,33 @@ class _UserController {
       res.json({ error });
     }
   }
+
+  async savePortefeuille(req, res) {
+    try {
+      const { id, portefeuille } = req.body;
+
+      // Find the user
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+
+      // Initialize portefeuilles as an array if it's undefined
+      user.portefeuilles = user.portefeuilles || [];
+      // Add the new portefeuille to the user's portefeuilles array
+      user.portefeuilles.push(portefeuille);
+      // Save the updated user to the database
+      await user.save();
+
+      res
+        .status(201)
+        .json({ message: "Portefeuille enregistré avec succès.", user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error });
+    }
+  }
 }
 
 const userController = new _UserController();

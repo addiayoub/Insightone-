@@ -18,6 +18,7 @@ import {
   get_poids_masi_all,
 } from "../actions/DataActions";
 import { getDataTest } from "../actions/DataActions";
+import { formatDate } from "../../utils/FormatDate";
 
 const initialState = {
   loading: false,
@@ -144,6 +145,10 @@ const initialState = {
     data: [],
     error: null,
   },
+  params: {
+    dateDebut: null,
+    dateFin: null,
+  },
 };
 
 const dataSlice = createSlice({
@@ -217,6 +222,14 @@ const dataSlice = createSlice({
     },
     setValeurs: (state, { payload }) => {
       state.valeurs = payload.map((item) => item.LIBELLE);
+    },
+    setParams: (state, { payload }) => {
+      console.log("payload", payload);
+      state.params = {
+        dateDebut: formatDate(payload.dateDebut["$d"]),
+        dateFin: formatDate(payload.dateFin["$d"]),
+      };
+      console.log("Params after", state.params);
     },
   },
   extraReducers: (builder) => {
@@ -643,5 +656,6 @@ export const {
   setFilterMarkoData,
   setFilterMarkoContraintes,
   setValeurs,
+  setParams,
 } = dataSlice.actions;
 export default dataSlice.reducer;

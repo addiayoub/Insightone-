@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import AccordionBox from "../AccordionBox";
 import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
 import PtfRange from "../charts/PtfRange";
+import SavePortefeuille from "../SavePortefeuille";
 
 const gridStyle = {
   display: "grid",
@@ -13,7 +14,7 @@ const gridStyle = {
   gap: "60px 15px",
 };
 
-function PortefeuilleFrontiere({ data, field, ptfs }) {
+function PortefeuilleFrontiere({ data, field, ptfs, type }) {
   const rows = data
     .filter((item) => item[field] >= 0.01)
     .map((item) => ({
@@ -46,7 +47,12 @@ function PortefeuilleFrontiere({ data, field, ptfs }) {
       <PtfRange ptfs={ptfs} selected={field} />
       <Box sx={gridStyle} className="mb-10">
         <Table columns={columns} rows={rows} pageSize={25} showToolbar={true} />
-        <PortefeuilleDonut data={rows} field={field} />
+        <Box>
+          {rows.length > 0 && (
+            <SavePortefeuille data={rows} type={type} title={field} />
+          )}
+          <PortefeuilleDonut data={rows} field={field} />
+        </Box>
       </Box>
     </AccordionBox>
   );

@@ -12,6 +12,7 @@ import {
   portefeuilleRendementMaximale_,
   portefeuilleSimule_,
 } from "../actions/OpcvmActions";
+import { formatDate } from "../../utils/FormatDate";
 const initialContraintes = {
   performance: { min: null, max: null },
   cours: {
@@ -84,6 +85,13 @@ const initialState = {
     error: null,
     data: [],
   },
+  params: {
+    dateDebut: null,
+    dateFin: null,
+    societes: [],
+    classes: [],
+    types: [],
+  },
 };
 const opcvmSlice = createSlice({
   name: "opcvm",
@@ -100,6 +108,13 @@ const opcvmSlice = createSlice({
     },
     setFilteredDataSet: ({ dataSet }, { payload }) => {
       dataSet.filteredData = payload;
+    },
+    setParams: (state, { payload }) => {
+      state.params = {
+        ...payload,
+        dateDebut: formatDate(payload.dateDebut["$d"]),
+        dateFin: formatDate(payload.dateFin["$d"]),
+      };
     },
   },
   extraReducers: (builder) => {
@@ -349,5 +364,6 @@ export const {
   setFilteredData,
   setContraintes,
   setLibelles,
+  setParams,
   setFilteredDataSet,
 } = opcvmSlice.actions;

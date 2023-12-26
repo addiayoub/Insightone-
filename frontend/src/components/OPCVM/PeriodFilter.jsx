@@ -10,6 +10,8 @@ import {
 } from "../../redux/actions/OpcvmActions";
 import SelectIndices from "../Markowitz/SelectIndices";
 import { notyf } from "../../utils/notyf";
+import { setParams } from "../../redux/slices/OpcvmSlice";
+import { formatDate } from "../../utils/FormatDate";
 
 function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   const { societes } = useSelector((state) => state.opcvm);
@@ -38,6 +40,13 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
       .catch((error) => notyf.error("getSocietesGestion " + error));
   }, []);
   const handleSearch = () => {
+    const params = {
+      dateDebut,
+      dateFin,
+      classes: selectedClasses,
+      societes: selectedSocietes,
+      types: selectedTypes,
+    };
     dispatch(
       getDataSet({
         dateDebut,
@@ -48,17 +57,12 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
     )
       .unwrap()
       .then(() =>
-        dispatch(
-          getData({
-            dateDebut,
-            dateFin,
-            classes: selectedClasses,
-            societes: selectedSocietes,
-            types: selectedTypes,
-          })
-        )
+        dispatch(getData(params))
           .unwrap()
-          .then()
+          .then(() => {
+            console.log("Run dispatch(setParams(params))", params);
+            dispatch(setParams(params));
+          })
           .catch((error) => notyf.error("getData " + error))
       )
       .catch((error) => notyf.error(error));

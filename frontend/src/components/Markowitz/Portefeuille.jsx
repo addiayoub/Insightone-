@@ -3,8 +3,9 @@ import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import Table from "../Table";
 import PortefeuilleDonut from "../charts/PortefeuilleDonut";
 import { Box } from "@mui/material";
-import AccordionBox from "../AccordionBox";
 import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
+import SavePortefeuille from "../SavePortefeuille";
+import { useSelector } from "react-redux";
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
@@ -67,8 +68,12 @@ function Portefeuille({ title, data, field }) {
   return (
     <Box sx={gridStyle} className="mb-10">
       <Table columns={columns} rows={rows} pageSize={25} />
-      <PortefeuilleSunburst data={rows} field={field} />
-      {/* <PortefeuilleDonut data={rows} field={field} /> */}
+      <Box>
+        {rows.length > 0 && (
+          <SavePortefeuille title={title} data={rows} type="Markowitz" />
+        )}
+        <PortefeuilleSunburst data={rows} field={field} />
+      </Box>
     </Box>
   );
 }
