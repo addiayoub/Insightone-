@@ -23,6 +23,8 @@ import UniversB100 from "../charts/UniversB100";
 import MainLoader from "../loaders/MainLoader";
 import ChartContainer from "../ChartContainer";
 import groupBy from "../../utils/groupBy";
+import EChartsPreview from "../Test/EchartPreview";
+import NewUniversB100 from "../charts/NewUniversB100";
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -278,12 +280,18 @@ export default function NewUnivers({
         </Grid>
         {showChart && (
           <ChartContainer width={400}>
-            <ChartPreview data={chartData} />
-            <UniversB100
+            {/* <ChartPreview data={chartData} /> */}
+            <EChartsPreview data={chartData} />
+            <NewUniversB100
               data={chartData}
               dateDebut={dateDebut}
               dateFin={dateFin}
             />
+            {/* <UniversB100
+              data={chartData}
+              dateDebut={dateDebut}
+              dateFin={dateFin}
+            /> */}
           </ChartContainer>
         )}
         <Box className="max-w-[400px] mx-auto mt-10">

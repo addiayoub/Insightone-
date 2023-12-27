@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import { IconButton } from "@mui/material";
 import { Eye, EyeOff } from "react-feather";
@@ -195,16 +195,15 @@ function PortefeuilleAleatoires({
       ],
     };
   }, [data]);
-  console.log("chart", chart, "frontiere length", frontiere, frontiere.length);
   const handleClick = (params) => {
-    const { seriesType, name } = params;
-    console.log(seriesType, name);
-    if (seriesType === "effectScatter" && name) {
-      setName(name);
-      setOpen(true);
+    const { seriesType, name: serieName } = params;
+    console.log("seriesType: ", seriesType, "name:", serieName);
+    if (seriesType === "effectScatter" && serieName) {
       tabRef.current.scrollIntoView({
         behavior: "smooth",
       });
+      setName(serieName);
+      setOpen(true);
     }
   };
   return (

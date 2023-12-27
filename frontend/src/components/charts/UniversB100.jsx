@@ -11,7 +11,6 @@ const UniversB100 = ({ data, dateDebut, dateFin }) => {
       console.log("Key", key);
       const valuesForKey = data[key];
       const cle = data[key][0]["CLE_TITRE"];
-      console.log("data[key]", data[key][0]["CLE_TITRE"]);
 
       valuesForKey.sort((a, b) => new Date(a.SEANCE) - new Date(b.SEANCE));
       const firstValue = valuesForKey[0]?.Cours_Ajuste;

@@ -28,7 +28,7 @@ function Markowitz() {
   const [contraintesOptimisation, setContraintesOptimisation] = useState([]);
   const { filterMarko } = useSelector((state) => state.rapport);
   const [filteredData, setFilteredData] = useState(filterMarko.data);
-  console.log("filteredData", filteredData);
+  console.log("filteredData rendered");
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -110,7 +110,7 @@ function PortefeuilleSunburst({ data, field }) {
       text: "",
     },
     grid: {
-      left: "100%",
+      // left: "100%",
     },
     series: {
       type: "sunburst",

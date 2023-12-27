@@ -1,6 +1,6 @@
 import ReactECharts from "echarts-for-react";
 import moment from "moment/moment";
-import React from "react";
+import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
 // Evolution base 100 des Portefeuille simulé
 function PortefeuilleFrontiere({ data }) {
@@ -26,68 +26,75 @@ function PortefeuilleFrontiere({ data }) {
       data: all.map((item) => item[name]).filter((item) => item !== undefined),
     };
   });
-  const options = {
-    title: {
-      text: "Evolution B100 Portefeuille Frontiere Efficiente",
-      left: "center",
-      ...theme.title,
-    },
-    grid: {
-      top: "10%",
-      bottom: "15%",
-      right: "19%",
-      containLabel: true,
-    },
-    toolbox: {
-      feature: {
-        dataZoom: {
-          yAxisIndex: true,
+  const minYAxisValue = useMemo(() => {
+    const seriesData = series.map((s) => s.data).flat();
+    return Math.min(...seriesData);
+  }, [series]);
+  console.log("min y val", minYAxisValue);
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "Evolution B100 Portefeuille Frontiere Efficiente",
+        left: "center",
+        ...theme.title,
+      },
+      grid: {
+        top: "10%",
+        bottom: "15%",
+        right: "19%",
+        containLabel: true,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
         },
-        restore: {},
-        saveAsImage: {},
+        top: "20px",
       },
-      top: "20px",
-    },
-    tooltip: {
-      trigger: "axis",
-      valueFormatter: (value) => value.toFixed(2),
-    },
-    dataZoom: [
-      {
-        type: "slider", // Enable slider data zoom
-        show: true,
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
-        // margin: [10, 100, 10, 100],
+      tooltip: {
+        trigger: "axis",
+        valueFormatter: (value) => value.toFixed(2),
       },
-      {
-        type: "inside",
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
+      dataZoom: [
+        {
+          type: "slider",
+          show: true,
+          xAxisIndex: [0],
+          start: 0,
+          end: 100,
+        },
+        {
+          type: "inside",
+          xAxisIndex: [0],
+          start: 0,
+          end: 100,
+        },
+      ],
+      xAxis: {
+        type: "category",
+        data: data["Evolution base 100 des Portefeuille simulé"].map((item) =>
+          moment(item.seance).format("DD/MM/YYYY")
+        ),
       },
-    ],
-    xAxis: {
-      type: "category",
-      data: data["Evolution base 100 des Portefeuille simulé"].map((item) =>
-        moment(item.seance).format("DD/MM/YYYY")
-      ),
-    },
-    legend: {
-      data: names.map((name) => name),
-      orient: "verticaly",
-      zLevel: 5,
-      top: "center",
-      right: "0",
-      type: "scroll",
-      ...theme.legend,
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: series,
-  };
+      legend: {
+        data: names.map((name) => name),
+        orient: "verticaly",
+        zLevel: 5,
+        top: "center",
+        right: "0",
+        type: "scroll",
+        ...theme.legend,
+      },
+      yAxis: {
+        type: "value",
+        min: Math.trunc(minYAxisValue),
+      },
+      series: series,
+    };
+  }, [series, theme, data]);
   return (
     <ReactECharts
       option={options}
@@ -100,4 +107,4 @@ function PortefeuilleFrontiere({ data }) {
   );
 }
 
-export default PortefeuilleFrontiere;
+export default memo(PortefeuilleFrontiere);

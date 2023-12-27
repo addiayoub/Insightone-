@@ -7,7 +7,7 @@ import SavePortefeuille from "../SavePortefeuille";
 import { useSelector } from "react-redux";
 const gridStyle = {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
+  gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
   gap: "60px 15px",
 };
 
@@ -52,9 +52,17 @@ function Portefeuille({ title, data, field }) {
     },
   ];
   return (
-    <Box sx={gridStyle} className="mb-10">
-      <Table columns={columns} rows={rows} pageSize={25} />
-      <Box>
+    <Box
+      // sx={gridStyle}
+      className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 mb-10"
+    >
+      <Table
+        columns={columns}
+        rows={rows}
+        pageSize={25}
+        className="md:col-span-8 lg:col-span-8 xl:col-span-8"
+      />
+      <Box className="md:col-span-4 lg:col-span-4 xl:col-span-4">
         {rows.length > 0 && (
           <SavePortefeuille data={rows} title={title} type={"OPCVM"} />
         )}

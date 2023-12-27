@@ -159,6 +159,8 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
         )}
       {isShow &&
         !isLoading &&
+        typeof evolutionB100Frontiere.data === "object" &&
+        Object.keys(evolutionB100Frontiere.data).length > 0 &&
         evolutionB100Frontiere.data[
           "Evolution base 100 des Portefeuille simulé"
         ].length > 0 && (

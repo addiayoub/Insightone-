@@ -651,6 +651,7 @@ export const filterMarkoAction = createAsyncThunk(
     try {
       const dd = formatDate(dateDebut["$d"]);
       const df = formatDate(dateFin["$d"]);
+      console.log("filterMarkoAction dates", dd, df);
       const response = await apiMarko.get(`GETAPI?FILTER_MARKO&${dd}&${df}`);
       console.log("FilterMarko", response.data);
       const result = response.data;

@@ -10,7 +10,7 @@ function Period({ dateDebut, setDateDebut, dateFin, setDateFin, onSearch }) {
   const handelClick = useCallback(() => {
     dispatch(resetContraints());
     onSearch();
-  }, []);
+  }, [onSearch]);
   return (
     <AccordionBox
       detailsClass={"flex items-center flex-wrap gap-2"}

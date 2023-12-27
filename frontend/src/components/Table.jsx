@@ -48,6 +48,7 @@ function Table({
   showOnClick = false,
   pageSize = 5,
   showToolbar = true,
+  className = "",
 }) {
   const classes = useStyles();
   const slots = showToolbar ? { toolbar: CustomToolbar } : {};
@@ -62,7 +63,7 @@ function Table({
   return (
     <>
       <StripedDataGrid
-        className="my-5"
+        className={`${className} my-5`}
         columns={columns}
         rows={injectId(rows)}
         hideFooter={rows.length < 5}

@@ -22,6 +22,8 @@ import ChartPreview from "../OPCVM/ChartPreview";
 import UniversB100 from "../OPCVM/UniversB100";
 import filterDataSet from "../../utils/filterDataSet";
 import groupBy from "../../utils/groupBy";
+import EChartsPreview from "../OPCVM/EchartPreview";
+import NewUniversB100 from "../OPCVM/NewUniversB100";
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -280,12 +282,18 @@ export default function SelectAllTransferList({
         </Grid>
         {showChart && (
           <ChartContainer width={400}>
-            <ChartPreview data={chartData} />
-            <UniversB100
+            {/* <ChartPreview data={chartData} /> */}
+            <EChartsPreview data={chartData} />
+            <NewUniversB100
               data={chartData}
               dateDebut={dateDebut}
               dateFin={dateFin}
             />
+            {/* <UniversB100
+              data={chartData}
+              dateDebut={dateDebut}
+              dateFin={dateFin}
+            /> */}
           </ChartContainer>
         )}
         <Box className="max-w-[400px] mx-auto mt-10">
