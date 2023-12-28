@@ -27,10 +27,27 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    portefeuilles: {
-      type: Array,
-      default: [],
-    },
+    portefeuilles: [
+      {
+        id: {
+          type: String,
+        },
+        name: {
+          type: String,
+        },
+        type: {
+          type: String,
+        },
+        data: {
+          type: Array,
+          default: [],
+        },
+        params: {
+          type: Object,
+          default: {},
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

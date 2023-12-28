@@ -7,6 +7,8 @@ import AccordionBox from "../AccordionBox";
 import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
 import PtfRange from "../charts/PtfRange";
 import SavePortefeuille from "../SavePortefeuille";
+import Portefeuille from "../OPCVM/Portefeuille";
+import PortefeuilleMarko from "../Markowitz/Portefeuille";
 
 const gridStyle = {
   display: "grid",
@@ -23,6 +25,7 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
     }))
     .sort((a, b) => b[field] - a[field]);
   console.log("rows", rows);
+  console.log("Type...", type);
   const columns = [
     {
       field: "titre",
@@ -45,15 +48,29 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
   return (
     <AccordionBox title={field} isExpanded={true}>
       <PtfRange ptfs={ptfs} selected={field} />
-      <Box sx={gridStyle} className="mb-10">
-        <Table columns={columns} rows={rows} pageSize={25} showToolbar={true} />
-        <Box>
+      {type === "OPCVM" ? (
+        <Portefeuille data={rows} field={field} />
+      ) : (
+        <PortefeuilleMarko data={rows} field={field} />
+      )}
+      {/* <Box
+        // sx={gridStyle}
+        className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 mb-10"
+      >
+        <Table
+          columns={columns}
+          rows={rows}
+          pageSize={25}
+          showToolbar={true}
+          className="md:col-span-8 lg:col-span-8 xl:col-span-8"
+        />
+        <Box className="md:col-span-4 lg:col-span-4 xl:col-span-4">
           {rows.length > 0 && (
             <SavePortefeuille data={rows} type={type} title={field} />
           )}
           <PortefeuilleDonut data={rows} field={field} />
         </Box>
-      </Box>
+      </Box> */}
     </AccordionBox>
   );
 }

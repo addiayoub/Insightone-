@@ -9,16 +9,14 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  // width: 400,
   bgcolor: "background.paper",
   borderRadius: 6,
   boxShadow: 24,
   p: 4,
 };
 
-export default function BasicModal({ open, setOpen, children, name }) {
-  const handleClose = () => setOpen(false);
-
+export default function ModalComponent({ open, handleClose, children }) {
   return (
     <div>
       <Modal
@@ -27,12 +25,7 @@ export default function BasicModal({ open, setOpen, children, name }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Portefeuille
-          </Typography>
-          {children}
-        </Box>
+        <Box sx={style}>{children}</Box>
       </Modal>
     </div>
   );

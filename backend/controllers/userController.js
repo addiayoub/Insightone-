@@ -260,6 +260,21 @@ class _UserController {
 
       // Initialize portefeuilles as an array if it's undefined
       user.portefeuilles = user.portefeuilles || [];
+
+      // Check if the portefeuille name already exists
+      const isPortefeuilleNameExists = user.portefeuilles.find(
+        (existing) =>
+          existing.name === portefeuille.name &&
+          existing.type === portefeuille.type
+      );
+
+      if (isPortefeuilleNameExists) {
+        return res.status(400).json({
+          message:
+            "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
+        });
+      }
+
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(portefeuille);
       // Save the updated user to the database

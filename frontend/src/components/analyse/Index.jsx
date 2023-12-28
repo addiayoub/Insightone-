@@ -144,6 +144,7 @@ function Index() {
       {loading && <MainLoader />}
       {isShow && !loading && (
         <>
+          <PatternsChandeliers data={data.patternsChand} />
           <GuageCharts data={data} />
           <DataTable
             title={"Indicateurs techniques"}
@@ -177,7 +178,6 @@ function Index() {
             columns={columnsNews}
             id={"news"}
           />
-          <PatternsChandeliers data={data.patternsChand} />
         </>
       )}
     </Box>

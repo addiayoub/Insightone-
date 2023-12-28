@@ -177,7 +177,8 @@ export default function ContraintesOptimisation({
           .then(() => {
             setIsLoading(false);
             setShowPoids(true);
-          });
+          })
+          .catch(() => setIsLoading(false));
       } else {
         setIsLoading(false);
         setShowErrors(true);
