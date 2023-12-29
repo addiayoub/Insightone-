@@ -330,6 +330,34 @@ class _UserController {
       res.status(500).json({ error });
     }
   }
+
+  async deletePortefeuilles(req, res) {
+    try {
+      const { id } = req.query;
+      const ids = req.body.map((item) => item._id);
+
+      // Find the user
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+      const { portefeuilles } = await User.findByIdAndUpdate(
+        id,
+        {
+          $pull: { portefeuilles: { _id: { $in: ids } } },
+        },
+        { new: true }
+      );
+      res.status(200).json({
+        message: "Portfolio supprimé avec succès",
+        portefeuilles,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error });
+    }
+  }
 }
 
 const userController = new _UserController();

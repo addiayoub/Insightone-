@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   comparePortefeuilles,
+  deletePortefeuilles,
   deleteUser,
   fetchUsers,
   getPortefeuilles,
@@ -180,7 +181,26 @@ const userSlice = createSlice({
         portefeuilles.error = payload;
       }
     );
-
+    // Delete Portefeuilles
+    builder.addCase(deletePortefeuilles.pending, ({ portefeuilles }) => {
+      portefeuilles.loading = true;
+    });
+    builder.addCase(
+      deletePortefeuilles.fulfilled,
+      ({ portefeuilles }, { payload }) => {
+        portefeuilles.loading = false;
+        portefeuilles.data = payload.portefeuilles;
+        portefeuilles.error = null;
+      }
+    );
+    builder.addCase(
+      deletePortefeuilles.rejected,
+      ({ portefeuilles }, { payload }) => {
+        portefeuilles.loading = false;
+        console.log("portefeuilles err payo", payload);
+        portefeuilles.error = payload;
+      }
+    );
     // Compare Portefeuilles
     builder.addCase(
       comparePortefeuilles.pending,

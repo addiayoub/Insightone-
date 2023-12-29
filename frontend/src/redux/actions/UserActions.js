@@ -210,3 +210,34 @@ export const comparePortefeuilles = createAsyncThunk(
     }
   }
 );
+
+export const deletePortefeuilles = createAsyncThunk(
+  "user/deletePortefeuilles",
+  async ({ ptfs }, thunkAPI) => {
+    try {
+      const { id } = thunkAPI.getState().auth.user;
+      console.log("User auth", thunkAPI.getState().auth.user);
+      const response = await axios.post(
+        `/api/users/deletePortefeuilles`,
+        ptfs,
+        {
+          params: {
+            id,
+          },
+        }
+      );
+      console.log(`deletePortefeuilles`, response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      } else {
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message: error.message,
+        });
+      }
+    }
+  }
+);

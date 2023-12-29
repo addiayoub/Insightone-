@@ -21,6 +21,7 @@ const PortefeuilleBacktest = ({ backtestData }) => {
   const [indices, setIndices] = useState([]);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShow, setIsShow] = useState(false);
   useEffect(() => {
     setIsLoading(true);
     dispatch(getIndices())
@@ -34,7 +35,7 @@ const PortefeuilleBacktest = ({ backtestData }) => {
   const handleBacktest = () => {
     dispatch(getEvolutionB100Portef({ dateDebut, dateFin, backtestData }))
       .unwrap()
-      .then()
+      .then(() => setIsShow(true))
       .catch(() => notyf.error("Error Evolution B100"));
   };
   return (
@@ -60,7 +61,7 @@ const PortefeuilleBacktest = ({ backtestData }) => {
           Backtester
         </Button>
       </AccordionBox>
-      {!loading && data.length > 0 && <EvolutionB100 data={data} />}
+      {!loading && isShow && data.length > 0 && <EvolutionB100 data={data} />}
       {(isLoading || loading) && <MainLoader />}
     </>
   );
