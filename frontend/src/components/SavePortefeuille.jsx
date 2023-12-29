@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { savePortefeuille } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
 import ModalComponent from "./Modal";
-import { v4 as uuidv4 } from "uuid";
 
-const SavePortefeuille = ({ data, type }) => {
+const SavePortefeuille = ({ data, type, field }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
@@ -21,9 +20,9 @@ const SavePortefeuille = ({ data, type }) => {
     console.log("Title", title);
     console.log("params", params);
     const portefeuille = {
-      id: uuidv4(),
       name: title.trim(),
       type,
+      field,
       params,
       data,
     };

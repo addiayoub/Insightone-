@@ -1,6 +1,6 @@
 import ReactECharts from "echarts-for-react";
 import moment from "moment/moment";
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
 
 function EvolutionB100({ data }) {
@@ -11,7 +11,6 @@ function EvolutionB100({ data }) {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))
       .flat();
-    console.log("flat", seriesData);
     const minYAxisValue = Math.min(...seriesData);
     return {
       title: {
@@ -90,4 +89,4 @@ function EvolutionB100({ data }) {
   );
 }
 
-export default EvolutionB100;
+export default memo(EvolutionB100);

@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  comparePortefeuilles,
   deleteUser,
   fetchUsers,
+  getPortefeuilles,
   showUser,
   storeUser,
   updateProfile,
@@ -28,6 +30,16 @@ const initialState = {
   updateProfileState: {
     loading: false,
     error: null,
+  },
+  portefeuilles: {
+    loading: false,
+    error: null,
+    data: [],
+  },
+  comparePortefeuilles: {
+    loading: false,
+    error: null,
+    data: [],
   },
 };
 const userSlice = createSlice({
@@ -145,6 +157,51 @@ const userSlice = createSlice({
         updateProfileState.loading = false;
         console.log("update pro", action.payload);
         updateProfileState.error = action.payload;
+      }
+    );
+
+    // GET Portefeuilles
+    builder.addCase(getPortefeuilles.pending, ({ portefeuilles }) => {
+      portefeuilles.loading = true;
+    });
+    builder.addCase(
+      getPortefeuilles.fulfilled,
+      ({ portefeuilles }, { payload }) => {
+        portefeuilles.loading = false;
+        portefeuilles.data = payload;
+        portefeuilles.error = null;
+      }
+    );
+    builder.addCase(
+      getPortefeuilles.rejected,
+      ({ portefeuilles }, { payload }) => {
+        portefeuilles.loading = false;
+        console.log("portefeuilles err payo", payload);
+        portefeuilles.error = payload;
+      }
+    );
+
+    // Compare Portefeuilles
+    builder.addCase(
+      comparePortefeuilles.pending,
+      ({ comparePortefeuilles }) => {
+        comparePortefeuilles.loading = true;
+      }
+    );
+    builder.addCase(
+      comparePortefeuilles.fulfilled,
+      ({ comparePortefeuilles }, { payload }) => {
+        comparePortefeuilles.loading = false;
+        comparePortefeuilles.data = payload;
+        comparePortefeuilles.error = null;
+      }
+    );
+    builder.addCase(
+      comparePortefeuilles.rejected,
+      ({ comparePortefeuilles }, { payload }) => {
+        comparePortefeuilles.loading = false;
+        console.log("comparePortefeuilles err payo", payload);
+        comparePortefeuilles.error = payload;
       }
     );
   },

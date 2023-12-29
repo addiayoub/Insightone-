@@ -48,6 +48,7 @@ function News({ data }) {
         rows={dataWithIds}
         rowId={"titre"}
         pagination={true}
+        shouldHandleCellClick
         showOnClick={true}
       />
     </>

@@ -40,7 +40,7 @@ function GenerationPortefeuille() {
     //   .then(() => setShow(true))
     //   .finally(() => setIsLoading(false));
     dispatch(portefeuilleAleatoire_({ PTF, risque, nbrPointFront }))
-      .then(() => dispatch(portefeuilleSimule_({ risque })))
+      // .then(() => dispatch(portefeuilleSimule_({ risque })))
       .then(() => dispatch(evolutionB100Frontiere_({ nbrPointFront })))
       .then(() => setShow(true))
       .finally(() => setIsLoading(false));
@@ -149,9 +149,9 @@ function GenerationPortefeuille() {
         <PortefeuilleFrontiere data={evolutionB100Frontiere.data} />
       )}
 
-      {show && !portefeuilleSimule.loading && (
+      {/* {show && !portefeuilleSimule.loading && (
         <EvolutionB100 data={portefeuilleSimule.data} />
-      )}
+      )} */}
     </>
   );
 }

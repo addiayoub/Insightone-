@@ -39,6 +39,7 @@ function SelectIndices({
         return filtered.length > 0 ? [allOption, ...filtered] : [];
       }}
       onChange={handleIndicesChange}
+      noOptionsText={"aucune option"}
       getOptionLabel={(option) => option}
       ListboxProps={{ style: { maxHeight: 300 } }}
       renderOption={(props, option, { selected }) => (

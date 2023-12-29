@@ -37,6 +37,7 @@ const localeText = {
   noRowsLabel: "Aucune donnée à afficher",
   noResultsOverlayLabel: "Aucun résultat trouvé",
   toolbarExportCSV: "Télécharger CSV",
+  selectedRowsLabel: "Custom Selected Rows",
 };
 const paginationOptions = [5, 10, 25, 50, 100];
 function Table({
@@ -48,9 +49,14 @@ function Table({
   showOnClick = false,
   pageSize = 5,
   showToolbar = true,
+  showFooter,
   className = "",
+  withCheckboxes,
+  shouldHandleCellClick,
+  setSelectedRows,
 }) {
   const classes = useStyles();
+  rows = injectId(rows);
   const slots = showToolbar ? { toolbar: CustomToolbar } : {};
   const [clickedRowId, setClickedRowId] = useState(null);
   const handleClose = () => setClickedRowId(null);
@@ -65,10 +71,11 @@ function Table({
       <StripedDataGrid
         className={`${className} my-5`}
         columns={columns}
-        rows={injectId(rows)}
-        hideFooter={rows.length < 5}
+        rows={rows}
+        hideFooter={rows.length < 5 && !showFooter}
         disableRowSelectionOnClick
         localeText={localeText}
+        getRowId={(row) => row.id}
         getRowClassName={getRowClassName}
         componentsProps={{
           pagination: {
@@ -76,7 +83,13 @@ function Table({
           },
         }}
         slots={slots}
-        onCellClick={handleCellClick}
+        checkboxSelection={withCheckboxes}
+        onRowSelectionModelChange={(ids) => {
+          const selectedIDs = new Set(ids);
+          const selectedRows = rows.filter((row) => selectedIDs.has(row.id));
+          setSelectedRows(selectedRows);
+        }}
+        onCellClick={shouldHandleCellClick ? handleCellClick : null}
         getRowHeight={() => (autoHeight ? "auto" : 0)}
         pageSizeOptions={paginationOptions}
         initialState={{

@@ -29,10 +29,10 @@ const userSchema = new mongoose.Schema(
     },
     portefeuilles: [
       {
-        id: {
+        name: {
           type: String,
         },
-        name: {
+        field: {
           type: String,
         },
         type: {

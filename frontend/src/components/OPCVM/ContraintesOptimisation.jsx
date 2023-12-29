@@ -12,10 +12,12 @@ import {
   portefeuilleRendementMaximale_,
   portefeuilleMarkowitz_,
   contraintesPoids_,
+  portefeuilleSimule_,
 } from "../../redux/actions/OpcvmActions";
 import MainLoader from "../loaders/MainLoader";
 import TabTest from "./TabTest";
 import checkExistence from "../../utils/checkExistence";
+import EvolutionB100 from "../charts/EvolutionB100";
 
 function ContraintesOptimisation({ dateDebut, contraintesOp }) {
   const [contraintes, setContraintes] = useState([]);
@@ -23,6 +25,7 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
     portefeuilleMinimumVariance,
     portefeuilleRendementMaximale,
     portefeuilleMarkowitz,
+    portefeuilleSimule,
   } = useSelector((state) => state.opcvm);
   const dispatch = useDispatch();
   const [operateur, setOperateur] = useState(">=");
@@ -127,6 +130,7 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
         dispatch(portefeuilleMinimumVariance_())
           .then(() => dispatch(portefeuilleRendementMaximale_()))
           .then(() => dispatch(portefeuilleMarkowitz_()))
+          .then(() => dispatch(portefeuilleSimule_({ risque: 3 })))
           .then(() => {
             setIsLoading(false);
             setShowPoids(true);
@@ -181,6 +185,11 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
       </AccordionBox>
       {isLoading && <MainLoader />}
       {showPoids && <TabTest components={components} isOPCVM />}
+      {showPoids && !portefeuilleSimule.loading && (
+        <AccordionBox title={"Evolution B100 portefeuille simulé"}>
+          <EvolutionB100 data={portefeuilleSimule.data} />
+        </AccordionBox>
+      )}
     </>
   );
 }

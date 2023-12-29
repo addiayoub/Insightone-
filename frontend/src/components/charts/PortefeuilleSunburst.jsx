@@ -48,6 +48,8 @@ function PortefeuilleSunburst({ data, field }) {
       sort: undefined,
       emphasis: {
         focus: "ancestor",
+        // show: true,
+        // fontWeight: "bold", // Show labels on hover
       },
       levels: [
         {},
@@ -60,6 +62,7 @@ function PortefeuilleSunburst({ data, field }) {
           label: {
             fontSize: 8,
             align: "center",
+            rotate: "tangential",
           },
         },
         {
@@ -68,6 +71,7 @@ function PortefeuilleSunburst({ data, field }) {
           label: {
             align: "center",
             fontSize: 8,
+            rotate: "tangential",
           },
         },
       ],

@@ -1,3 +1,4 @@
+const moment = require("moment");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
@@ -283,6 +284,47 @@ class _UserController {
       res
         .status(201)
         .json({ message: "Portefeuille enregistré avec succès.", user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error });
+    }
+  }
+  async getPortefeuilles(req, res) {
+    try {
+      const { id } = req.query;
+      // Find the user
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+      res.status(200).json({
+        portefeuilles: user.portefeuilles,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error });
+    }
+  }
+
+  async comparePortefeuilles(req, res) {
+    try {
+      const { id, titres, type } = req.query;
+
+      // Find the user
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+      const portefeuilles = user.portefeuilles.filter(
+        (portefeuille) =>
+          portefeuille.type?.toLowerCase() === type?.toLowerCase() &&
+          titres.includes(portefeuille.name)
+      );
+      res.status(200).json({
+        portefeuilles,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error });

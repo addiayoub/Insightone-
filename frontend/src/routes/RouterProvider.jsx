@@ -14,6 +14,7 @@ import Secteurs from "../components/Secteurs/Secteurs.jsx";
 import Markowitz from "../components/Markowitz/Markowitz.jsx";
 import Opcvm from "../components/OPCVM/Index.jsx";
 import Backtest from "../components/Backtest/Backtest.jsx";
+import Portefeuilles from "../components/portefeuilles/Index.jsx";
 
 function RouterProvider() {
   return (
@@ -29,6 +30,7 @@ function RouterProvider() {
             <Route path="/sectorial" element={<Secteurs />} />
             <Route path="/opcvm" element={<Opcvm />} />
             <Route path="/backtest" element={<Backtest />} />
+            <Route path="/portefeuilles" element={<Portefeuilles />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

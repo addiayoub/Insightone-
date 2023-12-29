@@ -154,3 +154,59 @@ export const savePortefeuille = createAsyncThunk(
     }
   }
 );
+
+export const getPortefeuilles = createAsyncThunk(
+  "user/getPortefeuilles",
+  async (_, thunkAPI) => {
+    try {
+      const { id } = thunkAPI.getState().auth.user;
+      console.log("User auth", thunkAPI.getState().auth.user);
+      const response = await axios.get(`/api/users/getPortefeuilles`, {
+        params: {
+          id,
+        },
+      });
+      console.log(`getPortefeuilles`, response);
+      return response.data.portefeuilles;
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      } else {
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message: error.message,
+        });
+      }
+    }
+  }
+);
+
+export const comparePortefeuilles = createAsyncThunk(
+  "user/comparePortefeuilles",
+  async ({ type, titres }, thunkAPI) => {
+    try {
+      const { id } = thunkAPI.getState().auth.user;
+      console.log("User auth", thunkAPI.getState().auth.user);
+      const response = await axios.get(`/api/users/comparePortefeuilles`, {
+        params: {
+          id,
+          type,
+          titres,
+        },
+      });
+      console.log(`comparePortefeuilles`, response);
+      return response.data.portefeuilles;
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      } else {
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message: error.message,
+        });
+      }
+    }
+  }
+);

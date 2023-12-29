@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import apiNewMarko from "../../api/apiNewMarko";
 import { formatDate } from "../../utils/FormatDate";
+import { transformBacktestData } from "../../utils/formatBacktestData";
 
 const apiTrading = "trading/";
 
@@ -38,6 +39,30 @@ export const getPortef = createAsyncThunk(
       );
       console.log("get_portef", response);
       return response.data;
+    } catch (error) {
+      console.log("error", error);
+      return thunkAPI.rejectWithValue("Server Error");
+    }
+  }
+);
+
+export const getEvolutionB100Portef = createAsyncThunk(
+  "backtest/getEvolutionB100Portef",
+  async ({ dateDebut, dateFin, backtestData }, thunkAPI) => {
+    const body = transformBacktestData(backtestData);
+    try {
+      const response = await apiNewMarko.post(
+        `${apiTrading}POST/EVOLUTION_B100_PTFS/`,
+        body,
+        {
+          params: {
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+          },
+        }
+      );
+      console.log("getEvolutionB100Portef", response);
+      return response.data["Evolution base 100 des Portefeuille simulé"];
     } catch (error) {
       console.log("error", error);
       return thunkAPI.rejectWithValue("Server Error");

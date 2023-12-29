@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPortef } from "../actions/BacktestActions";
+import { getEvolutionB100Portef, getPortef } from "../actions/BacktestActions";
 
 const backtestSlice = createSlice({
   name: "backtest",
@@ -23,6 +23,11 @@ const backtestSlice = createSlice({
       operation_qte: [],
       poids_ap: [],
       poids_av: [],
+    },
+    evolutionB100Ptfs: {
+      data: [],
+      loading: false,
+      error: null,
     },
   },
   extraReducers: (builder) => {
@@ -53,6 +58,26 @@ const backtestSlice = createSlice({
       data.data = {};
       data.error = payload;
     });
+
+    // GEt Evolution B100 ptfs
+    builder.addCase(getEvolutionB100Portef.pending, ({ evolutionB100Ptfs }) => {
+      evolutionB100Ptfs.loading = true;
+    });
+    builder.addCase(
+      getEvolutionB100Portef.fulfilled,
+      ({ evolutionB100Ptfs }, { payload }) => {
+        evolutionB100Ptfs.loading = false;
+        evolutionB100Ptfs.data = payload;
+      }
+    );
+    builder.addCase(
+      getEvolutionB100Portef.rejected,
+      ({ evolutionB100Ptfs }, { payload }) => {
+        evolutionB100Ptfs.loading = false;
+        evolutionB100Ptfs.data = [];
+        evolutionB100Ptfs.error = payload;
+      }
+    );
   },
 });
 
