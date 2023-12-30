@@ -2,10 +2,10 @@ export const transformBacktestData = (ptfs) => {
   const newData = [];
   ptfs.forEach((ptf) => {
     const ptfData = ptf.data;
-    const { field } = ptf;
+    const { field, name } = ptf;
     const dd = ptfData.map((item) => ({
       valeur: item.titre,
-      [field]: item[field],
+      [name]: item[field],
     }));
     newData.push(...dd);
   });

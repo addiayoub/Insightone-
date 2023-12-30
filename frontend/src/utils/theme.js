@@ -20,10 +20,11 @@ const theme = createTheme({
       main: "#ee4658", // --danger-color
     },
     success: {
-      main: "#2e7d32", // --success-color
+      main: "#21cc6d", // --success-color
+      contrastText: "#fff",
     },
     warning: {
-      main: "#ff6d00", // --warning-color
+      main: "#ffb744", // --warning-color
     },
   },
 });
@@ -48,10 +49,11 @@ export const lightTheme = createTheme({
       main: "#ee4658", // --danger-color
     },
     success: {
-      main: "#2e7d32", // --success-color
+      main: "#21cc6d", // --success-color
+      contrastText: "#fff",
     },
     warning: {
-      main: "#ff6d00", // --warning-color
+      main: "#ffb744", // --warning-color
     },
   },
 });
@@ -77,9 +79,10 @@ export const darkTheme = createTheme({
     },
     success: {
       main: "#2e7d32", // --success-color
+      contrastText: "#fff",
     },
     warning: {
-      main: "#ff6d00", // --warning-color
+      main: "#ffb744", // --warning-color
     },
   },
 });

@@ -49,7 +49,7 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
     <AccordionBox title={field} isExpanded={true}>
       <PtfRange ptfs={ptfs} selected={field} />
       {type === "OPCVM" ? (
-        <Portefeuille data={rows} field={field} />
+        <Portefeuille data={rows} field={field} saveAll={true} />
       ) : (
         <PortefeuilleMarko data={rows} field={field} />
       )}

@@ -51,6 +51,7 @@ const Portefeuilles = () => {
               withCheckboxes
               showFooter
               setSelectedRows={setSelectedPtfs}
+              pageSize={10}
             />
           </>
         )}

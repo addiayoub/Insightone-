@@ -6,11 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { savePortefeuille } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
 import ModalComponent from "./Modal";
+import { filterByPtf } from "../utils/filterByPtf";
+import { extractPtfKeys } from "../utils/extractPtfKeys";
 
-const SavePortefeuille = ({ data, type, field }) => {
+const SavePortefeuille = ({ data, type, field, saveAll }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
+  const [choice, setChoice] = useState("single");
+  console.log("saveAll", saveAll);
   const { params } =
     type === "OPCVM"
       ? useSelector((state) => state.opcvm)
@@ -19,23 +23,41 @@ const SavePortefeuille = ({ data, type, field }) => {
   const handleSave = () => {
     console.log("Title", title);
     console.log("params", params);
-    const portefeuille = {
-      name: title.trim(),
-      type,
-      field,
-      params,
-      data,
-    };
-    console.log("portefeuille", portefeuille);
-
-    dispatch(savePortefeuille({ portefeuille }))
+    console.log("choice", choice);
+    const isPtf = field.startsWith("ptf");
+    let ptfs = [];
+    if (choice === "all") {
+      const fields = extractPtfKeys(data);
+      const portefeuilles = [];
+      fields.forEach((field, index) => {
+        const ptf = {
+          name: `${title.trim()} ${index + 1}`,
+          type,
+          field,
+          params,
+          data: isPtf ? filterByPtf(data, field) : data,
+        };
+        portefeuilles.push(ptf);
+      });
+      ptfs.push(...portefeuilles);
+    } else {
+      const portefeuille = {
+        name: title.trim(),
+        type,
+        field,
+        params,
+        data: isPtf ? filterByPtf(data, field) : data,
+      };
+      ptfs.push(portefeuille);
+    }
+    console.log("ptsf res", ptfs);
+    dispatch(savePortefeuille({ portefeuille: ptfs }))
       .unwrap()
       .then(({ message }) => {
         reset();
         notyf.success(message);
       })
       .catch((error) => notyf.error(error));
-    // .finally(() => reset());
   };
   const reset = () => {
     setOpen(false);
@@ -43,14 +65,40 @@ const SavePortefeuille = ({ data, type, field }) => {
   };
   return (
     <>
-      <Button onClick={() => setOpen(true)}>
-        <span>Enregistrer</span>
-        <Save />
-      </Button>
+      <Box className="p-3 flex flex-wrap">
+        <Button
+          onClick={() => {
+            setOpen(true);
+            setChoice("single");
+          }}
+          variant="contained"
+          size="small"
+          className="mr-2"
+        >
+          <span className="mr-2">Enregistrer</span>
+          <Save size={18} />
+        </Button>
+        {saveAll && (
+          <Button
+            onClick={() => {
+              setOpen(true);
+              setChoice("all");
+            }}
+            variant="contained"
+            color="success"
+            size="small"
+          >
+            <span className="mr-2">Enregistrer Tous</span>
+            <Save size={18} />
+          </Button>
+        )}
+      </Box>
+
       <ModalComponent open={open} handleClose={reset}>
         <Box>
           <Typography variant="h6" mb={3}>
-            Enregister un portefeuille
+            Enregister{" "}
+            {choice === "all" ? "des portefeuilles" : "un portefeuille"}
           </Typography>
         </Box>
         <Divider />
@@ -70,6 +118,7 @@ const SavePortefeuille = ({ data, type, field }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             variant="outlined"
+            autoFocus
           />
           <Box
             sx={{

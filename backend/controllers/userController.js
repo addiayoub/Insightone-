@@ -277,7 +277,7 @@ class _UserController {
       }
 
       // Add the new portefeuille to the user's portefeuilles array
-      user.portefeuilles.push(portefeuille);
+      user.portefeuilles.push(...portefeuille);
       // Save the updated user to the database
       await user.save();
 

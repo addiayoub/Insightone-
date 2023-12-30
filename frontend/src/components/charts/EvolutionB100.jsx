@@ -60,8 +60,9 @@ function EvolutionB100({ data }) {
       },
       legend: {
         data: seriesNames,
-        orient: "verticaly",
+        orient: "vertical",
         zLevel: 5,
+        height: "300px",
         top: "center",
         right: "0",
         type: "scroll",

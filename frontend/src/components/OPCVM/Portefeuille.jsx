@@ -11,7 +11,7 @@ const gridStyle = {
   gap: "60px 15px",
 };
 
-function Portefeuille({ title, data, field, compare }) {
+function Portefeuille({ title, data, field, compare, saveAll = false }) {
   const rows = compare
     ? data
     : data
@@ -65,12 +65,13 @@ function Portefeuille({ title, data, field, compare }) {
         className="md:col-span-8 lg:col-span-8 xl:col-span-8"
       />
       <Box className="md:col-span-4 lg:col-span-4 xl:col-span-4">
-        {rows.length > 0 && !compare && (
+        {rows.length > 0 && (
           <SavePortefeuille
             data={rows}
             title={title}
             type={"OPCVM"}
             field={field}
+            saveAll={saveAll}
           />
         )}
         <PortefeuilleSunburst data={rows} field={field} />
