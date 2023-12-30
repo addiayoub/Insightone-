@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
-export default function ToggleButtons({
-  onButtonsChange,
-  label,
-  init,
-  buttons,
-}) {
-  console.log("init", init);
+function ToggleButtons({ onButtonsChange, label, init, buttons }) {
   const handleChange = (event, newValue) => {
     onButtonsChange(label, newValue);
   };
@@ -31,3 +25,4 @@ export default function ToggleButtons({
     </ToggleButtonGroup>
   );
 }
+export default memo(ToggleButtons);

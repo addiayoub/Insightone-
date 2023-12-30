@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import { useDispatch, useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
 import DfContrib from "./DfContrib";
+import Treemap from "../charts/Treemap";
 const columns = [
   "df_contrib",
   "Rel_div",
@@ -27,10 +28,11 @@ function Backtest() {
   return (
     <>
       <Filter />
+      {!data.loading && data.df_contrib.length > 0 && (
+        <Treemap data={data.df_contrib} />
+      )}
       {data.loading && <MainLoader />}
-      {/* {!data.loading && data.data && (
-        <DfContrib data={data.data["df_contrib"]} />
-      )} */}
+
       {columns.map((column, index) => {
         return (
           data[column].length > 0 && (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import DateComponent from "../DateComponent";
 import dayjs from "dayjs";
 import AccordionBox from "../AccordionBox";
@@ -8,6 +8,7 @@ import { Box, Button, TextField } from "@mui/material";
 import RangeSlider from "../SliderCom";
 import { useDispatch } from "react-redux";
 import { getPortef } from "../../redux/actions/BacktestActions";
+import { notyf } from "../../utils/notyf";
 
 const buttons = [
   {
@@ -126,7 +127,10 @@ function Filter() {
   const handleSearch = () => {
     console.log(filters, montant, upDown);
     // dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }));
-    dispatch(getPortef());
+    dispatch(getPortef())
+      .unwrap()
+      .then((success) => console.log(success))
+      .catch((error) => notyf.error(error));
   };
   return (
     <AccordionBox title={"Filter"} isExpanded={true}>
@@ -213,4 +217,4 @@ function Filter() {
   );
 }
 
-export default Filter;
+export default memo(Filter);
