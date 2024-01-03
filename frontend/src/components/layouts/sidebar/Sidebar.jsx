@@ -6,6 +6,7 @@ import "./Sidebar.css";
 import { sidebarData } from "./sidebarData";
 import Logo from "../../../assets/images/Logo.png";
 import MiniLogo from "../../../assets/images/mini-logo.png";
+import SideMenu from "./SideMenu";
 
 function Sidebar() {
   const { isOpen, path } = useSelector((state) => state.dashboard);
@@ -54,16 +55,32 @@ function Sidebar() {
               <li
                 key={index}
                 className={`side-menu-item ${
-                  path === item.link ? "active" : ""
+                  item.link !== null && path === item.link ? "active" : ""
                 }`}
-                onClick={() => dispatch(setPath(item.link))}
+                onClick={() => {
+                  if (item.link !== null) {
+                    dispatch(setPath(item.link));
+                  }
+                }}
               >
-                <Link to={item.link} className="nav-link">
-                  {item.icon && <item.icon size={25} className="icon" />}{" "}
-                  <span className="link-title">{item.title}</span>
-                </Link>
+                <SideMenu item={item} key={index} isHovered={isHovered} />
               </li>
             ) : null;
+            // const isAllowed = !item.isPrivate || (item.isPrivate && role === 305);
+            // return isAllowed ? (
+            //   <li
+            //     key={index}
+            //     className={`side-menu-item ${
+            //       path === item.link ? "active" : ""
+            //     }`}
+            //     onClick={() => dispatch(setPath(item.link))}
+            //   >
+            //     <Link to={item.link} className="nav-link">
+            //       {item.icon && <item.icon size={25} className="icon" />}{" "}
+            //       <span className="link-title">{item.title}</span>
+            //     </Link>
+            //   </li>
+            // ) : null;
           })}
         </ul>
       </div>

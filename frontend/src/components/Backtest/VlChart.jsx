@@ -1,29 +1,24 @@
+import moment from "moment";
+import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
-import moment from "moment/moment";
-import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
 
-function EvolutionB100({ data }) {
-  console.log("EvolutionB100", data);
+const VlChart = ({ data }) => {
+  console.log("data", data);
   const theme = useChartTheme();
-  const seriesNames = Object.keys(data[0]).filter((key) => key !== "seance");
-  console.log("seriesNames EvolutionB100", seriesNames);
-  const options = useMemo(() => {
-    const seriesData = seriesNames
-      .map((seriesName) => data.map((item) => item[seriesName]))
-      .flat()
-      .filter((value) => value !== undefined);
-    const minYAxisValue = Math.min(...seriesData);
-    console.log("minYAxisValue", minYAxisValue);
 
+  const seriesNames = Object.keys(data[0]).filter((key) =>
+    ["VL non rebalancé", "VL sans dividende", "VL"].includes(key)
+  );
+  const options = useMemo(() => {
     return {
       title: {
-        text: "Evolution base 100 des Portefeuille simulé",
+        text: "Titre",
         left: "center",
         ...theme.title,
       },
       grid: {
-        right: "20%",
+        right: "19%",
         top: "10%",
         // right: "3%",
         bottom: "15%",
@@ -41,16 +36,11 @@ function EvolutionB100({ data }) {
       },
       tooltip: {
         trigger: "axis",
-        textStyle: {
-          overflow: "breakAll",
-          width: 40,
-        },
-        confine: true,
         valueFormatter: (value) => value.toFixed(2),
       },
       dataZoom: [
         {
-          type: "slider", // Enable slider data zoom
+          type: "slider",
           show: true,
           xAxisIndex: [0],
           start: 0,
@@ -70,49 +60,33 @@ function EvolutionB100({ data }) {
       legend: {
         data: seriesNames,
         orient: "vertical",
-        zLevel: 23,
-        height: "50%",
+        zLevel: 5,
+        height: "300px",
         top: "center",
-        right: 0,
+        right: "0",
         type: "scroll",
-        textStyle: {
-          width: 150,
-          rich: {
-            fw600: {
-              fontWeight: 600,
-            },
-          },
-        },
-        formatter: function (name) {
-          if (name.length > 25) {
-            const newName = name.split(" ");
-            return newName.join(" \n");
-          }
-          return name;
-        },
         ...theme.legend,
       },
       yAxis: {
         type: "value",
-        min: Math.trunc(minYAxisValue),
       },
       series: seriesNames.map((seriesName) => ({
         name: seriesName,
         type: "line",
-        symbol: "none",
         data: data.map((item) => item[seriesName]),
       })),
     };
-  }, [seriesNames, data, theme]);
+  }, [theme, seriesNames, data]);
   return (
     <ReactECharts
       option={options}
       style={{
+        margin: "50px 0",
         height: "500px",
         maxHeight: "600px",
       }}
     />
   );
-}
+};
 
-export default memo(EvolutionB100);
+export default VlChart;

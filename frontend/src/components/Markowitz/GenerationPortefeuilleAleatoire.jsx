@@ -154,7 +154,7 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
             frontiere={frontiere}
             frontiereWeights={frontiereWeights}
             setOpen={setOpen}
-            type={"titre"}
+            type={"Actions"}
           />
         )}
       {isShow &&

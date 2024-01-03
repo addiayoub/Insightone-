@@ -13,6 +13,10 @@ import PortefeuilleBacktest from "./PortefeuilleBacktest";
 import { transformBacktestData } from "../../utils/formatBacktestData";
 import { CheckSquare, Trash } from "react-feather";
 import { notyf } from "../../utils/notyf";
+import Portefeuille from "../OPCVM/Portefeuille";
+import PortefeuilleMarko from "../Markowitz/Portefeuille";
+import ModalComponent from "../Modal";
+import EditPortefeuille from "./EditPortefeuille";
 
 const Portefeuilles = () => {
   const {
@@ -37,8 +41,14 @@ const Portefeuilles = () => {
     setSelectedPtfs([]);
     console.log("selected ptfs", selectedPtfs);
   };
+  useEffect(() => {
+    if (selectedPtfs.length < 1) {
+      setShow(false);
+    }
+  }, [selectedPtfs]);
   return (
     <>
+      {/* <EditPortefeuille ptfs={data.map((ptf) => ptf.name)} /> */}
       <AccordionBox
         title="la liste des portefeuilles enregistrés"
         isExpanded={true}
@@ -53,6 +63,13 @@ const Portefeuilles = () => {
               setSelectedRows={setSelectedPtfs}
               pageSize={10}
             />
+            {/* {selectedPtfs.map(({ data, type, field }) => {
+              return type === "OPCVM" ? (
+                <Portefeuille data={data} field={field} />
+              ) : (
+                <PortefeuilleMarko data={data} field={field} />
+              );
+            })} */}
           </>
         )}
 

@@ -10,6 +10,11 @@ import MainLoader from "../loaders/MainLoader";
 import { Button } from "@mui/material";
 import { getEvolutionB100Portef } from "../../redux/actions/BacktestActions";
 import EvolutionB100 from "../charts/EvolutionB100";
+import Portefeuille from "../OPCVM/Portefeuille";
+import PortefeuilleMarko from "../Markowitz/Portefeuille";
+import PortefeuilleTable from "../OPCVM/PortefeuilleTable";
+import PortefeuilleTableMarko from "../Markowitz/PortefeuilleTable";
+import TabsComponent from "../TabsComponent";
 
 const PortefeuilleBacktest = ({ backtestData }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
@@ -33,7 +38,15 @@ const PortefeuilleBacktest = ({ backtestData }) => {
       .finally(() => setIsLoading(false));
   }, []);
   const handleBacktest = () => {
-    dispatch(getEvolutionB100Portef({ dateDebut, dateFin, backtestData }))
+    console.log("backtestData", backtestData);
+    dispatch(
+      getEvolutionB100Portef({
+        dateDebut,
+        dateFin,
+        backtestData,
+        list_indices: selectedIndices,
+      })
+    )
       .unwrap()
       .then(() => setIsShow(true))
       .catch(() => notyf.error("Error Evolution B100"));
@@ -61,7 +74,19 @@ const PortefeuilleBacktest = ({ backtestData }) => {
           Backtester
         </Button>
       </AccordionBox>
-      {!loading && isShow && data.length > 0 && <EvolutionB100 data={data} />}
+      {!loading && isShow && data.length > 0 && (
+        <>
+          <EvolutionB100 data={data} />
+          {/* {backtestData.map(({ data, type, field }) => {
+            return type === "OPCVM" ? (
+              <PortefeuilleTable rows={data} field={field} />
+            ) : (
+              <PortefeuilleTableMarko rows={data} field={field} />
+            );
+          })} */}
+          <TabsComponent tabs={backtestData} />
+        </>
+      )}
       {(isLoading || loading) && <MainLoader />}
     </>
   );

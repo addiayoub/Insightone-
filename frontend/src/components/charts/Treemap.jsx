@@ -1,56 +1,71 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+
 const upColor = "#ec0000";
 const downColor = "#00da3c";
 
 const defineColor = (value) => {
   let color = "#aaa";
-  if (value > 0) {
-    color = upColor;
-  }
   if (value < 0) {
     color = downColor;
   }
-  console.log("color is", color);
+  if (value > 0) {
+    color = upColor;
+  }
   return color;
 };
+
 const transformDataForTreeMap = (data) => {
-  const resultMap = {};
-
+  const treemapData = [];
   data.forEach((item) => {
-    const parentKey = item.SECTEUR_ACTIVITE;
-    const childKey = item.TICKER;
-    const value = item["Contrib PTF rebalancé"] * 100;
-    // const color = defineColor(value);
-
-    if (!resultMap[parentKey]) {
-      resultMap[parentKey] = { name: parentKey, children: [] };
+    const secteurIndex = treemapData.findIndex(
+      (entry) => entry.name === item.SECTEUR_ACTIVITE
+    );
+    const { TICKER, SECTEUR_ACTIVITE } = item;
+    console.log(item);
+    const value = [
+      item["Contrib PTF rebalancé"] * 100,
+      item["Contrib PTF non rebalancé"] * 100,
+      item["Contribution rebalancement"] * 100,
+    ];
+    if (secteurIndex === -1) {
+      // If the SECTEUR_ACTIVITE does not exist, create a new entry
+      treemapData.push({
+        name: SECTEUR_ACTIVITE,
+        children: [
+          {
+            name: TICKER,
+            value,
+          },
+        ],
+      });
+    } else {
+      // If the SECTEUR_ACTIVITE already exists, add a new child
+      treemapData[secteurIndex].children.push({
+        name: TICKER,
+        value,
+      });
     }
-
-    resultMap[parentKey].children.push({
-      name: childKey,
-      value,
-      // itemStyle: {
-      //   color: defineColor(value),
-      // },
-    });
   });
-
-  return Object.values(resultMap);
+  console.log("treemapData", treemapData);
+  return treemapData;
 };
 
 const Treemap = ({ data }) => {
-  console.log("Tree mapa data", data);
   const options = {
     tooltip: {
       formatter: (params) => {
-        const { value, name } = params;
-        return `
+        const { value, name, treeAncestors } = params;
+        if (name !== "ALL") {
+          return `
         <div>
-          <strong>${name}: </strong> ${value.toFixed(2)}%
+          <strong>${treeAncestors[1]?.name} - ${name}: </strong> <br>
+          ${value[0]?.toFixed(4)}% Contrib PTF rebalancé<br>
+          ${value[1]?.toFixed(4)}% Contrib PTF non rebalancé<br>
+          ${value[2]?.toFixed(4)}% Contribution rebalancement
         </div>
         `;
-        console.log(params);
+        }
       },
     },
     series: [
@@ -63,12 +78,19 @@ const Treemap = ({ data }) => {
           show: true,
           formatter: "{b}",
         },
-        itemStyle: {
-          borderColor: "green",
-        },
-        visualMin: -100,
-        visualMax: 100,
-        visualDimension: 3,
+        levels: [
+          {
+            itemStyle: {
+              gapWidth: 5,
+            },
+          },
+          {
+            // color: [upColor, downColor, "#aaa"],
+            // colorMappingBy: "value",
+            // visibleMin: -Infinity,
+            // visibleMax: Infinity,
+          },
+        ],
         data: transformDataForTreeMap(data),
       },
     ],

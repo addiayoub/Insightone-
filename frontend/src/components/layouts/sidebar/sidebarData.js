@@ -6,6 +6,8 @@ import {
   Box,
   BarChart2,
   Folder,
+  ChevronDown,
+  ChevronUp,
 } from "react-feather";
 
 export const sidebarData = [
@@ -15,12 +17,7 @@ export const sidebarData = [
     link: "",
     isPrivate: false,
   },
-  {
-    icon: Layers,
-    title: "Sectorial",
-    link: "sectorial",
-    isPrivate: false,
-  },
+
   {
     icon: User,
     title: "Utilisateurs",
@@ -28,23 +25,63 @@ export const sidebarData = [
     isPrivate: true,
   },
   {
-    icon: Dribbble,
-    title: "Markowitz",
-    link: "markowitz",
-    isPrivate: false,
-  },
-  {
     icon: Activity,
-    title: "Analyses",
-    link: "analyses",
+    title: "Analyse",
+    link: null,
     isPrivate: false,
+    iconClosed: ChevronDown,
+    iconOpened: ChevronUp,
+    subMenu: [
+      {
+        title: "Sectorielle",
+        link: "sectorial",
+        icon: Layers,
+      },
+      {
+        title: "Chartiste",
+        link: "analyses",
+        icon: BarChart2,
+      },
+    ],
   },
   {
-    icon: Box,
-    title: "OPCVM",
-    link: "opcvm",
-    isPrivate: false,
+    title: "Création de portefeuille",
+    icon: Layers,
+    link: null,
+    iconClosed: ChevronDown,
+    iconOpened: ChevronUp,
+    subMenu: [
+      {
+        title: "Actions BVC",
+        link: "markowitz",
+        icon: Dribbble,
+      },
+      {
+        title: "Fonds de fonds",
+        link: "opcvm",
+        icon: Box,
+      },
+    ],
   },
+
+  // {
+  //   icon: Dribbble,
+  //   title: "Markowitz",
+  //   link: "markowitz",
+  //   isPrivate: false,
+  // },
+  // {
+  //   icon: Activity,
+  //   title: "Analyses",
+  //   link: "analyses",
+  //   isPrivate: false,
+  // },
+  // {
+  //   icon: Box,
+  //   title: "OPCVM",
+  //   link: "opcvm",
+  //   isPrivate: false,
+  // },
   {
     icon: BarChart2,
     title: "Backtest",
@@ -53,7 +90,7 @@ export const sidebarData = [
   },
   {
     icon: Folder,
-    title: "Portefeuilles",
+    title: "Consultation",
     link: "portefeuilles",
     isPrivate: false,
   },
