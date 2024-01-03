@@ -1,108 +1,136 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useMemo, useRef, useState } from "react";
 import ReactECharts from "echarts-for-react";
+import { barRaceData } from "../Backtest/BarraceData";
+import moment from "moment";
+import useChartTheme from "../../hooks/useChartTheme";
 
-const BarRace = () => {
-  const updateFrequency = 1000;
-  const dimension = 0;
+function removeObjectsWithZeros(data) {
+  return data.filter((item) => {
+    const values = Object.values(item).slice(1);
+    return values.some((value) => value !== 0);
+  });
+}
 
-  const data = [
-    ["Income", "Life Expectancy", "Population", "Country", "Year"],
-    [815, 34.05, 351014, "Australia", 1800],
-    [1314, 39, 645526, "Canada", 1800],
-    [985, 32, 321675013, "China", 1800],
-    [864, 32.2, 345043, "Cuba", 1800],
-    [1244, 36.5731262, 977662, "Finland", 1800],
-    [1803, 33.96717024, 29355111, "France", 1800],
-    [1639, 38.37, 22886919, "Germany", 1800],
-    [926, 42.84559912, 61428, "Iceland", 1800],
-    [1052, 25.4424, 168574895, "India", 1800],
-    [1050, 36.4, 30294378, "Japan", 1800],
-    [579, 26, 4345000, "North Korea", 1800],
-    [576, 25.8, 9395000, "South Korea", 1800],
-    [658, 34.05, 100000, "New Zealand", 1800],
-    [1278, 37.91620899, 868570, "Norway", 1800],
-    [1213, 35.9, 9508747, "Poland", 1800],
-    [1430, 29.5734572, 31088398, "Russia", 1800],
-    [1221, 35, 9773456, "Turkey", 1800],
-    [3431, 38.6497603, 12327466, "United Kingdom", 1800],
-    [2128, 39.41, 6801854, "United States", 1800],
-    [834, 34.05, 342440, "Australia", 1810],
-    [1400, 39.01496774, 727603, "Canada", 1810],
-    [985, 32, 350542958, "China", 1810],
-    [970, 33.64, 470176, "Cuba", 1810],
-    [1267, 36.9473378, 1070625, "Finland", 1810],
-  ];
-  const years = [];
-  for (let i = 1; i < data.length; ++i) {
-    if (years.length === 0 || years[years.length - 1] !== data[i][4]) {
-      years.push(data[i][4]);
+const BarRace = ({ data, title }) => {
+  // const data = [
+  //   {
+  //     seance: "2023-05-12",
+  //     "AFRIC INDUSTRIES SA": 3.6,
+  //     "AFRIQUIA GAZ": 5,
+  //     AGMA: 10,
+  //     AKDITAL: 20,
+  //     ALLIANCES: 20,
+  //     "ALUMINIUM DU MAROC": 0,
+  //     "ARADEI CAPITAL": 2,
+  //     ATLANTASANAD: 0,
+  //     "ATTIJARIWAFA BANK": 50,
+  //     "AUTO HALL": 50,
+  //     "AUTO NEJMA": 5,
+  //     BALIMA: 0,
+  //   },
+  //   {
+  //     seance: "2023-05-13",
+  //     "AFRIC INDUSTRIES SA": 3.6,
+  //     "AFRIQUIA GAZ": 5,
+  //     AGMA: 10,
+  //     AKDITAL: 20,
+  //     ALLIANCES: 20,
+  //     "ALUMINIUM DU MAROC": 1,
+  //     "ARADEI CAPITAL": 2,
+  //     ATLANTASANAD: 0,
+  //     "ATTIJARIWAFA BANK": 50,
+  //     "AUTO HALL": 50,
+  //     "AUTO NEJMA": 0,
+  //     BALIMA: 9,
+  //   },
+  //   {
+  //     seance: "2023-05-19",
+  //     "AFRIC INDUSTRIES SA": 0,
+  //     "AFRIQUIA GAZ": 3,
+  //     AGMA: 4,
+  //     AKDITAL: 4,
+  //     ALLIANCES: 40,
+  //     "ALUMINIUM DU MAROC": 7,
+  //     "ARADEI CAPITAL": 10,
+  //     ATLANTASANAD: 3,
+  //     "ATTIJARIWAFA BANK": 5,
+  //     "AUTO HALL": 12,
+  //     "AUTO NEJMA": 10,
+  //     BALIMA: 5,
+  //   },
+  // ];
+  console.log("render");
+  const theme = useChartTheme();
+  data = removeObjectsWithZeros(data);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prevStep) => (prevStep + 1) % data.length);
+    }, 2300);
+
+    if (currentStep === data.length - 1) {
+      console.log("end");
+      clearInterval(interval);
     }
-  }
-  let startIndex = 0;
-  let startYear = years[startIndex];
-  const options = {
-    grid: {
-      top: 10,
-      bottom: 30,
-      left: 150,
-      right: 80,
+
+    return () => clearInterval(interval);
+  }, [data, currentStep]);
+
+  useEffect(() => {}, [currentStep]);
+
+  // Check if we reached the end of the data array
+  const getCurrentData = () => {
+    return data[currentStep];
+  };
+  const nonZeroCategories = Object.keys(getCurrentData()).filter(
+    (key) => key !== "seance" && getCurrentData()[key] !== 0
+  );
+  // nonZeroCategories.map((category) => getCurrentData()[category]);
+  const currentData = getCurrentData();
+  const option = {
+    title: {
+      text: title,
+      left: "center",
+      ...theme.title,
     },
     xAxis: {
-      max: "dataMax",
+      type: "value",
       axisLabel: {
-        formatter: function (n) {
-          return Math.round(n) + "";
-        },
+        ...theme.xAxis.nameTextStyle, // Set the color to red
       },
-    },
-    dataset: {
-      source: data.slice(1).filter(function (d) {
-        return d[4];
-      }),
     },
     yAxis: {
       type: "category",
-      inverse: true,
-      max: 10,
+      // max: 5,
+      // data: Object.keys(currentData).filter((key) => key !== "seance"),
+      data: nonZeroCategories,
       axisLabel: {
-        show: true,
-        fontSize: 14,
-        rich: {
-          flag: {
-            fontSize: 25,
-            padding: 5,
-          },
-        },
+        ...theme.yAxis.nameTextStyle, // Set the color to red
       },
-      animationDuration: 300,
-      animationDurationUpdate: 300,
+    },
+    grid: {
+      left: "15%",
     },
     series: [
       {
-        realtimeSort: true,
+        realtimeSort: false,
         seriesLayoutBy: "column",
         type: "bar",
-        itemStyle: {
-          color: function (param) {
-            return "#5470c6";
-          },
-        },
-        encode: {
-          x: dimension,
-          y: 3,
-        },
+        // data: Object.values(currentData).slice(1),
+        data: nonZeroCategories.map((category) => getCurrentData()[category]),
         label: {
           show: true,
           precision: 1,
           position: "right",
           valueAnimation: true,
           fontFamily: "monospace",
+          formatter: (params) => params.value.toFixed(2),
         },
       },
     ],
-    // Disable init animation.
     animationDuration: 0,
-    animationDurationUpdate: updateFrequency,
+    animationDurationUpdate: 1200,
     animationEasing: "linear",
     animationEasingUpdate: "linear",
     graphic: {
@@ -112,63 +140,21 @@ const BarRace = () => {
           right: 160,
           bottom: 60,
           style: {
-            // text: 2000,
-            text: startYear,
-            font: "bolder 80px monospace",
-            fill: "rgba(100, 100, 100, 0.25)",
+            text: moment(currentData.seance).format("DD/MM/YYYY"),
+            font: "bolder 50px monospace",
+            // fill: "rgba(100, 100, 100, 0.25)",
+            fill:
+              theme.title.textStyle.color === "black"
+                ? "rgba(100, 100, 100, 0.25)"
+                : "rgba(200,200, 200, 200.25)",
           },
           z: 100,
         },
       ],
     },
   };
-  const [opts, setOpts] = useState(options);
-  // useEffect(() => {
-  //   console.log("years", years);
-  //   for (let i = startIndex; i < years.length - 1; ++i) {
-  //     (function (i) {
-  //       setTimeout(function () {
-  //         updateYear(years[i + 1]);
-  //       }, (i - startIndex) * updateFrequency);
-  //     })(i);
-  //   }
-  // }, []);
 
-  useEffect(() => {
-    console.log("Options", opts);
-  }, [opts]);
-  for (let i = startIndex; i < years.length - 1; ++i) {
-    (function (i) {
-      console.log("i for i in", years.length - 1);
-      setTimeout(function () {
-        updateYear(years[i + 1]);
-      }, (i - startIndex) * updateFrequency);
-    })(i);
-  }
-  function updateYear(year) {
-    let source = data.slice(1).filter(function (d) {
-      return d[4];
-    });
-    options.series[0].data = source;
-    options.graphic.elements[0].style.text = year;
-    console.log(
-      "year",
-      year,
-      " options.series[0].data = source",
-      options.series[0].data,
-      source
-    );
-    setOpts(options);
-  }
-  return (
-    <ReactECharts
-      option={opts}
-      style={{
-        height: "500px",
-        maxHeight: "600px",
-      }}
-    />
-  );
+  return <ReactECharts option={option} style={{ height: "500px" }} />;
 };
 
-export default BarRace;
+export default memo(BarRace);

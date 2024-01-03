@@ -1,0 +1,193 @@
+import React, { useState, useEffect } from "react";
+import ReactECharts from "echarts-for-react";
+
+const BarRaceChart = () => {
+  const data = [
+    {
+      seance: "2023-05-12",
+      "AFRIC INDUSTRIES SA": 0.0,
+      "AFRIQUIA GAZ": 0.0,
+      AGMA: 0.0,
+      AKDITAL: 0.0,
+      ALLIANCES: 0.0,
+      "ALUMINIUM DU MAROC": 0.0,
+      "ARADEI CAPITAL": 0.0,
+      ATLANTASANAD: 0.0,
+      "ATTIJARIWAFA BANK": 0.0,
+      "AUTO HALL": 0.0,
+      "AUTO NEJMA": 0.0,
+      BALIMA: 0.0,
+      "BANK OF AFRICA": 0.0,
+      BCP: 0.0,
+      BMCI: 0.0,
+      "CARTIER SAADA": 0.0,
+      CDM: 0.0,
+      CIH: 0.0,
+      "CIMENTS DU MAROC": 0.0,
+      COLORADO: 0.0,
+      COSUMAR: 0.0,
+      CTM: 0.0,
+      "DARI COUSPATE": 0.0,
+      "DELATTRE LEVIVIER MAROC": 0.0,
+      "DELTA HOLDING": 0.0,
+      "DISTY TECHNOLOGIES": 0.0,
+      DISWAY: 0.0,
+      "DOUJA PROM ADDOHA": 0.0,
+      ENNAKL: 0.0,
+      EQDOM: 0.0,
+      "FENIE BROSSETTE": 0.0,
+      HPS: 0.0,
+      "IB MAROC.COM": 0.0,
+      "IMMORENTE INVEST": 0.0,
+      "ITISSALAT AL-MAGHRIB": 0.0,
+      "JET CONTRACTORS": 0.0,
+      "LABEL VIE": 0.0,
+      "LAFARGEHOLCIM MAROC": 0.0,
+      "LESIEUR CRISTAL": 0.0,
+      "MAGHREB OXYGENE": 0.0,
+      MAGHREBAIL: 0.0,
+      MANAGEM: 0.0,
+      "MAROC LEASING": 0.0,
+      "MED PAPER": 0.0,
+      MICRODATA: 0.0,
+      "MINIERE TOUISSIT": 0.0,
+      "MUTANDIS SCA": 0.0,
+      OULMES: 0.0,
+      "PROMOPHARM S.A.": 0.0,
+      "REALISATIONS MECANIQUES": 0.0,
+      "REBAB COMPANY": 0.0,
+      "RESIDENCES DAR SAADA": 0.0,
+      RISMA: 0.0,
+      "S.M MONETIQUE": 0.0,
+      SALAFIN: 0.0,
+      "SANLAM MAROC": 0.0,
+      SMI: 0.0,
+      SNEP: 0.0,
+      "SOCIETE DES BOISSONS DU MAROC": 0.0,
+      "SODEP-Marsa Maroc": 0.0,
+      SONASID: 0.0,
+      SOTHEMA: 0.0,
+      "STOKVIS NORD AFRIQUE": 0.0,
+      "STROC INDUSTRIE": 0.0,
+      "TAQA MOROCCO": 0.0,
+      "TGCC S.A": 0.0,
+      TIMAR: 0.0,
+      "TOTALENERGIES MARKETING MAROC": 0.0,
+      UNIMER: 0.0,
+      "WAFA ASSURANCE": 0.0,
+      "ZELLIDJA S.A": 0.0,
+    },
+    {
+      seance: "2023-05-19",
+      "AFRIC INDUSTRIES SA": 0.0,
+      "AFRIQUIA GAZ": 0.0,
+      AGMA: 0.0,
+      AKDITAL: 0.0,
+      ALLIANCES: 0.0,
+      "ALUMINIUM DU MAROC": 0.0,
+      "ARADEI CAPITAL": 0.0,
+      ATLANTASANAD: 0.0,
+      "ATTIJARIWAFA BANK": 5,
+      "AUTO HALL": 0.0,
+      "AUTO NEJMA": 0.0,
+      BALIMA: 0.0,
+      "BANK OF AFRICA": 0.0,
+      BCP: 0.0,
+      BMCI: 0.0,
+      "CARTIER SAADA": 0.0,
+      CDM: 0.0,
+      CIH: 0.0,
+      "CIMENTS DU MAROC": 0.0,
+      COLORADO: 0.0,
+      COSUMAR: 0.0,
+      CTM: 0.0,
+      "DARI COUSPATE": 0.0,
+      "DELATTRE LEVIVIER MAROC": 0.0,
+      "DELTA HOLDING": 0.0,
+      "DISTY TECHNOLOGIES": 0.0,
+      DISWAY: 0.0,
+      "DOUJA PROM ADDOHA": 0.0,
+      ENNAKL: 0.0,
+      EQDOM: 0.0,
+      "FENIE BROSSETTE": 0.0,
+      HPS: 0.0,
+      "IB MAROC.COM": 0.0,
+      "IMMORENTE INVEST": 0.0,
+      "ITISSALAT AL-MAGHRIB": 0.0,
+      "JET CONTRACTORS": 0.0,
+      "LABEL VIE": 0.0,
+      "LAFARGEHOLCIM MAROC": 3,
+      "LESIEUR CRISTAL": 0.0,
+      "MAGHREB OXYGENE": 0.0,
+      MAGHREBAIL: 0.0,
+      MANAGEM: 0.0,
+      "MAROC LEASING": 0.0,
+      "MED PAPER": 0.0,
+      MICRODATA: 0.0,
+      "MINIERE TOUISSIT": 0.0,
+      "MUTANDIS SCA": 0.0,
+      OULMES: 0.0,
+      "PROMOPHARM S.A.": 0.0,
+      "REALISATIONS MECANIQUES": 0.0,
+      "REBAB COMPANY": 0.0,
+      "RESIDENCES DAR SAADA": 0.0,
+      RISMA: 0.0,
+      "S.M MONETIQUE": 0.0,
+      SALAFIN: 0.0,
+      "SANLAM MAROC": 10,
+      SMI: 0.0,
+      SNEP: 0.0,
+      "SOCIETE DES BOISSONS DU MAROC": 0.0,
+      "SODEP-Marsa Maroc": 0.0,
+      SONASID: 0.0,
+      SOTHEMA: 0.0,
+      "STOKVIS NORD AFRIQUE": 0.0,
+      "STROC INDUSTRIE": 0.0,
+      "TAQA MOROCCO": 0.0,
+      "TGCC S.A": 0.0,
+      TIMAR: 0.0,
+      "TOTALENERGIES MARKETING MAROC": 4,
+      UNIMER: 0.0,
+      "WAFA ASSURANCE": 0.0,
+      "ZELLIDJA S.A": 0.0,
+    },
+  ];
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prevStep) => (prevStep + 1) % data.length);
+    }, 1000); // Adjust the interval as needed
+
+    return () => clearInterval(interval);
+  }, [data.length]);
+
+  const getCurrentData = () => {
+    return data[currentStep];
+  };
+
+  const option = {
+    xAxis: {
+      type: "value",
+    },
+    yAxis: {
+      type: "category",
+      data: getCurrentData().map((ele) => ele !== "seance"), // Assuming the first key is 'seance'
+    },
+    series: [
+      {
+        realtimeSort: true,
+        seriesLayoutBy: "column",
+        type: "bar",
+        data: Object.values(getCurrentData()).slice(1),
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <ReactECharts option={option} style={{ height: "500px" }} />
+    </div>
+  );
+};
+export default BarRaceChart;

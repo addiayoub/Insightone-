@@ -171,12 +171,15 @@ function PortefeuilleAleatoires({
           symbol: "circle",
           symbolSize: 8,
           data: ptf,
+          zLevel: 5,
+          z: 3,
         },
         {
           type: "scatter",
           symbol: "circle",
           symbolSize: 4,
           data: labels,
+
           color: "red",
           label: {
             show: isShow,
@@ -194,7 +197,7 @@ function PortefeuilleAleatoires({
         },
       ],
     };
-  }, [data]);
+  }, [data, isShow]);
   const handleClick = (params) => {
     const { seriesType, name: serieName } = params;
     console.log("seriesType: ", seriesType, "name:", serieName);

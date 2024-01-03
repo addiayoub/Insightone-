@@ -18,6 +18,7 @@ import MainLoader from "../loaders/MainLoader";
 import TabTest from "./TabTest";
 import checkExistence from "../../utils/checkExistence";
 import EvolutionB100 from "../charts/EvolutionB100";
+import { notyf } from "../../utils/notyf";
 
 function ContraintesOptimisation({ dateDebut, contraintesOp }) {
   const [contraintes, setContraintes] = useState([]);
@@ -130,7 +131,12 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
         dispatch(portefeuilleMinimumVariance_())
           .then(() => dispatch(portefeuilleRendementMaximale_()))
           .then(() => dispatch(portefeuilleMarkowitz_()))
-          .then(() => dispatch(portefeuilleSimule_({ risque: 3 })))
+          .then(() =>
+            dispatch(portefeuilleSimule_({ risque: 3 }))
+              .unwrap()
+              .then()
+              .catch(() => notyf.error("Error Portefeuille Simulé"))
+          )
           .then(() => {
             setIsLoading(false);
             setShowPoids(true);

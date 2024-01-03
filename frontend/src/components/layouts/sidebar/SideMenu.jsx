@@ -42,7 +42,6 @@ const DropdownLink = styled(Link)`
 `;
 
 const SideMenu = ({ item, isHovered }) => {
-  console.log("item", item);
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
   const dispatch = useDispatch();

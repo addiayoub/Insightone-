@@ -127,7 +127,7 @@ function Filter() {
   const handleSearch = () => {
     console.log(filters, montant, upDown);
     // dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }));
-    dispatch(getPortef())
+    dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }))
       .unwrap()
       .then((success) => console.log(success))
       .catch((error) => notyf.error(error));
