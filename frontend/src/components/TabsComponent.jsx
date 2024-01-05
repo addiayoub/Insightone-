@@ -5,6 +5,13 @@ import Box from "@mui/material/Box";
 import PortefeuilleTable from "./OPCVM/PortefeuilleTable";
 import PortefeuilleTableMarko from "./Markowitz/PortefeuilleTable";
 
+const injectIsLocked = (data) => {
+  return data.map((item) => ({
+    ...item,
+    isLocked: false,
+  }));
+};
+
 const TabsComponent = ({ tabs }) => {
   const [tabValue, setTabValue] = useState(0);
   console.log("tabs", tabs);
@@ -33,12 +40,13 @@ const TabsComponent = ({ tabs }) => {
               {component.type === "OPCVM" ? (
                 <PortefeuilleTable
                   showActions
-                  rows={component.data ?? []}
+                  rows={injectIsLocked(component.data) ?? []}
                   field={component.field}
                 />
               ) : (
                 <PortefeuilleTableMarko
-                  rows={component.data ?? []}
+                  showActions
+                  rows={injectIsLocked(component.data) ?? []}
                   field={component.field}
                 />
               )}

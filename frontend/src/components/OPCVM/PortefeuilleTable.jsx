@@ -130,7 +130,7 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
     // });
   };
   const columns = useMemo(() => {
-    return [
+    const basedColumns = [
       {
         field: "Societe_Gestion",
         headerName: "Société de Gestion",
@@ -160,35 +160,36 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
           );
         },
       },
-      showActions
-        ? {
-            field: "actions",
-            headerName: "Actions",
-            renderCell: (params) => (
-              <>
-                <IconButton
-                  onClick={() => {
-                    console.log("Params", params);
-                    console.log("Ne rows", newRows);
-                    console.log(
-                      "filter rows",
-                      newRows.filter((row) => row.titre === params.row.titre)
-                    );
-                    console.log("titre: ", params.row.titre);
-                    setNewTitre(params.row.titre);
-                    setOpen(true);
-                  }}
-                >
-                  <Edit size={18} color="var(--primary-color)" />
-                </IconButton>
-                <IconButton onClick={() => console.log("Params", params)}>
-                  <Unlock size={18} color="var(--text-success)" />
-                </IconButton>
-              </>
-            ),
-          }
-        : {},
     ];
+    if (showActions) {
+      basedColumns.push({
+        field: "actions",
+        headerName: "Actions",
+        renderCell: (params) => (
+          <>
+            <IconButton
+              onClick={() => {
+                console.log("Params", params);
+                console.log("Ne rows", newRows);
+                console.log(
+                  "filter rows",
+                  newRows.filter((row) => row.titre === params.row.titre)
+                );
+                console.log("titre: ", params.row.titre);
+                setNewTitre(params.row.titre);
+                setOpen(true);
+              }}
+            >
+              <Edit size={18} color="var(--primary-color)" />
+            </IconButton>
+            <IconButton onClick={() => console.log("Params", params)}>
+              <Unlock size={18} color="var(--text-success)" />
+            </IconButton>
+          </>
+        ),
+      });
+    }
+    return basedColumns;
   }, [field, showActions]);
   return (
     <>
