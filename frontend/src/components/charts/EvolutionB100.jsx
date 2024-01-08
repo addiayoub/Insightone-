@@ -46,7 +46,7 @@ function EvolutionB100({ data }) {
           width: 40,
         },
         confine: true,
-        valueFormatter: (value) => value.toFixed(2),
+        valueFormatter: (value) => value?.toFixed(2),
       },
       dataZoom: [
         {
@@ -65,7 +65,12 @@ function EvolutionB100({ data }) {
       ],
       xAxis: {
         type: "category",
-        data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
+        // data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
+        data: data.map((item) => item.seance),
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
       legend: {
         data: seriesNames,
@@ -95,6 +100,10 @@ function EvolutionB100({ data }) {
       yAxis: {
         type: "value",
         min: Math.trunc(minYAxisValue),
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
       series: seriesNames.map((seriesName) => ({
         name: seriesName,

@@ -1,31 +1,36 @@
 import ReactECharts from "echarts-for-react";
 import React from "react";
+import useChartTheme from "../../hooks/useChartTheme";
 
+const calculateChartHeight = (array) => {
+  let height = "300px";
+  if (array.length > 30) {
+    height = "1200px";
+  } else if (array.length > 10) {
+    height = "500px";
+  }
+  return height;
+};
+const transformCorrelationDataForHeatmap = (data, companies) => {
+  const heatmapData = companies
+    .map((company1, rowIndex) => {
+      return companies.map((company2, colIndex) => {
+        return [colIndex, rowIndex, +data[rowIndex][company2].toFixed(2)];
+      });
+    })
+    .flat();
+
+  return heatmapData;
+};
 function Heatmap({ data }) {
   const companies = data.map((item) => item.index);
-  const transformCorrelationDataForHeatmap = (data) => {
-    const heatmapData = companies
-      .map((company1, rowIndex) => {
-        return companies.map((company2, colIndex) => {
-          return [colIndex, rowIndex, +data[rowIndex][company2].toFixed(2)];
-        });
-      })
-      .flat();
+  const theme = useChartTheme();
 
-    return heatmapData;
-  };
-  const calculateChartHeight = (array) => {
-    let height = "300px";
-    if (array.length > 30) {
-      height = "1200px";
-    } else if (array.length > 10) {
-      height = "500px";
-    }
-    return height;
-  };
-
-  const correlationHeatmapData = transformCorrelationDataForHeatmap(data);
-
+  const correlationHeatmapData = transformCorrelationDataForHeatmap(
+    data,
+    companies
+  );
+  console.log("correlationHeatmapData", correlationHeatmapData);
   const option = {
     title: {
       text: "",
@@ -54,6 +59,7 @@ function Heatmap({ data }) {
         rotate: 90,
         interval: 0,
         fontSize: 12,
+        ...theme.xAxis.nameTextStyle,
       },
       splitArea: {
         show: true,
@@ -69,6 +75,7 @@ function Heatmap({ data }) {
         interval: 0,
         margin: 10,
         fontWeight: "bold",
+        ...theme.yAxis.nameTextStyle,
       },
     },
     visualMap: {

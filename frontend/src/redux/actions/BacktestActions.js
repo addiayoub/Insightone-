@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import apiNewMarko from "../../api/apiNewMarko";
 import { formatDate } from "../../utils/FormatDate";
 import { transformBacktestData } from "../../utils/formatBacktestData";
+import moment from "moment";
 
 const apiTrading = "trading/";
 
@@ -65,7 +66,142 @@ export const getEvolutionB100Portef = createAsyncThunk(
 
       console.log("getEvolutionB100Portef", response);
       console.log("Merged data", mergeData(response.data));
-      return mergeData(response.data);
+      const dataToMerge = {
+        "Evolution base 100 des Portefeuille simulé": response.data[
+          "Evolution base 100 des Portefeuille simulé"
+        ].map((item) => {
+          return { ...item, seance: formatDate(item.seance) };
+        }),
+        "Evolution base 100 des indices": response.data[
+          "Evolution base 100 des indices"
+        ].map((item) => {
+          return { ...item, seance: formatDate(item.seance) };
+        }),
+      };
+      console.log("dataToMerge", dataToMerge);
+
+      return {
+        ptfsData: mergeData(dataToMerge),
+        ptfsContrib: response.data.df_contrib_ptf,
+        df_rendement: response.data.df_rendement,
+      };
+    } catch (error) {
+      console.log("error", error);
+      return thunkAPI.rejectWithValue("Server Error");
+    }
+  }
+);
+
+export const backtestAction = createAsyncThunk(
+  "backtest/backtestAction",
+  async (_, thunkAPI) => {
+    const body =
+      thunkAPI.getState().backtest.evolutionB100Ptfs.data.df_rendement;
+    try {
+      const endpoints = [
+        {
+          link: "CUMULATIVE_RETURNS",
+          params: {},
+        },
+        {
+          link: "EOY_RETURNS_BARS",
+          params: {},
+        },
+        {
+          link: "EOY_RETURNS_TABLE",
+          params: {},
+        },
+        {
+          link: "KEY_PERFORMANCE_METRICS",
+          params: { rf: 0.02 },
+        },
+        {
+          link: "DISTRIBUTION_OF_MONTHLY_RETURNS",
+          params: {},
+        },
+        {
+          link: "ROLLING_BETA_TO_BENCHMARK",
+          params: {},
+        },
+        {
+          link: "ROLLING_VOLATILITY",
+          params: {},
+        },
+        {
+          link: "ROLLING_SHARPE",
+          params: { rf: 0.02 },
+        },
+        {
+          link: "ROLLING_SORTINO",
+          params: { rf: 0.02 },
+        },
+        {
+          link: "WORST_10_DRAWDOWNS",
+          params: {},
+        },
+        {
+          link: "MONTHLY_RETURNS",
+          params: {},
+        },
+        {
+          link: "RETURN_QUANTILES",
+          params: {},
+        },
+        {
+          link: "DAILY_RETURNS",
+          params: {},
+        },
+      ];
+
+      const [
+        CUMULATIVE_RETURNS,
+        EOY_RETURNS_BARS,
+        EOY_RETURNS_TABLE,
+        KEY_PERFORMANCE_METRICS,
+        DISTRIBUTION_OF_MONTHLY_RETURNS,
+        ROLLING_BETA_TO_BENCHMARK,
+        ROLLING_VOLATILITY,
+        ROLLING_SHARPE,
+        ROLLING_SORTINO,
+        WORST_10_DRAWDOWNS,
+        MONTHLY_RETURNS,
+        RETURN_QUANTILES,
+        DAILY_RETURNS,
+      ] = await Promise.all(
+        endpoints.map(async ({ link, params }) => {
+          const response = await apiNewMarko.post(
+            `${apiTrading}POST/${link}`,
+            body,
+            { params }
+          );
+          return response.data;
+        })
+      );
+
+      console.log(
+        "backtestAction",
+        CUMULATIVE_RETURNS,
+        EOY_RETURNS_TABLE,
+        KEY_PERFORMANCE_METRICS,
+        DISTRIBUTION_OF_MONTHLY_RETURNS
+      );
+      return {
+        cumulative: CUMULATIVE_RETURNS["Cumulative Returns"],
+        eoy: EOY_RETURNS_BARS["EOY Returns bars"],
+        eoyTable: EOY_RETURNS_TABLE["EOY Returns table"],
+        distributionMonthly:
+          DISTRIBUTION_OF_MONTHLY_RETURNS["Distribution of Monthly Returns"],
+        rollingBeta: ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"],
+        rollingVolat: ROLLING_VOLATILITY["Rolling Volatility"],
+        rollingSharpe: ROLLING_SHARPE["Rolling Sharpe"],
+        rollingSortino: ROLLING_SORTINO["Rolling Sortino"],
+        worstDrawdowns: WORST_10_DRAWDOWNS["Worst 10 Drawdowns"],
+        monthlyReturns: MONTHLY_RETURNS["Monthly Returns"],
+        dailyReturns: DAILY_RETURNS["daily returns"],
+        quantiles: RETURN_QUANTILES["Return Quantiles"],
+
+        // keyPerf: KEY_PERFORMANCE_METRICS["EOY Returns table"],
+      };
     } catch (error) {
       console.log("error", error);
       return thunkAPI.rejectWithValue("Server Error");

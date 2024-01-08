@@ -17,6 +17,7 @@ import Portefeuille from "../OPCVM/Portefeuille";
 import PortefeuilleMarko from "../Markowitz/Portefeuille";
 import ModalComponent from "../Modal";
 import EditPortefeuille from "./EditPortefeuille";
+import TabsComponent from "../TabsComponent";
 
 const Portefeuilles = () => {
   const {
@@ -94,6 +95,7 @@ const Portefeuilles = () => {
           </Button>
         </Box>
       </AccordionBox>
+      {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest backtestData={selectedPtfs} />}
       {loading && <MainLoader />}
     </>

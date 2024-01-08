@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getEvolutionB100Portef, getPortef } from "../actions/BacktestActions";
+import {
+  backtestAction,
+  getEvolutionB100Portef,
+  getPortef,
+} from "../actions/BacktestActions";
 
 const backtestSlice = createSlice({
   name: "backtest",
@@ -25,9 +29,31 @@ const backtestSlice = createSlice({
       poids_av: [],
     },
     evolutionB100Ptfs: {
-      data: [],
+      data: {
+        ptfsData: [],
+        ptfsContrib: [],
+        df_rendement: [],
+      },
       loading: false,
       error: null,
+    },
+    backtestData: {
+      loading: false,
+      error: null,
+      data: {
+        cumulative: [],
+        eoy: [],
+        eoyTable: [],
+        distributionMonthly: [],
+        rollingBeta: [],
+        rollingVolat: [],
+        rollingSharpe: [],
+        rollingSortino: [],
+        worstDrawdowns: [],
+        monthlyReturns: [],
+        quantiles: [],
+        dailyReturns: [],
+      },
     },
   },
   extraReducers: (builder) => {
@@ -67,15 +93,63 @@ const backtestSlice = createSlice({
       getEvolutionB100Portef.fulfilled,
       ({ evolutionB100Ptfs }, { payload }) => {
         evolutionB100Ptfs.loading = false;
-        evolutionB100Ptfs.data = payload;
+        evolutionB100Ptfs.data.ptfsData = payload.ptfsData;
+        evolutionB100Ptfs.data.ptfsContrib = payload.ptfsContrib;
+        evolutionB100Ptfs.data.df_rendement = payload.df_rendement;
       }
     );
     builder.addCase(
       getEvolutionB100Portef.rejected,
       ({ evolutionB100Ptfs }, { payload }) => {
         evolutionB100Ptfs.loading = false;
-        evolutionB100Ptfs.data = [];
+        evolutionB100Ptfs.data = {
+          ptfsData: [],
+          ptfsContrib: [],
+          df_rendement: [],
+        };
         evolutionB100Ptfs.error = payload;
+      }
+    );
+
+    // Get BacktestData
+    builder.addCase(backtestAction.pending, ({ backtestData }) => {
+      backtestData.loading = true;
+    });
+    builder.addCase(
+      backtestAction.fulfilled,
+      ({ backtestData }, { payload }) => {
+        backtestData.loading = false;
+        backtestData.data.cumulative = payload.cumulative;
+        backtestData.data.eoy = payload.eoy;
+        backtestData.data.distributionMonthly = payload.distributionMonthly;
+        backtestData.data.rollingBeta = payload.rollingBeta;
+        backtestData.data.rollingVolat = payload.rollingVolat;
+        backtestData.data.rollingSharpe = payload.rollingSharpe;
+        backtestData.data.rollingSortino = payload.rollingSortino;
+        backtestData.data.worstDrawdowns = payload.worstDrawdowns;
+        backtestData.data.monthlyReturns = payload.monthlyReturns;
+        backtestData.data.quantiles = payload.quantiles;
+        backtestData.data.eoyTable = payload.eoyTable;
+        backtestData.data.dailyReturns = payload.dailyReturns;
+      }
+    );
+    builder.addCase(
+      backtestAction.rejected,
+      ({ backtestData }, { payload }) => {
+        backtestData.loading = false;
+        backtestData.data.cumulative = [];
+        backtestData.data.eoy = [];
+        backtestData.data.distributionMonthly = [];
+        backtestData.data.rollingBeta = [];
+        backtestData.data.rollingVolat = [];
+        backtestData.data.rollingSharpe = [];
+        backtestData.data.rollingSortino = [];
+        backtestData.data.worstDrawdowns = [];
+        backtestData.data.monthlyReturns = [];
+        backtestData.data.quantiles = [];
+        backtestData.data.eoyTable = [];
+        backtestData.data.dailyReturns = [];
+        data.error = payload;
       }
     );
   },
