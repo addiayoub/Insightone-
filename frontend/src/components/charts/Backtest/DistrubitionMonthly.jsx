@@ -78,6 +78,7 @@ const DistrubitionMonthly = ({ data }) => {
         {
           name: "KDE",
           type: "line",
+          smooth: true,
           data: data.map((item) => item.KDE),
         },
         {
@@ -89,6 +90,7 @@ const DistrubitionMonthly = ({ data }) => {
         {
           name: "Norm Value",
           type: "line",
+          smooth: true,
           data: data.map((item) => item.norm_values),
         },
       ],

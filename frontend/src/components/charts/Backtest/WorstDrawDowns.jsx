@@ -68,6 +68,14 @@ const WorstDrawDowns = ({ data, evolution }) => {
         },
         ...theme.yAxis,
       },
+      visualMap: {
+        show: false,
+        min: 0,
+        max: 1,
+        inRange: {
+          color: ["red", "green"],
+        },
+      },
       yAxis: {
         type: "value",
         axisPointer: {

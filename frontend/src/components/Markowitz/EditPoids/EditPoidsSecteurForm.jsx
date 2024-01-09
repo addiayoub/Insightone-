@@ -100,25 +100,21 @@ const EditPoidsSecteurForm = ({
       ...prevValues,
       [titre]: value,
     }));
-    // setInputValues((prevValues) => {
-    //   const updatedValues = { ...prevValues };
-    //   if (isMax) {
-    //     if (titre === isMaxTitre) {
-    //       updatedValues[titre] = value;
-    //     } else {
-    //       Object.keys(poidsFinal).forEach((titre) => {
-    //         updatedValues[titre] = poidsFinal[titre];
-    //       });
-    //     }
-    //   } else {
-    //     updatedValues[titre] = value;
-    //   }
+    setInputValues((prevValues) => {
+      const updatedValues = { ...prevValues };
+      if (isMax) {
+        Object.keys(poidsFinal).map((item) => {
+          if (isModifiedStates[item] && isMax && isMaxTitre !== item) {
+            updatedValues[item] = poidsFinal[item];
+          }
+        });
+      }
 
-    //   console.log("poids final with", poidsFinal, updatedValues);
-    //   return updatedValues;
-    // });
-    // handleLock(titre);
+      console.log("poids final with", poidsFinal, updatedValues);
+      return updatedValues;
+    });
     console.log("Poids Final", poidsFinal);
+    // handleLock(titre);
   };
   const isButtonDisabled = Object.values(inputValues).some(
     (value) => value > max || value < 0
@@ -149,6 +145,19 @@ const EditPoidsSecteurForm = ({
     );
     reset();
   };
+  // useEffect(() => {
+  //   if (isMax) {
+  //     console.log("Its is max", poidsFinal, inputValues, isModifiedStates);
+  //     Object.keys(poidsFinal).map((item) => {
+  //       if (isModifiedStates[item] && isMax && isMaxTitre !== item) {
+  //         setInputValues((prevValues) => ({
+  //           ...prevValues,
+  //           [item]: poidsFinal[titre],
+  //         }));
+  //       }
+  //     });
+  //   }
+  // }, [isMax]);
 
   return (
     <Box

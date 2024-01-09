@@ -142,7 +142,6 @@ const PortefeuilleBacktest = () => {
           Backtester
         </Button>
       </AccordionBox>
-      {backData.loading && "LOADING"}
       <Box
         className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12
         xl:grid-cols-12 gap-y-4 gap-x-12 mt-24"

@@ -16,7 +16,7 @@ const DailyReturns = ({ data }) => {
         name: key,
         type: "bar",
         data: data.map((item) => ({
-          value: item[key],
+          value: item[key] * 100,
           itemStyle: {
             color: item[key] < 0 ? "#ee4658" : "#21cc6d",
           },
@@ -74,6 +74,7 @@ const DailyReturns = ({ data }) => {
       yAxis: {
         type: "value",
         axisLabel: {
+          formatter: "{value} %",
           ...theme.yAxis.nameTextStyle,
         },
         ...theme.yAxis,
