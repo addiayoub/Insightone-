@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
+const rootElement = () => document.getElementById("__next");
+
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -25,6 +27,13 @@ const theme = createTheme({
     },
     warning: {
       main: "#ffb744", // --warning-color
+    },
+  },
+  components: {
+    MuiModal: {
+      defaultProps: {
+        container: rootElement,
+      },
     },
   },
 });
@@ -56,6 +65,13 @@ export const lightTheme = createTheme({
       main: "#ffb744", // --warning-color
     },
   },
+  components: {
+    MuiModal: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+  },
 });
 
 export const darkTheme = createTheme({
@@ -83,6 +99,13 @@ export const darkTheme = createTheme({
     },
     warning: {
       main: "#ffb744", // --warning-color
+    },
+  },
+  components: {
+    MuiModal: {
+      defaultProps: {
+        container: rootElement,
+      },
     },
   },
 });

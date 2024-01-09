@@ -11,6 +11,12 @@ import {
   TextField,
 } from "@mui/material";
 import ModalComponent from "../Modal";
+import EditPoidsTitreForm from "./EditPoids/EditPoidsTitreForm";
+import Actions from "./EditPoids/Actions";
+import { calculateSumClassification } from "../../utils/OPCVM/helpers.js";
+import EditPoidsClassification from "./EditPoids/EditPoidsClassification.jsx";
+import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers.js";
+import EditPortefeuille from "../EditPortefeuille.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -46,74 +52,75 @@ const updatePoids = (setState, titreToUpdate, newData, field) => {
   });
 };
 
-const EditPoisForm = ({ poids, setPoids, reset, titre, handleUpdate }) => {
-  return (
-    <>
-      <Box>
-        <Typography variant="h6" mb={3}>
-          {`
-            Modifier poids ( ${titre} )
-          `}
-        </Typography>
-      </Box>
-      <Divider />
-      <Box
-        sx={{
-          height: "250px",
-          width: "400px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          mt: 3,
-        }}
-      >
-        <TextField
-          id="poids"
-          label="Poids (%)"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="outlined"
-          autoFocus
-          value={poids}
-          onChange={(e) => setPoids(e.target.value)}
-        />
-        <Box
-          sx={{
-            alignSelf: "end",
-          }}
-        >
-          <Button
-            variant="contained"
-            color="error"
-            sx={{
-              margin: "0 10px",
-            }}
-            onClick={reset}
-          >
-            Annuler
-          </Button>
-          <Button
-            variant="contained"
-            onClick={() => {
-              // handleUpdate();
-              reset();
-            }}
-            disabled={!poids}
-          >
-            Enregistrer
-          </Button>
-        </Box>
-      </Box>
-    </>
-  );
-};
+// const EditPoisForm = ({ poids, setPoids, reset, titre, handleUpdate }) => {
+//   return (
+//     <>
+//       <Box>
+//         <Typography variant="h6" mb={3}>
+//           {`
+//             Modifier poids ( ${titre} )
+//           `}
+//         </Typography>
+//       </Box>
+//       <Divider />
+//       <Box
+//         sx={{
+//           height: "250px",
+//           width: "400px",
+//           display: "flex",
+//           flexDirection: "column",
+//           justifyContent: "space-between",
+//           mt: 3,
+//         }}
+//       >
+//         <TextField
+//           id="poids"
+//           label="Poids (%)"
+//           type="number"
+//           InputLabelProps={{
+//             shrink: true,
+//           }}
+//           variant="outlined"
+//           autoFocus
+//           value={poids}
+//           onChange={(e) => setPoids(e.target.value)}
+//         />
+//         <Box
+//           sx={{
+//             alignSelf: "end",
+//           }}
+//         >
+//           <Button
+//             variant="contained"
+//             color="error"
+//             sx={{
+//               margin: "0 10px",
+//             }}
+//             onClick={reset}
+//           >
+//             Annuler
+//           </Button>
+//           <Button
+//             variant="contained"
+//             onClick={() => {
+//               // handleUpdate();
+//               reset();
+//             }}
+//             disabled={!poids}
+//           >
+//             Enregistrer
+//           </Button>
+//         </Box>
+//       </Box>
+//     </>
+//   );
+// };
 
 const PortefeuilleTable = ({ rows, field, showActions }) => {
-  const [newRows, setNewRows] = useState(rows);
   const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   const [poids, setPoids] = useState(null);
+  const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
   const reset = () => {
     setOpen(false);
@@ -122,25 +129,47 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
   useEffect(() => {
     console.log("new rows", newRows);
   }, [newRows]);
-  const handleUpdatePoids = () => {
-    updatePoids(setNewRows, newTitre, { [field]: +poids }, field);
-    console.log("new rows +++", newRows);
-    // setNewRows({
-    //   ...newRows,
-    // });
+  const update = () => {
+    const { Classification } = rows.find((row) => row.titre === newTitre);
+    const sameSecteur = rows
+      .filter(
+        (row) => row.Classification === Classification && row.titre !== newTitre
+      )
+      .map((item) => item.titre);
+    const { sum } = calculateSumClassification(newRows, Classification, field);
+    const part = (sum - +poids) / sameSecteur.length;
+    setNewRows((prevData) =>
+      prevData.map((item) => {
+        if (item.titre === newTitre) {
+          return { ...item, [field]: +poids, isLocked: true };
+        }
+        return { ...item };
+      })
+    );
+    reset();
+  };
+  const handleLock = (titre, isLocked) => {
+    setNewRows((prevData) =>
+      prevData.map((item) => {
+        if (item.titre === titre) {
+          return { ...item, isLocked: !isLocked };
+        }
+        return { ...item };
+      })
+    );
   };
   const columns = useMemo(() => {
     const basedColumns = [
       {
         field: "Societe_Gestion",
         headerName: "Société de Gestion",
-        flex: 0.7,
+        flex: 0.6,
         renderCell: (params) => <strong>{params.row.Societe_Gestion}</strong>,
       },
       {
         field: "Classification",
         headerName: "Classification",
-        flex: 0.5,
+        flex: 0.4,
         renderCell: (params) => <strong>{params.row.Classification}</strong>,
       },
       {
@@ -165,42 +194,54 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
       basedColumns.push({
         field: "actions",
         headerName: "Actions",
+        flex: 0.3,
         renderCell: (params) => (
-          <>
-            <IconButton
-              onClick={() => {
-                console.log("Params", params);
-                console.log("Ne rows", newRows);
-                console.log(
-                  "filter rows",
-                  newRows.filter((row) => row.titre === params.row.titre)
-                );
-                console.log("titre: ", params.row.titre);
-                setNewTitre(params.row.titre);
-                setOpen(true);
-              }}
-            >
-              <Edit size={18} color="var(--primary-color)" />
-            </IconButton>
-            <IconButton onClick={() => console.log("Params", params)}>
-              <Unlock size={18} color="var(--text-success)" />
-            </IconButton>
-          </>
+          <Actions
+            params={params}
+            rows={rows}
+            setOpen={setOpen}
+            setOpenEdit={setOpenEdit}
+            setNewTitre={setNewTitre}
+            setPoids={setPoids}
+            handleLock={handleLock}
+            field={field}
+          />
         ),
       });
     }
     return basedColumns;
-  }, [field, showActions]);
+  }, [rows, field, showActions]);
+  console.log("Columns", columns);
   return (
     <>
+      {showActions && (
+        <EditPortefeuille
+          oldRows={rows}
+          newRows={newRows}
+          setNewRows={setNewRows}
+          field={field}
+        />
+      )}
       <Table columns={columns} rows={newRows} pageSize={25} />
       <ModalComponent open={open} handleClose={reset}>
-        <EditPoisForm
+        <EditPoidsTitreForm
           poids={poids}
           setPoids={setPoids}
           reset={reset}
           titre={newTitre}
-          handleUpdate={handleUpdatePoids}
+          handleUpdate={update}
+          rows={newRows}
+          field={field}
+        />
+      </ModalComponent>
+      <ModalComponent open={openEdit} handleClose={() => setOpenEdit(false)}>
+        <EditPoidsClassification
+          titre={newTitre}
+          poids={poids}
+          reset={() => setOpenEdit(false)}
+          rows={newRows}
+          field={field}
+          setNewRows={setNewRows}
         />
       </ModalComponent>
     </>

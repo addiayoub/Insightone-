@@ -291,22 +291,44 @@ class _UserController {
   }
   async getPortefeuilles(req, res) {
     try {
-      const { id } = req.query;
+      const { id, type } = req.query;
+      console.log("Ptf type", type);
       // Find the user
       const user = await User.findById(id);
 
       if (!user) {
         return res.status(404).json({ message: "Utilisateur non trouvé." });
       }
-      res.status(200).json({
-        portefeuilles: user.portefeuilles,
+      let portefeuilles = user.portefeuilles;
+      if (type) {
+        portefeuilles = portefeuilles.filter((ptf) => ptf.type === type);
+      }
+      return res.status(200).json({
+        portefeuilles,
       });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error });
+      return res.status(500).json({ error });
     }
   }
+  async getPortefeuillesByType(req, res) {
+    try {
+      const { id, type } = req.query;
+      // Find the user
+      const user = await User.findById(id);
 
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+      const portefeuilles = user.portefeuilles.map((ptf) => ptf.type === type);
+      return res.status(200).json({
+        portefeuilles,
+      });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error });
+    }
+  }
   async comparePortefeuilles(req, res) {
     try {
       const { id, titres, type } = req.query;
@@ -350,8 +372,35 @@ class _UserController {
         { new: true }
       );
       res.status(200).json({
-        message: "Portfolio supprimé avec succès",
+        message: "Portefeuille supprimé avec succès",
         portefeuilles,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error });
+    }
+  }
+
+  async updatePortefeuilles(req, res) {
+    try {
+      const { id, ptfName } = req.query;
+      const newPtfs = req.body;
+      // Find the user
+      const user = await User.findById(id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+      const oldPtfs = user.portefeuilles;
+      // Find the portefeuille by name
+      const portefeuille = user.portefeuilles.find(
+        (ptf) => ptf.name === ptfName
+      );
+      portefeuille.data = newPtfs;
+      user.save();
+      res.status(200).json({
+        message: "Portefeuille modifié avec succès",
+        portefeuille,
       });
     } catch (error) {
       console.error(error);

@@ -51,9 +51,21 @@ const backtestSlice = createSlice({
         rollingSortino: [],
         worstDrawdowns: [],
         monthlyReturns: [],
+        monthlyRelReturns: [],
         quantiles: [],
         dailyReturns: [],
+        keyPerf: [],
       },
+    },
+    selectedPtf: "",
+    ptfToBacktest: {},
+  },
+  reducers: {
+    setSelectedPtf: (state, { payload }) => {
+      state.selectedPtf = payload;
+    },
+    setPtfToBacktest: (state, { payload }) => {
+      state.ptfToBacktest = payload;
     },
   },
   extraReducers: (builder) => {
@@ -128,9 +140,11 @@ const backtestSlice = createSlice({
         backtestData.data.rollingSortino = payload.rollingSortino;
         backtestData.data.worstDrawdowns = payload.worstDrawdowns;
         backtestData.data.monthlyReturns = payload.monthlyReturns;
+        backtestData.data.monthlyRelReturns = payload.monthlyRelReturns;
         backtestData.data.quantiles = payload.quantiles;
         backtestData.data.eoyTable = payload.eoyTable;
         backtestData.data.dailyReturns = payload.dailyReturns;
+        backtestData.data.keyPerf = payload.keyPerf;
       }
     );
     builder.addCase(
@@ -149,11 +163,13 @@ const backtestSlice = createSlice({
         backtestData.data.quantiles = [];
         backtestData.data.eoyTable = [];
         backtestData.data.dailyReturns = [];
-        data.error = payload;
+        backtestData.data.monthlyRelReturns = [];
+        backtestData.data.keyPerf = [];
+        backtestData.error = payload;
       }
     );
   },
 });
 
-export const { resetData } = backtestSlice.actions;
+export const { setSelectedPtf, setPtfToBacktest } = backtestSlice.actions;
 export default backtestSlice.reducer;

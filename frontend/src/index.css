@@ -152,3 +152,7 @@ button {
   box-shadow: var(--dark-box-shadow) !important;
   background-color: rgb(31 41 55 / 1) !important;
 }
+
+.MuiDataGrid-cellContent {
+  white-space: normal !important;
+}

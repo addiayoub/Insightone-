@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 
@@ -12,7 +12,7 @@ function transformData(data, months) {
   return heatmapData;
 }
 
-const MonthlyReturns = ({ data }) => {
+const MonthlyReturns = ({ data, title }) => {
   const theme = useChartTheme();
   const years = useMemo(() => data.map((item) => item.index), [data]);
   const months = useMemo(() => Object.keys(data[0]).slice(1), [data]);
@@ -21,27 +21,22 @@ const MonthlyReturns = ({ data }) => {
     [data, months]
   );
   console.log("heatmapData", heatmapData);
+  console.log("MonthlyReturns rendred");
 
   const options = useMemo(() => {
     return {
       title: {
-        text: "Monthly Returns (%)",
+        text: title,
         left: "center",
         ...theme.title,
       },
       tooltip: {
         // position: "top",
         formatter: function (params) {
-          return (
-            params.value[0] + " - " + params.value[1] + " : " + params.value[2]
-          );
+          return `${params.value[0]} - ${params.value[1]} : <strong>${params.value[2]}%</strong>`;
         },
       },
       animation: false,
-      // grid: {
-      //   height: "50%",
-      //   top: "10%",
-      // },
       xAxis: {
         type: "category",
         data: months,
@@ -96,7 +91,7 @@ const MonthlyReturns = ({ data }) => {
         },
       ],
     };
-  }, [heatmapData, theme, months, years]);
+  }, [heatmapData, theme, months, years, title]);
   return (
     <ReactECharts
       option={options}
@@ -107,4 +102,4 @@ const MonthlyReturns = ({ data }) => {
   );
 };
 
-export default MonthlyReturns;
+export default memo(MonthlyReturns);

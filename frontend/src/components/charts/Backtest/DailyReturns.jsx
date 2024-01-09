@@ -1,75 +1,87 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { defaultOptions } from "../../../utils/chart/defaultOptions";
 
 const DailyReturns = ({ data }) => {
+  console.log("render DailyReturns");
   const theme = useChartTheme();
-  const seriesName = Object.keys(data[0]).filter((key) => key !== "seance");
-  const series = seriesName.map((key) => ({
-    name: key,
-    type: "bar",
-    data: data.map((item) => ({
-      value: item[key],
-      itemStyle: {
-        color: item[key] < 0 ? "#ee4658" : "#21cc6d",
+  const seriesName = useMemo(
+    () => Object.keys(data[0]).filter((key) => key !== "seance"),
+    [data]
+  );
+  const series = useMemo(
+    () =>
+      seriesName.map((key) => ({
+        name: key,
+        type: "bar",
+        data: data.map((item) => ({
+          value: item[key],
+          itemStyle: {
+            color: item[key] < 0 ? "#ee4658" : "#21cc6d",
+          },
+        })),
+      })),
+    [seriesName, data]
+  );
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "Returns",
+        left: "center",
+        ...theme.title,
       },
-    })),
-  }));
-  const options = {
-    title: {
-      text: "Returns",
-      left: "center",
-      ...theme.title,
-    },
-    tooltip: {
-      trigger: "axis",
-      confine: true,
-      valueFormatter: (value) => value?.toFixed(2),
-    },
-    legend: {
-      show: false,
-      data: seriesName,
-      orient: "vertical",
-      zLevel: 23,
-      height: "50%",
-      top: "center",
-      right: 0,
-      type: "scroll",
-      ...theme.legend,
-    },
-    grid: {
-      right: "18%",
-      top: "10%",
-      bottom: "15%",
-      containLabel: true,
-    },
-    toolbox: {
-      feature: {
-        dataZoom: {
-          yAxisIndex: true,
+      tooltip: {
+        trigger: "axis",
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2),
+      },
+      legend: {
+        show: false,
+        data: seriesName,
+        orient: "vertical",
+        zLevel: 23,
+        height: "50%",
+        top: "center",
+        right: 0,
+        type: "scroll",
+        ...theme.legend,
+      },
+      grid: {
+        right: "100px",
+        top: "10%",
+        bottom: "15%",
+        containLabel: true,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
         },
-        restore: {},
-        saveAsImage: {},
+        top: "20px",
       },
-      top: "20px",
-    },
-    xAxis: {
-      type: "category",
-      data: data.map((item) => item.seance),
-      axisLabel: {
-        ...theme.xAxis.nameTextStyle,
+      xAxis: {
+        type: "category",
+        data: data.map((item) => item.seance),
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
-      ...theme.xAxis,
-    },
-    yAxis: {
-      type: "value",
-      axisLabel: {
-        ...theme.yAxis.nameTextStyle,
+      yAxis: {
+        type: "value",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
-      ...theme.yAxis,
-    },
-    series: series,
-  };
+      series: series,
+      ...defaultOptions,
+    };
+  }, [theme, defaultOptions, series, seriesName]);
   return (
     <ReactECharts
       option={options}
@@ -80,4 +92,4 @@ const DailyReturns = ({ data }) => {
   );
 };
 
-export default DailyReturns;
+export default memo(DailyReturns);

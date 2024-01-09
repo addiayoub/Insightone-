@@ -1,90 +1,83 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { defaultOptions } from "../../../utils/chart/defaultOptions";
 
 const Rolling = ({ data, title }) => {
   const theme = useChartTheme();
-  const seriesNames = Object.keys(data[0]).filter((key) => key !== "seance");
+  console.log("Render Rolling ", title);
+  const seriesNames = useMemo(
+    () => Object.keys(data[0]).filter((key) => key !== "seance"),
+    [data]
+  );
 
-  const options = {
-    title: {
-      text: title,
-      left: "center",
-      ...theme.title,
-    },
-    grid: {
-      right: "20%",
-      top: "10%",
-      // right: "3%",
-      bottom: "15%",
-      containLabel: true,
-    },
-    toolbox: {
-      feature: {
-        dataZoom: {
-          yAxisIndex: true,
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: title,
+        left: "center",
+        ...theme.title,
+      },
+      grid: {
+        right: "100px",
+        top: "10%",
+        // right: "3%",
+        bottom: "15%",
+        containLabel: true,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
         },
-        restore: {},
-        saveAsImage: {},
+        top: "20px",
       },
-      top: "20px",
-    },
-    tooltip: {
-      trigger: "axis",
-      textStyle: {
-        overflow: "breakAll",
-        width: 40,
+      tooltip: {
+        trigger: "axis",
+        textStyle: {
+          overflow: "breakAll",
+          width: 40,
+        },
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2),
       },
-      confine: true,
-      valueFormatter: (value) => value?.toFixed(2),
-    },
-    dataZoom: [
-      {
-        type: "slider", // Enable slider data zoom
-        show: true,
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
+      xAxis: {
+        type: "category",
+        data: data.map((item) => item.seance),
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
-      {
-        type: "inside",
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
+      legend: {
+        data: seriesNames,
+        orient: "horizontal",
+        zLevel: 23,
+        width: "60%",
+        left: "center",
+        bottom: "9%",
+        type: "scroll",
+        ...theme.legend,
       },
-    ],
-    xAxis: {
-      type: "category",
-      data: data.map((item) => item.seance),
-      axisLabel: {
-        ...theme.xAxis.nameTextStyle,
+      yAxis: {
+        type: "value",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
-      ...theme.yAxis,
-    },
-    legend: {
-      data: seriesNames,
-      orient: "vertical",
-      zLevel: 23,
-      height: "50%",
-      top: "center",
-      right: 0,
-      type: "scroll",
-      ...theme.legend,
-    },
-    yAxis: {
-      type: "value",
-      axisLabel: {
-        ...theme.yAxis.nameTextStyle,
-      },
-      ...theme.xAxis,
-    },
-    series: seriesNames.map((seriesName) => ({
-      name: seriesName,
-      type: "line",
-      symbol: "none",
-      data: data.map((item) => item[seriesName]),
-    })),
-  };
+      series: seriesNames.map((serieName) => ({
+        name: serieName,
+        type: "line",
+        symbol: "none",
+        data: data.map((item) => item[serieName]),
+      })),
+      ...defaultOptions,
+    };
+  }, [defaultOptions, theme, seriesNames, data]);
 
   return (
     <ReactECharts

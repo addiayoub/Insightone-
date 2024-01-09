@@ -1,12 +1,17 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 // const lineData = data.map((item) => item.Frequency * 100);
 // const barData = data.map((item) => item.KDE);
-// // const xAxisData = data.map((item) => item.Returns * 100);
+// const xAxisData = data.map((item) => item.Returns * 100);
 const DistrubitionMonthly = ({ data }) => {
+  console.log("Render DistrubitionMonthly");
   const theme = useChartTheme();
+  const xAxisData = useMemo(
+    () => data.map((item) => (item.Returns * 100).toFixed(2)),
+    [data]
+  );
   const options = useMemo(() => {
     return {
       title: {
@@ -27,7 +32,6 @@ const DistrubitionMonthly = ({ data }) => {
       },
       toolbox: {
         feature: {
-          dataView: {},
           magicType: { show: true, type: ["line", "bar"] },
           restore: { show: true },
           saveAsImage: { show: true },
@@ -42,7 +46,7 @@ const DistrubitionMonthly = ({ data }) => {
       xAxis: [
         {
           type: "category",
-          // data: xAxisData,
+          data: xAxisData,
           axisPointer: {
             type: "shadow",
           },
@@ -73,18 +77,23 @@ const DistrubitionMonthly = ({ data }) => {
       series: [
         {
           name: "KDE",
-          type: "bar",
+          type: "line",
           data: data.map((item) => item.KDE),
         },
         {
           name: "Frequency",
-          type: "line",
+          type: "bar",
           yAxisIndex: 1,
-          data: data.map((item) => item.Frequency * 100),
+          data: data.map((item) => item.Frequency),
+        },
+        {
+          name: "Norm Value",
+          type: "line",
+          data: data.map((item) => item.norm_values),
         },
       ],
     };
-  }, [theme, data]);
+  }, [theme, data, xAxisData]);
   return (
     <ReactECharts
       option={options}
@@ -95,4 +104,4 @@ const DistrubitionMonthly = ({ data }) => {
   );
 };
 
-export default DistrubitionMonthly;
+export default memo(DistrubitionMonthly);

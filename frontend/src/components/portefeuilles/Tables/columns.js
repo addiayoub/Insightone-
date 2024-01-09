@@ -1,3 +1,63 @@
+import moment from "moment";
+
+export const keyPerfColumns = [
+  {
+    field: "Metric",
+    headerName: "Metric",
+    flex: 1,
+  },
+  {
+    field: "OPC ACTIONS FGP AJUSTE",
+    headerName: "OPC ACTIONS FGP AJUSTE",
+    flex: 0.8,
+  },
+  {
+    field: "ptf-min-var",
+    headerName: "ptf-min-var",
+    flex: 0.8,
+  },
+  {
+    field: "MASI",
+    headerName: "MASI",
+    flex: 0.8,
+  },
+];
+
+export const generateKeyPerfColumns = (keys) => {
+  let basedColumns = [
+    {
+      field: "Metric",
+      headerName: "Metric",
+      flex: 1,
+      renderCell: (params) => {
+        const value = params.row.Metric;
+        if (value === "") {
+          return "----------".repeat(10);
+        }
+        return value;
+      },
+    },
+  ];
+  keys.forEach((item) => {
+    basedColumns.push({
+      field: item,
+      headerName: item,
+      flex: 0.8,
+      renderCell: (params) => {
+        const value = params.row[item];
+        if (value === "") {
+          return "-".repeat(30);
+        } else {
+          const formattedDate = moment(value).format("DD/MM/YYYY");
+          const isDate = moment(value, true).isValid();
+          return isDate ? formattedDate : value;
+        }
+      },
+    });
+  });
+  return basedColumns;
+};
+
 export const eoyColumns = [
   {
     field: "Year",
@@ -33,12 +93,14 @@ export const worstDrawdownsColumns = [
   {
     field: "Started",
     headerName: "Started",
+    renderCell: (params) => moment(params.row.Started).format("DD/MM/YYYY"),
     flex: 1,
   },
   {
     field: "Recovered",
     headerName: "Recovered",
     flex: 1,
+    renderCell: (params) => moment(params.row.Recovered).format("DD/MM/YYYY"),
   },
   {
     field: "Drawdown",

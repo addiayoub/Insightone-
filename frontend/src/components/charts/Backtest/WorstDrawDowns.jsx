@@ -1,14 +1,22 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { useSelector } from "react-redux";
+import { defaultOptions } from "../../../utils/chart/defaultOptions";
 
-const WorstDrawDowns = ({ data }) => {
+const WorstDrawDowns = ({ data, evolution }) => {
   console.log("WorstDrawDowns", data);
+  console.log("Evolu", evolution);
+  const { selectedPtf } = useSelector((state) => state.backtest);
   const theme = useChartTheme();
-  const seriesData = useMemo(() => data.map((item) => item.Drawdown), [data]);
-  const started = useMemo(() => data.map((item) => item.Started), [data]);
-  const recovered = useMemo(() => data.map((item) => item.Recovered), [data]);
-  const xAxisData = [...started, ...recovered].sort();
+  const lineData = useMemo(
+    () => evolution.map((item) => item[selectedPtf] * 100),
+    [evolution, selectedPtf]
+  );
+  const xAxisData = useMemo(
+    () => evolution.map((item) => item.seance),
+    [evolution]
+  );
   const marksArea = useMemo(() => {
     return data.map((item) => [
       {
@@ -45,9 +53,15 @@ const WorstDrawDowns = ({ data }) => {
         },
         top: "20px",
       },
+      grid: {
+        right: "100px",
+        top: "10%",
+        bottom: "15%",
+        containLabel: true,
+      },
       xAxis: {
         type: "category",
-        // boundaryGap: false,
+        boundaryGap: true,
         data: xAxisData,
         axisLabel: {
           ...theme.xAxis.nameTextStyle,
@@ -69,7 +83,7 @@ const WorstDrawDowns = ({ data }) => {
           name: "",
           type: "line",
           smooth: true,
-          data: seriesData,
+          data: lineData,
           markArea: {
             itemStyle: {
               color: "rgba(255, 173, 177, 0.4)",
@@ -78,9 +92,10 @@ const WorstDrawDowns = ({ data }) => {
           },
         },
       ],
+      ...defaultOptions,
     };
-  }, [theme, seriesData, xAxisData]);
+  }, [theme, lineData, xAxisData, marksArea]);
   return <ReactECharts option={options} style={{ minHeight: 500 }} />;
 };
 
-export default WorstDrawDowns;
+export default memo(WorstDrawDowns);

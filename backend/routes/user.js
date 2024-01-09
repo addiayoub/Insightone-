@@ -12,6 +12,7 @@ router.put("/:id", isAdmin, userController.update);
 router.get("/getPortefeuilles", userController.getPortefeuilles);
 router.get("/comparePortefeuilles", userController.comparePortefeuilles);
 router.post("/deletePortefeuilles", userController.deletePortefeuilles);
+router.post("/updatePortefeuilles", userController.updatePortefeuilles);
 router.get("/:username", isAdmin, userController.show);
 router.put("/:id/update-infos", userController.updateProfile);
 router.post("/savePortefeuille", userController.savePortefeuille);

@@ -1,55 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
+  calculateFinalSum,
+  calculateMaxSlider,
+  combinePoidsAndLockStates,
+  isReachMax,
+  poidsFinalFunc,
+  poidsFinalFunc2,
   poidsIntFun,
+  poidsModFun,
   reliquatFunc,
   sliderModFun,
-} from "../../utils/Markowitz/helpers";
+  updatepoidsFinal,
+} from "../../../utils/Markowitz/helpers";
+import {
+  IconButton,
+  Typography,
+  Button,
+  Box,
+  Divider,
+  TextField,
+  Slider,
+} from "@mui/material";
+import { Lock, Unlock } from "react-feather";
+import { calculateSumClassification } from "../../../utils/OPCVM/helpers";
 
-const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
-  const { SECTEUR_ACTIVITE } = rows.find((row) => row.titre === titre);
-  const { sum } = calculateSum(rows, SECTEUR_ACTIVITE, field);
+const EditPoidsClassification = ({
+  rows,
+  setNewRows,
+  titre,
+  poids,
+  field,
+  reset,
+}) => {
+  console.log("New Titre", titre);
+  const { Classification } = rows.find((row) => row.titre === titre);
+  const { sum } = calculateSumClassification(rows, Classification, field);
   const max = +sum.toFixed(2);
-  const sameSecteur = rows.filter(
-    (row) => row.SECTEUR_ACTIVITE === SECTEUR_ACTIVITE
+  const sameClassification = rows.filter(
+    (row) => row.Classification === Classification
   );
 
   const [inputValues, setInputValues] = useState(
-    sameSecteur.reduce((acc, item) => {
+    sameClassification.reduce((acc, item) => {
       acc[item.titre] = +item[field].toFixed(2);
       return acc;
     }, {})
   );
-  const oldPoids = sameSecteur.reduce((acc, item) => {
+  const oldPoids = sameClassification.reduce((acc, item) => {
     acc[item.titre] = +item[field].toFixed(2);
     return acc;
   }, {});
   const [isLockedStates, setIsLockedStates] = useState(
-    sameSecteur.reduce((acc, item) => {
+    sameClassification.reduce((acc, item) => {
       acc[item.titre] = false;
       return acc;
     }, {})
   );
 
   const [isModifiedStates, setIsModifiedStates] = useState(
-    sameSecteur.reduce((acc, item) => {
+    sameClassification.reduce((acc, item) => {
       acc[item.titre] = false;
       return acc;
     }, {})
   );
 
   const list = combinePoidsAndLockStates(
-    oldPoids,
+    // oldPoids,
+    inputValues,
     isLockedStates,
     isModifiedStates
   );
+  console.log("poids", oldPoids, "input values", inputValues);
   console.log("list", list);
-  const maxSlider =
-    max -
-    list.reduce((sum, item) => {
-      const weight = item.isLocked ? item.poids : 0;
-      return sum + weight;
-    }, 0);
-  console.log(maxSlider, inputValues);
+  const maxSlider = calculateMaxSlider(max, list);
+  console.log(maxSlider, "inputValues", inputValues);
   const newPoids = inputValues;
   const sliderMod = sliderModFun(list, newPoids, maxSlider);
   console.log("sliderMod", sliderMod);
@@ -59,13 +83,15 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
   console.log("poidsMod", poidsMod);
   const reliquat = reliquatFunc(max, poidsInt);
   console.log("reliquat", reliquat);
-  const poidsFinal = poidsFinal(list, poidsInt, poidsMod, reliquat);
-  const poidsFinal2 = poids(list, poidsInt, poidsMod, reliquat);
-  console.log("poidsFinal", poidsFinal, "poidsFinal2", poidsFinal2);
-
+  let poidsFinal = poidsFinalFunc(list, poidsInt, poidsMod, reliquat);
+  console.log("poidsFinal before", poidsFinal);
+  const { isMax, titre: isMaxTitre } = isReachMax(poidsFinal, max);
+  updatepoidsFinal(poidsFinal, isMax, isMaxTitre);
   const sumPoidsFinal = calculateFinalSum(poidsFinal);
   const validPoidsFinal = sumPoidsFinal === max;
+  console.log("updatedPoidsFinal", poidsFinal);
   const handleInputChange = (titre, value) => {
+    console.log("Change Titre", titre, value);
     setIsModifiedStates((prevValues) => ({
       ...prevValues,
       [titre]: true,
@@ -74,18 +100,7 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
       ...prevValues,
       [titre]: value,
     }));
-    // setInputValues((prevValues) => {
-    //   const updatedValues = { ...prevValues };
-    //   poidsFinal.forEach((item) => {
-    //     const poidsFinalTitre = Object.keys(item)[0];
-    //     const value = item[poidsFinalTitre];
-    //     if (poidsFinalTitre !== titre) {
-    //       updatedValues[poidsFinalTitre] = +value;
-    //     }
-    //   });
-    //   return updatedValues;
-    // });
-
+    // handleLock(titre);
     console.log("Poids Final", poidsFinal);
   };
   const isButtonDisabled = Object.values(inputValues).some(
@@ -98,7 +113,24 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
       [titre]: !prevValues[titre],
     }));
   };
+  const update = () => {
+    setNewRows((prevData) =>
+      prevData.map((item) => {
+        const { titre } = item;
+        const updatedPoids = poidsFinal[titre];
 
+        if (updatedPoids !== undefined) {
+          return {
+            ...item,
+            [field]: updatedPoids,
+          };
+        }
+
+        return item;
+      })
+    );
+    reset();
+  };
   return (
     <Box
       sx={{
@@ -130,7 +162,7 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
           }}
         >
           <Typography>
-            Poids Secteur <strong>({SECTEUR_ACTIVITE})</strong> :
+            Poids Classification <strong>({Classification})</strong> :
             <span>
               <Typography
                 variant="span"
@@ -146,7 +178,13 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
               /<strong>{max}</strong>
             </span>
           </Typography>
-          {sameSecteur.map((item) => {
+          {sameClassification.map((item) => {
+            console.log(
+              isMax && isMaxTitre !== item.titre,
+              isMax,
+              isMaxTitre,
+              item.titre
+            );
             return (
               <Box
                 key={item.TICKER}
@@ -167,9 +205,10 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
                   aria-label={`${item.TICKER}-slider`}
                   // value={inputValues[item.titre]}
                   value={poidsFinal[item.titre]}
-                  onChange={(e) =>
-                    handleInputChange(item.titre, e.target.value)
-                  }
+                  // value={poidsFinal[item.titre]}
+                  onChange={(e) => {
+                    handleInputChange(item.titre, e.target.value);
+                  }}
                   valueLabelDisplay="auto"
                   valueLabelFormat={(value) => value.toFixed(2) + " %"}
                   sx={{
@@ -177,7 +216,10 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
                     maxWidth: 150,
                     mb: 2,
                   }}
-                  disabled={isLockedStates[item.titre]}
+                  disabled={
+                    isLockedStates[item.titre] ||
+                    (isMax && isMaxTitre !== item.titre)
+                  }
                   step={0.1}
                   min={0}
                   max={maxSlider}
@@ -186,7 +228,10 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
                   id={`${item.titre}-poids`}
                   label="Poids (%)"
                   type="number"
-                  disabled={isLockedStates[item.titre]}
+                  disabled={
+                    isLockedStates[item.titre] ||
+                    (isMax && isMaxTitre !== item.titre)
+                  }
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -201,9 +246,11 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
                     handleInputChange(item.titre, e.target.value)
                   }
                   // value={inputValues[item.titre]}
+                  //  isMax && isMaxTitre !== item.titre? 0:
                   value={poidsFinal[item.titre]}
                   sx={{ minWidth: 100, maxWidth: 110 }}
                 />
+                <span>{poidsFinal[item.titre]}</span>
                 <IconButton onClick={() => handleLock(item.titre)}>
                   {isLockedStates[item.titre] ? (
                     <Lock size={18} color="var(--text-warning)" />
@@ -232,12 +279,9 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
           </Button>
           <Button
             variant="contained"
-            onClick={() => {
-              console.log("inputvak", inputValues);
-
-              // reset();
-            }}
-            disabled={isButtonDisabled || !validPoidsFinal}
+            onClick={update}
+            // disabled={isButtonDisabled || !validPoidsFinal}
+            disabled={isButtonDisabled}
           >
             Enregistrer
           </Button>
@@ -246,4 +290,5 @@ const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
     </Box>
   );
 };
-export default EditSecteurForm;
+
+export default EditPoidsClassification;

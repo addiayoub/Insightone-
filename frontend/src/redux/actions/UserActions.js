@@ -157,13 +157,14 @@ export const savePortefeuille = createAsyncThunk(
 
 export const getPortefeuilles = createAsyncThunk(
   "user/getPortefeuilles",
-  async (_, thunkAPI) => {
+  async ({ type }, thunkAPI) => {
     try {
       const { id } = thunkAPI.getState().auth.user;
       console.log("User auth", thunkAPI.getState().auth.user);
       const response = await axios.get(`/api/users/getPortefeuilles`, {
         params: {
           id,
+          type,
         },
       });
       console.log(`getPortefeuilles`, response);
@@ -227,6 +228,38 @@ export const deletePortefeuilles = createAsyncThunk(
         }
       );
       console.log(`deletePortefeuilles`, response);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+      } else {
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message: error.message,
+        });
+      }
+    }
+  }
+);
+
+export const updatePortefeuilles = createAsyncThunk(
+  "user/updatePortefeuilles",
+  async ({ ptfs }, thunkAPI) => {
+    try {
+      const { id } = thunkAPI.getState().auth.user;
+      const { selectedPtf } = thunkAPI.getState().backtest;
+      const response = await axios.post(
+        `/api/users/updatePortefeuilles`,
+        ptfs,
+        {
+          params: {
+            id,
+            ptfName: selectedPtf,
+          },
+        }
+      );
+      console.log(`updatePortefeuilles`, response);
       return response.data;
     } catch (error) {
       console.log(error);

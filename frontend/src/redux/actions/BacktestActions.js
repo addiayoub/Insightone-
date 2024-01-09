@@ -49,8 +49,10 @@ export const getPortef = createAsyncThunk(
 
 export const getEvolutionB100Portef = createAsyncThunk(
   "backtest/getEvolutionB100Portef",
-  async ({ dateDebut, dateFin, backtestData, list_indices }, thunkAPI) => {
-    const body = transformBacktestData(backtestData);
+  async ({ dateDebut, dateFin, list_indices }, thunkAPI) => {
+    // const body = transformBacktestData(backtestData);
+    const { ptfToBacktest } = thunkAPI.getState().backtest;
+    const body = transformBacktestData([ptfToBacktest]);
     try {
       const response = await apiNewMarko.post(
         `${apiTrading}POST/EVOLUTION_B100_PTFS/`,
@@ -94,9 +96,12 @@ export const getEvolutionB100Portef = createAsyncThunk(
 
 export const backtestAction = createAsyncThunk(
   "backtest/backtestAction",
-  async (_, thunkAPI) => {
+  async ({ rf }, thunkAPI) => {
     const body =
       thunkAPI.getState().backtest.evolutionB100Ptfs.data.df_rendement;
+    console.log("ref before", rf);
+    rf = +rf / 100;
+    console.log("ref after", rf);
     try {
       const endpoints = [
         {
@@ -113,7 +118,7 @@ export const backtestAction = createAsyncThunk(
         },
         {
           link: "KEY_PERFORMANCE_METRICS",
-          params: { rf: 0.02 },
+          params: { rf },
         },
         {
           link: "DISTRIBUTION_OF_MONTHLY_RETURNS",
@@ -129,11 +134,11 @@ export const backtestAction = createAsyncThunk(
         },
         {
           link: "ROLLING_SHARPE",
-          params: { rf: 0.02 },
+          params: { rf },
         },
         {
           link: "ROLLING_SORTINO",
-          params: { rf: 0.02 },
+          params: { rf },
         },
         {
           link: "WORST_10_DRAWDOWNS",
@@ -149,6 +154,10 @@ export const backtestAction = createAsyncThunk(
         },
         {
           link: "DAILY_RETURNS",
+          params: {},
+        },
+        {
+          link: "MONTHLY_RELATIVE_RETURNS",
           params: {},
         },
       ];
@@ -167,6 +176,7 @@ export const backtestAction = createAsyncThunk(
         MONTHLY_RETURNS,
         RETURN_QUANTILES,
         DAILY_RETURNS,
+        MONTHLY_RELATIVE_RETURNS,
       ] = await Promise.all(
         endpoints.map(async ({ link, params }) => {
           const response = await apiNewMarko.post(
@@ -197,10 +207,10 @@ export const backtestAction = createAsyncThunk(
         rollingSortino: ROLLING_SORTINO["Rolling Sortino"],
         worstDrawdowns: WORST_10_DRAWDOWNS["Worst 10 Drawdowns"],
         monthlyReturns: MONTHLY_RETURNS["Monthly Returns"],
+        monthlyRelReturns: MONTHLY_RELATIVE_RETURNS["Monthly Relative Returns"],
         dailyReturns: DAILY_RETURNS["daily returns"],
         quantiles: RETURN_QUANTILES["Return Quantiles"],
-
-        // keyPerf: KEY_PERFORMANCE_METRICS["EOY Returns table"],
+        keyPerf: KEY_PERFORMANCE_METRICS["Key Performance Metrics"],
       };
     } catch (error) {
       console.log("error", error);

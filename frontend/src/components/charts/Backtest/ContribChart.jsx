@@ -1,58 +1,64 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
-import moment from "moment/moment";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { useSelector } from "react-redux";
 
 const ContribChart = ({ data }) => {
-  const titles = data.map((item) => item.titre);
-  const values = data.map((item) => item["ptf-min-var"]).sort();
-  const seriesData = values.map((value) => ({
-    value,
-    itemStyle: {
-      color: value < 0 ? "#ee4658" : "#21cc6d",
-    },
-  }));
+  console.log("ContribChart rendered");
+  const { selectedPtf } = useSelector((state) => state.backtest);
+  const titles = useMemo(() => data.map((item) => item.titre), [data]);
+  const seriesData = useMemo(() => {
+    const values = data.map((item) => item[selectedPtf]).sort();
+    return values.map((value) => ({
+      value,
+      itemStyle: {
+        color: value < 0 ? "#ee4658" : "#21cc6d",
+      },
+    }));
+  }, [data, selectedPtf]);
   const theme = useChartTheme();
-  const options = {
-    title: {
-      text: "Contrib",
-      left: "center",
-      ...theme.title,
-    },
-    grid: {
-      right: "20%",
-      top: "10%",
-      bottom: "15%",
-      containLabel: true,
-    },
-    tooltip: {
-      confine: true,
-      valueFormatter: (value) => value?.toFixed(2),
-    },
-    xAxis: {
-      type: "value",
-      axisLabel: {
-        ...theme.yAxis.nameTextStyle,
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "Contrib",
+        left: "center",
+        ...theme.title,
       },
-      ...theme.yAxis,
-    },
-    yAxis: {
-      type: "category",
-      data: titles,
-      axisLabel: {
-        ...theme.yAxis.nameTextStyle,
+      grid: {
+        right: "100px",
+        top: "10%",
+        bottom: "15%",
+        containLabel: true,
       },
-      ...theme.yAxis,
-    },
-    series: [
-      {
-        type: "bar",
-        show: true,
-        position: "insideRight",
-        data: seriesData,
+      tooltip: {
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2),
       },
-    ],
-  };
+      xAxis: {
+        type: "value",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
+      },
+      yAxis: {
+        type: "category",
+        data: titles,
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
+      },
+      series: [
+        {
+          type: "bar",
+          show: true,
+          position: "insideRight",
+          data: seriesData,
+        },
+      ],
+    };
+  }, [seriesData, theme]);
 
   return (
     <ReactECharts
@@ -64,4 +70,4 @@ const ContribChart = ({ data }) => {
   );
 };
 
-export default ContribChart;
+export default memo(ContribChart);

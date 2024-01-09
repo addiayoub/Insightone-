@@ -1,78 +1,86 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 const EoyChart = ({ data }) => {
   const theme = useChartTheme();
-
-  const years = data.map((item) => item.Year);
-  const seriesName = Object.keys(data[0]).filter(
-    (key) => key !== "Year" && key !== "Won"
+  console.log("render EoyChart");
+  const years = useMemo(() => data.map((item) => item.Year), [data]);
+  const seriesName = useMemo(
+    () => Object.keys(data[0]).filter((key) => key !== "Year" && key !== "Won"),
+    [data]
   );
-  const series = seriesName.map((key) => ({
-    name: key,
-    type: "bar",
-    data: data.map((item) => item[key]),
-  }));
-  const options = {
-    title: {
-      text: "EOY Returns vs Benchmark vs Bench_cat",
-      left: "center",
-      ...theme.title,
-    },
-    tooltip: {
-      trigger: "axis",
-      confine: true,
-      valueFormatter: (value) => value?.toFixed(2),
-    },
-    legend: {
-      data: seriesName,
-      orient: "vertical",
-      zLevel: 23,
-      height: "50%",
-      top: "center",
-      right: 0,
-      type: "scroll",
-      ...theme.legend,
-    },
-    grid: {
-      right: "18%",
-      top: "10%",
-      bottom: "15%",
-      containLabel: true,
-    },
-    toolbox: {
-      feature: {
-        dataZoom: {
-          yAxisIndex: true,
+  const series = useMemo(
+    () =>
+      seriesName.map((key) => ({
+        name: key,
+        type: "bar",
+        data: data.map((item) => item[key] * 100),
+      })),
+    [data, seriesName]
+  );
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "EOY Returns vs Benchmark vs Bench_cat",
+        left: "center",
+        ...theme.title,
+      },
+      tooltip: {
+        trigger: "axis",
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2),
+      },
+      legend: {
+        data: seriesName,
+        orient: "horizontal",
+        zLevel: 23,
+        width: "60%",
+        left: "center",
+        bottom: "9%",
+        type: "scroll",
+        ...theme.legend,
+      },
+      grid: {
+        right: "5%",
+        top: "10%",
+        bottom: "15%",
+        containLabel: true,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
         },
-        restore: {},
-        saveAsImage: {},
+        top: "20px",
       },
-      top: "20px",
-    },
-    xAxis: {
-      type: "category",
-      data: years,
-      axisLabel: {
-        ...theme.xAxis.nameTextStyle,
+      xAxis: {
+        type: "category",
+        data: years,
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
-      ...theme.xAxis,
-    },
-    yAxis: {
-      type: "value",
-      axisLabel: {
-        ...theme.yAxis.nameTextStyle,
+      yAxis: {
+        type: "value",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
-      ...theme.yAxis,
-    },
-    series: series,
-  };
+      series: series,
+    };
+  }, [series, seriesName, years, theme]);
   return (
     <ReactECharts
       option={options}
       style={{
         minHeight: 500,
+        margin: "15px 0",
       }}
     />
   );

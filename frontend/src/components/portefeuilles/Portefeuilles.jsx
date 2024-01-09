@@ -18,6 +18,13 @@ import PortefeuilleMarko from "../Markowitz/Portefeuille";
 import ModalComponent from "../Modal";
 import EditPortefeuille from "./EditPortefeuille";
 import TabsComponent from "../TabsComponent";
+import SingleSelect from "../SingleSelect";
+import {
+  setPtfToBacktest,
+  setSelectedPtf,
+} from "../../redux/slices/BacktestSlice";
+
+const types = ["Actions", "OPCVM"];
 
 const Portefeuilles = () => {
   const {
@@ -25,13 +32,29 @@ const Portefeuilles = () => {
   } = useSelector((state) => state.user);
   const [selectedPtfs, setSelectedPtfs] = useState([]);
   const [show, setShow] = useState(false);
+  const [type, setType] = useState("Actions");
+  const [ptf, setPtf] = useState(null);
+  const [ptfs, setPtfs] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPortefeuilles());
+    dispatch(getPortefeuilles({ type: "" }))
+      .unwrap()
+      .then((portefeuilles) => {
+        console.log("get ptfs resp", portefeuilles);
+        const byType = portefeuilles
+          .filter((ptf) => ptf.type === type)
+          .map((ptf) => ptf.name);
+        setPtfs(byType);
+      });
   }, []);
   const handleValider = () => {
     setShow(true);
     console.log("selected ptfs", selectedPtfs);
+    const choosen = data.find((item) => item.name === ptf);
+    console.log("choosen", choosen);
+    setSelectedPtfs([choosen]);
+    dispatch(setPtfToBacktest(choosen));
+    dispatch(setSelectedPtf(ptf));
     console.log("trasn ptfs", transformBacktestData(selectedPtfs));
   };
   const handleDelete = () => {
@@ -47,14 +70,43 @@ const Portefeuilles = () => {
       setShow(false);
     }
   }, [selectedPtfs]);
+  useEffect(() => {
+    setPtf(null);
+    const ptfs = data.filter((ptf) => ptf.type === type).map((ptf) => ptf.name);
+    setPtfs(ptfs);
+  }, [type]);
+  useEffect(() => setShow(false), [ptf]);
   return (
     <>
       {/* <EditPortefeuille ptfs={data.map((ptf) => ptf.name)} /> */}
       <AccordionBox
         title="la liste des portefeuilles enregistrés"
         isExpanded={true}
+        detailsClass="flex flex-wrap gap-3 items-center"
       >
-        {!loading && (
+        <SingleSelect
+          label={"Type"}
+          options={types}
+          value={type}
+          setValue={setType}
+        />
+        <SingleSelect
+          label={"Portefeuilles"}
+          options={ptfs}
+          value={ptf}
+          setValue={setPtf}
+        />
+        <Button
+          variant="contained"
+          className="min-w-[115px] flex gap-2 items-center"
+          color="primary"
+          size="small"
+          onClick={handleValider}
+          disabled={!ptf}
+        >
+          Valider <CheckSquare size={18} />
+        </Button>
+        {/* {!loading && (
           <>
             <Table
               rows={data}
@@ -64,17 +116,17 @@ const Portefeuilles = () => {
               setSelectedRows={setSelectedPtfs}
               pageSize={10}
             />
-            {/* {selectedPtfs.map(({ data, type, field }) => {
+            {selectedPtfs.map(({ data, type, field }) => {
               return type === "OPCVM" ? (
                 <Portefeuille data={data} field={field} />
               ) : (
                 <PortefeuilleMarko data={data} field={field} />
               );
-            })} */}
+            })}
           </>
-        )}
+        )} */}
 
-        <Box className="flex gap-3 flex-wrap mt-4 ">
+        {/* <Box className="flex gap-3 flex-wrap mt-4 ">
           <Button
             variant="contained"
             color="error"
@@ -93,10 +145,10 @@ const Portefeuilles = () => {
           >
             Valider <CheckSquare size={18} />
           </Button>
-        </Box>
+        </Box> */}
       </AccordionBox>
       {show && <TabsComponent tabs={selectedPtfs} />}
-      {show && <PortefeuilleBacktest backtestData={selectedPtfs} />}
+      {show && <PortefeuilleBacktest />}
       {loading && <MainLoader />}
     </>
   );

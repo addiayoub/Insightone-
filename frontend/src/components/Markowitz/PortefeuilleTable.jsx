@@ -13,6 +13,11 @@ import {
 import { Edit, Lock, PieChart, Unlock } from "react-feather";
 import ModalComponent from "../Modal";
 import RangeSlider from "../SliderCom";
+import EditPoidsSecteurForm from "./EditPoids/EditPoidsSecteurForm";
+import EditPoidsTitreForm from "./EditPoids/EditPoidsTitreForm";
+import Actions from "./EditPoids/Actions";
+import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers";
+import EditPortefeuille from "../EditPortefeuille";
 
 const calculateSum = (data, secteur, field) => {
   // Filter the data based on the provided Classification
@@ -331,7 +336,7 @@ const isReachMax = (data, maxValue) => {
   };
 };
 
-const EditSecteurForm = ({ rows, titre, poids, field, reset }) => {
+const EditSecteurForm2 = ({ rows, titre, poids, field, reset }) => {
   const { SECTEUR_ACTIVITE } = rows.find((row) => row.titre === titre);
   const { sum } = calculateSum(rows, SECTEUR_ACTIVITE, field);
   const max = +sum.toFixed(2);
@@ -620,13 +625,17 @@ const calculateRowsSum = (data) => {
 };
 
 const PortefeuilleTable = ({ rows, field, showActions }) => {
-  console.log("Marko PortefeuilleTable");
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
-  console.log("calculatePoidsSum", calculatePoidsSum(newRows, field));
+  console.log(
+    "calculatePoidsSum",
+    calculatePoidsSum(newRows, field),
+    newRows,
+    rows
+  );
   const secteurSums = useMemo(() => {
     return newRows.reduce((acc, row) => {
       const secteur = row.SECTEUR_ACTIVITE;
@@ -659,7 +668,6 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
     reset();
   };
   const handleLock = (titre, isLocked) => {
-    console.log(`titre ${titre} isLocked: ${isLocked}`);
     setNewRows((prevData) =>
       prevData.map((item) => {
         if (item.titre === titre) {
@@ -689,10 +697,10 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
     );
     reset();
   };
+
   useEffect(() => {
-    console.log("New rows", newRows);
-    console.log("New rows with injet", injectSums(newRows, secteurSums));
-  }, [newRows]);
+    setNewRows(rows);
+  }, [rows]);
   const columns = useMemo(() => {
     const basedColumns = [
       {
@@ -747,79 +755,31 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
         field: "actions",
         flex: 0.3,
         headerName: "Actions",
-        renderCell: (params) => {
-          return (
-            <>
-              <IconButton
-                onClick={() => {
-                  const res = calculateSum(
-                    rows,
-                    params.row.SECTEUR_ACTIVITE,
-                    field
-                  );
-                  setOpen(true);
-                  setPoids(params.row[field].toFixed(2));
-                  setNewTitre(params.row.titre);
-                  console.log(res);
-                }}
-              >
-                <Edit size={18} color="var(--primary-color)" />
-              </IconButton>
-              <IconButton
-                onClick={() => {
-                  setPoids(params.row[field].toFixed(2));
-                  setOpenEdit(true);
-                  setNewTitre(params.row.titre);
-                }}
-              >
-                <PieChart size={18} color="var(--avwap-color)" />
-              </IconButton>
-              <IconButton
-                onClick={() =>
-                  handleLock(params.row.titre, params.row.isLocked)
-                }
-              >
-                {params.row.isLocked ? (
-                  <Lock size={18} color="var(--text-warning)" />
-                ) : (
-                  <Unlock size={18} color="var(--text-success)" />
-                )}
-              </IconButton>
-            </>
-          );
-        },
+        renderCell: (params) => (
+          <Actions
+            rows={rows}
+            params={params}
+            setOpen={setOpen}
+            setOpenEdit={setOpenEdit}
+            setNewTitre={setNewTitre}
+            setPoids={setPoids}
+            handleLock={handleLock}
+            field={field}
+          />
+        ),
       });
     }
     return basedColumns;
   }, [newRows, field, showActions]);
-
-  const ajuster = () => {
-    const locked = newRows.filter((item) => item.isLocked);
-    const reliquat = 100 - calculatePoidsSum(locked, field);
-    const unLocked = newRows.filter((item) => !item.isLocked);
-    const sumUnlocked = calculatePoidsSum(unLocked, field);
-    const unLockedTitres = unLocked.map((item) => item.titre);
-    setNewRows((prevData) =>
-      prevData.map((item) => {
-        if (unLockedTitres.includes(item.titre)) {
-          return { ...item, [field]: (item[field] * reliquat) / sumUnlocked };
-        }
-        return { ...item };
-      })
-    );
-  };
   return (
     <>
       {showActions && (
-        <div style={{ textAlign: "right" }}>
-          <h4>
-            La somme: {calculatePoidsSum(newRows, field)}/
-            {calculatePoidsSum(rows, field)}
-          </h4>
-          <Button variant="contained" onClick={ajuster}>
-            Ajuster
-          </Button>
-        </div>
+        <EditPortefeuille
+          oldRows={rows}
+          newRows={newRows}
+          setNewRows={setNewRows}
+          field={field}
+        />
       )}
       <Table
         columns={columns}
@@ -827,7 +787,7 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
         pageSize={25}
       />
       <ModalComponent open={open} handleClose={reset}>
-        <EditPoisForm
+        <EditPoidsTitreForm
           poids={poids}
           setPoids={setPoids}
           reset={reset}
@@ -838,7 +798,8 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
         />
       </ModalComponent>
       <ModalComponent open={openEdit} handleClose={() => setOpenEdit(false)}>
-        <EditSecteurForm
+        <EditPoidsSecteurForm
+          setNewRows={setNewRows}
           titre={newTitre}
           poids={poids}
           reset={() => setOpenEdit(false)}

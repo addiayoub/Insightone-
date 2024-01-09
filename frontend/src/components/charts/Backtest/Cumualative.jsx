@@ -1,8 +1,9 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { useSelector } from "react-redux";
 
-const getOptions = (data, seriesNames, title, theme) => {
+const getOptions = (data, seriesNames, title, theme, ptf = "") => {
   return {
     title: {
       text: title,
@@ -10,7 +11,7 @@ const getOptions = (data, seriesNames, title, theme) => {
       ...theme.title,
     },
     grid: {
-      right: "20%",
+      // right: "10%",
       top: "10%",
       // right: "3%",
       bottom: "15%",
@@ -60,11 +61,11 @@ const getOptions = (data, seriesNames, title, theme) => {
     },
     legend: {
       // data: seriesNames,
-      orient: "vertical",
+      orient: "horizontal",
       zLevel: 23,
-      height: "50%",
-      top: "center",
-      right: 0,
+      width: "50%",
+      left: "center",
+      bottom: "9%",
       type: "scroll",
       ...theme.legend,
     },
@@ -75,7 +76,7 @@ const getOptions = (data, seriesNames, title, theme) => {
       },
     },
     series: seriesNames.map((seriesName) => ({
-      name: seriesName === "returns_mv_cum" ? "ptf-min-var" : seriesName,
+      name: seriesName === "returns_mv_cum" && ptf ? ptf : seriesName,
       type: "line",
       symbol: "none",
       data: data.map((item) => item[seriesName] * 100),
@@ -84,24 +85,39 @@ const getOptions = (data, seriesNames, title, theme) => {
 };
 
 const Cumualative = ({ data }) => {
+  console.log("render Cumualative");
   const theme = useChartTheme();
-  const seriesNames = Object.keys(data[0]).filter(
-    (key) => key !== "seance" && key !== "returns_mv_cum"
+  const seriesNames = useMemo(
+    () =>
+      Object.keys(data[0]).filter(
+        (key) => key !== "seance" && key !== "returns_mv_cum"
+      ),
+    [data]
   );
-  const seriesNames2 = Object.keys(data[0]).filter(
-    (key) => key !== "seance" && key !== "ptf-min-var"
+
+  const { selectedPtf } = useSelector((state) => state.backtest);
+  const seriesNames2 = useMemo(
+    () =>
+      Object.keys(data[0]).filter(
+        (key) => key !== "seance" && key !== selectedPtf
+      ),
+    [data, selectedPtf]
   );
-  const options = getOptions(
-    data,
-    seriesNames,
-    "Cumulative Returns vs Benchmark",
-    theme
+  const options = useMemo(
+    () =>
+      getOptions(data, seriesNames, "Cumulative Returns vs Benchmark", theme),
+    [theme, data, seriesNames]
   );
-  const options2 = getOptions(
-    data,
-    seriesNames2,
-    "Cumulative Returns vs Benchmark (Log Scaled)",
-    theme
+  const options2 = useMemo(
+    () =>
+      getOptions(
+        data,
+        seriesNames2,
+        "Cumulative Returns vs Benchmark (Log Scaled)",
+        theme,
+        selectedPtf
+      ),
+    [theme, data, seriesNames2, selectedPtf]
   );
   return (
     <>
@@ -123,4 +139,4 @@ const Cumualative = ({ data }) => {
   );
 };
 
-export default Cumualative;
+export default memo(Cumualative);

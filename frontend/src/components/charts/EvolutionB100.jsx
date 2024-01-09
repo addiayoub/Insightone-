@@ -2,11 +2,37 @@ import ReactECharts from "echarts-for-react";
 import moment from "moment/moment";
 import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
+import { defaultOptions } from "../../utils/chart/defaultOptions";
 
-function EvolutionB100({ data }) {
+function EvolutionB100({ data, isGrid }) {
   console.log("EvolutionB100", data);
   const theme = useChartTheme();
   const seriesNames = Object.keys(data[0]).filter((key) => key !== "seance");
+  const legend = isGrid
+    ? {
+        type: "scroll",
+        orient: "horizontal",
+        zLevel: 23,
+        width: "60%",
+        left: "center",
+        bottom: "9%",
+        type: "scroll",
+      }
+    : {
+        orient: "vertical",
+        zLevel: 23,
+        height: "50%",
+        top: "center",
+        right: 0,
+        textStyle: {
+          width: 150,
+          rich: {
+            fw600: {
+              fontWeight: 600,
+            },
+          },
+        },
+      };
   console.log("seriesNames EvolutionB100", seriesNames);
   const options = useMemo(() => {
     const seriesData = seriesNames
@@ -23,7 +49,7 @@ function EvolutionB100({ data }) {
         ...theme.title,
       },
       grid: {
-        right: "20%",
+        right: isGrid ? "100px" : "20%",
         top: "10%",
         // right: "3%",
         bottom: "15%",
@@ -48,21 +74,6 @@ function EvolutionB100({ data }) {
         confine: true,
         valueFormatter: (value) => value?.toFixed(2),
       },
-      dataZoom: [
-        {
-          type: "slider", // Enable slider data zoom
-          show: true,
-          xAxisIndex: [0],
-          start: 0,
-          end: 100,
-        },
-        {
-          type: "inside",
-          xAxisIndex: [0],
-          start: 0,
-          end: 100,
-        },
-      ],
       xAxis: {
         type: "category",
         // data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
@@ -74,20 +85,7 @@ function EvolutionB100({ data }) {
       },
       legend: {
         data: seriesNames,
-        orient: "vertical",
-        zLevel: 23,
-        height: "50%",
-        top: "center",
-        right: 0,
-        type: "scroll",
-        textStyle: {
-          width: 150,
-          rich: {
-            fw600: {
-              fontWeight: 600,
-            },
-          },
-        },
+        ...legend,
         formatter: function (name) {
           if (name.length > 25) {
             const newName = name.split(" ");
@@ -111,6 +109,7 @@ function EvolutionB100({ data }) {
         symbol: "none",
         data: data.map((item) => item[seriesName]),
       })),
+      ...defaultOptions,
     };
   }, [seriesNames, data, theme]);
   return (
