@@ -73,7 +73,9 @@ const Rolling = ({ data, title }) => {
         name: serieName,
         type: "line",
         symbol: "none",
-        data: data.map((item) => item[serieName]),
+        data: data.map((item) =>
+          item[serieName] === 0 ? null : item[serieName]
+        ),
       })),
       ...defaultOptions,
     };

@@ -42,12 +42,14 @@ const TabsComponent = ({ tabs }) => {
                   showActions
                   rows={injectIsLocked(component.data) ?? []}
                   field={component.field}
+                  params={component.params}
                 />
               ) : (
                 <PortefeuilleTableMarko
                   showActions
                   rows={injectIsLocked(component.data) ?? []}
                   field={component.field}
+                  params={component.params}
                 />
               )}
             </TabPanel>

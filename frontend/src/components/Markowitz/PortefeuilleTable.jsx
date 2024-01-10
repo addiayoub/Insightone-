@@ -18,6 +18,8 @@ import EditPoidsTitreForm from "./EditPoids/EditPoidsTitreForm";
 import Actions from "./EditPoids/Actions";
 import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers";
 import EditPortefeuille from "../EditPortefeuille";
+import SavePortefeuille from "../SavePortefeuille";
+import ChangeSecteur from "../Test/ChangeSecteurs";
 
 const calculateSum = (data, secteur, field) => {
   // Filter the data based on the provided Classification
@@ -624,7 +626,7 @@ const calculateRowsSum = (data) => {
   // return data.reduce((sum, item) => sum + item.somme, 0);
 };
 
-const PortefeuilleTable = ({ rows, field, showActions }) => {
+const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [poids, setPoids] = useState(null);
@@ -697,7 +699,8 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
     );
     reset();
   };
-
+  const disableSave =
+    calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   useEffect(() => {
     setNewRows(rows);
   }, [rows]);
@@ -774,12 +777,22 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
   return (
     <>
       {showActions && (
-        <EditPortefeuille
-          oldRows={rows}
-          newRows={newRows}
-          setNewRows={setNewRows}
-          field={field}
-        />
+        <>
+          <EditPortefeuille
+            oldRows={rows}
+            newRows={newRows}
+            setNewRows={setNewRows}
+            field={field}
+          >
+            <SavePortefeuille
+              data={newRows}
+              field={field}
+              type="Actions"
+              oldParams={params}
+              isDisabled={disableSave}
+            />
+          </EditPortefeuille>
+        </>
       )}
       <Table
         columns={columns}
@@ -806,6 +819,7 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
           rows={newRows}
           field={field}
         />
+        {/* <ChangeSecteur /> */}
       </ModalComponent>
     </>
   );

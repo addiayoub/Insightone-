@@ -36,6 +36,7 @@ const Portefeuilles = () => {
   const [ptf, setPtf] = useState(null);
   const [ptfs, setPtfs] = useState([]);
   const dispatch = useDispatch();
+  console.log("New Ptfs", data);
   useEffect(() => {
     dispatch(getPortefeuilles({ type: "" }))
       .unwrap()

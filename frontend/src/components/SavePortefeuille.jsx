@@ -8,13 +8,22 @@ import { notyf } from "../utils/notyf";
 import ModalComponent from "./Modal";
 import { filterByPtf } from "../utils/filterByPtf";
 import { extractPtfKeys } from "../utils/extractPtfKeys";
+import { setPortefeuilles } from "../redux/slices/UserSlice";
 
-const SavePortefeuille = ({ data, type, field, saveAll }) => {
+const SavePortefeuille = ({
+  data,
+  type,
+  field,
+  saveAll,
+  oldParams,
+  isDisabled,
+}) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [choice, setChoice] = useState("single");
   console.log("saveAll", saveAll);
+  console.log("oldParams", oldParams);
   const { params } =
     type === "OPCVM"
       ? useSelector((state) => state.opcvm)
@@ -45,7 +54,7 @@ const SavePortefeuille = ({ data, type, field, saveAll }) => {
         name: title.trim(),
         type,
         field,
-        params,
+        params: oldParams ? oldParams : params,
         data: isPtf ? filterByPtf(data, field) : data,
       };
       ptfs.push(portefeuille);
@@ -53,8 +62,9 @@ const SavePortefeuille = ({ data, type, field, saveAll }) => {
     console.log("ptsf res", ptfs);
     dispatch(savePortefeuille({ portefeuille: ptfs }))
       .unwrap()
-      .then(({ message }) => {
+      .then(({ message, portefeuilles }) => {
         reset();
+        dispatch(setPortefeuilles(portefeuilles));
         notyf.success(message);
       })
       .catch((error) => notyf.error(error));
@@ -73,6 +83,7 @@ const SavePortefeuille = ({ data, type, field, saveAll }) => {
           }}
           variant="contained"
           size="small"
+          disabled={isDisabled}
           className="mr-2"
         >
           <span className="mr-2">Enregistrer</span>

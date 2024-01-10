@@ -8,6 +8,8 @@ import {
   poidsFinalFunc2,
   poidsIntFun,
   poidsModFun,
+  poidsNulleFunc,
+  preReliquatFunc,
   reliquatFunc,
   sliderModFun,
   updatepoidsFinal,
@@ -81,9 +83,19 @@ const EditPoidsClassification = ({
   console.log("poidsInt", poidsInt);
   const poidsMod = poidsModFun(list, poidsInt);
   console.log("poidsMod", poidsMod);
+  const preReliquat = preReliquatFunc(list, oldPoids);
+  console.log("preReliquat", preReliquat);
+  const poidsNulle = poidsNulleFunc(list, preReliquat, oldPoids, max, poidsMod);
+  console.log("poidsNulle", poidsNulle);
   const reliquat = reliquatFunc(max, poidsInt);
   console.log("reliquat", reliquat);
-  let poidsFinal = poidsFinalFunc(list, poidsInt, poidsMod, reliquat);
+  let poidsFinal = poidsFinalFunc(
+    list,
+    poidsInt,
+    poidsMod,
+    reliquat,
+    poidsNulle
+  );
   console.log("poidsFinal before", poidsFinal);
   const { isMax, titre: isMaxTitre } = isReachMax(poidsFinal, max);
   updatepoidsFinal(poidsFinal, isMax, isMaxTitre);
@@ -209,8 +221,9 @@ const EditPoidsClassification = ({
                   onChange={(e) => {
                     handleInputChange(item.titre, e.target.value);
                   }}
+                  onChangeCommitted={() => handleLock(item.titre)}
                   valueLabelDisplay="auto"
-                  valueLabelFormat={(value) => value.toFixed(2) + " %"}
+                  valueLabelFormat={() => poidsFinal[item.titre] + "%"}
                   sx={{
                     minWidth: 150,
                     maxWidth: 150,

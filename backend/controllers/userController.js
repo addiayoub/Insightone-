@@ -251,7 +251,6 @@ class _UserController {
   async savePortefeuille(req, res) {
     try {
       const { id, portefeuille } = req.body;
-
       // Find the user
       const user = await User.findById(id);
 
@@ -263,13 +262,26 @@ class _UserController {
       user.portefeuilles = user.portefeuilles || [];
 
       // Check if the portefeuille name already exists
-      const isPortefeuilleNameExists = user.portefeuilles.find(
-        (existing) =>
-          existing.name === portefeuille.name &&
-          existing.type === portefeuille.type
-      );
+      // const isPortefeuilleNameExists = user.portefeuilles.find(
+      //   (existing) =>
+      //     existing.name === portefeuille.name &&
+      //     existing.type === portefeuille.type
+      // );
+      function areAllRecordsUnique(newRecords, database) {
+        return newRecords.every((newRecord) => {
+          const { type, name } = newRecord;
 
-      if (isPortefeuilleNameExists) {
+          // Check if there is an existing object with the same type and name in the database
+          const existingRecord = database.find(
+            (record) => record.type === type && record.name === name
+          );
+
+          // If existingRecord is undefined, the new record is unique
+          return !existingRecord;
+        });
+      }
+      const areUnique = areAllRecordsUnique(portefeuille, user.portefeuilles);
+      if (!areUnique) {
         return res.status(400).json({
           message:
             "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
@@ -281,9 +293,10 @@ class _UserController {
       // Save the updated user to the database
       await user.save();
 
-      res
-        .status(201)
-        .json({ message: "Portefeuille enregistré avec succès.", user });
+      res.status(201).json({
+        message: "Portefeuille enregistré avec succès.",
+        portefeuilles: user.portefeuilles,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error });

@@ -7,7 +7,13 @@ import { notyf } from "../utils/notyf";
 import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
 import { Save, Zap } from "react-feather";
 
-const EditPortefeuille = ({ oldRows, newRows, setNewRows, field }) => {
+const EditPortefeuille = ({
+  oldRows,
+  newRows,
+  setNewRows,
+  field,
+  children,
+}) => {
   const dispatch = useDispatch();
   const handleSave = () => {
     dispatch(updatePortefeuilles({ ptfs: newRows }))
@@ -25,17 +31,18 @@ const EditPortefeuille = ({ oldRows, newRows, setNewRows, field }) => {
         La somme: {calculateSumPoids(newRows, field)}/
         {calculateSumPoids(oldRows, field)}
       </h4>
-      <Box className="flex flex-wrap gap-3">
+      <Box className="flex flex-wrap gap-y-1 items-center">
         <Button
           variant="contained"
+          size="small"
+          color="success"
           onClick={() => ajuster(newRows, setNewRows, field)}
           className="flex gap-1 items-center"
         >
           Ajuster <Zap size={18} />
         </Button>
-        <Button
+        {/* <Button
           variant="contained"
-          color="success"
           onClick={() => {
             console.log("Before ", oldRows, "After", newRows);
             handleSave();
@@ -47,7 +54,8 @@ const EditPortefeuille = ({ oldRows, newRows, setNewRows, field }) => {
           }
         >
           Enregistrer <Save size={18} />
-        </Button>
+        </Button> */}
+        {children}
       </Box>
     </Box>
   );

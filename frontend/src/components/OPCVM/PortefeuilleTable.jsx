@@ -17,6 +17,7 @@ import { calculateSumClassification } from "../../utils/OPCVM/helpers.js";
 import EditPoidsClassification from "./EditPoids/EditPoidsClassification.jsx";
 import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers.js";
 import EditPortefeuille from "../EditPortefeuille.jsx";
+import SavePortefeuille from "../SavePortefeuille.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -116,7 +117,7 @@ const updatePoids = (setState, titreToUpdate, newData, field) => {
 //   );
 // };
 
-const PortefeuilleTable = ({ rows, field, showActions }) => {
+const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [poids, setPoids] = useState(null);
@@ -211,6 +212,8 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
     }
     return basedColumns;
   }, [rows, field, showActions]);
+  const disableSave =
+    calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   console.log("Columns", columns);
   return (
     <>
@@ -220,7 +223,15 @@ const PortefeuilleTable = ({ rows, field, showActions }) => {
           newRows={newRows}
           setNewRows={setNewRows}
           field={field}
-        />
+        >
+          <SavePortefeuille
+            data={newRows}
+            field={field}
+            type="OPCVM"
+            oldParams={params}
+            isDisabled={disableSave}
+          />
+        </EditPortefeuille>
       )}
       <Table columns={columns} rows={newRows} pageSize={25} />
       <ModalComponent open={open} handleClose={reset}>

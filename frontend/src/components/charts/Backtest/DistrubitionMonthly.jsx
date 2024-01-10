@@ -1,6 +1,7 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import echarts from "echarts/lib/echarts";
 
 // const lineData = data.map((item) => item.Frequency * 100);
 // const barData = data.map((item) => item.KDE);
@@ -12,6 +13,9 @@ const DistrubitionMonthly = ({ data }) => {
     () => data.map((item) => (item.Returns * 100).toFixed(2)),
     [data]
   );
+  const min = Math.min(...xAxisData);
+  const max = Math.max(...xAxisData);
+  console.log("Min DistrubitionMonthly", min, max);
   const options = useMemo(() => {
     return {
       title: {
@@ -46,7 +50,8 @@ const DistrubitionMonthly = ({ data }) => {
       xAxis: [
         {
           type: "category",
-          data: xAxisData,
+          data: [...xAxisData, max + 1],
+          boundaryGap: true,
           axisPointer: {
             type: "shadow",
           },
@@ -79,6 +84,14 @@ const DistrubitionMonthly = ({ data }) => {
           name: "KDE",
           type: "line",
           smooth: true,
+          symbol: "none",
+          sampling: "lttb",
+          itemStyle: {
+            color: "#30c63f",
+          },
+          areaStyle: {
+            color: "#30c63f",
+          },
           data: data.map((item) => item.KDE),
         },
         {
@@ -90,6 +103,14 @@ const DistrubitionMonthly = ({ data }) => {
         {
           name: "Norm Value",
           type: "line",
+          symbol: "none",
+          sampling: "lttb",
+          itemStyle: {
+            color: "#df289e",
+          },
+          areaStyle: {
+            color: "#df289e",
+          },
           smooth: true,
           data: data.map((item) => item.norm_values),
         },

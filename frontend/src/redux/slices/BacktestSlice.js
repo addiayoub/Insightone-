@@ -55,6 +55,7 @@ const backtestSlice = createSlice({
         quantiles: [],
         dailyReturns: [],
         keyPerf: [],
+        underwater: [],
       },
     },
     selectedPtf: "",
@@ -145,6 +146,7 @@ const backtestSlice = createSlice({
         backtestData.data.eoyTable = payload.eoyTable;
         backtestData.data.dailyReturns = payload.dailyReturns;
         backtestData.data.keyPerf = payload.keyPerf;
+        backtestData.data.underwater = payload.underwater;
       }
     );
     builder.addCase(
@@ -165,6 +167,7 @@ const backtestSlice = createSlice({
         backtestData.data.dailyReturns = [];
         backtestData.data.monthlyRelReturns = [];
         backtestData.data.keyPerf = [];
+        backtestData.data.underwater = [];
         backtestData.error = payload;
       }
     );

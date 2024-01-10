@@ -62,6 +62,9 @@ const userSlice = createSlice({
       state.updateProfileState.loading = false;
       state.updateProfileState.error = null;
     },
+    setPortefeuilles: (state, { payload }) => {
+      state.portefeuilles.data = payload;
+    },
   },
   extraReducers: (builder) => {
     // Fetch Users
@@ -232,5 +235,6 @@ export const {
   resetUpdateState,
   resetStoreState,
   resetUpdateProfileState,
+  setPortefeuilles,
 } = userSlice.actions;
 export default userSlice.reducer;

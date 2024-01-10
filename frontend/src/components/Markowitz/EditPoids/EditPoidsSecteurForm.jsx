@@ -9,6 +9,8 @@ import {
   poidsFinalFunc2,
   poidsIntFun,
   poidsModFun,
+  poidsNulleFunc,
+  preReliquatFunc,
   reliquatFunc,
   sliderModFun,
   updatepoidsFinal,
@@ -80,9 +82,19 @@ const EditPoidsSecteurForm = ({
   console.log("poidsInt", poidsInt);
   const poidsMod = poidsModFun(list, poidsInt);
   console.log("poidsMod", poidsMod);
+  const preReliquat = preReliquatFunc(list, oldPoids);
+  console.log("preReliquat", preReliquat);
+  const poidsNulle = poidsNulleFunc(list, preReliquat, oldPoids, max, poidsMod);
+  console.log("poidsNulle", poidsNulle);
   const reliquat = reliquatFunc(max, poidsInt);
   console.log("reliquat", reliquat);
-  let poidsFinal = poidsFinalFunc(list, poidsInt, poidsMod, reliquat);
+  let poidsFinal = poidsFinalFunc(
+    list,
+    poidsInt,
+    poidsMod,
+    reliquat,
+    poidsNulle
+  );
   const poidsFinal2 = poidsFinalFunc2(list, poidsInt, poidsMod, reliquat);
   console.log("poidsFinal before", poidsFinal);
   const { isMax, titre: isMaxTitre } = isReachMax(poidsFinal, max);
@@ -98,23 +110,24 @@ const EditPoidsSecteurForm = ({
     }));
     setInputValues((prevValues) => ({
       ...prevValues,
-      [titre]: value,
+      [titre]: +value,
     }));
-    setInputValues((prevValues) => {
-      const updatedValues = { ...prevValues };
-      if (isMax) {
-        Object.keys(poidsFinal).map((item) => {
-          if (isModifiedStates[item] && isMax && isMaxTitre !== item) {
-            updatedValues[item] = poidsFinal[item];
-          }
-        });
-      }
-
-      console.log("poids final with", poidsFinal, updatedValues);
-      return updatedValues;
-    });
-    console.log("Poids Final", poidsFinal);
     // handleLock(titre);
+
+    // setInputValues((prevValues) => {
+    //   const updatedValues = { ...prevValues };
+    //   if (isMax) {
+    //     Object.keys(poidsFinal).map((item) => {
+    //       if (isModifiedStates[item] && isMax && isMaxTitre !== item) {
+    //         updatedValues[item] = poidsFinal[item];
+    //       }
+    //     });
+    //   }
+
+    //   console.log("poids final with", poidsFinal, updatedValues);
+    //   return updatedValues;
+    // });
+    console.log("Poids Final", poidsFinal);
   };
   const isButtonDisabled = Object.values(inputValues).some(
     (value) => value > max || value < 0
@@ -237,8 +250,9 @@ const EditPoidsSecteurForm = ({
                   onChange={(e) =>
                     handleInputChange(item.titre, e.target.value)
                   }
-                  valueLabelDisplay="auto"
-                  valueLabelFormat={(value) => value.toFixed(2) + " %"}
+                  onChangeCommitted={() => handleLock(item.titre)}
+                  valueLabelDisplay="on"
+                  valueLabelFormat={() => poidsFinal[item.titre] + "%"}
                   sx={{
                     minWidth: 150,
                     maxWidth: 150,
@@ -278,9 +292,9 @@ const EditPoidsSecteurForm = ({
                   value={poidsFinal[item.titre]}
                   sx={{ minWidth: 100, maxWidth: 110 }}
                 />
-                <span>
+                {/* <span>
                   PF:{poidsFinal[item.titre]}-IV:{inputValues[item.titre]}
-                </span>
+                </span> */}
                 <IconButton onClick={() => handleLock(item.titre)}>
                   {isLockedStates[item.titre] ? (
                     <Lock size={18} color="var(--text-warning)" />

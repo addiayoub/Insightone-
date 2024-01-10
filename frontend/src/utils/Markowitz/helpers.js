@@ -49,6 +49,7 @@ const poidsIntFun = (data, sliderMod) => {
 };
 
 const poidsModFun = (data, poidsInt) => {
+  console.log("poidsModFun data", data);
   return data.map((item) => {
     const { isModified, titre, poids } = item;
     const fromPoidsInt = poidsInt.find((item) => item.titre === titre);
@@ -61,7 +62,35 @@ const poidsModFun = (data, poidsInt) => {
   });
 };
 
+const preReliquatFunc = (data, oldPoids) => {
+  return data.map((item) => {
+    const { isModified, titre, poids } = item;
+    const newValue = isModified ? -oldPoids[titre] + +poids : 0;
+    return {
+      titre,
+      value: newValue,
+    };
+  });
+};
+
+const poidsNulleFunc = (data, preReliquat, oldPoids, sumSecteur, poidsMod) => {
+  console.log("sum preRe", calculatePoidsIntModSum(preReliquat));
+  const sumPreReliquat = calculatePoidsIntModSum(preReliquat);
+  const percent = (1 / 100) * sumSecteur;
+  return data.map((item) => {
+    const { titre } = item;
+    const fromPoidsMod = poidsMod.find((item) => item.titre === titre);
+    const newValue =
+      sumPreReliquat < 0 && oldPoids[titre] == 0 ? percent : fromPoidsMod.value;
+    return {
+      titre,
+      value: newValue,
+    };
+  });
+};
+
 const calculatePoidsIntModSum = (poids) => {
+  console.log("Poids calculatePoidsIntModSum", poids);
   return poids.reduce((sum, item) => sum + item.value, 0);
 };
 
@@ -93,17 +122,25 @@ const poidsFinalFunc2 = (data, poidsInt, poidsMod, reliquat) => {
   });
 };
 
-const poidsFinalFunc = (data, poidsInt, poidsMod, reliquat) => {
+const poidsFinalFunc = (data, poidsInt, poidsMod, reliquat, poidsNulle) => {
   const result = data.reduce((acc, item) => {
+    // const { titre } = item;
+    // const fromPoidsInt = poidsInt.find((item) => item.titre === titre);
+    // const fromPoidsMod = poidsMod.find((item) => item.titre === titre);
+    // const sumPoidsMod = calculatePoidsIntModSum(poidsMod);
+    // const newValue =
+    //   fromPoidsMod.value === 0
+    //     ? fromPoidsInt.value
+    //     : (reliquat * fromPoidsMod.value) / sumPoidsMod;
+    // acc[titre] = +newValue.toFixed(2);
     const { titre } = item;
+    const fromPoidsNulle = poidsNulle.find((item) => item.titre === titre);
     const fromPoidsInt = poidsInt.find((item) => item.titre === titre);
-    const fromPoidsMod = poidsMod.find((item) => item.titre === titre);
-    const sumPoidsMod = calculatePoidsIntModSum(poidsMod);
+    const sumPoidsNulle = calculatePoidsIntModSum(poidsNulle);
     const newValue =
-      fromPoidsMod.value === 0
+      fromPoidsNulle.value === 0
         ? fromPoidsInt.value
-        : (reliquat * fromPoidsMod.value) / sumPoidsMod;
-
+        : (reliquat * fromPoidsNulle.value) / sumPoidsNulle;
     acc[titre] = +newValue.toFixed(2);
     return acc;
   }, {});
@@ -183,7 +220,9 @@ const ajuster = (newRows, setNewRows, field) => {
 
 export {
   ajuster,
+  preReliquatFunc,
   calculateSumPoids,
+  poidsNulleFunc,
   calculateMaxSlider,
   calculateFinalSum,
   calculatePoidsIntModSum,

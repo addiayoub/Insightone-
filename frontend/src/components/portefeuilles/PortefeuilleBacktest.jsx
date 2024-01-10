@@ -28,6 +28,7 @@ import {
 } from "./Tables/columns";
 import DailyReturns from "../charts/Backtest/DailyReturns";
 import Quantiles from "../charts/Backtest/Quantiles";
+import Underwater from "../charts/Backtest/Underwater";
 
 const opc = [
   "OPC ACTIONS FGP AJUSTE",
@@ -239,6 +240,13 @@ const PortefeuilleBacktest = () => {
                   data={backData.data.worstDrawdowns}
                   evolution={backData.data.cumulative}
                 />
+              </>
+            )}
+          {!backData.loading &&
+            isShow &&
+            backData.data.underwater.length > 0 && (
+              <>
+                <Underwater data={backData.data.underwater} />
               </>
             )}
           {!backData.loading &&

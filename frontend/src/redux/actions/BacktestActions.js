@@ -160,6 +160,10 @@ export const backtestAction = createAsyncThunk(
           link: "MONTHLY_RELATIVE_RETURNS",
           params: {},
         },
+        {
+          link: "UNDERWATER_PLOT",
+          params: {},
+        },
       ];
 
       const [
@@ -177,6 +181,7 @@ export const backtestAction = createAsyncThunk(
         RETURN_QUANTILES,
         DAILY_RETURNS,
         MONTHLY_RELATIVE_RETURNS,
+        UNDERWATER_PLOT,
       ] = await Promise.all(
         endpoints.map(async ({ link, params }) => {
           const response = await apiNewMarko.post(
@@ -211,6 +216,7 @@ export const backtestAction = createAsyncThunk(
         dailyReturns: DAILY_RETURNS["daily returns"],
         quantiles: RETURN_QUANTILES["Return Quantiles"],
         keyPerf: KEY_PERFORMANCE_METRICS["Key Performance Metrics"],
+        underwater: UNDERWATER_PLOT["drawdowns"],
       };
     } catch (error) {
       console.log("error", error);
