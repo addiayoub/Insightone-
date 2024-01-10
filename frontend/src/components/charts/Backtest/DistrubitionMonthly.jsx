@@ -90,7 +90,7 @@ const DistrubitionMonthly = ({ data }) => {
             color: "#30c63f",
           },
           areaStyle: {
-            color: "#30c63f",
+            color: "rgba(48, 198, 63, 0.25)",
           },
           data: data.map((item) => item.KDE),
         },
@@ -109,7 +109,7 @@ const DistrubitionMonthly = ({ data }) => {
             color: "#df289e",
           },
           areaStyle: {
-            color: "#df289e",
+            color: "rgba(223, 40, 158, 0.25)",
           },
           smooth: true,
           data: data.map((item) => item.norm_values),

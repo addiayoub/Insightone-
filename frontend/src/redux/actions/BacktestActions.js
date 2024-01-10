@@ -184,12 +184,16 @@ export const backtestAction = createAsyncThunk(
         UNDERWATER_PLOT,
       ] = await Promise.all(
         endpoints.map(async ({ link, params }) => {
-          const response = await apiNewMarko.post(
-            `${apiTrading}POST/${link}`,
-            body,
-            { params }
-          );
-          return response.data;
+          try {
+            const response = await apiNewMarko.post(
+              `${apiTrading}POST/${link}`,
+              body,
+              { params }
+            );
+            return response.data;
+          } catch (error) {
+            console.log("endpoints error", error);
+          }
         })
       );
 
@@ -209,7 +213,9 @@ export const backtestAction = createAsyncThunk(
         rollingBeta: ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"],
         rollingVolat: ROLLING_VOLATILITY["Rolling Volatility"],
         rollingSharpe: ROLLING_SHARPE["Rolling Sharpe"],
-        rollingSortino: ROLLING_SORTINO["Rolling Sortino"],
+        rollingSortino: ROLLING_SORTINO
+          ? ROLLING_SORTINO["Rolling Sortino"]
+          : [],
         worstDrawdowns: WORST_10_DRAWDOWNS["Worst 10 Drawdowns"],
         monthlyReturns: MONTHLY_RETURNS["Monthly Returns"],
         monthlyRelReturns: MONTHLY_RELATIVE_RETURNS["Monthly Relative Returns"],

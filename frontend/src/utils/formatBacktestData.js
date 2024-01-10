@@ -42,6 +42,7 @@ export const transformBacktestData = (ptfs) => {
     const dd = ptfData.map((item) => ({
       valeur: item.titre,
       [name]: item[field],
+      // [`"${name}"`]: item[field],
     }));
     newData.push(...dd);
   });

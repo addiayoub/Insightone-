@@ -59,8 +59,9 @@ const PortefeuilleBacktest = () => {
     dispatch(getIndices())
       .unwrap()
       .then(({ data }) => {
+        console.log("getIndices data", data);
         const indices = data
-          .filter((item) => item.classe === "ACTIONS")
+          .filter((item) => item.classe === "ACTIONS" || item.classe === "TAUX")
           .map((item) => item.NOM_INDICE);
         setIndices(indices);
       })
