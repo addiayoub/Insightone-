@@ -32,7 +32,7 @@ export const generateKeyPerfColumns = (keys) => {
       renderCell: (params) => {
         const value = params.row.Metric;
         if (value === "") {
-          return "-------".repeat(10);
+          return "-".repeat(20);
         }
         return value;
       },
@@ -46,10 +46,10 @@ export const generateKeyPerfColumns = (keys) => {
       renderCell: (params) => {
         const value = params.row[item];
         if (value === "") {
-          return "-".repeat(30);
+          return "-".repeat(16);
         } else {
-          const formattedDate = moment(value).format("DD/MM/YYYY");
-          const isDate = moment(value, true).isValid();
+          const formattedDate = moment(params.row[item]).format("DD/MM/YYYY");
+          const isDate = moment(params.row[item], true).isValid();
           return isDate ? formattedDate : value;
         }
       },

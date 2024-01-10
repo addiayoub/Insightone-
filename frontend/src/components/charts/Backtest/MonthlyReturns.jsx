@@ -63,7 +63,6 @@ const MonthlyReturns = ({ data, title }) => {
         min: -10,
         max: 10,
         calculable: true,
-        calculable: true,
         orient: "vertical",
         right: "0",
         top: "20%",

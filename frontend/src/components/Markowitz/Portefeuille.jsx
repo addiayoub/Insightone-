@@ -14,7 +14,7 @@ const gridStyle = {
   gap: "60px 15px",
 };
 
-function Portefeuille({ title, data, field, compare }) {
+function Portefeuille({ title, data, field, compare, saveAll = false }) {
   const rows = compare
     ? data
     : data
@@ -41,6 +41,7 @@ function Portefeuille({ title, data, field, compare }) {
             data={rows}
             type="Actions"
             field={field}
+            saveAll={saveAll}
           />
         )}
         <PortefeuilleSunburst data={rows} field={field} />

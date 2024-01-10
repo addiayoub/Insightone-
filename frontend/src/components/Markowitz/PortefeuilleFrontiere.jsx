@@ -51,7 +51,7 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
       {type === "OPCVM" ? (
         <Portefeuille data={rows} field={field} saveAll={true} />
       ) : (
-        <PortefeuilleMarko data={rows} field={field} />
+        <PortefeuilleMarko data={rows} field={field} saveAll={true} />
       )}
       {/* <Box
         // sx={gridStyle}
