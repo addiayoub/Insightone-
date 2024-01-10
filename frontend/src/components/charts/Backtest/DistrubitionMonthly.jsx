@@ -19,7 +19,7 @@ const DistrubitionMonthly = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "Distribution of Monthly Returns",
+        text: "Distribution of Weekly Returns",
         left: "center",
         ...theme.title,
       },

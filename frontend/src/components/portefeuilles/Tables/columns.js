@@ -32,7 +32,7 @@ export const generateKeyPerfColumns = (keys) => {
       renderCell: (params) => {
         const value = params.row.Metric;
         if (value === "") {
-          return "----------".repeat(10);
+          return "-------".repeat(10);
         }
         return value;
       },

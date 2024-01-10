@@ -153,6 +153,7 @@ button {
   background-color: rgb(31 41 55 / 1) !important;
 }
 
-.MuiDataGrid-cellContent {
+.MuiDataGrid-cellContent,
+.MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight) > .MuiDataGrid-cell {
   white-space: normal !important;
 }

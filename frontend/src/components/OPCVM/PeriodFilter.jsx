@@ -22,6 +22,7 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
     "DIVERSIFIE",
     "OMLT",
     "OCT",
+    "CONTRACTUEL",
     "MONETAIRE",
   ]);
   const [types, setTypes] = useState(["FGP", "FNPP"]);
