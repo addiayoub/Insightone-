@@ -48,6 +48,7 @@ const Portefeuilles = () => {
         setPtfs(byType);
       });
   }, []);
+  // const
   const handleValider = () => {
     setShow(true);
     console.log("selected ptfs", selectedPtfs);
@@ -107,6 +108,15 @@ const Portefeuilles = () => {
         >
           Valider <CheckSquare size={18} />
         </Button>
+        {/* <Button
+          variant="contained"
+          color="error"
+          className="min-w-[115px] flex gap-2 items-center"
+          onClick={handleDelete}
+          disabled={selectedPtfs.length < 1}
+        >
+          Supprimer <Trash size={18} />
+        </Button> */}
         {/* {!loading && (
           <>
             <Table

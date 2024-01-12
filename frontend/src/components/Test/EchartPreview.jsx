@@ -57,6 +57,7 @@ const EChartsPreview = ({ data }) => {
       },
       series: seriesData,
       tooltip: {
+        confine: true,
         valueFormatter: (value) => formatNumberWithSpaces(value),
         trigger: "axis",
         axisPointer: {

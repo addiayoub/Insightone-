@@ -243,7 +243,7 @@ export const Matrice_correlation_Covariance = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -277,7 +277,7 @@ export const CONTRAINTES_POIDS = createAsyncThunk(
       return result;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -301,7 +301,7 @@ export const portefeuille_minimum_variance = createAsyncThunk(
       };
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -322,60 +322,10 @@ export const EVOLUTION_B100_PORTEFEUILLE_SIMULE = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
-// export const portefeuille_minimum_variance = createAsyncThunk(
-//   "data/portefeuille_minimum_variance",
-//   async ({ dateDebut, dateFin, titres, minArray, maxArray }, thunkAPI) => {
-//     try {
-//       const response = await apiAxios.get("portefeuille_minimum_variance/", {
-//         params: {
-//           start: formatDate(dateDebut["$d"]),
-//           end: formatDate(dateFin["$d"]),
-//           titre: titres,
-//           minp: minArray,
-//           maxp: maxArray,
-//         },
-//       });
-//       console.log("portefeuille_minimum_variance", response);
-//       return response.data;
-//     } catch (error) {
-//       console.log("error", error);
-//       // thunkAPI.rejectWithValue(error.data.detail);
-//     }
-//   }
-// );
-
-// export const EVOLUTION_B100_PORTEFEUILLE_SIMULE = createAsyncThunk(
-//   "data/EVOLUTION_B100_PORTEFEUILLE_SIMULE",
-//   async ({ dateDebut, dateFin, titres, minArray, maxArray }, thunkAPI) => {
-//     try {
-//       const response = await apiAxios.get(
-//         "EVOLUTION_B100_PORTEFEUILLE_SIMULE/",
-//         {
-//           params: {
-//             start: formatDate(dateDebut["$d"]),
-//             end: formatDate(dateFin["$d"]),
-//             titre: titres,
-//             minp: minArray,
-//             maxp: maxArray,
-//           },
-//           paramsSerializer: {
-//             indexes: null,
-//             encode: (param) => encodeURIComponent(param).replaceAll("%24", "$"),
-//           },
-//         }
-//       );
-//       console.log("EVOLUTION_B100_PORTEFEUILLE_SIMULE", response);
-//       return response.data;
-//     } catch (error) {
-//       console.log("error", error);
-//       // thunkAPI.rejectWithValue(error.data.detail);
-//     }
-//   }
-// );
 
 export const EVOLUTION_B100_PORTEFEUILLE_SIMULE2 = createAsyncThunk(
   "data/EVOLUTION_B100_PORTEFEUILLE_SIMULE2",
@@ -388,7 +338,7 @@ export const EVOLUTION_B100_PORTEFEUILLE_SIMULE2 = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -432,79 +382,10 @@ export const GENERATION_PORTEFEUILLES_ALEATOIRES = createAsyncThunk(
       return res;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
-// export const GENERATION_PORTEFEUILLES_ALEATOIRES = createAsyncThunk(
-//   "data/GENERATION_PORTEFEUILLES_ALEATOIRES",
-//   async (
-//     { PTF, risque, dateDebut, dateFin, titres, minArray, maxArray },
-//     thunkAPI
-//   ) => {
-//     try {
-//       console.log(
-//         PTF,
-//         risque,
-//         dateDebut,
-//         dateFin,
-//         titres,
-//         minArray,
-//         maxArray,
-//         "risque",
-//         risque / 100
-//       );
-//       const response = await apiAxios.get(
-//         "GENERATION_PORTEFEUILLES_ALEATOIRES/",
-//         {
-//           params: {
-//             NB_PTF: PTF,
-//             risk_free_rate: risque / 100,
-//             start: formatDate(dateDebut["$d"]),
-//             end: formatDate(dateFin["$d"]),
-//             titre: titres,
-//             minp: minArray,
-//             maxp: maxArray,
-//           },
-//           paramsSerializer: {
-//             indexes: null,
-//             encode: (param) => encodeURIComponent(param).replaceAll("%24", "$"),
-//           },
-//         }
-//       );
-//       console.log("GENERATION_PORTEFEUILLES_ALEATOIRES", response);
-//       return response.data;
-//     } catch (error) {
-//       console.log("error", error);
-//       // thunkAPI.rejectWithValue(error.data.detail);
-//     }
-//   }
-// );
-// export const portefeuille_Rendement_Maximale = createAsyncThunk(
-//   "data/portefeuille_Rendement_Maximale",
-//   async ({ dateDebut, dateFin, titres, minArray, maxArray }, thunkAPI) => {
-//     try {
-//       const response = await apiAxios.get("portefeuille_Rendement_Maximale/", {
-//         params: {
-//           start: formatDate(dateDebut["$d"]),
-//           end: formatDate(dateFin["$d"]),
-//           titre: titres,
-//           minp: minArray,
-//           maxp: maxArray,
-//         },
-//         paramsSerializer: {
-//           indexes: null,
-//           encode: (param) => encodeURIComponent(param).replaceAll("%24", "$"),
-//         },
-//       });
-//       console.log("portefeuille_Rendement_Maximale", response);
-//       return response.data;
-//     } catch (error) {
-//       console.log("error", error);
-//       // thunkAPI.rejectWithValue(error.data.detail);
-//     }
-//   }
-// );
 export const portefeuille_Rendement_Maximale = createAsyncThunk(
   "data/portefeuille_Rendement_Maximale",
   async (_, thunkAPI) => {
@@ -521,7 +402,7 @@ export const portefeuille_Rendement_Maximale = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -542,7 +423,7 @@ export const portefeuille_Markowitz = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -561,7 +442,7 @@ export const get_poids_masi_all = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -577,7 +458,7 @@ export const DISCRETISATION_RENDEMENTS = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log("error", error);
-      // thunkAPI.rejectWithValue(error.data.detail);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -608,58 +489,11 @@ export const EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE =
         return response.data;
       } catch (error) {
         console.log("error", error);
-        // thunkAPI.rejectWithValue(error.data.detail);
+        return thunkAPI.rejectWithValue(error);
       }
     }
   );
-// export const EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE =
-//   createAsyncThunk(
-//     "data/EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE",
-//     async (
-//       {
-//         nbrPointFront,
-//         PTF,
-//         risque,
-//         dateDebut,
-//         dateFin,
-//         titres,
-//         minArray,
-//         maxArray,
-//       },
-//       thunkAPI
-//     ) => {
-//       try {
-//         const response = await apiAxios.get(
-//           "EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE/",
-//           {
-//             params: {
-//               num_points_front: nbrPointFront,
-//               NB_PTF: PTF,
-//               risk_free_rate: risque / 100,
-//               start: formatDate(dateDebut["$d"]),
-//               end: formatDate(dateFin["$d"]),
-//               titre: titres,
-//               minp: minArray,
-//               maxp: maxArray,
-//             },
-//             paramsSerializer: {
-//               indexes: null,
-//               encode: (param) =>
-//                 encodeURIComponent(param).replaceAll("%24", "$"),
-//             },
-//           }
-//         );
-//         console.log(
-//           "EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE",
-//           response
-//         );
-//         return response.data;
-//       } catch (error) {
-//         console.log("error", error);
-//         // thunkAPI.rejectWithValue(error.data.detail);
-//       }
-//     }
-//   );
+
 export const filterMarkoAction = createAsyncThunk(
   "data/filterMarkoAction",
   async ({ dateDebut, dateFin }, thunkAPI) => {
@@ -743,6 +577,6 @@ export const corr = createAsyncThunk("data/corr", async (_, thunkAPI) => {
     return response.data;
   } catch (error) {
     console.log("error", error);
-    // thunkAPI.rejectWithValue(error.data.detail);
+    return thunkAPI.rejectWithValue(error);
   }
 });

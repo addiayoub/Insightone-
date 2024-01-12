@@ -14,16 +14,16 @@ const Underwater = ({ data }) => {
     [data]
   );
   const seriesData = useMemo(
-    () => data.map((item) => item[selectedPtf]),
+    () => data.map((item) => item[selectedPtf] * 100),
     [data, selectedPtf]
   );
-  const average = useMemo(() => data.map((item) => item.Average), [data]);
+  const average = useMemo(() => data.map((item) => item.Average * 100), [data]);
   const options = useMemo(() => {
     return {
       tooltip: {
         trigger: "axis",
         confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
+        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       title: {
         left: "center",
@@ -53,6 +53,7 @@ const Underwater = ({ data }) => {
         type: "value",
         boundaryGap: [0, "100%"],
         axisLabel: {
+          formatter: "{value}%",
           ...theme.yAxis.nameTextStyle,
         },
         ...theme.yAxis,

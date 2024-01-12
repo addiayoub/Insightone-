@@ -10,7 +10,8 @@ const ContribChart = ({ data }) => {
 
   const titles = useMemo(() => data.map((item) => item.titre), [data]);
   const seriesData = useMemo(() => {
-    const values = data.map((item) => item[selectedPtf]).sort();
+    const values = data.map((item) => item[selectedPtf] * 100);
+    values.sort((a, b) => a - b);
     return values.map((value) => ({
       value,
       itemStyle: {
@@ -22,7 +23,7 @@ const ContribChart = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "Contrib",
+        text: "Contribution",
         left: "center",
         ...theme.title,
       },
@@ -34,14 +35,25 @@ const ContribChart = ({ data }) => {
       },
       tooltip: {
         confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
+        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       xAxis: {
         type: "value",
         axisLabel: {
+          hideOverlap: true,
           ...theme.yAxis.nameTextStyle,
         },
         ...theme.yAxis,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
+        },
+        top: "20px",
       },
       yAxis: {
         type: "category",
@@ -68,6 +80,7 @@ const ContribChart = ({ data }) => {
       style={{
         height: "500px",
       }}
+      className="my-[15px]"
     />
   );
 };

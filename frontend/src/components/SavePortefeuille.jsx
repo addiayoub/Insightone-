@@ -67,7 +67,7 @@ const SavePortefeuille = ({
       .unwrap()
       .then(({ message, portefeuilles }) => {
         reset();
-        dispatch(setPortefeuilles(portefeuilles));
+        // dispatch(setPortefeuilles(portefeuilles));
         dispatch(setPtfToBacktest(ptfs[0]));
         dispatch(setSelectedPtf(ptfs[0]["name"]));
         notyf.success(message);
@@ -88,7 +88,7 @@ const SavePortefeuille = ({
           }}
           variant="contained"
           size="small"
-          disabled={isDisabled}
+          // disabled={isDisabled}
           className="mr-2"
         >
           <span className="mr-2">Enregistrer</span>

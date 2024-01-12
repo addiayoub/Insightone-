@@ -81,6 +81,7 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
       tooltip: {
         trigger: "axis",
         valueFormatter: (value) => formatNumberWithSpaces(value),
+        confine: true,
         axisPointer: {
           type: "cross",
           label: {
