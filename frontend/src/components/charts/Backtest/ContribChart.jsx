@@ -9,8 +9,12 @@ const ContribChart = ({ data }) => {
   console.log("selectedPtf", selectedPtf);
 
   const titles = useMemo(() => data.map((item) => item.titre), [data]);
+  console.log(
+    "negative values",
+    data.map((item) => item[selectedPtf] * 100)
+  );
   const seriesData = useMemo(() => {
-    const values = data.map((item) => item[selectedPtf] * 100);
+    const values = data.map((item) => item[selectedPtf]);
     values.sort((a, b) => a - b);
     return values.map((value) => ({
       value,

@@ -431,12 +431,11 @@ export const portefeuille_Markowitz = createAsyncThunk(
 export const get_poids_masi_all = createAsyncThunk(
   "data/get_poids_masi_all",
   async ({ dateDebut }, thunkAPI) => {
+    dateDebut = formatDate(dateDebut["$d"]);
+    console.log("get_poids_masi_all dateDebut", dateDebut);
     try {
       const response = await apiNewMarko.get(
-        `${apiNewMarkoUrl}POST/get_poids_masi_all/`,
-        {
-          start: formatDate(dateDebut["$d"]),
-        }
+        `${apiNewMarkoUrl}POST/get_poids_masi_all/?start=${dateDebut}`
       );
       console.log("get_poids_masi_all", response);
       return response.data;
