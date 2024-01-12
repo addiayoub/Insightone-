@@ -9,6 +9,7 @@ import ModalComponent from "./Modal";
 import { filterByPtf } from "../utils/filterByPtf";
 import { extractPtfKeys } from "../utils/extractPtfKeys";
 import { setPortefeuilles } from "../redux/slices/UserSlice";
+import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
 
 const SavePortefeuille = ({
   data,
@@ -65,6 +66,7 @@ const SavePortefeuille = ({
       .then(({ message, portefeuilles }) => {
         reset();
         dispatch(setPortefeuilles(portefeuilles));
+        dispatch(setPtfToBacktest(ptfs[0]));
         notyf.success(message);
       })
       .catch((error) => notyf.error(error));

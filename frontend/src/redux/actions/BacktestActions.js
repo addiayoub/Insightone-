@@ -52,6 +52,7 @@ export const getEvolutionB100Portef = createAsyncThunk(
   async ({ dateDebut, dateFin, list_indices }, thunkAPI) => {
     // const body = transformBacktestData(backtestData);
     const { ptfToBacktest } = thunkAPI.getState().backtest;
+    console.log("ptfToBacktest", ptfToBacktest);
     const body = transformBacktestData([ptfToBacktest]);
     try {
       const response = await apiNewMarko.post(
