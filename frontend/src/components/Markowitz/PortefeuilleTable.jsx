@@ -688,6 +688,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     setNewRows((prev) => [...prev, ...rowsToAdd]);
     setOpenAdd(false);
   };
+  useEffect(() => console.log("newRowshdzhd", newRows), [newRows]);
   const disableSave =
     calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   useEffect(() => {

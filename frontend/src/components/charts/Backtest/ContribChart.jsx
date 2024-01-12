@@ -4,8 +4,10 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
 
 const ContribChart = ({ data }) => {
-  console.log("ContribChart rendered");
+  console.log("ContribChart rendered", data);
   const { selectedPtf } = useSelector((state) => state.backtest);
+  console.log("selectedPtf", selectedPtf);
+
   const titles = useMemo(() => data.map((item) => item.titre), [data]);
   const seriesData = useMemo(() => {
     const values = data.map((item) => item[selectedPtf]).sort();

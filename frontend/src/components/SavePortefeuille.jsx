@@ -9,7 +9,10 @@ import ModalComponent from "./Modal";
 import { filterByPtf } from "../utils/filterByPtf";
 import { extractPtfKeys } from "../utils/extractPtfKeys";
 import { setPortefeuilles } from "../redux/slices/UserSlice";
-import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
+import {
+  setPtfToBacktest,
+  setSelectedPtf,
+} from "../redux/slices/BacktestSlice";
 
 const SavePortefeuille = ({
   data,
@@ -60,13 +63,13 @@ const SavePortefeuille = ({
       };
       ptfs.push(portefeuille);
     }
-    console.log("ptsf res", ptfs);
     dispatch(savePortefeuille({ portefeuille: ptfs }))
       .unwrap()
       .then(({ message, portefeuilles }) => {
         reset();
         dispatch(setPortefeuilles(portefeuilles));
         dispatch(setPtfToBacktest(ptfs[0]));
+        dispatch(setSelectedPtf(ptfs[0]["name"]));
         notyf.success(message);
       })
       .catch((error) => notyf.error(error));

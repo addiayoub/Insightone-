@@ -81,7 +81,10 @@ const PortefeuilleBacktest = () => {
       .unwrap()
       .then(() => dispatch(backtestAction({ rf })))
       .then(() => setIsShow(true))
-      .catch(() => notyf.error("Error Evolution B100"));
+      .catch((err) => {
+        console.log("err", err);
+        notyf.error("Error Evolution B100");
+      });
   };
   const isDisabled =
     selectedIndices.length < 1 || selectedOPC.length < 1 || rf === "";
