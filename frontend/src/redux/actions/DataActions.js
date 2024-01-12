@@ -123,6 +123,21 @@ export const getIndices = createAsyncThunk(
   }
 );
 
+export const getTitres = createAsyncThunk(
+  "data/getTitres",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosClient.get(`/data/getTitres/`);
+
+      console.log("getTitres", response.data.data);
+
+      return response.data.data;
+    } catch (error) {
+      handleActionsError(error, thunkAPI);
+    }
+  }
+);
+
 export const getIndicesChart = createAsyncThunk(
   "data/getIndicesChart",
   async ({ dateDebut, dateFin, indices }, thunkAPI) => {

@@ -156,23 +156,8 @@ const EditPoidsClassification = ({
         </Typography>
       </Box>
       <Divider />
-      <Box
-        sx={{
-          display: "flex",
-          gap: 3,
-          alignItems: "center",
-          flexDirection: "column",
-          padding: "19px 0 0",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            gap: 3,
-            flexDirection: "column",
-            mb: 3,
-          }}
-        >
+      <Box className="flex flex-col items-center gap-3 pt-[19px]">
+        <Box className="flex flex-col gap-3 mb-3">
           <Typography>
             Poids Classification <strong>({Classification})</strong> :
             <span>
@@ -198,21 +183,8 @@ const EditPoidsClassification = ({
               item.titre
             );
             return (
-              <Box
-                key={item.TICKER}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "15px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    minWidth: 150,
-                  }}
-                >
-                  {item.titre}
-                </Typography>
+              <Box key={item.TICKER} className="flex item-center gap-[15px]">
+                <Typography className="min-w-[150px]">{item.titre}</Typography>
                 <Slider
                   aria-label={`${item.TICKER}-slider`}
                   // value={inputValues[item.titre]}
@@ -224,11 +196,7 @@ const EditPoidsClassification = ({
                   onChangeCommitted={() => handleLock(item.titre)}
                   valueLabelDisplay="auto"
                   valueLabelFormat={() => poidsFinal[item.titre] + "%"}
-                  sx={{
-                    minWidth: 150,
-                    maxWidth: 150,
-                    mb: 2,
-                  }}
+                  className="min-w-[150px] max-w-[150px] mb-2"
                   disabled={
                     isLockedStates[item.titre] ||
                     (isMax && isMaxTitre !== item.titre)
@@ -261,7 +229,7 @@ const EditPoidsClassification = ({
                   // value={inputValues[item.titre]}
                   //  isMax && isMaxTitre !== item.titre? 0:
                   value={poidsFinal[item.titre]}
-                  sx={{ minWidth: 100, maxWidth: 110 }}
+                  className="min-w-[110px] max-w-[110px]"
                 />
                 <span>{poidsFinal[item.titre]}</span>
                 <IconButton onClick={() => handleLock(item.titre)}>
@@ -275,17 +243,11 @@ const EditPoidsClassification = ({
             );
           })}
         </Box>
-        <Box
-          sx={{
-            alignSelf: "end",
-          }}
-        >
+        <Box className="self-end">
           <Button
             variant="contained"
             color="error"
-            sx={{
-              margin: "0 10px",
-            }}
+            className="mx-[10px]"
             onClick={reset}
           >
             Annuler

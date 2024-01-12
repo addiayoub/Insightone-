@@ -18,6 +18,7 @@ router.get("/getIndicesChart", dataController.getIndicesChart);
 router.get("/getComparaison", dataController.getComparaison);
 router.get("/getFirstGraph", dataController.getFirstGraph);
 router.get("/getRendementRisqueData", dataController.getRendementRisqueData);
+router.get("/getTitres", dataController.getTitres);
 
 router.get("/test", dataController.test);
 router.get("/getPoids", dataController.getPoids);

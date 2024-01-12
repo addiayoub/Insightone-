@@ -28,11 +28,10 @@ const EditPoidsTitreForm = ({
   const poidsSecteur = sum - oldPoids;
   return (
     <Box
-      // sx={{
-      //   maxHeight: "460px",
-      //   overflowY: "auto",
-      // }}
-      className="bg-yellow-400"
+      sx={{
+        maxHeight: "460px",
+        overflowY: "auto",
+      }}
     >
       <Box>
         <Typography variant="h6" mb={3}>
@@ -45,22 +44,12 @@ const EditPoidsTitreForm = ({
           height: "250px",
           minWidth: "400px",
           width: "100%",
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "column",
-          justifyContent: "space-between",
           mt: 3,
         }}
+        className="flex flex-wrap flex-col justify-between"
       >
         <Box>
-          <Box
-            sx={{
-              display: "flex",
-              gap: 3,
-              alignItems: "center",
-              mb: 3,
-            }}
-          >
+          <Box className="flex gap-3 items-center mb-3">
             <span>{titre}</span>
             <Slider
               aria-label="poids-slider"
@@ -68,9 +57,7 @@ const EditPoidsTitreForm = ({
               onChange={(event, value) => setPoids(value)}
               valueLabelDisplay="on"
               valueLabelFormat={(value) => value + " %"}
-              sx={{
-                maxWidth: 150,
-              }}
+              className="max-w-[150px]"
               step={0.5}
               min={0}
               max={100}
@@ -86,7 +73,7 @@ const EditPoidsTitreForm = ({
               autoFocus
               value={poids}
               onChange={(e) => setPoids(e.target.value)}
-              sx={{ maxWidth: 100 }}
+              className="max-w-[100px]"
             />
           </Box>
 
@@ -106,17 +93,11 @@ const EditPoidsTitreForm = ({
             })}
           </Box>
         </Box>
-        <Box
-          sx={{
-            alignSelf: "end",
-          }}
-        >
+        <Box className="self-end">
           <Button
             variant="contained"
             color="error"
-            sx={{
-              margin: "0 10px",
-            }}
+            className="mx-[10px]"
             onClick={reset}
           >
             Annuler

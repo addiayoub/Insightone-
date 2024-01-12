@@ -87,7 +87,7 @@ function EvolutionB100({ data, isGrid }) {
         data: seriesNames,
         ...legend,
         formatter: function (name) {
-          if (name.length > 25) {
+          if (name.length > 25 && !isGrid) {
             const newName = name.split(" ");
             return newName.join(" \n");
           }

@@ -299,6 +299,41 @@ GROUP BY
     }
   }
 
+  async getTitres(req, res) {
+    try {
+      const pool = await connection();
+      const request = pool.request();
+      const query = `select 'Actions cotés'classe,SECTEUR_ACTIVITE categorie,libelle from [DataWarehouse].[DIM].[TITRE_BVC]
+where FLAG_ACTIF =1
+and libelle not in ('IB MAROC.COM','')
+order by LIBELLE;
+ 
+
+select Societe_Gestion classe,Classification categorie,DENOMINATION_OPCVM libelle from [DataWarehouse].[DIM].opcvm
+where FLAG_ACTIF =1
+and DENOMINATION_OPCVM not in ('OBLIFUTUR','')
+order by DENOMINATION_OPCVM;
+ 
+
+select 'indice'classe,CATEGORIE categorie,NOM_INDICE libelle
+                from [DataWarehouse].[DIM].[INDICE]
+where FLAG_ACTIF =1
+and CLASSE='TAUX'
+and NOM_INDICE not in ('OBLIFUTUR','')
+order by NOM_INDICE`;
+      const result = await request.query(query);
+      return res.json({
+        data: {
+          Actions: result.recordsets[0],
+          OPCVM: result.recordsets[1],
+          Indices: result.recordsets[2],
+        },
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
   async getIndicesChart(req, res) {
     try {
       const dateDebut = new Date(req.query.dateDebut);

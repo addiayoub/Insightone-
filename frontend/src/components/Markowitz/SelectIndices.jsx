@@ -17,6 +17,7 @@ function SelectIndices({
   setSelectedIndices,
   disableCloseOnSelect = true,
 }) {
+  indices = [...new Set(indices)];
   const allOption = "Sélectionner tout";
   const allSelected = selectedIndices.length === indices.length;
   const handleIndicesChange = (event, value) => {

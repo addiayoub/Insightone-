@@ -28,7 +28,8 @@ export const generateKeyPerfColumns = (keys) => {
     {
       field: "Metric",
       headerName: "Metric",
-      flex: 1,
+      width: 200,
+
       renderCell: (params) => {
         const value = params.row.Metric;
         if (value === "") {
@@ -42,7 +43,8 @@ export const generateKeyPerfColumns = (keys) => {
     basedColumns.push({
       field: item,
       headerName: item,
-      flex: 0.8,
+      // flex: 0.8,
+      width: 150,
       renderCell: (params) => {
         const value = params.row[item];
         if (value === "") {

@@ -18,6 +18,8 @@ import EditPoidsClassification from "./EditPoids/EditPoidsClassification.jsx";
 import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers.js";
 import EditPortefeuille from "../EditPortefeuille.jsx";
 import SavePortefeuille from "../SavePortefeuille.jsx";
+import { addTitres } from "../../utils/addTitres.js";
+import AddTitre from "../portefeuilles/AddTitre.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -120,6 +122,7 @@ const updatePoids = (setState, titreToUpdate, newData, field) => {
 const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
@@ -131,8 +134,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     console.log("new rows", newRows);
   }, [newRows]);
   const update = () => {
-    const { Classification } = rows.find((row) => row.titre === newTitre);
-    const sameSecteur = rows
+    const { Classification } = newRows.find((row) => row.titre === newTitre);
+    const sameSecteur = newRows
       .filter(
         (row) => row.Classification === Classification && row.titre !== newTitre
       )
@@ -212,6 +215,12 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     }
     return basedColumns;
   }, [rows, field, showActions]);
+  const handleAdd = (data, titresToAdd) => {
+    const rowsToAdd = addTitres(data, titresToAdd, field, "OPCVM");
+    console.log("rowsToAdd", rowsToAdd);
+    setNewRows((prev) => [...prev, ...rowsToAdd]);
+    setOpenAdd(false);
+  };
   const disableSave =
     calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   console.log("Columns", columns);
@@ -223,6 +232,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           newRows={newRows}
           setNewRows={setNewRows}
           field={field}
+          openAddModal={() => setOpenAdd(true)}
         >
           <SavePortefeuille
             data={newRows}
@@ -253,6 +263,13 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           rows={newRows}
           field={field}
           setNewRows={setNewRows}
+        />
+      </ModalComponent>
+      <ModalComponent open={openAdd} handleClose={() => setOpenAdd(false)}>
+        <AddTitre
+          handleAdd={handleAdd}
+          oldRows={newRows}
+          reset={() => setOpenAdd(false)}
         />
       </ModalComponent>
     </>

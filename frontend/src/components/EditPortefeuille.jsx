@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { updatePortefeuilles } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
 import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
-import { Save, Zap } from "react-feather";
+import { PlusSquare, Save, Zap } from "react-feather";
 
 const EditPortefeuille = ({
   oldRows,
@@ -13,6 +13,7 @@ const EditPortefeuille = ({
   setNewRows,
   field,
   children,
+  openAddModal,
 }) => {
   const dispatch = useDispatch();
   const handleSave = () => {
@@ -24,14 +25,30 @@ const EditPortefeuille = ({
       })
       .catch(() => notyf.error("Error Update"));
   };
-
+  const newR = {
+    SECTEUR_ACTIVITE: "BANQUES",
+    TICKER: "AJT",
+    S_CATEGORIE: "AJt",
+    titre: "Test Ajout",
+    PTF_Min_Var: 28.401737798603687,
+    isLocked: false,
+  };
+  console.log("oldRows", oldRows);
   return (
     <Box className="flex flex-wrap flex-col content-end items-center gap-3">
       <h4>
         La somme: {calculateSumPoids(newRows, field)}/
         {calculateSumPoids(oldRows, field)}
       </h4>
-      <Box className="flex flex-wrap gap-y-1 items-center">
+      <Box className="flex flex-wrap gap-1 items-center">
+        <Button
+          variant="contained"
+          size="small"
+          onClick={openAddModal}
+          className="flex gap-1 items-center bg-sky-500 hover:bg-sky-700"
+        >
+          Ajouter un titre <PlusSquare size={18} />
+        </Button>
         <Button
           variant="contained"
           size="small"

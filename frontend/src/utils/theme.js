@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const rootElement = () => document.getElementById("__next");
+const rootElement = () => document.getElementById("root");
 
 const theme = createTheme({
   palette: {

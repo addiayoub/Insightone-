@@ -20,6 +20,8 @@ import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers";
 import EditPortefeuille from "../EditPortefeuille";
 import SavePortefeuille from "../SavePortefeuille";
 import ChangeSecteur from "../Test/ChangeSecteurs";
+import AddTitre from "../portefeuilles/AddTitre";
+import { addTitres } from "../../utils/addTitres";
 
 const calculateSum = (data, secteur, field) => {
   // Filter the data based on the provided Classification
@@ -629,6 +631,7 @@ const calculateRowsSum = (data) => {
 const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
@@ -650,8 +653,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     setPoids(null);
   };
   const update = () => {
-    const { SECTEUR_ACTIVITE } = rows.find((row) => row.titre === newTitre);
-    const sameSecteur = rows
+    const { SECTEUR_ACTIVITE } = newRows.find((row) => row.titre === newTitre);
+    const sameSecteur = newRows
       .filter(
         (row) =>
           row.SECTEUR_ACTIVITE === SECTEUR_ACTIVITE && row.titre !== newTitre
@@ -679,25 +682,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       })
     );
   };
-  const updateSecteur = () => {
-    const { SECTEUR_ACTIVITE } = rows.find((row) => row.titre === newTitre);
-    const sameSecteur = rows
-      .filter(
-        (row) =>
-          row.SECTEUR_ACTIVITE === SECTEUR_ACTIVITE && row.titre !== newTitre
-      )
-      .map((item) => item.titre);
-    const { sum } = calculateSum(newRows, SECTEUR_ACTIVITE, field);
-    const part = (sum - +poids) / sameSecteur.length;
-    setNewRows((prevData) =>
-      prevData.map((item) => {
-        if (item.titre === newTitre) {
-          return { ...item, [field]: +poids, isLocked: true };
-        }
-        return { ...item };
-      })
-    );
-    reset();
+  const handleAdd = (data, titresToAdd) => {
+    const rowsToAdd = addTitres(data, titresToAdd, field, "Actions");
+    console.log("rowsToAdd", rowsToAdd);
+    setNewRows((prev) => [...prev, ...rowsToAdd]);
+    setOpenAdd(false);
   };
   const disableSave =
     calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
@@ -783,6 +772,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
             newRows={newRows}
             setNewRows={setNewRows}
             field={field}
+            openAddModal={() => setOpenAdd(true)}
           >
             <SavePortefeuille
               data={newRows}
@@ -819,7 +809,13 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           rows={newRows}
           field={field}
         />
-        {/* <ChangeSecteur /> */}
+      </ModalComponent>
+      <ModalComponent open={openAdd} handleClose={() => setOpenAdd(false)}>
+        <AddTitre
+          handleAdd={handleAdd}
+          oldRows={newRows}
+          reset={() => setOpenAdd(false)}
+        />
       </ModalComponent>
     </>
   );
