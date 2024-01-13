@@ -35,19 +35,13 @@ const Portefeuilles = () => {
   const [show, setShow] = useState(false);
   const [type, setType] = useState("Actions");
   const [ptf, setPtf] = useState(null);
-  const [ptfs, setPtfs] = useState([]);
   const dispatch = useDispatch();
   console.log("New Ptfs", data);
   useEffect(() => {
     dispatch(getPortefeuilles({ type: "" }))
       .unwrap()
-      .then((portefeuilles) => {
-        console.log("get ptfs resp", portefeuilles);
-        const byType = portefeuilles
-          .filter((ptf) => ptf.type === type)
-          .map((ptf) => ptf.name);
-        setPtfs(byType);
-      });
+      .then()
+      .catch(() => notyf.error("Error Fetch portefeuilles"));
   }, []);
   const handleValider = () => {
     setShow(true);
@@ -64,11 +58,7 @@ const Portefeuilles = () => {
       .unwrap()
       .then(({ message, portefeuilles }) => {
         dispatch(setPortefeuilles(portefeuilles));
-        const byType = portefeuilles
-          .filter((ptf) => ptf.type === type)
-          .map((ptf) => ptf.name);
         setPtf(null);
-        setPtfs(byType);
         notyf.success(message);
       })
       .catch(() => notyf.error("Error Delete"));
@@ -88,12 +78,11 @@ const Portefeuilles = () => {
       setSelectedPtfs([]);
     }
   }, [ptf]);
-  useEffect(() => {
-    setPtf(null);
-    const ptfs = data.filter((ptf) => ptf.type === type).map((ptf) => ptf.name);
-    setPtfs(ptfs);
-  }, [type]);
   useEffect(() => setShow(false), [ptf]);
+  const portefeuilles = data
+    .filter((ptf) => ptf.type === type)
+    .map((ptf) => ptf.name);
+  console.log("---- portefeuilles ----", portefeuilles);
   return (
     <>
       {/* <EditPortefeuille ptfs={data.map((ptf) => ptf.name)} /> */}
@@ -110,7 +99,7 @@ const Portefeuilles = () => {
         />
         <SingleSelect
           label={"Portefeuilles"}
-          options={ptfs}
+          options={portefeuilles}
           value={ptf}
           setValue={setPtf}
         />

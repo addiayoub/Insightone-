@@ -2,6 +2,7 @@ import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import moment from "moment";
 
 const DailyReturns = ({ data }) => {
   console.log("render DailyReturns");
@@ -33,8 +34,14 @@ const DailyReturns = ({ data }) => {
       },
       tooltip: {
         trigger: "axis",
+        axisPointer: {
+          // type: "cross",
+          crossStyle: {
+            color: "#999",
+          },
+        },
         confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
+        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       legend: {
         show: false,
@@ -65,7 +72,10 @@ const DailyReturns = ({ data }) => {
       },
       xAxis: {
         type: "category",
-        data: data.map((item) => item.seance),
+        data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
+        axisPointer: {
+          type: "shadow",
+        },
         axisLabel: {
           ...theme.xAxis.nameTextStyle,
         },

@@ -2,6 +2,7 @@ import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import moment from "moment";
 
 const Rolling = ({ data, title }) => {
   const theme = useChartTheme();
@@ -46,7 +47,7 @@ const Rolling = ({ data, title }) => {
       },
       xAxis: {
         type: "category",
-        data: data.map((item) => item.seance),
+        data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
         axisLabel: {
           ...theme.xAxis.nameTextStyle,
         },

@@ -130,10 +130,14 @@ function PortefeuilleAleatoires({
           name: "Risque",
           nameLocation: "middle",
           nameGap: 30,
+          axisLabel: {
+            ...theme.xAxis.nameTextStyle,
+          },
           nameTextStyle: {
             fontSize: 19,
             ...theme.xAxis.nameTextStyle,
           },
+          ...theme.yAxis,
         },
       ],
       yAxis: [
@@ -142,6 +146,9 @@ function PortefeuilleAleatoires({
           name: "Rendement",
           nameLocation: "middle",
           nameGap: 30,
+          axisLabel: {
+            ...theme.yAxis.nameTextStyle,
+          },
           nameTextStyle: {
             fontSize: 19,
             ...theme.yAxis.nameTextStyle,
@@ -197,7 +204,7 @@ function PortefeuilleAleatoires({
         },
       ],
     };
-  }, [data, isShow]);
+  }, [data, labels, isShow, theme]);
   const handleClick = (params) => {
     const { seriesType, name: serieName } = params;
     console.log("seriesType: ", seriesType, "name:", serieName);
