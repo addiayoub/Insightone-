@@ -16,7 +16,6 @@ function EvolutionB100({ data, isGrid }) {
         width: "60%",
         left: "center",
         bottom: "9%",
-        type: "scroll",
       }
     : {
         orient: "vertical",
@@ -24,6 +23,7 @@ function EvolutionB100({ data, isGrid }) {
         height: "50%",
         top: "center",
         right: 0,
+        type: "scroll",
         textStyle: {
           width: 150,
           rich: {

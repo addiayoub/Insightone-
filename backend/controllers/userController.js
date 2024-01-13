@@ -1,6 +1,14 @@
 const moment = require("moment");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const fs = require("fs");
+const path = require("path");
+const csvtojson = require("csvtojson");
+const excelToJson = require("convert-excel-to-json");
+const csv = require("fast-csv");
+const exceljs = require("exceljs");
+const isPortefeuilleUnique = require("../utils/isPortefeuilleUnique");
+const transformPtfData = require("../utils/transformPtfData");
 
 class _UserController {
   async index(req, res) {
@@ -251,6 +259,7 @@ class _UserController {
   async savePortefeuille(req, res) {
     try {
       const { id, portefeuille } = req.body;
+      console.log("savePortefeuille", req.body);
       // Find the user
       const user = await User.findById(id);
 
@@ -267,20 +276,7 @@ class _UserController {
       //     existing.name === portefeuille.name &&
       //     existing.type === portefeuille.type
       // );
-      function areAllRecordsUnique(newRecords, database) {
-        return newRecords.every((newRecord) => {
-          const { type, name } = newRecord;
-
-          // Check if there is an existing object with the same type and name in the database
-          const existingRecord = database.find(
-            (record) => record.type === type && record.name === name
-          );
-
-          // If existingRecord is undefined, the new record is unique
-          return !existingRecord;
-        });
-      }
-      const areUnique = areAllRecordsUnique(portefeuille, user.portefeuilles);
+      const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
       if (!areUnique) {
         return res.status(400).json({
           message:
@@ -418,6 +414,58 @@ class _UserController {
     } catch (error) {
       console.error(error);
       res.status(500).json({ error });
+    }
+  }
+
+  async uploadCSV(req, res) {
+    try {
+      const { _id } = req.user;
+
+      // Find the user
+      const user = await User.findById(_id);
+      console.log("id", user);
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+
+      // Initialize portefeuilles as an array if it's undefined
+      user.portefeuilles = user.portefeuilles || [];
+      csvtojson()
+        .fromFile(req.file.path)
+        .then(async (resp) => {
+          const portefeuille = transformPtfData(resp);
+          const areUnique = isPortefeuilleUnique(
+            portefeuille,
+            user.portefeuilles
+          );
+          if (!areUnique) {
+            return res.status(400).json({
+              message:
+                "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
+            });
+          }
+          // Add the new portefeuille to the user's portefeuilles array
+          user.portefeuilles.push(...portefeuille);
+          // Save the updated user to the database
+          console.log("portefeuille", user.portefeuilles);
+          // await user.save();
+        });
+      // const datat = excelToJson({
+      //   sourceFile: req.file.path,
+      //   header: {
+      //     rows: 1,
+      //   },
+      //   columnToKey: {
+      //     "*": "{{columnHeader}}",
+      //   },
+      // });
+      console.log("datat");
+      // res
+      //   .status(200)
+      //   .json({ message: "Data saved successfully.", result: "jsonArray" });
+    } catch (error) {
+      console.error("Error processing file:", error.message);
+      res.status(500).json({ error: "Internal server error." });
     }
   }
 }

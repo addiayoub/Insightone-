@@ -134,7 +134,7 @@ export const savePortefeuille = createAsyncThunk(
   async ({ portefeuille }, thunkAPI) => {
     try {
       const { id } = thunkAPI.getState().auth.user;
-      console.log("User auth", thunkAPI.getState().auth.user);
+      console.log("User auth", thunkAPI.getState().auth.user, portefeuille);
       const response = await axios.post(`/api/users/savePortefeuille`, {
         id,
         portefeuille,
@@ -151,6 +151,24 @@ export const savePortefeuille = createAsyncThunk(
           message: error.message,
         });
       }
+    }
+  }
+);
+export const uploadCsv = createAsyncThunk(
+  "user/uploadCsv",
+  async (file, thunkAPI) => {
+    const { id } = thunkAPI.getState().auth.user;
+    try {
+      // Send the file to the server directly in the request body
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("id", id);
+      const response = await axios.post("/api/users/uploadCSV", formData);
+
+      // Handle the response as needed
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error uploading file:", error);
     }
   }
 );

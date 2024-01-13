@@ -15,6 +15,7 @@ const stockRoutes = require("./routes/stock");
 const analyseRoutes = require("./routes/analyse");
 const sectorialRoutes = require("./routes/sectorial");
 const opcvmRoutes = require("./routes/opcvm");
+const path = require("path");
 const connectToDb = require("./config/database");
 
 // middleware
@@ -29,6 +30,7 @@ app.use(
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
+app.use(express.static(path.resolve(__dirname, "public")));
 
 // connect to DB
 connectToDb();

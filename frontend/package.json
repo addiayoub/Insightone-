@@ -34,6 +34,7 @@
     "react-auth-kit": "^3.0.0-alpha.15",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
+    "react-drag-drop-files": "^2.3.10",
     "react-feather": "^2.0.10",
     "react-gauge-component": "^1.1.30",
     "react-redux": "^8.1.3",

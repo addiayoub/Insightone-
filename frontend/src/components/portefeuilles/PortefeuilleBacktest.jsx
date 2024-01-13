@@ -22,6 +22,7 @@ import WorstDrawDowns from "../charts/Backtest/WorstDrawDowns";
 import MonthlyReturns from "../charts/Backtest/MonthlyReturns";
 import Table from "../Table";
 import {
+  contribColumns,
   eoyColumns,
   generateKeyPerfColumns,
   worstDrawdownsColumns,
@@ -29,6 +30,7 @@ import {
 import DailyReturns from "../charts/Backtest/DailyReturns";
 import Quantiles from "../charts/Backtest/Quantiles";
 import Underwater from "../charts/Backtest/Underwater";
+import Poids from "../charts/Backtest/Poids";
 
 const opc = [
   "OPC ACTIONS FGP AJUSTE",
@@ -51,7 +53,7 @@ const PortefeuilleBacktest = () => {
   const [indices, setIndices] = useState([]);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [selectedOPC, setSelectedOPC] = useState([]);
-  const [rf, setRf] = useState("");
+  const [rf, setRf] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const [isShow, setIsShow] = useState(false);
   useEffect(() => {
@@ -170,6 +172,11 @@ const PortefeuilleBacktest = () => {
               <ContribChart data={data.ptfsContrib} />
             </>
           )}
+          {!loading && isShow && data.df_poids.length > 0 && (
+            <>
+              <Poids data={data.df_poids} />
+            </>
+          )}
           {!backData.loading &&
             isShow &&
             backData.data.cumulative.length > 0 && (
@@ -282,6 +289,17 @@ const PortefeuilleBacktest = () => {
             )}
         </Box>
         <Box className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+          {!loading && isShow && data.ptfsContrib.length > 0 && (
+            <>
+              <h3>Contribution {data.ptfsContrib[0].PTF}</h3>
+              <Table
+                columns={contribColumns}
+                rows={data.ptfsContrib}
+                pageSize={10}
+                className="h-max"
+              />
+            </>
+          )}
           {!backData.loading && isShow && backData.data.keyPerf.length > 0 && (
             <>
               <h3>Key Performance Metrics</h3>

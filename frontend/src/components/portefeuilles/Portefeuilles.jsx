@@ -24,6 +24,7 @@ import {
   setSelectedPtf,
 } from "../../redux/slices/BacktestSlice";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
+import UploadPortefeuille from "./UploadPortefeuille";
 
 const types = ["Actions", "OPCVM"];
 
@@ -85,7 +86,6 @@ const Portefeuilles = () => {
   console.log("---- portefeuilles ----", portefeuilles);
   return (
     <>
-      {/* <EditPortefeuille ptfs={data.map((ptf) => ptf.name)} /> */}
       <AccordionBox
         title="la liste des portefeuilles enregistrés"
         isExpanded={true}
@@ -164,6 +164,7 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       </AccordionBox>
+      {/* <UploadPortefeuille /> */}
       {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest />}
       {loading && <MainLoader />}

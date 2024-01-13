@@ -91,6 +91,54 @@ export const eoyColumns = [
   },
 ];
 
+export const contribColumns = [
+  {
+    field: "titre",
+    headerName: "Titre",
+    width: 200,
+  },
+  {
+    field: "date_debut",
+    headerName: "Date début",
+    renderCell: (params) => moment(params.row.date_debut).format("DD/MM/YYYY"),
+  },
+  {
+    field: "date_fin",
+    headerName: "Date fin",
+    renderCell: (params) => moment(params.row.date_fin).format("DD/MM/YYYY"),
+  },
+  {
+    field: "vl_initial",
+    headerName: "vl initial",
+    renderCell: (params) => params.row.vl_initial.toFixed(2),
+  },
+  {
+    field: "vl_final",
+    headerName: "vl final",
+    renderCell: (params) => params.row.vl_final.toFixed(2),
+  },
+  {
+    field: "poids_initial",
+    headerName: "poids initial",
+    renderCell: (params) => params.row.poids_initial.toFixed(2),
+  },
+  {
+    field: "poids_final",
+    headerName: "poids final",
+    renderCell: (params) => params.row.poids_final.toFixed(2),
+  },
+  {
+    field: "perf_ptf",
+    headerName: "performance portefeuille",
+    renderCell: (params) => params.row.perf_ptf.toFixed(2),
+  },
+  {
+    field: "contrib_ptf",
+    headerName: "Contrib portefeuille",
+    renderCell: (params) => params.row.contrib_ptf.toFixed(2),
+  },
+];
+
 export const worstDrawdownsColumns = [
   {
     field: "Started",

@@ -33,6 +33,7 @@ const backtestSlice = createSlice({
         ptfsData: [],
         ptfsContrib: [],
         df_rendement: [],
+        df_poids: [],
       },
       loading: false,
       error: null,
@@ -109,6 +110,7 @@ const backtestSlice = createSlice({
         evolutionB100Ptfs.data.ptfsData = payload.ptfsData;
         evolutionB100Ptfs.data.ptfsContrib = payload.ptfsContrib;
         evolutionB100Ptfs.data.df_rendement = payload.df_rendement;
+        evolutionB100Ptfs.data.df_poids = payload.df_poids;
       }
     );
     builder.addCase(
@@ -119,6 +121,7 @@ const backtestSlice = createSlice({
           ptfsData: [],
           ptfsContrib: [],
           df_rendement: [],
+          df_poids: [],
         };
         evolutionB100Ptfs.error = payload;
       }

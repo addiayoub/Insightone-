@@ -14,10 +14,12 @@ const ContribChart = ({ data }) => {
     data.map((item) => item[selectedPtf] * 100)
   );
   const seriesData = useMemo(() => {
-    const values = data.map((item) => ({
-      name: item.titre,
-      value: item[selectedPtf],
-    }));
+    const values = data
+      .map((item) => ({
+        name: item.titre,
+        value: item.contrib_ptf,
+      }))
+      .filter((ele) => Math.abs(ele.value) > 0.01);
     values.sort((a, b) => a.value - b.value);
     return values.map(({ name, value }) => ({
       name,

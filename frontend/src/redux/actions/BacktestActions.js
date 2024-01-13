@@ -87,6 +87,7 @@ export const getEvolutionB100Portef = createAsyncThunk(
         ptfsData: mergeData(dataToMerge),
         ptfsContrib: response.data.df_contrib_ptf,
         df_rendement: response.data.df_rendement,
+        df_poids: response.data.df_poids,
       };
     } catch (error) {
       console.log("error", error);
