@@ -14,15 +14,20 @@ const ContribChart = ({ data }) => {
     data.map((item) => item[selectedPtf] * 100)
   );
   const seriesData = useMemo(() => {
-    const values = data.map((item) => item[selectedPtf]);
-    values.sort((a, b) => a - b);
-    return values.map((value) => ({
+    const values = data.map((item) => ({
+      name: item.titre,
+      value: item[selectedPtf],
+    }));
+    values.sort((a, b) => a.value - b.value);
+    return values.map(({ name, value }) => ({
+      name,
       value,
       itemStyle: {
         color: value < 0 ? "#ee4658" : "#21cc6d",
       },
     }));
   }, [data, selectedPtf]);
+  console.log("seriesData", seriesData);
   const theme = useChartTheme();
   const options = useMemo(() => {
     return {
@@ -33,16 +38,25 @@ const ContribChart = ({ data }) => {
       },
       grid: {
         right: "100px",
-        top: "10%",
-        bottom: "15%",
+        top: "50px",
         containLabel: true,
       },
       tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          // type: "cross",
+          crossStyle: {
+            color: "#999",
+          },
+        },
         confine: true,
         valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       xAxis: {
         type: "value",
+        axisPointer: {
+          type: "shadow",
+        },
         axisLabel: {
           hideOverlap: true,
           ...theme.yAxis.nameTextStyle,
@@ -52,7 +66,7 @@ const ContribChart = ({ data }) => {
       toolbox: {
         feature: {
           dataZoom: {
-            yAxisIndex: true,
+            yAxisIndex: false,
           },
           restore: {},
           saveAsImage: {},
@@ -61,8 +75,15 @@ const ContribChart = ({ data }) => {
       },
       yAxis: {
         type: "category",
-        data: titles,
+        data: seriesData.map((item) => item.name),
+        splitArea: {
+          show: true,
+        },
+        axisPointer: {
+          type: "shadow",
+        },
         axisLabel: {
+          // hideOverlap: true,
           ...theme.yAxis.nameTextStyle,
         },
         ...theme.yAxis,
@@ -77,12 +98,12 @@ const ContribChart = ({ data }) => {
       ],
     };
   }, [seriesData, theme]);
-
+  const chartHeight = seriesData.length * 15 + 200;
   return (
     <ReactECharts
       option={options}
       style={{
-        height: "500px",
+        height: chartHeight,
       }}
       className="my-[15px]"
     />

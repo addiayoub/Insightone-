@@ -23,6 +23,7 @@ import {
   setPtfToBacktest,
   setSelectedPtf,
 } from "../../redux/slices/BacktestSlice";
+import { setPortefeuilles } from "../../redux/slices/UserSlice";
 
 const types = ["Actions", "OPCVM"];
 
@@ -48,7 +49,6 @@ const Portefeuilles = () => {
         setPtfs(byType);
       });
   }, []);
-  // const
   const handleValider = () => {
     setShow(true);
     console.log("selected ptfs", selectedPtfs);
@@ -62,7 +62,15 @@ const Portefeuilles = () => {
   const handleDelete = () => {
     dispatch(deletePortefeuilles({ ptfs: selectedPtfs }))
       .unwrap()
-      .then(({ message }) => notyf.success(message))
+      .then(({ message, portefeuilles }) => {
+        dispatch(setPortefeuilles(portefeuilles));
+        const byType = portefeuilles
+          .filter((ptf) => ptf.type === type)
+          .map((ptf) => ptf.name);
+        setPtf(null);
+        setPtfs(byType);
+        notyf.success(message);
+      })
       .catch(() => notyf.error("Error Delete"));
     setSelectedPtfs([]);
     console.log("selected ptfs", selectedPtfs);
@@ -72,6 +80,14 @@ const Portefeuilles = () => {
       setShow(false);
     }
   }, [selectedPtfs]);
+  useEffect(() => {
+    if (ptf) {
+      const choosen = data.find((item) => item.name === ptf);
+      setSelectedPtfs([choosen]);
+    } else {
+      setSelectedPtfs([]);
+    }
+  }, [ptf]);
   useEffect(() => {
     setPtf(null);
     const ptfs = data.filter((ptf) => ptf.type === type).map((ptf) => ptf.name);
@@ -108,15 +124,16 @@ const Portefeuilles = () => {
         >
           Valider <CheckSquare size={18} />
         </Button>
-        {/* <Button
+        <Button
           variant="contained"
           color="error"
+          size="small"
           className="min-w-[115px] flex gap-2 items-center"
           onClick={handleDelete}
           disabled={selectedPtfs.length < 1}
         >
           Supprimer <Trash size={18} />
-        </Button> */}
+        </Button>
         {/* {!loading && (
           <>
             <Table
