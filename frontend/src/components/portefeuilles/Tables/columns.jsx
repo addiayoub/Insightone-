@@ -1,4 +1,5 @@
 import moment from "moment";
+import TextColor from "../../Dashboard/TextColor";
 
 export const keyPerfColumns = [
   {
@@ -96,6 +97,8 @@ export const contribColumns = [
     field: "titre",
     headerName: "Titre",
     width: 200,
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.titre}</strong>,
   },
   {
     field: "date_debut",
@@ -109,33 +112,51 @@ export const contribColumns = [
   },
   {
     field: "vl_initial",
-    headerName: "vl initial",
+    headerName: "VL initial",
+    flex: 0.1,
+
     renderCell: (params) => params.row.vl_initial.toFixed(2),
   },
   {
     field: "vl_final",
-    headerName: "vl final",
+    headerName: "VL final",
+    flex: 0.1,
+
     renderCell: (params) => params.row.vl_final.toFixed(2),
   },
   {
     field: "poids_initial",
-    headerName: "poids initial",
+    headerName: "Poids initial (%)",
+    align: "center",
+    flex: 0.2,
     renderCell: (params) => params.row.poids_initial.toFixed(2),
   },
   {
     field: "poids_final",
-    headerName: "poids final",
+    headerName: "Poids final (%)",
+    align: "center",
+    flex: 0.2,
     renderCell: (params) => params.row.poids_final.toFixed(2),
   },
   {
     field: "perf_ptf",
-    headerName: "performance portefeuille",
-    renderCell: (params) => params.row.perf_ptf.toFixed(2),
+    headerName: "Performance PTF (%)",
+    align: "center",
+    flex: 0.2,
+    renderCell: (params) => {
+      const val = (params.row.perf_ptf * 100).toFixed(2);
+      return <TextColor value={val} />;
+    },
   },
   {
     field: "contrib_ptf",
-    headerName: "Contrib portefeuille",
-    renderCell: (params) => params.row.contrib_ptf.toFixed(2),
+    headerName: "Contrib PTF (%)",
+    align: "center",
+    flex: 0.2,
+    renderCell: (params) => {
+      const val = params.row.contrib_ptf.toFixed(2);
+      return <TextColor value={val} />;
+    },
   },
 ];
 

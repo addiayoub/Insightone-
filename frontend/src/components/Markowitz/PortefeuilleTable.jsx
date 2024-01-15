@@ -787,7 +787,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       )}
       {params && (
         <h3>
-          de {params.dateDebut} à {params.dateFin}
+          De <span className="underline">{params.dateDebut}</span> À{" "}
+          <span className="underline">{params.dateFin}</span>
         </h3>
       )}
       <Table

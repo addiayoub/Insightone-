@@ -153,25 +153,37 @@ const PortefeuilleBacktest = () => {
         className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12
         xl:grid-cols-12 gap-y-4 gap-x-12 mt-24"
       >
-        <Box className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+        <Box className="md:col-span-6 lg:col-span-6xl:col-span-6">
           {!loading && isShow && data.ptfsData.length > 0 && (
             <>
               <EvolutionB100 data={data.ptfsData} isGrid />
-              {/* {backtestData.map(({ data, type, field }) => {
-            return type === "OPCVM" ? (
-              <PortefeuilleTable rows={data} field={field} />
-            ) : (
-              <PortefeuilleTableMarko rows={data} field={field} />
-            );
-          })} */}
-              {/* <TabsComponent tabs={backtestData} /> */}
             </>
           )}
+        </Box>
+        <Box className="md:col-span-6 lg:col-span-6xl:col-span-6">
           {!loading && isShow && data.ptfsContrib.length > 0 && (
             <>
               <ContribChart data={data.ptfsContrib} />
             </>
           )}
+        </Box>
+      </Box>
+      {!loading && isShow && data.ptfsContrib.length > 0 && (
+        <>
+          <h3>Contribution {data.ptfsContrib[0].PTF}</h3>
+          <Table
+            columns={contribColumns}
+            rows={data.ptfsContrib}
+            pageSize={10}
+            className="h-max"
+          />
+        </>
+      )}
+      <Box
+        className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12
+        xl:grid-cols-12 gap-y-4 gap-x-12 mt-24"
+      >
+        <Box className="md:col-span-7 lg:col-span-7 xl:col-span-7">
           {!loading && isShow && data.df_poids.length > 0 && (
             <>
               <Poids data={data.df_poids} />
@@ -289,17 +301,6 @@ const PortefeuilleBacktest = () => {
             )}
         </Box>
         <Box className="md:col-span-5 lg:col-span-5 xl:col-span-5">
-          {!loading && isShow && data.ptfsContrib.length > 0 && (
-            <>
-              <h3>Contribution {data.ptfsContrib[0].PTF}</h3>
-              <Table
-                columns={contribColumns}
-                rows={data.ptfsContrib}
-                pageSize={10}
-                className="h-max"
-              />
-            </>
-          )}
           {!backData.loading && isShow && backData.data.keyPerf.length > 0 && (
             <>
               <h3>Key Performance Metrics</h3>

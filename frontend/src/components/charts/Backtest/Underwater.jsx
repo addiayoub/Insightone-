@@ -65,10 +65,10 @@ const Underwater = ({ data }) => {
           symbol: "none",
           sampling: "lttb",
           itemStyle: {
-            color: "rgb(255, 70, 131)",
+            color: "red",
           },
           areaStyle: {
-            color: "rgb(255, 158, 68)",
+            color: "rgba(237, 45, 45, 0.2)",
           },
           data: seriesData,
         },

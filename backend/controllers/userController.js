@@ -9,6 +9,9 @@ const csv = require("fast-csv");
 const exceljs = require("exceljs");
 const isPortefeuilleUnique = require("../utils/isPortefeuilleUnique");
 const transformPtfData = require("../utils/transformPtfData");
+const validatePortefeuilleTitres = require("../utils/validatePortefeuilleTitres");
+const dataController = require("./dataController");
+const getTitres = require("../utils/getTitres");
 
 class _UserController {
   async index(req, res) {
@@ -432,9 +435,10 @@ class _UserController {
       // Initialize portefeuilles as an array if it's undefined
       user.portefeuilles = user.portefeuilles || [];
       const response = await csvtojson().fromFile(req.file.path);
-
-      const portefeuille = transformPtfData(response, ptfName, ptfType);
+      const titres = await getTitres();
+      const portefeuille = transformPtfData(response, ptfName, ptfType, titres);
       const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
+      const libelles = portefeuille[0].data.map((item) => item.libelle);
 
       if (!areUnique) {
         return res.status(400).json({
@@ -443,13 +447,29 @@ class _UserController {
         });
       }
 
+      const { invalidTitres, isValid } = validatePortefeuilleTitres(
+        titres,
+        portefeuille
+      );
+
+      if (!isValid) {
+        return res.status(400).json({
+          message: "Invalid titres",
+          invalidTitres,
+        });
+      }
+
+      console.log("portef", portefeuille);
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
+      console.log(validatePortefeuilleTitres(titres, portefeuille));
       // await user.save();
-
-      return res
-        .status(200)
-        .json({ message: "Data saved successfully.", result: "jsonArray" });
+      // console.log("titres", titres);
+      return res.status(200).json({
+        message: "Portefeuille enregistré avec succès.",
+        portefeuilles: user.portefeuilles,
+        titres,
+      });
 
       // const datat = excelToJson({
       //   sourceFile: req.file.path,

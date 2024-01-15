@@ -22,6 +22,15 @@ const MonthlyReturns = ({ data, title }) => {
   );
   console.log("heatmapData", heatmapData);
   console.log("MonthlyReturns rendred");
+  const values = useMemo(
+    () => heatmapData.map((item) => +item[2]),
+    [heatmapData]
+  );
+  console.log(
+    "MonthlyReturns values",
+    Math.min(...values),
+    Math.max(...values)
+  );
 
   const options = useMemo(() => {
     return {
@@ -60,8 +69,8 @@ const MonthlyReturns = ({ data, title }) => {
         ...theme.yAxis,
       },
       visualMap: {
-        min: -10,
-        max: 10,
+        min: Math.min(...values),
+        max: Math.max(...values),
         calculable: true,
         orient: "vertical",
         right: "0",
@@ -90,7 +99,7 @@ const MonthlyReturns = ({ data, title }) => {
         },
       ],
     };
-  }, [heatmapData, theme, months, years, title]);
+  }, [heatmapData, theme, months, years, title, values]);
   return (
     <ReactECharts
       option={options}

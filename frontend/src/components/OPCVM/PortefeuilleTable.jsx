@@ -246,7 +246,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       )}
       {params && (
         <h3>
-          de {params.dateDebut} à {params.dateFin}
+          De {params.dateDebut} À {params.dateFin}
         </h3>
       )}
       <Table columns={columns} rows={newRows} pageSize={25} />

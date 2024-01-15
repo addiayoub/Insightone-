@@ -44,7 +44,7 @@ function EvolutionB100({ data, isGrid }) {
 
     return {
       title: {
-        text: "Evolution base 100 des Portefeuille simulé",
+        text: "Evolution base 100 des Portefeuilles simulés",
         left: "center",
         ...theme.title,
       },

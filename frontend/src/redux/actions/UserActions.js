@@ -168,8 +168,13 @@ export const uploadCsv = createAsyncThunk(
 
       // Handle the response as needed
       console.log(response.data);
+      return response.data;
     } catch (error) {
       console.log("Error uploading file:", error);
+      return thunkAPI.rejectWithValue({
+        message: error.response.data.message,
+        data: error.response.data.invalidTitres ?? [],
+      });
     }
   }
 );
