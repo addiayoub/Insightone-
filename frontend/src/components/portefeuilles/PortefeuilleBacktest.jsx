@@ -159,6 +159,11 @@ const PortefeuilleBacktest = () => {
               <EvolutionB100 data={data.ptfsData} isGrid />
             </>
           )}
+          {!loading && isShow && data.df_poids.length > 0 && (
+            <>
+              <Poids data={data.df_poids} />
+            </>
+          )}
         </Box>
         <Box className="md:col-span-6 lg:col-span-6xl:col-span-6">
           {!loading && isShow && data.ptfsContrib.length > 0 && (
@@ -184,11 +189,6 @@ const PortefeuilleBacktest = () => {
         xl:grid-cols-12 gap-y-4 gap-x-12 mt-24"
       >
         <Box className="md:col-span-7 lg:col-span-7 xl:col-span-7">
-          {!loading && isShow && data.df_poids.length > 0 && (
-            <>
-              <Poids data={data.df_poids} />
-            </>
-          )}
           {!backData.loading &&
             isShow &&
             backData.data.cumulative.length > 0 && (

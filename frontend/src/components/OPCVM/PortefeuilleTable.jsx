@@ -1,25 +1,18 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Table from "../Table";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import { Edit, Lock, Unlock } from "react-feather";
-import {
-  IconButton,
-  Typography,
-  Button,
-  Box,
-  Divider,
-  TextField,
-} from "@mui/material";
 import ModalComponent from "../Modal";
 import EditPoidsTitreForm from "./EditPoids/EditPoidsTitreForm";
 import Actions from "./EditPoids/Actions";
 import { calculateSumClassification } from "../../utils/OPCVM/helpers.js";
 import EditPoidsClassification from "./EditPoids/EditPoidsClassification.jsx";
-import { ajuster, calculateSumPoids } from "../../utils/Markowitz/helpers.js";
+import { calculateSumPoids } from "../../utils/Markowitz/helpers.js";
 import EditPortefeuille from "../EditPortefeuille.jsx";
 import SavePortefeuille from "../SavePortefeuille.jsx";
 import { addTitres } from "../../utils/addTitres.js";
 import AddTitre from "../portefeuilles/AddTitre.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { setPtfToBacktest } from "../../redux/slices/BacktestSlice.js";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -126,6 +119,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
+  const { ptfToBacktest } = useSelector((state) => state.backtest);
+  const dispatch = useDispatch();
   const reset = () => {
     setOpen(false);
     setPoids(null);
@@ -225,6 +220,13 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   console.log("Columns", columns);
   console.log("params", params);
+  useEffect(() => {
+    const newPtf = {
+      ...ptfToBacktest,
+      data: newRows,
+    };
+    dispatch(setPtfToBacktest(newPtf));
+  }, [newRows]);
   return (
     <>
       {showActions && (

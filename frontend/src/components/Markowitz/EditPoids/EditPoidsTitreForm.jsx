@@ -107,7 +107,7 @@ const EditPoidsTitreForm = ({
             onClick={() => {
               handleUpdate();
             }}
-            disabled={!poids || poids > 100 || poids < 0}
+            disabled={poids === "" || poids > 100 || poids < 0}
           >
             Enregistrer
           </Button>

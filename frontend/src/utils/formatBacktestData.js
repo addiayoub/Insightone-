@@ -37,13 +37,15 @@ const mergeDataByKeyBeta = (data, key) => {
 export const transformBacktestData = (ptfs) => {
   const newData = [];
   ptfs.forEach((ptf) => {
-    const ptfData = ptf.data;
     const { field, name } = ptf;
-    const dd = ptfData.map((item) => ({
-      valeur: item.titre,
-      [name]: item[field],
-      // [`"${name}"`]: item[field],
-    }));
+    const ptfData = ptf.data.filter((item) => item[field] > 0);
+    const dd = ptfData.map((item) => {
+      return {
+        valeur: item.titre,
+        [name]: item[field],
+        // [`"${name}"`]: item[field],
+      };
+    });
     newData.push(...dd);
   });
   // return mergeDataByKey(newData, "valeur");

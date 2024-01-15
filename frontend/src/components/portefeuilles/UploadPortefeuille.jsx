@@ -28,9 +28,17 @@ const UploadPortefeuille = () => {
       })
       .catch((failed) => {
         console.log("filed", failed);
+        setTitresInvalid(failed.data);
         notyf.error(failed);
       });
   };
+  const inva = titresInvalid.map((item) => {
+    return (
+      <p key={item} className="text-red-600">
+        {item}
+      </p>
+    );
+  });
   return (
     <Box className="flex gap-2 flex-col max-w-[200px]">
       <Box>
@@ -60,6 +68,12 @@ const UploadPortefeuille = () => {
       <Button onClick={handleUpload} variant="contained" disabled={!file}>
         Upload
       </Button>
+      {titresInvalid.length > 0 && (
+        <>
+          <h3>Invalid titres</h3>
+          {inva}
+        </>
+      )}
     </Box>
   );
 };

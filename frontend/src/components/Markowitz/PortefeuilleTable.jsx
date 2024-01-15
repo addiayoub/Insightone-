@@ -22,6 +22,8 @@ import SavePortefeuille from "../SavePortefeuille";
 import ChangeSecteur from "../Test/ChangeSecteurs";
 import AddTitre from "../portefeuilles/AddTitre";
 import { addTitres } from "../../utils/addTitres";
+import { useDispatch, useSelector } from "react-redux";
+import { setPtfToBacktest } from "../../redux/slices/BacktestSlice";
 
 const calculateSum = (data, secteur, field) => {
   // Filter the data based on the provided Classification
@@ -635,6 +637,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
+  const { ptfToBacktest } = useSelector((state) => state.backtest);
+  const dispatch = useDispatch();
   console.log(
     "calculatePoidsSum",
     calculatePoidsSum(newRows, field),
@@ -764,6 +768,13 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     }
     return basedColumns;
   }, [newRows, field, showActions]);
+  useEffect(() => {
+    const newPtf = {
+      ...ptfToBacktest,
+      data: newRows,
+    };
+    dispatch(setPtfToBacktest(newPtf));
+  }, [newRows]);
   return (
     <>
       {showActions && (
