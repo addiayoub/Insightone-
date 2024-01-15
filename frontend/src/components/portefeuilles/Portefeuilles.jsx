@@ -108,6 +108,7 @@ const Portefeuilles = () => {
           className="min-w-[115px] flex gap-2 items-center"
           color="primary"
           size="small"
+          id="valider-btn"
           onClick={handleValider}
           disabled={!ptf}
         >
@@ -164,7 +165,7 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       </AccordionBox>
-      {/* <UploadPortefeuille /> */}
+      <UploadPortefeuille setPtf={setPtf} handleValider={handleValider} />
       {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest />}
       {loading && <MainLoader />}

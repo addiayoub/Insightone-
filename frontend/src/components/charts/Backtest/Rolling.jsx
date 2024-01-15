@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import moment from "moment";
+import SaveToExcel from "../../SaveToExcel";
 
 const Rolling = ({ data, title }) => {
   const theme = useChartTheme();
@@ -83,13 +84,16 @@ const Rolling = ({ data, title }) => {
   }, [defaultOptions, theme, seriesNames, data]);
 
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: 500,
-        margin: "15px 0",
-      }}
-    />
+    <div className="relative">
+      <SaveToExcel data={data} fileName={title} />
+      <ReactECharts
+        option={options}
+        style={{
+          minHeight: 500,
+          margin: "15px 0",
+        }}
+      />
+    </div>
   );
 };
 

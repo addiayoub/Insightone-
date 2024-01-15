@@ -1,5 +1,6 @@
 import moment from "moment";
 import TextColor from "../../Dashboard/TextColor";
+import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
 
 export const keyPerfColumns = [
   {
@@ -111,18 +112,26 @@ export const contribColumns = [
     renderCell: (params) => moment(params.row.date_fin).format("DD/MM/YYYY"),
   },
   {
-    field: "vl_initial",
-    headerName: "VL initial",
-    flex: 0.1,
-
-    renderCell: (params) => params.row.vl_initial.toFixed(2),
+    field: "cours_initial",
+    headerName: "Cours initial",
+    flex: 0.25,
+    headerAlign: "center",
+    renderCell: (params) => (
+      <span className="text-right min-w-[100px]">
+        {formatNumberWithSpaces(params.row.cours_initial)}
+      </span>
+    ),
   },
   {
-    field: "vl_final",
-    headerName: "VL final",
-    flex: 0.1,
-
-    renderCell: (params) => params.row.vl_final.toFixed(2),
+    field: "cours_final",
+    headerName: "Cours final",
+    flex: 0.25,
+    headerAlign: "center",
+    renderCell: (params) => (
+      <span className="text-right min-w-[100px]">
+        {formatNumberWithSpaces(params.row.cours_final)}
+      </span>
+    ),
   },
   {
     field: "poids_initial",

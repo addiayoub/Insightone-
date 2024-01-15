@@ -3,6 +3,8 @@ import moment from "moment/moment";
 import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
 import { defaultOptions } from "../../utils/chart/defaultOptions";
+import SaveToExcel from "../SaveToExcel";
+import { Box } from "@mui/material";
 
 function EvolutionB100({ data, isGrid }) {
   console.log("EvolutionB100", data);
@@ -62,6 +64,7 @@ function EvolutionB100({ data, isGrid }) {
           },
           restore: {},
           saveAsImage: {},
+          dataView: {},
         },
         top: "20px",
       },
@@ -106,20 +109,22 @@ function EvolutionB100({ data, isGrid }) {
       series: seriesNames.map((seriesName) => ({
         name: seriesName,
         type: "line",
-        symbol: "none",
         data: data.map((item) => item[seriesName]),
       })),
       ...defaultOptions,
     };
   }, [seriesNames, data, theme]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        height: "500px",
-        maxHeight: "600px",
-      }}
-    />
+    <Box className="relative">
+      <SaveToExcel data={data} fileName={"Evolution B100"} />
+      <ReactECharts
+        option={options}
+        style={{
+          height: "500px",
+          maxHeight: "600px",
+        }}
+      />
+    </Box>
   );
 }
 

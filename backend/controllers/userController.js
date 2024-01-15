@@ -456,6 +456,8 @@ class _UserController {
         return res.status(400).json({
           message: "Invalid titres",
           invalidTitres,
+          titres,
+          portefeuille,
         });
       }
 
@@ -463,12 +465,13 @@ class _UserController {
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
-      // await user.save();
+      await user.save();
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",
         portefeuilles: user.portefeuilles,
         titres,
+        portefeuille,
       });
 
       // const datat = excelToJson({

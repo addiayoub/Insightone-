@@ -2,6 +2,7 @@ import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
+import SaveToExcel from "../../SaveToExcel";
 
 const getOptions = (data, seriesNames, title, theme, ptf = "") => {
   return {
@@ -119,22 +120,35 @@ const Cumualative = ({ data }) => {
       ),
     [theme, data, seriesNames2, selectedPtf]
   );
+  console.log(
+    "getOptions",
+    getOptions(data, seriesNames, "Cumulative Returns vs Benchmark", theme)
+  );
   return (
     <>
-      <ReactECharts
-        option={options}
-        style={{
-          minHeight: 500,
-          margin: "15px 0",
-        }}
-      />
-      <ReactECharts
-        option={options2}
-        style={{
-          minHeight: 500,
-          margin: "15px 0",
-        }}
-      />
+      <div className="relative">
+        <SaveToExcel data={data} fileName="Cumulative Returns vs Benchmark" />
+        <ReactECharts
+          option={options}
+          style={{
+            minHeight: 500,
+            margin: "15px 0",
+          }}
+        />
+      </div>
+      <div className="realative">
+        <SaveToExcel
+          data={data}
+          fileName="Cumulative Returns vs Benchmark (Log Scaled)"
+        />
+        <ReactECharts
+          option={options2}
+          style={{
+            minHeight: 500,
+            margin: "15px 0",
+          }}
+        />
+      </div>
     </>
   );
 };

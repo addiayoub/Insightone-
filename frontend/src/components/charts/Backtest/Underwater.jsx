@@ -4,6 +4,7 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import SaveToExcel from "../../SaveToExcel";
 
 const Underwater = ({ data }) => {
   console.log("Underwater data", data);
@@ -89,13 +90,16 @@ const Underwater = ({ data }) => {
     };
   }, [selectedPtf, seriesData, average, theme, seances, defaultOptions]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: 500,
-        margin: "15px 0",
-      }}
-    />
+    <div className="relative">
+      <SaveToExcel data={data} fileName={"Underwater Plot"} />
+      <ReactECharts
+        option={options}
+        style={{
+          minHeight: 500,
+          margin: "15px 0",
+        }}
+      />
+    </div>
   );
 };
 

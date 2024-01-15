@@ -5,11 +5,21 @@ const transformPtfData = (data, name, type, titres) => {
   // );
   const transformedData = data.map((item) => {
     const dataRef = titres.find((ele) => ele.TITRE === item.titres);
-    return {
-      titre: dataRef?.REFERENCE ?? item.titres,
-      poids: +item.poids,
-      SECTEUR_ACTIVITE: dataRef?.CATEGORIE,
-    };
+    const poids = item.poids ? +item.poids : 0;
+    if (type === "Actions") {
+      return {
+        titre: dataRef?.REFERENCE ?? item.titres,
+        poids,
+        SECTEUR_ACTIVITE: dataRef?.CATEGORIE,
+      };
+    } else {
+      return {
+        titre: dataRef?.REFERENCE ?? item.titres,
+        poids,
+        Classification: dataRef?.CLASSE,
+        Societe_Gestion: dataRef?.CATEGORIE,
+      };
+    }
   });
 
   const result = {

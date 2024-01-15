@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import moment from "moment";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
+import SaveToExcel from "../../SaveToExcel";
 const Poids = ({ data }) => {
   const seriesNames = Object.keys(data[0]).filter((key) => {
     console.log(key !== "seance");
@@ -88,13 +89,16 @@ const Poids = ({ data }) => {
     }),
   };
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        height: "500px",
-        maxHeight: "600px",
-      }}
-    />
+    <div className="relative">
+      <SaveToExcel data={data} fileName="Poids" />
+      <ReactECharts
+        option={options}
+        style={{
+          height: "500px",
+          maxHeight: "600px",
+        }}
+      />
+    </div>
   );
 };
 

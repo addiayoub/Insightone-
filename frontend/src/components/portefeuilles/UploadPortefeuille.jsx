@@ -7,7 +7,7 @@ import SingleSelect from "../SingleSelect";
 import { notyf } from "../../utils/notyf";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
 const fileTypes = ["csv"];
-const UploadPortefeuille = () => {
+const UploadPortefeuille = ({ setPtf, handleValider }) => {
   const [file, setFile] = useState(null);
   const [ptfName, setPtfName] = useState("");
   const [ptfType, setPtfType] = useState("Actions");
@@ -17,6 +17,7 @@ const UploadPortefeuille = () => {
     setFile(file);
   };
   const handleUpload = () => {
+    setTitresInvalid([]);
     dispatch(uploadCsv({ file, ptfName, ptfType }))
       .unwrap()
       .then((success) => {
@@ -25,6 +26,8 @@ const UploadPortefeuille = () => {
         setPtfName("");
         setFile(null);
         notyf.success(success.message);
+        setPtf(ptfName);
+        document.getElementById("valider-btn").click();
       })
       .catch((failed) => {
         console.log("filed", failed);
@@ -40,7 +43,7 @@ const UploadPortefeuille = () => {
     );
   });
   return (
-    <Box className="flex gap-2 flex-col max-w-[200px]">
+    <Box className="flex gap-2 flex-col max-w-[400px]">
       <Box>
         <FileUploader
           handleChange={handleChange}
@@ -50,27 +53,35 @@ const UploadPortefeuille = () => {
           onTypeError={() => console.log("foulan")}
         />
         <p className="mt-2">
-          {file ? `File name: ${file.name}` : "no files uploaded yet"}
+          {file
+            ? `Nom du fichier: ${file.name}`
+            : "Aucun fichier téléchargé pour l'instant"}
         </p>
       </Box>
-      <TextField
-        size="small"
-        label="Nom de portefeuille"
-        value={ptfName}
-        onChange={(e) => setPtfName(e.target.value)}
-      />
-      <SingleSelect
-        label="Type"
-        options={["OPCVM", "Actions"]}
-        value={ptfType}
-        setValue={setPtfType}
-      />
-      <Button onClick={handleUpload} variant="contained" disabled={!file}>
+      <Box className="flex gap-2 items-center">
+        <TextField
+          size="small"
+          label="Nom de portefeuille"
+          value={ptfName}
+          onChange={(e) => setPtfName(e.target.value)}
+        />
+        <SingleSelect
+          label="Type"
+          options={["OPCVM", "Actions"]}
+          value={ptfType}
+          setValue={setPtfType}
+        />
+      </Box>
+      <Button
+        onClick={handleUpload}
+        variant="contained"
+        disabled={!file || !ptfName}
+      >
         Upload
       </Button>
       {titresInvalid.length > 0 && (
         <>
-          <h3>Invalid titres</h3>
+          <h3>Le fichier contient des titres invalides:</h3>
           {inva}
         </>
       )}

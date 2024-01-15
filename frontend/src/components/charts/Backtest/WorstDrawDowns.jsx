@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import SaveToExcel from "../../SaveToExcel";
 
 const WorstDrawDowns = ({ data, evolution }) => {
   console.log("WorstDrawDowns", data);
@@ -103,7 +104,12 @@ const WorstDrawDowns = ({ data, evolution }) => {
       ...defaultOptions,
     };
   }, [theme, lineData, xAxisData, marksArea]);
-  return <ReactECharts option={options} style={{ minHeight: 500 }} />;
+  return (
+    <div className="relative">
+      <SaveToExcel data={data} fileName="Worst 5 Drawdowns Periods" />
+      <ReactECharts option={options} style={{ minHeight: 500 }} />
+    </div>
+  );
 };
 
 export default memo(WorstDrawDowns);
