@@ -420,36 +420,37 @@ class _UserController {
   async uploadCSV(req, res) {
     try {
       const { _id } = req.user;
+      const { ptfName, ptfType } = req.body;
 
       // Find the user
       const user = await User.findById(_id);
-      console.log("id", user);
+
       if (!user) {
         return res.status(404).json({ message: "Utilisateur non trouvé." });
       }
 
       // Initialize portefeuilles as an array if it's undefined
       user.portefeuilles = user.portefeuilles || [];
-      csvtojson()
-        .fromFile(req.file.path)
-        .then(async (resp) => {
-          const portefeuille = transformPtfData(resp);
-          const areUnique = isPortefeuilleUnique(
-            portefeuille,
-            user.portefeuilles
-          );
-          if (!areUnique) {
-            return res.status(400).json({
-              message:
-                "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
-            });
-          }
-          // Add the new portefeuille to the user's portefeuilles array
-          user.portefeuilles.push(...portefeuille);
-          // Save the updated user to the database
-          console.log("portefeuille", user.portefeuilles);
-          // await user.save();
+      const response = await csvtojson().fromFile(req.file.path);
+
+      const portefeuille = transformPtfData(response, ptfName, ptfType);
+      const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
+
+      if (!areUnique) {
+        return res.status(400).json({
+          message:
+            "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
         });
+      }
+
+      // Add the new portefeuille to the user's portefeuilles array
+      user.portefeuilles.push(...portefeuille);
+      // await user.save();
+
+      return res
+        .status(200)
+        .json({ message: "Data saved successfully.", result: "jsonArray" });
+
       // const datat = excelToJson({
       //   sourceFile: req.file.path,
       //   header: {
@@ -459,10 +460,6 @@ class _UserController {
       //     "*": "{{columnHeader}}",
       //   },
       // });
-      console.log("datat");
-      // res
-      //   .status(200)
-      //   .json({ message: "Data saved successfully.", result: "jsonArray" });
     } catch (error) {
       console.error("Error processing file:", error.message);
       res.status(500).json({ error: "Internal server error." });

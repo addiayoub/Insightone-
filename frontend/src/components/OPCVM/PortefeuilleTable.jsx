@@ -224,6 +224,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const disableSave =
     calculateSumPoids(rows, field) !== calculateSumPoids(newRows, field);
   console.log("Columns", columns);
+  console.log("params", params);
   return (
     <>
       {showActions && (
@@ -242,6 +243,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
             isDisabled={disableSave}
           />
         </EditPortefeuille>
+      )}
+      {params && (
+        <h3>
+          de {params.dateDebut} à {params.dateFin}
+        </h3>
       )}
       <Table columns={columns} rows={newRows} pageSize={25} />
       <ModalComponent open={open} handleClose={reset}>

@@ -72,6 +72,7 @@ const Portefeuilles = () => {
     }
   }, [selectedPtfs]);
   useEffect(() => {
+    setShow(false);
     if (ptf) {
       const choosen = data.find((item) => item.name === ptf);
       setSelectedPtfs([choosen]);
@@ -79,11 +80,10 @@ const Portefeuilles = () => {
       setSelectedPtfs([]);
     }
   }, [ptf]);
-  useEffect(() => setShow(false), [ptf]);
+  useEffect(() => setPtf(null), [type]);
   const portefeuilles = data
     .filter((ptf) => ptf.type === type)
     .map((ptf) => ptf.name);
-  console.log("---- portefeuilles ----", portefeuilles);
   return (
     <>
       <AccordionBox

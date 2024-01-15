@@ -207,24 +207,41 @@ export const backtestAction = createAsyncThunk(
         DISTRIBUTION_OF_MONTHLY_RETURNS
       );
       return {
-        cumulative: CUMULATIVE_RETURNS["Cumulative Returns"],
-        eoy: EOY_RETURNS_BARS["EOY Returns bars"],
-        eoyTable: EOY_RETURNS_TABLE["EOY Returns table"],
-        distributionMonthly:
-          DISTRIBUTION_OF_MONTHLY_RETURNS["Distribution of Monthly Returns"],
-        rollingBeta: ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"],
-        rollingVolat: ROLLING_VOLATILITY["Rolling Volatility"],
-        rollingSharpe: ROLLING_SHARPE["Rolling Sharpe"],
+        cumulative: CUMULATIVE_RETURNS
+          ? CUMULATIVE_RETURNS["Cumulative Returns"]
+          : [],
+        eoy: EOY_RETURNS_BARS ? EOY_RETURNS_BARS["EOY Returns bars"] : [],
+        eoyTable: EOY_RETURNS_TABLE
+          ? EOY_RETURNS_TABLE["EOY Returns table"]
+          : [],
+        distributionMonthly: DISTRIBUTION_OF_MONTHLY_RETURNS
+          ? DISTRIBUTION_OF_MONTHLY_RETURNS["Distribution of Monthly Returns"]
+          : [],
+        rollingBeta: ROLLING_BETA_TO_BENCHMARK
+          ? ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"]
+          : [],
+        rollingVolat: ROLLING_VOLATILITY
+          ? ROLLING_VOLATILITY["Rolling Volatility"]
+          : [],
+        rollingSharpe: ROLLING_SHARPE ? ROLLING_SHARPE["Rolling Sharpe"] : [],
         rollingSortino: ROLLING_SORTINO
           ? ROLLING_SORTINO["Rolling Sortino"]
           : [],
-        worstDrawdowns: WORST_10_DRAWDOWNS["Worst 10 Drawdowns"],
-        monthlyReturns: MONTHLY_RETURNS["Monthly Returns"],
-        monthlyRelReturns: MONTHLY_RELATIVE_RETURNS["Monthly Relative Returns"],
-        dailyReturns: DAILY_RETURNS["daily returns"],
-        quantiles: RETURN_QUANTILES["Return Quantiles"],
-        keyPerf: KEY_PERFORMANCE_METRICS["Key Performance Metrics"],
-        underwater: UNDERWATER_PLOT["drawdowns"],
+        worstDrawdowns: WORST_10_DRAWDOWNS
+          ? WORST_10_DRAWDOWNS["Worst 10 Drawdowns"]
+          : [],
+        monthlyReturns: MONTHLY_RETURNS
+          ? MONTHLY_RETURNS["Monthly Returns"]
+          : [],
+        monthlyRelReturns: MONTHLY_RELATIVE_RETURNS
+          ? MONTHLY_RELATIVE_RETURNS["Monthly Relative Returns"]
+          : [],
+        dailyReturns: DAILY_RETURNS ? DAILY_RETURNS["daily returns"] : [],
+        quantiles: RETURN_QUANTILES ? RETURN_QUANTILES["Return Quantiles"] : [],
+        keyPerf: KEY_PERFORMANCE_METRICS
+          ? KEY_PERFORMANCE_METRICS["Key Performance Metrics"]
+          : [],
+        underwater: UNDERWATER_PLOT ? UNDERWATER_PLOT["drawdowns"] : [],
       };
     } catch (error) {
       console.log("error", error);

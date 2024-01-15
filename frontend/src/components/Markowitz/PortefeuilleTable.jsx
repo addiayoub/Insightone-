@@ -785,6 +785,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           </EditPortefeuille>
         </>
       )}
+      {params && (
+        <h3>
+          de {params.dateDebut} à {params.dateFin}
+        </h3>
+      )}
       <Table
         columns={columns}
         rows={injectSums(newRows, secteurSums)}

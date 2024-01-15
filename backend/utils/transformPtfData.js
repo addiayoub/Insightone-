@@ -1,4 +1,4 @@
-const transformPtfData = (data) => {
+const transformPtfData = (data, name, type) => {
   // Assuming you have some mapping logic to transform your input data to the desired format
   const transformedData = data.map((item) => ({
     titre: item.titres,
@@ -6,9 +6,9 @@ const transformPtfData = (data) => {
   }));
 
   const result = {
-    name: "test",
+    name,
     field: "poids",
-    type: "Actions",
+    type,
     data: transformedData,
     params: {
       dateDebut: null,
