@@ -434,7 +434,9 @@ class _UserController {
 
       // Initialize portefeuilles as an array if it's undefined
       user.portefeuilles = user.portefeuilles || [];
-      const response = await csvtojson().fromFile(req.file.path);
+      const response = await csvtojson({
+        delimiter: "auto",
+      }).fromFile(req.file.path);
       const titres = await getTitres();
       const portefeuille = transformPtfData(response, ptfName, ptfType, titres);
       const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);

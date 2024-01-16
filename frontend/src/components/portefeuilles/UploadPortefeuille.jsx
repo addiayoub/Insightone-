@@ -6,19 +6,22 @@ import { Box, Button, Typography, TextField } from "@mui/material";
 import SingleSelect from "../SingleSelect";
 import { notyf } from "../../utils/notyf";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
+import MainLoader from "../loaders/MainLoader";
 const fileTypes = ["csv"];
 
-const UploadPortefeuille = ({ setPtf, handleValider }) => {
+const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
   const [file, setFile] = useState(null);
   const [ptfName, setPtfName] = useState("");
   const [ptfType, setPtfType] = useState("Actions");
   const [titresInvalid, setTitresInvalid] = useState([]);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const handleChange = (file) => {
     setFile(file);
   };
   const handleUpload = () => {
     setTitresInvalid([]);
+    setLoading(true);
     dispatch(uploadCsv({ file, ptfName, ptfType }))
       .unwrap()
       .then((success) => {
@@ -28,19 +31,21 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
         setFile(null);
         notyf.success(success.message);
         setPtf(ptfName);
+        setType(ptfType);
         // handleValider(ptfName);
       })
       .catch((failed) => {
         console.log("filed", failed);
         setTitresInvalid(failed.data);
         notyf.error(failed);
-      });
+      })
+      .finally(() => setLoading(false));
   };
   const inva = titresInvalid.map((item) => {
     return (
-      <p key={item} className="text-red-600">
+      <span key={item} className="text-red-600">
         {item}
-      </p>
+      </span>
     );
   });
   return (
@@ -68,7 +73,7 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
         />
         <SingleSelect
           label="Type"
-          options={["OPCVM", "Actions"]}
+          options={["Actions", "OPCVM"]}
           value={ptfType}
           setValue={setPtfType}
         />
@@ -76,7 +81,7 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
       <Button
         onClick={handleUpload}
         variant="contained"
-        disabled={!file || !ptfName}
+        disabled={!file || !ptfName || !ptfType}
       >
         Upload
       </Button>
@@ -86,6 +91,7 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
           {inva}
         </>
       )}
+      {loading && <MainLoader />}
     </Box>
   );
 };

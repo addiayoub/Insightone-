@@ -4,7 +4,9 @@ const transformPtfData = (data, name, type, titres) => {
   console.log("keys", titreName, titreValue);
 
   const transformedData = data.map((row) => {
-    const dataRef = titres.find((ele) => ele.TITRE === row[titreName]);
+    const dataRef = titres.find(
+      (ele) => ele.TITRE.toLowerCase() === row[titreName].toLowerCase()
+    );
     const poids = row[titreValue] ? +row[titreValue] : 0;
     const titre = dataRef?.REFERENCE ?? row[titreName];
     if (type === "Actions") {
@@ -23,11 +25,12 @@ const transformPtfData = (data, name, type, titres) => {
     }
   });
 
+  const uniqueTitres = removeDuplicationTitres(transformedData);
   const result = {
     name,
     field: "poids",
     type,
-    data: transformedData,
+    data: uniqueTitres,
     params: {
       dateDebut: null,
       dateFin: null,
@@ -36,4 +39,19 @@ const transformPtfData = (data, name, type, titres) => {
 
   return [result];
 };
+
+function removeDuplicationTitres(data) {
+  const uniqueTitres = {};
+  const result = [];
+
+  for (let i = data.length - 1; i >= 0; i--) {
+    const item = data[i];
+    if (!uniqueTitres[item.titre]) {
+      result.unshift(item);
+      uniqueTitres[item.titre] = true;
+    }
+  }
+  return result;
+}
+
 module.exports = transformPtfData;

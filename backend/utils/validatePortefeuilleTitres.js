@@ -1,12 +1,12 @@
 function validatePortefeuilleTitres(titresRef, portefeuilles) {
   const invalidTitres = [];
-  const titres = titresRef.map((item) => item.TITRE);
+  const titres = titresRef.map((item) => item.TITRE.toLowerCase());
   portefeuilles.forEach((portefeuilleItem) => {
     const { data } = portefeuilleItem;
 
     data.forEach((item) => {
       const { titre } = item;
-      if (!titres.includes(titre)) {
+      if (!titres.includes(titre.toLowerCase())) {
         invalidTitres.push(titre);
       }
     });

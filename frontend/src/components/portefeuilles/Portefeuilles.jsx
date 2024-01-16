@@ -170,10 +170,13 @@ const Portefeuilles = () => {
       </AccordionBox>
       <AccordionBox
         title="Importer un portefeuille"
-        isExpanded={true}
         detailsClass="flex flex-wrap gap-3 items-center"
       >
-        <UploadPortefeuille setPtf={setPtf} handleValider={handleValider} />
+        <UploadPortefeuille
+          setPtf={setPtf}
+          setType={setType}
+          handleValider={handleValider}
+        />
       </AccordionBox>
       {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest />}
