@@ -61,6 +61,10 @@ function VolumeEchange({ chartData }) {
           axisPointer: {
             type: "shadow",
           },
+          axisLabel: {
+            ...theme.xAxis.nameTextStyle,
+          },
+          ...theme.xAxis,
         },
       ],
       dataZoom: [
@@ -78,7 +82,9 @@ function VolumeEchange({ chartData }) {
             const val = (value / 1e6).toFixed(2);
             return formatNumberWithSpaces(val) + " MMAD";
           },
+          ...theme.yAxis.nameTextStyle,
         },
+        ...theme.yAxis,
       },
       series: [
         {

@@ -3,9 +3,12 @@ import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { formatDate } from "../../utils/FormatDate";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { defaultOptions } from "../../utils/chart/defaultOptions";
+import useChartTheme from "../../hooks/useChartTheme";
 
 const CapitalisationChart = ({ data }) => {
   const { darkTheme } = useSelector((state) => state.theme);
+  const theme = useChartTheme();
   const options = useMemo(() => {
     return {
       tooltip: {
@@ -31,6 +34,10 @@ const CapitalisationChart = ({ data }) => {
         type: "category",
         boundaryGap: false,
         data: data.map((item) => formatDate(item.SEANCE)),
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
       yAxis: {
         type: "value",
@@ -40,19 +47,10 @@ const CapitalisationChart = ({ data }) => {
             const val = value / 1000000000;
             return val + "M";
           },
+          ...theme.yAxis.nameTextStyle,
         },
+        ...theme.yAxis,
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          start: 0,
-          end: 100,
-        },
-      ],
       series: [
         {
           name: "MASI",
@@ -73,8 +71,9 @@ const CapitalisationChart = ({ data }) => {
           data: data.map((item) => item.Capitalisation),
         },
       ],
+      ...defaultOptions,
     };
-  }, [data]);
+  }, [data, theme]);
 
   return <ReactECharts option={options} style={{ height: "450px" }} />;
 };

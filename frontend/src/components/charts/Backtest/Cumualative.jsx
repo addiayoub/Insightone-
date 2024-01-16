@@ -58,7 +58,7 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
       axisLabel: {
         ...theme.xAxis.nameTextStyle,
       },
-      ...theme.yAxis,
+      ...theme.xAxis,
     },
     legend: {
       // data: seriesNames,
@@ -75,6 +75,7 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
       axisLabel: {
         ...theme.yAxis.nameTextStyle,
       },
+      ...theme.yAxis,
     },
     series: seriesNames.map((seriesName) => ({
       name: seriesName === "returns_mv_cum" && ptf ? ptf : seriesName,

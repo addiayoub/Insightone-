@@ -1,20 +1,21 @@
 const transformPtfData = (data, name, type, titres) => {
-  // console.log(
-  //   "Titres are ",
-  //   titres.find((item) => item.TITRE === "IAM")
-  // );
-  const transformedData = data.map((item) => {
-    const dataRef = titres.find((ele) => ele.TITRE === item.titres);
-    const poids = item.poids ? +item.poids : 0;
+  console.log("transformPtfData", data);
+  const [titreName, titreValue] = Object.keys(data[0]);
+  console.log("keys", titreName, titreValue);
+
+  const transformedData = data.map((row) => {
+    const dataRef = titres.find((ele) => ele.TITRE === row[titreName]);
+    const poids = row[titreValue] ? +row[titreValue] : 0;
+    const titre = dataRef?.REFERENCE ?? row[titreName];
     if (type === "Actions") {
       return {
-        titre: dataRef?.REFERENCE ?? item.titres,
+        titre,
         poids,
         SECTEUR_ACTIVITE: dataRef?.CATEGORIE,
       };
     } else {
       return {
-        titre: dataRef?.REFERENCE ?? item.titres,
+        titre,
         poids,
         Classification: dataRef?.CLASSE,
         Societe_Gestion: dataRef?.CATEGORIE,

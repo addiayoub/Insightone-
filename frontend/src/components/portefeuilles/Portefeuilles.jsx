@@ -44,14 +44,17 @@ const Portefeuilles = () => {
       .then()
       .catch(() => notyf.error("Error Fetch portefeuilles"));
   }, []);
-  const handleValider = () => {
+  const handleValider = (choosenPtf) => {
     setShow(true);
     console.log("selected ptfs", selectedPtfs);
     const choosen = data.find((item) => item.name === ptf);
     console.log("choosen", choosen);
+    console.log("data", data);
+    console.log("choosenPtf", choosenPtf);
     setSelectedPtfs([choosen]);
     dispatch(setPtfToBacktest(choosen));
     dispatch(setSelectedPtf(ptf));
+
     console.log("trasn ptfs", transformBacktestData(selectedPtfs));
   };
   const handleDelete = () => {
@@ -109,7 +112,7 @@ const Portefeuilles = () => {
           color="primary"
           size="small"
           id="valider-btn"
-          onClick={handleValider}
+          onClick={() => handleValider(ptf)}
           disabled={!ptf}
         >
           Valider <CheckSquare size={18} />
@@ -165,7 +168,13 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       </AccordionBox>
-      <UploadPortefeuille setPtf={setPtf} handleValider={handleValider} />
+      <AccordionBox
+        title="Importer un portefeuille"
+        isExpanded={true}
+        detailsClass="flex flex-wrap gap-3 items-center"
+      >
+        <UploadPortefeuille setPtf={setPtf} handleValider={handleValider} />
+      </AccordionBox>
       {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest />}
       {loading && <MainLoader />}

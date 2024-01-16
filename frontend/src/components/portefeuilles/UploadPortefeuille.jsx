@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uploadCsv } from "../../redux/actions/UserActions";
 import { FileUploader } from "react-drag-drop-files";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Typography, TextField } from "@mui/material";
 import SingleSelect from "../SingleSelect";
 import { notyf } from "../../utils/notyf";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
 const fileTypes = ["csv"];
+
 const UploadPortefeuille = ({ setPtf, handleValider }) => {
   const [file, setFile] = useState(null);
   const [ptfName, setPtfName] = useState("");
@@ -27,7 +28,7 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
         setFile(null);
         notyf.success(success.message);
         setPtf(ptfName);
-        document.getElementById("valider-btn").click();
+        // handleValider(ptfName);
       })
       .catch((failed) => {
         console.log("filed", failed);
@@ -43,20 +44,20 @@ const UploadPortefeuille = ({ setPtf, handleValider }) => {
     );
   });
   return (
-    <Box className="flex gap-2 flex-col max-w-[400px]">
+    <Box className="flex gap-4 flex-col max-w-[400px]">
       <Box>
         <FileUploader
           handleChange={handleChange}
           name="file"
           types={fileTypes}
-          label="Upload A file"
+          label="Importer"
           onTypeError={() => console.log("foulan")}
         />
-        <p className="mt-2">
+        <Typography className="mt-2 text-sm">
           {file
             ? `Nom du fichier: ${file.name}`
             : "Aucun fichier téléchargé pour l'instant"}
-        </p>
+        </Typography>
       </Box>
       <Box className="flex gap-2 items-center">
         <TextField

@@ -48,6 +48,10 @@ function Echart({ data }) {
         splitLine: { show: false },
         min: "dataMin",
         max: "dataMax",
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
       toolbox: {
         feature: {
@@ -63,6 +67,10 @@ function Echart({ data }) {
         splitArea: {
           show: true,
         },
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
       dataZoom: [
         {

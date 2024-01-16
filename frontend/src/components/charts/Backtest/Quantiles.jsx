@@ -51,7 +51,7 @@ const Quantiles = ({ data }) => {
         type: "shadow",
       },
       confine: true,
-      valueFormatter: (value) => value?.toFixed(2),
+      valueFormatter: (value) => value?.toFixed(2) + "%",
     },
     grid: {
       right: "100px",

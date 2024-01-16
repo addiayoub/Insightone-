@@ -116,6 +116,10 @@ function EvolutionMasi({ data }) {
           axisPointer: {
             z: 100,
           },
+          axisLabel: {
+            ...theme.xAxis.nameTextStyle,
+          },
+          ...theme.xAxis,
         },
         {
           type: "category",
@@ -125,9 +129,10 @@ function EvolutionMasi({ data }) {
           axisLine: { onZero: false },
           axisTick: { show: false },
           splitLine: { show: false },
-          axisLabel: { show: false },
+          axisLabel: { show: false, ...theme.xAxis.nameTextStyle },
           min: "dataMin",
           max: "dataMax",
+          ...theme.xAxis,
         },
       ],
       yAxis: [
@@ -136,6 +141,10 @@ function EvolutionMasi({ data }) {
           splitArea: {
             show: true,
           },
+          axisLabel: {
+            ...theme.yAxis.nameTextStyle,
+          },
+          ...theme.yAxis,
         },
         {
           scale: true,
@@ -145,6 +154,10 @@ function EvolutionMasi({ data }) {
           axisLine: { show: false },
           axisTick: { show: false },
           splitLine: { show: false },
+          axisLabel: {
+            ...theme.yAxis.nameTextStyle,
+          },
+          ...theme.yAxis,
         },
       ],
       dataZoom: [
@@ -153,6 +166,9 @@ function EvolutionMasi({ data }) {
           xAxisIndex: [0, 1],
           start: 99,
           end: 100,
+          textStyle: {
+            fontSize: 11,
+          },
         },
         {
           show: true,

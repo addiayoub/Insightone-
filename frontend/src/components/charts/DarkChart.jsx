@@ -250,7 +250,13 @@ function DarkChart({ options }) {
 
 function ChartContainer({ options }) {
   const { darkTheme } = useSelector((state) => state.theme);
-
+  options = {
+    ...options,
+    yAxis: {
+      ...options.yAxis,
+      gridLineWidth: 0,
+    },
+  };
   return darkTheme ? (
     <DarkChart options={options} />
   ) : (

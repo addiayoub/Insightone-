@@ -461,7 +461,7 @@ class _UserController {
         });
       }
 
-      console.log("portef", portefeuille);
+      console.log("portef", portefeuille, "ptf data", portefeuille[0].data);
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));

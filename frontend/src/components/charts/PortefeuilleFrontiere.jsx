@@ -78,6 +78,10 @@ function PortefeuilleFrontiere({ data }) {
         data: data["Evolution base 100 des Portefeuille simulé"].map((item) =>
           moment(item.seance).format("DD/MM/YYYY")
         ),
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
       },
       legend: {
         data: names.map((name) => name),
@@ -91,6 +95,10 @@ function PortefeuilleFrontiere({ data }) {
       yAxis: {
         type: "value",
         min: Math.trunc(minYAxisValue),
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
       },
       series: series,
     };

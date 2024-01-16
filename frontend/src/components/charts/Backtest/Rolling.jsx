@@ -69,7 +69,7 @@ const Rolling = ({ data, title }) => {
         axisLabel: {
           ...theme.yAxis.nameTextStyle,
         },
-        ...theme.xAxis,
+        ...theme.yAxis,
       },
       series: seriesNames.map((serieName) => ({
         name: serieName,

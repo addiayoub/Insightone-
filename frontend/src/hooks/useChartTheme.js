@@ -24,6 +24,13 @@ function useChartTheme() {
         nameTextStyle: {
           color: darkTheme ? "white" : "black",
         },
+        splitLine: {
+          show: false,
+          // lineStyle: {
+          //   width: 2,
+          //   opacity: 0.05,
+          // },
+        },
       },
     };
   }, [darkTheme]);
