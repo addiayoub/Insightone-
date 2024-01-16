@@ -156,15 +156,43 @@ export const savePortefeuille = createAsyncThunk(
 );
 export const uploadCsv = createAsyncThunk(
   "user/uploadCsv",
-  async ({ file, ptfName, ptfType }, thunkAPI) => {
+  async ({ file, ptfName, ptfType, noHeaders }, thunkAPI) => {
     try {
       // Send the file to the server directly in the request body
       const formData = new FormData();
       formData.append("file", file);
       formData.append("ptfName", ptfName);
       formData.append("ptfType", ptfType);
+      formData.append("noHeaders", noHeaders);
       console.log("filename", ptfName);
+      console.log("noHeaders", noHeaders);
       const response = await axios.post("/api/users/uploadCSV", formData);
+
+      // Handle the response as needed
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log("Error uploading file:", error);
+      return thunkAPI.rejectWithValue({
+        message: error.response.data.message,
+        data: error.response.data.invalidTitres ?? [],
+      });
+    }
+  }
+);
+
+export const uploadTable = createAsyncThunk(
+  "user/uploadTable",
+  async ({ data, ptfName, ptfType, noHeaders = true }, thunkAPI) => {
+    try {
+      console.log("filename", ptfName);
+      console.log("noHeaders", noHeaders);
+      const response = await axios.post("/api/users/uploadTable", {
+        data,
+        ptfName,
+        ptfType,
+        noHeaders,
+      });
 
       // Handle the response as needed
       console.log(response.data);

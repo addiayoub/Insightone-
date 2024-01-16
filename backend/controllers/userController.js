@@ -423,8 +423,8 @@ class _UserController {
   async uploadCSV(req, res) {
     try {
       const { _id } = req.user;
-      const { ptfName, ptfType } = req.body;
-
+      const { ptfName, ptfType, noHeaders } = req.body;
+      console.log("req.body", req.body, noHeaders === "true");
       // Find the user
       const user = await User.findById(_id);
 
@@ -436,11 +436,12 @@ class _UserController {
       user.portefeuilles = user.portefeuilles || [];
       const response = await csvtojson({
         delimiter: "auto",
+        noheader: noHeaders === "true",
+        trim: true,
       }).fromFile(req.file.path);
       const titres = await getTitres();
       const portefeuille = transformPtfData(response, ptfName, ptfType, titres);
       const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
-      const libelles = portefeuille[0].data.map((item) => item.libelle);
 
       if (!areUnique) {
         return res.status(400).json({
@@ -467,7 +468,7 @@ class _UserController {
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
-      await user.save();
+      // await user.save();
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",
@@ -488,6 +489,73 @@ class _UserController {
     } catch (error) {
       console.error("Error processing file:", error.message);
       res.status(500).json({ error: "Internal server error." });
+    }
+  }
+
+  async uploadTable(req, res) {
+    try {
+      const { _id } = req.user;
+      const { ptfName, ptfType, noHeaders, data } = req.body;
+      console.log("req.body", req.body, noHeaders === "true");
+      // Find the user
+      const user = await User.findById(_id);
+
+      if (!user) {
+        return res.status(404).json({ message: "Utilisateur non trouvé." });
+      }
+
+      // Initialize portefeuilles as an array if it's undefined
+      user.portefeuilles = user.portefeuilles || [];
+      const titres = await getTitres();
+      const portefeuille = transformPtfData(data, ptfName, ptfType, titres);
+      const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
+
+      if (!areUnique) {
+        return res.status(400).json({
+          message:
+            "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
+        });
+      }
+
+      const { invalidTitres, isValid } = validatePortefeuilleTitres(
+        titres,
+        portefeuille
+      );
+
+      if (!isValid) {
+        return res.status(400).json({
+          message: "Invalid titres",
+          invalidTitres,
+          titres,
+          portefeuille,
+        });
+      }
+
+      console.log("portef", portefeuille, "ptf data", portefeuille[0].data);
+      // Add the new portefeuille to the user's portefeuilles array
+      user.portefeuilles.push(...portefeuille);
+      console.log(validatePortefeuilleTitres(titres, portefeuille));
+      // await user.save();
+      // console.log("titres", titres);
+      return res.status(200).json({
+        message: "Portefeuille enregistré avec succès.",
+        portefeuilles: user.portefeuilles,
+        titres,
+        portefeuille,
+      });
+
+      // const datat = excelToJson({
+      //   sourceFile: req.file.path,
+      //   header: {
+      //     rows: 1,
+      //   },
+      //   columnToKey: {
+      //     "*": "{{columnHeader}}",
+      //   },
+      // });
+    } catch (error) {
+      console.error("error upload table:", error.message);
+      res.status(500).json({ error });
     }
   }
 }

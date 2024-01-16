@@ -25,6 +25,7 @@ import {
 } from "../../redux/slices/BacktestSlice";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
 import UploadPortefeuille from "./UploadPortefeuille";
+import ConverTable from "../Test/ConvertTable";
 
 const types = ["Actions", "OPCVM"];
 
@@ -168,6 +169,7 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       </AccordionBox>
+      <ConverTable />
       <AccordionBox
         title="Importer un portefeuille"
         detailsClass="flex flex-wrap gap-3 items-center"

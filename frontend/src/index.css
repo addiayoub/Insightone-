@@ -157,3 +157,8 @@ button {
 .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight) > .MuiDataGrid-cell {
   white-space: normal !important;
 }
+.dgxl-part-credits {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}

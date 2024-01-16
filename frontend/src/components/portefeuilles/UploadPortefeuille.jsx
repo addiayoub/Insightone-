@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uploadCsv } from "../../redux/actions/UserActions";
 import { FileUploader } from "react-drag-drop-files";
-import { Box, Button, Typography, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
 import SingleSelect from "../SingleSelect";
 import { notyf } from "../../utils/notyf";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
@@ -14,6 +21,7 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
   const [ptfName, setPtfName] = useState("");
   const [ptfType, setPtfType] = useState("Actions");
   const [titresInvalid, setTitresInvalid] = useState([]);
+  const [noHeaders, setNoHeaders] = useState(false);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const handleChange = (file) => {
@@ -22,7 +30,7 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
   const handleUpload = () => {
     setTitresInvalid([]);
     setLoading(true);
-    dispatch(uploadCsv({ file, ptfName, ptfType }))
+    dispatch(uploadCsv({ file, ptfName, ptfType, noHeaders }))
       .unwrap()
       .then((success) => {
         console.log("success", success);
@@ -48,6 +56,7 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
       </span>
     );
   });
+  useEffect(() => console.log("no headers", noHeaders), [noHeaders]);
   return (
     <Box className="flex gap-4 flex-col max-w-[400px]">
       <Box>
@@ -63,6 +72,15 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
             ? `Nom du fichier: ${file.name}`
             : "Aucun fichier téléchargé pour l'instant"}
         </Typography>
+        <FormControlLabel
+          control={
+            <Checkbox
+              value={noHeaders}
+              onChange={(event) => setNoHeaders(event.target.checked)}
+            />
+          }
+          label="No Headers"
+        />
       </Box>
       <Box className="flex gap-2 items-center">
         <TextField

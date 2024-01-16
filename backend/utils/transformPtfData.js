@@ -7,7 +7,8 @@ const transformPtfData = (data, name, type, titres) => {
     const dataRef = titres.find(
       (ele) => ele.TITRE.toLowerCase() === row[titreName].toLowerCase()
     );
-    const poids = row[titreValue] ? +row[titreValue] : 0;
+    let poids = row[titreValue] ? +row[titreValue] : 0;
+    poids = isNaN(poids) ? 0 : poids;
     const titre = dataRef?.REFERENCE ?? row[titreName];
     if (type === "Actions") {
       return {
