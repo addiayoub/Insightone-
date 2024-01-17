@@ -209,9 +209,10 @@ const ajuster = (newRows, setNewRows, field) => {
   setNewRows((prevData) =>
     prevData.map((item) => {
       if (unLockedTitres.includes(item.titre)) {
-        const newPoids = (item[field] * reliquat) / sumUnlocked;
-        console.log("NewPoids", newPoids);
-        return { ...item, [field]: isNaN(newPoids) ? 0 : newPoids };
+        let newPoids = (item[field] * reliquat) / sumUnlocked;
+        newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
+        // newPoids = isNaN(newPoids) ? 0 : newPoids;
+        return { ...item, [field]: newPoids };
       }
       return { ...item };
     })

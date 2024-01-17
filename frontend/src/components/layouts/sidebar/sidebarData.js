@@ -8,6 +8,7 @@ import {
   Folder,
   ChevronDown,
   ChevronUp,
+  Briefcase,
 } from "react-feather";
 
 export const sidebarData = [
@@ -82,16 +83,35 @@ export const sidebarData = [
   //   link: "opcvm",
   //   isPrivate: false,
   // },
+  // {
+  //   icon: BarChart2,
+  //   title: "Backtest",
+  //   link: "backtest",
+  //   isPrivate: false,
+  // },
+  // {
+  //   icon: Folder,
+  //   title: "Consultation",
+  //   link: "portefeuilles",
+  //   isPrivate: false,
+  // },
   {
-    icon: BarChart2,
-    title: "Backtest",
-    link: "backtest",
-    isPrivate: false,
-  },
-  {
+    title: "Simulation",
     icon: Folder,
-    title: "Consultation",
-    link: "portefeuilles",
-    isPrivate: false,
+    link: null,
+    iconClosed: ChevronDown,
+    iconOpened: ChevronUp,
+    subMenu: [
+      {
+        title: "Backtest",
+        link: "backtest",
+        icon: BarChart2,
+      },
+      {
+        title: "Backtest personalisé",
+        link: "portefeuilles",
+        icon: Briefcase,
+      },
+    ],
   },
 ];

@@ -138,10 +138,6 @@ const Cumualative = ({ data }) => {
         />
       </div>
       <div className="realative">
-        <SaveToExcel
-          data={data}
-          fileName="Cumulative Returns vs Benchmark (Log Scaled)"
-        />
         <ReactECharts
           option={options2}
           style={{

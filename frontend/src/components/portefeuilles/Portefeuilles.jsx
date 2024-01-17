@@ -24,8 +24,9 @@ import {
   setSelectedPtf,
 } from "../../redux/slices/BacktestSlice";
 import { setPortefeuilles } from "../../redux/slices/UserSlice";
-import UploadPortefeuille from "./UploadPortefeuille";
-import ConverTable from "../Test/ConvertTable";
+import UploadPortefeuille from "./UploadPortefuille/UploadPortefeuille";
+import ConverTable from "./UploadPortefuille/ConvertTable";
+import Choice from "./Choice";
 
 const types = ["Actions", "OPCVM"];
 
@@ -88,6 +89,18 @@ const Portefeuilles = () => {
   const portefeuilles = data
     .filter((ptf) => ptf.type === type)
     .map((ptf) => ptf.name);
+  const tabs = [
+    {
+      label: "ConverTable",
+      component: ConverTable,
+      props: { setPtf, setType, handleValider },
+    },
+    {
+      label: "Importer un portefeuille",
+      component: UploadPortefeuille,
+      props: { setPtf, setType, handleValider },
+    },
+  ];
   return (
     <>
       <AccordionBox
@@ -169,17 +182,17 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       </AccordionBox>
-      <ConverTable />
-      <AccordionBox
-        title="Importer un portefeuille"
-        detailsClass="flex flex-wrap gap-3 items-center"
-      >
+      <AccordionBox title={"Import via"}>
+        <Choice tabs={tabs} />
+      </AccordionBox>
+      {/* <ConverTable /> */}
+      {/* <AccordionBox title="Importer un portefeuille">
         <UploadPortefeuille
           setPtf={setPtf}
           setType={setType}
           handleValider={handleValider}
         />
-      </AccordionBox>
+      </AccordionBox> */}
       {show && <TabsComponent tabs={selectedPtfs} />}
       {show && <PortefeuilleBacktest />}
       {loading && <MainLoader />}

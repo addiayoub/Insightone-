@@ -468,7 +468,7 @@ class _UserController {
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
-      // await user.save();
+      await user.save();
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",
@@ -535,7 +535,7 @@ class _UserController {
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
-      // await user.save();
+      await user.save();
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",

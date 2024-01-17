@@ -91,6 +91,7 @@ const PortefeuilleBacktest = () => {
   const isDisabled =
     selectedIndices.length < 1 || selectedOPC.length < 1 || rf === "";
   const showLoading = isLoading || loading || backData.loading;
+  console.log("backData.data.keyPerf", backData.data.keyPerf);
   const keyPerfColumns = generateKeyPerfColumns([
     selectedPtf,
     ...selectedIndices,

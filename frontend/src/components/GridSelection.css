@@ -1,0 +1,43 @@
+.grid-selection-wrapper {
+  position: relative;
+}
+
+.grid-selection-wrapper .seletion-btn {
+  color: var(--primary-color);
+  padding: 15px 5px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.grid-selection-wrapper .selection-table {
+  position: absolute;
+  top: 100%;
+  width: 200px;
+  z-index: 9;
+  display: none;
+}
+
+.grid-selection-wrapper:hover .selection-table {
+  display: table;
+}
+.selection-table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  display: table;
+  background-color: #fff;
+}
+
+.selection-table .square {
+  cursor: pointer;
+  border: 1px #ccc solid;
+  height: 12px;
+  min-width: 12px;
+  line-height: 12px;
+}
+.selection-table .square.hovered {
+  background-color: #dcdcdc;
+}
+.selection-table .square.selected {
+  background-color: var(--primary-color);
+  color: #fff;
+}
