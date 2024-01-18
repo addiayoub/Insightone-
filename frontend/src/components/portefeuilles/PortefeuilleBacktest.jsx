@@ -53,7 +53,7 @@ const PortefeuilleBacktest = () => {
   const [indices, setIndices] = useState([]);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [selectedOPC, setSelectedOPC] = useState([]);
-  const [rf, setRf] = useState(3);
+  const [rf, setRf] = useState(2);
   const [isLoading, setIsLoading] = useState(false);
   const [isShow, setIsShow] = useState(false);
   useEffect(() => {

@@ -46,15 +46,17 @@ export const generateKeyPerfColumns = (keys) => {
       field: item,
       headerName: item,
       // flex: 0.8,
+      // align: "center",
       width: 150,
       renderCell: (params) => {
         const value = params.row[item];
-        if (value === "") {
-          // return "-".repeat(16);
+        if (value.includes("%")) {
+          return <TextColor value={value.replace(/%/g, "")} />;
         } else {
           const formattedDate = moment(params.row[item]).format("DD/MM/YYYY");
           const isDate = moment(params.row[item], true).isValid();
-          return isDate ? formattedDate : value;
+          const res = isDate ? formattedDate : value;
+          return <span className="min-w-[90px] text-center">{res}</span>;
         }
       },
     });
@@ -149,7 +151,7 @@ export const contribColumns = [
   },
   {
     field: "perf_ptf",
-    headerName: "Performance PTF (%)",
+    headerName: "Performance (%)",
     align: "center",
     flex: 0.2,
     renderCell: (params) => {
@@ -159,7 +161,7 @@ export const contribColumns = [
   },
   {
     field: "contrib_ptf",
-    headerName: "Contrib PTF (%)",
+    headerName: "Contrib (%)",
     align: "center",
     flex: 0.2,
     renderCell: (params) => {

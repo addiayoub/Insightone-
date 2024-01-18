@@ -127,9 +127,6 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     setOpen(false);
     setPoids(null);
   };
-  useEffect(() => {
-    console.log("new rows", newRows);
-  }, [newRows]);
   const update = () => {
     const { Classification } = newRows.find((row) => row.titre === newTitre);
     const sameSecteur = newRows
@@ -157,6 +154,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
         }
         return { ...item };
       })
+    );
+  };
+  const handleDelete = (row) => {
+    setNewRows((prevRows) =>
+      prevRows.filter((item) => item.titre !== row.titre)
     );
   };
   const columns = useMemo(() => {
@@ -206,6 +208,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
             setPoids={setPoids}
             handleLock={handleLock}
             field={field}
+            handleDelete={handleDelete}
           />
         ),
       });
@@ -223,6 +226,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   console.log("Columns", columns);
   console.log("params", params);
   useEffect(() => {
+    console.log("newRows useEff", newRows);
     const newPtf = {
       ...ptfToBacktest,
       data: newRows,

@@ -75,7 +75,13 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
   }, []);
   useEffect(() => console.log(choice, titres[choice]), [choice]);
   return (
-    <Box className="flex flex-col gap-5">
+    <Box
+      className="flex flex-col gap-5"
+      sx={{
+        maxHeight: "460px",
+        overflowY: "auto",
+      }}
+    >
       <Box>
         <Typography variant="h6" mb={3}>
           Ajouter nouveau titre

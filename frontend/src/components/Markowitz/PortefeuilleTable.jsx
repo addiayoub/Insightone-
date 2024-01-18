@@ -700,6 +700,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   useEffect(() => {
     setNewRows(rows);
   }, [rows]);
+  const handleDelete = (row) => {
+    setNewRows((prevRows) =>
+      prevRows.filter((item) => item.titre !== row.titre)
+    );
+  };
   const columns = useMemo(() => {
     const basedColumns = [
       {
@@ -752,7 +757,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     if (showActions) {
       basedColumns.push({
         field: "actions",
-        flex: 0.3,
+        flex: 0.4,
         headerName: "Actions",
         renderCell: (params) => (
           <Actions
@@ -764,6 +769,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
             setPoids={setPoids}
             handleLock={handleLock}
             field={field}
+            handleDelete={handleDelete}
           />
         ),
       });
@@ -771,6 +777,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     return basedColumns;
   }, [newRows, field, showActions]);
   useEffect(() => {
+    console.log("newRows useEff", newRows);
     const newPtf = {
       ...ptfToBacktest,
       data: newRows,

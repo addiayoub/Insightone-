@@ -8,7 +8,7 @@ import Data from "./Data";
 import Contraintes from "./Contraintes";
 import ContraintesOptimisation from "./ContraintesOptimisation";
 import GenerationPortefeuille from "./GenerationPortefeuille";
-import SelectAllTransferList from "../Test/TransferList";
+import Univers from "./Univers";
 
 function Index() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
@@ -31,7 +31,7 @@ function Index() {
         <>
           <Contraintes />
           <Data data={data} />
-          <SelectAllTransferList
+          <Univers
             dateDebut={dateDebut}
             dateFin={dateFin}
             setContraintesOp={setContraintesOp}

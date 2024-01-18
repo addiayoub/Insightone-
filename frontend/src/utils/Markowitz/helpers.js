@@ -201,20 +201,38 @@ const calculateSumPoids = (data, field) => {
 
 const ajuster = (newRows, setNewRows, field) => {
   const locked = newRows.filter((item) => item.isLocked);
-  const reliquat = 100 - calculateSumPoids(locked, field);
+  const sumLocked = calculateSumPoids(locked, field);
+  console.log("sumLocked", sumLocked);
+  const reliquat = 100 - sumLocked;
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
 
   setNewRows((prevData) =>
     prevData.map((item) => {
-      if (unLockedTitres.includes(item.titre)) {
-        let newPoids = (item[field] * reliquat) / sumUnlocked;
-        newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
-        // newPoids = isNaN(newPoids) ? 0 : newPoids;
-        return { ...item, [field]: newPoids };
+      if (sumLocked === 0) {
+        console.log("sumlOCked is", sumLocked);
+        if (unLockedTitres.includes(item.titre)) {
+          let newPoids = 100 / unLockedTitres.length;
+          newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
+          return { ...item, [field]: newPoids };
+        }
+        return { ...item };
+      } else {
+        if (unLockedTitres.includes(item.titre)) {
+          if (item[field] == 0) {
+            let newPoids = reliquat / unLockedTitres.length;
+            newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
+            return { ...item, [field]: newPoids };
+          } else {
+            let newPoids = (item[field] * reliquat) / sumUnlocked;
+            newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
+            // newPoids = isNaN(newPoids) ? 0 : newPoids;
+            return { ...item, [field]: newPoids };
+          }
+        }
+        return { ...item };
       }
-      return { ...item };
     })
   );
 };

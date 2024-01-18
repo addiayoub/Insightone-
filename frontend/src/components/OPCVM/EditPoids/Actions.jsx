@@ -1,6 +1,6 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import { Edit, Lock, PieChart, Unlock } from "react-feather";
+import { Edit, Lock, Trash, PieChart, Unlock } from "react-feather";
 import { calculateSumClassification } from "../../../utils/OPCVM/helpers";
 const Actions = ({
   params,
@@ -11,6 +11,7 @@ const Actions = ({
   handleLock,
   rows,
   field,
+  handleDelete,
 }) => {
   return (
     <>
@@ -46,6 +47,9 @@ const Actions = ({
         ) : (
           <Unlock size={18} color="var(--text-success)" />
         )}
+      </IconButton>
+      <IconButton onClick={() => handleDelete(params.row)}>
+        <Trash size={18} color="var(--text-warning)" />
       </IconButton>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { memo, useState } from "react";
 import {
   Grid,
   List,
@@ -9,7 +9,6 @@ import {
   ListItemIcon,
   Checkbox,
   Divider,
-  Box,
   Button,
   TextField,
 } from "@mui/material";
@@ -26,7 +25,14 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-const TransList = ({ checked, setChecked, left, setLeft, right, setRight }) => {
+const TansferList = ({
+  checked,
+  setChecked,
+  left,
+  setLeft,
+  right,
+  setRight,
+}) => {
   const leftChecked = intersection(checked, left);
   const rightChecked = intersection(checked, right);
   const [leftSearchTerm, setLeftSearchTerm] = useState("");
@@ -215,4 +221,4 @@ const TransList = ({ checked, setChecked, left, setLeft, right, setRight }) => {
   );
 };
 
-export default TransList;
+export default memo(TansferList);

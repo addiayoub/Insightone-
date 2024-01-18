@@ -4,6 +4,7 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import moment from "moment";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import SaveToExcel from "../../SaveToExcel";
+import { defaultOptions } from "../../../utils/chart/defaultOptions";
 
 const Poids = ({ data }) => {
   const seriesNames = useMemo(
@@ -14,6 +15,7 @@ const Poids = ({ data }) => {
       }),
     [data]
   );
+
   const theme = useChartTheme();
   console.log("seriesname", seriesNames);
   const colors = useMemo(
@@ -48,8 +50,13 @@ const Poids = ({ data }) => {
       },
       toolbox: {
         feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
           saveAsImage: {},
         },
+        top: "20px",
       },
       grid: {
         right: "100px",
@@ -97,8 +104,9 @@ const Poids = ({ data }) => {
           data: data.map((item) => item[serieName]),
         };
       }),
+      ...defaultOptions,
     };
-  }, [theme, seriesNames, data, colors]);
+  }, [theme, seriesNames, data, defaultOptions, colors]);
   return (
     <div className="relative">
       <SaveToExcel data={data} fileName="Poids" />
@@ -107,6 +115,7 @@ const Poids = ({ data }) => {
         style={{
           height: "500px",
           maxHeight: "600px",
+          margin: "15px 0 40px",
         }}
       />
     </div>

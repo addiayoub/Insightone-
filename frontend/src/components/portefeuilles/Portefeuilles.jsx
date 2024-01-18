@@ -28,6 +28,7 @@ import UploadPortefeuille from "./UploadPortefuille/UploadPortefeuille";
 import ConverTable from "./UploadPortefuille/ConvertTable";
 import Choice from "./Choice";
 import SavedPtfs from "./UploadPortefuille/SavedPtfs";
+import PtfFresh from "./UploadPortefuille/PtfFresh";
 
 const types = ["Actions", "OPCVM"];
 
@@ -103,6 +104,22 @@ const Portefeuilles = () => {
       setShow(false);
     }
   };
+  const handleFreshPtf = (ptfName, ptfType) => {
+    const ptf = {
+      name: ptfName,
+      field: "poids",
+      type: ptfType,
+      data: [],
+      params: {
+        dateDebut: null,
+        dateFin: null,
+      },
+    };
+    setSelectedPtfs([ptf]);
+    dispatch(setPtfToBacktest(ptf));
+    dispatch(setSelectedPtf(ptfName));
+    setShow(true);
+  };
   const tabs = [
     {
       label: "la liste des portefeuilles enregistrés",
@@ -118,6 +135,11 @@ const Portefeuilles = () => {
       label: "Importer un portefeuille",
       component: UploadPortefeuille,
       props: { setPtf, setType, handlePtfToBacktest },
+    },
+    {
+      label: "Nouveau PTF",
+      component: PtfFresh,
+      props: { handleFreshPtf },
     },
   ];
   return (

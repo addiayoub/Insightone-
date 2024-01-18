@@ -10,6 +10,17 @@ import React, { useState } from "react";
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
+const ITEM_HEIGHT = 100;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
 function SelectIndices({
   label,
   indices,
@@ -59,6 +70,7 @@ function SelectIndices({
         </li>
       )}
       sx={{ width: 250 }}
+      menuprops={MenuProps}
       renderInput={(params) => (
         <TextField {...params} label={label} placeholder={label} size="small" />
       )}

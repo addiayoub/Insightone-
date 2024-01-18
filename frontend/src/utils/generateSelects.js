@@ -6,11 +6,11 @@ const generateSelects = (titres, choice) => {
       selects.push({
         classes: {
           label: "Classification",
-          data: titres[choice].map((item) => item.classe),
+          data: titres[choice].map((item) => item.categorie),
         },
         categories: {
           label: "Sociéte de gestion",
-          data: titres[choice].map((item) => item.categorie),
+          data: titres[choice].map((item) => item.classe),
         },
         titres: {
           label: "Titre",

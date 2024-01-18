@@ -29,7 +29,6 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
   const getFirstCoursAjusteValues = (data) => {
     const firstCoursAjusteValues = {};
     Object.keys(data).forEach((key) => {
-      console.log("Key", key);
       const valuesForKey = data[key];
       const cle = data[key][0]["CLE_TITRE"];
 

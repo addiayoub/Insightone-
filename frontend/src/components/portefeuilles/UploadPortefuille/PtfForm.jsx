@@ -17,19 +17,22 @@ const PtfForm = ({
   setPtfType,
   upload,
   isDisabled,
+  isFresh,
 }) => {
   return (
     <>
-      <FormControlLabel
-        className="w-fit"
-        control={
-          <Checkbox
-            value={noHeaders}
-            onChange={(event) => setNoHeaders(event.target.checked)}
-          />
-        }
-        label="Le fichier ne contient pas d'en-têtes"
-      />
+      {!isFresh && (
+        <FormControlLabel
+          className="w-fit"
+          control={
+            <Checkbox
+              value={noHeaders}
+              onChange={(event) => setNoHeaders(event.target.checked)}
+            />
+          }
+          label="Le fichier ne contient pas d'en-têtes"
+        />
+      )}
       <Box className="flex gap-2 items-center">
         <TextField
           size="small"
@@ -44,11 +47,13 @@ const PtfForm = ({
           setValue={setPtfType}
         />
       </Box>
-      <Box className="flex gap-2">
-        <Button variant="contained" onClick={upload} disabled={isDisabled}>
-          Upload
-        </Button>
-      </Box>
+      {!isFresh && (
+        <Box className="flex gap-2">
+          <Button variant="contained" onClick={upload} disabled={isDisabled}>
+            Upload
+          </Button>
+        </Box>
+      )}
     </>
   );
 };

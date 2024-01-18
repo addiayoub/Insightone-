@@ -19,7 +19,6 @@ import MainLoader from "../loaders/MainLoader";
 import NewUnivers from "./NewUnivres";
 import { notyf } from "../../utils/notyf";
 import { columns } from "./columns";
-import TransList from "../TransList";
 
 function Markowitz() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
