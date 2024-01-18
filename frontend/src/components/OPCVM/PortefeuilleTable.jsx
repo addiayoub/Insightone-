@@ -13,6 +13,8 @@ import { addTitres } from "../../utils/addTitres.js";
 import AddTitre from "../portefeuilles/AddTitre.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { setPtfToBacktest } from "../../redux/slices/BacktestSlice.js";
+import PortefeuilleActions from "../PortefeuilleActions.jsx";
+import PortefeuillePeriod from "../PortefeuillePeriod.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -230,27 +232,18 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   return (
     <>
       {showActions && (
-        <EditPortefeuille
+        <PortefeuilleActions
           oldRows={rows}
           newRows={newRows}
           setNewRows={setNewRows}
           field={field}
           openAddModal={() => setOpenAdd(true)}
-        >
-          <SavePortefeuille
-            data={newRows}
-            field={field}
-            type="OPCVM"
-            oldParams={params}
-            isDisabled={disableSave}
-          />
-        </EditPortefeuille>
+          ptfType="OPCVM"
+          oldParams={params}
+          isDisabled={disableSave}
+        />
       )}
-      {params && (
-        <h3>
-          De {params.dateDebut} À {params.dateFin}
-        </h3>
-      )}
+      <PortefeuillePeriod params={params} />
       <Table columns={columns} rows={newRows} pageSize={25} />
       <ModalComponent open={open} handleClose={reset}>
         <EditPoidsTitreForm

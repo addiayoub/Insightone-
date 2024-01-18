@@ -92,11 +92,17 @@ const PortefeuilleBacktest = () => {
     selectedIndices.length < 1 || selectedOPC.length < 1 || rf === "";
   const showLoading = isLoading || loading || backData.loading;
   console.log("backData.data.keyPerf", backData.data.keyPerf);
-  const keyPerfColumns = generateKeyPerfColumns([
-    selectedPtf,
-    ...selectedIndices,
-    ...selectedOPC,
-  ]);
+  // const keyPerfColumns = generateKeyPerfColumns([
+  //   selectedPtf,
+  //   ...selectedIndices,
+  //   ...selectedOPC,
+  // ]);
+  const headers =
+    backData.data.keyPerf.length > 0
+      ? Object.keys(backData.data.keyPerf[0]).filter((ele) => ele !== "Metric")
+      : [];
+  console.log("headers is", headers);
+  const keyPerfColumns = generateKeyPerfColumns(headers);
 
   return (
     <>

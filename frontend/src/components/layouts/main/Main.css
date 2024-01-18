@@ -24,6 +24,10 @@
   z-index: 100;
   background-color: var(--primary-color);
   color: #fff;
+  transition: 0.3s;
+}
+.main-container .scroll-top-btn:hover {
+  background-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 992px) {

@@ -36,6 +36,8 @@
   --side-border-color: #262626;
   --top-border-color: #161619;
   --primary-color: #444ce7;
+  /* --secondary-color: #0d15c3; */
+  --secondary-color: rgb(47, 53, 161);
   --dim-color: #1f1f26;
   --text-warning: #ee4658;
   --text-button: white;

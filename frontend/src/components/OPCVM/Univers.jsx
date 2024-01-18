@@ -55,6 +55,7 @@ export default function Univers({ dateDebut, dateFin, setContraintesOp }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setIsLoading(true);
     if (checked.length > 0) {
       dispatch(getChartData({ dateDebut, dateFin, libelles: checked }))
         .unwrap()
@@ -71,6 +72,7 @@ export default function Univers({ dateDebut, dateFin, setContraintesOp }) {
     } else {
       setShowChart(false);
     }
+    setIsLoading(false);
   }, [checked]);
 
   const handleToggle = (value) => () => {

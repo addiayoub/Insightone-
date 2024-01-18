@@ -115,7 +115,8 @@ export default function SelectAllTransferList({
     setRight([]);
   };
   useEffect(() => {
-    console.log("checked", checked);
+    console.log("----checked----", checked);
+    setIsLoading(true);
     if (checked.length > 0) {
       dispatch(getChartData({ dateDebut, dateFin, libelles: checked }))
         .unwrap()
@@ -129,9 +130,11 @@ export default function SelectAllTransferList({
         .catch((rejectedValue) => {
           console.log("rejectedValue", rejectedValue);
           notyf.error(rejectedValue);
-        });
+        })
+        .finally(() => setIsLoading(false));
     } else {
       setShowChart(false);
+      setIsLoading(false);
     }
   }, [checked]);
   useEffect(() => {

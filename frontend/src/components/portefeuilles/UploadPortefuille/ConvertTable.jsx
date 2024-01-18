@@ -11,6 +11,7 @@ import GridSelection from "../../GridSelection";
 import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
 import useDataXLTheme from "../../../hooks/useDataXLTheme";
+import { locale } from "../../../utils/dataGridXLLocale";
 
 const ConverTable = ({ handlePtfToBacktest }) => {
   const dgxlRef = useRef(null);
@@ -29,6 +30,7 @@ const ConverTable = ({ handlePtfToBacktest }) => {
       dgxlRef.current.grid = new DataGridXL(dgxlRef.current, {
         data: DataGridXL.createEmptyData(rows, cols),
         theme,
+        locale,
         contextMenuItems: [
           "copy",
           "cut",
@@ -50,6 +52,7 @@ const ConverTable = ({ handlePtfToBacktest }) => {
     if (grid._isReady) {
       dgxlRef.current.grid = new DataGridXL(dgxlRef.current, {
         data: DataGridXL.createEmptyData(rows, cols),
+        locale,
       });
       console.log("dgxlRef.current", dgxlRef.current.grid);
     }

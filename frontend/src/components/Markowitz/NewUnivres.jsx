@@ -114,6 +114,7 @@ export default function NewUnivers({
     setRight([]);
   };
   useEffect(() => {
+    setIsLoading(true);
     if (checked.length > 0) {
       dispatch(getChartData({ dateDebut, dateFin, valeurs: checked }))
         .unwrap()
@@ -128,8 +129,10 @@ export default function NewUnivers({
           if (rejectedValue.status) {
             dispatch(logout());
           }
-        });
+        })
+        .finally(() => setIsLoading(false));
     } else {
+      setIsLoading(false);
       setShowChart(false);
     }
   }, [checked]);

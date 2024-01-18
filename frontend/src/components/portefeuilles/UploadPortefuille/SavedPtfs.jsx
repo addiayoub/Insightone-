@@ -61,6 +61,9 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, show, setShow }) => {
     setSelectedPtfs([]);
     console.log("selected ptfs", selectedPtfs);
   };
+  useEffect(() => {
+    setPtf(null);
+  }, [type]);
   const portefeuilles = data
     .filter((ptf) => ptf.type === type)
     .map((ptf) => ptf.name);

@@ -24,6 +24,8 @@ import AddTitre from "../portefeuilles/AddTitre";
 import { addTitres } from "../../utils/addTitres";
 import { useDispatch, useSelector } from "react-redux";
 import { setPtfToBacktest } from "../../redux/slices/BacktestSlice";
+import PortefeuilleActions from "../PortefeuilleActions";
+import PortefeuillePeriod from "../PortefeuillePeriod";
 
 const calculateSum = (data, secteur, field) => {
   // Filter the data based on the provided Classification
@@ -778,30 +780,18 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   return (
     <>
       {showActions && (
-        <>
-          <EditPortefeuille
-            oldRows={rows}
-            newRows={newRows}
-            setNewRows={setNewRows}
-            field={field}
-            openAddModal={() => setOpenAdd(true)}
-          >
-            <SavePortefeuille
-              data={newRows}
-              field={field}
-              type="Actions"
-              oldParams={params}
-              isDisabled={disableSave}
-            />
-          </EditPortefeuille>
-        </>
+        <PortefeuilleActions
+          oldRows={rows}
+          newRows={newRows}
+          setNewRows={setNewRows}
+          field={field}
+          openAddModal={() => setOpenAdd(true)}
+          ptfType="Actions"
+          oldParams={params}
+          isDisabled={disableSave}
+        />
       )}
-      {params && (
-        <h3>
-          De <span className="underline">{params.dateDebut}</span> À{" "}
-          <span className="underline">{params.dateFin}</span>
-        </h3>
-      )}
+      <PortefeuillePeriod params={params} />
       <Table
         columns={columns}
         rows={injectSums(newRows, secteurSums)}

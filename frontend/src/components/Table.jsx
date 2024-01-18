@@ -1,14 +1,19 @@
 import { makeStyles, styled } from "@mui/styles";
 import {
   DataGrid,
+  GridToolbarColumnsButton,
   GridToolbarContainer,
+  GridToolbarDensitySelector,
   GridToolbarExport,
+  GridToolbarFilterButton,
+  GridToolbarQuickFilter,
   gridClasses,
 } from "@mui/x-data-grid";
 import React, { memo, useCallback } from "react";
 import NewsModal from "./Secteurs/NewsModal";
 import { useState } from "react";
 import injectId from "../utils/injectId";
+import { dataGridLocale } from "../utils/dataGridLocale";
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
     backgroundColor:
@@ -25,21 +30,19 @@ const useStyles = makeStyles((theme) => ({
 
 function CustomToolbar() {
   return (
-    <GridToolbarContainer>
+    <GridToolbarContainer className="pt-3 pb-4 px-3">
+      <GridToolbarColumnsButton />
+      <GridToolbarFilterButton />
+      <GridToolbarDensitySelector />
       <GridToolbarExport printOptions={{ disableToolbarButton: true }} />
+      <GridToolbarQuickFilter className="ml-auto" />
     </GridToolbarContainer>
   );
 }
 const getRowClassName = (params) =>
   params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd";
-
-const localeText = {
-  noRowsLabel: "Aucune donnée à afficher",
-  noResultsOverlayLabel: "Aucun résultat trouvé",
-  toolbarExportCSV: "Télécharger CSV",
-  selectedRowsLabel: "Custom Selected Rows",
-};
 const paginationOptions = [5, 10, 25, 50, 100];
+
 function Table({
   columns,
   rows,
@@ -74,7 +77,7 @@ function Table({
         rows={rows}
         hideFooter={rows.length < 5 && !showFooter}
         disableRowSelectionOnClick
-        localeText={localeText}
+        localeText={dataGridLocale}
         getRowId={(row) => row.id}
         getRowClassName={getRowClassName}
         componentsProps={{

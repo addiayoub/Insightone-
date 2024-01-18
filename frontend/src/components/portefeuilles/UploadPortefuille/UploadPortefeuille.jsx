@@ -2,15 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uploadCsv } from "../../../redux/actions/UserActions";
 import { FileUploader } from "react-drag-drop-files";
-import {
-  Box,
-  Button,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
-import SingleSelect from "../../SingleSelect";
+import { Box, Typography } from "@mui/material";
 import { notyf } from "../../../utils/notyf";
 import { setPortefeuilles } from "../../../redux/slices/UserSlice";
 import MainLoader from "../../loaders/MainLoader";
@@ -61,7 +53,14 @@ const UploadPortefeuille = ({ handlePtfToBacktest }) => {
           name="file"
           types={fileTypes}
           label="Importer"
-          onTypeError={() => console.log("foulan")}
+          fileOrFiles={file}
+          onTypeError={() => {
+            notyf.options.duration = 3500;
+            notyf.error(
+              "Type de fichier non pris en charge. Veuillez choisir un fichier CSV."
+            );
+          }}
+          // classes="bg-orange-400"
         />
         <Typography className="mt-2 text-sm">
           {file
