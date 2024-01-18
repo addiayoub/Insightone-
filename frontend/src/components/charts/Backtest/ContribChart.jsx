@@ -105,7 +105,7 @@ const ContribChart = ({ data }) => {
     <ReactECharts
       option={options}
       style={{
-        height: chartHeight,
+        minHeight: chartHeight,
       }}
       className="my-[15px]"
     />

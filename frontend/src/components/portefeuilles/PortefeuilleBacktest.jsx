@@ -31,6 +31,7 @@ import DailyReturns from "../charts/Backtest/DailyReturns";
 import Quantiles from "../charts/Backtest/Quantiles";
 import Underwater from "../charts/Backtest/Underwater";
 import Poids from "../charts/Backtest/Poids";
+import PoidsDonut from "../charts/Backtest/PoidsDonut";
 
 const opc = [
   "OPC ACTIONS FGP AJUSTE",
@@ -158,28 +159,45 @@ const PortefeuilleBacktest = () => {
       </AccordionBox>
       <Box
         className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12
-        xl:grid-cols-12 gap-y-4 gap-x-12 mt-24"
+        xl:grid-cols-12 gap-y-4 gap-x-12 mt-24 items-center"
       >
-        <Box className="md:col-span-6 lg:col-span-6xl:col-span-6">
-          {!loading && isShow && data.ptfsData.length > 0 && (
-            <>
-              <EvolutionB100 data={data.ptfsData} isGrid />
-            </>
-          )}
-          {!loading && isShow && data.df_poids.length > 0 && (
-            <>
-              <Poids data={data.df_poids} />
-            </>
-          )}
+        <Box className="md:col-span-6 lg:col-span-6 xl:col-span-6">
+          <Box>
+            {!loading && isShow && data.ptfsData.length > 0 && (
+              <>
+                <EvolutionB100 data={data.ptfsData} isGrid />
+              </>
+            )}
+          </Box>
+          <Box>
+            {!loading && isShow && data.df_poids.length > 0 && (
+              <>
+                <Poids data={data.df_poids} />
+              </>
+            )}
+          </Box>
         </Box>
-        <Box className="md:col-span-6 lg:col-span-6xl:col-span-6">
+        <Box className="md:col-span-6 lg:col-span-6 xl:col-span-6">
           {!loading && isShow && data.ptfsContrib.length > 0 && (
-            <>
-              <ContribChart data={data.ptfsContrib} />
-            </>
+            <ContribChart data={data.ptfsContrib} />
+          )}
+          {!loading && isShow && data.ptfsContrib.length > 0 && (
+            <Box className="flex">
+              <PoidsDonut
+                data={data.ptfsContrib}
+                field={"poids_initial"}
+                title={"Poids initial"}
+              />
+              <PoidsDonut
+                data={data.ptfsContrib}
+                field={"poids_final"}
+                title={"Poids final"}
+              />
+            </Box>
           )}
         </Box>
       </Box>
+
       {!loading && isShow && data.ptfsContrib.length > 0 && (
         <>
           <h3>Contribution {data.ptfsContrib[0].PTF}</h3>

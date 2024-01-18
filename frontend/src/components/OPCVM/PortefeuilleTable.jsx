@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPtfToBacktest } from "../../redux/slices/BacktestSlice.js";
 import PortefeuilleActions from "../PortefeuilleActions.jsx";
 import PortefeuillePeriod from "../PortefeuillePeriod.jsx";
+import { Button } from "@mui/material";
+import DeleteModal from "../DeleteModal.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -118,6 +120,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
+
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
@@ -157,6 +161,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     );
   };
   const handleDelete = (row) => {
+    // setOpenDelete(true);
     setNewRows((prevRows) =>
       prevRows.filter((item) => item.titre !== row.titre)
     );
@@ -276,6 +281,12 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           oldRows={newRows}
           reset={() => setOpenAdd(false)}
         />
+      </ModalComponent>
+      <ModalComponent
+        open={openDelete}
+        handleClose={() => setOpenDelete(false)}
+      >
+        <DeleteModal />
       </ModalComponent>
     </>
   );
