@@ -439,6 +439,8 @@ class _UserController {
         noheader: noHeaders === "true",
         trim: true,
       }).fromFile(req.file.path);
+      // Delete The file
+      fs.unlinkSync(req.file.path);
       const titres = await getTitres();
       const portefeuille = transformPtfData(response, ptfName, ptfType, titres);
       const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
@@ -469,6 +471,7 @@ class _UserController {
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
       await user.save();
+
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",
@@ -535,7 +538,7 @@ class _UserController {
       // Add the new portefeuille to the user's portefeuilles array
       user.portefeuilles.push(...portefeuille);
       console.log(validatePortefeuilleTitres(titres, portefeuille));
-      await user.save();
+      // await user.save();
       // console.log("titres", titres);
       return res.status(200).json({
         message: "Portefeuille enregistré avec succès.",

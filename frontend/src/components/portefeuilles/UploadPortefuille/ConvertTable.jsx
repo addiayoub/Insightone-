@@ -3,24 +3,16 @@ import DataGridXL from "@datagridxl/datagridxl2";
 import { transformToJSON } from "../../../utils/handleConvertTable";
 import { useDispatch } from "react-redux";
 import { uploadTable } from "../../../redux/actions/UserActions";
-import {
-  Box,
-  Button,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
-import SingleSelect from "../../SingleSelect";
+import { Box } from "@mui/material";
 import { setPortefeuilles } from "../../../redux/slices/UserSlice";
 import { notyf } from "../../../utils/notyf";
 import MainLoader from "../../loaders/MainLoader";
 import GridSelection from "../../GridSelection";
 import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
-import AccordionBox from "../../AccordionBox";
 import useDataXLTheme from "../../../hooks/useDataXLTheme";
 
-const ConverTable = ({ setType, setPtf }) => {
+const ConverTable = ({ handlePtfToBacktest }) => {
   const dgxlRef = useRef(null);
   const [ptfName, setPtfName] = useState("");
   const [ptfType, setPtfType] = useState("Actions");
@@ -85,13 +77,13 @@ const ConverTable = ({ setType, setPtf }) => {
           setNoHeaders(false);
           setPtfName("");
           notyf.success(success.message);
-          setType(ptfType);
-          setPtf(ptfName);
+          handlePtfToBacktest(success.portefeuilles, ptfName);
           // handleValider(ptfName);
         })
         .catch((failed) => {
           console.log("filed", failed);
           setInvalidsTitres(failed.data);
+          handlePtfToBacktest([], null);
           notyf.error(failed);
         })
         .finally(() => setLoading(false));

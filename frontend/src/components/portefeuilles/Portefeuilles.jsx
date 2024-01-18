@@ -27,6 +27,7 @@ import { setPortefeuilles } from "../../redux/slices/UserSlice";
 import UploadPortefeuille from "./UploadPortefuille/UploadPortefeuille";
 import ConverTable from "./UploadPortefuille/ConvertTable";
 import Choice from "./Choice";
+import SavedPtfs from "./UploadPortefuille/SavedPtfs";
 
 const types = ["Actions", "OPCVM"];
 
@@ -89,21 +90,39 @@ const Portefeuilles = () => {
   const portefeuilles = data
     .filter((ptf) => ptf.type === type)
     .map((ptf) => ptf.name);
+  const handlePtfToBacktest = (ptfs, ptfName) => {
+    if (ptfName) {
+      const choosen = ptfs.find((item) => item.name === ptfName);
+      console.log("handlePtfToBacktest", ptfName, ptfs, choosen);
+      setSelectedPtfs([choosen]);
+      dispatch(setPtfToBacktest(choosen));
+      dispatch(setSelectedPtf(ptfName));
+      setShow(true);
+    } else {
+      setSelectedPtfs([]);
+      setShow(false);
+    }
+  };
   const tabs = [
     {
-      label: "ConverTable",
+      label: "la liste des portefeuilles enregistrés",
+      component: SavedPtfs,
+      props: { selectedPtfs, setSelectedPtfs, show, setShow },
+    },
+    {
+      label: "Convert-Table",
       component: ConverTable,
-      props: { setPtf, setType, handleValider },
+      props: { setPtf, setType, handlePtfToBacktest },
     },
     {
       label: "Importer un portefeuille",
       component: UploadPortefeuille,
-      props: { setPtf, setType, handleValider },
+      props: { setPtf, setType, handlePtfToBacktest },
     },
   ];
   return (
     <>
-      <AccordionBox
+      {/* <AccordionBox
         title="la liste des portefeuilles enregistrés"
         isExpanded={true}
         detailsClass="flex flex-wrap gap-3 items-center"
@@ -140,8 +159,8 @@ const Portefeuilles = () => {
           disabled={selectedPtfs.length < 1}
         >
           Supprimer <Trash size={18} />
-        </Button>
-        {/* {!loading && (
+        </Button> */}
+      {/* {!loading && (
           <>
             <Table
               rows={data}
@@ -161,7 +180,7 @@ const Portefeuilles = () => {
           </>
         )} */}
 
-        {/* <Box className="flex gap-3 flex-wrap mt-4 ">
+      {/* <Box className="flex gap-3 flex-wrap mt-4 ">
           <Button
             variant="contained"
             color="error"
@@ -181,8 +200,8 @@ const Portefeuilles = () => {
             Valider <CheckSquare size={18} />
           </Button>
         </Box> */}
-      </AccordionBox>
-      <AccordionBox title={"Import via"}>
+      {/* </AccordionBox> */}
+      <AccordionBox title={"Backtester via"} isExpanded={true}>
         <Choice tabs={tabs} />
       </AccordionBox>
       {/* <ConverTable /> */}

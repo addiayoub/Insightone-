@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
 const Choice = ({ tabs }) => {
   const [tabValue, setTabValue] = useState(0);
-  console.log("tabs", tabs);
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
   return (
-    <div>
+    <>
       {tabs.length > 0 && (
         <Box sx={{ width: "100%" }}>
           <Tabs
@@ -32,7 +31,7 @@ const Choice = ({ tabs }) => {
           ))}
         </Box>
       )}
-    </div>
+    </>
   );
 };
 
@@ -47,4 +46,4 @@ export const TabPanel = ({ children, value, index }) => (
   </div>
 );
 
-export default Choice;
+export default memo(Choice);

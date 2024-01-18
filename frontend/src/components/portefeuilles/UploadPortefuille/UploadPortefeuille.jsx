@@ -18,20 +18,20 @@ import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
 const fileTypes = ["csv"];
 
-const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
+const UploadPortefeuille = ({ handlePtfToBacktest }) => {
   const [file, setFile] = useState(null);
   const [ptfName, setPtfName] = useState("");
   const [ptfType, setPtfType] = useState("Actions");
   const [invalidsTitres, setInvalidsTitres] = useState([]);
   const [noHeaders, setNoHeaders] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const handleChange = (file) => {
     setFile(file);
   };
   const upload = () => {
     setInvalidsTitres([]);
-    setLoading(true);
+    setIsLoading(true);
     dispatch(uploadCsv({ file, ptfName, ptfType, noHeaders }))
       .unwrap()
       .then((success) => {
@@ -40,16 +40,15 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
         setPtfName("");
         setFile(null);
         notyf.success(success.message);
-        setType(ptfType);
-        setPtf(ptfName);
-        // handleValider(ptfName);
+        handlePtfToBacktest(success.portefeuilles, ptfName);
       })
       .catch((failed) => {
         console.log("filed", failed);
         setInvalidsTitres(failed.data);
+        handlePtfToBacktest([], null);
         notyf.error(failed);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => console.log("no headers", noHeaders), [noHeaders]);
@@ -83,7 +82,7 @@ const UploadPortefeuille = ({ setType, setPtf, handleValider }) => {
         }}
       />
       <InvalidsTitres invalidsTitres={invalidsTitres} />
-      {loading && <MainLoader />}
+      {isLoading && <MainLoader />}
     </Box>
   );
 };
