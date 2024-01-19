@@ -1,6 +1,6 @@
 import { notyf } from "../../utils/notyf";
 import resetStates from "../../utils/resetStates";
-import { logout, resetHH } from "../slices/AuthSlice";
+import { logout } from "../slices/AuthSlice";
 import { setPath } from "../slices/DashboardSlice";
 
 const authMiddleware = (store) => (next) => (action) => {

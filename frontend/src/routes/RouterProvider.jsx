@@ -15,6 +15,7 @@ import Markowitz from "../components/Markowitz/Markowitz.jsx";
 import Opcvm from "../components/OPCVM/Index.jsx";
 import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Index.jsx";
+import Tracking from "../components/Tracking/Index.jsx";
 
 function RouterProvider() {
   return (
@@ -31,6 +32,7 @@ function RouterProvider() {
             <Route path="/opcvm" element={<Opcvm />} />
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
+            <Route path="/tracking" element={<Tracking />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

@@ -10,6 +10,7 @@ import SectorialReducer from "./slices/SectorialSlice";
 import authMiddleware from "./middleware/authMiddleware";
 import OpcvmReducer from "./slices/OpcvmSlice";
 import BacktestReducer from "./slices/BacktestSlice";
+import TrackingReducer from "./slices/TrackingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -23,6 +24,7 @@ export const store = configureStore({
     sectorial: SectorialReducer,
     opcvm: OpcvmReducer,
     backtest: BacktestReducer,
+    tracking: TrackingReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

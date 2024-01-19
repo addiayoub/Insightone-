@@ -47,7 +47,3 @@ const authSlice = createSlice({
 
 export const { logout, updateUsername } = authSlice.actions;
 export default authSlice.reducer;
-export const resetHH = () => (dispatch) => {
-  // Reset other state first
-  dispatch(setPath(""));
-};

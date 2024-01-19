@@ -9,6 +9,7 @@ import {
   ChevronDown,
   ChevronUp,
   Briefcase,
+  Compass,
 } from "react-feather";
 
 export const sidebarData = [
@@ -111,6 +112,11 @@ export const sidebarData = [
         title: "Backtest personalisé",
         link: "portefeuilles",
         icon: Briefcase,
+      },
+      {
+        title: "Tracking des fonds",
+        link: "tracking",
+        icon: Compass,
       },
     ],
   },

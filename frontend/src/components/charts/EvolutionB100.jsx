@@ -7,7 +7,11 @@ import SaveToExcel from "../SaveToExcel";
 import { Box } from "@mui/material";
 import { extractKeys } from "../../utils/extractKeys";
 
-function EvolutionB100({ data, isGrid }) {
+function EvolutionB100({
+  data,
+  isGrid,
+  title = "Evolution base 100 des Portefeuilles simulés",
+}) {
   console.log("EvolutionB100", data);
   const theme = useChartTheme();
   const ser = [""];
@@ -67,7 +71,7 @@ function EvolutionB100({ data, isGrid }) {
 
     return {
       title: {
-        text: "Evolution base 100 des Portefeuilles simulés",
+        text: title,
         left: "center",
         ...theme.title,
       },
