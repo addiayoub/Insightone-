@@ -25,6 +25,7 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
         },
         restore: {},
         saveAsImage: {},
+        dataView: {},
       },
       top: "20px",
     },

@@ -54,6 +54,7 @@ const EoyChart = ({ data }) => {
           },
           restore: {},
           saveAsImage: {},
+          dataView: {},
         },
         top: "20px",
       },

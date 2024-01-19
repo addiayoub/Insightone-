@@ -36,6 +36,7 @@ const Underwater = ({ data }) => {
           dataZoom: {
             yAxisIndex: true,
           },
+          dataView: {},
           restore: {},
           saveAsImage: {},
         },

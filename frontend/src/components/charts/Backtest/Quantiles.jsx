@@ -45,6 +45,17 @@ const Quantiles = ({ data }) => {
         fromTransformResult: 1,
       },
     ],
+    toolbox: {
+      feature: {
+        dataZoom: {
+          yAxisIndex: true,
+        },
+        dataView: {},
+        restore: {},
+        saveAsImage: {},
+      },
+      top: "20px",
+    },
     tooltip: {
       trigger: "item",
       axisPointer: {

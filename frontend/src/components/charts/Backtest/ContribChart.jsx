@@ -72,6 +72,7 @@ const ContribChart = ({ data }) => {
           },
           restore: {},
           saveAsImage: {},
+          dataView: {},
         },
         top: "20px",
       },

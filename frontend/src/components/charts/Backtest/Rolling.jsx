@@ -34,6 +34,7 @@ const Rolling = ({ data, title }) => {
           },
           restore: {},
           saveAsImage: {},
+          dataView: {},
         },
         top: "20px",
       },

@@ -5,12 +5,12 @@ const generateSelects = (titres, choice) => {
     case "OPCVM":
       selects.push({
         classes: {
-          label: "Classification",
-          data: titres[choice].map((item) => item.categorie),
-        },
-        categories: {
           label: "Sociéte de gestion",
           data: titres[choice].map((item) => item.classe),
+        },
+        categories: {
+          label: "Classification",
+          data: titres[choice].map((item) => item.categorie),
         },
         titres: {
           label: "Titre",
@@ -64,8 +64,8 @@ function getLabels(choice) {
   switch (choice) {
     case "OPCVM":
       return {
-        classes: "Classification",
-        categories: "Sociéte de gestion",
+        classes: "Sociéte de gestion",
+        categories: "Classification",
         titres: "Titre",
       };
     case "Actions":

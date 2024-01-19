@@ -39,6 +39,7 @@ const DistrubitionMonthly = ({ data }) => {
           magicType: { show: true, type: ["line", "bar"] },
           restore: { show: true },
           saveAsImage: { show: true },
+          dataView: {},
           dataZoom: {
             yAxisIndex: true,
           },

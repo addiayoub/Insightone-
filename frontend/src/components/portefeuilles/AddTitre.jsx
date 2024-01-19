@@ -104,6 +104,11 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
         return (
           <Box className="flex flex-wrap gap-2 item-center" key={index}>
             {Object.keys(select).map((key) => {
+              console.log(
+                'select[key]["label"]',
+                select[key]["label"],
+                Object.keys(select)
+              );
               return (
                 <SelectIndices
                   key={`${select[key]["label"]}-${index + 1}`}

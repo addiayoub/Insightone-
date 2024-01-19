@@ -51,6 +51,7 @@ const WorstDrawDowns = ({ data, evolution }) => {
           },
           restore: {},
           saveAsImage: {},
+          dataView: {},
         },
         top: "20px",
       },

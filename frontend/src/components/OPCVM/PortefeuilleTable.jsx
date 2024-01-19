@@ -121,7 +121,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [openEdit, setOpenEdit] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-
+  const [rowToDelete, setRowToDelete] = useState(null);
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
@@ -161,10 +161,23 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     );
   };
   const handleDelete = (row) => {
-    // setOpenDelete(true);
     setNewRows((prevRows) =>
       prevRows.filter((item) => item.titre !== row.titre)
     );
+    // setRowToDelete(row);
+    // setOpenDelete(true);
+  };
+  const handleDeleteConfirmation = (deleteConfirmed) => {
+    console.log("Row to dlete", rowToDelete);
+    if (deleteConfirmed) {
+      setNewRows((prevRows) =>
+        prevRows.filter((item) => item.titre !== rowToDelete.titre)
+      );
+    }
+
+    // Reset the state
+    setOpenDelete(false);
+    setRowToDelete(null);
   };
   const columns = useMemo(() => {
     const basedColumns = [
@@ -286,7 +299,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
         open={openDelete}
         handleClose={() => setOpenDelete(false)}
       >
-        <DeleteModal />
+        <DeleteModal handleDeleteConfirmation={handleDeleteConfirmation} />
       </ModalComponent>
     </>
   );

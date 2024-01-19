@@ -88,6 +88,12 @@ const MonthlyReturns = ({ data, title }) => {
         },
         ...theme.title,
       },
+      toolbox: {
+        feature: {
+          saveAsImage: {},
+        },
+        top: "20px",
+      },
       series: [
         {
           name: "Heatmap Data",

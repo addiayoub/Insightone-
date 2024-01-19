@@ -22,8 +22,8 @@ export const addTitres = (data, titresToAdd, field, type) => {
 
       if (matchingObject) {
         return {
-          Classification: matchingObject.classe,
-          Societe_Gestion: matchingObject.categorie,
+          Classification: matchingObject.categorie,
+          Societe_Gestion: matchingObject.classe,
           titre: matchingObject.libelle,
           [field]: 0,
           isLocked: false,
