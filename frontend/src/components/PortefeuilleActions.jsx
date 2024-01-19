@@ -11,11 +11,12 @@ const PortefeuilleActions = ({
   params,
   isDisabled,
   ptfType,
+  rowsToDelete,
 }) => {
   return (
     <>
       <EditPortefeuille
-        {...{ oldRows, newRows, setNewRows, field, openAddModal }}
+        {...{ oldRows, newRows, setNewRows, field, openAddModal, rowsToDelete }}
       >
         <SavePortefeuille
           data={newRows}

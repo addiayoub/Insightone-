@@ -97,13 +97,21 @@ const Cumualative = ({ data }) => {
   );
 
   const { selectedPtf } = useSelector((state) => state.backtest);
-  const seriesNames2 = useMemo(
-    () =>
-      Object.keys(data[0]).filter(
-        (key) => key !== "seance" && key !== selectedPtf
-      ),
-    [data, selectedPtf]
-  );
+  const seriesNames2 = useMemo(() => {
+    const originalArray = Object.keys(data[0]).filter(
+      (key) => key !== "seance" && key !== selectedPtf
+    );
+
+    const index = originalArray.indexOf("returns_mv_cum");
+
+    if (index !== -1) {
+      originalArray.splice(index, 1); // Remove 'returns_mv_cum' from its current position
+      originalArray.unshift("returns_mv_cum"); // Add 'returns_mv_cum' to the beginning
+    }
+
+    return originalArray;
+  }, [data, selectedPtf]);
+  console.log("seriesNames - 1", seriesNames, "seriesNames2", seriesNames2);
   const options = useMemo(
     () =>
       getOptions(data, seriesNames, "Cumulative Returns vs Benchmark", theme),

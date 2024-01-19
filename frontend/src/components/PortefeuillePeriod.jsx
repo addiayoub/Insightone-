@@ -5,8 +5,14 @@ const PortefeuillePeriod = ({ params }) => {
     params?.dateDebut &&
     params?.dateFin && (
       <h3>
-        De <span className="underline">{params.dateDebut}</span> À{" "}
-        <span className="underline">{params.dateFin}</span>
+        De{" "}
+        <span className="underline decoration-[var(--primary-color)]">
+          {params.dateDebut}
+        </span>{" "}
+        À{" "}
+        <span className="underline decoration-[var(--primary-color)]">
+          {params.dateFin}
+        </span>
       </h3>
     )
   );

@@ -126,6 +126,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
   const { ptfToBacktest } = useSelector((state) => state.backtest);
+  const [selectedRows, setSelectedRows] = useState([]);
   const dispatch = useDispatch();
   const reset = () => {
     setOpen(false);
@@ -215,7 +216,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       basedColumns.push({
         field: "actions",
         headerName: "Actions",
-        flex: 0.3,
+        flex: 0.4,
         renderCell: (params) => (
           <Actions
             params={params}
@@ -251,6 +252,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     };
     dispatch(setPtfToBacktest(newPtf));
   }, [newRows]);
+
+  useEffect(() => {
+    console.log("selectedRows ara", selectedRows);
+  }, [selectedRows]);
+
   return (
     <>
       {showActions && (
@@ -263,10 +269,17 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           ptfType="OPCVM"
           oldParams={params}
           isDisabled={disableSave}
+          rowsToDelete={selectedRows}
         />
       )}
       <PortefeuillePeriod params={params} />
-      <Table columns={columns} rows={newRows} pageSize={25} />
+      <Table
+        columns={columns}
+        rows={newRows}
+        pageSize={25}
+        withCheckboxes={showActions && true}
+        setSelectedRows={setSelectedRows}
+      />
       {open && (
         <ModalComponent open={open} handleClose={reset}>
           <EditPoidsTitreForm

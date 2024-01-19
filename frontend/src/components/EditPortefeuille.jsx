@@ -1,11 +1,11 @@
-import { Button, Box } from "@mui/material";
 import React, { useState } from "react";
+import { Button, Box } from "@mui/material";
 import { calculateSumPoids, ajuster } from "../utils/Markowitz/helpers";
 import { useDispatch } from "react-redux";
 import { updatePortefeuilles } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
 import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
-import { PlusSquare, Save, Trash, Zap } from "react-feather";
+import { PlusSquare, Lock, Save, Trash, Zap, Unlock } from "react-feather";
 import ModalComponent from "./Modal";
 import DeleteModal from "./DeleteModal";
 
@@ -16,6 +16,7 @@ const EditPortefeuille = ({
   field,
   children,
   openAddModal,
+  rowsToDelete,
 }) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
@@ -39,13 +40,30 @@ const EditPortefeuille = ({
   console.log("oldRows", oldRows);
   const handleClear = (confirmation) => {
     if (confirmation) {
-      setNewRows([]);
+      console.log("rowsToDelete", rowsToDelete);
+      const titres = rowsToDelete
+        .filter((row) => !row.isLocked)
+        .map((row) => row.titre);
+      setNewRows((prevRows) =>
+        prevRows.filter((item) => !titres.includes(item.titre))
+      );
     }
     setIsOpen(false);
   };
+  const handleLockUnlock = (choice) => {
+    const titres = rowsToDelete.map((row) => row.titre);
+    setNewRows((prevData) =>
+      prevData.map((item) => {
+        if (titres.includes(item.titre)) {
+          return { ...item, isLocked: choice };
+        }
+        return { ...item };
+      })
+    );
+  };
   return (
     <>
-      <Box className="flex flex-wrap flex-col content-end items-center gap-3">
+      <Box className="flex flex-wrap flex-col content-end items-center gap-3 mb-2">
         <h4>
           La somme: {calculateSumPoids(newRows, field)}/
           {calculateSumPoids(oldRows, field)}
@@ -74,12 +92,32 @@ const EditPortefeuille = ({
             className="flex gap-1 items-center"
             variant="contained"
             onClick={() => {
-              console.log("newRows", newRows);
+              console.log("rowsToDelete", rowsToDelete);
               setIsOpen(true);
             }}
-            disabled={newRows.length < 1}
+            disabled={rowsToDelete.length < 1}
           >
-            Vider <Trash size={18} />
+            Supprimer <Trash size={18} />
+          </Button>
+          <Button
+            size="small"
+            className="flex gap-1 items-center"
+            color="warning"
+            variant="contained"
+            onClick={() => handleLockUnlock(true)}
+            disabled={rowsToDelete.length < 1}
+          >
+            verrouiller <Lock size={18} />
+          </Button>
+          <Button
+            size="small"
+            color="warning"
+            className="flex gap-1 items-center"
+            variant="contained"
+            onClick={() => handleLockUnlock(false)}
+            disabled={rowsToDelete.length < 1}
+          >
+            déverrouiller <Unlock size={18} />
           </Button>
           {/* <Button
           variant="contained"

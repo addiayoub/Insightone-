@@ -68,7 +68,7 @@ function Table({
     setClickedRowId(params.id);
     setRow(params.row);
   }, []);
-
+  console.log("rows are", rows);
   return (
     <>
       <StripedDataGrid
@@ -90,6 +90,7 @@ function Table({
         onRowSelectionModelChange={(ids) => {
           const selectedIDs = new Set(ids);
           const selectedRows = rows.filter((row) => selectedIDs.has(row.id));
+          console.log("selectedIDs", selectedIDs, "rows", rows);
           setSelectedRows(selectedRows);
         }}
         onCellClick={shouldHandleCellClick ? handleCellClick : null}

@@ -642,6 +642,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
   const [newTitre, setNewTitre] = useState("");
+  const [selectedRows, setSelectedRows] = useState([]);
   const { ptfToBacktest } = useSelector((state) => state.backtest);
   const dispatch = useDispatch();
   console.log(
@@ -754,7 +755,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       {
         field: "",
         headerName: "Somme",
-        flex: 0.3,
+        flex: 0.2,
         valueGetter: (params) => {
           const secteur = params.row.SECTEUR_ACTIVITE;
           const sum = secteurSums[secteur] || 0;
@@ -774,7 +775,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     if (showActions) {
       basedColumns.push({
         field: "actions",
-        flex: 0.4,
+        flex: 0.5,
         headerName: "Actions",
         renderCell: (params) => (
           <Actions
@@ -801,6 +802,13 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     };
     dispatch(setPtfToBacktest(newPtf));
   }, [newRows]);
+  useEffect(() => {
+    console.log("selectedRows marko", selectedRows);
+  }, [selectedRows]);
+  const tableRows = useMemo(
+    () => injectSums(newRows, secteurSums),
+    [newRows, secteurSums]
+  );
   return (
     <>
       {showActions && (
@@ -813,13 +821,16 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           ptfType="Actions"
           oldParams={params}
           isDisabled={disableSave}
+          rowsToDelete={selectedRows}
         />
       )}
       <PortefeuillePeriod params={params} />
       <Table
         columns={columns}
-        rows={injectSums(newRows, secteurSums)}
+        rows={tableRows}
         pageSize={25}
+        withCheckboxes={showActions && true}
+        setSelectedRows={setSelectedRows}
       />
       <ModalComponent open={open} handleClose={reset}>
         <EditPoidsTitreForm
