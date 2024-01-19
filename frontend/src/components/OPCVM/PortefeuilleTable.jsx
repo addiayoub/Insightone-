@@ -161,11 +161,11 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
     );
   };
   const handleDelete = (row) => {
-    setNewRows((prevRows) =>
-      prevRows.filter((item) => item.titre !== row.titre)
-    );
-    // setRowToDelete(row);
-    // setOpenDelete(true);
+    // setNewRows((prevRows) =>
+    //   prevRows.filter((item) => item.titre !== row.titre)
+    // );
+    setRowToDelete(row);
+    setOpenDelete(true);
   };
   const handleDeleteConfirmation = (deleteConfirmed) => {
     console.log("Row to dlete", rowToDelete);
@@ -267,34 +267,40 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       )}
       <PortefeuillePeriod params={params} />
       <Table columns={columns} rows={newRows} pageSize={25} />
-      <ModalComponent open={open} handleClose={reset}>
-        <EditPoidsTitreForm
-          poids={poids}
-          setPoids={setPoids}
-          reset={reset}
-          titre={newTitre}
-          handleUpdate={update}
-          rows={newRows}
-          field={field}
-        />
-      </ModalComponent>
-      <ModalComponent open={openEdit} handleClose={() => setOpenEdit(false)}>
-        <EditPoidsClassification
-          titre={newTitre}
-          poids={poids}
-          reset={() => setOpenEdit(false)}
-          rows={newRows}
-          field={field}
-          setNewRows={setNewRows}
-        />
-      </ModalComponent>
-      <ModalComponent open={openAdd} handleClose={() => setOpenAdd(false)}>
-        <AddTitre
-          handleAdd={handleAdd}
-          oldRows={newRows}
-          reset={() => setOpenAdd(false)}
-        />
-      </ModalComponent>
+      {open && (
+        <ModalComponent open={open} handleClose={reset}>
+          <EditPoidsTitreForm
+            poids={poids}
+            setPoids={setPoids}
+            reset={reset}
+            titre={newTitre}
+            handleUpdate={update}
+            rows={newRows}
+            field={field}
+          />
+        </ModalComponent>
+      )}
+      {openEdit && (
+        <ModalComponent open={openEdit} handleClose={() => setOpenEdit(false)}>
+          <EditPoidsClassification
+            titre={newTitre}
+            poids={poids}
+            reset={() => setOpenEdit(false)}
+            rows={newRows}
+            field={field}
+            setNewRows={setNewRows}
+          />
+        </ModalComponent>
+      )}
+      {openAdd && (
+        <ModalComponent open={openAdd} handleClose={() => setOpenAdd(false)}>
+          <AddTitre
+            handleAdd={handleAdd}
+            oldRows={newRows}
+            reset={() => setOpenAdd(false)}
+          />
+        </ModalComponent>
+      )}
       <ModalComponent
         open={openDelete}
         handleClose={() => setOpenDelete(false)}

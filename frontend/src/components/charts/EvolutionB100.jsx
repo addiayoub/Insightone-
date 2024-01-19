@@ -5,11 +5,13 @@ import useChartTheme from "../../hooks/useChartTheme";
 import { defaultOptions } from "../../utils/chart/defaultOptions";
 import SaveToExcel from "../SaveToExcel";
 import { Box } from "@mui/material";
+import { extractKeys } from "../../utils/extractKeys";
 
 function EvolutionB100({ data, isGrid }) {
   console.log("EvolutionB100", data);
   const theme = useChartTheme();
-  const seriesNames = Object.keys(data[0]).filter((key) => key !== "seance");
+  const ser = [""];
+  const seriesNames = extractKeys(data, ["seance"]);
   const legend = isGrid
     ? {
         type: "scroll",
@@ -36,6 +38,25 @@ function EvolutionB100({ data, isGrid }) {
         },
       };
   console.log("seriesNames EvolutionB100", seriesNames);
+  console.log("seriesNames o", ser);
+  const dates = useMemo(
+    () =>
+      data.map((item) => [
+        item.seance,
+        moment(item.seance).format("DD/MM/YYYY"),
+      ]),
+    [data]
+  );
+  console.log(
+    "dates EvolutionB100",
+    dates,
+    dates.sort((a, b) => a - b)
+  );
+  console.log(
+    "13/01/2006",
+    moment("13/01/2006"),
+    moment("13/01/2006").format("DD/MM/YYYY")
+  );
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))

@@ -75,15 +75,15 @@ export const getEvolutionB100Portef = createAsyncThunk(
         "Evolution base 100 des Portefeuille simulé": response.data[
           "Evolution base 100 des Portefeuille simulé"
         ].map((item) => {
-          return { ...item, seance: formatDate(item.seance) };
+          return { ...item };
         }),
         "Evolution base 100 des indices": response.data[
           "Evolution base 100 des indices"
         ].map((item) => {
-          return { ...item, seance: formatDate(item.seance) };
+          return { ...item };
         }),
       };
-      console.log("dataToMerge", dataToMerge);
+      console.log("mergeData(dataToMerge)", mergeData(dataToMerge));
 
       return {
         ptfsData: mergeData(dataToMerge),
@@ -200,17 +200,21 @@ export const backtestAction = createAsyncThunk(
           }
         })
       );
-
+      const sortedCumRe = CUMULATIVE_RETURNS["Cumulative Returns"].sort(
+        (a, b) => moment(a.seance).valueOf() - moment(b.seance).valueOf()
+      );
       console.log(
         "backtestAction",
-        CUMULATIVE_RETURNS,
+        CUMULATIVE_RETURNS["Cumulative Returns"],
+        "sort cumla",
+        sortedCumRe,
         EOY_RETURNS_TABLE,
         KEY_PERFORMANCE_METRICS,
         DISTRIBUTION_OF_MONTHLY_RETURNS
       );
       return {
         cumulative: CUMULATIVE_RETURNS
-          ? CUMULATIVE_RETURNS["Cumulative Returns"]
+          ? sortByDate(CUMULATIVE_RETURNS["Cumulative Returns"])
           : [],
         eoy: EOY_RETURNS_BARS ? EOY_RETURNS_BARS["EOY Returns bars"] : [],
         eoyTable: EOY_RETURNS_TABLE
@@ -220,14 +224,14 @@ export const backtestAction = createAsyncThunk(
           ? DISTRIBUTION_OF_MONTHLY_RETURNS["Distribution of Monthly Returns"]
           : [],
         rollingBeta: ROLLING_BETA_TO_BENCHMARK
-          ? ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"]
+          ? sortByDate(ROLLING_BETA_TO_BENCHMARK["Rolling Beta to Benchmark"])
           : [],
         rollingVolat: ROLLING_VOLATILITY
-          ? ROLLING_VOLATILITY["Rolling Volatility"]
+          ? sortByDate(ROLLING_VOLATILITY["Rolling Volatility"])
           : [],
         rollingSharpe: ROLLING_SHARPE ? ROLLING_SHARPE["Rolling Sharpe"] : [],
         rollingSortino: ROLLING_SORTINO
-          ? ROLLING_SORTINO["Rolling Sortino"]
+          ? sortByDate(ROLLING_SORTINO["Rolling Sortino"])
           : [],
         worstDrawdowns: WORST_10_DRAWDOWNS
           ? WORST_10_DRAWDOWNS["Worst 10 Drawdowns"]
@@ -238,12 +242,16 @@ export const backtestAction = createAsyncThunk(
         monthlyRelReturns: MONTHLY_RELATIVE_RETURNS
           ? MONTHLY_RELATIVE_RETURNS["Monthly Relative Returns"]
           : [],
-        dailyReturns: DAILY_RETURNS ? DAILY_RETURNS["daily returns"] : [],
+        dailyReturns: DAILY_RETURNS
+          ? sortByDate(DAILY_RETURNS["daily returns"])
+          : [],
         quantiles: RETURN_QUANTILES ? RETURN_QUANTILES["Return Quantiles"] : [],
         keyPerf: KEY_PERFORMANCE_METRICS
           ? KEY_PERFORMANCE_METRICS["Key Performance Metrics"]
           : [],
-        underwater: UNDERWATER_PLOT ? UNDERWATER_PLOT["drawdowns"] : [],
+        underwater: UNDERWATER_PLOT
+          ? sortByDate(UNDERWATER_PLOT["drawdowns"])
+          : [],
       };
     } catch (error) {
       console.log("error", error);
@@ -261,18 +269,30 @@ const mergeData = (data) => {
     data[datasetName].forEach((item) => {
       const { seance, ...rest } = item;
 
+      // Format the seance to DD/MM/YYYY
+      const formattedSeance = moment(seance).format("DD/MM/YYYY");
+
       // Create an object for the merged data if it doesn't exist
-      if (!mergedData[seance]) {
-        mergedData[seance] = { seance };
+      if (!mergedData[formattedSeance]) {
+        mergedData[formattedSeance] = { seance: formattedSeance };
       }
 
       // Merge the properties into the existing merged data
-      mergedData[seance] = { ...mergedData[seance], ...rest };
+      mergedData[formattedSeance] = { ...mergedData[formattedSeance], ...rest };
     });
   });
 
-  // Convert the mergedData object to an array
-  const resultArray = Object.values(mergedData);
+  // Convert the mergedData object to an array and sort by seance
+  const resultArray = Object.values(mergedData).sort(
+    (a, b) =>
+      moment(a.seance, "DD/MM/YYYY").toDate() -
+      moment(b.seance, "DD/MM/YYYY").toDate()
+  );
 
   return resultArray;
+};
+const sortByDate = (data, field = "seance") => {
+  return data.sort(
+    (a, b) => moment(a[field]).valueOf() - moment(b[field]).valueOf()
+  );
 };

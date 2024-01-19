@@ -30,6 +30,7 @@ import Choice from "./Choice";
 import SavedPtfs from "./UploadPortefuille/SavedPtfs";
 import PtfFresh from "./UploadPortefuille/PtfFresh";
 import PoidsDonut from "../charts/Backtest/PoidsDonut";
+import DeleteModal from "../DeleteModal";
 
 const types = ["Actions", "OPCVM"];
 

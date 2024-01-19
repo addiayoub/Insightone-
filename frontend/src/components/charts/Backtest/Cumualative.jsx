@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
 import SaveToExcel from "../../SaveToExcel";
+import { extractKeys } from "../../../utils/extractKeys";
 
 const getOptions = (data, seriesNames, title, theme, ptf = "") => {
   return {
@@ -91,10 +92,7 @@ const Cumualative = ({ data }) => {
   console.log("render Cumualative");
   const theme = useChartTheme();
   const seriesNames = useMemo(
-    () =>
-      Object.keys(data[0]).filter(
-        (key) => key !== "seance" && key !== "returns_mv_cum"
-      ),
+    () => extractKeys(data, ["seance", "returns_mv_cum"]),
     [data]
   );
 
