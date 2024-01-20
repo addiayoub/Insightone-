@@ -16,6 +16,10 @@ function RendementRisqueScatter({ data }) {
       },
     }));
   }, [data]);
+  const min = useMemo(
+    () => Math.min(...data.map((item) => Math.trunc(item.Performance * 100))),
+    [data]
+  );
   const options = useMemo(() => {
     return {
       title: {
@@ -58,15 +62,12 @@ function RendementRisqueScatter({ data }) {
         },
         // min: Math.min(...data.map((item) => Math.trunc(item.Volatilite * 100))),
       },
-
       yAxis: {
         type: "value",
         name: "Rendement",
         nameLocation: "middle",
         nameGap: 30,
-        min: Math.min(
-          ...data.map((item) => Math.trunc(item.Performance * 100))
-        ),
+        min: min,
         nameTextStyle: {
           fontSize: 16,
           ...theme.yAxis.nameTextStyle,
@@ -78,14 +79,13 @@ function RendementRisqueScatter({ data }) {
           type: "cross",
         },
         formatter: function (params) {
-          const { name, seriesName } = params;
+          const { name, seriesName, value } = params;
           const res = name !== "" ? name : seriesName;
-          return `<strong>${res}</strong> <br /> Rendement: ${params.value[1].toFixed(
+          return `<strong>${res}</strong> <br /> Rendement: ${value[1].toFixed(
             2
-          )}% <br /> Risque: ${params.value[0].toFixed(2)}%`;
+          )}% <br /> Risque: ${value[0].toFixed(2)}%`;
         },
       },
-
       series: [
         {
           type: "effectScatter",

@@ -141,7 +141,7 @@ const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
         label={"Indices"}
         indices={indices}
         selectedIndices={selectedIndices}
-        disableCloseOnSelect={false}
+        // disableCloseOnSelect={false}
         setSelectedIndices={setSelectedIndices}
       />
     </Box>

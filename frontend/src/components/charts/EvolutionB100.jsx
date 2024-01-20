@@ -7,6 +7,8 @@ import SaveToExcel from "../SaveToExcel";
 import { Box } from "@mui/material";
 import { extractKeys } from "../../utils/extractKeys";
 
+const regex = /^SIM\d+$/;
+
 function EvolutionB100({
   data,
   isGrid,
@@ -14,7 +16,6 @@ function EvolutionB100({
 }) {
   console.log("EvolutionB100", data);
   const theme = useChartTheme();
-  const ser = [""];
   const seriesNames = extractKeys(data, ["seance"]);
   const legend = isGrid
     ? {
@@ -41,26 +42,6 @@ function EvolutionB100({
           },
         },
       };
-  console.log("seriesNames EvolutionB100", seriesNames);
-  console.log("seriesNames o", ser);
-  const dates = useMemo(
-    () =>
-      data.map((item) => [
-        item.seance,
-        moment(item.seance).format("DD/MM/YYYY"),
-      ]),
-    [data]
-  );
-  console.log(
-    "dates EvolutionB100",
-    dates,
-    dates.sort((a, b) => a - b)
-  );
-  console.log(
-    "13/01/2006",
-    moment("13/01/2006"),
-    moment("13/01/2006").format("DD/MM/YYYY")
-  );
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))
@@ -107,9 +88,9 @@ function EvolutionB100({
         // data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
         data: data.map((item) => item.seance),
         axisLabel: {
-          ...theme.yAxis.nameTextStyle,
+          ...theme.xAxis.nameTextStyle,
         },
-        ...theme.yAxis,
+        ...theme.xAxis,
       },
       legend: {
         data: seriesNames,
@@ -134,6 +115,9 @@ function EvolutionB100({
       series: seriesNames.map((seriesName) => ({
         name: seriesName,
         type: "line",
+        itemStyle: {
+          color: regex.test(seriesName) ? "rgba(204,204,204,0.2)" : undefined,
+        },
         data: data.map((item) => item[seriesName]),
       })),
       ...defaultOptions,

@@ -337,7 +337,7 @@ const PortefeuilleBacktest = () => {
               />
             </>
           )}
-          {!backData.loading && isShow && backData.data.eoyTable.length > 0 && (
+          {!backData.loading && false && backData.data.eoyTable.length > 0 && (
             <>
               <h3>EOY Returns vs Benchmark</h3>
               <Table

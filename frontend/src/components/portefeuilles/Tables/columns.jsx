@@ -65,34 +65,34 @@ export const generateKeyPerfColumns = (keys) => {
 };
 
 export const eoyColumns = [
-  {
-    field: "Year",
-    headerName: "Year",
-    flex: 1,
-  },
-  {
-    field: "Benchmark",
-    headerName: "Benchmark",
-    flex: 1,
-    renderCell: (params) => params.row.Benchmark.toFixed(2),
-  },
-  {
-    field: "Strategy",
-    headerName: "Strategy",
-    flex: 1,
-    renderCell: (params) => params.row.Strategy.toFixed(2),
-  },
-  {
-    field: "Multiplier",
-    headerName: "Multiplier",
-    flex: 1,
-    renderCell: (params) => params.row.Multiplier.toFixed(2),
-  },
-  {
-    field: "Won",
-    headerName: "Won",
-    flex: 1,
-  },
+  // {
+  //   field: "Year",
+  //   headerName: "Year",
+  //   flex: 1,
+  // },
+  // {
+  //   field: "Benchmark",
+  //   headerName: "Benchmark",
+  //   flex: 1,
+  //   renderCell: (params) => params.row?.Benchmark.toFixed(2),
+  // },
+  // {
+  //   field: "Strategy",
+  //   headerName: "Strategy",
+  //   flex: 1,
+  //   renderCell: (params) => params.row?.Strategy.toFixed(2),
+  // },
+  // {
+  //   field: "Multiplier",
+  //   headerName: "Multiplier",
+  //   flex: 1,
+  //   renderCell: (params) => params.row?.Multiplier.toFixed(2),
+  // },
+  // {
+  //   field: "Won",
+  //   headerName: "Won",
+  //   flex: 1,
+  // },
 ];
 
 export const contribColumns = [

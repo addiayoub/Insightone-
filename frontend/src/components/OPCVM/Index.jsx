@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dayjs from "dayjs";
 import PeriodFilter from "./PeriodFilter";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
 import Indices from "../Markowitz/Indices";
 import Data from "./Data";
@@ -16,7 +16,6 @@ function Index() {
   const { dataSet, data } = useSelector((state) => state.opcvm);
   const isLoading = data.loading || dataSet.loading;
   const [contraintesOp, setContraintesOp] = useState([]);
-  const dispatch = useDispatch();
   return (
     <>
       {isLoading && <MainLoader />}

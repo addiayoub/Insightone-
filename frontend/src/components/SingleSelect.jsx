@@ -1,6 +1,5 @@
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import React from "react";
+import { TextField, Autocomplete } from "@mui/material";
 
 const ITEM_HEIGHT = 100;
 const ITEM_PADDING_TOP = 8;

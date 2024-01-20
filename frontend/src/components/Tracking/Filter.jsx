@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from "react";
 import AccordionBox from "../AccordionBox";
 import DateComponent from "../DateComponent";
-import { TextField, Box, Button } from "@mui/material";
+import { TextField, Box, Button, Typography, Divider } from "@mui/material";
 import IndicesComponent from "../IndicesComponent";
 import SingleSelect from "../SingleSelect";
 import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { generationPtfAlea } from "../../redux/actions/TrackingActions";
-
-const opc = [
-  "OPC ACTIONS FGP AJUSTE",
-  "OPC DIVERSIFIE FGP AJUSTE",
-  "OPC MONETAIRE FGP AJUSTE",
-  "OPC OCT FGP AJUSTE",
-  "OPC OMLT FGP AJUSTE",
-];
+import TitresComponent from "../TitresComponent";
 
 const Filter = ({ setIsShow }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [nbSim, setNbSim] = useState("");
   const [selectedIndices, setSelectedIndices] = useState([]);
-  const [opcvm, setOpcvm] = useState("");
+  const [opcvm, setOpcvm] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("selectedIndices", selectedIndices);
@@ -42,10 +35,10 @@ const Filter = ({ setIsShow }) => {
       .catch()
       .finally();
   };
-  const isDisabled = !selectedIndices || nbSim === "" || !opcvm;
+  const isDisabled = selectedIndices.length < 1 || nbSim === "" || !opcvm;
   return (
     <AccordionBox
-      title="Filter"
+      title="paramètres de backtest"
       isExpanded
       detailsClass="flex flex-col flex-wrap gap-2"
     >
@@ -71,13 +64,12 @@ const Filter = ({ setIsShow }) => {
             },
           }}
         />
-        <SingleSelect
-          options={opc}
-          value={opcvm}
-          setValue={setOpcvm}
-          label="OPCVM"
-        />
       </Box>
+      <Divider />
+      <Typography className="text-sm">Selection des OPCVM</Typography>
+      <TitresComponent selectedTitres={opcvm} setSelectedTitres={setOpcvm} />
+      <Divider />
+      <Typography className="text-sm">Selection des indices</Typography>
       <IndicesComponent
         selectedIndices={selectedIndices}
         setSelectedIndices={setSelectedIndices}
@@ -87,6 +79,7 @@ const Filter = ({ setIsShow }) => {
         className="w-fit"
         disabled={isDisabled}
         onClick={handleClick}
+        size="small"
       >
         Rechercher
       </Button>
