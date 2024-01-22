@@ -12,7 +12,13 @@ const MenuProps = {
   },
 };
 
-export default function SingleSelect({ value, setValue, options, label }) {
+export default function SingleSelect({
+  value,
+  setValue,
+  options,
+  label,
+  suffix = "",
+}) {
   return (
     <Autocomplete
       disablePortal
@@ -22,6 +28,7 @@ export default function SingleSelect({ value, setValue, options, label }) {
       value={value}
       onChange={(event, value) => setValue(value)}
       size="small"
+      getOptionLabel={(option) => option + suffix}
       sx={{ width: 250 }}
       // MenuProps={MenuProps}
       menuprops={MenuProps}

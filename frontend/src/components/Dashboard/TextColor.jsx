@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { ArrowUp, ArrowDown, ArrowRight } from "react-feather";
 
-const TextColor = ({ value }) => {
+const TextColor = ({ value, percentage, textAlign = "right" }) => {
   let className = "";
   let arrow = "";
   if (value > 0) {
@@ -13,9 +13,10 @@ const TextColor = ({ value }) => {
   } else {
     arrow = <ArrowRight size={18} />;
   }
+  value = percentage ? value * 100 : value;
   return (
-    <span className={`${className} min-w-[90px] text-right`}>
-      {value + "%"} {arrow}
+    <span className={`${className} min-w-[90px] text-${textAlign}`}>
+      {`${value.toFixed(2)} ${percentage ? "%" : ""}`} {arrow}
     </span>
   );
 };

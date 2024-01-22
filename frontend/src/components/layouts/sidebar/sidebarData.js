@@ -10,6 +10,7 @@ import {
   ChevronUp,
   Briefcase,
   Compass,
+  Globe,
 } from "react-feather";
 
 export const sidebarData = [
@@ -119,5 +120,11 @@ export const sidebarData = [
         icon: Compass,
       },
     ],
+  },
+  {
+    icon: Globe,
+    title: "Analyse OPCVM",
+    link: "expansion",
+    isPrivate: false,
   },
 ];

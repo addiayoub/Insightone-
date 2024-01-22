@@ -16,6 +16,7 @@ import Opcvm from "../components/OPCVM/Index.jsx";
 import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Index.jsx";
 import Tracking from "../components/Tracking/Index.jsx";
+import Expansion from "../components/Expansion/Index.jsx";
 
 function RouterProvider() {
   return (
@@ -33,6 +34,7 @@ function RouterProvider() {
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
             <Route path="/tracking" element={<Tracking />} />
+            <Route path="/expansion" element={<Expansion />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

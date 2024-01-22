@@ -11,6 +11,7 @@ import authMiddleware from "./middleware/authMiddleware";
 import OpcvmReducer from "./slices/OpcvmSlice";
 import BacktestReducer from "./slices/BacktestSlice";
 import TrackingReducer from "./slices/TrackingSlice";
+import expansionReducer from "./slices/ExpansionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -25,6 +26,7 @@ export const store = configureStore({
     opcvm: OpcvmReducer,
     backtest: BacktestReducer,
     tracking: TrackingReducer,
+    expansion: expansionReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

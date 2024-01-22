@@ -1,11 +1,14 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
 import ReactECharts from "echarts-for-react";
+import SMIPoids from "./SMIPoids";
 
 const Scatter = ({ data }) => {
   const theme = useChartTheme();
+  const [SMI, setSMI] = useState(null);
   const colors = useMemo(() => generateRandomColorsArray(data.length), [data]);
+  const poidsRef = useRef(null);
   console.log("Scatter", data);
   const formatedData = useMemo(() => {
     return data.map((item) => [
@@ -29,16 +32,16 @@ const Scatter = ({ data }) => {
     [formatedData, colors]
   );
 
-  const xMin = useMemo(
-    () =>
-      Math.min(...data.map((item) => Math.trunc(item["Perf relative"] * 100))),
+  const xValues = useMemo(
+    () => data.map((item) => item["Perf relative"] * 100),
     [data]
   );
-  const yMin = useMemo(
-    () => Math.min(...data.map((item) => Math.trunc(item.TE * 100))),
-    [data]
-  );
-  console.log("min", xMin, yMin);
+  const yValues = useMemo(() => data.map((item) => item.TE * 100), [data]);
+  const axisValues = {
+    x: [Math.min(...xValues), Math.max(...xValues)],
+    y: [Math.min(...yValues), Math.max(...yValues)],
+  };
+  console.log("min-max", axisValues);
   const options = useMemo(() => {
     return {
       title: {
@@ -76,8 +79,10 @@ const Scatter = ({ data }) => {
         name: "Performance relative",
         nameLocation: "middle",
         nameGap: 30,
-        // min: xMin,
+        min: axisValues.x[0],
+        max: axisValues.x[1],
         axisLabel: {
+          formatter: (value) => parseFloat(value).toFixed(2),
           ...theme.xAxis.nameTextStyle,
         },
         nameTextStyle: {
@@ -89,10 +94,15 @@ const Scatter = ({ data }) => {
       yAxis: {
         type: "value",
         name: "TE",
-        // min: yMin,
+        min: axisValues.y[0],
+        max:
+          axisValues.y[0] === axisValues.y[1]
+            ? axisValues.y[0] + 1
+            : axisValues.y[1],
         nameLocation: "middle",
         nameGap: 30,
         axisLabel: {
+          formatter: (value) => parseFloat(value).toFixed(2),
           ...theme.yAxis.nameTextStyle,
         },
         nameTextStyle: {
@@ -117,17 +127,30 @@ const Scatter = ({ data }) => {
     };
   }, [seriesData, data, theme]);
   console.log("options", options.series);
-
+  const handleClick = (params) => {
+    const { seriesName } = params;
+    setSMI(seriesName);
+    poidsRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
+    console.log(seriesName);
+  };
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        height: "500px",
-        minWidth: "600px",
-        width: "100%",
-        margin: "auto",
-      }}
-    />
+    <>
+      <ReactECharts
+        option={options}
+        style={{
+          height: "500px",
+          minWidth: "600px",
+          width: "100%",
+          margin: "auto",
+        }}
+        onEvents={{
+          click: handleClick,
+        }}
+      />
+      <div ref={poidsRef}>{SMI && <SMIPoids SMI={SMI} />}</div>
+    </>
   );
 };
 
