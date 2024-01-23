@@ -63,7 +63,7 @@ const Index = () => {
             />
           </Box>
         )}
-        <GridContainer extraCss="mt-8 mb-12">
+        <GridContainer extraCss="mt-8 mb-12 gap-4">
           {!loading && data.loeilExpert.length > 0 && (
             <GridItem>
               <h3>L'œil de l'expert</h3>
@@ -85,7 +85,7 @@ const Index = () => {
             </GridItem>
           )}
         </GridContainer>
-        <GridContainer extraCss="mt-8">
+        <GridContainer extraCss="mt-8 gap-4">
           {!loading && data.barometreQuantalys.length > 0 && (
             <GridItem>
               <h3>Baromètre ID&A TECH</h3>
