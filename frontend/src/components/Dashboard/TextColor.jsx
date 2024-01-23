@@ -16,7 +16,7 @@ const TextColor = ({ value, percentage, textAlign = "right" }) => {
   value = percentage ? value * 100 : value;
   return (
     <span className={`${className} min-w-[90px] text-${textAlign}`}>
-      {`${value.toFixed(2)} ${percentage ? "%" : ""}`} {arrow}
+      {`${parseFloat(value).toFixed(2)} ${percentage ? "%" : ""}`} {arrow}
     </span>
   );
 };

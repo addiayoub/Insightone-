@@ -1,12 +1,17 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
 import ReactECharts from "echarts-for-react";
 import SMIPoids from "./SMIPoids";
+import SMIEvolution from "./SMIEvolution";
+import AccordionBox from "../../AccordionBox";
+import { IconButton } from "@mui/material";
+import { RefreshCcw } from "react-feather";
 
 const Scatter = ({ data }) => {
   const theme = useChartTheme();
-  const [SMI, setSMI] = useState(null);
+  const [SIM, setSIM] = useState(null);
+  const [minSIM, setMinSIM] = useState(null);
   const colors = useMemo(() => generateRandomColorsArray(data.length), [data]);
   const poidsRef = useRef(null);
   console.log("Scatter", data);
@@ -41,6 +46,12 @@ const Scatter = ({ data }) => {
     x: [Math.min(...xValues), Math.max(...xValues)],
     y: [Math.min(...yValues), Math.max(...yValues)],
   };
+  useEffect(() => {
+    console.log("useEffect min", axisValues);
+    const { SIM } = data.find((item) => item.TE * 100 === axisValues.y[0]);
+    setMinSIM(SIM);
+    setSIM(SIM);
+  }, []);
   console.log("min-max", axisValues);
   const options = useMemo(() => {
     return {
@@ -129,7 +140,7 @@ const Scatter = ({ data }) => {
   console.log("options", options.series);
   const handleClick = (params) => {
     const { seriesName } = params;
-    setSMI(seriesName);
+    setSIM(seriesName);
     poidsRef.current.scrollIntoView({
       behavior: "smooth",
     });
@@ -149,7 +160,27 @@ const Scatter = ({ data }) => {
           click: handleClick,
         }}
       />
-      <div ref={poidsRef}>{SMI && <SMIPoids SMI={SMI} />}</div>
+      <div ref={poidsRef}>
+        {SIM && (
+          <AccordionBox isExpanded title={SIM}>
+            <IconButton
+              onClick={() => setSIM(minSIM)}
+              className="bg-[var(--primary-color)]"
+              title="Réinitialiser"
+            >
+              <RefreshCcw size={18} color="#fff" />
+            </IconButton>
+            <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 items-center">
+              <div className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+                <SMIPoids SIM={SIM} />
+              </div>
+              <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+                <SMIEvolution SIM={SIM} />
+              </div>
+            </div>
+          </AccordionBox>
+        )}
+      </div>
     </>
   );
 };

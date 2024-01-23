@@ -5,6 +5,13 @@ const initialState = {
   data: {
     analyseQuatile: [],
     performance: [],
+    classementPerformance: [],
+    barometreQuantalys: [],
+    loeilExpert: [],
+    indicateursRisque: [],
+    fondsVersusCat1: [],
+    fondsVersusCat2: [],
+    fondsVersusCat3: [],
   },
   loading: false,
   error: null,
@@ -21,11 +28,17 @@ const expansionSlice = createSlice({
       state.loading = false;
       state.data.analyseQuatile = payload.analyseQuatile;
       state.data.performance = payload.performance;
+      state.data.classementPerformance = payload.classementPerformance;
+      state.data.barometreQuantalys = payload.barometreQuantalys;
+      state.data.indicateursRisque = payload.indicateursRisque;
+      state.data.loeilExpert = payload.loeilExpert;
+      state.data.fondsVersusCat1 = payload.fondsVersusCat1;
+      state.data.fondsVersusCat2 = payload.fondsVersusCat2;
+      state.data.fondsVersusCat3 = payload.fondsVersusCat3;
     });
     builder.addCase(getAnalyse.rejected, (state, payload) => {
       state.loading = false;
-      state.data.analyseQuatile = [];
-      state.data.performance = [];
+      state.data = { ...initialState.data };
       state.error = payload;
     });
   },

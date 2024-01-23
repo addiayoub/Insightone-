@@ -3,23 +3,23 @@ import { useSelector } from "react-redux";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 
-const SMIPoids = ({ SMI }) => {
+const SMIPoids = ({ SIM }) => {
   const {
     generationPtfAlea: { df_poids },
   } = useSelector((state) => state.tracking);
-  console.log("df_poids", df_poids, SMI);
+  console.log("df_poids", df_poids, SIM);
   const theme = useChartTheme();
   const seriesData = useMemo(
     () =>
       df_poids.map((item) => ({
-        value: item[SMI],
+        value: item[SIM],
         name: item.indice,
       })),
-    [df_poids, SMI]
+    [df_poids, SIM]
   );
   const options = {
     title: {
-      text: SMI,
+      text: SIM,
       left: "center",
       ...theme.title,
     },
@@ -78,10 +78,9 @@ const SMIPoids = ({ SMI }) => {
       <ReactECharts
         option={options}
         style={{
-          height: 500,
+          height: 400,
           width: 500,
           // maxWidth: 500,
-          margin: "25px auto",
         }}
       />
     </>

@@ -1,5 +1,7 @@
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import RenderStarsWithRating from "./RenderStarsWithRating";
 import TextColor from "./TextColor";
+import { Typography } from "@mui/material";
 
 export const columns = [
   {
@@ -52,7 +54,18 @@ export const columns = [
     flex: 0.45,
     width: 360,
     renderCell: (params) => {
-      return <RenderStarsWithRating value={params.row.VQM} />;
+      const value = params.row.VQM;
+      return (
+        <div className="flex">
+          <Typography
+            variant="body2"
+            className="mr-3 font-semibold min-w-[90px] text-right"
+          >
+            {formatNumberWithSpaces(value.toFixed(2))}
+          </Typography>
+          <RenderStarsWithRating value={value} />
+        </div>
+      );
     },
   },
   {

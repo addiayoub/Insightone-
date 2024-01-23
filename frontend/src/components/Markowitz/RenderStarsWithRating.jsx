@@ -1,10 +1,9 @@
 import React, { memo } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import { StarOutline } from "@mui/icons-material";
-import { Typography } from "@mui/material";
-import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { Square } from "react-feather";
 
-const getStarRating = (value) => {
+const defaultGetStarRating = (value) => {
   if (value >= 0 && value < 10000) {
     return 0;
   } else if (value >= 10000 && value < 50000) {
@@ -20,27 +19,39 @@ const getStarRating = (value) => {
   }
 };
 
-const RenderStarsWithRating = ({ value }) => {
-  const rating = getStarRating(value);
+const RatingIconFilled = ({ ratingIcon, color }) => {
+  return ratingIcon === "star" ? (
+    <StarIcon sx={{ color }} fontSize="small" />
+  ) : (
+    <Square color={color} style={{ fill: color }} size={15} />
+  );
+};
+const RatingIconEmpty = ({ ratingIcon }) => {
+  return ratingIcon === "star" ? (
+    <StarOutline fontSize="small" />
+  ) : (
+    <Square size={15} />
+  );
+};
 
-  const stars = Array.from({ length: 5 }, (_, index) =>
+const RenderStarsWithRating = ({
+  value,
+  getStarRating = defaultGetStarRating,
+  ratingBy = value,
+  ratingIcon = "star",
+  starsNumber = 5,
+  color = "#faaf00",
+}) => {
+  const rating = getStarRating(ratingBy);
+
+  const stars = Array.from({ length: starsNumber }, (_, index) =>
     index < rating ? (
-      <StarIcon key={index} sx={{ color: "#faaf00" }} fontSize="small" />
+      <RatingIconFilled key={index} ratingIcon={ratingIcon} color={color} />
     ) : (
-      <StarOutline key={index} fontSize="small" />
+      <RatingIconEmpty key={index} ratingIcon={ratingIcon} />
     )
   );
 
-  return (
-    <div className="flex">
-      <Typography
-        variant="body2"
-        className="mr-3 font-semibold min-w-[90px] text-right"
-      >
-        {formatNumberWithSpaces(value.toFixed(2))}
-      </Typography>
-      <div>{stars}</div>
-    </div>
-  );
+  return <div>{stars}</div>;
 };
 export default memo(RenderStarsWithRating);
