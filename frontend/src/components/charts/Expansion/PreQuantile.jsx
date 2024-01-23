@@ -5,7 +5,6 @@ import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 const series = [
-  { name: "ajust_b100", data: "ajust_b100" },
   { name: "DENOMINATION_OPCVM", data: "opc_b100" },
   { name: "Nom_Benchmark", data: "benc_b100" },
 ];
@@ -42,14 +41,9 @@ const objh = {
 };
 
 const rangeOpts = {
+  z: -1,
   tooltip: {
     show: false,
-  },
-  type: "line",
-  areaStyle: {
-    color: "rgba(204,204,204,0.5)",
-    opacity: 1,
-    origin: "start",
   },
   lineStyle: {
     opacity: 0,
@@ -66,6 +60,7 @@ const PreQuantile = ({ data }) => {
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
     [data]
   );
+
   const rangeValues = {
     q_05: data.map((item) => item.q_05),
     quart1: data.map((item) => item.quart1),
@@ -73,6 +68,13 @@ const PreQuantile = ({ data }) => {
     quart3: data.map((item) => item.quart3),
     q_95: data.map((item) => item.q_95),
   };
+  const yMin = Math.trunc(Math.min(...allValues, ...rangeValues.q_05));
+
+  console.log("allValues", allValues, yMin);
+  const legendData = useMemo(
+    () => series.map((serie) => data[0][serie.name]),
+    [series, data]
+  );
   const quart1Values = Array.from(
     { length: rangeValues.q_05.length },
     (_, index) => rangeValues.q_05[index] + rangeValues.quart1[index]
@@ -100,6 +102,7 @@ const PreQuantile = ({ data }) => {
   const q_05 = useMemo(() => {
     return {
       name: "q_05",
+      stack: "q_05",
       type: "line",
       symbol: "none",
       tooltip: {
@@ -120,32 +123,60 @@ const PreQuantile = ({ data }) => {
       name: "quart1",
       stack: "q_05",
       type: "line",
-      data: quart1Values,
+      data: rangeValues.quart1,
+      areaStyle: {
+        // color: "#8b8bc6",
+        color: "#d25a5a",
+        opacity: 1,
+        origin: "start",
+      },
       ...rangeOpts,
     };
   }, [data]);
   const quart2 = useMemo(() => {
     return {
       name: "quart2",
-      stack: "quart1",
+      stack: "q_05",
       type: "line",
-      data: quart2Values,
+      data: rangeValues.quart2,
+      areaStyle: {
+        color: "#4a4ac8",
+        color: "#d43c3c",
+        opacity: 1,
+        origin: "start",
+      },
+      ...rangeOpts,
     };
   }, [data]);
   const quart3 = useMemo(() => {
     return {
       name: "quart3",
-      stack: "quart2",
+      stack: "q_05",
       type: "line",
-      data: quart3Values,
+      data: rangeValues.quart3,
+      areaStyle: {
+        color: "#5a5ad6",
+        color: "#d51f1f",
+        opacity: 1,
+        origin: "start",
+      },
+      ...rangeOpts,
     };
   }, [data]);
   const q_95 = useMemo(() => {
     return {
       name: "q_95",
-      stack: "quart3",
+      stack: "q_05",
       type: "line",
-      data: q_95Values,
+      data: rangeValues.q_95,
+      showInLegend: false,
+      areaStyle: {
+        color: "#5500ff",
+        color: "#f90000",
+        opacity: 1,
+        origin: "start",
+      },
+      ...rangeOpts,
     };
   }, [data]);
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
@@ -153,7 +184,7 @@ const PreQuantile = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "Historique base 100",
+        text: "",
         left: "center",
         ...theme.title,
       },
@@ -193,6 +224,7 @@ const PreQuantile = ({ data }) => {
         ...theme.xAxis,
       },
       legend: {
+        data: legendData,
         type: "scroll",
         orient: "horizontal",
         zLevel: 23,
@@ -203,6 +235,7 @@ const PreQuantile = ({ data }) => {
       },
       yAxis: {
         type: "value",
+        min: yMin,
         axisLabel: {
           ...theme.yAxis.nameTextStyle,
         },

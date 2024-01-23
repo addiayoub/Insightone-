@@ -3,7 +3,7 @@ import apiNewMarko from "../../api/apiNewMarko";
 import { formatDate } from "../../utils/FormatDate";
 import moment from "moment";
 
-const apiTracking = "OPC_IND/";
+const apiTracking = "TRACK_OPC/";
 
 export const generationPtfAlea = createAsyncThunk(
   "tacking/GENERATION_PORTEFEUILLES_ALEATOIRES",

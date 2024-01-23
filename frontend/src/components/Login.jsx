@@ -111,7 +111,7 @@ export default function SignIn() {
                   required
                   fullWidth
                   name="password"
-                  label="Mot de pass"
+                  label="Mot de passe"
                   type="password"
                   id="password"
                   value={loginInfos.password}

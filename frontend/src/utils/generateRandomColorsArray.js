@@ -299,5 +299,5 @@ export function generateRandomColorsArray(length) {
     "#dce77a",
     "#77ecca",
   ];
-  return getRandomItems(colors, length);
+  return colors.slice(0, length - 1);
 }

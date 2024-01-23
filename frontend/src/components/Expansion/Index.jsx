@@ -14,6 +14,8 @@ import {
 import AnalyseQuatile from "../charts/Expansion/AnalyseQuatile";
 import FondsVersus from "../charts/Expansion/FondsVersus";
 import PreQuantile from "../charts/Expansion/PreQuantile";
+import QuatileSemaine from "../charts/Expansion/QuatileSemaine";
+import Consistency from "../charts/Expansion/Consistency";
 
 const Index = () => {
   const { data, loading } = useSelector((state) => state.expansion);
@@ -31,6 +33,12 @@ const Index = () => {
         )}
         {!loading && data.fondsVersusCat3.length > 0 && (
           <FondsVersus data={data.fondsVersusCat3} />
+        )}
+        {!loading && data.analyseQuatile.length > 0 && (
+          <QuatileSemaine data={data.analyseQuatile} />
+        )}
+        {!loading && data.analyseQuatile.length > 0 && (
+          <Consistency chartData={data.analyseQuatile} />
         )}
 
         {!loading && data.performance.length > 0 && (

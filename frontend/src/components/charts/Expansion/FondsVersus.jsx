@@ -2,19 +2,7 @@ import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
-const dd = [
-  {
-    encours_OPC: 25974765.79,
-    denomination_OPCVM: "SG EXPANSION",
-    CLASSIFICATION: "ACTIONS",
-    perf_bench_3A: 0.0321378548863267,
-    perf_opc_3A: 0.044103850088007324,
-    Perf_BenchClasse_3A: 0.03213785488632648,
-    vol_bench: 0.12615415935877597,
-    vol_opc: 0.11597066174690975,
-    Nom_Gerant: "SOGECAPITAL GESTION",
-  },
-];
+import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
 const FondsVersus = ({ data }) => {
   const theme = useChartTheme();
   const societeGes = useMemo(
@@ -27,7 +15,6 @@ const FondsVersus = ({ data }) => {
     [societeGes]
   );
 
-  console.log(colors.length);
   const formatedData = useMemo(() => {
     return data.map((item) => [
       item.perf_opc_3A * 100,
@@ -40,19 +27,21 @@ const FondsVersus = ({ data }) => {
   const seriesData = useMemo(
     () =>
       formatedData.map(([x, y, z, name, sg]) => ({
-        name,
+        name: sg,
         type: "effectScatter",
         symbol: "circle",
+        rippleEffect: {
+          period: 4,
+        },
         symbolSize: function () {
-          console.log(sg, societeGes.indexOf(sg));
           return Math.sqrt(z) / 10e2;
         },
-        data: [[x, y, sg]],
+        data: [[x, y, name, z]],
         itemStyle: {
           color: colors[societeGes.indexOf(sg)],
         },
       })),
-    [formatedData, colors]
+    [formatedData, societeGes, colors]
   );
   const xValues = useMemo(
     () => data.map((item) => item.perf_opc_3A * 100),
@@ -77,8 +66,8 @@ const FondsVersus = ({ data }) => {
         right: 0,
         top: "20%",
         height: 200,
-        width: 200,
         type: "scroll",
+        ...theme.legend,
         formatter: function (name) {
           if (name.length > 25) {
             const newName = name.split(" ");
@@ -86,7 +75,7 @@ const FondsVersus = ({ data }) => {
           }
           return name;
         },
-        ...theme.legend,
+        // ...theme.legend,
       },
       grid: {
         bottom: "50",
@@ -97,7 +86,7 @@ const FondsVersus = ({ data }) => {
           dataZoom: {
             yAxisIndex: "none",
           },
-          restore: {},
+          // restore: {},
           saveAsImage: {},
           dataView: {},
         },
@@ -149,15 +138,17 @@ const FondsVersus = ({ data }) => {
           const { seriesName, value } = params;
           return `<strong>${seriesName} - (${
             value[2]
-          })</strong> <br /> vol_opc: ${value[1].toFixed(
+          })</strong> <br /> Volatilité: ${value[1].toFixed(
             2
-          )}% <br /> perf_opc_3A: ${value[0].toFixed(2)}%`;
+          )}% <br /> Performance 3 ans: ${value[0].toFixed(
+            2
+          )}%<br /> Encours: ${formatNumberWithSpaces(value[3])}`;
         },
       },
 
       series: seriesData,
     };
-  }, [seriesData, data, theme]);
+  }, [seriesData, data, axisValues, theme]);
   return (
     <ReactECharts
       option={options}
