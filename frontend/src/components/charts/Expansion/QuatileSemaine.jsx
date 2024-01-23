@@ -13,19 +13,24 @@ const QuatileSemaine = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "",
+        text: "Quartile par semaine",
+        left: "center",
         ...theme.title,
+      },
+      grid: {
+        right: "100px",
+        // right: "3%",
+        bottom: "15%",
+        containLabel: true,
       },
       xAxis: {
         data: seances,
         type: "category",
-        axisLabel: {
-          // inside: true,
-          // color: "#fff",
-          ...theme.xAxis.nameTextStyle,
-        },
         axisTick: {
           show: false,
+        },
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
         },
         axisLine: {
           show: false,
@@ -48,8 +53,18 @@ const QuatileSemaine = ({ data }) => {
       tooltip: {
         trigger: "item",
         confine: true,
-
         // valueFormatter: (value) => value?.toFixed(2),
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
+          dataView: {},
+        },
+        top: "20px",
       },
       series: [
         {
@@ -76,7 +91,7 @@ const QuatileSemaine = ({ data }) => {
       ],
       ...defaultOptions,
     };
-  }, [data]);
+  }, [data, theme, seances, defaultOptions]);
   return (
     <ReactECharts
       option={options}

@@ -3,17 +3,36 @@ import AccordionBox from "../AccordionBox";
 import DateComponent from "../DateComponent";
 import { TextField, Box, Button, Typography, Divider } from "@mui/material";
 import IndicesComponent from "../IndicesComponent";
-import SingleSelect from "../SingleSelect";
 import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { generationPtfAlea } from "../../redux/actions/TrackingActions";
 import TitresComponent from "../TitresComponent";
+import Contrainte from "../Contrainte";
+import ToggleButtons from "../ToggleButtons";
+
+const buttons = [
+  {
+    label: "ajuster_label",
+    text: "Ajuster",
+    values: [
+      {
+        text: "Oui",
+        value: 1,
+      },
+      {
+        text: "Non",
+        value: 0,
+      },
+    ],
+  },
+];
 
 const Filter = ({ setIsShow }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [nbSim, setNbSim] = useState("");
   const [selectedIndices, setSelectedIndices] = useState([]);
+  const [choice, setChoice] = useState(0);
   const [opcvm, setOpcvm] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,6 +47,7 @@ const Filter = ({ setIsShow }) => {
         dateFin,
         indices: selectedIndices,
         opcvm,
+        ajuster: choice,
       })
     )
       .unwrap()
@@ -74,9 +94,27 @@ const Filter = ({ setIsShow }) => {
         selectedIndices={selectedIndices}
         setSelectedIndices={setSelectedIndices}
       />
+      <Divider />
+      {buttons.map(({ label, text, values }) => {
+        return (
+          <Box
+            label={text}
+            key={label}
+            className="flex flex-wrap gap-2 items-center mb-2"
+          >
+            <Typography className="text-sm">{text}</Typography>
+            <ToggleButtons
+              buttons={values}
+              init={choice}
+              label={label}
+              onButtonsChange={(label, newValue) => setChoice(newValue ?? 0)}
+            />
+          </Box>
+        );
+      })}
       <Button
         variant="contained"
-        className="w-fit"
+        className="w-fit mt-3"
         disabled={isDisabled}
         onClick={handleClick}
         size="small"

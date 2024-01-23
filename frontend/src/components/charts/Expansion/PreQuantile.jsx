@@ -48,6 +48,10 @@ const rangeOpts = {
   lineStyle: {
     opacity: 0,
   },
+  areaStyle: {
+    color: "#1338be",
+    origin: "start",
+  },
   emphasis: {
     disabled: true,
   },
@@ -124,13 +128,16 @@ const PreQuantile = ({ data }) => {
       stack: "q_05",
       type: "line",
       data: rangeValues.quart1,
-      areaStyle: {
-        // color: "#8b8bc6",
-        color: "#d25a5a",
-        opacity: 1,
-        origin: "start",
-      },
+      // areaStyle: {
+      //   color: "#8b8bc6",
+      //   opacity: 1,
+      //   origin: "start",
+      // },
       ...rangeOpts,
+      areaStyle: {
+        ...rangeOpts.areaStyle,
+        opacity: 0.4,
+      },
     };
   }, [data]);
   const quart2 = useMemo(() => {
@@ -139,13 +146,16 @@ const PreQuantile = ({ data }) => {
       stack: "q_05",
       type: "line",
       data: rangeValues.quart2,
-      areaStyle: {
-        color: "#4a4ac8",
-        color: "#d43c3c",
-        opacity: 1,
-        origin: "start",
-      },
+      // areaStyle: {
+      //   color: "#4a4ac8",
+      //   opacity: 1,
+      //   origin: "start",
+      // },
       ...rangeOpts,
+      areaStyle: {
+        ...rangeOpts.areaStyle,
+        opacity: 0.6,
+      },
     };
   }, [data]);
   const quart3 = useMemo(() => {
@@ -154,13 +164,16 @@ const PreQuantile = ({ data }) => {
       stack: "q_05",
       type: "line",
       data: rangeValues.quart3,
-      areaStyle: {
-        color: "#5a5ad6",
-        color: "#d51f1f",
-        opacity: 1,
-        origin: "start",
-      },
+      // areaStyle: {
+      //   color: "#5a5ad6",
+      //   opacity: 1,
+      //   origin: "start",
+      // },
       ...rangeOpts,
+      areaStyle: {
+        ...rangeOpts.areaStyle,
+        opacity: 0.8,
+      },
     };
   }, [data]);
   const q_95 = useMemo(() => {
@@ -170,12 +183,11 @@ const PreQuantile = ({ data }) => {
       type: "line",
       data: rangeValues.q_95,
       showInLegend: false,
-      areaStyle: {
-        color: "#5500ff",
-        color: "#f90000",
-        opacity: 1,
-        origin: "start",
-      },
+      // areaStyle: {
+      //   color: "#5500ff",
+      //   opacity: 0.5,
+      //   origin: "start",
+      // },
       ...rangeOpts,
     };
   }, [data]);

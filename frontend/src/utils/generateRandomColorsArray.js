@@ -301,3 +301,11 @@ export function generateRandomColorsArray(length) {
   ];
   return colors.slice(0, length - 1);
 }
+
+export const gradientPalette = [
+  "#b3cde0",
+  "#6497b1",
+  "#005b96",
+  "#03396c",
+  // "#0a1172",
+];

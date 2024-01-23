@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { graphic } from "echarts";
 import { consistencyFunc } from "../../../utils/consistencyFunc";
+import { gradientPalette } from "../../../utils/generateRandomColorsArray";
 
 const objh = [
   {
@@ -54,36 +55,47 @@ const datatest = {
     quartile_perf_3M: 29,
   },
 };
+const seriesNames = ["1", "2", "3", "4"];
 
 const Consistency = ({ chartData }) => {
   const data = useMemo(() => consistencyFunc(chartData), [chartData]);
   const theme = useChartTheme();
-  const seriesNames = ["1", "2", "3", "4"];
-  const seriesData = seriesNames.map((seriesName) => {
-    const { count, totals } = data;
-    const seriesItem = count[seriesName];
-    return {
-      name: seriesName,
-      type: "bar",
-      stack: "total",
-      label: {
-        show: true,
-        position: "inside",
-        formatter: (params) => {
-          return params.value.toFixed(2) + "%";
+  const seriesData = useMemo(() => {
+    const colors = gradientPalette;
+    return seriesNames.map((seriesName, index) => {
+      const { count, totals } = data;
+      const seriesItem = count[seriesName];
+      return {
+        name: seriesName,
+        type: "bar",
+        stack: "total",
+        label: {
+          show: true,
+          position: "inside",
+          formatter: (params) => {
+            return params.value.toFixed(2) + "%";
+          },
         },
-      },
-      data: [
-        (seriesItem.quartile_perf_1S / totals.quartile_perf_1S) * 100,
-        (seriesItem.quartile_perf_1M / totals.quartile_perf_1M) * 100,
-        (seriesItem.quartile_perf_3M / totals.quartile_perf_3M) * 100,
-      ],
-    };
-  });
+        itemStyle: { color: gradientPalette[index] },
+        data: [
+          (seriesItem.quartile_perf_1S / totals.quartile_perf_1S) * 100,
+          (seriesItem.quartile_perf_1M / totals.quartile_perf_1M) * 100,
+          (seriesItem.quartile_perf_3M / totals.quartile_perf_3M) * 100,
+        ],
+      };
+    });
+  }, [seriesNames, data, gradientPalette]);
   const options = useMemo(() => {
+    const dd = seriesData.reverse();
     return {
+      title: {
+        text: "Consistency check (Présence par quartile)",
+        left: "center",
+        ...theme.title,
+      },
       tooltip: {
         trigger: "axis",
+        //
         axisPointer: {
           type: "shadow",
         },
@@ -91,20 +103,37 @@ const Consistency = ({ chartData }) => {
         valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       legend: {
-        data: seriesNames,
+        bottom: 20,
         ...theme.legend,
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: true,
+          },
+          restore: {},
+          saveAsImage: {},
+          dataView: {},
+        },
+        top: "20px",
       },
       xAxis: {
         type: "category",
         axisTick: { show: false },
-        data: ["quartile_perf_1S", "quartile_perf_1M", "quartile_perf_3M"],
+        data: ["1s", "1m", "3m"],
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
         ...theme.xAxis,
       },
       yAxis: {
         type: "value",
+        axisLabel: {
+          show: false,
+        },
         ...theme.yAxis,
       },
-      series: seriesData,
+      series: dd,
     };
   }, [seriesData, seriesNames, theme]);
   return (
@@ -120,4 +149,4 @@ const Consistency = ({ chartData }) => {
   );
 };
 
-export default Consistency;
+export default memo(Consistency);

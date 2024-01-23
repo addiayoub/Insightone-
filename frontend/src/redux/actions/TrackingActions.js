@@ -7,7 +7,7 @@ const apiTracking = "TRACK_OPC/";
 
 export const generationPtfAlea = createAsyncThunk(
   "tacking/GENERATION_PORTEFEUILLES_ALEATOIRES",
-  async ({ nbSim, dateDebut, dateFin, indices, opcvm }, thunkAPI) => {
+  async ({ nbSim, dateDebut, dateFin, indices, opcvm, ajuster }, thunkAPI) => {
     try {
       const response = await apiNewMarko.post(
         `${apiTracking}POST/GENERATION_PORTEFEUILLES_ALEATOIRES/`,
@@ -19,6 +19,7 @@ export const generationPtfAlea = createAsyncThunk(
             end: formatDate(dateFin["$d"]),
             list_ind: indices,
             opcvm,
+            flag_ajust_poids: ajuster,
           },
         }
       );

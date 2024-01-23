@@ -19,7 +19,7 @@ const AnalyseQuatile = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "Historique base 100",
+        text: "",
         left: "center",
         ...theme.title,
       },

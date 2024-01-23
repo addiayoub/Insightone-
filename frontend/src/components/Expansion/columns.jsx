@@ -49,7 +49,7 @@ export const loeilExpertColumns = [
   {
     field: "",
     headerName: "Par rapport à la Cat",
-    flex: 0.3,
+    flex: 1,
     renderCell: (params) => {
       const value = params.row.valeur;
       const echelle = params.row.echelle;
@@ -85,7 +85,7 @@ export const indicateursRisqueColumns = [
   {
     field: "",
     headerName: "Par rapport à la Cat",
-    flex: 0.3,
+    flex: 1,
     renderCell: (params) => {
       const value = params.row.valeur;
       const echelle = params.row.echelle;
