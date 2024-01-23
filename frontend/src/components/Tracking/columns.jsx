@@ -26,11 +26,11 @@ export const moyColumns = [
     flex: 0.3,
     renderCell: (params) => params.row.Indice.toFixed(2),
   },
-  {
-    field: "TE",
-    headerName: "TE",
-    width: 200,
-    flex: 0.3,
-    renderCell: (params) => params.row.TE.toFixed(2),
-  },
+  // {
+  //   field: "TE",
+  //   headerName: "TE",
+  //   width: 200,
+  //   flex: 0.3,
+  //   renderCell: (params) => params.row.TE,
+  // },
 ];

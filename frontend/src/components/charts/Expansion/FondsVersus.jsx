@@ -1,7 +1,6 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import { graphic } from "echarts";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 const dd = [
   {
@@ -16,186 +15,149 @@ const dd = [
     Nom_Gerant: "SOGECAPITAL GESTION",
   },
 ];
-const data2 = [
-  [
-    [28604, 77, 17096869, "Australia", 1990],
-    [31163, 77.4, 27662440, "Canada", 1990],
-    [1516, 68, 1154605773, "China", 1990],
-    [13670, 74.7, 10582082, "Cuba", 1990],
-    [28599, 75, 4986705, "Finland", 1990],
-    [29476, 77.1, 56943299, "France", 1990],
-    [31476, 75.4, 78958237, "Germany", 1990],
-    [28666, 78.1, 254830, "Iceland", 1990],
-    [1777, 57.7, 870601776, "India", 1990],
-    [29550, 79.1, 122249285, "Japan", 1990],
-    [2076, 67.9, 20194354, "North Korea", 1990],
-    [12087, 72, 42972254, "South Korea", 1990],
-    [24021, 75.4, 3397534, "New Zealand", 1990],
-    [43296, 76.8, 4240375, "Norway", 1990],
-    [10088, 70.8, 38195258, "Poland", 1990],
-    [19349, 69.6, 147568552, "Russia", 1990],
-    [10670, 67.3, 53994605, "Turkey", 1990],
-    [26424, 75.7, 57110117, "United Kingdom", 1990],
-    [37062, 75.4, 252847810, "United States", 1990],
-  ],
-  [
-    [44056, 81.8, 23968973, "Australia", 2015],
-    [43294, 81.7, 35939927, "Canada", 2015],
-    [13334, 76.9, 1376048943, "China", 2015],
-    [21291, 78.5, 11389562, "Cuba", 2015],
-    [38923, 80.8, 5503457, "Finland", 2015],
-    [37599, 81.9, 64395345, "France", 2015],
-    [44053, 81.1, 80688545, "Germany", 2015],
-    [42182, 82.8, 329425, "Iceland", 2015],
-    [5903, 66.8, 1311050527, "India", 2015],
-    [36162, 83.5, 126573481, "Japan", 2015],
-    [1390, 71.4, 25155317, "North Korea", 2015],
-    [34644, 80.7, 50293439, "South Korea", 2015],
-    [34186, 80.6, 4528526, "New Zealand", 2015],
-    [64304, 81.6, 5210967, "Norway", 2015],
-    [24787, 77.3, 38611794, "Poland", 2015],
-    [23038, 73.13, 143456918, "Russia", 2015],
-    [19360, 76.5, 78665830, "Turkey", 2015],
-    [38225, 81.4, 64715810, "United Kingdom", 2015],
-    [53354, 79.1, 321773631, "United States", 2015],
-  ],
-];
 const FondsVersus = ({ data }) => {
   const theme = useChartTheme();
+  const societeGes = useMemo(
+    () => [...new Set(data.map((item) => item.Nom_Gerant))],
+    [data]
+  );
+  console.log("Nom_Gerant", societeGes);
+  const colors = useMemo(
+    () => generateRandomColorsArray(societeGes.length),
+    [societeGes]
+  );
 
-  const colors = useMemo(() => generateRandomColorsArray(data.length), [data]);
+  console.log(colors.length);
   const formatedData = useMemo(() => {
     return data.map((item) => [
       item.perf_opc_3A * 100,
       item.vol_opc * 100,
       item.encours_OPC,
       item.denomination_OPCVM,
+      item.Nom_Gerant,
     ]);
   }, [data]);
-  console.log("formated data", formatedData);
   const seriesData = useMemo(
     () =>
-      formatedData.map(([x, y, name], index) => ({
+      formatedData.map(([x, y, z, name, sg]) => ({
         name,
         type: "effectScatter",
         symbol: "circle",
-        symbolSize: 20,
-        data: [[x, y]],
+        symbolSize: function () {
+          console.log(sg, societeGes.indexOf(sg));
+          return Math.sqrt(z) / 10e2;
+        },
+        data: [[x, y, sg]],
         itemStyle: {
-          color: colors[index],
+          color: colors[societeGes.indexOf(sg)],
         },
       })),
     [formatedData, colors]
   );
-  const options = {
-    backgroundColor: graphic.RadialGradient(0, 0, 0, [
-      {
-        offset: 0,
-        color: "#f7f8fa",
-      },
-      {
-        offset: 1,
-        color: "#cdd0d5",
-      },
-    ]),
-    title: {
-      text: "",
-      left: "5%",
-      top: "3%",
-    },
-    legend: {
-      right: "10%",
-      top: "3%",
-      data: ["1990", "2015"],
-    },
-    grid: {
-      left: "8%",
-      top: "10%",
-    },
-    xAxis: {
-      splitLine: {
-        lineStyle: {
-          type: "dashed",
-        },
-      },
-    },
-    yAxis: {
-      splitLine: {
-        lineStyle: {
-          type: "dashed",
-        },
-      },
-      scale: true,
-    },
-    series: [
-      {
-        name: "1990",
-        data: data2[0],
-        type: "scatter",
-        symbolSize: function (data) {
-          return Math.sqrt(data[2]) / 5e2;
-        },
-        emphasis: {
-          focus: "series",
-          label: {
-            show: true,
-            formatter: function (param) {
-              return param.data[3];
-            },
-            position: "top",
-          },
-        },
-        itemStyle: {
-          shadowBlur: 10,
-          shadowColor: "rgba(120, 36, 50, 0.5)",
-          shadowOffsetY: 5,
-          color: new graphic.RadialGradient(0.4, 0.3, 1, [
-            {
-              offset: 0,
-              color: "rgb(251, 118, 123)",
-            },
-            {
-              offset: 1,
-              color: "rgb(204, 46, 72)",
-            },
-          ]),
-        },
-      },
-      {
-        name: "2015",
-        data: data2[1],
-        type: "scatter",
-        symbolSize: function (data) {
-          return Math.sqrt(data[2]) / 5e2;
-        },
-        emphasis: {
-          focus: "series",
-          label: {
-            show: true,
-            formatter: function (param) {
-              return param.data[3];
-            },
-            position: "top",
-          },
-        },
-        itemStyle: {
-          shadowBlur: 10,
-          shadowColor: "rgba(25, 100, 150, 0.5)",
-          shadowOffsetY: 5,
-          color: new graphic.RadialGradient(0.4, 0.3, 1, [
-            {
-              offset: 0,
-              color: "rgb(129, 227, 238)",
-            },
-            {
-              offset: 1,
-              color: "rgb(25, 183, 207)",
-            },
-          ]),
-        },
-      },
-    ],
+  const xValues = useMemo(
+    () => data.map((item) => item.perf_opc_3A * 100),
+    [data]
+  );
+  const yValues = useMemo(() => data.map((item) => item.vol_opc * 100), [data]);
+  const axisValues = {
+    x: [Math.min(...xValues), Math.max(...xValues)],
+    y: [Math.min(...yValues), Math.max(...yValues)],
   };
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "Fonds versus catégorie",
+        left: "center",
+        top: 0,
+        ...theme.title,
+      },
+      legend: {
+        orient: "vertical",
+        zLevel: 5,
+        right: 0,
+        top: "20%",
+        height: 200,
+        width: 200,
+        type: "scroll",
+        formatter: function (name) {
+          if (name.length > 25) {
+            const newName = name.split(" ");
+            return newName.join(" \n");
+          }
+          return name;
+        },
+        ...theme.legend,
+      },
+      grid: {
+        bottom: "50",
+        right: "250px",
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: "none",
+          },
+          restore: {},
+          saveAsImage: {},
+          dataView: {},
+        },
+        right: 0,
+        top: 15,
+      },
+      xAxis: {
+        type: "value",
+        name: "Performance 3 ans",
+        nameLocation: "middle",
+        nameGap: 30,
+        min: axisValues.x[0],
+        max: axisValues.x[1],
+        axisLabel: {
+          formatter: (value) => parseFloat(value).toFixed(2),
+          ...theme.xAxis.nameTextStyle,
+        },
+        nameTextStyle: {
+          fontSize: 14,
+          ...theme.xAxis.nameTextStyle,
+        },
+      },
+
+      yAxis: {
+        type: "value",
+        name: "Volatilité",
+        min: axisValues.y[0],
+        max:
+          axisValues.y[0] === axisValues.y[1]
+            ? axisValues.y[0] + 1
+            : axisValues.y[1],
+        nameLocation: "middle",
+        nameGap: 30,
+        axisLabel: {
+          formatter: (value) => parseFloat(value).toFixed(2),
+          ...theme.yAxis.nameTextStyle,
+        },
+        nameTextStyle: {
+          fontSize: 14,
+          ...theme.yAxis.nameTextStyle,
+        },
+      },
+      tooltip: {
+        trigger: "item",
+        axisPointer: {
+          type: "cross",
+        },
+        formatter: function (params) {
+          const { seriesName, value } = params;
+          return `<strong>${seriesName} - (${
+            value[2]
+          })</strong> <br /> vol_opc: ${value[1].toFixed(
+            2
+          )}% <br /> perf_opc_3A: ${value[0].toFixed(2)}%`;
+        },
+      },
+
+      series: seriesData,
+    };
+  }, [seriesData, data, theme]);
   return (
     <ReactECharts
       option={options}
@@ -203,10 +165,10 @@ const FondsVersus = ({ data }) => {
         height: "500px",
         minWidth: "600px",
         width: "100%",
-        margin: "auto",
+        margin: "15px auto",
       }}
     />
   );
 };
 
-export default FondsVersus;
+export default memo(FondsVersus);

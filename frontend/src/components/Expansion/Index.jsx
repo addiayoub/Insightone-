@@ -13,6 +13,7 @@ import {
 } from "./columns";
 import AnalyseQuatile from "../charts/Expansion/AnalyseQuatile";
 import FondsVersus from "../charts/Expansion/FondsVersus";
+import PreQuantile from "../charts/Expansion/PreQuantile";
 
 const Index = () => {
   const { data, loading } = useSelector((state) => state.expansion);
@@ -24,6 +25,9 @@ const Index = () => {
       <Box>
         {!loading && data.analyseQuatile.length > 0 && (
           <AnalyseQuatile data={data.analyseQuatile} />
+        )}
+        {!loading && data.analyseQuatile.length > 0 && (
+          <PreQuantile data={data.analyseQuatile} />
         )}
         {!loading && data.fondsVersusCat3.length > 0 && (
           <FondsVersus data={data.fondsVersusCat3} />
