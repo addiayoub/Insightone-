@@ -58,7 +58,9 @@ const Index = () => {
           )}
         </GridContainer>
         {showData && !loading && data.fondsVersusCat3.length > 0 && (
-          <FondsVersus data={data.fondsVersusCat3} />
+          <FondsVersus
+            data={[...data.fondsVersusCat3, ...data.fondsVersusCat2]}
+          />
         )}
         {showData && !loading && data.performance.length > 0 && (
           <Box>

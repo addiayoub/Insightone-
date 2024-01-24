@@ -11,10 +11,12 @@ const SMIPoids = ({ SIM }) => {
   const theme = useChartTheme();
   const seriesData = useMemo(
     () =>
-      df_poids.map((item) => ({
-        value: item[SIM] * 100,
-        name: item.titre,
-      })),
+      df_poids
+        .map((item) => ({
+          value: item[SIM] * 100,
+          name: item.titre,
+        }))
+        .sort((a, b) => b.value - a.value),
     [df_poids, SIM]
   );
   const options = {
