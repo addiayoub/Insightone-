@@ -29,8 +29,7 @@ const Index = () => {
   return (
     <>
       <Filter setIsShow={setIsShow} />
-      <Box>
-        {showData && df_moy && <Table rows={df_moy} columns={moyColumns} />}
+      <Box className="my-8">
         {showData && df_b100 && (
           <>
             <EvolutionB100 data={df_b100} title="Evolution base 100" />

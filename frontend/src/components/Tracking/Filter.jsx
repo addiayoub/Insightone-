@@ -146,7 +146,7 @@ const SelectedIndices = ({ list }) => {
   return (
     <Box className="my-3">
       <Typography className="text-base mb-2 font-medium">
-        La liste des indices sélectionnés
+        La liste des titres sélectionnés
       </Typography>
       <Box
         className="max-h-48 overflow-y-auto max-w-[280px] w-[280px] p-2"

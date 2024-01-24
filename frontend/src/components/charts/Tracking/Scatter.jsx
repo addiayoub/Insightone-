@@ -171,7 +171,7 @@ const Scatter = ({ data }) => {
             >
               <RefreshCcw size={18} color="#fff" />
             </IconButton>
-            <GridContainer xGap={4} extraCss="gap-x-4 items-center">
+            <GridContainer xGap={4} extraCss="gap-x-12 items-center">
               <GridItem cols={5}>
                 <SMIPoids SIM={SIM} />
               </GridItem>

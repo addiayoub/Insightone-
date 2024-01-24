@@ -6,10 +6,13 @@ import { Box } from "@mui/material";
 import Table from "../Table";
 import {
   barometreColumns,
+  bearColumns,
+  bullColumns,
   classementPerfColumns,
   indicateursRisqueColumns,
   loeilExpertColumns,
   performanceColumns,
+  sidewaysColumns,
 } from "./columns";
 import AnalyseQuatile from "../charts/AnalyseOPCVM/AnalyseQuatile";
 import FondsVersus from "../charts/AnalyseOPCVM/FondsVersus";
@@ -111,6 +114,22 @@ const Index = () => {
             </GridItem>
           )}
         </GridContainer>
+        {showData && !loading && data.analyseLipper1.length > 0 && (
+          <GridContainer extraCss="items-center">
+            <GridItem cols={4}>
+              <h3>BEAR MARKET</h3>
+              <Table rows={data.analyseLipper1} columns={bearColumns} />
+            </GridItem>
+            <GridItem cols={4}>
+              <h3>SIDEWAYS MARKET</h3>
+              <Table rows={data.analyseLipper1} columns={sidewaysColumns} />
+            </GridItem>
+            <GridItem cols={4}>
+              <h3>BULL MARKET</h3>
+              <Table rows={data.analyseLipper1} columns={bullColumns} />
+            </GridItem>
+          </GridContainer>
+        )}
         {showData && !loading && data.indicateursPerfRisque.length > 0 && (
           <AccordionBox title="Indicateurs" isExpanded>
             <Guages data={data.indicateursPerfRisque} />

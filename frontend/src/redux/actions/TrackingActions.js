@@ -30,10 +30,6 @@ export const generationPtfAlea = createAsyncThunk(
           ...item,
           seance: moment(item.seance).format("DD/MM/YYYY"),
         })),
-        df_p: response.data.df_p.map((item) => ({
-          ...item,
-          seance: moment(item.seance).format("DD/MM/YYYY"),
-        })),
       };
     } catch (error) {
       console.log(error);

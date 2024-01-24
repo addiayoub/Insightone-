@@ -185,6 +185,59 @@ export const classementPerfColumns = [
   },
 ];
 
+// {
+//     "bull_re": 0.42748091603053434,
+//     "bull_ab": 112,
+//     "bear_ab": 72,
+//     "bear_re": 0.2748091603053435,
+//     "sideways_ab": 78,
+//     "sideways_re": 0.29770992366412213
+// }
+
+export const sidewaysColumns = [
+  {
+    field: "sideways_ab",
+    headerName: "Absolue",
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.sideways_ab}</strong>,
+  },
+  {
+    field: "sideways_re",
+    headerName: "Relative",
+    flex: 0.3,
+    renderCell: (params) => params.row.sideways_re.toFixed(2) + "%",
+  },
+];
+export const bearColumns = [
+  {
+    field: "bear_ab",
+    headerName: "Absolue",
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.bear_ab}</strong>,
+  },
+  {
+    field: "bear_re",
+    headerName: "Relative",
+    flex: 0.3,
+    renderCell: (params) => params.row.bear_re.toFixed(2) + "%",
+  },
+];
+
+export const bullColumns = [
+  {
+    field: "bull_ab",
+    headerName: "Absolue",
+    flex: 0.3,
+    renderCell: (params) => <strong>{params.row.bull_ab}</strong>,
+  },
+  {
+    field: "bull_re",
+    headerName: "Relative",
+    flex: 0.3,
+    renderCell: (params) => params.row.bull_re.toFixed(2) + "%",
+  },
+];
+
 const classementPerfRating = (value) => {
   switch (value) {
     case 4:
