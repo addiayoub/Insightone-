@@ -3,14 +3,6 @@ import ReactECharts from "echarts-for-react";
 import { gradientPalette } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
 
-const colors = {
-  venteF: "red",
-  vente: "rgba(244, 62, 62, 0.55)",
-  neutre: "var(--text-muted)",
-  achat: "#c2f2c2",
-  achatF: "#0ea600",
-};
-
 const axisLabelFormatter = (value) => {
   switch (value) {
     case 0.1:
@@ -56,9 +48,10 @@ const Guage = ({ value, title }) => {
           },
           pointer: {
             icon,
-            length: "50%",
+            length: "30%",
             width: 9,
-            offsetCenter: [0, "5%"],
+            z: -1,
+            offsetCenter: [0, "-40%"],
             itemStyle: {
               color: "auto",
             },
@@ -94,8 +87,9 @@ const Guage = ({ value, title }) => {
           },
           detail: {
             fontSize: 20,
-            offsetCenter: [0, "-20%"],
+            offsetCenter: [0, 0],
             valueAnimation: true,
+            z: 10,
             formatter: function (value) {
               return (value * 100).toFixed(2) + "%";
             },
@@ -115,7 +109,7 @@ const Guage = ({ value, title }) => {
     <ReactECharts
       option={options}
       opts={{ renderer: "svg" }}
-      style={{ width: "383px", height: "260px" }}
+      style={{ width: "383px", height: "300px" }}
     />
   );
 };

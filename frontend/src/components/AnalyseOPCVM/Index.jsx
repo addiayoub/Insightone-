@@ -11,14 +11,13 @@ import {
   loeilExpertColumns,
   performanceColumns,
 } from "./columns";
-import AnalyseQuatile from "../charts/Expansion/AnalyseQuatile";
-import FondsVersus from "../charts/Expansion/FondsVersus";
-import PreQuantile from "../charts/Expansion/PreQuantile";
-import QuatileSemaine from "../charts/Expansion/QuatileSemaine";
-import Consistency from "../charts/Expansion/Consistency";
+import AnalyseQuatile from "../charts/AnalyseOPCVM/AnalyseQuatile";
+import FondsVersus from "../charts/AnalyseOPCVM/FondsVersus";
+import PreQuantile from "../charts/AnalyseOPCVM/PreQuantile";
+import QuatileSemaine from "../charts/AnalyseOPCVM/QuatileSemaine";
+import Consistency from "../charts/AnalyseOPCVM/Consistency";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
-import Guage from "../charts/Expansion/Guage";
-import Guages from "../charts/Expansion/Guages";
+import Guages from "../charts/AnalyseOPCVM/Guages";
 import AccordionBox from "../AccordionBox";
 
 const Index = () => {
@@ -30,7 +29,6 @@ const Index = () => {
   return (
     <>
       <Filter setIsShow={setIsShow} />
-      <Guage />
       <Box>
         <GridContainer extraCss="items-center">
           {showData && !loading && data.analyseQuatile.length > 0 && (
@@ -91,7 +89,7 @@ const Index = () => {
             </GridItem>
           )}
         </GridContainer>
-        <GridContainer extraCss="mt-8 gap-4">
+        <GridContainer extraCss="my-24 gap-4">
           {showData && !loading && data.barometreQuantalys.length > 0 && (
             <GridItem>
               <h3>Baromètre ID&A TECH</h3>
@@ -114,7 +112,7 @@ const Index = () => {
           )}
         </GridContainer>
         {showData && !loading && data.indicateursPerfRisque.length > 0 && (
-          <AccordionBox title="Indicateurs" isExpanded accordionClass="my-8">
+          <AccordionBox title="Indicateurs" isExpanded>
             <Guages data={data.indicateursPerfRisque} />
           </AccordionBox>
         )}

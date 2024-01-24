@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import ModalComponent from "../Modal";
 import Contrainte from "../Contrainte";
 import ToggleButtons from "../ToggleButtons";
 import { useDispatch } from "react-redux";

@@ -11,6 +11,7 @@ import {
   Briefcase,
   Compass,
   Globe,
+  Pocket,
 } from "react-feather";
 
 export const sidebarData = [
@@ -114,17 +115,25 @@ export const sidebarData = [
         link: "portefeuilles",
         icon: Briefcase,
       },
+    ],
+  },
+  {
+    title: "Analyse OPCVM",
+    icon: Pocket,
+    link: null,
+    iconClosed: ChevronDown,
+    iconOpened: ChevronUp,
+    subMenu: [
+      {
+        title: "Analyse OPCVM",
+        link: "analyse-opcvm",
+        icon: Globe,
+      },
       {
         title: "Tracking des fonds",
         link: "tracking",
         icon: Compass,
       },
     ],
-  },
-  {
-    icon: Globe,
-    title: "Analyse OPCVM",
-    link: "analyse-opcvm",
-    isPrivate: false,
   },
 ];

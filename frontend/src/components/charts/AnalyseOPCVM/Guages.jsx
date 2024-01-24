@@ -1,6 +1,7 @@
 import React from "react";
 import Guage from "./Guage";
 import { Box } from "@mui/material";
+import Choice from "../../portefeuilles/Choice";
 
 const indicateurs = {
   perf: [
@@ -39,8 +40,33 @@ const Guages = ({ data }) => {
   console.log("Guages data", data);
   const perfData = filterByType(data, "perf");
   const risqueData = filterByType(data, "risque");
+  const rdtData = data.filter(
+    (item) =>
+      !indicateurs.perf.includes(item.indicateur) &&
+      !indicateurs.risque.includes(item.indicateur)
+  );
   console.log("perfData", perfData, "risqueData", risqueData);
+  const tabs = [
+    {
+      label: "Performance",
+      component: GuagesContainer,
+      props: { data: perfData },
+    },
+    {
+      label: "Risque",
+      component: GuagesContainer,
+      props: { data: risqueData },
+    },
+    {
+      label: "Rdt/Risque",
+      component: GuagesContainer,
+      props: { data: rdtData },
+    },
+  ];
+  return <Choice tabs={tabs} />;
+};
 
+const GuagesContainer = ({ data }) => {
   return (
     <Box className="flex flex-wrap items-center justify-center m-auto">
       {data.map((item, index) => {
@@ -51,7 +77,5 @@ const Guages = ({ data }) => {
     </Box>
   );
 };
-
-const GuagesContainer = ({ data }) => {};
 
 export default Guages;
