@@ -11,13 +11,12 @@ export const generationPtfAlea = createAsyncThunk(
     try {
       const response = await apiNewMarko.post(
         `${apiTracking}POST/GENERATION_PORTEFEUILLES_ALEATOIRES/`,
-        {},
+        indices,
         {
           params: {
             nb_simulations: nbSim,
             start: formatDate(dateDebut["$d"]),
             end: formatDate(dateFin["$d"]),
-            list_ind: indices,
             opcvm,
             flag_ajust_poids: ajuster,
           },

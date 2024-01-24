@@ -57,7 +57,7 @@ const Filter = ({ setIsShow }) => {
       .catch()
       .finally();
   };
-  const isDisabled = selectedIndices.length < 1 || nbSim === "" || !opcvm;
+  const isDisabled = list.length < 1 || nbSim === "" || !opcvm;
   return (
     <>
       <AccordionBox
@@ -127,6 +127,7 @@ const Filter = ({ setIsShow }) => {
             </Box>
           );
         })}
+        {list.length > 0 && <SelectedIndices list={list} />}
         <Button
           variant="contained"
           className="w-fit mt-3"
@@ -137,7 +138,6 @@ const Filter = ({ setIsShow }) => {
           Rechercher
         </Button>
       </AccordionBox>
-      {list.length > 0 && <SelectedIndices list={list} />}
     </>
   );
 };

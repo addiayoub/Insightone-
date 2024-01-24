@@ -120,7 +120,7 @@ const Index = () => {
           </AccordionBox>
         )}
         {showData && !loading && data.analyseLipper1.length > 0 && (
-          <GridContainer extraCss="items-center gap-x-4" xGap={4}>
+          <GridContainer extraCss="items-center gap-x-4 my-8" xGap={4}>
             <GridItem cols={4}>
               <h3>BEAR MARKET</h3>
               <Table rows={data.analyseLipper1} columns={bearColumns} />

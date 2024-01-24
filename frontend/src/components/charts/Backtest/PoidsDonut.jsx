@@ -3,20 +3,6 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 const PoidsDonut = ({ data, title, field }) => {
-  // const data = [
-  //   {
-  //     titre: "AD BALANCED FUND",
-  //     poids_initial: 4.545454545454547,
-  //     poids_final: 4.663182335566862,
-  //   },
-  //   {
-  //     PTF: "opcvm-poids-equip",
-  //     titre: "ATLAS PERENNITE",
-  //     poids_initial: 4.545454545454547,
-  //     poids_final: 5.163164764832203,
-  //   },
-  //   //More data
-  // ];
   const seriesData = data.map((item) => ({
     name: item.titre,
     value: item[field],
