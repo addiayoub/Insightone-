@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import ReactECharts from "echarts-for-react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
-import ReactECharts from "echarts-for-react";
 import SMIPoids from "./SMIPoids";
 import SMIEvolution from "./SMIEvolution";
 import AccordionBox from "../../AccordionBox";
 import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
+import GridContainer, { GridItem } from "../../Ui/GridContainer";
 
 const Scatter = ({ data }) => {
   const theme = useChartTheme();
@@ -90,8 +91,8 @@ const Scatter = ({ data }) => {
         name: "Performance relative",
         nameLocation: "middle",
         nameGap: 30,
-        min: axisValues.x[0],
-        max: axisValues.x[1],
+        min: axisValues.x[0] - 1,
+        max: axisValues.x[1] + 1,
         axisLabel: {
           formatter: (value) => parseFloat(value).toFixed(2),
           ...theme.xAxis.nameTextStyle,
@@ -170,14 +171,14 @@ const Scatter = ({ data }) => {
             >
               <RefreshCcw size={18} color="#fff" />
             </IconButton>
-            <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 items-center">
-              <div className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+            <GridContainer xGap={4} extraCss="gap-x-4 items-center">
+              <GridItem cols={5}>
                 <SMIPoids SIM={SIM} />
-              </div>
-              <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+              </GridItem>
+              <GridItem cols={7}>
                 <SMIEvolution SIM={SIM} />
-              </div>
-            </div>
+              </GridItem>
+            </GridContainer>
           </AccordionBox>
         )}
       </div>

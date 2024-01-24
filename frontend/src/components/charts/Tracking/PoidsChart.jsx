@@ -6,9 +6,9 @@ import { defaultOptions } from "../../../utils/chart/defaultOptions";
 const PoidsChart = ({ data }) => {
   const theme = useChartTheme();
   console.log("render PoidsChart");
-  const years = useMemo(() => data.map((item) => item.indice), [data]);
+  const legendData = useMemo(() => data.map((item) => item.titre), [data]);
   const seriesName = useMemo(
-    () => Object.keys(data[0]).filter((key) => key !== "indice"),
+    () => Object.keys(data[0]).filter((key) => key !== "titre"),
     [data]
   );
   const series = useMemo(
@@ -16,7 +16,7 @@ const PoidsChart = ({ data }) => {
       seriesName.map((key) => ({
         name: key,
         type: "bar",
-        data: data.map((item) => item[key]),
+        data: data.map((item) => item[key] * 100),
       })),
     [data, seriesName]
   );
@@ -30,7 +30,7 @@ const PoidsChart = ({ data }) => {
       tooltip: {
         trigger: "axis",
         confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
+        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       legend: {
         data: seriesName,
@@ -61,7 +61,7 @@ const PoidsChart = ({ data }) => {
       },
       xAxis: {
         type: "category",
-        data: years,
+        data: legendData,
         axisLabel: {
           ...theme.xAxis.nameTextStyle,
         },
@@ -75,9 +75,8 @@ const PoidsChart = ({ data }) => {
         ...theme.yAxis,
       },
       series: series,
-      ...defaultOptions,
     };
-  }, [series, seriesName, years, theme]);
+  }, [series, seriesName, legendData, theme]);
   return (
     <ReactECharts
       option={options}

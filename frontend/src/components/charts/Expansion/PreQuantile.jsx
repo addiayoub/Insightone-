@@ -201,7 +201,7 @@ const PreQuantile = ({ data }) => {
         ...theme.title,
       },
       grid: {
-        right: "20%",
+        right: "80px",
         top: "10%",
         // right: "3%",
         bottom: "15%",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
@@ -17,43 +17,49 @@ import PreQuantile from "../charts/Expansion/PreQuantile";
 import QuatileSemaine from "../charts/Expansion/QuatileSemaine";
 import Consistency from "../charts/Expansion/Consistency";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
+import Guage from "../charts/Expansion/Guage";
+import Guages from "../charts/Expansion/Guages";
+import AccordionBox from "../AccordionBox";
 
 const Index = () => {
   const { data, loading } = useSelector((state) => state.expansion);
+  const [isShow, setIsShow] = useState(false);
   console.log("data", data);
   const isLoading = loading;
+  const showData = !isLoading && isShow;
   return (
     <>
-      <Filter />
+      <Filter setIsShow={setIsShow} />
+      <Guage />
       <Box>
         <GridContainer extraCss="items-center">
-          {!loading && data.analyseQuatile.length > 0 && (
+          {showData && !loading && data.analyseQuatile.length > 0 && (
             <GridItem>
               <AnalyseQuatile data={data.analyseQuatile} />
             </GridItem>
           )}
-          {!loading && data.analyseQuatile.length > 0 && (
+          {showData && !loading && data.analyseQuatile.length > 0 && (
             <GridItem>
               <PreQuantile data={data.analyseQuatile} />
             </GridItem>
           )}
         </GridContainer>
         <GridContainer extraCss="items-center my-4">
-          {!loading && data.analyseQuatile.length > 0 && (
+          {showData && !loading && data.analyseQuatile.length > 0 && (
             <GridItem>
               <QuatileSemaine data={data.analyseQuatile} />
             </GridItem>
           )}
-          {!loading && data.analyseQuatile.length > 0 && (
+          {showData && !loading && data.analyseQuatile.length > 0 && (
             <GridItem>
               <Consistency chartData={data.analyseQuatile} />
             </GridItem>
           )}
         </GridContainer>
-        {!loading && data.fondsVersusCat3.length > 0 && (
+        {showData && !loading && data.fondsVersusCat3.length > 0 && (
           <FondsVersus data={data.fondsVersusCat3} />
         )}
-        {!loading && data.performance.length > 0 && (
+        {showData && !loading && data.performance.length > 0 && (
           <Box>
             <h3>Perfromance</h3>
             <Table
@@ -64,7 +70,7 @@ const Index = () => {
           </Box>
         )}
         <GridContainer extraCss="mt-8 mb-12 gap-4">
-          {!loading && data.loeilExpert.length > 0 && (
+          {showData && !loading && data.loeilExpert.length > 0 && (
             <GridItem>
               <h3>L'œil de l'expert</h3>
               <Table
@@ -74,7 +80,7 @@ const Index = () => {
               />
             </GridItem>
           )}
-          {!loading && data.indicateursRisque.length > 0 && (
+          {showData && !loading && data.indicateursRisque.length > 0 && (
             <GridItem>
               <h3>Indicateurs de risque</h3>
               <Table
@@ -86,7 +92,7 @@ const Index = () => {
           )}
         </GridContainer>
         <GridContainer extraCss="mt-8 gap-4">
-          {!loading && data.barometreQuantalys.length > 0 && (
+          {showData && !loading && data.barometreQuantalys.length > 0 && (
             <GridItem>
               <h3>Baromètre ID&A TECH</h3>
               <Table
@@ -96,7 +102,7 @@ const Index = () => {
               />
             </GridItem>
           )}
-          {!loading && data.classementPerformance.length > 0 && (
+          {showData && !loading && data.classementPerformance.length > 0 && (
             <GridItem>
               <h3>Classement de la performance</h3>
               <Table
@@ -107,6 +113,11 @@ const Index = () => {
             </GridItem>
           )}
         </GridContainer>
+        {showData && !loading && data.indicateursPerfRisque.length > 0 && (
+          <AccordionBox title="Indicateurs" isExpanded accordionClass="my-8">
+            <Guages data={data.indicateursPerfRisque} />
+          </AccordionBox>
+        )}
       </Box>
       {isLoading && <MainLoader />}
     </>

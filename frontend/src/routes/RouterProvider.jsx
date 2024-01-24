@@ -34,7 +34,7 @@ function RouterProvider() {
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
             <Route path="/tracking" element={<Tracking />} />
-            <Route path="/expansion" element={<Expansion />} />
+            <Route path="/analyse-opcvm" element={<Expansion />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

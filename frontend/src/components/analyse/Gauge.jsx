@@ -1,16 +1,18 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 import { useSelector } from "react-redux";
+const colors = {
+  venteF: "red",
+  vente: "rgba(244, 62, 62, 0.55)",
+  neutre: "var(--text-muted)",
+  achat: "#c2f2c2",
+  achatF: "#0ea600",
+};
 
 function Gauge({ value, title }) {
+  console.log("Gauge({ value, title })", value, title);
   const { darkTheme } = useSelector((state) => state.theme);
-  const colors = {
-    venteF: "red",
-    vente: "rgba(244, 62, 62, 0.55)",
-    neutre: "var(--text-muted)",
-    achat: "#c2f2c2",
-    achatF: "#0ea600",
-  };
+
   const options = {
     series: [
       {

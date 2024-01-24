@@ -87,7 +87,11 @@ const Filter = ({ setIsShow }) => {
       </Box>
       <Divider />
       <Typography className="text-sm">Selection des OPCVM</Typography>
-      <TitresComponent selectedTitres={opcvm} setSelectedTitres={setOpcvm} />
+      <TitresComponent
+        selectedTitres={opcvm}
+        setSelectedTitres={setOpcvm}
+        choice="OPCVM"
+      />
       <Divider />
       <Typography className="text-sm">Selection des indices</Typography>
       <IndicesComponent

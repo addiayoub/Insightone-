@@ -1,10 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import apiNewMarko from "../../api/apiNewMarko";
 import { formatDate } from "../../utils/FormatDate";
 import moment from "moment";
 import apiMarko from "../../api/apiMarko";
-
-const apiTracking = "OPC_IND/";
 
 export const getAnalyse = createAsyncThunk(
   "expansion/getAnalyse",
@@ -59,6 +56,21 @@ export const getAnalyse = createAsyncThunk(
           params: `&${date}&${opcvm}`,
           varName: "fondsVersusCat3",
         },
+        {
+          url: "INDICATEURS_PERF_RISQUE",
+          params: `&${date}&${opcvm}`,
+          varName: "indicateursPerfRisque",
+        },
+        {
+          url: "ANALYSE_LIPPER_1",
+          params: `&${date}&${opcvm}&${periode}&${seuil}`,
+          varName: "analyseLipper1",
+        },
+        {
+          url: "ANALYSE_LIPPER_2",
+          params: `&${date}&${opcvm}&${periode}&${seuil}`,
+          varName: "analyseLipper2",
+        },
       ];
       const [
         { analyseQuatile },
@@ -70,6 +82,9 @@ export const getAnalyse = createAsyncThunk(
         { fondsVersusCat1 },
         { fondsVersusCat2 },
         { fondsVersusCat3 },
+        { indicateursPerfRisque },
+        { analyseLipper1 },
+        { analyseLipper2 },
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
@@ -92,6 +107,9 @@ export const getAnalyse = createAsyncThunk(
         fondsVersusCat1,
         fondsVersusCat2,
         fondsVersusCat3,
+        indicateursPerfRisque,
+        analyseLipper1,
+        analyseLipper2,
       };
     } catch (error) {
       console.log(error);

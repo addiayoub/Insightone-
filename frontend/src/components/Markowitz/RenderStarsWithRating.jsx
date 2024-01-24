@@ -41,6 +41,7 @@ const RenderStarsWithRating = ({
   ratingIcon = "star",
   starsNumber = 5,
   color = "#faaf00",
+  className = "",
 }) => {
   const rating = getStarRating(ratingBy);
 
@@ -52,6 +53,6 @@ const RenderStarsWithRating = ({
     )
   );
 
-  return <div>{stars}</div>;
+  return <div className={className}>{stars}</div>;
 };
 export default memo(RenderStarsWithRating);

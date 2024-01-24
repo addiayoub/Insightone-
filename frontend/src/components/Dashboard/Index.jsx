@@ -57,6 +57,7 @@ import {
   STATISTIQUES_SOCIETES_2,
   SECTEURS,
 } from "./columns.jsx";
+import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
 
 const gridStyle = {
   display: "grid",
@@ -213,30 +214,30 @@ function Index() {
           <Card title={"Capitalisation"} value={cardData.capitalisation} />
         </Cards>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 items-center mt-24">
+      <GridContainer xGap={12} extraCss="items-center mt-24">
         {!loading && isShow && (
-          <div className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+          <GridItem cols={5}>
             <CapitalisationChart data={capitalisationData} />
-          </div>
+          </GridItem>
         )}
 
         {!loading && show && (
-          <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+          <GridItem cols={7}>
             <Echart data={stockData} />
-          </div>
+          </GridItem>
         )}
-      </div>
+      </GridContainer>
 
       {!loading && (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 items-center my-10">
-            <div className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+          <GridContainer xGap={12} extraCss="items-center my-10">
+            <GridItem cols={5}>
               <EvolutionMasi data={stockData} />
-            </div>
-            <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
+            </GridItem>
+            <GridItem cols={7}>
               <VolumeEchange chartData={dataObject.VOLUME_ECHANGE} />
-            </div>
-          </div>
+            </GridItem>
+          </GridContainer>
           <DataTable
             title={"Performance du macrhé"}
             columns={PERFORMANCE_DU_MARCHE}

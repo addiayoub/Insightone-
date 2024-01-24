@@ -12,6 +12,9 @@ const initialState = {
     fondsVersusCat1: [],
     fondsVersusCat2: [],
     fondsVersusCat3: [],
+    indicateursPerfRisque: [],
+    analyseLipper1: [],
+    analyseLipper2: [],
   },
   loading: false,
   error: null,
@@ -35,6 +38,9 @@ const expansionSlice = createSlice({
       state.data.fondsVersusCat1 = payload.fondsVersusCat1;
       state.data.fondsVersusCat2 = payload.fondsVersusCat2;
       state.data.fondsVersusCat3 = payload.fondsVersusCat3;
+      state.data.indicateursPerfRisque = payload.indicateursPerfRisque;
+      state.data.analyseLipper1 = payload.analyseLipper1;
+      state.data.analyseLipper2 = payload.analyseLipper2;
     });
     builder.addCase(getAnalyse.rejected, (state, payload) => {
       state.loading = false;

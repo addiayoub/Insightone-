@@ -124,7 +124,7 @@ export const sidebarData = [
   {
     icon: Globe,
     title: "Analyse OPCVM",
-    link: "expansion",
+    link: "analyse-opcvm",
     isPrivate: false,
   },
 ];

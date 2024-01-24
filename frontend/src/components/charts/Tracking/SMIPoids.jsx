@@ -12,8 +12,8 @@ const SMIPoids = ({ SIM }) => {
   const seriesData = useMemo(
     () =>
       df_poids.map((item) => ({
-        value: item[SIM],
-        name: item.indice,
+        value: item[SIM] * 100,
+        name: item.titre,
       })),
     [df_poids, SIM]
   );

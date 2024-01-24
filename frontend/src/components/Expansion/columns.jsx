@@ -176,6 +176,7 @@ export const classementPerfColumns = [
             getStarRating={classementPerfRating}
             ratingIcon="square"
             starsNumber={4}
+            className="flex flex-row-reverse"
             color="var(--primary-color)"
           />
         </div>

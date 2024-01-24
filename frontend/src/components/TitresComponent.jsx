@@ -6,9 +6,14 @@ import { Box } from "@mui/material";
 import SelectIndices from "./Markowitz/SelectIndices";
 import SingleSelect from "./SingleSelect";
 
-const choice = "OPCVM";
+// const choice = "OPCVM";
 
-const TitresComponent = ({ selectedTitres, setSelectedTitres }) => {
+const TitresComponent = ({
+  selectedTitres,
+  setSelectedTitres,
+  choice,
+  isMultipl,
+}) => {
   const [titres, setTitres] = useState({
     Actions: [],
     OPCVM: [],
@@ -46,39 +51,37 @@ const TitresComponent = ({ selectedTitres, setSelectedTitres }) => {
         return (
           <Box className="flex flex-wrap gap-2 item-center" key={index}>
             {Object.keys(select).map((key) => {
-              if (key === "titres") {
-                return (
-                  <SingleSelect
-                    key={`${select[key]["label"]}-${index + 1}`}
-                    label={select[key]["label"]}
-                    options={select[key]["data"]}
-                    value={selectedTitres}
-                    setValue={setSelectedTitres}
-                  />
-                );
-              } else {
-                return (
-                  <SelectIndices
-                    key={`${select[key]["label"]}-${index + 1}`}
-                    label={select[key]["label"]}
-                    indices={select[key]["data"]}
-                    selectedIndices={
-                      key === "classes"
-                        ? selectedClasses
-                        : key === "categories"
-                        ? selectedCategories
-                        : selectedTitres
-                    }
-                    setSelectedIndices={
-                      key === "classes"
-                        ? setSelectedClasses
-                        : key === "categories"
-                        ? setSelectedCategories
-                        : setSelectedTitres
-                    }
-                  />
-                );
-              }
+              const { label, data } = select[key];
+              const isSingleSelect = key === "titres" && !isMultipl;
+              return isSingleSelect ? (
+                <SingleSelect
+                  key={`${label}-${index + 1}`}
+                  label={label}
+                  options={data}
+                  value={selectedTitres}
+                  setValue={setSelectedTitres}
+                />
+              ) : (
+                <SelectIndices
+                  key={`${label}-${index + 1}`}
+                  label={label}
+                  indices={data}
+                  selectedIndices={
+                    key === "classes"
+                      ? selectedClasses
+                      : key === "categories"
+                      ? selectedCategories
+                      : selectedTitres
+                  }
+                  setSelectedIndices={
+                    key === "classes"
+                      ? setSelectedClasses
+                      : key === "categories"
+                      ? setSelectedCategories
+                      : setSelectedTitres
+                  }
+                />
+              );
             })}
           </Box>
         );
