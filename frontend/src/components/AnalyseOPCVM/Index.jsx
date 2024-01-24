@@ -114,8 +114,13 @@ const Index = () => {
             </GridItem>
           )}
         </GridContainer>
+        {showData && !loading && data.indicateursPerfRisque.length > 0 && (
+          <AccordionBox title="Indicateurs" isExpanded>
+            <Guages data={data.indicateursPerfRisque} />
+          </AccordionBox>
+        )}
         {showData && !loading && data.analyseLipper1.length > 0 && (
-          <GridContainer extraCss="items-center">
+          <GridContainer extraCss="items-center" xGap={4}>
             <GridItem cols={4}>
               <h3>BEAR MARKET</h3>
               <Table rows={data.analyseLipper1} columns={bearColumns} />
@@ -129,11 +134,6 @@ const Index = () => {
               <Table rows={data.analyseLipper1} columns={bullColumns} />
             </GridItem>
           </GridContainer>
-        )}
-        {showData && !loading && data.indicateursPerfRisque.length > 0 && (
-          <AccordionBox title="Indicateurs" isExpanded>
-            <Guages data={data.indicateursPerfRisque} />
-          </AccordionBox>
         )}
       </Box>
       {isLoading && <MainLoader />}
