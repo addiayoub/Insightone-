@@ -15,8 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPtfToBacktest } from "../../redux/slices/BacktestSlice.js";
 import PortefeuilleActions from "../PortefeuilleActions.jsx";
 import PortefeuillePeriod from "../PortefeuillePeriod.jsx";
-import { Button } from "@mui/material";
 import DeleteModal from "../DeleteModal.jsx";
+import PtfPoids from "../charts/Backtest/PtfPoids.jsx";
+import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
 
 const calculateSum = (data, classification, field) => {
   // Filter the data based on the provided Classification
@@ -280,6 +281,21 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
         withCheckboxes={showActions && true}
         setSelectedRows={setSelectedRows}
       />
+      {showActions && newRows.length > 0 && (
+        <GridContainer extraCss="my-4">
+          <GridItem>
+            <PtfPoids data={newRows} field={field} title="Poids des titres" />
+          </GridItem>
+          <GridItem>
+            <PtfPoids
+              data={newRows}
+              field={field}
+              sumOf="Societe_Gestion"
+              title="Poids des sociétés des gestions"
+            />
+          </GridItem>
+        </GridContainer>
+      )}
       {open && (
         <ModalComponent open={open} handleClose={reset}>
           <EditPoidsTitreForm
@@ -314,6 +330,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           />
         </ModalComponent>
       )}
+
       <ModalComponent
         open={openDelete}
         handleClose={() => setOpenDelete(false)}

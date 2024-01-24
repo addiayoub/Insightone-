@@ -4,7 +4,82 @@ import groupBy from "../../utils/groupBy";
 import { ToggleLeft, ToggleRight } from "react-feather";
 import { IconButton } from "@mui/material";
 
+const societeFirstFun = (data) => {
+  const res = [];
+  const societeGestionMap = {};
+
+  for (const classification in data) {
+    for (const item of data[classification]) {
+      const { Societe_Gestion, titre } = item;
+
+      if (!societeGestionMap[Societe_Gestion]) {
+        societeGestionMap[Societe_Gestion] = {
+          name: Societe_Gestion,
+          children: [],
+        };
+        res.push(societeGestionMap[Societe_Gestion]);
+      }
+
+      const classificationNode = societeGestionMap[Societe_Gestion];
+
+      if (!classificationNode[classification]) {
+        classificationNode[classification] = {
+          name: classification,
+          children: [],
+        };
+        societeGestionMap[Societe_Gestion].children.push(
+          classificationNode[classification]
+        );
+      }
+
+      classificationNode[classification].children.push({
+        name: titre,
+        value: item[field],
+        itemStyle: {
+          padding: 700,
+        },
+      });
+    }
+  }
+  return res;
+};
+const classiFirstFun = (data) => {
+  const res = [];
+  for (const classification in data) {
+    const classificationNode = {
+      name: classification,
+      children: [],
+    };
+
+    const societeGestionMap = {};
+
+    for (const item of data[classification]) {
+      const { Societe_Gestion, titre } = item;
+      if (!societeGestionMap[Societe_Gestion]) {
+        societeGestionMap[Societe_Gestion] = {
+          name: Societe_Gestion,
+          children: [],
+        };
+        classificationNode.children.push(societeGestionMap[Societe_Gestion]);
+      }
+
+      societeGestionMap[Societe_Gestion].children.push({
+        name: titre,
+        value: item[field],
+        itemStyle: {
+          padding: 700,
+        },
+      });
+    }
+
+    res.push(classificationNode);
+  }
+  return res;
+};
+
 function PortefeuilleSunburst({ data, field }) {
+  console.log("PortefeuilleSunburst data", data);
+  console.log("render PortefeuilleSunburst");
   const test = groupBy(data, "Classification");
   const [isClassification, setIsClassification] = useState(false);
   const [series, setSeries] = useState();

@@ -1,6 +1,5 @@
 import ReactECharts from "echarts-for-react";
 import React from "react";
-import testData from "../Test/porteData.json";
 import groupBy from "../../utils/groupBy";
 
 function PortefeuilleSunburst({ data, field }) {
