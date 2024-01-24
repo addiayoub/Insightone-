@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 
-export const GridItem = ({ cols = 6, extraCss, children }) => {
+export const GridItem = ({ cols = 6, extraCss = "", children }) => {
   return (
     <Box
       className={`md:col-span-${cols} lg:col-span-${cols} xl:col-span-${cols} ${extraCss}`}
