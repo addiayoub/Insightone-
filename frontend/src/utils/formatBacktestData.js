@@ -49,8 +49,52 @@ export const transformBacktestData = (ptfs) => {
     newData.push(...dd);
   });
   // return mergeDataByKey(newData, "valeur");
+  console.log("data before merge", newData);
   return mergeDataByKeyBeta(newData, "valeur");
 };
+// { LIBELLE: "DOUJA PROM ADDOHA", Importance: 1, Min: 0, Max: 0.1 }
+// {
+//     "name": "rdt-max",
+//     "field": "PTF_Max_Rdt",
+//     "type": "Actions",
+//     "data": [
+//         {
+//             "SECTEUR_ACTIVITE": "TRANSPORT",
+//             "TICKER": "TIM",
+//             "S_CATEGORIE": "TRAN",
+//             "titre": "TIMAR",
+//             "PTF_Max_Rdt": 100,
+//             "isLocked": false
+//         }
+//     ],
+//     "params": {
+//         "dateDebut": "12/01/2019",
+//         "dateFin": "12/01/2024"
+//     },
+//     "_id": "65a2472b0338f194c096f37d"
+// }
+export const transformForBacktest = (ptfs) => {
+  const newData = [];
+  ptfs.forEach((ptf) => {
+    const { field, data } = ptf;
+    const ptfData = data.filter((item) => item[field] > 0);
+    const dd = ptfData.map((item) => {
+      return {
+        LIBELLE: item.titre,
+        Importance: item[field],
+        Min: 0,
+        Max: 1,
+        // [`"${name}"`]: item[field],
+      };
+    });
+    newData.push(...dd);
+  });
+  console.log("transformForBacktest", newData);
+  return newData;
+  // return mergeDataByKey(newData, "valeur");
+  // return mergeDataByKeyBeta(newData, "valeur");
+};
+
 const mergeDataByKey = (data, key) => {
   console.log("mergeDataByKey input", data);
   const result = data.reduce((acc, item) => {

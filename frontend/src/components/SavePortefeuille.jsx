@@ -13,6 +13,7 @@ import {
   setPtfToBacktest,
   setSelectedPtf,
 } from "../redux/slices/BacktestSlice";
+import { injectMinMax } from "../utils/injectId";
 
 const SavePortefeuille = ({
   data,
@@ -28,6 +29,8 @@ const SavePortefeuille = ({
   const [choice, setChoice] = useState("single");
   console.log("saveAll", saveAll);
   console.log("oldParams", oldParams);
+  data = injectMinMax(data);
+  console.log("data injectMinMax", data);
   const { params } =
     type === "OPCVM"
       ? useSelector((state) => state.opcvm)

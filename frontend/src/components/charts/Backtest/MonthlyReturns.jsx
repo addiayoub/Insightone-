@@ -6,7 +6,8 @@ function transformData(data, months) {
   const heatmapData = [];
   data.forEach((item) => {
     months.forEach((month) => {
-      heatmapData.push([month, item.index, item[month]?.toFixed(2)]);
+      console.log("month", month);
+      heatmapData.push([month, item.index, 5]);
     });
   });
   return heatmapData;

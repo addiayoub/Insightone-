@@ -4,11 +4,14 @@ import dayjs from "dayjs";
 import AccordionBox from "../AccordionBox";
 import ToggleButtons from "../ToggleButtons";
 import Contrainte from "../Contrainte";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Divider, TextField } from "@mui/material";
 import RangeSlider from "../SliderCom";
 import { useDispatch } from "react-redux";
 import { getPortef } from "../../redux/actions/BacktestActions";
 import { notyf } from "../../utils/notyf";
+import SavedPtfs from "../portefeuilles/UploadPortefuille/SavedPtfs";
+import Upload from "./UploadPtf/Upload";
+import SingleSelect from "../SingleSelect";
 
 const buttons = [
   {
@@ -87,6 +90,12 @@ function Filter() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [montant, setMontant] = useState("");
+  const [show, setShow] = useState(false);
+  const [backtestDate, setBacktestDate] = useState(dayjs());
+  const [sens, setSens] = useState("Achat");
+  const [instrument, setInstrument] = useState("CFG BANK");
+  const [qte, setQte] = useState("");
+  const [poids, setPoids] = useState("");
   // const [upDown, setUpDown] = useState({
   //   upDown: {
   //     min: 0,
@@ -127,69 +136,90 @@ function Filter() {
   const handleSearch = () => {
     console.log(filters, montant, upDown);
     // dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }));
-    dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }))
+    dispatch(
+      getPortef({
+        dateDebut,
+        dateFin,
+        filters,
+        montant,
+        upDown,
+        backtestDate,
+        qte,
+        poids,
+        sens,
+        instrument,
+      })
+    )
       .unwrap()
       .then((success) => console.log(success))
       .catch((error) => notyf.error(error));
   };
   return (
-    <AccordionBox title={"Filter"} isExpanded={true}>
-      <Box className="flex items-center flex-wrap gap-2 mb-5">
-        <DateComponent
-          date={dateDebut}
-          setDate={setDateDebut}
-          label={"Date début"}
-        />
-        <DateComponent date={dateFin} setDate={setDateFin} label={"Date fin"} />
-      </Box>
+    <Box>
+      <Upload show={show} setShow={setShow} />
+      {show && (
+        <AccordionBox title={"Filter"} isExpanded>
+          <Box className="flex items-center flex-wrap gap-2 mb-5">
+            <DateComponent
+              date={dateDebut}
+              setDate={setDateDebut}
+              label={"Date début"}
+            />
+            <DateComponent
+              date={dateFin}
+              setDate={setDateFin}
+              label={"Date fin"}
+            />
+          </Box>
 
-      <Box>
-        {buttons.map(({ label, text, values }) => {
-          return (
-            <Contrainte label={text} width={150} key={label}>
-              <ToggleButtons
-                buttons={values}
-                init={filters[label]}
-                label={label}
-                onButtonsChange={onButtonsChange}
+          <Box>
+            {buttons.map(({ label, text, values }) => {
+              return (
+                <Contrainte label={text} width={150} key={label}>
+                  <ToggleButtons
+                    buttons={values}
+                    init={filters[label]}
+                    label={label}
+                    onButtonsChange={onButtonsChange}
+                  />
+                </Contrainte>
+              );
+            })}
+            <Contrainte label={"Montant investi"} width={150}>
+              <TextField
+                id="montant-investi"
+                label=""
+                size="small"
+                type="number"
+                value={montant}
+                onChange={(event) => setMontant(event.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className="min-w-[100px]"
               />
             </Contrainte>
-          );
-        })}
-        <Contrainte label={"Montant investi"} width={150}>
-          <TextField
-            id="montant-investi"
-            label=""
-            size="small"
-            type="number"
-            value={montant}
-            onChange={(event) => setMontant(event.target.value)}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            className="min-w-[100px]"
-          />
-        </Contrainte>
-        <Contrainte label={"Potentiel Upside/Downside"} width={150}>
-          <TextField
-            id="upside-downside"
-            label=""
-            size="small"
-            type="number"
-            value={upDown}
-            onChange={(event) => setUpDown(event.target.value)}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            inputProps={{
-              min: 0,
-              max: 10,
-            }}
-            onBlur={handleBlur}
-            className="min-w-[202px]"
-          />
-        </Contrainte>
-        {/* <Contrainte label={"Potentiel Upside/Downside"} width={150}>
+            <Contrainte label={"Potentiel Upside/Downside"} width={150}>
+              <TextField
+                id="upside-downside"
+                label=""
+                size="small"
+                type="number"
+                value={upDown}
+                onChange={(event) => setUpDown(event.target.value)}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                inputProps={{
+                  min: 0,
+                  max: 10,
+                }}
+                onBlur={handleBlur}
+                className="min-w-[202px]"
+              />
+            </Contrainte>
+
+            {/* <Contrainte label={"Potentiel Upside/Downside"} width={150}>
           <RangeSlider
             min={0}
             minLabel={""}
@@ -203,17 +233,61 @@ function Filter() {
             onValuesChange={handleSliderChange}
           />
         </Contrainte> */}
-      </Box>
-
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        onClick={handleSearch}
-      >
-        Rechercher
-      </Button>
-    </AccordionBox>
+          </Box>
+          <Divider />
+          <Box className="py-4 flex flex-col gap-2 flex-wrap">
+            <Box className="flex gap-2 flex-wrap">
+              <DateComponent
+                label="Date"
+                date={backtestDate}
+                setDate={setBacktestDate}
+              />
+              <SingleSelect
+                options={["Achat"]}
+                value={sens}
+                setValue={setSens}
+                label="Sens"
+              />
+              <SingleSelect
+                options={["CFG BANK"]}
+                value={instrument}
+                setValue={setInstrument}
+                label="Instrument"
+              />
+            </Box>
+            <Box className="flex gap-2 flex-wrap">
+              <TextField
+                id="qte"
+                label="Quantité"
+                size="small"
+                type="number"
+                value={qte}
+                onChange={(event) => setQte(event.target.value)}
+                className="min-w-[100px]"
+              />
+              <TextField
+                id="field-poids"
+                label="Poids"
+                size="small"
+                type="number"
+                value={poids}
+                onChange={(event) => setPoids(event.target.value)}
+                className="min-w-[100px]"
+              />
+            </Box>
+          </Box>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            className="mt-3"
+            onClick={handleSearch}
+          >
+            Rechercher
+          </Button>
+        </AccordionBox>
+      )}
+    </Box>
   );
 }
 

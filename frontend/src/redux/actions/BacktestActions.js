@@ -1,7 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import apiNewMarko from "../../api/apiNewMarko";
 import { formatDate } from "../../utils/FormatDate";
-import { transformBacktestData } from "../../utils/formatBacktestData";
+import {
+  transformBacktestData,
+  transformForBacktest,
+} from "../../utils/formatBacktestData";
 import moment from "moment";
 
 const apiTrading = "trading/";
@@ -9,8 +12,40 @@ const apiTrading = "trading/";
 export const getPortef = createAsyncThunk(
   "backtest/getPortef",
 
-  async ({ dateDebut, dateFin, filters, montant, upDown }, thunkAPI) => {
-    const body = [{}];
+  async (
+    {
+      dateDebut,
+      dateFin,
+      filters,
+      montant,
+      upDown,
+      backtestDate,
+      qte,
+      poids,
+      sens,
+      instrument,
+    },
+    thunkAPI
+  ) => {
+    const { ptfToBacktest } = thunkAPI.getState().backtest;
+    console.log(backtestDate, qte, poids, sens);
+    const body = {
+      df_poids: transformForBacktest([ptfToBacktest]),
+      df_op: [
+        {
+          // Date: "18/12/2023",
+          // Sens: "Achat",
+          // INSTRUMENT: "CFG BANK",
+          // Quantité: "",
+          // Poids: 0.018120009,
+          Date: formatDate(backtestDate["$d"]),
+          Sens: sens,
+          INSTRUMENT: instrument,
+          Quantité: qte,
+          Poids: poids,
+        },
+      ],
+    };
     try {
       const response = await apiNewMarko.post(
         `${apiTrading}POST/get_portef/`,

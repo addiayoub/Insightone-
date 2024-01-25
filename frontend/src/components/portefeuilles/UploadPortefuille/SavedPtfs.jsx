@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckSquare, Trash } from "react-feather";
 import SingleSelect from "../../SingleSelect";
@@ -118,4 +118,4 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, show, setShow }) => {
   );
 };
 
-export default SavedPtfs;
+export default memo(SavedPtfs);

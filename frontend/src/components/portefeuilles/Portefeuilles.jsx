@@ -50,31 +50,6 @@ const Portefeuilles = () => {
       .then()
       .catch(() => notyf.error("Error Fetch portefeuilles"));
   }, []);
-  const handleValider = (choosenPtf) => {
-    setShow(true);
-    console.log("selected ptfs", selectedPtfs);
-    const choosen = data.find((item) => item.name === ptf);
-    console.log("choosen", choosen);
-    console.log("data", data);
-    console.log("choosenPtf", choosenPtf);
-    setSelectedPtfs([choosen]);
-    dispatch(setPtfToBacktest(choosen));
-    dispatch(setSelectedPtf(ptf));
-
-    console.log("trasn ptfs", transformBacktestData(selectedPtfs));
-  };
-  const handleDelete = () => {
-    dispatch(deletePortefeuilles({ ptfs: selectedPtfs }))
-      .unwrap()
-      .then(({ message, portefeuilles }) => {
-        dispatch(setPortefeuilles(portefeuilles));
-        setPtf(null);
-        notyf.success(message);
-      })
-      .catch(() => notyf.error("Error Delete"));
-    setSelectedPtfs([]);
-    console.log("selected ptfs", selectedPtfs);
-  };
   useEffect(() => {
     if (selectedPtfs.length < 1) {
       setShow(false);
@@ -90,9 +65,6 @@ const Portefeuilles = () => {
     }
   }, [ptf]);
   useEffect(() => setPtf(null), [type]);
-  const portefeuilles = data
-    .filter((ptf) => ptf.type === type)
-    .map((ptf) => ptf.name);
   const handlePtfToBacktest = (ptfs, ptfName) => {
     if (ptfName) {
       const choosen = ptfs.find((item) => item.name === ptfName);

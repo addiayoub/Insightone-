@@ -10,4 +10,5 @@ export const locale = {
   "Insert Column (right)": "Insérer une colonne (à droite)",
   Deselect: "Désélectionner",
   Search: "Rechercher",
+  "Hide Column": "Masquer la colonne",
 };

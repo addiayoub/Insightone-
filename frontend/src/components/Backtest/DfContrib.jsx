@@ -21,7 +21,7 @@ function DfContrib({ title, data }) {
     },
   }));
   return (
-    <AccordionBox title={title}>
+    <AccordionBox title={title} isExpanded>
       <Table columns={columns} rows={data} />
     </AccordionBox>
   );
