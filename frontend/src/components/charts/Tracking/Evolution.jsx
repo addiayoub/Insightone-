@@ -1,10 +1,11 @@
 import ReactECharts from "echarts-for-react";
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import { extractKeys } from "../../../utils/extractKeys";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { Box } from "@mui/material";
 import SaveToExcel from "../../SaveToExcel";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 function transformData(data) {
   return data.map((item) => {
@@ -97,7 +98,8 @@ function Evolution({
     }))
     .concat(smiSerie)
     .concat(rangeSeries);
-
+  // const [selectedLegend, setSelectedLegend] = useState([]);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
   const options = useMemo(() => {
     return {
       title: {
@@ -113,6 +115,7 @@ function Evolution({
         width: "60%",
         left: "center",
         bottom: "9%",
+        selected: selectedLegend,
         ...theme.legend,
       },
       grid: {
@@ -161,10 +164,18 @@ function Evolution({
       series,
       ...defaultOptions,
     };
-  }, [defaultOptions, minYAxisValue, data, series, seriesNames]);
+  }, [
+    defaultOptions,
+    minYAxisValue,
+    data,
+    series,
+    seriesNames,
+    selectedLegend,
+  ]);
   return (
     <Box className="relative">
       <SaveToExcel data={data} fileName={"Evolution B100"} />
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{

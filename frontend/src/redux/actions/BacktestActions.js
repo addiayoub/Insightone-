@@ -24,27 +24,28 @@ export const getPortef = createAsyncThunk(
       poids,
       sens,
       instrument,
+      df_op,
     },
     thunkAPI
   ) => {
     const { ptfToBacktest } = thunkAPI.getState().backtest;
-    console.log(backtestDate, qte, poids, sens);
     const body = {
       df_poids: transformForBacktest([ptfToBacktest]),
-      df_op: [
-        {
-          // Date: "18/12/2023",
-          // Sens: "Achat",
-          // INSTRUMENT: "CFG BANK",
-          // Quantité: "",
-          // Poids: 0.018120009,
-          Date: formatDate(backtestDate["$d"]),
-          Sens: sens,
-          INSTRUMENT: instrument,
-          Quantité: qte,
-          Poids: poids,
-        },
-      ],
+      df_op: [df_op],
+      // [
+      //   {
+      // Date: "18/12/2023",
+      // Sens: "Achat",
+      // INSTRUMENT: "CFG BANK",
+      // Quantité: "",
+      // Poids: 0.018120009,
+      // Date: formatDate(backtestDate["$d"]),
+      // Sens: sens,
+      // INSTRUMENT: instrument,
+      // Quantité: qte,
+      // Poids: poids,
+      //   },
+      // ],
     };
     try {
       const response = await apiNewMarko.post(
@@ -52,24 +53,24 @@ export const getPortef = createAsyncThunk(
         body,
         {
           params: {
-            // start: formatDate(dateDebut["$d"]),
-            // end: formatDate(dateFin["$d"]),
-            // Flag_hebdo: filters.flag_hebdo,
-            // CMP_Cloture: filters.cmp_cloture,
-            // Div_Reinvesti: filters.div_reinvesti,
-            // montant_investi: +montant,
-            // Flag_Trading: filters.flag_trading,
-            // momentum_contrarien: filters.momentum_contrarien,
-            // upside_downside: +upDown,
-            start: "10/05/2022",
-            end: "10/10/2023",
-            Flag_hebdo: 1,
-            CMP_Cloture: 0,
-            Div_Reinvesti: 1,
-            montant_investi: 100000000,
-            Flag_Trading: 0,
-            momentum_contrarien: 1,
-            upside_downside: 5,
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+            Flag_hebdo: filters.flag_hebdo,
+            CMP_Cloture: filters.cmp_cloture,
+            Div_Reinvesti: filters.div_reinvesti,
+            montant_investi: +montant * 1e6,
+            Flag_Trading: filters.flag_trading,
+            momentum_contrarien: filters.momentum_contrarien,
+            upside_downside: +upDown,
+            // start: "10/05/2022",
+            // end: "10/10/2023",
+            // Flag_hebdo: 1,
+            // CMP_Cloture: 0,
+            // Div_Reinvesti: 1,
+            // montant_investi: 100000000,
+            // Flag_Trading: 0,
+            // momentum_contrarien: 1,
+            // upside_downside: 5,
           },
         }
       );

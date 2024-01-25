@@ -12,6 +12,8 @@ import { notyf } from "../../utils/notyf";
 import SavedPtfs from "../portefeuilles/UploadPortefuille/SavedPtfs";
 import Upload from "./UploadPtf/Upload";
 import SingleSelect from "../SingleSelect";
+import TitresComponent from "../TitresComponent";
+import { formatDate } from "../../utils/FormatDate";
 
 const buttons = [
   {
@@ -86,14 +88,14 @@ const buttons = [
   },
 ];
 
-function Filter() {
-  const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
+function Filter({ setIsShow }) {
+  const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [montant, setMontant] = useState("");
   const [show, setShow] = useState(false);
-  const [backtestDate, setBacktestDate] = useState(dayjs());
-  const [sens, setSens] = useState("Achat");
-  const [instrument, setInstrument] = useState("CFG BANK");
+  const [backtestDate, setBacktestDate] = useState(null);
+  const [sens, setSens] = useState(null);
+  const [instrument, setInstrument] = useState(null);
   const [qte, setQte] = useState("");
   const [poids, setPoids] = useState("");
   // const [upDown, setUpDown] = useState({
@@ -135,7 +137,26 @@ function Filter() {
   };
   const handleSearch = () => {
     console.log(filters, montant, upDown);
+    setIsShow(false);
+
     // dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }));
+    const isValidOp =
+      backtestDate !== null &&
+      qte !== "" &&
+      poids !== "" &&
+      sens !== null &&
+      instrument !== null;
+    console.log("isValidOp", isValidOp);
+    const df_op = isValidOp
+      ? {
+          Date: formatDate(backtestDate["$d"]),
+          Sens: sens,
+          INSTRUMENT: instrument,
+          Quantité: qte,
+          Poids: poids,
+        }
+      : {};
+
     dispatch(
       getPortef({
         dateDebut,
@@ -143,15 +164,15 @@ function Filter() {
         filters,
         montant,
         upDown,
-        backtestDate,
-        qte,
-        poids,
-        sens,
-        instrument,
+        df_op,
       })
     )
       .unwrap()
-      .then((success) => console.log(success))
+
+      .then((success) => {
+        console.log(success);
+        setIsShow(true);
+      })
       .catch((error) => notyf.error(error));
   };
   return (
@@ -185,7 +206,7 @@ function Filter() {
                 </Contrainte>
               );
             })}
-            <Contrainte label={"Montant investi"} width={150}>
+            <Contrainte label={"Montant investi (MMAD)"} width={150}>
               <TextField
                 id="montant-investi"
                 label=""
@@ -243,18 +264,23 @@ function Filter() {
                 setDate={setBacktestDate}
               />
               <SingleSelect
-                options={["Achat"]}
+                options={["Achat", "Vente"]}
                 value={sens}
                 setValue={setSens}
                 label="Sens"
               />
-              <SingleSelect
+              {/* <SingleSelect
                 options={["CFG BANK"]}
                 value={instrument}
                 setValue={setInstrument}
                 label="Instrument"
-              />
+              /> */}
             </Box>
+            <TitresComponent
+              choice="Actions"
+              selectedTitres={instrument}
+              setSelectedTitres={setInstrument}
+            />
             <Box className="flex gap-2 flex-wrap">
               <TextField
                 id="qte"

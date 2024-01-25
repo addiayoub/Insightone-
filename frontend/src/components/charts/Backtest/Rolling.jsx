@@ -9,7 +9,10 @@ const Rolling = ({ data, title }) => {
   const theme = useChartTheme();
   console.log("Render Rolling ", title);
   const seriesNames = useMemo(
-    () => Object.keys(data[0]).filter((key) => key !== "seance"),
+    () =>
+      Object.keys(data[0]).filter(
+        (key) => !["seance", "benchmark"].includes(key)
+      ),
     [data]
   );
 

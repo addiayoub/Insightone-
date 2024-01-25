@@ -4,6 +4,7 @@ import { extractKeys } from "../../../utils/extractKeys";
 import useChartTheme from "../../../hooks/useChartTheme";
 import ReactECharts from "echarts-for-react";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const regex = /^SIM\d+$/;
 
@@ -17,6 +18,7 @@ const SMIEvolution = ({ SIM }) => {
   const seriesNames = extractKeys(data, ["seance", ...smiKeys]);
   const theme = useChartTheme();
   console.log("seriesNames", seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))
@@ -69,6 +71,7 @@ const SMIEvolution = ({ SIM }) => {
       },
       legend: {
         // data: seriesNames,
+        selected: selectedLegend,
         type: "scroll",
         orient: "horizontal",
         zLevel: 23,
@@ -95,9 +98,10 @@ const SMIEvolution = ({ SIM }) => {
       })),
       ...defaultOptions,
     };
-  }, [seriesNames, data, theme]);
+  }, [seriesNames, data, selectedLegend, theme]);
   return (
     <>
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{

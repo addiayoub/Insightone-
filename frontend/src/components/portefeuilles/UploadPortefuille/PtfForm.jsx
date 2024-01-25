@@ -49,7 +49,12 @@ const PtfForm = ({
       </Box>
       {!isFresh && (
         <Box className="flex gap-2">
-          <Button variant="contained" onClick={upload} disabled={isDisabled}>
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={upload}
+            disabled={isDisabled}
+          >
             Upload
           </Button>
         </Box>

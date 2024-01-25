@@ -28,7 +28,7 @@ const buttons = [
 ];
 
 const Filter = ({ setIsShow }) => {
-  const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
+  const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [nbSim, setNbSim] = useState("");
   const [selectedIndices, setSelectedIndices] = useState([]);

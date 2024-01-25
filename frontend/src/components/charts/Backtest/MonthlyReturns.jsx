@@ -7,7 +7,7 @@ function transformData(data, months) {
   data.forEach((item) => {
     months.forEach((month) => {
       console.log("month", month);
-      heatmapData.push([month, item.index, 5]);
+      heatmapData.push([month, item.index, item[month].toFixed(2)]);
     });
   });
   return heatmapData;
@@ -15,14 +15,23 @@ function transformData(data, months) {
 
 const MonthlyReturns = ({ data, title }) => {
   const theme = useChartTheme();
-  const years = useMemo(() => data.map((item) => item.index), [data]);
-  const months = useMemo(() => Object.keys(data[0]).slice(1), [data]);
+  const years = useMemo(
+    () => [...new Set(data.map((item) => item.index))],
+    [data]
+  );
+  const months = useMemo(
+    () =>
+      Object.keys(data[0]).filter(
+        (key) => !["benchmark", "index"].includes(key)
+      ),
+    [data]
+  );
   const heatmapData = useMemo(
     () => transformData(data, months),
     [data, months]
   );
   console.log("heatmapData", heatmapData);
-  console.log("MonthlyReturns rendred");
+  console.log("MonthlyReturns rendred", months);
   const values = useMemo(
     () => heatmapData.map((item) => +item[2]),
     [heatmapData]

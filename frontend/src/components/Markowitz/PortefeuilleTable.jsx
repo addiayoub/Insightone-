@@ -838,15 +838,15 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       {showActions && newRows.length > 0 && (
         <GridContainer extraCss="my-4">
           <GridItem>
-            <PtfPoids data={newRows} field={field} title="Poids des titres" />
-          </GridItem>
-          <GridItem>
             <PtfPoids
               data={newRows}
               field={field}
               sumOf="SECTEUR_ACTIVITE"
               title="Poids des secteurs d'activités"
             />
+          </GridItem>
+          <GridItem>
+            <PtfPoids data={newRows} field={field} title="Poids des titres" />
           </GridItem>
         </GridContainer>
       )}

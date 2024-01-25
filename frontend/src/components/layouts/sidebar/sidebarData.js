@@ -113,13 +113,13 @@ export const sidebarData = [
       {
         title: "Backtest personalisé",
         link: "portefeuilles",
-        icon: Briefcase,
+        icon: Pocket,
       },
     ],
   },
   {
     title: "Analyse OPCVM",
-    icon: Pocket,
+    icon: Briefcase,
     link: null,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,

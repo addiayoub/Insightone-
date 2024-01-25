@@ -27,6 +27,7 @@ function SelectIndices({
   selectedIndices,
   setSelectedIndices,
   disableCloseOnSelect = true,
+  width = 250,
 }) {
   indices = [...new Set(indices)];
   const allOption = "Sélectionner tout";
@@ -69,7 +70,8 @@ function SelectIndices({
           {option}
         </li>
       )}
-      sx={{ width: 250 }}
+      limitTags={4}
+      sx={{ width: width }}
       menuprops={MenuProps}
       renderInput={(params) => (
         <TextField {...params} label={label} placeholder={label} size="small" />

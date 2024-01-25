@@ -75,7 +75,7 @@ const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
     let filtred = indicesData.filter((item) =>
       selectedSCategories.includes(item.S_CATEGORIE)
     );
-    console.log("filtered sCta", filtred);
+    console.log("filtered sCta", filtred, selectedSCategories);
 
     if (selectedClasses.length > 0) {
       filtred = indicesData.filter((item) =>

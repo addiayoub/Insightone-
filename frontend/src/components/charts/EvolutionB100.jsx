@@ -6,6 +6,7 @@ import { defaultOptions } from "../../utils/chart/defaultOptions";
 import SaveToExcel from "../SaveToExcel";
 import { Box } from "@mui/material";
 import { extractKeys } from "../../utils/extractKeys";
+import useSeriesSelector from "../../hooks/useSeriesSelector";
 
 const regex = /^SIM\d+$/;
 
@@ -42,6 +43,8 @@ function EvolutionB100({
           },
         },
       };
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))
@@ -94,6 +97,7 @@ function EvolutionB100({
       },
       legend: {
         data: seriesNames,
+        selected: selectedLegend,
         ...legend,
         formatter: function (name) {
           if (name.length > 25 && !isGrid) {
@@ -122,10 +126,11 @@ function EvolutionB100({
       })),
       ...defaultOptions,
     };
-  }, [seriesNames, data, theme]);
+  }, [seriesNames, data, selectedLegend, theme]);
   return (
     <Box className="relative">
       <SaveToExcel data={data} fileName={"Evolution B100"} />
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{

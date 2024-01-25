@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const SMIPoids = ({ SIM }) => {
   const {
@@ -19,64 +20,71 @@ const SMIPoids = ({ SIM }) => {
         .sort((a, b) => b.value - a.value),
     [df_poids, SIM]
   );
-  const options = {
-    title: {
-      text: SIM,
-      left: "center",
-      ...theme.title,
-    },
-    tooltip: {
-      trigger: "item",
-      valueFormatter: (value) => value?.toFixed(2) + "%",
-      confine: true,
-    },
-    toolbox: {
-      feature: {
-        restore: {},
-        saveAsImage: {},
-        dataView: {},
+  const seriesNames = seriesData.map((serie) => serie.name);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: SIM,
+        left: "center",
+        ...theme.title,
       },
-      right: 0,
-      top: 15,
-    },
-    legend: {
-      type: "scroll",
-      orient: "horizontal",
-      zLevel: 23,
-      width: "60%",
-      left: "center",
-      bottom: "0",
-      ...theme.legend,
-    },
-    grid: {
-      top: "0%",
-    },
-    series: [
-      {
-        name: "",
-        type: "pie",
-        radius: ["40%", "70%"],
-        avoidLabelOverlap: false,
-        label: {
-          show: false,
-          position: "center",
+      tooltip: {
+        trigger: "item",
+        valueFormatter: (value) => value?.toFixed(2) + "%",
+        confine: true,
+      },
+      toolbox: {
+        feature: {
+          restore: {},
+          saveAsImage: {},
+          dataView: {},
         },
-        emphasis: {
+        right: 0,
+        top: 15,
+      },
+      legend: {
+        type: "scroll",
+        orient: "horizontal",
+        zLevel: 23,
+        width: "60%",
+        left: "center",
+        bottom: "0",
+        selected: selectedLegend,
+        ...theme.legend,
+      },
+      grid: {
+        top: "0%",
+      },
+      series: [
+        {
+          name: "",
+          type: "pie",
+          radius: ["40%", "70%"],
+          avoidLabelOverlap: false,
           label: {
-            show: true,
-            fontSize: 15,
-            fontWeight: "bold",
+            show: false,
+            position: "center",
           },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: 15,
+              fontWeight: "bold",
+            },
+          },
+          labelLine: {
+            show: false,
+          },
+          data: seriesData,
         },
-        labelLine: {
-          show: false,
-        },
-        data: seriesData,
-      },
-    ],
-  };
+      ],
+    };
+  }, [theme, seriesData, selectedLegend, SIM]);
   return (
     <>
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{

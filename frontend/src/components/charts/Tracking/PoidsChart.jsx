@@ -2,6 +2,7 @@ import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const PoidsChart = ({ data }) => {
   const theme = useChartTheme();
@@ -11,6 +12,7 @@ const PoidsChart = ({ data }) => {
     () => Object.keys(data[0]).filter((key) => key !== "titre"),
     [data]
   );
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesName);
   const series = useMemo(
     () =>
       seriesName.map((key) => ({
@@ -34,6 +36,7 @@ const PoidsChart = ({ data }) => {
       },
       legend: {
         data: seriesName,
+        selected: selectedLegend,
         orient: "horizontal",
         zLevel: 23,
         width: "60%",
@@ -76,15 +79,18 @@ const PoidsChart = ({ data }) => {
       },
       series: series,
     };
-  }, [series, seriesName, legendData, theme]);
+  }, [series, seriesName, legendData, selectedLegend, theme]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: 500,
-        margin: "15px 0",
-      }}
-    />
+    <>
+      <SeriesSelector />
+      <ReactECharts
+        option={options}
+        style={{
+          minHeight: 500,
+          margin: "15px 0",
+        }}
+      />
+    </>
   );
 };
 

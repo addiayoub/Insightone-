@@ -5,6 +5,25 @@ import {
   getPortef,
 } from "../actions/BacktestActions";
 
+const initData = {
+  df_contrib: [],
+  df_div: [],
+  Rel_div: [],
+  qte_div: [],
+  quantite_av: [],
+  quantite_ap: [],
+  div_ord: [],
+  div_exc: [],
+  portef_ap: [],
+  portef_av: [],
+  valo_ap: [],
+  valo_av: [],
+  operation_mnt: [],
+  operation_qte: [],
+  poids_ap: [],
+  poids_av: [],
+};
+
 const backtestSlice = createSlice({
   name: "backtest",
   initialState: {
@@ -12,21 +31,7 @@ const backtestSlice = createSlice({
       loading: false,
       error: null,
       data: [],
-      df_contrib: [],
-      Rel_div: [],
-      qte_div: [],
-      quantite_av: [],
-      quantite_ap: [],
-      div_ord: [],
-      div_exc: [],
-      portef_ap: [],
-      portef_av: [],
-      valo_ap: [],
-      valo_av: [],
-      operation_mnt: [],
-      operation_qte: [],
-      poids_ap: [],
-      poids_av: [],
+      ...initData,
     },
     evolutionB100Ptfs: {
       data: {
@@ -78,6 +83,7 @@ const backtestSlice = createSlice({
       data.loading = false;
       data.data = payload;
       data.df_contrib = payload.df_contrib;
+      data.df_div = payload.df_div;
       data.Rel_div = payload.Rel_div;
       data.qte_div = payload.qte_div;
       data.quantite_av = payload.quantite_av;
@@ -95,7 +101,7 @@ const backtestSlice = createSlice({
     });
     builder.addCase(getPortef.rejected, ({ data }, { payload }) => {
       data.loading = false;
-      data.data = {};
+      data.data = initData;
       data.error = payload;
     });
 
