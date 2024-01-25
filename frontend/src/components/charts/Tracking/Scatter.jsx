@@ -8,6 +8,7 @@ import AccordionBox from "../../AccordionBox";
 import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const Scatter = ({ data }) => {
   const theme = useChartTheme();
@@ -47,6 +48,8 @@ const Scatter = ({ data }) => {
     x: [Math.min(...xValues), Math.max(...xValues)],
     y: [Math.min(...yValues), Math.max(...yValues)],
   };
+  const seriesNames = formatedData.map((item) => item[2]);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
   useEffect(() => {
     console.log("useEffect min", axisValues);
     const { SIM } = data.find((item) => item.TE * 100 === axisValues.y[0]);
@@ -64,6 +67,7 @@ const Scatter = ({ data }) => {
       },
       legend: {
         orient: "vertical",
+        selected: selectedLegend,
         zLevel: 5,
         right: 0,
         top: "20%",
@@ -137,7 +141,7 @@ const Scatter = ({ data }) => {
 
       series: seriesData,
     };
-  }, [seriesData, data, theme]);
+  }, [seriesData, data, selectedLegend, theme]);
   console.log("options", options.series);
   const handleClick = (params) => {
     const { seriesName } = params;
@@ -149,6 +153,7 @@ const Scatter = ({ data }) => {
   };
   return (
     <>
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{
