@@ -120,7 +120,7 @@ function EvolutionB100({
         name: seriesName,
         type: "line",
         itemStyle: {
-          color: regex.test(seriesName) ? "rgba(204,204,204,0.2)" : undefined,
+          color: regex.test(seriesName) ? "rgba(204,204,204,0.7)" : undefined,
         },
         data: data.map((item) => item[seriesName]),
       })),

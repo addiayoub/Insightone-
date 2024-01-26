@@ -110,11 +110,8 @@ const Scatter = ({ data }) => {
       yAxis: {
         type: "value",
         name: "TE",
-        min: axisValues.y[0],
-        max:
-          axisValues.y[0] === axisValues.y[1]
-            ? axisValues.y[0] + 1
-            : axisValues.y[1],
+        min: axisValues.y[0] - 1,
+        max: axisValues.y[1] + 1,
         nameLocation: "middle",
         nameGap: 30,
         axisLabel: {

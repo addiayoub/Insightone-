@@ -1,6 +1,7 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import groupBy from "../../../utils/groupBy";
 
 function transformData(data, months) {
   const heatmapData = [];
@@ -26,11 +27,14 @@ const MonthlyReturns = ({ data, title }) => {
       ),
     [data]
   );
+  const grouped = useMemo(() => groupBy(data, "benchmark"), [data]);
+  const keys = Object.keys(grouped);
+
   const heatmapData = useMemo(
-    () => transformData(data, months),
-    [data, months]
+    () => transformData(grouped[keys[0]], months),
+    [grouped, months]
   );
-  console.log("heatmapData", heatmapData);
+  console.log("heatmapData", heatmapData, "grouped", grouped);
   console.log("MonthlyReturns rendred", months);
   const values = useMemo(
     () => heatmapData.map((item) => +item[2]),
