@@ -75,7 +75,7 @@ const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
     let filtred = indicesData.filter((item) =>
       selectedSCategories.includes(item.S_CATEGORIE)
     );
-    console.log("filtered sCta", filtred, selectedSCategories);
+    console.log("UseEffect sCta before", filtred, selectedSCategories);
 
     if (selectedClasses.length > 0) {
       filtred = indicesData.filter((item) =>
@@ -87,12 +87,19 @@ const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
         selectedCategories.includes(item.categorie)
       );
     }
+    if (selectedCategories.length > 0 && selectedClasses.length > 0) {
+      filtred = indicesData.filter(
+        (item) =>
+          selectedCategories.includes(item.categorie) &&
+          selectedClasses.includes(item.classe)
+      );
+    }
     if (selectedSCategories.length > 0) {
       filtred = filtred.filter((item) =>
         selectedSCategories.includes(item.S_CATEGORIE)
       );
     }
-    console.log("selectedSCategories", filtred);
+    console.log("UseEffect sCta after", filtred);
     const indices = [...new Set(indicesData.map((item) => item.NOM_INDICE))];
     const newIndices = [...new Set(filtred.map((item) => item.NOM_INDICE))];
     setIndices(newIndices.length > 0 ? newIndices : indices);
