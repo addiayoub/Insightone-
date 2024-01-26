@@ -14,6 +14,24 @@ function App() {
       document.body.classList.remove("dark-mode");
     }
   }, [theme.darkTheme]);
+
+  useEffect(() => {
+    const data = {
+      Actions: [
+        {
+          classe: "Actions cotés",
+          categorie: "ASSURANCES",
+          libelle: "AFMA",
+        },
+        {
+          classe: "Actions cotés",
+          categorie: "BATIMENT & MATERIAUX DE CONSTRUCTION",
+          libelle: "AFRIC INDUSTRIES SA",
+        },
+      ],
+    };
+  }, []);
+
   return (
     <ThemeProvider theme={theme.darkTheme ? darkTheme : lightTheme}>
       <RouterProvider />

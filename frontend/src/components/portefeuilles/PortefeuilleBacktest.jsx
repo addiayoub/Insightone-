@@ -332,7 +332,7 @@ const PortefeuilleBacktest = () => {
               <Table
                 columns={keyPerfColumns}
                 rows={backData.data.keyPerf}
-                pageSize={50}
+                pageSize={100}
                 className="h-max"
               />
             </>
@@ -343,6 +343,7 @@ const PortefeuilleBacktest = () => {
               <Table
                 columns={eoyColumns}
                 rows={backData.data.eoyTable}
+                pageSize={10}
                 className="h-max"
               />
             </>
@@ -355,6 +356,7 @@ const PortefeuilleBacktest = () => {
                 <Table
                   columns={worstDrawdownsColumns}
                   rows={backData.data.worstDrawdowns}
+                  pageSize={10}
                   className="h-max"
                 />
               </>

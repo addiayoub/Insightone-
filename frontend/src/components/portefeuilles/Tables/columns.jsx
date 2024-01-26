@@ -188,7 +188,7 @@ export const worstDrawdownsColumns = [
     field: "Drawdown",
     headerName: "Drawdown",
     flex: 1,
-    renderCell: (params) => params.row.Drawdown.toFixed(2),
+    renderCell: (params) => <TextColor value={params.row.Drawdown} />,
   },
   {
     field: "Days",

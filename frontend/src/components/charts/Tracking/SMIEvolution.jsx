@@ -5,6 +5,7 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import ReactECharts from "echarts-for-react";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import filterData from "../../../utils/filterData";
 
 const regex = /^SIM\d+$/;
 
@@ -12,13 +13,19 @@ const SMIEvolution = ({ SIM }) => {
   const {
     generationPtfAlea: { df_b100: data },
   } = useSelector((state) => state.tracking);
+  const { selectedPtf } = useSelector((state) => state.backtest);
   const smiKeys = Object.keys(data[0]).filter(
     (key) => regex.test(key) && key !== SIM
   );
-  const seriesNames = extractKeys(data, ["seance", ...smiKeys]);
+  console.log("smiKeys", smiKeys);
+  const filteredData = filterData(data, [/SIM/, new RegExp(selectedPtf)]);
+  const seriesNames = extractKeys(filteredData, ["seance", ...smiKeys]);
   const theme = useChartTheme();
   console.log("seriesNames", seriesNames);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))

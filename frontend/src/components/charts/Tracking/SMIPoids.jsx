@@ -21,7 +21,10 @@ const SMIPoids = ({ SIM }) => {
     [df_poids, SIM]
   );
   const seriesNames = seriesData.map((serie) => serie.name);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
 
   const options = useMemo(() => {
     return {

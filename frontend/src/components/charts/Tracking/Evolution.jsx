@@ -6,10 +6,14 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import { Box } from "@mui/material";
 import SaveToExcel from "../../SaveToExcel";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import filterData from "../../../utils/filterData";
+import { useSelector } from "react-redux";
 
 function transformData(data) {
   return data.map((item) => {
-    const simKeys = Object.keys(item).filter((key) => key.startsWith("SIM"));
+    const simKeys = Object.keys(item).filter(
+      (key) => key.startsWith("SIM") && key !== "SIM optimal"
+    );
     const simValues = simKeys.map((simKey) => item[simKey]);
 
     // Create a new object without individual SIM keys
@@ -18,7 +22,7 @@ function transformData(data) {
 
     return {
       ...newObj,
-      SMI: { min: Math.min(...simValues), max: Math.max(...simValues) },
+      SIM: { min: Math.min(...simValues), max: Math.max(...simValues) },
     };
   });
 }
@@ -29,28 +33,34 @@ function Evolution({
   title = "Evolution base 100 des Portefeuilles simulés",
 }) {
   console.log("Evolution", data);
+  const originalData = data;
+  const { selectedPtf } = useSelector((state) => state.backtest);
+  console.log("selectedPtf ", selectedPtf);
   const excludeSeance = extractKeys(data, ["seance"]);
   const seriesData = excludeSeance
     .map((seriesName) => data.map((item) => item[seriesName]))
     .flat()
     .filter((value) => value !== undefined);
   const minYAxisValue = Math.min(...seriesData);
+  console.log("excludeSeance", excludeSeance);
   const theme = useChartTheme();
   data = transformData(data);
-  const minValues = useMemo(() => data.map((item) => item.SMI.min), [data]);
-  const maxValues = useMemo(() => data.map((item) => item.SMI.max), [data]);
+  console.log("data, before", data);
+  data = filterData(data, [/SIM/]);
+  const minValues = useMemo(() => data.map((item) => item.SIM.min), [data]);
+  const maxValues = useMemo(() => data.map((item) => item.SIM.max), [data]);
   const rangeValues = Array.from({ length: minValues.length }, (_, index) =>
     Math.abs(maxValues[index] - minValues[index])
   );
   console.log("min values", rangeValues);
-  const seriesNames = Object.keys(data[0]).filter(
-    (key) => key !== "seance" && key !== "SMI"
-  );
+  const seriesNames = Object.keys(data[0])
+    .filter((key) => key !== "seance")
+    .concat(selectedPtf);
   const rangeSeries = useMemo(() => {
     return {
       z: -1,
       name: "Range",
-      stack: "SMI",
+      stack: "SIM",
       tooltip: {
         show: false,
       },
@@ -70,10 +80,10 @@ function Evolution({
       data: rangeValues,
     };
   }, [rangeValues]);
-  const smiSerie = useMemo(() => {
+  const SIMSerie = useMemo(() => {
     return {
-      name: "SMI",
-      stack: "SMI",
+      name: "SIM",
+      stack: "SIM",
       type: "line",
       symbol: "none",
       tooltip: {
@@ -91,15 +101,21 @@ function Evolution({
   }, [minValues]);
   console.log("seriesNames", seriesNames);
   const series = seriesNames
+    .reverse()
     .map((key) => ({
       name: key,
       type: "line",
-      data: data.map((item) => item[key]),
+      data: originalData.map((item) => item[key]),
     }))
-    .concat(smiSerie)
+    .concat(SIMSerie)
     .concat(rangeSeries);
   // const [selectedLegend, setSelectedLegend] = useState([]);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  console.log("series evo", series);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames, [
+    "SIM optimal",
+    selectedPtf,
+    "SIM",
+  ]);
   const options = useMemo(() => {
     return {
       title: {

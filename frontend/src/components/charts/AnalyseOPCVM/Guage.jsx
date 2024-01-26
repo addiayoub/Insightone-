@@ -97,8 +97,7 @@ const Guage = ({ value, title, valueToShow }) => {
           },
           data: [
             {
-              // value: Math.abs(value) / 100,
-              value: 50 / 100,
+              value: Math.abs(value) / 100,
               name: title,
             },
           ],

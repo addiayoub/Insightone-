@@ -76,14 +76,24 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
 };
 
 const Cumualative = ({ data }) => {
-  console.log("render Cumualative");
+  const { selectedPtf } = useSelector((state) => state.backtest);
+  console.log("render Cumualative", data, selectedPtf);
+
   const theme = useChartTheme();
   const seriesNames = useMemo(
-    () => extractKeys(data, ["seance", "returns_mv_cum"]),
+    () =>
+      extractKeys(data, ["seance", "returns_mv_cum"])
+        .filter(
+          (serie) => serie === selectedPtf || serie.startsWith("returns_mv_cum")
+        )
+        .map((item) =>
+          item.startsWith("returns_mv_cum")
+            ? item.replace(/^returns_mv_cum_/, "")
+            : item
+        ),
     [data]
   );
 
-  const { selectedPtf } = useSelector((state) => state.backtest);
   const seriesNames2 = useMemo(() => {
     const originalArray = Object.keys(data[0]).filter(
       (key) => key !== "seance" && key !== selectedPtf
@@ -108,7 +118,7 @@ const Cumualative = ({ data }) => {
     () =>
       getOptions(
         data,
-        seriesNames2,
+        seriesNames,
         "Cumulative Returns vs Benchmark (Log Scaled)",
         theme,
         selectedPtf

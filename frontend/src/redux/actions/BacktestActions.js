@@ -136,9 +136,14 @@ export const getEvolutionB100Portef = createAsyncThunk(
 
 export const backtestAction = createAsyncThunk(
   "backtest/backtestAction",
-  async ({ rf }, thunkAPI) => {
+  async ({ rf, fromSlice = "backtest" }, thunkAPI) => {
+    console.log("call ", "backtestAction", fromSlice);
     const body =
-      thunkAPI.getState().backtest.evolutionB100Ptfs.data.df_rendement;
+      fromSlice === "backtest"
+        ? thunkAPI.getState().backtest.evolutionB100Ptfs.data.df_rendement
+        : thunkAPI.getState().tracking.generationPtfAlea.df_rendement;
+    console.log("body", body);
+
     console.log("ref before", rf);
     rf = +rf / 100;
     console.log("ref after", rf);

@@ -9,6 +9,11 @@ import { generationPtfAlea } from "../../redux/actions/TrackingActions";
 import TitresComponent from "../TitresComponent";
 import Contrainte from "../Contrainte";
 import ToggleButtons from "../ToggleButtons";
+import {
+  backtestAction,
+  getEvolutionB100Portef,
+} from "../../redux/actions/BacktestActions";
+import { setSelectedPtf } from "../../redux/slices/BacktestSlice";
 
 const buttons = [
   {
@@ -53,7 +58,15 @@ const Filter = ({ setIsShow }) => {
       })
     )
       .unwrap()
-      .then(() => setIsShow(true))
+      .then(() => {
+        dispatch(setSelectedPtf(opcvm));
+        dispatch(
+          backtestAction({
+            rf: 2,
+            fromSlice: "tracking",
+          })
+        ).then(() => setIsShow(true));
+      })
       .catch()
       .finally();
   };
@@ -61,7 +74,7 @@ const Filter = ({ setIsShow }) => {
   return (
     <>
       <AccordionBox
-        title="paramètres de backtest"
+        title="paramètres de tracking"
         isExpanded
         detailsClass="flex flex-col flex-wrap gap-2"
       >
