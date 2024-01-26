@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const PtfPoids = ({ data, field, sumOf, title }) => {
   const sorted = useMemo(
@@ -31,6 +32,11 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
     [data, field]
   ).sort((a, b) => b.value - a.value);
   const seriesData = sumOf ? poidsSecteur : poidsTitre;
+  const seriesNames = seriesData.map((item) => item.name);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
   console.log("PtfPoids", data, sorted);
   const theme = useChartTheme();
   const options = useMemo(() => {
@@ -59,6 +65,7 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
         width: "60%",
         left: "center",
         bottom: "0",
+        selected: selectedLegend,
         ...theme.legend,
       },
       grid: {
@@ -88,20 +95,22 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
         },
       ],
     };
-  }, [seriesData, title, theme]);
+  }, [seriesData, title, selectedLegend, theme]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        // height: "500px",
-        // maxHeight: "600px",
-        // margin: "15px 0 40px",
-        // width: "500px",
-        maxHeight: "500px",
-        height: "500px",
-      }}
-    />
-    // <h1>Poids</h1>
+    <>
+      <SeriesSelector />
+      <ReactECharts
+        option={options}
+        style={{
+          // height: "500px",
+          // maxHeight: "600px",
+          // margin: "15px 0 40px",
+          // width: "500px",
+          maxHeight: "500px",
+          height: "500px",
+        }}
+      />
+    </>
   );
 };
 

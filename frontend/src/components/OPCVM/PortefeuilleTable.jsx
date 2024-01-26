@@ -273,14 +273,6 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           rowsToDelete={selectedRows}
         />
       )}
-      <PortefeuillePeriod params={params} />
-      <Table
-        columns={columns}
-        rows={newRows}
-        pageSize={25}
-        withCheckboxes={showActions && true}
-        setSelectedRows={setSelectedRows}
-      />
       {showActions && newRows.length > 0 && (
         <GridContainer extraCss="my-4">
           <GridItem>
@@ -296,6 +288,15 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
           </GridItem>
         </GridContainer>
       )}
+      <PortefeuillePeriod params={params} />
+      <Table
+        columns={columns}
+        rows={newRows}
+        pageSize={25}
+        withCheckboxes={showActions && true}
+        setSelectedRows={setSelectedRows}
+      />
+
       {open && (
         <ModalComponent open={open} handleClose={reset}>
           <EditPoidsTitreForm

@@ -1,4 +1,14 @@
-import { BackwardItem, Chart, Document, User } from "iconsax-react";
+import { Balance } from "@mui/icons-material";
+import {
+  BackwardItem,
+  Chart,
+  Document,
+  User,
+  Wallet,
+  Wallet1,
+  WalletMinus,
+  WalletMoney,
+} from "iconsax-react";
 import {
   Activity,
   Dribbble,
@@ -119,7 +129,8 @@ export const sidebarData = [
   },
   {
     title: "Analyse OPCVM",
-    icon: Briefcase,
+    // icon: Briefcase,
+    icon: Wallet,
     link: null,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
