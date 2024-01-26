@@ -42,7 +42,6 @@ function Sidebar() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="sidebar-header">
-        {" "}
         <img src={Logo} alt="ida-tech-logo-1" className="logo" />
         <img src={MiniLogo} alt="ida-tech-logo-2" className="mini-logo" />
       </div>
@@ -50,7 +49,8 @@ function Sidebar() {
         <ul className="side-menu">
           {sidebarData.map((item, index) => {
             const isAllowed =
-              !item.isPrivate || (item.isPrivate && role === 305);
+              (!item.isPrivate && role !== 305) ||
+              (item.isPrivate && role === 305);
             return isAllowed ? (
               <li
                 key={index}

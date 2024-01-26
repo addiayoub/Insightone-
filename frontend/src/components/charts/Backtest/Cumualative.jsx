@@ -4,6 +4,7 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
 import SaveToExcel from "../../SaveToExcel";
 import { extractKeys } from "../../../utils/extractKeys";
+import { defaultOptions } from "../../../utils/chart/defaultOptions";
 
 const getOptions = (data, seriesNames, title, theme, ptf = "") => {
   return {
@@ -39,21 +40,6 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
       confine: true,
       valueFormatter: (value) => value?.toFixed(2),
     },
-    dataZoom: [
-      {
-        type: "slider", // Enable slider data zoom
-        show: true,
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
-      },
-      {
-        type: "inside",
-        xAxisIndex: [0],
-        start: 0,
-        end: 100,
-      },
-    ],
     xAxis: {
       type: "category",
       data: data.map((item) => item.seance),
@@ -85,6 +71,7 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
       symbol: "none",
       data: data.map((item) => item[seriesName] * 100),
     })),
+    ...defaultOptions,
   };
 };
 

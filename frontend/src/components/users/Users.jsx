@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { Add, Edit, Trash } from "iconsax-react";
 import React, { useEffect, useState } from "react";
@@ -11,61 +11,62 @@ import Create from "./crud/Create";
 import Delete from "./crud/Delete";
 import Update from "./crud/Update";
 
+const columns = [
+  {
+    field: "username",
+    headerName: "Nom d'utilisateur",
+    width: 360,
+  },
+  {
+    field: "isAdmin",
+    headerName: "Rôle",
+    width: 360,
+    renderCell: (params) => {
+      const role = params.value ? "admin" : "user";
+      return <span>{role}</span>;
+    },
+  },
+  {
+    field: "actions",
+    headerName: "Actions",
+    width: 320,
+    sortable: false,
+    renderCell: ({ row }) => {
+      return (
+        <div>
+          <IconButton
+            variant="contained"
+            size="small"
+            sx={{ marginInline: 0.3 }}
+            onClick={() => {
+              setOpenDelete({ state: true, payload: row._id });
+            }}
+          >
+            <Trash size="20" color="#ee4658" />
+          </IconButton>
+          <IconButton
+            variant="contained"
+            size="small"
+            onClick={() => {
+              setOpenEdit({
+                state: true,
+                payload: row,
+              });
+            }}
+          >
+            <Edit size="20" color="#444ce7" />
+          </IconButton>
+        </div>
+      );
+    },
+  },
+];
+
 function Users() {
   const { users, loading } = useSelector((state) => state.user);
   const { darkTheme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
-  const columns = [
-    {
-      field: "username",
-      headerName: "Nom d'utilisateur",
-      width: 360,
-    },
-    {
-      field: "isAdmin",
-      headerName: "Rôle",
-      width: 360,
-      renderCell: (params) => {
-        const role = params.value ? "admin" : "user";
-        return <span>{role}</span>;
-      },
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 320,
-      sortable: false,
-      renderCell: ({ row }) => {
-        return (
-          <div>
-            <Button
-              variant="contained"
-              color="error"
-              size="small"
-              sx={{ marginInline: 0.3 }}
-              onClick={() => {
-                setOpenDelete({ state: true, payload: row._id });
-              }}
-            >
-              <Trash size="20" color="#fff" />
-            </Button>
-            <Button
-              variant="contained"
-              size="small"
-              onClick={() => {
-                setOpenEdit({
-                  state: true,
-                  payload: row,
-                });
-              }}
-            >
-              <Edit size="20" color="#fff" />
-            </Button>
-          </div>
-        );
-      },
-    },
-  ];
+
   // Create
   const [open, setOpen] = useState(false);
   const setModalOff = () => setOpen(false);
@@ -113,12 +114,13 @@ function Users() {
       </Typography>
       <Button
         variant="contained"
-        sx={{ marginBlock: 1, fontSize: "16px" }}
+        sx={{ margin: 1 }}
+        size="small"
         onClick={() => {
           setOpen(true);
         }}
       >
-        <Add size={30} color="#fff" />
+        <Add size={20} color="#fff" />
         ajouter un utilisateur
       </Button>
       <DataGrid

@@ -3,6 +3,14 @@ import { Outlet, Navigate } from "react-router-dom";
 import Main from "../components/layouts/main/Main";
 export default function LoginRoute() {
   const { user } = useSelector((state) => state.auth);
-
-  return user ? <Main /> : <Navigate to="/login" />;
+  console.log("user is ", user);
+  return user ? (
+    user?.role !== 305 ? (
+      <Main />
+    ) : (
+      <Navigate to="/users" />
+    )
+  ) : (
+    <Navigate to="/login" />
+  );
 }

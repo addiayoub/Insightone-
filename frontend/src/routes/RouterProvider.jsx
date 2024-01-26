@@ -1,4 +1,9 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import Dashboard from "../components/Dashboard/Index.jsx";
 import Login from "../components/Login.jsx";
 import Profile from "../components/Profile.jsx";
@@ -44,6 +49,7 @@ function RouterProvider() {
           <Route element={<LoginRoute />}>
             <Route element={<Login />} path="/login" />
           </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </>

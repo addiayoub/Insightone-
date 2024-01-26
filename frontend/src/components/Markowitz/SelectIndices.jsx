@@ -44,7 +44,7 @@ function SelectIndices({
       multiple
       id={`id-${label}-${Math.random() * 100}`}
       options={indices}
-      // disableCloseOnSelect={disableCloseOnSelect}
+      disableCloseOnSelect={disableCloseOnSelect}
       value={selectedIndices}
       filterOptions={(options, params) => {
         const filter = createFilterOptions();

@@ -61,6 +61,7 @@ export const sidebarData = [
   {
     title: "Création de portefeuille",
     icon: Layers,
+    isPrivate: false,
     link: null,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
@@ -112,6 +113,7 @@ export const sidebarData = [
     title: "Simulation",
     icon: Folder,
     link: null,
+    isPrivate: false,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
@@ -132,6 +134,7 @@ export const sidebarData = [
     // icon: Briefcase,
     icon: Wallet,
     link: null,
+    isPrivate: false,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
