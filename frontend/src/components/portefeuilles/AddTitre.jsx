@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { memo, useEffect, useMemo, useState } from "react";
 import Contrainte from "../Contrainte";
 import ToggleButtons from "../ToggleButtons";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,7 @@ import { notyf } from "../../utils/notyf";
 import SelectIndices from "../Markowitz/SelectIndices";
 import { Box, Button, Typography, Divider } from "@mui/material";
 import { filterSelects, generateSelects } from "../../utils/generateSelects";
+import TitresComponent from "../TitresComponent";
 
 const buttons = [
   {
@@ -99,7 +100,13 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
           </Contrainte>
         );
       })}
-      {filteredSelects.map((select, index) => {
+      <TitresComponent
+        choice={choice}
+        isMultipl
+        selectedTitres={selectedTitres}
+        setSelectedTitres={setSelectedTitres}
+      />
+      {/* {filteredSelects.map((select, index) => {
         return (
           <Box className="flex flex-wrap gap-2 item-center" key={index}>
             {Object.keys(select).map((key) => {
@@ -108,11 +115,12 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
                 select[key]["label"],
                 Object.keys(select)
               );
+              const { label, data } = select[key];
               return (
                 <SelectIndices
-                  key={`${select[key]["label"]}-${index + 1}`}
-                  label={select[key]["label"]}
-                  indices={select[key]["data"]}
+                  key={`${label}-${index + 1}`}
+                  label={label}
+                  indices={data}
                   selectedIndices={
                     key === "classes"
                       ? selectedClasses
@@ -132,7 +140,7 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
             })}
           </Box>
         );
-      })}
+      })} */}
       <Box className="self-end">
         <Button
           variant="contained"
@@ -156,4 +164,4 @@ const AddTitre = ({ handleAdd, oldRows, reset }) => {
   );
 };
 
-export default AddTitre;
+export default memo(AddTitre);

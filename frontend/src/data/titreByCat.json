@@ -1,0 +1,3790 @@
+{
+  "Actions": [
+    {
+      "classe": "Actions cotés",
+      "categorie": "ASSURANCES",
+      "libelle": "AFMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "AFRIC INDUSTRIES SA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "PETROLE & GAZ",
+      "libelle": "AFRIQUIA GAZ"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "ASSURANCES",
+      "libelle": "AGMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SANTE",
+      "libelle": "AKDITAL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+      "libelle": "ALLIANCES"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "ALUMINIUM DU MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETES DE PLACEMENT IMMOBILIER",
+      "libelle": "ARADEI CAPITAL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "ASSURANCES",
+      "libelle": "ATLANTASANAD"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "ATTIJARIWAFA BANK"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "AUTO HALL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "AUTO NEJMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETES DE PLACEMENT IMMOBILIER",
+      "libelle": "BALIMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "BANK OF AFRICA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "BCP"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "BMCI"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "CARTIER SAADA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "CDM"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "CFG BANK"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BANQUES",
+      "libelle": "CIH"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "CIMENTS DU MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "COLORADO"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "COSUMAR"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "TRANSPORT",
+      "libelle": "CTM"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "DARI COUSPATE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+      "libelle": "DELATTRE LEVIVIER MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+      "libelle": "DELTA HOLDING"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "DISTY TECHNOLOGIES"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "DISWAY"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+      "libelle": "DOUJA PROM ADDOHA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "ENNAKL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+      "libelle": "EQDOM"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "FENIE BROSSETTE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "HPS"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETES DE PLACEMENT IMMOBILIER",
+      "libelle": "IMMORENTE INVEST"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "INVOLYS"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "TELECOMMUNICATIONS",
+      "libelle": "ITISSALAT AL-MAGHRIB"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "JET CONTRACTORS"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "LABEL VIE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "LAFARGEHOLCIM MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "LESIEUR CRISTAL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "M2M Group"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "CHIMIE",
+      "libelle": "MAGHREB OXYGENE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+      "libelle": "MAGHREBAIL"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MINES",
+      "libelle": "MANAGEM"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+      "libelle": "MAROC LEASING"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SYLVICULTURE & PAPIER",
+      "libelle": "MED PAPER"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "MICRODATA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MINES",
+      "libelle": "MINIERE TOUISSIT"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "MUTANDIS SCA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BOISSONS",
+      "libelle": "OULMES"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "INDUSTRIE PHARMACEUTIQUE",
+      "libelle": "PROMOPHARM S.A."
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "REALISATIONS MECANIQUES"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MINES",
+      "libelle": "REBAB COMPANY"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+      "libelle": "RESIDENCES DAR SAADA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "LOISIRS ET HOTELS",
+      "libelle": "RISMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "S.M MONETIQUE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+      "libelle": "SALAFIN"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "ASSURANCES",
+      "libelle": "SANLAM MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "MINES",
+      "libelle": "SMI"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "CHIMIE",
+      "libelle": "SNEP"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BOISSONS",
+      "libelle": "SOCIETE DES BOISSONS DU MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SERVICES DE TRANSPORT",
+      "libelle": "SODEP-Marsa Maroc"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "SONASID"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "INDUSTRIE PHARMACEUTIQUE",
+      "libelle": "SOTHEMA"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "DISTRIBUTEURS",
+      "libelle": "STOKVIS NORD AFRIQUE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+      "libelle": "STROC INDUSTRIE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "ELECTRICITE",
+      "libelle": "TAQA MOROCCO"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "TGCC S.A"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "TRANSPORT",
+      "libelle": "TIMAR"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "PETROLE & GAZ",
+      "libelle": "TOTALENERGIES MARKETING MAROC"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "UNIMER"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "ASSURANCES",
+      "libelle": "WAFA ASSURANCE"
+    },
+    {
+      "classe": "Actions cotés",
+      "categorie": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+      "libelle": "ZELLIDJA S.A"
+    }
+  ],
+  "OPCVM": [
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AC SECUR RENDEMENT"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AD BALANCED FUND"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "OMLT",
+      "libelle": "AD BONDS"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "MONETAIRE",
+      "libelle": "AD CASH"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "OMLT",
+      "libelle": "AD COMPACT OBLIGATAIRE"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "MONETAIRE",
+      "libelle": "AD FIXED INCOME FUND"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "ACTIONS",
+      "libelle": "AD MOROCCAN EQUITY FUND"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "OMLT",
+      "libelle": "AD SECUR RENDEMENT"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "OCT",
+      "libelle": "AD SELECT BANK"
+    },
+    {
+      "classe": "AD CAPITAL",
+      "categorie": "OCT",
+      "libelle": "AD YIELD FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AFAK CRP"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "AFG CASH MANAGEMENT"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "AFG DYNAMIC FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AFG FLEXIBLE FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AFG GOV BOND FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AFG INCOME FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "AFG LIQUIDITY FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AFG OPTIMAL FUND"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AFG SECUR RENDEMENT"
+    },
+    {
+      "classe": "AFG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AFG T-BOND FUND"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AFRICAPITAL BONDS"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "AFRICAPITAL CASH"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "AFRICAPITAL EQUITY"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "AFRICAPITAL LIQUIDITY"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AFRICAPITAL SECURITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "AL AMAL"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "AL BARID ISTITMAR"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "AL BARID TRESORERIE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI ADDAMANE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI AVENIR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI INMAA"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI PATRIMOINE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI PROTECTION"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "AL IJTIMAI SERENITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AL ISTITMAR CHAABI DIVERSIFIE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ALIF I"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ALIF II"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "ALIF III"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "ALIFV"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "ALPHA BANK FUND"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "ALPHA DYNAMIC FUND"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ALPHA INCOME FUND"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "ALPHA MONETAIRE"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ALPHA SECURE FUND"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ASSANAD CHAABI"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATLANTA AVENIR"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ATLANTA OBLIGATIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "ATLANTA PERFORMANCE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "ATLAS AMBITION"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATLAS CROISSANCE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "ATLAS EQUILIBRE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ATLAS HARMONIE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "ATLAS LIQUIDITE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "ATLAS MONEBANK"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "ATLAS OBLIGBANCAIRES"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "ATLAS OPTIMISATION"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ATLAS PERENNITE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATLAS PERFORMANCE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "ATLAS PREMIUM"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "ATLAS SELECTION"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "ATLAS SERENITE"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "ATLAS TRESORERIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTAKAFOUL"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI ACTIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI AL MOUCHARAKA"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "CONTRACTUEL",
+      "libelle": "ATTIJARI CASH GARANTI"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI DIVERSIFIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI DIVIDEND FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI FINANCES CORP RENDEMENT"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI FINANCES CORP VALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ATTIJARI FIXED INCOME DISTRIBUTION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "ATTIJARI LIQUIDITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI MIXED DISTRIBUTION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "ATTIJARI MONETAIRE JOUR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "ATTIJARI MONETAIRE PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ATTIJARI OBLIGATIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI PATRIMOINE DIVERSIFIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI PATRIMOINE MULTIGESTION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ATTIJARI PATRIMOINE TAUX"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI PATRIMOINE VALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ATTIJARI SECURITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI SELECTION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "ATTIJARI SOLIDARITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "ATTIJARI TRESORERIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "ATTIJARI VALEURS ESG"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "AVENIR OBLIGATION"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "AVENIR PREMIERE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "AVENIR PREVOYANCE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "AVENIR RENDEMENT"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AWALI"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AXA CROISSANCE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "AXA EPARGNE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "AXA MONETAIRE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "AXA OBLIG"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AXA PERFORMANCE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AXA PERSPECTIVES"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "AXA-AVENIR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "AZ TAWFIR"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "BMCI CASH"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "BMCI COSMOS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "BMCI EPARGNE CROISSANCE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "BMCI EPARGNE OBLIGATIONS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "BMCI INVEST"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "BMCI MONETAIRE PLUS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "BMCI PREMIUM EQUITY GROWTH"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "BMCI PREMIUM EQUITY INCOME"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "BMCI PREMIUM LONG TERM BOND"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "BMCI PREMIUM MEDIUM TERM BOND"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "BMCI PREMIUM MONEY MARKET"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "BMCI PREMIUM OPPORTUNITY I"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "BMCI PREMIUM OPPORTUNITY II"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "BMCI PREMIUM SHORT TERM BOND"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "BMCI TRESO PLUS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "BMCI TRESORERIE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "BOND OPTIMUM"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "C.I.M.R ATTADAMOUN"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "C.I.M.R IDDIKHAR"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAA RENDEMENT"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "ACTIONS",
+      "libelle": "CAM ACTIONS"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "MONETAIRE",
+      "libelle": "CAM MONETAIRE"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OCT",
+      "libelle": "CAM OBLIBANQUES"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OMLT",
+      "libelle": "CAM OBLIGATIONS"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OMLT",
+      "libelle": "CAM OBLIRENDEMENT"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CAP MONETAIRE PREMIERE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "CAP OBLIGATIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAP SECURICOURT"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAP SECURIVALO"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CAPITAL AFRIQUE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL CAT"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL COMBO"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CAPITAL DIVIDENDES PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL EQUILIBRE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL ISR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL PERFORMANCE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL RENDEMENT PLUS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CAPITAL TRUST ACTIONS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST ALLOCATION"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST BONDS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OCT",
+      "libelle": "CAPITAL TRUST CASH PLUS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST CROISSANCE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST DIVERSIFIE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CAPITAL TRUST DYNAMIQUE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST EQUILIBRE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CAPITAL TRUST EQUITY"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST HARMONIE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST HORIZON"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST INSTITUTIONS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CAPITAL TRUST MONETAIRE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OCT",
+      "libelle": "CAPITAL TRUST OBLIG COURT TERME"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST OBLIG PLUS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST OBLIG PREMIUM"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST OBLIGATAIRE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST OPPORTUNITE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST PATRIMOINE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAPITAL TRUST PERFORMANCE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST RENDEMENT"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OCT",
+      "libelle": "CAPITAL TRUST SECURIPLUS"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAPITAL TRUST SERENITE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CAPITAL TRUST TRESORERIE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "CAT ACTIONS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAT DIVERSIFIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CAT EQUILIBRE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CAT EVOLUTION"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "CAT OBLI FRONTIERES"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG BARID"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG BONDS DYNAMIQUE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDG CASH"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG CITOYENNETE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDG CROISSANCE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CDG DYNAMIC COURT TERME"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG HORIZONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CDG INSTITUTIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CDG IZDIHAR"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CDG MONETAIRE PLUS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDG MONEY PREMIUM"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CDG MULTIGESTION"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG OBLIG PLUS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG OBLIG PREMIUM"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CDG OBLIG SECURITE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG OBLIG SELECTION"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG OBLIGATIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDG OPTIMUM"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CDG PATRIMOINE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDG PERFORMANCE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG PREVOYANCE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG RENDEMENT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDG SERENITE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDG SMALL & MID CAP"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG SOLIDARITE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG TAWFIR"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDG TRESORERIE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDG-ACTIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDG-SECUR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDM CASH"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDM EXPANSION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDM GENERATION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDM MONETAIRE PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "CDM OBLIG PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDM OBLIGATIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CDM OPTIMUM"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CDM PROFIL DYNAMISME"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CDM PROFIL EQUILIBRE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CDM PROFIL SERENITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CDM SECURITE PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "CDM TRESOR PLUS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CFG CASH SECURE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG CORPORATE BONDS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CFG CROISSANCE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CFG DIVERSIFIÉ"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG EMERGENCE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CFG INSTICASH"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OCT",
+      "libelle": "CFG LIQUID BONDS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OCT",
+      "libelle": "CFG LIQUIDITE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CFG OPPORTUNITÉS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG PERFORMANCE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG PROFIL CONSERVATEUR"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CFG PROFIL DYNAMIQUE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CFG PROFIL EQUILIBRE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG PROFIL OFFENSIF"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG PROFIL PRUDENT"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG RENDEMENT"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG RENTABILITE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG SECURE BONDS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CFG SECURITE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG SOLIDARITE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "CFG SOVEREIGN BONDS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG TRADER"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CFG TRESOCORP"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CFG VALEURS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CIH ACTIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CIH CASH"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CIH EPARGNE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CIH MONETAIRE PLUS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CIH OBLIGATIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CIH PATRIMOINE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CIH TRESORERIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CIMR AJIAL"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "CIMR CASH DYNAMIQUE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "CIMR MONETAIRE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CIMR MOUBADARA"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "CIMR PREVOYANCE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "CIMR TRESO PLUS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CKG ACTIONS IDIKHAR"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CKG ISR SELECTION"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CMKD FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CMR ACTIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CMR ASHOUM"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "CMR BONDS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CMR OBLIGATIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CMR SANADATE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "CNIA ASSURE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "CNIA AVENIR"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "CNIA PERFORMANCE"
+    },
+    {
+      "classe": "CAPITAL TRUST GESTION",
+      "categorie": "OMLT",
+      "libelle": "CT SECUR RENDEMENT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "DAILY EQUITY FUND"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "DAR AD DAMANE OPTIMUS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "DAR AD-DAMANE FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "ELAN SOLIDARITE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "EMERGENCE BANK"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "EMERGENCE BOND FUND"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE CAPITAL"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE CASH"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "EMERGENCE CROISSANCE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "EMERGENCE EQUILIBRE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "EMERGENCE EQUITY FUND"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE FUND"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "EMERGENCE MONETAIRE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "EMERGENCE MONETAIRE PLUS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "EMERGENCE MONEY MARKET FUND"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE OBLIGATIONS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "EMERGENCE PERFORMANCE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE RENDEMENT BANQUES"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE RENDEMENT PLUS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "EMERGENCE SERENITE"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP AFRICAPITAL CASH PLUS"
+    },
+    {
+      "classe": "AFRICAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AFRICAPITAL DIVERSIFIE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP AL BADIL CHAABI ASHOUM"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP AL IDDIKHAR CHAABI ACTIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP AL IDDIKHAR CHAABI KASSIR AL MADA"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP AL IDDIKHAR CHAABI MOUTAWASSIT AL MADA"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP AL IDDIKHAR CHAABI TAWIL AL MADA"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP AL IJTIMAÏ SECURITE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP AL IJTIMAI SOLIDARITE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AL IKRAM"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AL KHEIR"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP ALIF IV"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP ALIF VI"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP ALISTITMAR CHAABI ACTIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP ALISTITMAR CHAABI TRESORERIE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP ALLOCATIONS"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP ALPHA BONDS"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP ALPHA GLOBAL"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP ALPHA INVEST"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP ALPHA MONETAIRE PROTECTION"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP ALPHA OBLIGATAIRE"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP ALPHA PERFORMANCE FUND"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP ALPHA RENDEMENT"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AMAN-FM"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "CONTRACTUEL",
+      "libelle": "FCP ATTIJARI GOLD"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AVENIR ACTIONS"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP AVENIR LONG TERME"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP AXA HORIZON"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP BMCI GESTION SOLIDARITE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP BMCI ISR"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAM DYNAMIQUE"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OMLT",
+      "libelle": "FCP CAM EPARGNE"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAM INVESTISSEMENT"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP CAM LIQUIDITE"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OCT",
+      "libelle": "FCP CAM TRESO PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAP INSTITUTIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL ACTIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL ACTIONS PREMIUM"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL BALANCE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL DIVERSIFIES"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAPITAL DYNAMIQUE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL GLOBAL MACRO"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL IMMOBILIER"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL IMTIYAZ CROISSANCE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAPITAL IMTIYAZ LIQUIDITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL IMTIYAZ SECURITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP CAPITAL IMTIYAZ TRESORERIE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL INDICE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL INSTITUTIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL LONG/SHORT"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL MAGHREB"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP CAPITAL MONETAIRE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP CAPITAL MONETAIRE PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL MULTI-GESTION"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL OBLIGATIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAPITAL OBLIGATIONS BANQUES"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAPITAL OBLIGATIONS BANQUES PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL OBLIGATIONS PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL OPPORTUNITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL OPTIMISATION"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL OPTIMUM"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL PARTICIPATIONS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL PROTECTION"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CAPITAL RENDEMENT"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL SECURITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CAPITAL SELECTION"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL SERENITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL TAALIM"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CAPITAL TERME"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAPITAL TRESOR"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP CASACTIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CAT VALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP CDM LIQUIDITES"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CFG CONSTRUCTION"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CFG PREVOYANCE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP CHAABI SOLIDARITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP CIMR MONETAIRE PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CIMR PATRIMOINE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CIMR TANMYA"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CIMR THARWA"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP CKG BONDS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "CONTRACTUEL",
+      "libelle": "FCP CKG GARANTI"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP CMR EQUITIES"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP EDUCATION"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP EMERGENCE ACTIONS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP EMERGENCE ALLOCATION"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP EMERGENCE BALANCED FUND"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP EMERGENCE DIVERSIFIE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP EMERGENCE OBLIG COURT TERME"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP EMERGENCE OBLIHORIZON"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP EMERGENCE OBLIRENDEMENT"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP EMERGENCE PATRIMOINE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP EMERGENCE PERSPECTIVES"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP EMERGENCE SELECTION"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP EMERGENCE TRESOR"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP EMERGENCE TRESOR PLUS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP EMERGENCE TRESORERIE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP EV CAT"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP HORIZON AVENIR"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP HORIZON EQUITY VALUE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP HORIZON FLEXIBLE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP HORIZON PREMIUM"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP INTIMAE-FM"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP IRGAM ACTIONS"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP IRGAM MONETAIRE"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP IRGAM OBLIGATAIRE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "FCP KENZ ACTIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP KENZ OBLIGATIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP KENZ PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP KENZ RENDEMENT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP LIQUIDITES"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OMLT",
+      "libelle": "FCP MAROC CREANCES"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OMLT",
+      "libelle": "FCP MAROC INSTITUTIONS"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "OCT",
+      "libelle": "FCP MAROC RENDEMENT"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP MAROGEST CASH"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP MEDERSAT.COM"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP MONETAIRE DYNAMIQUE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP MONETAIRE PREMIUM"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP MOUSTAQBAL CRP"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP OBLIG CT"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP OBLIG LONG TERM"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP OBLIG OPPORTUNITES"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP OBLIG PERENITE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP OBLIGATIONS DYNAMIQUE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP OBLIGATIONS OPTIMUM"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP OCT DYNAMIQUE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FCP OPPORTUNITES"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP PELICAN"
+    },
+    {
+      "classe": "RED MED ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP RM SECUR RENDEMENT"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP RMA DIVERSIFIE"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "FCP RMA TRESO PLUS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP SANAD ACTIONS"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP SANLAM OBLIGATIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FCP SECURITE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP SECURITE DEVELOPPEMENT"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "FCP SECURITE RENDEMENT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP SERENITE CT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FCP TRESORERIE PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "CONTRACTUEL",
+      "libelle": "FCP UPLINE CAPITAL GARANTI"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP UPLINE HORIZON"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FCP UPLINE OBLIG PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FCP UPLINE OPPORTUNITES"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "CONTRACTUEL",
+      "libelle": "FCP UPLINE RENDEMENT PLUS"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FH2 ACTIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "FH2 ACTIONS II"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "FH2 OBLIGATAIRE DYNAMIQUE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FORCE MUTUELLE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "FRUCTI VALEURS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "FSEC I CT"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "FSEC II OMLT"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "GROUPE MCMA-MAMDA OPTIMISATION"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "HORIZON DISTRIPERF"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "HORIZON EXPANSION"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "HORIZON MID & SMALL CAP"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "HORIZON OBLIG TRESOR"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "HORIZON TREASURY FUND"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "INSTIMONETAIRE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "INSTIOBLIGATIONS"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "INSTIOBLIGATIONS ETAT"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "INTEGRA CASH"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "INVEST EQUILIBRE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "IRAD"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "IRG SECUR RENDEMENT"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "IRGAM ALLOCATION"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "IRGAM BALANCE"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "IRGAM DISTRIEQUILIBRE"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "IRGAM DISTRIEQUITY"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "IRGAM MONETAIRE PLUS"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "IRGAM OBLIBANQUES"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "IRGAM OBLIRENDEMENT"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "IRGAM SECURIBANK"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "IRGAM SECURIFINANCE"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "IRGAM SECURIPLUS"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "IRGAM STRATEGIE"
+    },
+    {
+      "classe": "VALORIS MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "LEGACY ACCUMULATION FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "LIBERIS SERENITE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "LMV EQUITY INVEST"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "MAROC OPPORTUNITE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "MAROC VALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "MBS RENDEMENT"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "ACTIONS",
+      "libelle": "MSIN ACTIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "MUTUELLE PREVOYANCE PLUS - MPBP"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "OBLIDYNAMIC"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "OBLIG INSTITUTIONS"
+    },
+    {
+      "classe": "ATLAS CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "OBLIGATAIRE PLUS"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "OBLIGATAIRE PREMIUM"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OCT",
+      "libelle": "OBLITOP"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "PALMARES FINANCIERES"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "PATRIMOINE ACTIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "PATRIMOINE AL MOUSSAHAMA"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "PATRIMOINE AVENIR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "PATRIMOINE CROISSANCE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "PATRIMOINE MULTIVALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "PATRIMOINE OBLIGATIONS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "PRESCOLAIRE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "PROFIL DYNAMIQUE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "PROFIL FLEXIBLE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "PROFIL HARMONIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "PROFIL SERENITE"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "RMA CORPORATE BOND"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "RMA DYNAMIQUE"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "RMA EQUITY MARKET"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "RMA EXPANSION"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "RMA MULTISTRATEGIES"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "RMA OBLIGATIONS"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "RMA PERFORMANCE"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "RMA RENDEMENT CT"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "RMA RENDEMENT MT"
+    },
+    {
+      "classe": "RMA ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "RMA RENDEMENT PLUS"
+    },
+    {
+      "classe": "IRG ASSET MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "R-MIXT COUVERTURE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "R-MIXT CROISSANCE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "R-MIXT OPTIMUM"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "R-MIXT PERFORMANCE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "R-MIXT SELECTION"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "SAFAE"
+    },
+    {
+      "classe": "BMCI ASSET MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "SANAD OBLIGATAIRE"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "SANAD PERFORMANCE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "SANAD SERENITY"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "SCR RENDEMENT"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "SECURITE TRESO PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "SECURITIES PERFORMANCE"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "SG ACTIONS PLUS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "CONTRACTUEL",
+      "libelle": "SG CASH GARANTI"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "SG CASH PLUS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "SG COURT TERME OBLIG"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "SG EPARGNE PLUS ACTIONS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "SG EXPANSION"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "SG NOVA"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "SG OBLIG PLUS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "SG OPTIMAL OBLIG"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "SG PERSPECTIVES"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "SG SOCIAL IMPACT FUND"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "SG TRESOR PLUS"
+    },
+    {
+      "classe": "SOGECAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "SG VALEURS"
+    },
+    {
+      "classe": "MAROGEST",
+      "categorie": "DIVERSIFIE",
+      "libelle": "SICAV MAROC CROISSANCE"
+    },
+    {
+      "classe": "BMCE CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "SICAVENIR"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "OMLT",
+      "libelle": "SMART FUND"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "SOCIETE CENTRALE DE REASSURANCE OBLIGATIONS"
+    },
+    {
+      "classe": "CDG CAPITAL GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "SOCIETE CENTRALE DE REASSURANCE-INTEGRALE"
+    },
+    {
+      "classe": "CFG GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "STAFF ACTION"
+    },
+    {
+      "classe": "TWIN CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "TWIN BOND"
+    },
+    {
+      "classe": "TWIN CAPITAL GESTION",
+      "categorie": "OMLT",
+      "libelle": "TWIN BOND TRESOR"
+    },
+    {
+      "classe": "TWIN CAPITAL GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "TWIN CASH"
+    },
+    {
+      "classe": "TWIN CAPITAL GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "TWIN OPPORTUNITY"
+    },
+    {
+      "classe": "TWIN CAPITAL GESTION",
+      "categorie": "OCT",
+      "libelle": "TWIN TREASURY"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "UNIVERS DIVERSIFIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "UNIVERS OBLIGATIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "UPLINE ACTIONS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "UPLINE AVENIR"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "UPLINE CASH"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "UPLINE CROISSANCE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "UPLINE DIVERSIFIE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "UPLINE HORIZON DYNAMIQUE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "UPLINE OBLIG"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "UPLINE OBLIG DYNAMIQUE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "UPLINE PATRIMOINE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "UPLINE PERENNITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "DIVERSIFIE",
+      "libelle": "UPLINE PROTECTION DYNAMIQUE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "UPLINE RENDEMENT"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OCT",
+      "libelle": "UPLINE RETAIL SERENITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "UPLINE RETAIL SERENITE PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "UPLINE SECURE PLUS"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "OMLT",
+      "libelle": "UPLINE SOLIDARITE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "MONETAIRE",
+      "libelle": "UPLINE TRESORERIE"
+    },
+    {
+      "classe": "UPLINE CAPITAL MANAGEMENT",
+      "categorie": "ACTIONS",
+      "libelle": "UPLINE VALEURS PLUS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WAFA ASSURANCE EXPANSION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WAFA ASSURANCE OPTIMISATION"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "WAFA ASSURANCE SECURITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WAFA ASSURANCE STRATEGIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG ACTIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG BALANCED"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "WG BOND FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG CAPITAL"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG CROISSANCE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG DIVERSIFIE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG DYNAMIC"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG EPARGNE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG EQUITY FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG FRUCTI PATRIMOINE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG HORIZON"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG LOW VOLATILITY FACTOR FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG MOMENTUM FACTOR FUND"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "WG MONETAIRE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "OMLT",
+      "libelle": "WG OBLIGATIONS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG OPPORTUNITES"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG PERFORMANCE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG RENDEMENT"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WG SERENITE"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG TAYSSIR"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG VALEURS"
+    },
+    {
+      "classe": "WAFA GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WG VALUE FACTOR FUND"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WINEO ACTIONS"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WINEO AL AMINE"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "OMLT",
+      "libelle": "WINEO AMANA"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "MONETAIRE",
+      "libelle": "WINEO CASH"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "DIVERSIFIE",
+      "libelle": "WINEO DELTA"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "ACTIONS",
+      "libelle": "WINEO EQUINOXE"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "OMLT",
+      "libelle": "WINEO OBLIG"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "OCT",
+      "libelle": "WINEO OBLIG CT"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "OMLT",
+      "libelle": "WINEO OBLIG SECURITE"
+    },
+    {
+      "classe": "WINEO GESTION",
+      "categorie": "OMLT",
+      "libelle": "WINEO SECUR RENDEMENT"
+    }
+  ],
+  "Indices": [
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+      "libelle": "AGROALIMENTAIRE & PRODUCTION"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "ASSURANCES",
+      "libelle": "ASSURANCES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "BANQUES",
+      "libelle": "BANQUES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+      "libelle": "BATIMENT & MATERIAUX DE CONSTRUCTION"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "BCE20",
+      "libelle": "BCE20"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "BOISSONS",
+      "libelle": "BOISSONS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "CASA",
+      "libelle": "CASABLANCA ESG 10"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "CHIMIE",
+      "libelle": "CHIMIE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "DISTRIBUTEURS",
+      "libelle": "DISTRIBUTEURS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "ELECTRICITE",
+      "libelle": "ELECTRICITE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES",
+      "libelle": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "ESGI",
+      "libelle": "ESGI"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "ESGI",
+      "libelle": "ESGI OUVERTURE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+      "libelle": "INDUSTRIE PHARMACEUTIQUE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+      "libelle": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "LOISIRS ET HOTELS",
+      "libelle": "LOISIRS ET HOTELS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX (EUR)"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX (USD)"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX OUVERTURE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX RENTABILITE BRUT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MADE",
+      "libelle": "MADEX RENTABILITE NET"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI",
+      "libelle": "MASI"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI (EUR)",
+      "libelle": "MASI (EUR)"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI (USD)",
+      "libelle": "MASI (USD)"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI HORS SAMIR",
+      "libelle": "MASI HORS SAMIR"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI RENTABILITE BRUT",
+      "libelle": "MASI RENTABILITE BRUT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "CT",
+      "libelle": "MBI CT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "CMLT",
+      "libelle": "MBI GLOBAL"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "LT",
+      "libelle": "MBI LT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "MLT",
+      "libelle": "MBI MLT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "MT",
+      "libelle": "MBI MT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "MINES",
+      "libelle": "MINES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "MONIA"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "CT",
+      "libelle": "NOMINAL 1 AN"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 1 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 10 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 15 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "CT",
+      "libelle": "NOMINAL 2 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 20 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 25 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MT",
+      "libelle": "NOMINAL 3 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 3 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 30 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MT",
+      "libelle": "NOMINAL 5 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 6 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "ACTIONS",
+      "libelle": "OPC ACTIONS AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "ACTIONS",
+      "libelle": "OPC ACTIONS FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "ACTIONS",
+      "libelle": "OPC ACTIONS FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "CONTRACTUEL",
+      "libelle": "OPC CONTRACTUEL AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "CONTRACTUEL",
+      "libelle": "OPC CONTRACTUEL FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "CONTRACTUEL",
+      "libelle": "OPC CONTRACTUEL FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "DIVERSIFIE",
+      "libelle": "OPC DIVERSIFIE AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "DIVERSIFIE",
+      "libelle": "OPC DIVERSIFIE FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "DIVERSIFIE",
+      "libelle": "OPC DIVERSIFIE FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "OPC MONETAIRE AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "OPC MONETAIRE FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "OPC MONETAIRE FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "OCT",
+      "libelle": "OPC OCT AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "OCT",
+      "libelle": "OPC OCT FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "OCT",
+      "libelle": "OPC OCT FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "AJUSTE",
+      "S_CATEGORIE": "OMLT",
+      "libelle": "OPC OMLT AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "OMLT",
+      "libelle": "OPC OMLT FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FNPP AJUSTE",
+      "S_CATEGORIE": "OMLT",
+      "libelle": "OPC OMLT FNPP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+      "libelle": "PARTICIPATION ET PROMOTION IMMOBILIERES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "PETROLE & GAZ",
+      "libelle": "PETROLE & GAZ"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SERVICES AUX COLLECTIVITES",
+      "libelle": "SERVICES AUX COLLECTIVITES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SERVICES DE TRANSPORT",
+      "libelle": "SERVICES DE TRANSPORT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+      "libelle": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+      "libelle": "SOCIETES DE PLACEMENT IMMOBILIER"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+      "libelle": "SOCIETES DE PORTEFEUILLES - HOLDINGS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "SYLVICULTURE & PAPIER",
+      "libelle": "SYLVICULTURE & PAPIER"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "TELECOMMUNICATIONS",
+      "libelle": "TELECOMMUNICATIONS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "TMP"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "TRANSPORT",
+      "libelle": "TRANSPORT"
+    }
+  ]
+}

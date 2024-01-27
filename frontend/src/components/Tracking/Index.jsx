@@ -12,16 +12,7 @@ import DfRendement from "../DfRendement";
 
 const Index = () => {
   const {
-    generationPtfAlea: {
-      loading,
-      dataset,
-      df_b100,
-      df_moy,
-      df_p,
-      df_poids,
-      df_result,
-      df_t,
-    },
+    generationPtfAlea: { loading, df_b100, df_result },
   } = useSelector((state) => state.tracking);
   const { backtestData: backData, selectedPtf } = useSelector(
     (state) => state.backtest

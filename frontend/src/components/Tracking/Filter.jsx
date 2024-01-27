@@ -14,6 +14,9 @@ import {
   getEvolutionB100Portef,
 } from "../../redux/actions/BacktestActions";
 import { setSelectedPtf } from "../../redux/slices/BacktestSlice";
+import SelectedTitres from "../charts/SelectedTitres";
+import GridContainer, { GridItem } from "../Ui/GridContainer";
+import { notyf } from "../../utils/notyf";
 
 const buttons = [
   {
@@ -65,9 +68,11 @@ const Filter = ({ setIsShow }) => {
             rf: 2,
             fromSlice: "tracking",
           })
-        ).then(() => setIsShow(true));
+        )
+          .then(() => setIsShow(true))
+          .catch((e) => notyf.error("Internal Server Error"));
       })
-      .catch()
+      .catch((e) => notyf.error("Internal Server Error"))
       .finally();
   };
   const isDisabled = list.length < 1 || nbSim === "" || !opcvm;
@@ -110,9 +115,15 @@ const Filter = ({ setIsShow }) => {
         />
         <Divider />
         <Typography className="text-sm">Selection des indices</Typography>
-        <IndicesComponent
+        {/* <IndicesComponent
           selectedIndices={selectedIndices}
           setSelectedIndices={setSelectedIndices}
+        /> */}
+        <TitresComponent
+          isMultipl
+          selectedTitres={selectedIndices}
+          setSelectedTitres={setSelectedIndices}
+          choice="Indices"
         />
         <Divider />
         <Typography className="text-sm">Selection des Actions</Typography>
@@ -141,6 +152,11 @@ const Filter = ({ setIsShow }) => {
           );
         })}
         {list.length > 0 && <SelectedIndices list={list} />}
+        {actions.length > 0 && <SelectedTitres selectedTitres={actions} />}
+
+        {selectedIndices.length > 0 && (
+          <SelectedTitres selectedTitres={selectedIndices} type="Indices" />
+        )}
         <Button
           variant="contained"
           className="w-fit mt-3"
