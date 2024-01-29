@@ -1,6 +1,7 @@
 import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const EoyChart = ({ data }) => {
   const theme = useChartTheme();
@@ -19,6 +20,8 @@ const EoyChart = ({ data }) => {
       })),
     [data, seriesName]
   );
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesName);
+
   const options = useMemo(() => {
     return {
       title: {
@@ -39,6 +42,7 @@ const EoyChart = ({ data }) => {
         left: "center",
         bottom: "9%",
         type: "scroll",
+        selected: selectedLegend,
         ...theme.legend,
       },
       grid: {
@@ -75,15 +79,18 @@ const EoyChart = ({ data }) => {
       },
       series: series,
     };
-  }, [series, seriesName, years, theme]);
+  }, [series, seriesName, selectedLegend, years, theme]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: 500,
-        margin: "15px 0",
-      }}
-    />
+    <>
+      <SeriesSelector />
+      <ReactECharts
+        option={options}
+        style={{
+          minHeight: 500,
+          margin: "15px 0",
+        }}
+      />
+    </>
   );
 };
 

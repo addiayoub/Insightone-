@@ -54,6 +54,7 @@ const DfRendement = () => {
               <Rolling
                 data={backData.data.rollingBeta}
                 title="Rolling Beta to Benchmark"
+                allSeries
               />
             </>
           )}

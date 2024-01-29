@@ -5,6 +5,7 @@ import moment from "moment";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import SaveToExcel from "../../SaveToExcel";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const Poids = ({ data }) => {
   const seriesNames = useMemo(
@@ -22,6 +23,7 @@ const Poids = ({ data }) => {
     () => generateRandomColorsArray(seriesNames.length),
     [seriesNames.length]
   );
+  const { selectedLegend, SeriesSelector } = useSeriesSelector(seriesNames);
   const options = useMemo(() => {
     return {
       color: colors,
@@ -46,6 +48,7 @@ const Poids = ({ data }) => {
         width: "60%",
         left: "center",
         bottom: "9%",
+        selected: selectedLegend,
         ...theme.legend,
       },
       toolbox: {
@@ -107,10 +110,11 @@ const Poids = ({ data }) => {
       }),
       ...defaultOptions,
     };
-  }, [theme, seriesNames, data, defaultOptions, colors]);
+  }, [theme, seriesNames, selectedLegend, data, defaultOptions, colors]);
   return (
     <div className="relative">
       <SaveToExcel data={data} fileName="Poids" />
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{

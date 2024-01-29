@@ -5,8 +5,16 @@ import { useSelector } from "react-redux";
 import SaveToExcel from "../../SaveToExcel";
 import { extractKeys } from "../../../utils/extractKeys";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
-const getOptions = (data, seriesNames, title, theme, ptf = "") => {
+const getOptions = (
+  data,
+  seriesNames,
+  title,
+  theme,
+  selectedLegend = [],
+  ptf = ""
+) => {
   return {
     title: {
       text: title,
@@ -56,6 +64,7 @@ const getOptions = (data, seriesNames, title, theme, ptf = "") => {
       left: "center",
       bottom: "9%",
       type: "scroll",
+      selected: selectedLegend,
       ...theme.legend,
     },
     yAxis: {
@@ -109,10 +118,19 @@ const Cumualative = ({ data }) => {
     return originalArray;
   }, [data, selectedPtf]);
   console.log("seriesNames - 1", seriesNames, "seriesNames2", seriesNames2);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector: SeriesSelector2, selectedLegend: selectedLegend2 } =
+    useSeriesSelector(seriesNames);
   const options = useMemo(
     () =>
-      getOptions(data, seriesNames, "Cumulative Returns vs Benchmark", theme),
-    [theme, data, seriesNames]
+      getOptions(
+        data,
+        seriesNames,
+        "Cumulative Returns vs Benchmark",
+        theme,
+        selectedLegend
+      ),
+    [theme, data, selectedLegend, seriesNames]
   );
   const options2 = useMemo(
     () =>
@@ -121,9 +139,10 @@ const Cumualative = ({ data }) => {
         seriesNames,
         "Cumulative Returns vs Benchmark (Log Scaled)",
         theme,
+        selectedLegend2,
         selectedPtf
       ),
-    [theme, data, seriesNames2, selectedPtf]
+    [theme, data, selectedLegend2, seriesNames, selectedPtf]
   );
   console.log(
     "getOptions",
@@ -133,6 +152,7 @@ const Cumualative = ({ data }) => {
     <>
       <div className="relative">
         <SaveToExcel data={data} fileName="Cumulative Returns vs Benchmark" />
+        <SeriesSelector />
         <ReactECharts
           option={options}
           style={{
@@ -142,6 +162,7 @@ const Cumualative = ({ data }) => {
         />
       </div>
       <div className="realative">
+        <SeriesSelector2 />
         <ReactECharts
           option={options2}
           style={{

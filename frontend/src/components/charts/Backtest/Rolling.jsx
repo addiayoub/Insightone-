@@ -4,8 +4,9 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import { defaultOptions } from "../../../utils/chart/defaultOptions";
 import moment from "moment";
 import SaveToExcel from "../../SaveToExcel";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
-const Rolling = ({ data, title }) => {
+const Rolling = ({ data, title, allSeries }) => {
   const theme = useChartTheme();
   console.log("Render Rolling ", title);
   const seriesNames = useMemo(
@@ -14,6 +15,11 @@ const Rolling = ({ data, title }) => {
         (key) => !["seance", "benchmark"].includes(key)
       ),
     [data]
+  );
+  const initSeries = allSeries ? seriesNames : [seriesNames[0]];
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    initSeries
   );
 
   const options = useMemo(() => {
@@ -66,6 +72,7 @@ const Rolling = ({ data, title }) => {
         left: "center",
         bottom: "9%",
         type: "scroll",
+        selected: selectedLegend,
         ...theme.legend,
       },
       yAxis: {
@@ -85,11 +92,12 @@ const Rolling = ({ data, title }) => {
       })),
       ...defaultOptions,
     };
-  }, [defaultOptions, theme, seriesNames, data]);
+  }, [defaultOptions, theme, selectedLegend, seriesNames, data]);
 
   return (
     <div className="relative">
       <SaveToExcel data={data} fileName={title} />
+      <SeriesSelector />
       <ReactECharts
         option={options}
         style={{
