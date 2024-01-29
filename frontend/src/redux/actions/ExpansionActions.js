@@ -98,7 +98,9 @@ export const getAnalyse = createAsyncThunk(
       );
       console.log("Expansion Analyse", analyseQuatile, performance);
       return {
-        analyseQuatile,
+        analyseQuatile: analyseQuatile.sort(
+          (a, b) => new Date(a.Date_VL) - new Date(b.Date_VL)
+        ),
         performance,
         classementPerformance,
         barometreQuantalys,
