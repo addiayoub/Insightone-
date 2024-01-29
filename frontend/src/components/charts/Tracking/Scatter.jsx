@@ -168,7 +168,7 @@ const Scatter = ({ data }) => {
           <AccordionBox isExpanded title={SIM}>
             <IconButton
               onClick={() => setSIM(minSIM)}
-              className="bg-[var(--primary-color)]"
+              className="bg-primary"
               title="Réinitialiser"
             >
               <RefreshCcw size={18} color="#fff" />

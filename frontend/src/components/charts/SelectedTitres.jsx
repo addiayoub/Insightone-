@@ -1,148 +1,120 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../hooks/useChartTheme";
-import titreByCat from "../../data/titreByCat.json";
+import titresByCategory from "../../data/titresByCategory.json";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { Box } from "@mui/material";
+import { Award } from "react-feather";
 
-const calculateClassePercentage = (selectedData) => {
-  // Calculate the percentage for each unique classe
-  const classeCounts = {};
-  selectedData.forEach((item) => {
-    classeCounts[item.classe] = (classeCounts[item.classe] || 0) + 1;
-  });
+const referenceData = [
+  ...titresByCategory.Actions,
+  ...titresByCategory.Indices,
+];
 
-  const classePercentageData = Object.entries(classeCounts).map(
-    ([classe, count]) => ({
-      name: classe,
-      value: (count / selectedData.length) * 100,
-    })
-  );
-
-  return classePercentageData;
-};
-
-const calculateCategoriePercentage = (selectedData) => {
-  // Calculate the percentage for each unique categorie
-  const categorieCounts = {};
-  selectedData.forEach((item) => {
-    categorieCounts[item.categorie] =
-      (categorieCounts[item.categorie] || 0) + 1;
-  });
-
-  const categoriePercentageData = Object.entries(categorieCounts).map(
-    ([categorie, count]) => ({
-      name: categorie,
-      value: (count / selectedData.length) * 100,
-    })
-  );
-  return categoriePercentageData;
-};
-
-const createOptions = (name, seriesData) => {
-  seriesData.sort((a, b) => b.value - a.value);
-  return {
-    title: {
-      text: `${name}s`,
-      left: "center",
-    },
-    grid: {
-      bottom: "0%",
-      containLabel: true,
-    },
-    tooltip: {
-      trigger: "item",
-      confine: true,
-      valueFormatter: (value) => value?.toFixed(2) + "%",
-    },
-    legend: {
-      type: "scroll",
-      orient: "horizontal",
-      zLevel: 23,
-      width: "60%",
-      left: "center",
-      bottom: "3%",
-    },
-    series: [
-      {
-        name,
-        type: "pie",
-        radius: ["40%", "70%"],
-        avoidLabelOverlap: false,
-        label: {
-          show: false,
-          position: "center",
-        },
-        emphasis: {
-          label: {
-            show: false,
-            fontSize: 20,
-            fontWeight: "bold",
-          },
-        },
-        labelLine: {
-          show: false,
-        },
-        data: seriesData,
-      },
-    ],
-  };
-};
-
-const SelectedTitres = ({ selectedTitres = [], type = "Actions" }) => {
-  const referenceData = titreByCat[type];
-  const selectedData = referenceData.filter((item) =>
-    selectedTitres.includes(item.libelle)
-  );
-  const classeData = calculateClassePercentage(selectedData);
-  const categriesData = calculateCategoriePercentage(selectedData);
-  console.log("selectedData", selectedData, "classeData", classeData);
-  const titresData = selectedTitres.map((item) => ({
-    value: 100 / selectedTitres.length,
-    name: item,
-  }));
-  const titreChart = createOptions("Titre", titresData);
-  const categorieChart = createOptions("Catégorie", categriesData);
-  console.log("categriesData", categriesData);
-  const classeChart = createOptions("Classe", classeData);
+const CardHeader = ({ children, icon = Award }) => {
   return (
-    <Box className="py-2">
-      <h2 className="text-center underline decoration-[var(--primary-color)] my-2">
-        {type}
-      </h2>
-      <GridContainer>
-        <GridItem cols={4}>
-          <ReactECharts
-            option={classeChart}
-            style={{
-              height: "350px",
-              maxHeight: "500px",
-              margin: "15px 0",
-            }}
-          />
-        </GridItem>
-        <GridItem cols={4}>
-          <ReactECharts
-            option={categorieChart}
-            style={{
-              height: "350px",
-              maxHeight: "500px",
-              margin: "15px 0",
-            }}
-          />
-        </GridItem>
-        <GridItem cols={4}>
-          <ReactECharts
-            option={titreChart}
-            style={{
-              height: "350px",
-              maxHeight: "500px",
-              margin: "15px 0",
-            }}
-          />
-        </GridItem>
-      </GridContainer>
-    </Box>
+    <div className="flex gap-4 items-center">
+      <div
+        className="rounded-full flex items-center justify-center w-12 h-12 flex-shrink-0"
+        style={{ border: "1px solid #ccc" }}
+      >
+        {React.createElement(icon, {
+          className: "bx bx-error text-3xl",
+          color: "var(--primary-color)",
+        })}
+      </div>
+      {children}
+    </div>
+  );
+};
+
+const Card = ({ children }) => {
+  return (
+    <GridItem
+      extraCss="border border-solid  p-8 rounded-xl flex flex-col gap-x-2 gap-y-4 max-h-[160px] overflow-y-auto shadow-lg"
+      cols={4}
+    >
+      {children}
+    </GridItem>
+  );
+};
+
+const SelectedTitres = ({ selectedTitres }) => {
+  const [classCount, setClassCount] = useState(0);
+  const [classCategoryCounts, setClassCategoryCounts] = useState({});
+  const [categoryTitleCounts, setCategoryTitleCounts] = useState({});
+
+  useEffect(() => {
+    // Count the number of unique classes
+    const uniqueClasses = new Set();
+    selectedTitres.forEach((title) => {
+      const data = referenceData.find((item) => item.libelle === title);
+      if (data) {
+        uniqueClasses.add(data.classe);
+      }
+    });
+    setClassCount(uniqueClasses.size);
+
+    // Count the number of categories for each class
+    const classCategories = {};
+    selectedTitres.forEach((title) => {
+      const data = referenceData.find((item) => item.libelle === title);
+      if (data) {
+        if (!classCategories[data.classe]) {
+          classCategories[data.classe] = new Set();
+        }
+        classCategories[data.classe].add(data.categorie);
+      }
+    });
+    setClassCategoryCounts(classCategories);
+
+    // Count the number of titles for each category
+    const categoryTitles = {};
+    selectedTitres.forEach((title) => {
+      const data = referenceData.find((item) => item.libelle === title);
+      if (data) {
+        if (!categoryTitles[data.categorie]) {
+          categoryTitles[data.categorie] = 0;
+        }
+        categoryTitles[data.categorie]++;
+      }
+    });
+    setCategoryTitleCounts(categoryTitles);
+  }, [referenceData, selectedTitres]);
+
+  return (
+    <GridContainer extraCss={"gap-4"}>
+      <Card>
+        <CardHeader icon={Award}>
+          <h3>Classes</h3>
+        </CardHeader>
+        <h2>{classCount}</h2>
+      </Card>
+      <Card>
+        <CardHeader>
+          <h3>Nombre de catégories par classe</h3>
+        </CardHeader>
+        {Object.entries(classCategoryCounts).map(([classe, categories]) => (
+          <div key={classe} className="flex justify-between items-center mt-2">
+            <p className="min-w-[100px] font-medium underline">{classe}</p>
+            <p className="font-medium">{categories.size}</p>
+          </div>
+        ))}
+      </Card>
+      <Card>
+        <CardHeader>
+          <h3>Nombre de titres par catégorie</h3>
+        </CardHeader>
+        {Object.entries(categoryTitleCounts).map(([category, count]) => (
+          <div
+            key={category}
+            className="flex justify-between items-center mt-2"
+          >
+            <p className="max-w-[150px] font-medium underline">{category}</p>
+            <p className="font-medium">{count}</p>
+          </div>
+        ))}
+      </Card>
+    </GridContainer>
   );
 };
 

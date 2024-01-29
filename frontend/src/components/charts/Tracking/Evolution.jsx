@@ -41,7 +41,7 @@ function Evolution({
     .map((seriesName) => data.map((item) => item[seriesName]))
     .flat()
     .filter((value) => value !== undefined);
-  const minYAxisValue = Math.min(...seriesData);
+  // const minYAxisValue = Math.min(...seriesData);
   console.log("excludeSeance", excludeSeance);
   const theme = useChartTheme();
   data = transformData(data);
@@ -116,6 +116,18 @@ function Evolution({
     selectedPtf,
     "SIM",
   ]);
+  const forMinVal = useMemo(
+    () =>
+      seriesNames
+        .map((serie) => originalData.map((item) => item[serie]))
+        .flat()
+        .concat(minValues)
+        .filter((num) => num !== undefined),
+    [originalData, seriesNames]
+  );
+
+  const minYAxisValue = Math.min(...forMinVal);
+
   const options = useMemo(() => {
     return {
       title: {
@@ -162,7 +174,9 @@ function Evolution({
       },
       yAxis: {
         type: "value",
+        max: 110,
         min: Math.trunc(minYAxisValue),
+        show: true,
         axisLabel: {
           ...theme.yAxis.nameTextStyle,
         },

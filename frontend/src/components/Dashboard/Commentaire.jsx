@@ -29,7 +29,7 @@ function Commentaire({ date }) {
         </IconButton>
       </div>
       <div
-        className={`w-full leading-6 min-h-[345px] max-h-[345px] overflow-auto border border-solid border-[var(--primary-color)] p-4 rounded-lg my-2.5 `}
+        className={`w-full leading-6 min-h-[345px] max-h-[345px] overflow-auto border border-solid border-primary p-4 rounded-lg my-2.5 `}
       >
         {comments.map((item, index) => (
           <React.Fragment key={item.num_comment}>

@@ -5,11 +5,11 @@ const textColor = (cellValue) => {
   const cell = cellValue.toLowerCase();
 
   if (cell.includes("achat")) {
-    className = "text-[var(--text-success)]";
+    className = "text-success";
   } else if (cell.includes("vente")) {
-    className = "text-[var(--text-warning)]";
+    className = "text-warning";
   } else {
-    className = "text-[var(--text-muted)]";
+    className = "text-muted";
   }
   return <span className={`${className} font-semibold`}>{cellValue}</span>;
 };

@@ -16,7 +16,7 @@ const useSeriesSelector = (seriesNames, init = [seriesNames[0]]) => {
   const SeriesSelector = () => (
     <Box className="my-1">
       <IconButton
-        className="bg-[var(--primary-color)] mb-1"
+        className="bg-primary mb-1"
         onClick={() => seIsHide(!isHide)}
         title="gérer les légendes"
       >

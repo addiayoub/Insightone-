@@ -1,0 +1,5960 @@
+[
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CARTIER SAADA",
+    "REFERENCE": "CARTIER SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CDA",
+    "REFERENCE": "CENTRALE DANONE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CENTRALE DANONE",
+    "REFERENCE": "CENTRALE DANONE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CENTRALE LAITIERE",
+    "REFERENCE": "CENTRALE LAITIERE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CLT",
+    "REFERENCE": "CENTRALE LAITIERE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "COSUMAR",
+    "REFERENCE": "COSUMAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CR SAADA J01/04/12",
+    "REFERENCE": "CR SAADA J01/04/12"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CRS",
+    "REFERENCE": "CARTIER SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CRS22",
+    "REFERENCE": "CR SAADA J01/04/12"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "CSR",
+    "REFERENCE": "COSUMAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "Dari",
+    "REFERENCE": "DARI COUSPATE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "DARI COUSPATE",
+    "REFERENCE": "DARI COUSPATE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "DRI",
+    "REFERENCE": "DARI COUSPATE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "LES",
+    "REFERENCE": "LESIEUR CRISTAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "LESIEUR CRISTAL",
+    "REFERENCE": "LESIEUR CRISTAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "Lesieur-Cristal",
+    "REFERENCE": "LESIEUR CRISTAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "LGM",
+    "REFERENCE": "LGMC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "LGMC",
+    "REFERENCE": "LGMC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "MUT",
+    "REFERENCE": "MUTANDIS SCA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "Mutandis",
+    "REFERENCE": "MUTANDIS SCA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "MUTANDIS SCA",
+    "REFERENCE": "MUTANDIS SCA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "Résidences Dar Saada",
+    "REFERENCE": "CARTIER SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "UMR",
+    "REFERENCE": "UNIMER"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
+    "TITRE": "UNIMER",
+    "REFERENCE": "UNIMER"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "AFM",
+    "REFERENCE": "AFMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "AFMA",
+    "REFERENCE": "AFMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "AGMA",
+    "REFERENCE": "AGMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "AGMA LAHLOU-TAZI",
+    "REFERENCE": "AGMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "ATL",
+    "REFERENCE": "ATLANTA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "ATL",
+    "REFERENCE": "ATLANTASANAD"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "ATLANTA",
+    "REFERENCE": "ATLANTA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "ATLANTASANAD",
+    "REFERENCE": "ATLANTASANAD"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "AtlantaSanad Assurance",
+    "REFERENCE": "ATLANTASANAD"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "LA MAROCAINE VIE",
+    "REFERENCE": "LA MAROCAINE VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "MAV",
+    "REFERENCE": "LA MAROCAINE VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "SAH",
+    "REFERENCE": "SAHAM ASSURANCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "SAH",
+    "REFERENCE": "SANLAM MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "SAHAM ASSURANCE",
+    "REFERENCE": "SAHAM ASSURANCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "Saham Assurances",
+    "REFERENCE": "SAHAM ASSURANCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "SANLAM MAROC",
+    "REFERENCE": "SANLAM MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "WAA",
+    "REFERENCE": "WAFA ASSURANCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ASSURANCES",
+    "TITRE": "WAFA ASSURANCE",
+    "REFERENCE": "WAFA ASSURANCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "ATTIJARI BANK",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "ATTIJARI WAFA BANK",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "ATTIJARI WAFABANK",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "ATTIJARIWAFA BANK",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "ATW",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BANK OF AFRICA",
+    "REFERENCE": "BANK OF AFRICA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BC129",
+    "REFERENCE": "BMCI J01/07/2009"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BCE",
+    "REFERENCE": "BMCE BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BCI",
+    "REFERENCE": "BMCI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BCI28",
+    "REFERENCE": "BMCI J01/10/2008"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BCP",
+    "REFERENCE": "BCP"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BMCE",
+    "REFERENCE": "BMCE BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BMCE BANK",
+    "REFERENCE": "BMCE BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BMCI",
+    "REFERENCE": "BMCI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BMCI J01/07/2009",
+    "REFERENCE": "BMCI J01/07/2009"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BMCI J01/10/2008",
+    "REFERENCE": "BMCI J01/10/2008"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "BOA",
+    "REFERENCE": "BANK OF AFRICA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CDM",
+    "REFERENCE": "CDM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CFG",
+    "REFERENCE": "CFG BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CFG Bank",
+    "REFERENCE": "CFG BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CIH",
+    "REFERENCE": "CIH"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CIH Bank",
+    "REFERENCE": "CIH"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "CREDIT DU MAROC",
+    "REFERENCE": "CDM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "Crédit du Maroc",
+    "REFERENCE": "CDM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BANQUES",
+    "TITRE": "WAFABANK",
+    "REFERENCE": "ATTIJARIWAFA BANK"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "AFI",
+    "REFERENCE": "AFRIC INDUSTRIES SA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "Afric Industries",
+    "REFERENCE": "AFRIC INDUSTRIES SA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "AFRIC INDUSTRIES SA",
+    "REFERENCE": "AFRIC INDUSTRIES SA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "ALM",
+    "REFERENCE": "ALUMINIUM DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "ALUMINIUM DU  MAROC",
+    "REFERENCE": "ALUMINIUM DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "ALUMINIUM DU MAROC",
+    "REFERENCE": "ALUMINIUM DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "Ciment",
+    "REFERENCE": "CIMENTS DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "Ciments du Maroc",
+    "REFERENCE": "CIMENTS DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "CMA",
+    "REFERENCE": "CIMENTS DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "COL",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "COLORADO",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "COLORADO SA",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "HOL",
+    "REFERENCE": "HOLCIM ( Maroc )"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "HOLCIM ( Maroc )",
+    "REFERENCE": "HOLCIM ( Maroc )"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "HOLCIM (Maroc)",
+    "REFERENCE": "HOLCIM ( Maroc )"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "JALU",
+    "REFERENCE": "JET ALU MAROC SA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "JET",
+    "REFERENCE": "JET CONTRACTORS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "JET ALU MAROC SA",
+    "REFERENCE": "JET ALU MAROC SA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "JET CONTRACTORS",
+    "REFERENCE": "JET CONTRACTORS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LAC",
+    "REFERENCE": "LAFARGE CIMENTS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LAFARGE CIMENTS",
+    "REFERENCE": "LAFARGEHOLCIM MAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LafargeHolcim",
+    "REFERENCE": "LAFARGEHOLCIM MAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LAFARGEHOLCIM MAR",
+    "REFERENCE": "LAFARGEHOLCIM MAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LafargeHolcim Maroc",
+    "REFERENCE": "LAFARGEHOLCIM MAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LHM",
+    "REFERENCE": "LAFARGEHOLCIM MAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "LHM",
+    "REFERENCE": "LAFARGEHOLCIM MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "MED",
+    "REFERENCE": "MEDIACO MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "MEDIACO MAROC",
+    "REFERENCE": "MEDIACO MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "SID",
+    "REFERENCE": "SONASID"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "SOCIETE NATIONALE DE SIDERURGIE",
+    "REFERENCE": "SONASID"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "SONASID",
+    "REFERENCE": "SONASID"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "TGC",
+    "REFERENCE": "TGCC S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "TGCC",
+    "REFERENCE": "TGCC S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "TGCC S.A",
+    "REFERENCE": "TGCC S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "TITRE": "Travaux Généraux de Construction de Casablanca",
+    "REFERENCE": "TGCC S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "AOULA",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "BNM",
+    "REFERENCE": "BRANOMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "BRANOMA",
+    "REFERENCE": "BRANOMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "BRASSERIES DU MAROC",
+    "REFERENCE": "BRASSERIES DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "Eaux Minérales d’Oulmès",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "Eaux Minérales Oulmès",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "OULMES",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "Oulmès",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "SBM",
+    "REFERENCE": "BRASSERIES DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "SBM",
+    "REFERENCE": "SOCIETE DES BOISSONS DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "SOCIETE  LES  EAUX  MINERALES  D'OULMES",
+    "REFERENCE": "OULMES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "BOISSONS",
+    "TITRE": "SOCIETE DES BOISSONS DU MAROC",
+    "REFERENCE": "SOCIETE DES BOISSONS DU MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "COL",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "COLORADO",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "COLORADO SA",
+    "REFERENCE": "COLORADO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "FERTIMA",
+    "REFERENCE": "FERTIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "FRT",
+    "REFERENCE": "FERTIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "MAGHREB OXYGENE",
+    "REFERENCE": "MAGHREB OXYGENE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "Maghreb Oxygène",
+    "REFERENCE": "MAGHREB OXYGENE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "MOX",
+    "REFERENCE": "MAGHREB OXYGENE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "SCE",
+    "REFERENCE": "SCE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "SNEP",
+    "REFERENCE": "SNEP"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "SNP",
+    "REFERENCE": "SNEP"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "Société  Nationale d Electrolyse et de Pétrochimie",
+    "REFERENCE": "SNEP"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "CHIMIE",
+    "TITRE": "Société Nationale d Electrolyse et de Pétrochimie",
+    "REFERENCE": "SNEP"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "ATH",
+    "REFERENCE": "AUTO HALL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "AUTO - HALL",
+    "REFERENCE": "AUTO HALL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "AUTO HALL",
+    "REFERENCE": "AUTO HALL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "AUTO NEJMA",
+    "REFERENCE": "AUTO NEJMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "ENNAKL",
+    "REFERENCE": "ENNAKL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "ENNAKL Automobiles",
+    "REFERENCE": "ENNAKL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "FBR",
+    "REFERENCE": "FENIE BROSSETTE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "FENIE BROSSETTE",
+    "REFERENCE": "FENIE BROSSETTE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "Fénie Brossette",
+    "REFERENCE": "FENIE BROSSETTE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "Groupe Stokvis",
+    "REFERENCE": "STOKVIS NORD AFRIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "LABEL VIE",
+    "REFERENCE": "LABEL VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "Label’Vie",
+    "REFERENCE": "LABEL VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "Label'Vie",
+    "REFERENCE": "LABEL VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "LBV",
+    "REFERENCE": "LABEL VIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "NEJ",
+    "REFERENCE": "AUTO NEJMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "NKL",
+    "REFERENCE": "ENNAKL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "REALIS. MECANIQUES",
+    "REFERENCE": "REALIS. MECANIQUES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "REALISATIONS MECANIQUES",
+    "REFERENCE": "REALISATIONS MECANIQUES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "SNA",
+    "REFERENCE": "STOKVIS NORD AFRIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "SOCIETE DE REALISATIONS MECANIQUES",
+    "REFERENCE": "REALISATIONS MECANIQUES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "SRM",
+    "REFERENCE": "REALIS. MECANIQUES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "SRM",
+    "REFERENCE": "REALISATIONS MECANIQUES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "Stokvis",
+    "REFERENCE": "STOKVIS NORD AFRIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "DISTRIBUTEURS",
+    "TITRE": "STOKVIS NORD AFRIQUE",
+    "REFERENCE": "STOKVIS NORD AFRIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ELECTRICITE",
+    "TITRE": "TAQA",
+    "REFERENCE": "TAQA MOROCCO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ELECTRICITE",
+    "TITRE": "TAQA MOROCCO",
+    "REFERENCE": "TAQA MOROCCO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "ELECTRICITE",
+    "TITRE": "TQM",
+    "REFERENCE": "TAQA MOROCCO"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES",
+    "TITRE": "NEX",
+    "REFERENCE": "NEXANS MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES",
+    "TITRE": "Nexans",
+    "REFERENCE": "NEXANS MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES",
+    "TITRE": "NEXANS MAROC",
+    "REFERENCE": "NEXANS MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "PRO",
+    "REFERENCE": "PROMOPHARM S.A."
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "Promopharm",
+    "REFERENCE": "PROMOPHARM S.A."
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "PROMOPHARM S.A.",
+    "REFERENCE": "PROMOPHARM S.A."
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "SOCIETE DE PROMOTION PHARMACEUTIQUE DU MAGHREB",
+    "REFERENCE": "PROMOPHARM S.A."
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "SOCIETE DE THERAPEUTIQUE MAROCAINE",
+    "REFERENCE": "SOTHEMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "SOT",
+    "REFERENCE": "SOTHEMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
+    "TITRE": "SOTHEMA",
+    "REFERENCE": "SOTHEMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "DELATTRE LEVIVIER MAROC",
+    "REFERENCE": "DELATTRE LEVIVIER MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "DLM",
+    "REFERENCE": "DELATTRE LEVIVIER MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "DLM 2L J01/01/13",
+    "REFERENCE": "DLM 2L J01/01/13"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "DLM2",
+    "REFERENCE": "DLM 2L J01/01/13"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "STR",
+    "REFERENCE": "STROC INDUSTRIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "STROC INDUSTRIE",
+    "REFERENCE": "STROC INDUSTRIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "TITRE": "Stroc Industries",
+    "REFERENCE": "STROC INDUSTRIE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "LOISIRS ET HOTELS",
+    "TITRE": "RIS",
+    "REFERENCE": "RISMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "LOISIRS ET HOTELS",
+    "TITRE": "RISMA",
+    "REFERENCE": "RISMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DISTRISOFT MAROC",
+    "REFERENCE": "DISTRISOFT MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DISTY TECHNOLOGIES",
+    "REFERENCE": "DISTY TECHNOLOGIES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DISWAY",
+    "REFERENCE": "DISWAY"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DTS",
+    "REFERENCE": "DISTRISOFT MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DWY",
+    "REFERENCE": "DISWAY"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "DYT",
+    "REFERENCE": "DISTY TECHNOLOGIES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "HIGHTECH PAYMENT SYSTEMS",
+    "REFERENCE": "HPS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "HIGHTECH PAYMENT SYSTEMS S A",
+    "REFERENCE": "HPS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "HPS",
+    "REFERENCE": "HPS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "HPS J 01/01/2010",
+    "REFERENCE": "HPS J 01/01/2010"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "HPS20",
+    "REFERENCE": "HPS J 01/01/2010"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "IB Maroc",
+    "REFERENCE": "IB MAROC.COM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "IB MAROC.COM",
+    "REFERENCE": "IB MAROC.COM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "IBC",
+    "REFERENCE": "IB MAROC.COM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "IBMAROC",
+    "REFERENCE": "IB MAROC.COM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "INV",
+    "REFERENCE": "INVOLYS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "INVOLYS",
+    "REFERENCE": "INVOLYS"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "M2M",
+    "REFERENCE": "M2M Group"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "M2M Group",
+    "REFERENCE": "M2M Group"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "MAT",
+    "REFERENCE": "MATEL PC MARKET"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "MATEL PC MARKET",
+    "REFERENCE": "MATEL PC MARKET"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "MIC",
+    "REFERENCE": "MICRODATA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "MICRODATA",
+    "REFERENCE": "MICRODATA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "S.M MONETIQUE",
+    "REFERENCE": "S.M MONETIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "S2M",
+    "REFERENCE": "S.M MONETIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
+    "TITRE": "Société Maghrébine de Monétique - S2M",
+    "REFERENCE": "S.M MONETIQUE"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "CMT",
+    "REFERENCE": "MINIERE TOUISSIT"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "COMPAGNIE MINIERE DE TOUISSIT",
+    "REFERENCE": "MINIERE TOUISSIT"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "MANAGEM",
+    "REFERENCE": "MANAGEM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "MINIERE TOUISSIT",
+    "REFERENCE": "MINIERE TOUISSIT"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "MNG",
+    "REFERENCE": "MANAGEM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "MNG 2L J01/01/12",
+    "REFERENCE": "MNG 2L J01/01/12"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "MNG21",
+    "REFERENCE": "MNG 2L J01/01/12"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "REB",
+    "REFERENCE": "REBAB COMPANY"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "REBAB COMPANY",
+    "REFERENCE": "REBAB COMPANY"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "SMI",
+    "REFERENCE": "SMI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "MINES",
+    "TITRE": "SOCIETE METALLURGIQUE D'IMITER",
+    "REFERENCE": "SMI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "Addoha",
+    "REFERENCE": "DOUJA PROM ADDOHA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ADH",
+    "REFERENCE": "DOUJA PROM ADDOHA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ADH 2L J01/01/10",
+    "REFERENCE": "ADH 2L J01/01/10"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ADH20",
+    "REFERENCE": "ADH 2L J01/01/10"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ADI",
+    "REFERENCE": "ALLIANCES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ALLIANCES",
+    "REFERENCE": "ALLIANCES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ALLIANCES DEVELOPPEMENT IMMOBILIER",
+    "REFERENCE": "ALLIANCES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "ALLIANCES DEVELOPPEMENT IMMOBILIER SA",
+    "REFERENCE": "ALLIANCES"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "BAL",
+    "REFERENCE": "BALIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "BALIMA",
+    "REFERENCE": "BALIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "CGI",
+    "REFERENCE": "CGI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "COMPAGNIE GENERALE IMMOBILIERE",
+    "REFERENCE": "CGI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "DOUJA PROM ADDOHA",
+    "REFERENCE": "DOUJA PROM ADDOHA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "DOUJA PROMOTION GROUPE ADDOHA",
+    "REFERENCE": "DOUJA PROM ADDOHA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "RDS",
+    "REFERENCE": "RES DAR SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "RDS",
+    "REFERENCE": "RESIDENCES DAR SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "RES DAR SAADA",
+    "REFERENCE": "RES DAR SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "RESIDENCES DAR SAADA",
+    "REFERENCE": "RES DAR SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "TITRE": "RESIDENCES DAR SAADA S.A",
+    "REFERENCE": "RES DAR SAADA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "AFRIQUIA GAZ",
+    "REFERENCE": "AFRIQUIA GAZ"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "GAZ",
+    "REFERENCE": "AFRIQUIA GAZ"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "SAM",
+    "REFERENCE": "SAMIR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "SAMIR",
+    "REFERENCE": "SAMIR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "TMA",
+    "REFERENCE": "TOTAL MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "TMA",
+    "REFERENCE": "TOTALENERGIES MARKETING MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "Total Energies",
+    "REFERENCE": "TOTALENERGIES MARKETING MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "TOTAL MAROC",
+    "REFERENCE": "TOTAL MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "TotalEnergies",
+    "REFERENCE": "TOTALENERGIES MARKETING MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "PETROLE & GAZ",
+    "TITRE": "TOTALENERGIES MARKETING MAROC",
+    "REFERENCE": "TOTALENERGIES MARKETING MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SANTE",
+    "TITRE": "AKDITAL",
+    "REFERENCE": "AKDITAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SANTE",
+    "TITRE": "AKT",
+    "REFERENCE": "AKDITAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES AUX COLLECTIVITES",
+    "TITRE": "LYD",
+    "REFERENCE": "LYDEC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES AUX COLLECTIVITES",
+    "TITRE": "LYDEC",
+    "REFERENCE": "LYDEC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES DE TRANSPORT",
+    "TITRE": "Marsa Maroc",
+    "REFERENCE": "SODEP-Marsa Maroc"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES DE TRANSPORT",
+    "TITRE": "MSA",
+    "REFERENCE": "SODEP-Marsa Maroc"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES DE TRANSPORT",
+    "TITRE": "SODEP",
+    "REFERENCE": "SODEP-Marsa Maroc"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SERVICES DE TRANSPORT",
+    "TITRE": "SODEP-Marsa Maroc",
+    "REFERENCE": "SODEP-Marsa Maroc"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "AXA CREDIT",
+    "REFERENCE": "AXA CREDIT"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "AXC",
+    "REFERENCE": "AXA CREDIT"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "DIAC SALAF",
+    "REFERENCE": "DIAC SALAF"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "DIS",
+    "REFERENCE": "DIAC SALAF"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "EQD",
+    "REFERENCE": "EQDOM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "EQDOM",
+    "REFERENCE": "EQDOM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MAB",
+    "REFERENCE": "MAGHREBAIL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MABA",
+    "REFERENCE": "MAGHREBAIL 2L"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MAGHREBAIL",
+    "REFERENCE": "MAGHREBAIL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MAGHREBAIL 2L",
+    "REFERENCE": "MAGHREBAIL 2L"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MAROC LEASING",
+    "REFERENCE": "MAROC LEASING"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "MLE",
+    "REFERENCE": "MAROC LEASING"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "SALAFIN",
+    "REFERENCE": "SALAFIN"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "SLF",
+    "REFERENCE": "SALAFIN"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "SOF",
+    "REFERENCE": "SOFAC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "SOFAC",
+    "REFERENCE": "SOFAC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "TASLIF",
+    "REFERENCE": "TASLIF"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "TITRE": "TSF",
+    "REFERENCE": "TASLIF"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "ARADEI CAPITAL",
+    "REFERENCE": "ARADEI CAPITAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "Aradei Capital SA",
+    "REFERENCE": "ARADEI CAPITAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "ARD",
+    "REFERENCE": "ARADEI CAPITAL"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "BAL",
+    "REFERENCE": "BALIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "BALIMA",
+    "REFERENCE": "BALIMA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "Immorente",
+    "REFERENCE": "IMMORENTE INVEST"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "IMMORENTE INVEST",
+    "REFERENCE": "IMMORENTE INVEST"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "IMMORENTE INVEST S.A.",
+    "REFERENCE": "IMMORENTE INVEST"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "TITRE": "IMO",
+    "REFERENCE": "IMMORENTE INVEST"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "DELTA HOLDING",
+    "REFERENCE": "DELTA HOLDING"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "DHO",
+    "REFERENCE": "DELTA HOLDING"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "ONA",
+    "REFERENCE": "ONA"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "SNI",
+    "REFERENCE": "SNI"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "ZDJ",
+    "REFERENCE": "ZELLIDJA S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "ZELLIDJA",
+    "REFERENCE": "ZELLIDJA S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "TITRE": "ZELLIDJA S.A",
+    "REFERENCE": "ZELLIDJA S.A"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SYLVICULTURE & PAPIER",
+    "TITRE": "MDP",
+    "REFERENCE": "MED PAPER"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "SYLVICULTURE & PAPIER",
+    "TITRE": "MED PAPER",
+    "REFERENCE": "MED PAPER"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TELECOMMUNICATIONS",
+    "TITRE": "IAM",
+    "REFERENCE": "ITISSALAT AL-MAGHRIB"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TELECOMMUNICATIONS",
+    "TITRE": "ITISSALAT AL-MAGHRIB",
+    "REFERENCE": "ITISSALAT AL-MAGHRIB"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TELECOMMUNICATIONS",
+    "TITRE": "Maroc Telecom",
+    "REFERENCE": "ITISSALAT AL-MAGHRIB"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TELECOMMUNICATIONS",
+    "TITRE": "Maroc Télécom",
+    "REFERENCE": "ITISSALAT AL-MAGHRIB"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "BER",
+    "REFERENCE": "BERLIET MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "BERLIET MAROC",
+    "REFERENCE": "BERLIET MAROC"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "CTM",
+    "REFERENCE": "CTM"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "TIM",
+    "REFERENCE": "TIMAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "TIMAR",
+    "REFERENCE": "TIMAR"
+  },
+  {
+    "CLASSE": "Equity",
+    "CATEGORIE": "TRANSPORT",
+    "TITRE": "TIMAR SA",
+    "REFERENCE": "TIMAR"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "AGROALIMENTAIRE & PRODUCTION",
+    "REFERENCE": "AGROALIMENTAIRE & PRODUCTION"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "ASSURANCES",
+    "REFERENCE": "ASSURANCES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "BANQUES",
+    "REFERENCE": "BANQUES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
+    "REFERENCE": "BATIMENT & MATERIAUX DE CONSTRUCTION"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "BOISSONS",
+    "REFERENCE": "BOISSONS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "CHIMIE",
+    "REFERENCE": "CHIMIE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "DISTRIBUTEURS",
+    "REFERENCE": "DISTRIBUTEURS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "ELECTRICITE",
+    "REFERENCE": "ELECTRICITE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES",
+    "REFERENCE": "EQUIPEMENTS ELECTRONIQUES & ELECTRIQUES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "INDUSTRIE PHARMACEUTIQUE",
+    "REFERENCE": "INDUSTRIE PHARMACEUTIQUE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS",
+    "REFERENCE": "INGENIERIES & BIENS D’EQUIPEMENT INDUSTRIELS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "LOISIRS ET HOTELS",
+    "REFERENCE": "LOISIRS ET HOTELS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MASI",
+    "REFERENCE": "MASI"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MASI OUVERTURE",
+    "REFERENCE": "MASI OUVERTURE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MASI RENTABILITE BRUT",
+    "REFERENCE": "MASI RENTABILITE BRUT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MASI RENTABILITE NET",
+    "REFERENCE": "MASI RENTABILITE NET"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MATERIELS.LOGICIELS & SERVICES INFORMATIQUES",
+    "REFERENCE": "MATERIELS.LOGICIELS & SERVICES INFORMATIQUES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MINES",
+    "REFERENCE": "MINES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "MOROCCO STOCK INDEX 20",
+    "REFERENCE": "MOROCCO STOCK INDEX 20"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "PARTICIPATION ET PROMOTION IMMOBILIERES",
+    "REFERENCE": "PARTICIPATION ET PROMOTION IMMOBILIERES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "PETROLE & GAZ",
+    "REFERENCE": "PETROLE & GAZ"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SERVICES AUX COLLECTIVITES",
+    "REFERENCE": "SERVICES AUX COLLECTIVITES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SERVICES DE TRANSPORT",
+    "REFERENCE": "SERVICES DE TRANSPORT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
+    "REFERENCE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SOCIETES DE PLACEMENT IMMOBILIER",
+    "REFERENCE": "SOCIETES DE PLACEMENT IMMOBILIER"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+    "REFERENCE": "SOCIETES DE PORTEFEUILLES - HOLDINGS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "SYLVICULTURE & PAPIER",
+    "REFERENCE": "SYLVICULTURE & PAPIER"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "TELECOMMUNICATIONS",
+    "REFERENCE": "TELECOMMUNICATIONS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "ACTIONS",
+    "TITRE": "TRANSPORT",
+    "REFERENCE": "TRANSPORT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS",
+    "REFERENCE": "OPC ACTIONS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS AJUSTE",
+    "REFERENCE": "OPC ACTIONS AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS FGP",
+    "REFERENCE": "OPC ACTIONS FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS FGP AJUSTE",
+    "REFERENCE": "OPC ACTIONS FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS FNPP",
+    "REFERENCE": "OPC ACTIONS FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC ACTIONS FNPP AJUSTE",
+    "REFERENCE": "OPC ACTIONS FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL",
+    "REFERENCE": "OPC CONTRACTUEL"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL AJUSTE",
+    "REFERENCE": "OPC CONTRACTUEL AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL FGP",
+    "REFERENCE": "OPC CONTRACTUEL FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL FGP AJUSTE",
+    "REFERENCE": "OPC CONTRACTUEL FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL FNPP",
+    "REFERENCE": "OPC CONTRACTUEL FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC CONTRACTUEL FNPP AJUSTE",
+    "REFERENCE": "OPC CONTRACTUEL FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE",
+    "REFERENCE": "OPC DIVERSIFIE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE AJUSTE",
+    "REFERENCE": "OPC DIVERSIFIE AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE FGP",
+    "REFERENCE": "OPC DIVERSIFIE FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE FGP AJUSTE",
+    "REFERENCE": "OPC DIVERSIFIE FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE FNPP",
+    "REFERENCE": "OPC DIVERSIFIE FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC DIVERSIFIE FNPP AJUSTE",
+    "REFERENCE": "OPC DIVERSIFIE FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE",
+    "REFERENCE": "OPC MONETAIRE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE AJUSTE",
+    "REFERENCE": "OPC MONETAIRE AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE FGP",
+    "REFERENCE": "OPC MONETAIRE FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE FGP AJUSTE",
+    "REFERENCE": "OPC MONETAIRE FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE FNPP",
+    "REFERENCE": "OPC MONETAIRE FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC MONETAIRE FNPP AJUSTE",
+    "REFERENCE": "OPC MONETAIRE FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT",
+    "REFERENCE": "OPC OCT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT AJUSTE",
+    "REFERENCE": "OPC OCT AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT FGP",
+    "REFERENCE": "OPC OCT FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT FGP AJUSTE",
+    "REFERENCE": "OPC OCT FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT FNPP",
+    "REFERENCE": "OPC OCT FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OCT FNPP AJUSTE",
+    "REFERENCE": "OPC OCT FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT",
+    "REFERENCE": "OPC OMLT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT AJUSTE",
+    "REFERENCE": "OPC OMLT AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT FGP",
+    "REFERENCE": "OPC OMLT FGP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT FGP AJUSTE",
+    "REFERENCE": "OPC OMLT FGP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT FNPP",
+    "REFERENCE": "OPC OMLT FNPP"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "OPC",
+    "TITRE": "OPC OMLT FNPP AJUSTE",
+    "REFERENCE": "OPC OMLT FNPP AJUSTE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MBI CT",
+    "REFERENCE": "MBI CT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MBI GLOBAL",
+    "REFERENCE": "MBI GLOBAL"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MBI LT",
+    "REFERENCE": "MBI LT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MBI MLT",
+    "REFERENCE": "MBI MLT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MBI MT",
+    "REFERENCE": "MBI MT"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "MONIA",
+    "REFERENCE": "MONIA"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 1 AN",
+    "REFERENCE": "NOMINAL 1 AN"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 1 MOIS",
+    "REFERENCE": "NOMINAL 1 MOIS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 10 ANS",
+    "REFERENCE": "NOMINAL 10 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 15 ANS",
+    "REFERENCE": "NOMINAL 15 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 2 ANS",
+    "REFERENCE": "NOMINAL 2 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 20 ANS",
+    "REFERENCE": "NOMINAL 20 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 25 ANS",
+    "REFERENCE": "NOMINAL 25 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 3 ANS",
+    "REFERENCE": "NOMINAL 3 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 3 MOIS",
+    "REFERENCE": "NOMINAL 3 MOIS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 30 ANS",
+    "REFERENCE": "NOMINAL 30 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 5 ANS",
+    "REFERENCE": "NOMINAL 5 ANS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "NOMINAL 6 MOIS",
+    "REFERENCE": "NOMINAL 6 MOIS"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "REPO CAPITALISE",
+    "REFERENCE": "REPO CAPITALISE"
+  },
+  {
+    "CLASSE": "Indice",
+    "CATEGORIE": "TAUX",
+    "TITRE": "TMP",
+    "REFERENCE": "TMP"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD MOROCCAN EQUITY FUND",
+    "REFERENCE": "AD MOROCCAN EQUITY FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG DYNAMIC FUND",
+    "REFERENCE": "AFG DYNAMIC FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AFRICAPITAL EQUITY",
+    "REFERENCE": "AFRICAPITAL EQUITY"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS AMBITION",
+    "REFERENCE": "ATLAS AMBITION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS OPTIMISATION",
+    "REFERENCE": "ATLAS OPTIMISATION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS PREMIUM",
+    "REFERENCE": "ATLAS PREMIUM"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS SELECTION",
+    "REFERENCE": "ATLAS SELECTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL AFRIQUE",
+    "REFERENCE": "CAPITAL AFRIQUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL DIVIDENDES PLUS",
+    "REFERENCE": "CAPITAL DIVIDENDES PLUS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL ACTIONS",
+    "REFERENCE": "FCP CAPITAL ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL ACTIONS PREMIUM",
+    "REFERENCE": "FCP CAPITAL ACTIONS PREMIUM"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMMOBILIER",
+    "REFERENCE": "FCP CAPITAL IMMOBILIER"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMTIYAZ EXPANSION",
+    "REFERENCE": "FCP CAPITAL IMTIYAZ EXPANSION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL INDICE",
+    "REFERENCE": "FCP CAPITAL INDICE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL MAGHREB",
+    "REFERENCE": "FCP CAPITAL MAGHREB"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL PARTICIPATIONS",
+    "REFERENCE": "FCP CAPITAL PARTICIPATIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL PATRIMOINE",
+    "REFERENCE": "FCP CAPITAL PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL PROTECTION",
+    "REFERENCE": "FCP CAPITAL PROTECTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL SELECTION",
+    "REFERENCE": "FCP CAPITAL SELECTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CIMR TANMYA",
+    "REFERENCE": "FCP CIMR TANMYA"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FH2 ACTIONS",
+    "REFERENCE": "FH2 ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "MAROC VALEURS",
+    "REFERENCE": "MAROC VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI COSMOS",
+    "REFERENCE": "BMCI COSMOS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI EPARGNE VALEURS",
+    "REFERENCE": "BMCI EPARGNE VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM EQUITY GROWTH",
+    "REFERENCE": "BMCI PREMIUM EQUITY GROWTH"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM EQUITY INCOME",
+    "REFERENCE": "BMCI PREMIUM EQUITY INCOME"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI SELECTION ACTIONS DIVIDENDES",
+    "REFERENCE": "BMCI SELECTION ACTIONS DIVIDENDES"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "CAT ACTIONS",
+    "REFERENCE": "CAT ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP CIMR THARWA",
+    "REFERENCE": "FCP CIMR THARWA"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "SAFAE",
+    "REFERENCE": "SAFAE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST ACTIONS",
+    "REFERENCE": "CAPITAL TRUST ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST DYNAMIQUE",
+    "REFERENCE": "CAPITAL TRUST DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST EQUITY",
+    "REFERENCE": "CAPITAL TRUST EQUITY"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "ATLANTA AVENIR",
+    "REFERENCE": "ATLANTA AVENIR"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG CROISSANCE",
+    "REFERENCE": "CDG CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG PERFORMANCE",
+    "REFERENCE": "CDG PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG RBA MOROCCAN FUND",
+    "REFERENCE": "CDG RBA MOROCCAN FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG SMALL & MID CAP",
+    "REFERENCE": "CDG SMALL & MID CAP"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG STRATEGIE",
+    "REFERENCE": "CDG STRATEGIE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG-ACTIONS",
+    "REFERENCE": "CDG-ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH ACTIONS",
+    "REFERENCE": "CIH ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CKG ACTIONS IDIKHAR",
+    "REFERENCE": "CKG ACTIONS IDIKHAR"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CKG ISR SELECTION",
+    "REFERENCE": "CKG ISR SELECTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CMR ASHOUM",
+    "REFERENCE": "CMR ASHOUM"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "DAILY EQUITY FUND",
+    "REFERENCE": "DAILY EQUITY FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OPPORTUNITES",
+    "REFERENCE": "FCP OPPORTUNITES"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FH2 ACTIONS II",
+    "REFERENCE": "FH2 ACTIONS II"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "SOCIETE CENTRALE DE REASSURANCE-INTEGRALE",
+    "REFERENCE": "SOCIETE CENTRALE DE REASSURANCE-INTEGRALE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AVENIR PERFORMANCE",
+    "REFERENCE": "AVENIR PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG EMERGENCE",
+    "REFERENCE": "CFG EMERGENCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PERFORMANCE",
+    "REFERENCE": "CFG PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PROFIL OFFENSIF",
+    "REFERENCE": "CFG PROFIL OFFENSIF"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG RENTABILITE",
+    "REFERENCE": "CFG RENTABILITE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG TRADER",
+    "REFERENCE": "CFG TRADER"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG VALEURS",
+    "REFERENCE": "CFG VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CNIA PERFORMANCE",
+    "REFERENCE": "CNIA PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "FCP CFG CONSTRUCTION",
+    "REFERENCE": "FCP CFG CONSTRUCTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "PATRIMOINE AVENIR",
+    "REFERENCE": "PATRIMOINE AVENIR"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "STAFF ACTION",
+    "REFERENCE": "STAFF ACTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "FCP IRGAM ACTIONS",
+    "REFERENCE": "FCP IRGAM ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM DISTRIEQUITY",
+    "REFERENCE": "IRGAM DISTRIEQUITY"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM STRATEGIE",
+    "REFERENCE": "IRGAM STRATEGIE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "CAM ACTIONS",
+    "REFERENCE": "CAM ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP CAM DYNAMIQUE",
+    "REFERENCE": "FCP CAM DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP CAM INVESTISSEMENT",
+    "REFERENCE": "FCP CAM INVESTISSEMENT"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "MSIN ACTIONS",
+    "REFERENCE": "MSIN ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "ALPHA DYNAMIC FUND",
+    "REFERENCE": "ALPHA DYNAMIC FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA DYNAMIQUE",
+    "REFERENCE": "RMA DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA EQUITY MARKET",
+    "REFERENCE": "RMA EQUITY MARKET"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA EXPANSION",
+    "REFERENCE": "RMA EXPANSION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA MULTISTRATEGIES",
+    "REFERENCE": "RMA MULTISTRATEGIES"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA PERFORMANCE",
+    "REFERENCE": "RMA PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "FCP HORIZON EQUITY VALUE",
+    "REFERENCE": "FCP HORIZON EQUITY VALUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "HORIZON MID & SMALL CAP",
+    "REFERENCE": "HORIZON MID & SMALL CAP"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "LMV EQUITY INVEST",
+    "REFERENCE": "LMV EQUITY INVEST"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG ACTIONS PLUS",
+    "REFERENCE": "SG ACTIONS PLUS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG EPARGNE PLUS ACTIONS",
+    "REFERENCE": "SG EPARGNE PLUS ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG EXPANSION",
+    "REFERENCE": "SG EXPANSION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP AL BADIL CHAABI ASHOUM",
+    "REFERENCE": "FCP AL BADIL CHAABI ASHOUM"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP AL IDDIKHAR CHAABI ACTIONS",
+    "REFERENCE": "FCP AL IDDIKHAR CHAABI ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP ALISTITMAR CHAABI ACTIONS",
+    "REFERENCE": "FCP ALISTITMAR CHAABI ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP CIMR PATRIMOINE",
+    "REFERENCE": "FCP CIMR PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP KENZ ACTIONS",
+    "REFERENCE": "FCP KENZ ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE ACTIONS",
+    "REFERENCE": "UPLINE ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE VALEURS PLUS",
+    "REFERENCE": "UPLINE VALEURS PLUS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE EQUITY FUND",
+    "REFERENCE": "EMERGENCE EQUITY FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE PERFORMANCE",
+    "REFERENCE": "EMERGENCE PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP CMR EQUITIES",
+    "REFERENCE": "FCP CMR EQUITIES"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE ACTIONS",
+    "REFERENCE": "FCP EMERGENCE ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE SELECTION",
+    "REFERENCE": "FCP EMERGENCE SELECTION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTAKAFOUL",
+    "REFERENCE": "ATTAKAFOUL"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI ACTIONS",
+    "REFERENCE": "ATTIJARI ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI AL MOUCHARAKA",
+    "REFERENCE": "ATTIJARI AL MOUCHARAKA"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI DIVIDEND FUND",
+    "REFERENCE": "ATTIJARI DIVIDEND FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI FINANCES CORP VALEURS",
+    "REFERENCE": "ATTIJARI FINANCES CORP VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI PATRIMOINE VALEURS",
+    "REFERENCE": "ATTIJARI PATRIMOINE VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI VALEURS ESG",
+    "REFERENCE": "ATTIJARI VALEURS ESG"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM EXPANSION",
+    "REFERENCE": "CDM EXPANSION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM PROFIL DYNAMISME",
+    "REFERENCE": "CDM PROFIL DYNAMISME"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CIMR MOUBADARA",
+    "REFERENCE": "CIMR MOUBADARA"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CMR ACTIONS",
+    "REFERENCE": "CMR ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PATRIMOINE ACTIONS",
+    "REFERENCE": "PATRIMOINE ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PATRIMOINE AL MOUSSAHAMA",
+    "REFERENCE": "PATRIMOINE AL MOUSSAHAMA"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PATRIMOINE MULTIVALEURS",
+    "REFERENCE": "PATRIMOINE MULTIVALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PROFIL DYNAMIQUE",
+    "REFERENCE": "PROFIL DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WAFA ASSURANCE EXPANSION",
+    "REFERENCE": "WAFA ASSURANCE EXPANSION"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WAFA ASSURANCE STRATEGIE",
+    "REFERENCE": "WAFA ASSURANCE STRATEGIE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG ACTIONS",
+    "REFERENCE": "WG ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG CAPITAL",
+    "REFERENCE": "WG CAPITAL"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG EQUITY FUND",
+    "REFERENCE": "WG EQUITY FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG LOW VOLATILITY FACTOR FUND",
+    "REFERENCE": "WG LOW VOLATILITY FACTOR FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG MOMENTUM FACTOR FUND",
+    "REFERENCE": "WG MOMENTUM FACTOR FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG TAYSSIR",
+    "REFERENCE": "WG TAYSSIR"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG VALEURS",
+    "REFERENCE": "WG VALEURS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG VALUE FACTOR FUND",
+    "REFERENCE": "WG VALUE FACTOR FUND"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO ACTIONS",
+    "REFERENCE": "WINEO ACTIONS"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO AL AMINE",
+    "REFERENCE": "WINEO AL AMINE"
+  },
+  {
+    "CLASSE": "OPC ACTIONS",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO EQUINOXE",
+    "REFERENCE": "WINEO EQUINOXE"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL AMAN 7.5% EUROPE",
+    "REFERENCE": "FCP CAPITAL AMAN 7.5% EUROPE"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL SUR",
+    "REFERENCE": "FCP CAPITAL SUR"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP CKG GARANTI",
+    "REFERENCE": "FCP CKG GARANTI"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PERSPECTIVES",
+    "REFERENCE": "CFG PERSPECTIVES"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PERSPECTIVES PERF",
+    "REFERENCE": "CFG PERSPECTIVES PERF"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PERSPECTIVES V",
+    "REFERENCE": "CFG PERSPECTIVES V"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG CASH GARANTI",
+    "REFERENCE": "SG CASH GARANTI"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP UPLINE CAPITAL GARANTI",
+    "REFERENCE": "FCP UPLINE CAPITAL GARANTI"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP UPLINE RENDEMENT PLUS",
+    "REFERENCE": "FCP UPLINE RENDEMENT PLUS"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI CASH GARANTI",
+    "REFERENCE": "ATTIJARI CASH GARANTI"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAPITAL GARANTI 2011",
+    "REFERENCE": "CAPITAL GARANTI 2011"
+  },
+  {
+    "CLASSE": "OPC CONTRACTUEL",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FCP ATTIJARI GOLD",
+    "REFERENCE": "FCP ATTIJARI GOLD"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD BALANCED FUND",
+    "REFERENCE": "AD BALANCED FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG FLEXIBLE FUND",
+    "REFERENCE": "AFG FLEXIBLE FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG OPTIMAL FUND",
+    "REFERENCE": "AFG OPTIMAL FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AFRICAPITAL SECURITE",
+    "REFERENCE": "AFRICAPITAL SECURITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "FCP AFRICAPITAL DIVERSIFIE",
+    "REFERENCE": "FCP AFRICAPITAL DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS CROISSANCE",
+    "REFERENCE": "ATLAS CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS DIVERSIFIE",
+    "REFERENCE": "ATLAS DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS PERFORMANCE",
+    "REFERENCE": "ATLAS PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL EQUILIBRE",
+    "REFERENCE": "CAPITAL EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL ISR",
+    "REFERENCE": "CAPITAL ISR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP AMAN-FM",
+    "REFERENCE": "FCP AMAN-FM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL BALANCE",
+    "REFERENCE": "FCP CAPITAL BALANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL DIVERSIFIES",
+    "REFERENCE": "FCP CAPITAL DIVERSIFIES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL GLOBAL MACRO",
+    "REFERENCE": "FCP CAPITAL GLOBAL MACRO"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMTIYAZ CROISSANCE",
+    "REFERENCE": "FCP CAPITAL IMTIYAZ CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL LONG/SHORT",
+    "REFERENCE": "FCP CAPITAL LONG/SHORT"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL MULTI-GESTION",
+    "REFERENCE": "FCP CAPITAL MULTI-GESTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OPPORTUNITE",
+    "REFERENCE": "FCP CAPITAL OPPORTUNITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OPTIMUM",
+    "REFERENCE": "FCP CAPITAL OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL TERME",
+    "REFERENCE": "FCP CAPITAL TERME"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP MEDERSAT.COM",
+    "REFERENCE": "FCP MEDERSAT.COM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP MOUSTAQBAL CRP",
+    "REFERENCE": "FCP MOUSTAQBAL CRP"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "R-MIXT PERFORMANCE",
+    "REFERENCE": "R-MIXT PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI EPARGNE CROISSANCE",
+    "REFERENCE": "BMCI EPARGNE CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI GESTION SERENITE",
+    "REFERENCE": "BMCI GESTION SERENITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI INVEST",
+    "REFERENCE": "BMCI INVEST"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM OPPORTUNITY I",
+    "REFERENCE": "BMCI PREMIUM OPPORTUNITY I"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM OPPORTUNITY II",
+    "REFERENCE": "BMCI PREMIUM OPPORTUNITY II"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI SELECTION OPPORTUNITES",
+    "REFERENCE": "BMCI SELECTION OPPORTUNITES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP AL IKRAM",
+    "REFERENCE": "FCP AL IKRAM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP AL KHEIR",
+    "REFERENCE": "FCP AL KHEIR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP AVENIR ACTIONS",
+    "REFERENCE": "FCP AVENIR ACTIONS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP AXA HORIZON",
+    "REFERENCE": "FCP AXA HORIZON"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP BMCI ISR",
+    "REFERENCE": "FCP BMCI ISR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP CASACTIONS",
+    "REFERENCE": "FCP CASACTIONS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP SANAD ACTIONS",
+    "REFERENCE": "FCP SANAD ACTIONS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "INSTICROISSANCE",
+    "REFERENCE": "INSTICROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST ALLOCATION",
+    "REFERENCE": "CAPITAL TRUST ALLOCATION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST CROISSANCE",
+    "REFERENCE": "CAPITAL TRUST CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST DIVERSIFIE",
+    "REFERENCE": "CAPITAL TRUST DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST EQUILIBRE",
+    "REFERENCE": "CAPITAL TRUST EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST PATRIMOINE",
+    "REFERENCE": "CAPITAL TRUST PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST PERFORMANCE",
+    "REFERENCE": "CAPITAL TRUST PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "AXA-AVENIR",
+    "REFERENCE": "AXA-AVENIR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CAM OPTIMUM",
+    "REFERENCE": "CAM OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CAT EVOLUTION",
+    "REFERENCE": "CAT EVOLUTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG IZDIHAR",
+    "REFERENCE": "CDG IZDIHAR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG MULTIGESTION",
+    "REFERENCE": "CDG MULTIGESTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG PATRIMOINE",
+    "REFERENCE": "CDG PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH EPARGNE",
+    "REFERENCE": "CIH EPARGNE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH PATRIMOINE",
+    "REFERENCE": "CIH PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CNIA AVENIR",
+    "REFERENCE": "CNIA AVENIR"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP ALLOCATIONS",
+    "REFERENCE": "FCP ALLOCATIONS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "SANAD PERFORMANCE",
+    "REFERENCE": "SANAD PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AXA PERFORMANCE",
+    "REFERENCE": "AXA PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AXA PERSPECTIVES",
+    "REFERENCE": "AXA PERSPECTIVES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG CROISSANCE",
+    "REFERENCE": "CFG CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG DIVERSIFIÉ",
+    "REFERENCE": "CFG DIVERSIFIÉ"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG OPPORTUNITÉS",
+    "REFERENCE": "CFG OPPORTUNITÉS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PROFIL DYNAMIQUE",
+    "REFERENCE": "CFG PROFIL DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PROFIL EQUILIBRE",
+    "REFERENCE": "CFG PROFIL EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CMKD CROISSANCE",
+    "REFERENCE": "CMKD CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "FCP PELICAN",
+    "REFERENCE": "FCP PELICAN"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "R-MIXT CROISSANCE",
+    "REFERENCE": "R-MIXT CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM ALLOCATION",
+    "REFERENCE": "IRGAM ALLOCATION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM BALANCE",
+    "REFERENCE": "IRGAM BALANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM DISTRIEQUILIBRE",
+    "REFERENCE": "IRGAM DISTRIEQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "R-MIXT COUVERTURE",
+    "REFERENCE": "R-MIXT COUVERTURE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "SICAV MAROC CROISSANCE",
+    "REFERENCE": "SICAV MAROC CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA INVEST",
+    "REFERENCE": "FCP ALPHA INVEST"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA PERFORMANCE FUND",
+    "REFERENCE": "FCP ALPHA PERFORMANCE FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "FCP RMA DIVERSIFIE",
+    "REFERENCE": "FCP RMA DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "CAT DIVERSIFIE",
+    "REFERENCE": "CAT DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "CMKD FUND",
+    "REFERENCE": "CMKD FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "FCP HORIZON FLEXIBLE",
+    "REFERENCE": "FCP HORIZON FLEXIBLE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "HORIZON DISTRIPERF",
+    "REFERENCE": "HORIZON DISTRIPERF"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "INVEST EQUILIBRE",
+    "REFERENCE": "INVEST EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "MAROC OPPORTUNITE",
+    "REFERENCE": "MAROC OPPORTUNITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG PERSPECTIVES",
+    "REFERENCE": "SG PERSPECTIVES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "TWIN CAPITAL GESTION",
+    "TITRE": "TWIN OPPORTUNITY",
+    "REFERENCE": "TWIN OPPORTUNITY"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "AL ISTITMAR CHAABI DIVERSIFIE",
+    "REFERENCE": "AL ISTITMAR CHAABI DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP INTIMAE-FM",
+    "REFERENCE": "FCP INTIMAE-FM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP KENZ RENDEMENT",
+    "REFERENCE": "FCP KENZ RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP UPLINE OPPORTUNITES",
+    "REFERENCE": "FCP UPLINE OPPORTUNITES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "HORIZON EXPANSION",
+    "REFERENCE": "HORIZON EXPANSION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "R-MIXT SELECTION",
+    "REFERENCE": "R-MIXT SELECTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "SECURITIES PERFORMANCE",
+    "REFERENCE": "SECURITIES PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE CROISSANCE",
+    "REFERENCE": "UPLINE CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE DIVERSIFIE",
+    "REFERENCE": "UPLINE DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE PATRIMOINE",
+    "REFERENCE": "UPLINE PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE PROTECTION DYNAMIQUE",
+    "REFERENCE": "UPLINE PROTECTION DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE CROISSANCE",
+    "REFERENCE": "EMERGENCE CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE EQUILIBRE",
+    "REFERENCE": "EMERGENCE EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE ALLOCATION",
+    "REFERENCE": "FCP EMERGENCE ALLOCATION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE BALANCED FUND",
+    "REFERENCE": "FCP EMERGENCE BALANCED FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE DIVERSIFIE",
+    "REFERENCE": "FCP EMERGENCE DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE PATRIMOINE",
+    "REFERENCE": "FCP EMERGENCE PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE PERSPECTIVES",
+    "REFERENCE": "FCP EMERGENCE PERSPECTIVES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "LEGACY ACCUMULATION FUND",
+    "REFERENCE": "LEGACY ACCUMULATION FUND"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "AFAK CRP",
+    "REFERENCE": "AFAK CRP"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI DIVERSIFIE",
+    "REFERENCE": "ATTIJARI DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI FINANCES CORP RENDEMENT",
+    "REFERENCE": "ATTIJARI FINANCES CORP RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI MIXED DISTRIBUTION",
+    "REFERENCE": "ATTIJARI MIXED DISTRIBUTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI PATRIMOINE DIVERSIFIE",
+    "REFERENCE": "ATTIJARI PATRIMOINE DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI PATRIMOINE MULTIGESTION",
+    "REFERENCE": "ATTIJARI PATRIMOINE MULTIGESTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI SELECTION",
+    "REFERENCE": "ATTIJARI SELECTION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI SOLIDARITE",
+    "REFERENCE": "ATTIJARI SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAPITAL PERFORMANCE",
+    "REFERENCE": "CAPITAL PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM OPTIMUM",
+    "REFERENCE": "CDM OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM PROFIL EQUILIBRE",
+    "REFERENCE": "CDM PROFIL EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FRUCTI VALEURS",
+    "REFERENCE": "FRUCTI VALEURS"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PALMARES FINANCIERES",
+    "REFERENCE": "PALMARES FINANCIERES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PATRIMOINE CROISSANCE",
+    "REFERENCE": "PATRIMOINE CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PROFIL FLEXIBLE",
+    "REFERENCE": "PROFIL FLEXIBLE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PROFIL HARMONIE",
+    "REFERENCE": "PROFIL HARMONIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "R-MIXT OPTIMUM",
+    "REFERENCE": "R-MIXT OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "UNIVERS DIVERSIFIE",
+    "REFERENCE": "UNIVERS DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WAFA ASSURANCE OPTIMISATION",
+    "REFERENCE": "WAFA ASSURANCE OPTIMISATION"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG BALANCED",
+    "REFERENCE": "WG BALANCED"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG CROISSANCE",
+    "REFERENCE": "WG CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG DIVERSIFIE",
+    "REFERENCE": "WG DIVERSIFIE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG DYNAMIC",
+    "REFERENCE": "WG DYNAMIC"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG EPARGNE",
+    "REFERENCE": "WG EPARGNE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG FRUCTI PATRIMOINE",
+    "REFERENCE": "WG FRUCTI PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG HORIZON",
+    "REFERENCE": "WG HORIZON"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG OPPORTUNITES",
+    "REFERENCE": "WG OPPORTUNITES"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG PERFORMANCE",
+    "REFERENCE": "WG PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG RENDEMENT",
+    "REFERENCE": "WG RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG SERENITE",
+    "REFERENCE": "WG SERENITE"
+  },
+  {
+    "CLASSE": "OPC DIVERSIFIE",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO DELTA",
+    "REFERENCE": "WINEO DELTA"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD CASH",
+    "REFERENCE": "AD CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD FIXED INCOME FUND",
+    "REFERENCE": "AD FIXED INCOME FUND"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG CASH MANAGEMENT",
+    "REFERENCE": "AFG CASH MANAGEMENT"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AFRICAPITAL LIQUIDITY",
+    "REFERENCE": "AFRICAPITAL LIQUIDITY"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS CASH",
+    "REFERENCE": "ATLAS CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS MONEBANK",
+    "REFERENCE": "ATLAS MONEBANK"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS TRESORERIE",
+    "REFERENCE": "ATLAS TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMTIYAZ TRESORERIE",
+    "REFERENCE": "FCP CAPITAL IMTIYAZ TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL MONETAIRE",
+    "REFERENCE": "FCP CAPITAL MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL MONETAIRE PLUS",
+    "REFERENCE": "FCP CAPITAL MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "IRAD",
+    "REFERENCE": "IRAD"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "AXA MONETAIRE",
+    "REFERENCE": "AXA MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI MONETAIRE PLUS",
+    "REFERENCE": "BMCI MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM MONEY MARKET",
+    "REFERENCE": "BMCI PREMIUM MONEY MARKET"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI SELECTION TRESORERIE",
+    "REFERENCE": "BMCI SELECTION TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI TRESO PLUS",
+    "REFERENCE": "BMCI TRESO PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI TRESORERIE",
+    "REFERENCE": "BMCI TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "CIMR MONETAIRE",
+    "REFERENCE": "CIMR MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "EMERGENCE",
+    "REFERENCE": "EMERGENCE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "INSTIMONETAIRE",
+    "REFERENCE": "INSTIMONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST MONETAIRE",
+    "REFERENCE": "CAPITAL TRUST MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST TRESORERIE",
+    "REFERENCE": "CAPITAL TRUST TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "AL BARID TRESORERIE",
+    "REFERENCE": "AL BARID TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG CASH",
+    "REFERENCE": "CDG CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG MONEY PREMIUM",
+    "REFERENCE": "CDG MONEY PREMIUM"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OPTIMUM",
+    "REFERENCE": "CDG OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG SERENITE",
+    "REFERENCE": "CDG SERENITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG TRESORERIE",
+    "REFERENCE": "CDG TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH CASH",
+    "REFERENCE": "CIH CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH TRESORERIE",
+    "REFERENCE": "CIH TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP LIQUIDITES",
+    "REFERENCE": "FCP LIQUIDITES"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP MONETAIRE DYNAMIQUE",
+    "REFERENCE": "FCP MONETAIRE DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP MONETAIRE PREMIUM",
+    "REFERENCE": "FCP MONETAIRE PREMIUM"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG CASH SECURE",
+    "REFERENCE": "CFG CASH SECURE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG INSTICASH",
+    "REFERENCE": "CFG INSTICASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG SECURITE",
+    "REFERENCE": "CFG SECURITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG TRESOCORP",
+    "REFERENCE": "CFG TRESOCORP"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "FCP IRGAM MONETAIRE",
+    "REFERENCE": "FCP IRGAM MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "CAM MONETAIRE",
+    "REFERENCE": "CAM MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP CAM LIQUIDITE",
+    "REFERENCE": "FCP CAM LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP MAROGEST CASH",
+    "REFERENCE": "FCP MAROGEST CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "ALPHA MONETAIRE",
+    "REFERENCE": "ALPHA MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA MONETAIRE PROTECTION",
+    "REFERENCE": "FCP ALPHA MONETAIRE PROTECTION"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "FCP RMA TRESO PLUS",
+    "REFERENCE": "FCP RMA TRESO PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "FCP HORIZON PREMIUM",
+    "REFERENCE": "FCP HORIZON PREMIUM"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "HORIZON TREASURY FUND",
+    "REFERENCE": "HORIZON TREASURY FUND"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG CASH PLUS",
+    "REFERENCE": "SG CASH PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG NOVA",
+    "REFERENCE": "SG NOVA"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG SOCIAL IMPACT FUND",
+    "REFERENCE": "SG SOCIAL IMPACT FUND"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG VALEURS",
+    "REFERENCE": "SG VALEURS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "TWIN CAPITAL GESTION",
+    "TITRE": "TWIN CASH",
+    "REFERENCE": "TWIN CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP ALISTITMAR CHAABI TRESORERIE",
+    "REFERENCE": "FCP ALISTITMAR CHAABI TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP KENZ PLUS",
+    "REFERENCE": "FCP KENZ PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE CASH",
+    "REFERENCE": "UPLINE CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE PERENNITE",
+    "REFERENCE": "UPLINE PERENNITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE TRESORERIE",
+    "REFERENCE": "UPLINE TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE LIQUIDITE",
+    "REFERENCE": "EMERGENCE LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE MONETAIRE",
+    "REFERENCE": "EMERGENCE MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE MONEY MARKET FUND",
+    "REFERENCE": "EMERGENCE MONEY MARKET FUND"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE TRESOR",
+    "REFERENCE": "FCP EMERGENCE TRESOR"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE TRESORERIE",
+    "REFERENCE": "FCP EMERGENCE TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI LIQUIDITE",
+    "REFERENCE": "ATTIJARI LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI MONETAIRE JOUR",
+    "REFERENCE": "ATTIJARI MONETAIRE JOUR"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI TRESORERIE",
+    "REFERENCE": "ATTIJARI TRESORERIE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAP MONETAIRE PREMIERE",
+    "REFERENCE": "CAP MONETAIRE PREMIERE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAP SECURIPRIME",
+    "REFERENCE": "CAP SECURIPRIME"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM CASH",
+    "REFERENCE": "CDM CASH"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM MONETAIRE PLUS",
+    "REFERENCE": "CDM MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM SECURITE PLUS",
+    "REFERENCE": "CDM SECURITE PLUS"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CIMR CASH DYNAMIQUE",
+    "REFERENCE": "CIMR CASH DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG MONETAIRE",
+    "REFERENCE": "WG MONETAIRE"
+  },
+  {
+    "CLASSE": "OPC MONETAIRE",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO CASH",
+    "REFERENCE": "WINEO CASH"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD SELECT BANK",
+    "REFERENCE": "AD SELECT BANK"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD YIELD FUND",
+    "REFERENCE": "AD YIELD FUND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG LIQUIDITY FUND",
+    "REFERENCE": "AFG LIQUIDITY FUND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AFRICAPITAL CASH",
+    "REFERENCE": "AFRICAPITAL CASH"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "FCP AFRICAPITAL CASH PLUS",
+    "REFERENCE": "FCP AFRICAPITAL CASH PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS EQUILIBRE",
+    "REFERENCE": "ATLAS EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS LIQUIDITE",
+    "REFERENCE": "ATLAS LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS OBLIGBANCAIRES",
+    "REFERENCE": "ATLAS OBLIGBANCAIRES"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "MONETAIRE PLUS",
+    "REFERENCE": "MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL DYNAMIQUE",
+    "REFERENCE": "FCP CAPITAL DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMTIYAZ LIQUIDITE",
+    "REFERENCE": "FCP CAPITAL IMTIYAZ LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OBLIGATIONS BANQUES",
+    "REFERENCE": "FCP CAPITAL OBLIGATIONS BANQUES"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OBLIGATIONS BANQUES PLUS",
+    "REFERENCE": "FCP CAPITAL OBLIGATIONS BANQUES PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL RENDEMENT",
+    "REFERENCE": "FCP CAPITAL RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI CASH",
+    "REFERENCE": "BMCI CASH"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM SHORT TERM BOND",
+    "REFERENCE": "BMCI PREMIUM SHORT TERM BOND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP SECURITE RENDEMENT",
+    "REFERENCE": "FCP SECURITE RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "INTEGRA CASH",
+    "REFERENCE": "INTEGRA CASH"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST CASH PLUS",
+    "REFERENCE": "CAPITAL TRUST CASH PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST OBLIG COURT TERME",
+    "REFERENCE": "CAPITAL TRUST OBLIG COURT TERME"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST SECURIPLUS",
+    "REFERENCE": "CAPITAL TRUST SECURIPLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG DYNAMIC COURT TERME",
+    "REFERENCE": "CDG DYNAMIC COURT TERME"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG INSTITUTIONS",
+    "REFERENCE": "CDG INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG MONETAIRE PLUS",
+    "REFERENCE": "CDG MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OBLIG SECURITE",
+    "REFERENCE": "CDG OBLIG SECURITE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH MONETAIRE PLUS",
+    "REFERENCE": "CIH MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OBLIG CT",
+    "REFERENCE": "FCP OBLIG CT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OCT DYNAMIQUE",
+    "REFERENCE": "FCP OCT DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP SERENITE CT",
+    "REFERENCE": "FCP SERENITE CT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP TRESORERIE PLUS",
+    "REFERENCE": "FCP TRESORERIE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FSEC I CT",
+    "REFERENCE": "FSEC I CT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG LIQUID BONDS",
+    "REFERENCE": "CFG LIQUID BONDS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG LIQUIDITE",
+    "REFERENCE": "CFG LIQUIDITE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM MONETAIRE PLUS",
+    "REFERENCE": "IRGAM MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM OBLIBANQUES",
+    "REFERENCE": "IRGAM OBLIBANQUES"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM SECURIPLUS",
+    "REFERENCE": "IRGAM SECURIPLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "CAM OBLIBANQUES",
+    "REFERENCE": "CAM OBLIBANQUES"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP CAM TRESO PLUS",
+    "REFERENCE": "FCP CAM TRESO PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP MAROC RENDEMENT",
+    "REFERENCE": "FCP MAROC RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "ALPHA BANK FUND",
+    "REFERENCE": "ALPHA BANK FUND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA GLOBAL",
+    "REFERENCE": "FCP ALPHA GLOBAL"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA CORPORATE BOND",
+    "REFERENCE": "RMA CORPORATE BOND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA RENDEMENT CT",
+    "REFERENCE": "RMA RENDEMENT CT"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "CIMR TRESO PLUS",
+    "REFERENCE": "CIMR TRESO PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SECURITE TRESO PLUS",
+    "REFERENCE": "SECURITE TRESO PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG COURT TERME OBLIG",
+    "REFERENCE": "SG COURT TERME OBLIG"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG TRESOR PLUS",
+    "REFERENCE": "SG TRESOR PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "TWIN CAPITAL GESTION",
+    "TITRE": "TWIN TREASURY",
+    "REFERENCE": "TWIN TREASURY"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "AL AMAL",
+    "REFERENCE": "AL AMAL"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP CIMR MONETAIRE PLUS",
+    "REFERENCE": "FCP CIMR MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE HORIZON DYNAMIQUE",
+    "REFERENCE": "UPLINE HORIZON DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE OBLIG",
+    "REFERENCE": "UPLINE OBLIG"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE OBLIG DYNAMIQUE",
+    "REFERENCE": "UPLINE OBLIG DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE RETAIL SERENITE",
+    "REFERENCE": "UPLINE RETAIL SERENITE"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE BANK",
+    "REFERENCE": "EMERGENCE BANK"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE BOND FUND",
+    "REFERENCE": "EMERGENCE BOND FUND"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE MONETAIRE PLUS",
+    "REFERENCE": "EMERGENCE MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE OBLIG COURT TERME",
+    "REFERENCE": "FCP EMERGENCE OBLIG COURT TERME"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE TRESOR PLUS",
+    "REFERENCE": "FCP EMERGENCE TRESOR PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI MONETAIRE PLUS",
+    "REFERENCE": "ATTIJARI MONETAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAP OBLIGATIONS",
+    "REFERENCE": "CAP OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM OBLIG PLUS",
+    "REFERENCE": "CDM OBLIG PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM TRESOR PLUS",
+    "REFERENCE": "CDM TRESOR PLUS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FCP CAP INSTITUTIONS",
+    "REFERENCE": "FCP CAP INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FCP CDM LIQUIDITES",
+    "REFERENCE": "FCP CDM LIQUIDITES"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "OBLIDYNAMIC",
+    "REFERENCE": "OBLIDYNAMIC"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "OBLITOP",
+    "REFERENCE": "OBLITOP"
+  },
+  {
+    "CLASSE": "OPC OCT",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO OBLIG CT",
+    "REFERENCE": "WINEO OBLIG CT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD BONDS",
+    "REFERENCE": "AD BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD COMPACT OBLIGATAIRE",
+    "REFERENCE": "AD COMPACT OBLIGATAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AD CAPITAL",
+    "TITRE": "AD SECUR RENDEMENT",
+    "REFERENCE": "AD SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG GOV BOND FUND",
+    "REFERENCE": "AFG GOV BOND FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG INCOME FUND",
+    "REFERENCE": "AFG INCOME FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG SECUR RENDEMENT",
+    "REFERENCE": "AFG SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFG ASSET MANAGEMENT",
+    "TITRE": "AFG T-BOND FUND",
+    "REFERENCE": "AFG T-BOND FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AC SECUR RENDEMENT",
+    "REFERENCE": "AC SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "AFRICAPITAL MANAGEMENT",
+    "TITRE": "AFRICAPITAL BONDS",
+    "REFERENCE": "AFRICAPITAL BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "AL IJTIMAI PROTECTION",
+    "REFERENCE": "AL IJTIMAI PROTECTION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS HARMONIE",
+    "REFERENCE": "ATLAS HARMONIE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS PERENNITE",
+    "REFERENCE": "ATLAS PERENNITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "ATLAS SERENITE",
+    "REFERENCE": "ATLAS SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "ATLAS CAPITAL MANAGEMENT",
+    "TITRE": "OBLIGATAIRE PLUS",
+    "REFERENCE": "OBLIGATAIRE PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "ALIF III",
+    "REFERENCE": "ALIF III"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL CAT",
+    "REFERENCE": "CAPITAL CAT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL COMBO",
+    "REFERENCE": "CAPITAL COMBO"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL OBLIGATIONS PLUS",
+    "REFERENCE": "CAPITAL OBLIGATIONS PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CAPITAL RENDEMENT PLUS",
+    "REFERENCE": "CAPITAL RENDEMENT PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "CMR SANADATE",
+    "REFERENCE": "CMR SANADATE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP AL IJTIMAÏ SECURITE",
+    "REFERENCE": "FCP AL IJTIMAÏ SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP BMCE SOLIDARITE",
+    "REFERENCE": "FCP BMCE SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL IMTIYAZ SECURITE",
+    "REFERENCE": "FCP CAPITAL IMTIYAZ SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL INSTITUTIONS",
+    "REFERENCE": "FCP CAPITAL INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OBLIGATIONS",
+    "REFERENCE": "FCP CAPITAL OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OBLIGATIONS PLUS",
+    "REFERENCE": "FCP CAPITAL OBLIGATIONS PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL OPTIMISATION",
+    "REFERENCE": "FCP CAPITAL OPTIMISATION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL PLUS",
+    "REFERENCE": "FCP CAPITAL PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL SECURITE",
+    "REFERENCE": "FCP CAPITAL SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL SERENITE",
+    "REFERENCE": "FCP CAPITAL SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL TAALIM",
+    "REFERENCE": "FCP CAPITAL TAALIM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "FCP CAPITAL TRESOR",
+    "REFERENCE": "FCP CAPITAL TRESOR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCE CAPITAL GESTION",
+    "TITRE": "SICAVENIR",
+    "REFERENCE": "SICAVENIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "ATLANTA OBLIGATIONS",
+    "REFERENCE": "ATLANTA OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "AXA CROISSANCE",
+    "REFERENCE": "AXA CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "AXA EPARGNE",
+    "REFERENCE": "AXA EPARGNE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI EPARGNE OBLIGATIONS",
+    "REFERENCE": "BMCI EPARGNE OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM LONG TERM BOND",
+    "REFERENCE": "BMCI PREMIUM LONG TERM BOND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI PREMIUM MEDIUM TERM BOND",
+    "REFERENCE": "BMCI PREMIUM MEDIUM TERM BOND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI SELECTION OBLI MOYEN TERME",
+    "REFERENCE": "BMCI SELECTION OBLI MOYEN TERME"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "BMCI SELECTION OBLI REVENUS",
+    "REFERENCE": "BMCI SELECTION OBLI REVENUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "CAT OBLI FRONTIERES",
+    "REFERENCE": "CAT OBLI FRONTIERES"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP BMCI GESTION SOLIDARITE",
+    "REFERENCE": "FCP BMCI GESTION SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "FCP SECURITE DEVELOPPEMENT",
+    "REFERENCE": "FCP SECURITE DEVELOPPEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "INSTIOBLIGATIONS",
+    "REFERENCE": "INSTIOBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "INSTIOBLIGATIONS ETAT",
+    "REFERENCE": "INSTIOBLIGATIONS ETAT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "SANAD OBLIGATAIRE",
+    "REFERENCE": "SANAD OBLIGATAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "BMCI ASSET MANAGEMENT",
+    "TITRE": "WIAM CROISSANCE",
+    "REFERENCE": "WIAM CROISSANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST BONDS",
+    "REFERENCE": "CAPITAL TRUST BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST HARMONIE",
+    "REFERENCE": "CAPITAL TRUST HARMONIE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST HORIZON",
+    "REFERENCE": "CAPITAL TRUST HORIZON"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST INSTITUTIONS",
+    "REFERENCE": "CAPITAL TRUST INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST OBLIG PLUS",
+    "REFERENCE": "CAPITAL TRUST OBLIG PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST OBLIG PREMIUM",
+    "REFERENCE": "CAPITAL TRUST OBLIG PREMIUM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST OBLIGATAIRE",
+    "REFERENCE": "CAPITAL TRUST OBLIGATAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST OPPORTUNITE",
+    "REFERENCE": "CAPITAL TRUST OPPORTUNITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST RENDEMENT",
+    "REFERENCE": "CAPITAL TRUST RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CAPITAL TRUST SERENITE",
+    "REFERENCE": "CAPITAL TRUST SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CAPITAL TRUST GESTION",
+    "TITRE": "CT SECUR RENDEMENT",
+    "REFERENCE": "CT SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "AL BARID ISTITMAR",
+    "REFERENCE": "AL BARID ISTITMAR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "AL IJTIMAI SERENITE",
+    "REFERENCE": "AL IJTIMAI SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "ATLANTA PERFORMANCE",
+    "REFERENCE": "ATLANTA PERFORMANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "AXA OBLIG",
+    "REFERENCE": "AXA OBLIG"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG BARID",
+    "REFERENCE": "CDG BARID"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG BONDS DYNAMIQUE",
+    "REFERENCE": "CDG BONDS DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG CITOYENNETE",
+    "REFERENCE": "CDG CITOYENNETE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG HORIZONS",
+    "REFERENCE": "CDG HORIZONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OBLIG PLUS",
+    "REFERENCE": "CDG OBLIG PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OBLIG PREMIUM",
+    "REFERENCE": "CDG OBLIG PREMIUM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OBLIG SELECTION",
+    "REFERENCE": "CDG OBLIG SELECTION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG OBLIGATIONS",
+    "REFERENCE": "CDG OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG PREVOYANCE",
+    "REFERENCE": "CDG PREVOYANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG RENDEMENT",
+    "REFERENCE": "CDG RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG SOLIDARITE",
+    "REFERENCE": "CDG SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG TAWFIR",
+    "REFERENCE": "CDG TAWFIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CDG-SECUR",
+    "REFERENCE": "CDG-SECUR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CIH OBLIGATIONS",
+    "REFERENCE": "CIH OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "CNIA ASSURE",
+    "REFERENCE": "CNIA ASSURE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "DAR AD-DAMANE FUND",
+    "REFERENCE": "DAR AD-DAMANE FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP ALIF VI",
+    "REFERENCE": "FCP ALIF VI"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP CKG BONDS",
+    "REFERENCE": "FCP CKG BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP EDUCATION",
+    "REFERENCE": "FCP EDUCATION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OBLIG PERENITE",
+    "REFERENCE": "FCP OBLIG PERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OBLIGATIONS DYNAMIQUE",
+    "REFERENCE": "FCP OBLIGATIONS DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP OBLIGATIONS OPTIMUM",
+    "REFERENCE": "FCP OBLIGATIONS OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FCP SECURITE",
+    "REFERENCE": "FCP SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FONDS COMMUN DE PLACEMENT SOLIDARITE",
+    "REFERENCE": "FONDS COMMUN DE PLACEMENT SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FORCE MUTUELLE",
+    "REFERENCE": "FORCE MUTUELLE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "FSEC II OMLT",
+    "REFERENCE": "FSEC II OMLT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CDG CAPITAL GESTION",
+    "TITRE": "SOCIETE CENTRALE DE REASSURANCE OBLIGATIONS",
+    "REFERENCE": "SOCIETE CENTRALE DE REASSURANCE OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AVENIR OBLIGATION",
+    "REFERENCE": "AVENIR OBLIGATION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AVENIR PREMIERE",
+    "REFERENCE": "AVENIR PREMIERE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AVENIR PREVOYANCE",
+    "REFERENCE": "AVENIR PREVOYANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "AVENIR RENDEMENT",
+    "REFERENCE": "AVENIR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CAA RENDEMENT",
+    "REFERENCE": "CAA RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG CORPORATE BONDS",
+    "REFERENCE": "CFG CORPORATE BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PROFIL CONSERVATEUR",
+    "REFERENCE": "CFG PROFIL CONSERVATEUR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG PROFIL PRUDENT",
+    "REFERENCE": "CFG PROFIL PRUDENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG RENDEMENT",
+    "REFERENCE": "CFG RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG SECURE BONDS",
+    "REFERENCE": "CFG SECURE BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG SOLIDARITE",
+    "REFERENCE": "CFG SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "CFG SOVEREIGN BONDS",
+    "REFERENCE": "CFG SOVEREIGN BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "FCP AL IJTIMAI SOLIDARITE",
+    "REFERENCE": "FCP AL IJTIMAI SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "FCP AVENIR LONG TERME",
+    "REFERENCE": "FCP AVENIR LONG TERME"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "FCP CFG PREVOYANCE",
+    "REFERENCE": "FCP CFG PREVOYANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "CFG GESTION",
+    "TITRE": "SMART FUND",
+    "REFERENCE": "SMART FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "FCP IRGAM OBLIGATAIRE",
+    "REFERENCE": "FCP IRGAM OBLIGATAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "FCP OBLIG LONG TERM",
+    "REFERENCE": "FCP OBLIG LONG TERM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "FCP OBLIG OPPORTUNITES",
+    "REFERENCE": "FCP OBLIG OPPORTUNITES"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRG SECUR RENDEMENT",
+    "REFERENCE": "IRG SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM OBLIRENDEMENT",
+    "REFERENCE": "IRGAM OBLIRENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM SECURIBANK",
+    "REFERENCE": "IRGAM SECURIBANK"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "IRGAM SECURIFINANCE",
+    "REFERENCE": "IRGAM SECURIFINANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "OBLIG INSTITUTIONS",
+    "REFERENCE": "OBLIG INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "IRG ASSET MANAGEMENT",
+    "TITRE": "OBLIGATAIRE PREMIUM",
+    "REFERENCE": "OBLIGATAIRE PREMIUM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "CAM OBLIGATIONS",
+    "REFERENCE": "CAM OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "CAM OBLIRENDEMENT",
+    "REFERENCE": "CAM OBLIRENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "ES-SAADA OBLIGATIONS",
+    "REFERENCE": "ES-SAADA OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP CAM EPARGNE",
+    "REFERENCE": "FCP CAM EPARGNE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP MAROC CREANCES",
+    "REFERENCE": "FCP MAROC CREANCES"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "MAROGEST",
+    "TITRE": "FCP MAROC INSTITUTIONS",
+    "REFERENCE": "FCP MAROC INSTITUTIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "ALPHA INCOME FUND",
+    "REFERENCE": "ALPHA INCOME FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "ALPHA SECURE FUND",
+    "REFERENCE": "ALPHA SECURE FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA BONDS",
+    "REFERENCE": "FCP ALPHA BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA OBLIGATAIRE",
+    "REFERENCE": "FCP ALPHA OBLIGATAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP ALPHA RENDEMENT",
+    "REFERENCE": "FCP ALPHA RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RED MED ASSET MANAGEMENT",
+    "TITRE": "FCP RM SECUR RENDEMENT",
+    "REFERENCE": "FCP RM SECUR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA OBLIGATIONS",
+    "REFERENCE": "RMA OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA RENDEMENT MT",
+    "REFERENCE": "RMA RENDEMENT MT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "RMA ASSET MANAGEMENT",
+    "TITRE": "RMA RENDEMENT PLUS",
+    "REFERENCE": "RMA RENDEMENT PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "AL IJTIMAI AVENIR",
+    "REFERENCE": "AL IJTIMAI AVENIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "ALIFV",
+    "REFERENCE": "ALIFV"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "BOND OPTIMUM",
+    "REFERENCE": "BOND OPTIMUM"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "C.I.M.R IDDIKHAR",
+    "REFERENCE": "C.I.M.R IDDIKHAR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "CMR OBLIGATIONS",
+    "REFERENCE": "CMR OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "FCP HORIZON AVENIR",
+    "REFERENCE": "FCP HORIZON AVENIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "GESTAR SOLIDARITE",
+    "REFERENCE": "GESTAR SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "HORIZON OBLIG TRESOR",
+    "REFERENCE": "HORIZON OBLIG TRESOR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "PRESCOLAIRE",
+    "REFERENCE": "PRESCOLAIRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG OBLIG PLUS",
+    "REFERENCE": "SG OBLIG PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "SOGECAPITAL GESTION",
+    "TITRE": "SG OPTIMAL OBLIG",
+    "REFERENCE": "SG OPTIMAL OBLIG"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "TWIN CAPITAL GESTION",
+    "TITRE": "TWIN BOND",
+    "REFERENCE": "TWIN BOND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "TWIN CAPITAL GESTION",
+    "TITRE": "TWIN BOND TRESOR",
+    "REFERENCE": "TWIN BOND TRESOR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "AL IJTIMAI ADDAMANE",
+    "REFERENCE": "AL IJTIMAI ADDAMANE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "ALIF I",
+    "REFERENCE": "ALIF I"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "ASSANAD CHAABI",
+    "REFERENCE": "ASSANAD CHAABI"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "AWALI",
+    "REFERENCE": "AWALI"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "C.I.M.R ATTADAMOUN",
+    "REFERENCE": "C.I.M.R ATTADAMOUN"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "CMR BONDS",
+    "REFERENCE": "CMR BONDS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "DAR AD DAMANE OPTIMUS",
+    "REFERENCE": "DAR AD DAMANE OPTIMUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP AL IDDIKHAR CHAABI KASSIR AL MADA",
+    "REFERENCE": "FCP AL IDDIKHAR CHAABI KASSIR AL MADA"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP AL IDDIKHAR CHAABI MOUTAWASSIT AL MADA",
+    "REFERENCE": "FCP AL IDDIKHAR CHAABI MOUTAWASSIT AL MADA"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP AL IDDIKHAR CHAABI TAWIL AL MADA",
+    "REFERENCE": "FCP AL IDDIKHAR CHAABI TAWIL AL MADA"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP CHAABI SOLIDARITE",
+    "REFERENCE": "FCP CHAABI SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP KENZ OBLIGATIONS",
+    "REFERENCE": "FCP KENZ OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP UPLINE HORIZON",
+    "REFERENCE": "FCP UPLINE HORIZON"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FCP UPLINE OBLIG PLUS",
+    "REFERENCE": "FCP UPLINE OBLIG PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FH2 OBLIGATAIRE DYNAMIQUE",
+    "REFERENCE": "FH2 OBLIGATAIRE DYNAMIQUE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "FONDS SECURITE",
+    "REFERENCE": "FONDS SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "MUTUELLE PREVOYANCE PLUS - MPBP",
+    "REFERENCE": "MUTUELLE PREVOYANCE PLUS - MPBP"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "SANAD SERENITY",
+    "REFERENCE": "SANAD SERENITY"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE AVENIR",
+    "REFERENCE": "UPLINE AVENIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE RENDEMENT",
+    "REFERENCE": "UPLINE RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE RETAIL SERENITE PLUS",
+    "REFERENCE": "UPLINE RETAIL SERENITE PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE SECURE PLUS",
+    "REFERENCE": "UPLINE SECURE PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "UPLINE CAPITAL MANAGEMENT",
+    "TITRE": "UPLINE SOLIDARITE",
+    "REFERENCE": "UPLINE SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "AL IJTIMAI PATRIMOINE",
+    "REFERENCE": "AL IJTIMAI PATRIMOINE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "CAPITAL GESTION SOLIDARITE",
+    "REFERENCE": "CAPITAL GESTION SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE CAPITAL",
+    "REFERENCE": "EMERGENCE CAPITAL"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE CASH",
+    "REFERENCE": "EMERGENCE CASH"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE FUND",
+    "REFERENCE": "EMERGENCE FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE OBLIGATIONS",
+    "REFERENCE": "EMERGENCE OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE RENDEMENT BANQUE",
+    "REFERENCE": "EMERGENCE RENDEMENT BANQUE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE RENDEMENT BANQUES",
+    "REFERENCE": "EMERGENCE RENDEMENT BANQUES"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE RENDEMENT PLUS",
+    "REFERENCE": "EMERGENCE RENDEMENT PLUS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "EMERGENCE SERENITE",
+    "REFERENCE": "EMERGENCE SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP ALIF IV",
+    "REFERENCE": "FCP ALIF IV"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE OBLIHORIZON",
+    "REFERENCE": "FCP EMERGENCE OBLIHORIZON"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EMERGENCE OBLIRENDEMENT",
+    "REFERENCE": "FCP EMERGENCE OBLIRENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP EV CAT",
+    "REFERENCE": "FCP EV CAT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "VALORIS MANAGEMENT",
+    "TITRE": "FCP SANLAM OBLIGATIONS",
+    "REFERENCE": "FCP SANLAM OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "AL IJTIMAI INMAA",
+    "REFERENCE": "AL IJTIMAI INMAA"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ALIF II",
+    "REFERENCE": "ALIF II"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI FIXED INCOME DISTRIBUTION",
+    "REFERENCE": "ATTIJARI FIXED INCOME DISTRIBUTION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI OBLIGATIONS",
+    "REFERENCE": "ATTIJARI OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI PATRIMOINE TAUX",
+    "REFERENCE": "ATTIJARI PATRIMOINE TAUX"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ATTIJARI SECURITE",
+    "REFERENCE": "ATTIJARI SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "AZ TAWFIR",
+    "REFERENCE": "AZ TAWFIR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAP SECURICOURT",
+    "REFERENCE": "CAP SECURICOURT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAP SECURIVALO",
+    "REFERENCE": "CAP SECURIVALO"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CAT EQUILIBRE",
+    "REFERENCE": "CAT EQUILIBRE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM GENERATION",
+    "REFERENCE": "CDM GENERATION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM OBLIGATIONS",
+    "REFERENCE": "CDM OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CDM PROFIL SERENITE",
+    "REFERENCE": "CDM PROFIL SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CIMR AJIAL",
+    "REFERENCE": "CIMR AJIAL"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CIMR PREVOYANCE",
+    "REFERENCE": "CIMR PREVOYANCE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "CNIA AL MOUSTAKBAL",
+    "REFERENCE": "CNIA AL MOUSTAKBAL"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "ELAN SOLIDARITE",
+    "REFERENCE": "ELAN SOLIDARITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FCP CAT OBLIGATIONS",
+    "REFERENCE": "FCP CAT OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "FCP CAT VALEURS",
+    "REFERENCE": "FCP CAT VALEURS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "GROUPE MCMA-MAMDA OPTIMISATION",
+    "REFERENCE": "GROUPE MCMA-MAMDA OPTIMISATION"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "LIBERIS SERENITE",
+    "REFERENCE": "LIBERIS SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "MBS RENDEMENT",
+    "REFERENCE": "MBS RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "OBLIFUTUR",
+    "REFERENCE": "OBLIFUTUR"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PATRIMOINE OBLIGATIONS",
+    "REFERENCE": "PATRIMOINE OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "PROFIL SERENITE",
+    "REFERENCE": "PROFIL SERENITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "SCR RENDEMENT",
+    "REFERENCE": "SCR RENDEMENT"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "UNIVERS OBLIGATIONS",
+    "REFERENCE": "UNIVERS OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WAFA ASSURANCE SECURITE",
+    "REFERENCE": "WAFA ASSURANCE SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG BOND FUND",
+    "REFERENCE": "WG BOND FUND"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WAFA GESTION",
+    "TITRE": "WG OBLIGATIONS",
+    "REFERENCE": "WG OBLIGATIONS"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO AMANA",
+    "REFERENCE": "WINEO AMANA"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO OBLIG",
+    "REFERENCE": "WINEO OBLIG"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO OBLIG SECURITE",
+    "REFERENCE": "WINEO OBLIG SECURITE"
+  },
+  {
+    "CLASSE": "OPC OMLT",
+    "CATEGORIE": "WINEO GESTION",
+    "TITRE": "WINEO SECUR RENDEMENT",
+    "REFERENCE": "WINEO SECUR RENDEMENT"
+  }
+]

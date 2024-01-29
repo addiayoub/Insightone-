@@ -38,7 +38,7 @@ const buttons = [
 const Filter = ({ setIsShow }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
-  const [nbSim, setNbSim] = useState("");
+  const [nbSim, setNbSim] = useState(20);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [choice, setChoice] = useState(0);
   const [opcvm, setOpcvm] = useState(null);
@@ -152,11 +152,7 @@ const Filter = ({ setIsShow }) => {
           );
         })}
         {list.length > 0 && <SelectedIndices list={list} />}
-        {actions.length > 0 && <SelectedTitres selectedTitres={actions} />}
-
-        {selectedIndices.length > 0 && (
-          <SelectedTitres selectedTitres={selectedIndices} type="Indices" />
-        )}
+        {list.length > 0 && <SelectedTitres selectedTitres={list} />}
         <Button
           variant="contained"
           className="w-fit mt-3"

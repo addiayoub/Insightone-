@@ -3257,6 +3257,20 @@
     {
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI",
+      "libelle": "MASI"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MASI RENTABILITE BRUT",
+      "libelle": "MASI RENTABILITE BRUT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "ACTIONS",
       "categorie": "SECTORIEL",
       "S_CATEGORIE": "AGROALIMENTAIRE & PRODUCTION",
       "libelle": "AGROALIMENTAIRE & PRODUCTION"
@@ -3285,23 +3299,9 @@
     {
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "BCE20",
-      "libelle": "BCE20"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
       "categorie": "SECTORIEL",
       "S_CATEGORIE": "BOISSONS",
       "libelle": "BOISSONS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "CASA",
-      "libelle": "CASABLANCA ESG 10"
     },
     {
       "GROUPE": "INDICE",
@@ -3334,20 +3334,6 @@
     {
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "ESGI",
-      "libelle": "ESGI"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "ESGI",
-      "libelle": "ESGI OUVERTURE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
       "categorie": "SECTORIEL",
       "S_CATEGORIE": "INDUSTRIE PHARMACEUTIQUE",
       "libelle": "INDUSTRIE PHARMACEUTIQUE"
@@ -3369,121 +3355,9 @@
     {
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX (EUR)"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX (USD)"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX OUVERTURE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX RENTABILITE BRUT"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MADE",
-      "libelle": "MADEX RENTABILITE NET"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MASI",
-      "libelle": "MASI"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MASI (EUR)",
-      "libelle": "MASI (EUR)"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MASI (USD)",
-      "libelle": "MASI (USD)"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MASI HORS SAMIR",
-      "libelle": "MASI HORS SAMIR"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MASI RENTABILITE BRUT",
-      "libelle": "MASI RENTABILITE BRUT"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "ACTIONS",
       "categorie": "SECTORIEL",
-      "S_CATEGORIE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
-      "libelle": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "MBI",
-      "S_CATEGORIE": "CT",
-      "libelle": "MBI CT"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "MBI",
-      "S_CATEGORIE": "CMLT",
-      "libelle": "MBI GLOBAL"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "MBI",
-      "S_CATEGORIE": "LT",
-      "libelle": "MBI LT"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "MBI",
-      "S_CATEGORIE": "MLT",
-      "libelle": "MBI MLT"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "MBI",
-      "S_CATEGORIE": "MT",
-      "libelle": "MBI MT"
+      "S_CATEGORIE": "MATERIELS.LOGICIELS & SERVICES INFORMATIQUES",
+      "libelle": "MATERIELS.LOGICIELS & SERVICES INFORMATIQUES"
     },
     {
       "GROUPE": "INDICE",
@@ -3491,223 +3365,6 @@
       "categorie": "SECTORIEL",
       "S_CATEGORIE": "MINES",
       "libelle": "MINES"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "GENERAL",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "MONIA"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "CT",
-      "libelle": "NOMINAL 1 AN"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "NOMINAL 1 MOIS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "LT",
-      "libelle": "NOMINAL 10 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "LT",
-      "libelle": "NOMINAL 15 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "CT",
-      "libelle": "NOMINAL 2 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "LT",
-      "libelle": "NOMINAL 20 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "LT",
-      "libelle": "NOMINAL 25 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "MT",
-      "libelle": "NOMINAL 3 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "NOMINAL 3 MOIS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "LT",
-      "libelle": "NOMINAL 30 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "MT",
-      "libelle": "NOMINAL 5 ANS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "TAUX",
-      "categorie": "NOMINAL",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "NOMINAL 6 MOIS"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "ACTIONS",
-      "libelle": "OPC ACTIONS AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "ACTIONS",
-      "libelle": "OPC ACTIONS FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "ACTIONS",
-      "libelle": "OPC ACTIONS FNPP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "CONTRACTUEL",
-      "libelle": "OPC CONTRACTUEL AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "CONTRACTUEL",
-      "libelle": "OPC CONTRACTUEL FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "CONTRACTUEL",
-      "libelle": "OPC CONTRACTUEL FNPP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "DIVERSIFIE",
-      "libelle": "OPC DIVERSIFIE AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "DIVERSIFIE",
-      "libelle": "OPC DIVERSIFIE FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "DIVERSIFIE",
-      "libelle": "OPC DIVERSIFIE FNPP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "OPC MONETAIRE AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "OPC MONETAIRE FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "MONETAIRE",
-      "libelle": "OPC MONETAIRE FNPP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "OCT",
-      "libelle": "OPC OCT AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "OCT",
-      "libelle": "OPC OCT FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "OCT",
-      "libelle": "OPC OCT FNPP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "AJUSTE",
-      "S_CATEGORIE": "OMLT",
-      "libelle": "OPC OMLT AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FGP AJUSTE",
-      "S_CATEGORIE": "OMLT",
-      "libelle": "OPC OMLT FGP AJUSTE"
-    },
-    {
-      "GROUPE": "INDICE",
-      "classe": "OPC",
-      "categorie": "FNPP AJUSTE",
-      "S_CATEGORIE": "OMLT",
-      "libelle": "OPC OMLT FNPP AJUSTE"
     },
     {
       "GROUPE": "INDICE",
@@ -3748,15 +3405,15 @@
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
       "categorie": "SECTORIEL",
-      "S_CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
-      "libelle": "SOCIETES DE PLACEMENT IMMOBILIER"
+      "S_CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
+      "libelle": "SOCIETES DE PORTEFEUILLES - HOLDINGS"
     },
     {
       "GROUPE": "INDICE",
       "classe": "ACTIONS",
       "categorie": "SECTORIEL",
-      "S_CATEGORIE": "SOCIETES DE PORTEFEUILLES - HOLDINGS",
-      "libelle": "SOCIETES DE PORTEFEUILLES - HOLDINGS"
+      "S_CATEGORIE": "SOCIETES DE PLACEMENT IMMOBILIER",
+      "libelle": "SOCIETES DE PLACEMENT IMMOBILIER"
     },
     {
       "GROUPE": "INDICE",
@@ -3774,6 +3431,62 @@
     },
     {
       "GROUPE": "INDICE",
+      "classe": "ACTIONS",
+      "categorie": "SECTORIEL",
+      "S_CATEGORIE": "TRANSPORT",
+      "libelle": "TRANSPORT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "ACTIONS",
+      "libelle": "OPC ACTIONS FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "DIVERSIFIE",
+      "libelle": "OPC DIVERSIFIE FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "OMLT",
+      "libelle": "OPC OMLT FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "OCT",
+      "libelle": "OPC OCT FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "OPC MONETAIRE FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "OPC",
+      "categorie": "FGP AJUSTE",
+      "S_CATEGORIE": "CONTRACTUEL",
+      "libelle": "OPC CONTRACTUEL FGP AJUSTE"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "GENERAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "MONIA"
+    },
+    {
+      "GROUPE": "INDICE",
       "classe": "TAUX",
       "categorie": "GENERAL",
       "S_CATEGORIE": "MONETAIRE",
@@ -3781,10 +3494,122 @@
     },
     {
       "GROUPE": "INDICE",
-      "classe": "ACTIONS",
-      "categorie": "SECTORIEL",
-      "S_CATEGORIE": "TRANSPORT",
-      "libelle": "TRANSPORT"
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "CMLT",
+      "libelle": "MBI GLOBAL"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "CT",
+      "libelle": "MBI CT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "LT",
+      "libelle": "MBI LT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "MLT",
+      "libelle": "MBI MLT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "MBI",
+      "S_CATEGORIE": "MT",
+      "libelle": "MBI MT"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 1 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 3 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MONETAIRE",
+      "libelle": "NOMINAL 6 MOIS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "CT",
+      "libelle": "NOMINAL 1 AN"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "CT",
+      "libelle": "NOMINAL 2 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MT",
+      "libelle": "NOMINAL 3 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "MT",
+      "libelle": "NOMINAL 5 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 10 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 15 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 20 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 25 ANS"
+    },
+    {
+      "GROUPE": "INDICE",
+      "classe": "TAUX",
+      "categorie": "NOMINAL",
+      "S_CATEGORIE": "LT",
+      "libelle": "NOMINAL 30 ANS"
     }
   ]
 }

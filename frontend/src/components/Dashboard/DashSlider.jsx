@@ -7,10 +7,10 @@ const textColor = (value) => {
   let className = "";
   let arrow = "";
   if (value > 0) {
-    className = "text-[var(--text-success)]";
+    className = "text-success";
     arrow = <ArrowUp size={18} />;
   } else if (value < 0) {
-    className = "text-[var(--text-warning)]";
+    className = "text-warning";
     arrow = <ArrowDown size={18} />;
   } else {
     arrow = <ArrowRight size={18} />;

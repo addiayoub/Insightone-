@@ -1,6 +1,7 @@
 const Data = require("../models/dataModel");
 const connection = require("../config/connection");
 const sql = require("mssql");
+const getTitres = require("../utils/getTitres");
 class _DataController {
   constructor() {}
   async index(req, res) {
@@ -313,7 +314,7 @@ GROUP BY
       and DENOMINATION_OPCVM not in ('OBLIFUTUR','')
       order by DENOMINATION_OPCVM;
 
-      select 'INDICE' GROUPE, CLASSE classe,iif(CATEGORIE='SECTORIEL',CATEGORIE,CATEGORIE) categorie,iif(CATEGORIE='SECTORIEL',NOM_INDICE,S_CATEGORIE)  as S_CATEGORIE, NOM_INDICE libelle from [DataWarehouse].[DIM].[INDICE] where FLAG_ACTIF =1 and NOM_INDICE not in ('MASI OUVERTURE','MASI RENTABILITE NET','MOROCCO STOCK INDEX 20','OPC ACTIONS','OPC CONTRACTUEL','OPC DIVERSIFIE','OPC MONETAIRE','OPC OCT','OPC OMLT','REPO CAPITALISE') and categorie not like '%MOYEN%' --and categorie not like '%AJUSTE%' and categorie not in ('FNPP AJUSTE','AJUSTE','MOROCCO STOCK INDEX 20') union select 'OPCVM' GROUPE,iif(Classification in ('OMLT','OCT','MONETAIRE'),'TAUX',Classification) CLASSE, Societe_Gestion CATEGORIE,Classification S_CATEGORIE,DENOMINATION_OPCVM LIBELLE from [DataWarehouse].[DIM].opcvm where FLAG_ACTIF =1 and DENOMINATION_OPCVM not in ('OBLIFUTUR','OBLITOP','OBLIRENDEMENT') union select 'ACTIONS BVC'GROUPE,'ACTIONS'CLASSE, upper(GICS_SECTOR_FR) CATEGORIE,SECTEUR_ACTIVITE S_CATEGORIE,libelle LIBELLE from [DataWarehouse].[DIM].[TITRE_BVC] where FLAG_ACTIF =1 and libelle not in ('IB MAROC.COM','')`;
+      select 'INDICE' GROUPE, CLASSE classe,iif(CATEGORIE='SECTORIEL',CATEGORIE,CATEGORIE) categorie,iif(CATEGORIE='SECTORIEL',NOM_INDICE,S_CATEGORIE)  as S_CATEGORIE, NOM_INDICE libelle from [DataWarehouse].[DIM].[INDICE] where FLAG_ACTIF =1 and NOM_INDICE not in ('MASI OUVERTURE','MASI RENTABILITE NET','MOROCCO STOCK INDEX 20','OPC ACTIONS','OPC CONTRACTUEL','OPC DIVERSIFIE','OPC MONETAIRE','OPC OCT','OPC OMLT','REPO CAPITALISE') and categorie not like '%MOYEN%' and categorie not in ('FNPP AJUSTE','AJUSTE','MOROCCO STOCK INDEX 20')`;
       const query2 = `select 'INDICE' GROUPE, CLASSE,iif(CATEGORIE='SECTORIEL',CATEGORIE,CATEGORIE) CATEGORIE,iif(CATEGORIE='SECTORIEL',NOM_INDICE,S_CATEGORIE)  as S_CATEGORIE, NOM_INDICE LIBELLE from [DataWarehouse].[DIM].[INDICE] where FLAG_ACTIF =1 and NOM_INDICE not in ('MASI OUVERTURE','MASI RENTABILITE NET','MOROCCO STOCK INDEX 20','OPC ACTIONS','OPC CONTRACTUEL','OPC DIVERSIFIE','OPC MONETAIRE','OPC OCT','OPC OMLT','REPO CAPITALISE') and categorie not like '%MOYEN%' --and categorie not like '%AJUSTE%' and categorie not in ('FNPP AJUSTE','AJUSTE','MOROCCO STOCK INDEX 20')
 
 union
@@ -333,6 +334,19 @@ select 'ACTIONS BVC'GROUPE,'ACTIONS'CLASSE, upper(GICS_SECTOR_FR) CATEGORIE,SECT
           OPCVM: result.recordsets[1],
           Indices: result.recordsets[2],
         },
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  async getTitresWithReference(req, res) {
+    try {
+      const pool = await connection();
+      const request = pool.request();
+      const titres = await getTitres();
+      return res.json({
+        titres,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });

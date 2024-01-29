@@ -19,6 +19,7 @@ router.get("/getComparaison", dataController.getComparaison);
 router.get("/getFirstGraph", dataController.getFirstGraph);
 router.get("/getRendementRisqueData", dataController.getRendementRisqueData);
 router.get("/getTitres", dataController.getTitres);
+router.get("/getTitresWithReference", dataController.getTitresWithReference);
 
 router.get("/test", dataController.test);
 router.get("/getPoids", dataController.getPoids);

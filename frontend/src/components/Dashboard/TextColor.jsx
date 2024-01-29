@@ -5,10 +5,10 @@ const TextColor = ({ value, percentage, textAlign = "right" }) => {
   let className = "";
   let arrow = "";
   if (value > 0) {
-    className = "text-[var(--text-success)] font-semibold";
+    className = "text-success font-semibold";
     arrow = <ArrowUp size={18} />;
   } else if (value < 0) {
-    className = "text-[var(--text-warning)] font-semibold";
+    className = "text-warning font-semibold";
     arrow = <ArrowDown size={18} />;
   } else {
     arrow = <ArrowRight size={18} />;

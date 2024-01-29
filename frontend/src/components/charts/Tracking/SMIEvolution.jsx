@@ -113,7 +113,7 @@ const SMIEvolution = ({ SIM }) => {
         option={options}
         style={{
           height: "500px",
-          maxHeight: "600px",
+          minHeight: "600px",
         }}
       />
     </>

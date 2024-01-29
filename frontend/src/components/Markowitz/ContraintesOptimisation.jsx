@@ -224,10 +224,7 @@ export default function ContraintesOptimisation({
                 contraintesPoids.data?.errors_df_ab?.length > 0 && (
                   <div className="max-w-[300px]">
                     {contraintesPoids.data?.errors_df_ab?.map((item, index) => (
-                      <p
-                        className="text-[var(--text-warning)] my-1"
-                        key={index}
-                      >
+                      <p className="text-warning my-1" key={index}>
                         - {item.error_message}
                       </p>
                     ))}

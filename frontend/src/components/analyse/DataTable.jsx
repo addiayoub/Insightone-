@@ -11,17 +11,14 @@ function DataTable({ title, columns, rows, resume, id }) {
       {resume && (
         <Box className="m-3 flex items-center gap-x-5 mobileOnly:flex-col mobileOnly:items-start mobileOnly:gap-y-3 flex-wrap">
           <Box component={"div"}>
-            <Box component={"span"} className="text-[var(--text-muted)]">
+            <Box component={"span"} className="text-muted">
               Résumé:
             </Box>
           </Box>
           <Box component={"div"} className="flex items-center gap-x-3">
             <Box component={"div"}>
               <Box component={"span"}>
-                <Box
-                  component={"span"}
-                  className="text-[var(--text-muted)] mr-1"
-                >
+                <Box component={"span"} className="text-muted mr-1">
                   Achat:
                 </Box>
                 <Box component={"span"} className="font-semibold">
@@ -30,10 +27,7 @@ function DataTable({ title, columns, rows, resume, id }) {
               </Box>
             </Box>
             <Box component={"div"}>
-              <Box
-                component={"span"}
-                className="text-[var(--text-muted)]  mr-1"
-              >
+              <Box component={"span"} className="text-muted  mr-1">
                 Vente:
               </Box>
               <Box component={"span"} className="font-semibold">
@@ -41,7 +35,7 @@ function DataTable({ title, columns, rows, resume, id }) {
               </Box>
             </Box>
             <Box component={"div"}>
-              <Box component={"span"} className="text-[var(--text-muted)] mr-1">
+              <Box component={"span"} className="text-muted mr-1">
                 Neutre:
               </Box>
               <Box component={"span"} className="font-semibold">
