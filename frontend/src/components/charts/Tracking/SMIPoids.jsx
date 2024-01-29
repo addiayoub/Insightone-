@@ -3,11 +3,7 @@ import { useSelector } from "react-redux";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
-import titresWithReference from "../../../data/titresWithReference.json";
-import generateCategorieSeries from "../../../utils/generate";
-import GridContainer, { GridItem } from "../../Ui/GridContainer";
-import { Grid } from "react-feather";
-import { Box } from "@mui/material";
+import generateCategorieSeries from "../../../utils/generateCategorieSeries";
 
 const generateOptions = (
   seriesNames,

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, memo } from "react";
 import ReactECharts from "echarts-for-react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
@@ -188,4 +188,4 @@ const Scatter = ({ data }) => {
   );
 };
 
-export default Scatter;
+export default memo(Scatter);

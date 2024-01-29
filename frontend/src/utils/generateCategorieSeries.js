@@ -29,7 +29,9 @@ export default function generateCategorieSeries(titresSeries) {
   });
 
   // Convert the object to an array of objects
-  const result = Object.values(categorieSeries);
-
+  const result = Object.values(categorieSeries).sort(
+    (a, b) => b.value - a.value
+  );
+  console.log("generate result", result);
   return result;
 }
