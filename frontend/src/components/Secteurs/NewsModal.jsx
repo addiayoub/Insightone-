@@ -37,7 +37,7 @@ function NewsModal({ clickedRowId, row, handleClose }) {
           <Box className="flex items-center justify-between">
             <Typography variant="h6">{row?.titre}</Typography>
             <IconButton onClick={handleClose}>
-              <X color="var(--text-warning)" />
+              <X color="var(--error-color)" />
             </IconButton>
           </Box>
           <Box className="mt-4">

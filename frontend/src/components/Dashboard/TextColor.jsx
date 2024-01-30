@@ -8,7 +8,7 @@ const TextColor = ({ value, percentage, textAlign = "right" }) => {
     className = "text-success font-semibold";
     arrow = <ArrowUp size={18} />;
   } else if (value < 0) {
-    className = "text-warning font-semibold";
+    className = "text-error font-semibold";
     arrow = <ArrowDown size={18} />;
   } else {
     arrow = <ArrowRight size={18} />;

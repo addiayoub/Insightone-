@@ -8,7 +8,7 @@ const result = (array, action, actionHandler) => {
       <Box key={entry.id} sx={{ ...divStyle }}>
         <span>{`${entry.indice} [${entry.operateur} ${entry.value}%]`}</span>
         <IconButton onClick={() => actionHandler(action, entry.id)}>
-          <Trash size={20} color="var(--text-warning)" />
+          <Trash size={20} color="var(--error-color)" />
         </IconButton>
       </Box>
     );

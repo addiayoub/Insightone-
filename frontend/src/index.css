@@ -29,7 +29,6 @@
   --navbars-bg: #0c0c0d;
   --sidebar-bg: #0c0c0d;
   --text-muted: #acb2b7;
-  --text-success: #21cc6d;
   --dark-buttons-bg: #25232b;
   --dark-buttons-bg-clicked: #86858c;
   --table-header-color: #acb2b7;
@@ -38,12 +37,13 @@
   /* --secondary-color: #0d15c3; */
   --primary-color: #444ce7;
   --secondary-color: rgb(47, 53, 161);
+  --error-color: #ee4658;
+  --success-color: #21cc6d;
+  --warning-color: #ffb744;
   --dim-color: #1f1f26;
-  --text-warning: #ee4658;
   --text-button: white;
   --text-button-light: #ffffff;
   --card-border-width: 1px;
-  --avwap-color: #ffb744;
   --chat-bg: #1a1a1c;
   --sidebar-r-bg: #0c0c0d;
 }

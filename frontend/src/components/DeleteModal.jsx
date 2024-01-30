@@ -16,7 +16,7 @@ const DeleteModal = ({
         >
           <AlertTriangle
             className="bx bx-error text-3xl"
-            color="var(--text-warning)"
+            color="var(--error-color)"
           />
         </div>
         <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left">

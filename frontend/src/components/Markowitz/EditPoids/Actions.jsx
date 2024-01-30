@@ -37,19 +37,19 @@ const Actions = ({
           setNewTitre(params.row.titre);
         }}
       >
-        <PieChart size={18} color="var(--avwap-color)" />
+        <PieChart size={18} color="var(--warning-color)" />
       </IconButton>
       <IconButton
         onClick={() => handleLock(params.row.titre, params.row.isLocked)}
       >
         {params.row.isLocked ? (
-          <Lock size={18} color="var(--text-warning)" />
+          <Lock size={18} color="var(--error-color)" />
         ) : (
-          <Unlock size={18} color="var(--text-success)" />
+          <Unlock size={18} color="var(--success-color)" />
         )}
       </IconButton>
       <IconButton onClick={() => handleDelete(params.row)}>
-        <Trash size={18} color="var(--text-warning)" />
+        <Trash size={18} color="var(--error-color)" />
       </IconButton>
     </>
   );

@@ -7,7 +7,7 @@ const textColor = (cellValue) => {
   if (cell.includes("achat")) {
     className = "text-success";
   } else if (cell.includes("vente")) {
-    className = "text-warning";
+    className = "text-error";
   } else {
     className = "text-muted";
   }

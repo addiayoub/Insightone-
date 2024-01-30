@@ -195,8 +195,8 @@ const EditPoidsSecteurForm = ({
                 sx={{
                   fontWeight: "bold",
                   color: validPoidsFinal
-                    ? "var(--text-success)"
-                    : "var(--text-warning)",
+                    ? "var(--success-color)"
+                    : "var(--error-color)",
                 }}
               >
                 {sumPoidsFinal}
@@ -265,9 +265,9 @@ const EditPoidsSecteurForm = ({
                 </span> */}
                 <IconButton onClick={() => handleLock(item.titre)}>
                   {isLockedStates[item.titre] ? (
-                    <Lock size={18} color="var(--text-warning)" />
+                    <Lock size={18} color="var(--error-color)" />
                   ) : (
-                    <Unlock size={18} color="var(--text-success)" />
+                    <Unlock size={18} color="var(--success-color)" />
                   )}
                 </IconButton>
               </Box>

@@ -8,7 +8,7 @@ const determineClassName = (value, variation, darkTheme) => {
     if (value > 0) {
       return "text-success";
     } else if (value < 0) {
-      return "text-warning";
+      return "text-error";
     } else {
       return darkTheme ? "text-headingColor" : "text-bgColor";
     }
@@ -18,16 +18,16 @@ const determineClassName = (value, variation, darkTheme) => {
     } else if (value >= -0.5 && value <= 0.5) {
       return darkTheme ? "text-headingColor" : "text-bgColor";
     } else {
-      return "text-warning";
+      return "text-error";
     }
   }
 };
 const determineArrow = (value, variation, darkTheme) => {
   if (!variation) {
     if (value > 0) {
-      return <ArrowUp size={20} color="var(--text-success)" />;
+      return <ArrowUp size={20} color="var(--success-color)" />;
     } else if (value < 0) {
-      return <ArrowDown size={20} color="var(--text-warning)" />;
+      return <ArrowDown size={20} color="var(--error-color)" />;
     } else {
       return (
         <ArrowRight
@@ -38,7 +38,7 @@ const determineArrow = (value, variation, darkTheme) => {
     }
   } else {
     if (value > 0.5) {
-      return <ArrowUp size={20} color="var(--text-success)" />;
+      return <ArrowUp size={20} color="var(--success-color)" />;
     } else if (value >= -0.5 && value <= 0.5) {
       return (
         <ArrowRight
@@ -47,7 +47,7 @@ const determineArrow = (value, variation, darkTheme) => {
         />
       );
     } else {
-      return <ArrowDown size={20} color="var(--text-warning)" />;
+      return <ArrowDown size={20} color="var(--error-color)" />;
     }
   }
 };

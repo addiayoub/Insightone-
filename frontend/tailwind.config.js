@@ -7,7 +7,8 @@ export default {
       colors: {
         primary: "#444ce7",
         secondary: "rgb(47, 53, 161)",
-        warning: "#ee4658",
+        error: "#ee4658",
+        warning: "#ffb744",
         success: "#21cc6d",
         muted: "#acb2b7",
         bgColor: "#1b1b1e",

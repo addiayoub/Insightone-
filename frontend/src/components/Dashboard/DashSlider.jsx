@@ -10,7 +10,7 @@ const textColor = (value) => {
     className = "text-success";
     arrow = <ArrowUp size={18} />;
   } else if (value < 0) {
-    className = "text-warning";
+    className = "text-error";
     arrow = <ArrowDown size={18} />;
   } else {
     arrow = <ArrowRight size={18} />;
