@@ -9,7 +9,7 @@ import filterData from "../../../utils/filterData";
 
 const regex = /^SIM\d+$/;
 
-const SMIEvolution = ({ SIM }) => {
+const SIMEvolution = ({ SIM }) => {
   const {
     generationPtfAlea: { df_b100: data },
   } = useSelector((state) => state.tracking);
@@ -120,4 +120,4 @@ const SMIEvolution = ({ SIM }) => {
   );
 };
 
-export default SMIEvolution;
+export default SIMEvolution;

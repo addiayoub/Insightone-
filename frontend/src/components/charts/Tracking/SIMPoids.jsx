@@ -65,7 +65,7 @@ const generateOptions = (seriesNames, seriesData, title, theme) => {
   };
 };
 
-const SMIPoids = ({ SIM }) => {
+const SIMPoids = ({ SIM }) => {
   const {
     generationPtfAlea: { df_poids },
   } = useSelector((state) => state.tracking);
@@ -151,4 +151,4 @@ const SMIPoids = ({ SIM }) => {
   );
 };
 
-export default SMIPoids;
+export default SIMPoids;

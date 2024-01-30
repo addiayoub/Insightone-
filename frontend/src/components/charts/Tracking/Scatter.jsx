@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState, memo } from "react";
 import ReactECharts from "echarts-for-react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
-import SMIPoids from "./SMIPoids";
+import SIMPoids from "./SIMPoids";
 import SIMTable from "../../Tracking/SIMTable";
-import SMIEvolution from "./SMIEvolution";
+import SIMEvolution from "./SIMEvolution";
 import AccordionBox from "../../AccordionBox";
 import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
@@ -170,6 +170,7 @@ const Scatter = ({ data }) => {
       <div ref={poidsRef}>
         {SIM && (
           <AccordionBox isExpanded title={SIM}>
+            <SIMTable SIM={SIM} />
             <IconButton
               onClick={() => setSIM(minSIM)}
               className="bg-primary"
@@ -179,13 +180,12 @@ const Scatter = ({ data }) => {
             </IconButton>
             <GridContainer xGap={4} extraCss="gap-x-12 items-center">
               <GridItem cols={5}>
-                <SMIPoids SIM={SIM} />
+                <SIMPoids SIM={SIM} />
               </GridItem>
               <GridItem cols={7}>
-                <SMIEvolution SIM={SIM} />
+                <SIMEvolution SIM={SIM} />
               </GridItem>
             </GridContainer>
-            <SIMTable SIM={SIM} />
           </AccordionBox>
         )}
       </div>
