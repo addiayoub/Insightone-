@@ -3,7 +3,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
-const EoyChart = ({ data }) => {
+const EoyChart = ({ data, forSIM }) => {
   const theme = useChartTheme();
   console.log("render EoyChart");
   const years = useMemo(() => data.map((item) => item.Year), [data]);
@@ -20,10 +20,11 @@ const EoyChart = ({ data }) => {
       })),
     [data, seriesName]
   );
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesName, [
-    seriesName[0],
-    "SIM optimal",
-  ]);
+  const init = forSIM ? [seriesName[0], "SIM optimal"] : seriesName;
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesName,
+    init
+  );
 
   const options = useMemo(() => {
     return {

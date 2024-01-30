@@ -24,7 +24,6 @@ const Index = () => {
   return (
     <>
       <Filter setIsShow={setIsShow} />
-      {/* <SIMTable /> */}
       <Box className="my-8">
         {showData && df_b100 && (
           <>
@@ -37,7 +36,7 @@ const Index = () => {
         )}
         {/* {showData && df_p && <EvolutionB100 data={df_p} title="DF p" />} */}
         {showData && df_result && <Scatter data={df_result} />}
-        {showData && <DfRendement />}
+        {showData && <DfRendement forSIM />}
 
         {/* {showData && df_poids && <PoidsChart data={df_poids} />} */}
       </Box>

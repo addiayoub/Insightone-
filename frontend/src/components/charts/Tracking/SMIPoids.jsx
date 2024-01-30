@@ -74,11 +74,11 @@ const SMIPoids = ({ SIM }) => {
   const seriesData = useMemo(
     () =>
       df_poids
+        .filter((ele) => ele[SIM] > 0.001)
         .map((item) => ({
           value: item[SIM] * 100,
           name: item.titre,
         }))
-        .filter((serie) => serie.value > 0.001)
         .sort((a, b) => b.value - a.value),
     [df_poids, SIM]
   );

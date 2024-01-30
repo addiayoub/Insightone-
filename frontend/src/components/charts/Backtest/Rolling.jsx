@@ -6,7 +6,7 @@ import moment from "moment";
 import SaveToExcel from "../../SaveToExcel";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
-const Rolling = ({ data, title, allSeries }) => {
+const Rolling = ({ data, title, allSeries, forSIM }) => {
   const theme = useChartTheme();
   console.log("Render Rolling ", title);
   const seriesNames = useMemo(
@@ -16,7 +16,8 @@ const Rolling = ({ data, title, allSeries }) => {
       ),
     [data]
   );
-  const initSeries = allSeries ? seriesNames : [seriesNames[0], "SIM optimal"];
+  const initSeries =
+    allSeries || !forSIM ? seriesNames : [seriesNames[0], "SIM optimal"];
   const { SeriesSelector, selectedLegend } = useSeriesSelector(
     seriesNames,
     initSeries

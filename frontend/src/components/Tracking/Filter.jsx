@@ -43,6 +43,7 @@ const Filter = ({ setIsShow }) => {
   const [choice, setChoice] = useState(0);
   const [opcvm, setOpcvm] = useState(null);
   const [actions, setActions] = useState([]);
+  console.log("render filter Tracking");
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("selectedIndices", selectedIndices);

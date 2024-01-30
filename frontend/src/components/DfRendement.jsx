@@ -16,7 +16,7 @@ import MonthlyReturns from "./charts/Backtest/MonthlyReturns";
 import Quantiles from "./charts/Backtest/Quantiles";
 import GridContainer, { GridItem } from "./Ui/GridContainer";
 
-const DfRendement = () => {
+const DfRendement = ({ forSIM }) => {
   const { backtestData: backData } = useSelector((state) => state.backtest);
   const headers =
     backData.data.keyPerf.length > 0
@@ -30,12 +30,12 @@ const DfRendement = () => {
         <GridItem cols={7}>
           {!backData.loading && backData.data.cumulative.length > 0 && (
             <>
-              <Cumualative data={backData.data.cumulative} />
+              <Cumualative data={backData.data.cumulative} forSIM={forSIM} />
             </>
           )}
           {!backData.loading && backData.data.eoy.length > 0 && (
             <>
-              <EoyChart data={backData.data.eoy} />
+              <EoyChart data={backData.data.eoy} forSIM={forSIM} />
             </>
           )}
           {!backData.loading &&
@@ -55,6 +55,7 @@ const DfRendement = () => {
                 data={backData.data.rollingBeta}
                 title="Rolling Beta to Benchmark"
                 allSeries
+                forSIM={forSIM}
               />
             </>
           )}
@@ -63,6 +64,7 @@ const DfRendement = () => {
               <Rolling
                 data={backData.data.rollingVolat}
                 title="Rolling Volatility (6-Months)"
+                forSIM={forSIM}
               />
             </>
           )}
@@ -71,6 +73,7 @@ const DfRendement = () => {
               <Rolling
                 data={backData.data.rollingSharpe}
                 title="Rolling Sharp (6-Months)"
+                forSIM={forSIM}
               />
             </>
           )}

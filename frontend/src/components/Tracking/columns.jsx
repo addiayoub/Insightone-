@@ -1,4 +1,5 @@
 import titresWithReference from "../../data/titresWithReference.json";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 export const moyColumns = [
   {
     field: "SIM",
@@ -36,7 +37,7 @@ export const moyColumns = [
   // },
 ];
 
-export const simColumns = (rows, SIM) => {
+export const simColumns = (SIM) => {
   // const { CATEGORIE } = refrenceData.find(titr);
   return [
     {
@@ -60,6 +61,21 @@ export const simColumns = (rows, SIM) => {
       flex: 0.3,
       valueGetter: (params) => params.row[SIM]?.toFixed(2),
       renderCell: (params) => params.row[SIM]?.toFixed(2),
+    },
+    {
+      field: "somme",
+      headerName: "Somme",
+      flex: 0.2,
+      valueGetter: (params) => {
+        const sum = params.row.somme;
+        return sum.toFixed(2);
+      },
+      renderCell: (params) => {
+        const sum = params.row.somme;
+        return (
+          <span className="font-semibold">{formatNumberWithSpaces(sum)}</span>
+        );
+      },
     },
   ];
 };

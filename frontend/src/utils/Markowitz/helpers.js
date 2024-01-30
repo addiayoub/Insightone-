@@ -237,7 +237,25 @@ const ajuster = (newRows, setNewRows, field) => {
   );
 };
 
+const calculateEachSecteurSum = (data, field, sumOf = "SECTEUR_ACTIVITE") => {
+  return data.reduce((acc, row) => {
+    const secteur = row[sumOf];
+    acc[secteur] = (acc[secteur] || 0) + (row[field] || 0);
+    return acc;
+  }, {});
+};
+
+const injectSecteurSum = (rows, secteurSums) => {
+  return rows.map((row) => {
+    const secteur = row.SECTEUR_ACTIVITE;
+    const sum = secteurSums[secteur] || 0;
+    return { ...row, somme: sum };
+  });
+};
+
 export {
+  calculateEachSecteurSum,
+  injectSecteurSum,
   ajuster,
   preReliquatFunc,
   calculateSumPoids,
