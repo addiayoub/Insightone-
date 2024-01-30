@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
@@ -24,6 +24,7 @@ const Index = () => {
   return (
     <>
       <Filter setIsShow={setIsShow} />
+      {/* <SIMTable /> */}
       <Box className="my-8">
         {showData && df_b100 && (
           <>
@@ -45,4 +46,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default memo(Index);

@@ -1,74 +1,87 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 import ReactECharts from "echarts-for-react";
 import groupBy from "../../utils/groupBy";
 import { formatDate } from "../../utils/FormatDate";
-import { useSelector } from "react-redux";
-function SecteurEvolution({ data, height }) {
-  console.log("data is", data);
-  const groupedData = groupBy(data, "nom_indice");
-  const { darkTheme } = useSelector((state) => state.theme);
-  const key = Object.keys(groupedData)[0];
-  const categories = groupedData[key].map((item) => formatDate(item.seance));
-  console.log("grouped dat", categories);
-  const seriesData = [];
-  for (const key in groupedData) {
-    seriesData.push({
+import useChartTheme from "../../hooks/useChartTheme";
+import { defaultOptions } from "../../utils/chart/defaultOptions";
+
+const getSeriesData = (data) => {
+  const result = [];
+  for (const key in data) {
+    result.push({
       name: key,
-      data: groupedData[key].map((item) => item.VL_B100),
+      data: data[key].map((item) => item.VL_B100),
       type: "line",
     });
   }
+  return result;
+};
+
+function SecteurEvolution({ data, height }) {
+  console.log("data is", data);
+  const theme = useChartTheme();
+  const groupedData = useMemo(() => groupBy(data, "nom_indice"), [data]);
+  const key = Object.keys(groupedData)[0];
+  const categories = groupedData[key].map((item) => formatDate(item.seance));
+  console.log("grouped dat", categories);
+  const seriesData = useMemo(() => getSeriesData(groupedData), [groupedData]);
+
   console.log("seriesData", seriesData);
-  const options = {
-    title: {
-      text: "Evolution Secteur",
-      textStyle: {
-        color: darkTheme ? "white" : "black",
+  const options = useMemo(() => {
+    return {
+      title: {
+        text: "Evolution Secteur",
+        ...theme.title,
       },
-    },
-    tooltip: {
-      trigger: "item",
-      axisPointer: {
-        type: "shadow",
+      tooltip: {
+        trigger: "item",
+        axisPointer: {
+          type: "shadow",
+        },
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2),
       },
-      valueFormatter: function (value) {
-        return value.toFixed(2);
+      legend: {
+        orient: "horizontal",
+        zLevel: 5,
+        top: "10%",
+        type: "scroll",
+        ...theme.legend,
       },
-    },
-    legend: {
-      data: seriesData.map((item) => item.name),
-      textStyle: { color: darkTheme ? "white" : "black" },
-      orient: "horizontal",
-      zLevel: 5,
-      top: "10%",
-      type: "scroll",
-    },
-    grid: {
-      left: "10%",
-      top: "30%",
-      right: "10%",
-      bottom: "15%",
-    },
-    toolbox: {
-      feature: {
-        saveAsImage: { show: true },
+      grid: {
+        left: "10%",
+        top: "30%",
+        right: "10%",
+        bottom: "15%",
       },
-    },
-    dataZoom: {
-      start: 0,
-      end: 50,
-    },
-    xAxis: {
-      type: "category",
-      boundaryGap: false,
-      data: categories,
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: seriesData,
-  };
+      toolbox: {
+        feature: {
+          dataZoom: {},
+          saveAsImage: { show: true },
+          dataView: {},
+        },
+      },
+      xAxis: {
+        type: "category",
+        boundaryGap: false,
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
+        data: categories,
+        ...theme.xAxis,
+      },
+      yAxis: {
+        type: "value",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
+        ...theme.yAxis,
+      },
+      series: seriesData,
+      ...defaultOptions,
+    };
+  }, [seriesData, defaultOptions, theme, categories]);
   return <ReactECharts option={options} style={{ height }} />;
 }
 
-export default SecteurEvolution;
+export default memo(SecteurEvolution);

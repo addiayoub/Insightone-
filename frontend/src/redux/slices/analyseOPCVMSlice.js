@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAnalyse } from "../actions/ExpansionActions";
+import { getAnalyse } from "../actions/AnalyseOPCVMActions";
 
 const initialState = {
   data: {
@@ -20,8 +20,8 @@ const initialState = {
   error: null,
 };
 
-const expansionSlice = createSlice({
-  name: "expansion",
+const analyseOPCVMSlice = createSlice({
+  name: "analyseOPCVM",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(getAnalyse.pending, (state) => {
@@ -50,4 +50,4 @@ const expansionSlice = createSlice({
   },
 });
 
-export default expansionSlice.reducer;
+export default analyseOPCVMSlice.reducer;

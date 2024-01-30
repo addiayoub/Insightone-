@@ -6,7 +6,7 @@ import TitresComponent from "../TitresComponent";
 import SingleSelect from "../SingleSelect";
 import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
-import { getAnalyse } from "../../redux/actions/ExpansionActions";
+import { getAnalyse } from "../../redux/actions/AnalyseOPCVMActions";
 
 const seuilOptions = [0.1, 0.2, 0.25, 0.5];
 const periodeOptions = ["YTD", "1an", "3ans", "5ans"];

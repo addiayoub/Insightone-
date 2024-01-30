@@ -301,7 +301,10 @@ export function generateRandomColorsArray(length) {
   ];
   return colors.slice(0, length - 1);
 }
-
+export const upColor = "#ec0000";
+export const downColor = "#00da3c";
+export const upBorderColor = "#8A0000";
+export const downBorderColor = "#008F28";
 export const gradientPalette = [
   "#b3cde0",
   "#6497b1",

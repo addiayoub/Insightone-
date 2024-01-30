@@ -34,20 +34,13 @@ function NewsModal({ clickedRowId, row, handleClose }) {
             backgroundColor: darkTheme ? "var(--bg-color)" : "#fff",
           }}
         >
-          <Box
-            className="flex items-center justify-center"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          <Box className="flex items-center justify-between">
             <Typography variant="h6">{row?.titre}</Typography>
             <IconButton onClick={handleClose}>
               <X color="var(--text-warning)" />
             </IconButton>
           </Box>
-          <Box className="mt-96">
+          <Box className="mt-4">
             <Typography>{row?.article}</Typography>
           </Box>
         </Box>

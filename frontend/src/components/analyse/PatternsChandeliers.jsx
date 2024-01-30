@@ -3,10 +3,12 @@ import React, { memo, useMemo } from "react";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
 import useChartTheme from "../../hooks/useChartTheme";
-const upColor = "#ec0000";
-const upBorderColor = "#8A0000";
-const downColor = "#00da3c";
-const downBorderColor = "#008F28";
+import {
+  upColor,
+  downColor,
+  downBorderColor,
+  upBorderColor,
+} from "../../utils/generateRandomColorsArray";
 
 function PatternsChandeliers({ data }) {
   const theme = useChartTheme();

@@ -1,10 +1,8 @@
 import ReactECharts from "echarts-for-react";
-import React, { memo, useCallback, useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import { formatDate } from "../../utils/FormatDate";
 import useChartTheme from "../../hooks/useChartTheme";
-
-const upColor = "#00da3c";
-const downColor = "#ec0000";
+import { upColor, downColor } from "../../utils/generateRandomColorsArray";
 
 function EvolutionMasi({ data }) {
   const theme = useChartTheme();

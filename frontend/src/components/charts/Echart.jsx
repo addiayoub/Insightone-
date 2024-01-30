@@ -3,11 +3,13 @@ import React, { memo, useMemo } from "react";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
 import useChartTheme from "../../hooks/useChartTheme";
+import {
+  upColor,
+  downColor,
+  downBorderColor,
+  upBorderColor,
+} from "../../utils/generateRandomColorsArray";
 
-const upColor = "#ec0000";
-const upBorderColor = "#8A0000";
-const downColor = "#00da3c";
-const downBorderColor = "#008F28";
 function Echart({ data }) {
   const theme = useChartTheme();
   const data0 = useMemo(

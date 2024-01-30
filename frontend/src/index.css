@@ -89,6 +89,12 @@ body {
 body::-webkit-scrollbar {
   width: 12px;
 }
+body::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
 
 body.dark-mode {
   background-color: var(--bg-color) !important;

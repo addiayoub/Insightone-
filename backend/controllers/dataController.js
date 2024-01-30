@@ -340,6 +340,7 @@ select 'ACTIONS BVC'GROUPE,'ACTIONS'CLASSE, upper(GICS_SECTOR_FR) CATEGORIE,SECT
     }
   }
 
+  // You can remove it
   async getTitresWithReference(req, res) {
     try {
       const pool = await connection();

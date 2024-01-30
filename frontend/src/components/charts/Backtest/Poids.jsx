@@ -23,7 +23,10 @@ const Poids = ({ data }) => {
     () => generateRandomColorsArray(seriesNames.length),
     [seriesNames.length]
   );
-  const { selectedLegend, SeriesSelector } = useSeriesSelector(seriesNames);
+  const { selectedLegend, SeriesSelector } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
   const options = useMemo(() => {
     return {
       color: colors,

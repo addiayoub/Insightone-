@@ -17,7 +17,9 @@ function EvolutionB100({
 }) {
   console.log("EvolutionB100", data);
   const theme = useChartTheme();
-  const seriesNames = extractKeys(data, ["seance"]);
+  const seriesNames = extractKeys(data, ["seance"]).filter(
+    (serie) => !regex.test(serie)
+  );
   const legend = isGrid
     ? {
         type: "scroll",
@@ -43,7 +45,10 @@ function EvolutionB100({
           },
         },
       };
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
 
   const options = useMemo(() => {
     const seriesData = seriesNames

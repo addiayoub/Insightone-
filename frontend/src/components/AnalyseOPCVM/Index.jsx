@@ -24,7 +24,7 @@ import Guages from "../charts/AnalyseOPCVM/Guages";
 import AccordionBox from "../AccordionBox";
 
 const Index = () => {
-  const { data, loading } = useSelector((state) => state.expansion);
+  const { data, loading } = useSelector((state) => state.analyseOPCVM);
   const [isShow, setIsShow] = useState(false);
   console.log("data", data);
   const isLoading = loading;

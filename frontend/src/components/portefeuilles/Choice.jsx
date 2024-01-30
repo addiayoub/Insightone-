@@ -1,7 +1,5 @@
 import React, { memo, useState } from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
+import { Tabs, Tab, Box } from "@mui/material";
 
 const Choice = ({ tabs }) => {
   const [tabValue, setTabValue] = useState(0);

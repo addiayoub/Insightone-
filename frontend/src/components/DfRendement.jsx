@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   generateKeyPerfColumns,
   worstDrawdownsColumns,
@@ -146,4 +146,4 @@ const DfRendement = () => {
   );
 };
 
-export default DfRendement;
+export default memo(DfRendement);

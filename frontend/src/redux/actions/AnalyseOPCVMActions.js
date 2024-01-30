@@ -1,14 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
-import moment from "moment";
 import apiMarko from "../../api/apiMarko";
 
 export const getAnalyse = createAsyncThunk(
-  "expansion/getAnalyse",
+  "AnalyseOPCVM/getAnalyse",
   async ({ date, opcvm, seuil, periode }, thunkAPI) => {
     try {
-      // date = formatDate(date["$d"]);
-      date = "05/01/2024";
+      date = formatDate(date["$d"]);
       seuil = seuil / 100;
       const urls = [
         {
@@ -96,7 +94,7 @@ export const getAnalyse = createAsyncThunk(
           }
         })
       );
-      console.log("Expansion Analyse", analyseQuatile, performance);
+      console.log("AnalyseOPCVM Analyse", analyseQuatile, performance);
       return {
         analyseQuatile: analyseQuatile.sort(
           (a, b) => new Date(a.Date_VL) - new Date(b.Date_VL)

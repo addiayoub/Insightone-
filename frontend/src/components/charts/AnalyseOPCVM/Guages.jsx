@@ -83,7 +83,6 @@ const GuagesContainer = ({ data }) => {
   return (
     <Box className="flex flex-wrap items-center justify-center m-auto">
       {data.map((item, index) => {
-        console.log("item guage", item);
         const title = item.indicateur;
         const value = (item.rang / item.q4) * 100;
         const valeur = item.valeur;

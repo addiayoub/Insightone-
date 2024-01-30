@@ -20,7 +20,10 @@ const EoyChart = ({ data }) => {
       })),
     [data, seriesName]
   );
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesName);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesName, [
+    seriesName[0],
+    "SIM optimal",
+  ]);
 
   const options = useMemo(() => {
     return {

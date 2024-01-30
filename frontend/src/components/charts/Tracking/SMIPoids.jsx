@@ -5,13 +5,7 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import generateCategorieSeries from "../../../utils/generateCategorieSeries";
 
-const generateOptions = (
-  seriesNames,
-  seriesData,
-  selectedLegend,
-  title,
-  theme
-) => {
+const generateOptions = (seriesNames, seriesData, title, theme) => {
   return {
     title: {
       text: title,
@@ -33,14 +27,13 @@ const generateOptions = (
       top: 15,
     },
     legend: {
-      data: seriesNames,
+      // data: seriesNames,
       type: "scroll",
       orient: "horizontal",
       zLevel: 23,
       width: "60%",
       left: "center",
       bottom: "0",
-      selected: selectedLegend,
       ...theme.legend,
     },
     grid: {
@@ -118,9 +111,8 @@ const SMIPoids = ({ SIM }) => {
   );
 
   const options = useMemo(
-    () =>
-      generateOptions(seriesNames, seriesData, selectedLegend, "Titres", theme),
-    [theme, seriesData, seriesNames, selectedLegend, SIM]
+    () => generateOptions(seriesNames, seriesData, "Titres", theme),
+    [theme, seriesData, seriesNames, SIM]
   );
 
   const optionsForCategories = useMemo(
@@ -128,27 +120,27 @@ const SMIPoids = ({ SIM }) => {
       generateOptions(
         categorieSeriesNames,
         categorieSeries,
-        selectedLegend2,
-        "Catégories",
+        "Secteurs d'activités",
         theme
       ),
-    [categorieSeriesNames, categorieSeries, selectedLegend2, SIM, theme]
+    [categorieSeriesNames, categorieSeries, SIM, theme]
   );
   console.log("options", optionsForCategories);
   return (
     <>
-      <SeriesSelector />
+      {/* <SeriesSelector /> */}
+
+      {/* <SeriesSelector2 /> */}
       <ReactECharts
-        option={options}
+        option={optionsForCategories}
         style={{
           height: 400,
           width: 500,
           // maxWidth: 500,
         }}
       />
-      <SeriesSelector2 />
       <ReactECharts
-        option={optionsForCategories}
+        option={options}
         style={{
           height: 400,
           width: 500,

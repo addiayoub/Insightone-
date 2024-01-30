@@ -16,7 +16,7 @@ const Rolling = ({ data, title, allSeries }) => {
       ),
     [data]
   );
-  const initSeries = allSeries ? seriesNames : [seriesNames[0]];
+  const initSeries = allSeries ? seriesNames : [seriesNames[0], "SIM optimal"];
   const { SeriesSelector, selectedLegend } = useSeriesSelector(
     seriesNames,
     initSeries

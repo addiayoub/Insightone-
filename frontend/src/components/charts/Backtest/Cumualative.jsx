@@ -83,7 +83,7 @@ const getOptions = (
     ...defaultOptions,
   };
 };
-
+const simOpt = "SIM optimal";
 const Cumualative = ({ data }) => {
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("render Cumualative", data, selectedPtf);
@@ -118,9 +118,12 @@ const Cumualative = ({ data }) => {
     return originalArray;
   }, [data, selectedPtf]);
   console.log("seriesNames - 1", seriesNames, "seriesNames2", seriesNames2);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames, [
+    seriesNames[0],
+    simOpt,
+  ]);
   const { SeriesSelector: SeriesSelector2, selectedLegend: selectedLegend2 } =
-    useSeriesSelector(seriesNames);
+    useSeriesSelector(seriesNames, [seriesNames[0], simOpt]);
   const options = useMemo(
     () =>
       getOptions(

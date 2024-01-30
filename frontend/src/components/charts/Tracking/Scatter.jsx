@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import useChartTheme from "../../../hooks/useChartTheme";
 import SMIPoids from "./SMIPoids";
+import SIMTable from "../../Tracking/SIMTable";
 import SMIEvolution from "./SMIEvolution";
 import AccordionBox from "../../AccordionBox";
 import { IconButton } from "@mui/material";
@@ -49,7 +50,10 @@ const Scatter = ({ data }) => {
     y: [Math.min(...yValues), Math.max(...yValues)],
   };
   const seriesNames = formatedData.map((item) => item[2]);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames);
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
+  );
   useEffect(() => {
     console.log("useEffect min", axisValues);
     const { SIM } = data.find((item) => item.TE * 100 === axisValues.y[0]);
@@ -181,6 +185,7 @@ const Scatter = ({ data }) => {
                 <SMIEvolution SIM={SIM} />
               </GridItem>
             </GridContainer>
+            <SIMTable SIM={SIM} />
           </AccordionBox>
         )}
       </div>

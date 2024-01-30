@@ -162,7 +162,7 @@ function Index() {
             id={"moyennes-mobiles"}
             resume={data.resume.moyMobileBVC}
           />
-          <DataTable
+          {/* <DataTable
             title={"Bilan"}
             rows={data.bilan}
             columns={columnsBilan}
@@ -173,7 +173,7 @@ function Index() {
             rows={data.compteRes}
             columns={columnsCmptRes}
             id={"compte-résultat"}
-          />
+          /> */}
           <DataTable
             title={"News"}
             rows={data.news}
