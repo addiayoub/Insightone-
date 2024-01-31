@@ -179,7 +179,7 @@ const Scatter = ({ data }) => {
               <GridItem>
                 <SIMTable SIM={SIM} />
               </GridItem>
-              <GridItem extraCss="flex flex-wrap gap-4 justify-center ">
+              <GridItem>
                 <SIMPoids SIM={SIM} />
               </GridItem>
             </GridContainer>

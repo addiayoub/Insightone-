@@ -85,35 +85,6 @@ const DfRendement = ({ forSIM }) => {
               />
             </>
           )}
-          {!backData.loading && backData.data.worstDrawdowns.length > 0 && (
-            <>
-              <WorstDrawDowns
-                data={backData.data.worstDrawdowns}
-                evolution={backData.data.cumulative}
-              />
-            </>
-          )}
-          {!backData.loading && backData.data.underwater.length > 0 && (
-            <>
-              <Underwater data={backData.data.underwater} />
-            </>
-          )}
-          {!backData.loading && backData.data.monthlyReturns.length > 0 && (
-            <>
-              <MonthlyReturns
-                data={backData.data.monthlyReturns}
-                title="Monthly Returns (%)"
-              />
-            </>
-          )}
-          {!backData.loading && backData.data.monthlyRelReturns.length > 0 && (
-            <>
-              <MonthlyReturns
-                data={backData.data.monthlyRelReturns}
-                title="Monthly Relative Returns (%)"
-              />
-            </>
-          )}
           {!backData.loading && backData.data.quantiles.length > 0 && (
             <>
               <Quantiles data={backData.data.quantiles} />
@@ -140,6 +111,47 @@ const DfRendement = ({ forSIM }) => {
                 rows={backData.data.worstDrawdowns}
                 pageSize={10}
                 className="h-max"
+              />
+            </>
+          )}
+        </GridItem>
+      </GridContainer>
+      <GridContainer extraCss="gap-4 my-4">
+        <GridItem>
+          {!backData.loading && backData.data.worstDrawdowns.length > 0 && (
+            <>
+              <WorstDrawDowns
+                data={backData.data.worstDrawdowns}
+                evolution={backData.data.cumulative}
+              />
+            </>
+          )}
+        </GridItem>
+        <GridItem>
+          {!backData.loading && backData.data.underwater.length > 0 && (
+            <>
+              <Underwater data={backData.data.underwater} />
+            </>
+          )}
+        </GridItem>
+      </GridContainer>
+      <GridContainer extraCss="gap-4">
+        <GridItem>
+          {!backData.loading && backData.data.monthlyReturns.length > 0 && (
+            <>
+              <MonthlyReturns
+                data={backData.data.monthlyReturns}
+                title="Monthly Returns (%)"
+              />
+            </>
+          )}
+        </GridItem>
+        <GridItem>
+          {!backData.loading && backData.data.monthlyRelReturns.length > 0 && (
+            <>
+              <MonthlyReturns
+                data={backData.data.monthlyRelReturns}
+                title="Monthly Relative Returns (%)"
               />
             </>
           )}

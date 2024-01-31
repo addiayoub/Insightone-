@@ -16,6 +16,7 @@ import TitresComponent from "../TitresComponent";
 import { formatDate } from "../../utils/FormatDate";
 import TitresToBacktest from "./TitresToBacktest";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
+import { GridCsvExportMenuItem } from "@mui/x-data-grid";
 
 const buttons = [
   {

@@ -5,6 +5,9 @@ import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import generateCategorieSeries from "../../../utils/generateCategorieSeries";
 import { Box } from "@mui/material";
+import GridContainer, { GridItem } from "../../Ui/GridContainer";
+import calculateNominalPoids from "../../../utils/nominalPoids";
+import NominalPoids from "../../NominalPoids";
 const generateOptions = (seriesNames, seriesData, title, theme) => {
   return {
     title: {
@@ -106,6 +109,7 @@ const SIMPoids = ({ SIM }) => {
   console.log(
     "SIM POIDS",
     seriesData.filter((serie) => serie.value > 0),
+    "categorieSeries",
     categorieSeries,
     categorieSeriesNames
   );
@@ -127,27 +131,34 @@ const SIMPoids = ({ SIM }) => {
   );
   console.log("options", optionsForCategories);
   return (
-    <>
-      {/* <SeriesSelector /> */}
+    <Box>
+      <NominalPoids data={seriesData} />
+      <GridContainer extraCss="gap-4 mt-[80px]">
+        {/* <SeriesSelector /> */}
 
-      {/* <SeriesSelector2 /> */}
-      <ReactECharts
-        option={optionsForCategories}
-        style={{
-          height: 400,
-          width: 500,
-          // maxWidth: 500,
-        }}
-      />
-      <ReactECharts
-        option={options}
-        style={{
-          height: 400,
-          width: 500,
-          // maxWidth: 500,
-        }}
-      />
-    </>
+        {/* <SeriesSelector2 /> */}
+        <GridItem>
+          <ReactECharts
+            option={optionsForCategories}
+            style={{
+              height: 400,
+              // width: 500,
+              // maxWidth: 500,
+            }}
+          />
+        </GridItem>
+        <GridItem>
+          <ReactECharts
+            option={options}
+            style={{
+              height: 400,
+              // width: 500,
+              // maxWidth: 500,
+            }}
+          />
+        </GridItem>
+      </GridContainer>
+    </Box>
   );
 };
 
