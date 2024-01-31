@@ -3,7 +3,7 @@ import Guage from "./Guage";
 import { Box } from "@mui/material";
 import Choice from "../../portefeuilles/Choice";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
-
+import IndicateursRef from "../../../data/INDICATEURS_PERF_RISQUE.json";
 const notPercent = ["encours_OPC", "Period_DrawDown_PTF"];
 
 const indicateurs = {
@@ -80,13 +80,17 @@ const Guages = ({ data }) => {
 };
 
 const GuagesContainer = ({ data }) => {
+  console.log(
+    "GuagesContainer",
+    data.map((item) => item.indicateur)
+  );
   return (
     <Box className="flex flex-wrap items-center justify-center m-auto">
       {data.map((item, index) => {
-        const title = item.indicateur;
+        const title = IndicateursRef[item.indicateur];
         const value = (item.rang / item.q4) * 100;
         const valeur = item.valeur;
-        const valueToShow = notPercent.includes(title)
+        const valueToShow = notPercent.includes(item.indicateur)
           ? formatNumberWithSpaces(valeur)
           : (valeur * 100).toFixed(2) + "%";
         return (

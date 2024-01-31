@@ -22,6 +22,7 @@ import Consistency from "../charts/AnalyseOPCVM/Consistency";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import Guages from "../charts/AnalyseOPCVM/Guages";
 import AccordionBox from "../AccordionBox";
+import PerformanceTables from "./PerformanceTables";
 
 const Index = () => {
   const { data, loading } = useSelector((state) => state.analyseOPCVM);
@@ -64,12 +65,13 @@ const Index = () => {
         )}
         {showData && !loading && data.performance.length > 0 && (
           <Box>
-            <h3>Perfromance</h3>
+            <PerformanceTables data={data.performance} />
+            {/* <h3>Performance</h3>
             <Table
               columns={performanceColumns}
-              rows={data.performance}
+              rows={data.performance[0]}
               pageSize={50}
-            />
+            /> */}
           </Box>
         )}
         <GridContainer extraCss="mt-8 mb-12 gap-4">

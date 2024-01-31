@@ -4,7 +4,7 @@ import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import generateCategorieSeries from "../../../utils/generateCategorieSeries";
-
+import { Box } from "@mui/material";
 const generateOptions = (seriesNames, seriesData, title, theme) => {
   return {
     title: {

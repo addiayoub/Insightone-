@@ -66,7 +66,7 @@ function Profile() {
           <div>
             <TextField
               label="Nom d'utilisateur"
-              id="outlined-basic"
+              id="username-field"
               variant="outlined"
               fullWidth
               value={username}
@@ -78,7 +78,7 @@ function Profile() {
             />
             <br /> <br />
             <TextField
-              id="outlined-basic"
+              id="password-field"
               type={visiblePassword ? "text" : "password"}
               label="Mot de pass"
               value={password}
@@ -100,7 +100,7 @@ function Profile() {
             <br />
             <br />
             <TextField
-              id="outlined-basic"
+              id="password-confirmation-field"
               type={visiblePasswordConfir ? "text" : "password"}
               label="Confirmation de mot de pass"
               value={passwordConfirmation}

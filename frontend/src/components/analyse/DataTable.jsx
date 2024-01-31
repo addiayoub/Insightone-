@@ -45,7 +45,7 @@ function DataTable({ title, columns, rows, resume, id }) {
           </Box>
         </Box>
       )}
-      <Table columns={columns} rows={rows} />
+      <Table columns={columns} rows={rows} pageSize={20} />
     </>
   );
 }

@@ -17,8 +17,8 @@ const FondsVersus = ({ data }) => {
 
   const formatedData = useMemo(() => {
     return data.map((item) => [
-      item.perf_opc_3A * 100,
       item.vol_opc * 100,
+      item.perf_opc_3A * 100,
       item.encours_OPC,
       item.denomination_OPCVM,
       item.Nom_Gerant,
@@ -43,11 +43,11 @@ const FondsVersus = ({ data }) => {
       })),
     [formatedData, societeGes, colors]
   );
-  const xValues = useMemo(
+  const xValues = useMemo(() => data.map((item) => item.vol_opc * 100), [data]);
+  const yValues = useMemo(
     () => data.map((item) => item.perf_opc_3A * 100),
     [data]
   );
-  const yValues = useMemo(() => data.map((item) => item.vol_opc * 100), [data]);
   const axisValues = {
     x: [Math.min(...xValues), Math.max(...xValues)],
     y: [Math.min(...yValues), Math.max(...yValues)],
@@ -95,7 +95,7 @@ const FondsVersus = ({ data }) => {
       },
       xAxis: {
         type: "value",
-        name: "Performance 3 ans",
+        name: "Volatilité",
         nameLocation: "middle",
         nameGap: 30,
         min: axisValues.x[0],
@@ -112,7 +112,7 @@ const FondsVersus = ({ data }) => {
 
       yAxis: {
         type: "value",
-        name: "Volatilité",
+        name: "Performance 3 ans",
         min: axisValues.y[0],
         max:
           axisValues.y[0] === axisValues.y[1]
@@ -138,9 +138,9 @@ const FondsVersus = ({ data }) => {
           const { seriesName, value } = params;
           return `<strong>${seriesName} - (${
             value[2]
-          })</strong> <br /> Volatilité: ${value[1].toFixed(
+          })</strong> <br /> Performance 3 ans: ${value[1].toFixed(
             2
-          )}% <br /> Performance 3 ans: ${value[0].toFixed(
+          )}% <br /> Volatilité: ${value[0].toFixed(
             2
           )}%<br /> Encours: ${formatNumberWithSpaces(value[3])}`;
         },

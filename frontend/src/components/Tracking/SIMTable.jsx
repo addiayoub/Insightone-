@@ -47,7 +47,7 @@ const SIMTable = ({ SIM }) => {
   console.log("calculateEachSecteurSum", secteurSums);
   console.log("rows", rows);
   return (
-    <div className="mt-8">
+    <div className="">
       <SavePortefeuille data={transformedData} field={SIM} type="Actions" />
       <Table rows={rows} columns={columns} pageSize={10} />
     </div>

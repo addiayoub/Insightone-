@@ -150,7 +150,7 @@ function SettingsModal() {
             </Box>
             <Box>
               <TextField
-                id="outlined-basic"
+                id="chart-title"
                 label="Titre du Graphique"
                 variant="outlined"
                 fullWidth

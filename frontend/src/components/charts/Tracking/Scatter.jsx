@@ -20,8 +20,8 @@ const Scatter = ({ data }) => {
   console.log("Scatter", data);
   const formatedData = useMemo(() => {
     return data.map((item) => [
-      item["Perf relative"] * 100,
       item.TE * 100,
+      item["Perf relative"] * 100,
       item.SIM,
     ]);
   }, [data]);
@@ -40,11 +40,11 @@ const Scatter = ({ data }) => {
     [formatedData, colors]
   );
 
-  const xValues = useMemo(
+  const xValues = useMemo(() => data.map((item) => item.TE * 100), [data]);
+  const yValues = useMemo(
     () => data.map((item) => item["Perf relative"] * 100),
     [data]
   );
-  const yValues = useMemo(() => data.map((item) => item.TE * 100), [data]);
   const axisValues = {
     x: [Math.min(...xValues), Math.max(...xValues)],
     y: [Math.min(...yValues), Math.max(...yValues)],
@@ -56,15 +56,20 @@ const Scatter = ({ data }) => {
   );
   useEffect(() => {
     console.log("useEffect min", axisValues);
-    const { SIM } = data.find((item) => item.TE * 100 === axisValues.y[0]);
-    setMinSIM(SIM);
-    setSIM(SIM);
+    const { SIM } = data.find(
+      (item) => item["Perf relative"] * 100 === axisValues.y[0]
+    );
+    console.log("find", SIM);
+    setMinSIM("SIM optimal");
+    setSIM("SIM optimal");
+    // setMinSIM(SIM);
+    // setSIM(SIM);
   }, []);
   console.log("min-max", axisValues);
   const options = useMemo(() => {
     return {
       title: {
-        text: "Perf relative / TE",
+        text: "Performance relative / TE",
         left: "center",
         top: 0,
         ...theme.title,
@@ -96,7 +101,7 @@ const Scatter = ({ data }) => {
       },
       xAxis: {
         type: "value",
-        name: "Performance relative",
+        name: "TE",
         nameLocation: "middle",
         nameGap: 30,
         min: axisValues.x[0] - 1,
@@ -113,7 +118,7 @@ const Scatter = ({ data }) => {
 
       yAxis: {
         type: "value",
-        name: "TE",
+        name: "Performance relative",
         min: axisValues.y[0] - 1,
         max: axisValues.y[1] + 1,
         nameLocation: "middle",
@@ -134,9 +139,9 @@ const Scatter = ({ data }) => {
         },
         formatter: function (params) {
           const { seriesName, value } = params;
-          return `<strong>${seriesName}</strong> <br /> TE: ${value[1].toFixed(
+          return `<strong>${seriesName}</strong> <br /> Performance relative: ${value[1].toFixed(
             2
-          )}% <br /> Performance relative: ${value[0].toFixed(2)}%`;
+          )}% <br /> TE: ${value[0].toFixed(2)}%`;
         },
       },
 
@@ -170,7 +175,14 @@ const Scatter = ({ data }) => {
       <div ref={poidsRef}>
         {SIM && (
           <AccordionBox isExpanded title={SIM}>
-            <SIMTable SIM={SIM} />
+            <GridContainer extraCss="gap-x-12 mt-4">
+              <GridItem>
+                <SIMTable SIM={SIM} />
+              </GridItem>
+              <GridItem extraCss="flex flex-wrap gap-4 justify-center ">
+                <SIMPoids SIM={SIM} />
+              </GridItem>
+            </GridContainer>
             <IconButton
               onClick={() => setSIM(minSIM)}
               className="bg-primary"
@@ -178,14 +190,11 @@ const Scatter = ({ data }) => {
             >
               <RefreshCcw size={18} color="#fff" />
             </IconButton>
-            <GridContainer xGap={4} extraCss="gap-x-12 items-center">
-              <GridItem cols={5}>
-                <SIMPoids SIM={SIM} />
-              </GridItem>
-              <GridItem cols={7}>
-                <SIMEvolution SIM={SIM} />
-              </GridItem>
-            </GridContainer>
+            {/* <GridContainer xGap={4} exqtraCss=" items-center"> */}
+            {/* <GridItem cols={7}> */}
+            <SIMEvolution SIM={SIM} />
+            {/* </GridItem> */}
+            {/* </GridContainer> */}
           </AccordionBox>
         )}
       </div>

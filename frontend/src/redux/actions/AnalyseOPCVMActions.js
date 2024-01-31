@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
 import apiMarko from "../../api/apiMarko";
+import partitionData from "../../utils/partitionData";
 
 export const getAnalyse = createAsyncThunk(
   "AnalyseOPCVM/getAnalyse",
@@ -94,12 +95,19 @@ export const getAnalyse = createAsyncThunk(
           }
         })
       );
-      console.log("AnalyseOPCVM Analyse", analyseQuatile, performance);
+      console.log(
+        "AnalyseOPCVM Analyse",
+        analyseQuatile,
+        performance,
+        "partitionData",
+        partitionData(performance)
+      );
+      const separatePerf = partitionData(performance);
       return {
         analyseQuatile: analyseQuatile.sort(
           (a, b) => new Date(a.Date_VL) - new Date(b.Date_VL)
         ),
-        performance,
+        performance: separatePerf,
         classementPerformance,
         barometreQuantalys,
         loeilExpert,

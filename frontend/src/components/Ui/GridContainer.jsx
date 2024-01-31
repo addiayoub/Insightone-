@@ -21,7 +21,7 @@ const GridContainer = ({
   return (
     <Box
       className={`grid grid-cols-1 md:grid-cols-${cols} lg:grid-cols-${cols}
-        xl:grid-cols-${cols} gap-y-${yGap} gap-x-${xGap} ${extraCss}`}
+        xl:grid-cols-${cols} gap-y-${yGap} gap-x-${xGap} items-stretch  ${extraCss}`}
     >
       {children}
     </Box>

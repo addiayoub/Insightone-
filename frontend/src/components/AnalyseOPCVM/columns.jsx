@@ -6,7 +6,7 @@ import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 export const performanceColumns = [
   {
     field: "perf",
-    headerName: "perf",
+    headerName: "Performance",
     flex: 0.3,
     renderCell: (params) => <strong>{params.row.perf}</strong>,
   },

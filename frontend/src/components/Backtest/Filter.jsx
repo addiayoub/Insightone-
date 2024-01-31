@@ -14,6 +14,8 @@ import Upload from "./UploadPtf/Upload";
 import SingleSelect from "../SingleSelect";
 import TitresComponent from "../TitresComponent";
 import { formatDate } from "../../utils/FormatDate";
+import TitresToBacktest from "./TitresToBacktest";
+import GridContainer, { GridItem } from "../Ui/GridContainer";
 
 const buttons = [
   {
@@ -98,6 +100,8 @@ function Filter({ setIsShow }) {
   const [instrument, setInstrument] = useState(null);
   const [qte, setQte] = useState("");
   const [poids, setPoids] = useState("");
+  const [titres, setTitres] = useState(["CIH", "AFMA"]);
+  const [operations, setOperations] = useState([]);
   // const [upDown, setUpDown] = useState({
   //   upDown: {
   //     min: 0,
@@ -113,7 +117,11 @@ function Filter({ setIsShow }) {
     flag_trading: 0,
     momentum_contrarien: 0,
   });
-
+  const isValidOperation =
+    backtestDate !== null &&
+    sens !== null &&
+    instrument !== null &&
+    (qte !== "" || poids !== "");
   const onButtonsChange = (label, newValue) => {
     console.log("label", label, newValue);
     setFilters((prevState) => ({
@@ -138,24 +146,9 @@ function Filter({ setIsShow }) {
   const handleSearch = () => {
     console.log(filters, montant, upDown);
     setIsShow(false);
-
+    console.log("operations", operations);
     // dispatch(getPortef({ dateDebut, dateFin, filters, montant, upDown }));
-    const isValidOp =
-      backtestDate !== null &&
-      qte !== "" &&
-      poids !== "" &&
-      sens !== null &&
-      instrument !== null;
-    console.log("isValidOp", isValidOp);
-    const df_op = isValidOp
-      ? {
-          Date: formatDate(backtestDate["$d"]),
-          Sens: sens,
-          INSTRUMENT: instrument,
-          Quantité: qte,
-          Poids: poids,
-        }
-      : {};
+    const df_op = operations;
 
     dispatch(
       getPortef({
@@ -174,6 +167,24 @@ function Filter({ setIsShow }) {
         setIsShow(true);
       })
       .catch((error) => notyf.error(error));
+  };
+  const addOperation = () => {
+    console.log("isValidOperation", isValidOperation);
+    const opera = {
+      Date: formatDate(backtestDate["$d"]),
+      Sens: sens,
+      INSTRUMENT: instrument,
+      Quantité: qte === "" ? qte : parseInt(qte),
+      Poids: poids === "" ? poids : poids * 100,
+    };
+    if (isValidOperation) {
+      setOperations((prev) => [...prev, opera]);
+      setBacktestDate(null);
+      setSens(null);
+      setInstrument(null);
+      setPoids("");
+      setQte("");
+    }
   };
   return (
     <Box>
@@ -256,52 +267,75 @@ function Filter({ setIsShow }) {
         </Contrainte> */}
           </Box>
           <Divider />
-          <Box className="py-4 flex flex-col gap-2 flex-wrap">
-            <Box className="flex gap-2 flex-wrap">
-              <DateComponent
-                label="Date"
-                date={backtestDate}
-                setDate={setBacktestDate}
-              />
-              <SingleSelect
-                options={["Achat", "Vente"]}
-                value={sens}
-                setValue={setSens}
-                label="Sens"
-              />
-              {/* <SingleSelect
+          <GridContainer extraCss="gap-4">
+            <GridItem extraCss="py-4 flex flex-col gap-2 flex-wrap">
+              <Box className="flex gap-2 flex-wrap">
+                <DateComponent
+                  label="Date"
+                  date={backtestDate}
+                  setDate={setBacktestDate}
+                />
+                <SingleSelect
+                  options={["Achat", "Vente"]}
+                  value={sens}
+                  setValue={setSens}
+                  label="Sens"
+                />
+                {/* <SingleSelect
                 options={["CFG BANK"]}
                 value={instrument}
                 setValue={setInstrument}
                 label="Instrument"
               /> */}
-            </Box>
-            <TitresComponent
-              choice="Actions"
-              selectedTitres={instrument}
-              setSelectedTitres={setInstrument}
-            />
-            <Box className="flex gap-2 flex-wrap">
-              <TextField
-                id="qte"
-                label="Quantité"
-                size="small"
-                type="number"
-                value={qte}
-                onChange={(event) => setQte(event.target.value)}
-                className="min-w-[100px]"
+              </Box>
+              <TitresComponent
+                choice="Actions"
+                selectedTitres={instrument}
+                setSelectedTitres={setInstrument}
               />
-              <TextField
-                id="field-poids"
-                label="Poids"
+              <Box className="flex gap-2 flex-wrap">
+                <TextField
+                  id="qte"
+                  label="Quantité"
+                  size="small"
+                  type="number"
+                  value={qte}
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setQte(value < 0 ? 0 : value);
+                  }}
+                  className="min-w-[100px]"
+                />
+                <TextField
+                  id="field-poids"
+                  label="Poids"
+                  size="small"
+                  type="number"
+                  value={poids}
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setPoids(value < 0 ? 0 : value);
+                  }}
+                  className="min-w-[100px]"
+                />
+              </Box>
+              <Button
+                variant="contained"
                 size="small"
-                type="number"
-                value={poids}
-                onChange={(event) => setPoids(event.target.value)}
-                className="min-w-[100px]"
-              />
-            </Box>
-          </Box>
+                color="success"
+                className="mt-3 max-w-fit"
+                onClick={addOperation}
+                disabled={!isValidOperation}
+              >
+                Ajouter opération
+              </Button>
+            </GridItem>
+            <GridItem>
+              {operations.length > 0 && (
+                <TitresToBacktest operations={operations} />
+              )}
+            </GridItem>
+          </GridContainer>
           <Button
             variant="contained"
             size="small"

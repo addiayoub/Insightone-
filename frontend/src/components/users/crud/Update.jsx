@@ -116,7 +116,7 @@ export default function Update({ open, setModalOff, userData, theme }) {
             <div>
               <TextField
                 label="Nom d'utilisateur"
-                id="outlined-basic"
+                id="username-field"
                 variant="outlined"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -128,7 +128,7 @@ export default function Update({ open, setModalOff, userData, theme }) {
               />
               <br /> <br />
               <TextField
-                id="outlined-basic"
+                id="password-field"
                 type={visiblePassword ? "text" : "password"}
                 {...((error?.usernamePassword || error?.password) && {
                   error: true,
@@ -150,7 +150,7 @@ export default function Update({ open, setModalOff, userData, theme }) {
               <br />
               <br />
               <TextField
-                id="outlined-basic"
+                id="password-confirmation-field"
                 type={visiblePasswordConfir ? "text" : "password"}
                 label="Confirmation de mot de pass"
                 value={passwordConfirmation}
