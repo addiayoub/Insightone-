@@ -17,7 +17,7 @@ const ref = {
 const calculateNominalPoids = (data) => {
   const sum = data.reduce((sum, item) => {
     if (ref.hasOwnProperty(item.name)) {
-      sum += ref[item.name];
+      sum += ref[item.name] * item.value;
     }
     return sum;
   }, 0);

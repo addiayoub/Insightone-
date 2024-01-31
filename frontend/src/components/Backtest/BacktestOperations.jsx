@@ -10,7 +10,7 @@ const columns = [
   },
   {
     field: "Sens",
-    headerName: "Sense",
+    headerName: "Sens",
     flex: 0.6,
     width: 360,
   },
@@ -42,7 +42,7 @@ const columns = [
   },
 ];
 
-const TitresToBacktest = ({ operations }) => {
+const BacktestOperations = ({ operations }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   console.log("operations", operations);
@@ -72,4 +72,4 @@ const TitresToBacktest = ({ operations }) => {
   );
 };
 
-export default TitresToBacktest;
+export default BacktestOperations;

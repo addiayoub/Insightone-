@@ -15,6 +15,7 @@ import Underwater from "./charts/Backtest/Underwater";
 import MonthlyReturns from "./charts/Backtest/MonthlyReturns";
 import Quantiles from "./charts/Backtest/Quantiles";
 import GridContainer, { GridItem } from "./Ui/GridContainer";
+import KeyMatrics from "./Backtest/KeyMatrics";
 
 const DfRendement = ({ forSIM }) => {
   const { backtestData: backData } = useSelector((state) => state.backtest);
@@ -85,11 +86,6 @@ const DfRendement = ({ forSIM }) => {
               />
             </>
           )}
-          {!backData.loading && backData.data.quantiles.length > 0 && (
-            <>
-              <Quantiles data={backData.data.quantiles} />
-            </>
-          )}
         </GridItem>
         <GridItem cols={5}>
           {!backData.loading && backData.data.keyPerf.length > 0 && (
@@ -101,6 +97,7 @@ const DfRendement = ({ forSIM }) => {
                 pageSize={100}
                 className="h-max"
               />
+              {/* <KeyMatrics data={backData.data.keyPerf} /> */}
             </>
           )}
           {!backData.loading && backData.data.worstDrawdowns.length > 0 && (
@@ -157,6 +154,11 @@ const DfRendement = ({ forSIM }) => {
           )}
         </GridItem>
       </GridContainer>
+      {!backData.loading && backData.data.quantiles.length > 0 && (
+        <>
+          <Quantiles data={backData.data.quantiles} />
+        </>
+      )}
     </>
   );
 };

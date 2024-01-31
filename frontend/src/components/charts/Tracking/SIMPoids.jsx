@@ -6,7 +6,6 @@ import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import generateCategorieSeries from "../../../utils/generateCategorieSeries";
 import { Box } from "@mui/material";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
-import calculateNominalPoids from "../../../utils/nominalPoids";
 import NominalPoids from "../../NominalPoids";
 const generateOptions = (seriesNames, seriesData, title, theme) => {
   return {

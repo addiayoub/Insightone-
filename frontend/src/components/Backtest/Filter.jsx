@@ -14,7 +14,7 @@ import Upload from "./UploadPtf/Upload";
 import SingleSelect from "../SingleSelect";
 import TitresComponent from "../TitresComponent";
 import { formatDate } from "../../utils/FormatDate";
-import TitresToBacktest from "./TitresToBacktest";
+import BacktestOperations from "./BacktestOperations";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { GridCsvExportMenuItem } from "@mui/x-data-grid";
 
@@ -305,6 +305,9 @@ function Filter({ setIsShow }) {
                     const { value } = event.target;
                     setQte(value < 0 ? 0 : value);
                   }}
+                  inputProps={{
+                    min: 0,
+                  }}
                   className="min-w-[100px]"
                 />
                 <TextField
@@ -316,6 +319,10 @@ function Filter({ setIsShow }) {
                   onChange={(event) => {
                     const { value } = event.target;
                     setPoids(value < 0 ? 0 : value);
+                  }}
+                  inputProps={{
+                    min: 0,
+                    max: 100,
                   }}
                   className="min-w-[100px]"
                 />
@@ -333,7 +340,7 @@ function Filter({ setIsShow }) {
             </GridItem>
             <GridItem>
               {operations.length > 0 && (
-                <TitresToBacktest operations={operations} />
+                <BacktestOperations operations={operations} />
               )}
             </GridItem>
           </GridContainer>

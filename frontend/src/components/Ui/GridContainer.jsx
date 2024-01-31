@@ -6,6 +6,8 @@ export const GridItem = ({ cols = 6, extraCss = "", children }) => {
     <Box
       className={`md:col-span-${cols} lg:col-span-${cols} xl:col-span-${cols} ${extraCss}`}
     >
+      {/* md:col-span-3 lg:col-span-3 xl:col-span-3 */}
+      {/* md:col-span-3 lg:col-span-3 xl:col-span-3 */}
       {children}
     </Box>
   );

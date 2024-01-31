@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import titresByCategory from "../../data/titresByCategory.json";
+import referenceData from "../../data/titresWithReference.json";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { Box } from "@mui/material";
 import { Award } from "react-feather";
-
-const referenceData = [
-  ...titresByCategory.Actions,
-  ...titresByCategory.Indices,
-];
 
 const CardHeader = ({ children, icon = Award }) => {
   return (
@@ -30,89 +26,51 @@ const CardHeader = ({ children, icon = Award }) => {
 const Card = ({ children }) => {
   return (
     <GridItem
-      extraCss="border border-solid  p-8 rounded-xl flex flex-col gap-x-2 gap-y-4 max-h-[160px] overflow-y-auto shadow-lg"
-      cols={4}
+      extraCss="border border-solid p-8 rounded-xl flex flex-col gap-x-2 gap-y-4 max-h-[160px] overflow-y-auto shadow-lg"
+      cols={3}
     >
       {children}
     </GridItem>
+    // <div className="border border-solid  p-8 rounded-xl flex flex-col gap-x-2 gap-y-4 max-h-[160px] overflow-y-auto shadow-lg md:col-span-3 lg:col-span-3 xl:col-span-3">
+    //   {children}
+    // </div>
   );
 };
 
 const SelectedTitres = ({ selectedTitres }) => {
-  const [classCount, setClassCount] = useState(0);
-  const [classCategoryCounts, setClassCategoryCounts] = useState({});
-  const [categoryTitleCounts, setCategoryTitleCounts] = useState({});
-
-  useEffect(() => {
-    // Count the number of unique classes
-    const uniqueClasses = new Set();
-    selectedTitres.forEach((title) => {
-      const data = referenceData.find((item) => item.libelle === title);
-      if (data) {
-        uniqueClasses.add(data.classe);
-      }
-    });
-    setClassCount(uniqueClasses.size);
-
-    // Count the number of categories for each class
-    const classCategories = {};
-    selectedTitres.forEach((title) => {
-      const data = referenceData.find((item) => item.libelle === title);
-      if (data) {
-        if (!classCategories[data.classe]) {
-          classCategories[data.classe] = new Set();
-        }
-        classCategories[data.classe].add(data.categorie);
-      }
-    });
-    setClassCategoryCounts(classCategories);
-
-    // Count the number of titles for each category
-    const categoryTitles = {};
-    selectedTitres.forEach((title) => {
-      const data = referenceData.find((item) => item.libelle === title);
-      if (data) {
-        if (!categoryTitles[data.categorie]) {
-          categoryTitles[data.categorie] = 0;
-        }
-        categoryTitles[data.categorie]++;
-      }
-    });
-    setCategoryTitleCounts(categoryTitles);
-  }, [referenceData, selectedTitres]);
-
+  const filteredData = referenceData.filter((item) =>
+    selectedTitres.includes(item.TITRE)
+  );
+  const countGroupe = new Set(filteredData.map((item) => item.Groupe)).size;
+  const countClasse = new Set(filteredData.map((item) => item.CLASSE)).size;
+  const countCategorie = new Set(filteredData.map((item) => item.CATEGORIE))
+    .size;
+  const countTitres = filteredData.length;
   return (
     <GridContainer extraCss={"gap-4"}>
       <Card>
         <CardHeader icon={Award}>
+          <h3>Groupes</h3>
+        </CardHeader>
+        <h2>{countGroupe}</h2>
+      </Card>
+      <Card>
+        <CardHeader icon={Award}>
           <h3>Classes</h3>
         </CardHeader>
-        <h2>{classCount}</h2>
+        <h2>{countClasse}</h2>
       </Card>
       <Card>
-        <CardHeader>
-          <h3>Nombre de catégories par classe</h3>
+        <CardHeader icon={Award}>
+          <h3>Catégories</h3>
         </CardHeader>
-        {Object.entries(classCategoryCounts).map(([classe, categories]) => (
-          <div key={classe} className="flex justify-between items-center mt-2">
-            <p className="min-w-[100px] font-medium underline">{classe}</p>
-            <p className="font-medium">{categories.size}</p>
-          </div>
-        ))}
+        <h2>{countCategorie}</h2>
       </Card>
       <Card>
-        <CardHeader>
-          <h3>Nombre de titres par catégorie</h3>
+        <CardHeader icon={Award}>
+          <h3>Titres</h3>
         </CardHeader>
-        {Object.entries(categoryTitleCounts).map(([category, count]) => (
-          <div
-            key={category}
-            className="flex justify-between items-center mt-2"
-          >
-            <p className="max-w-[150px] font-medium underline">{category}</p>
-            <p className="font-medium">{count}</p>
-          </div>
-        ))}
+        <h2>{countTitres}</h2>
       </Card>
     </GridContainer>
   );

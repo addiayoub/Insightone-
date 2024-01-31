@@ -1,5 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import calculateNominalPoids from "../utils/nominalPoids";
+import { Box } from "@mui/material";
 
 const nominalTitres = [
   "NOMINAL 1 MOIS",
@@ -17,9 +18,25 @@ const nominalTitres = [
 ];
 
 const NominalPoids = ({ data }) => {
-  const titre = data.filter((item) => nominalTitres.includes(item.name));
-  const nominalPoids = calculateNominalPoids(titre);
-  return titre.length > 0 && <h3>Nominal: {nominalPoids}</h3>;
+  console.log("NominalPoids", data);
+  const hasNominalTitre = data.filter((item) =>
+    nominalTitres.includes(item.name)
+  );
+  console.log("has nominal titres", hasNominalTitre);
+  const nominalPoids = calculateNominalPoids(hasNominalTitre);
+  return (
+    hasNominalTitre.length > 0 && (
+      <Box
+        className="w-fit p-2 text-lg font-medium"
+        sx={{
+          border: "3px solid var(--primary-color)",
+          borderRadius: "5px",
+        }}
+      >
+        Correlation: {nominalPoids}
+      </Box>
+    )
+  );
 };
 
-export default NominalPoids;
+export default memo(NominalPoids);
