@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import {
   getComparaison,
   getFirstGraph,
-  getIndices,
   getIndicesChart,
   getRendementRisqueData,
 } from "../../redux/actions/DataActions";
@@ -12,27 +11,21 @@ import { logout } from "../../redux/slices/AuthSlice";
 import groupBy from "../../utils/groupBy";
 import AccordionBox from "../AccordionBox";
 import ComparaisonIndices from "../charts/ComparaisonIndices";
-import IndicesChart from "../charts/IndicesChart";
 import PerformanceChart from "../charts/PerformanceChart";
 import VolatiliteChart from "../charts/VolatiliteChart";
 import MainLoader from "../loaders/MainLoader";
 import RendementRisqueScatter from "../charts/RendementRisqueScatter";
-import SelectIndices from "./SelectIndices";
 import ChartContainer from "../ChartContainer";
 import RendementRisqueData from "./RendementRisqueData";
-import { notyf } from "../../utils/notyf";
+import IndicesComponent from "../IndicesComponent";
+import IndicesChartV2 from "../charts/IndicesChartV2";
+import ComparaisonIndicesV2 from "../ComparaisonIndicesV2";
+import PerformanceChartV2 from "../charts/PerformanceChartV2";
+import VolatiliteChartV2 from "../charts/VolatiliteChartV2";
 
 function Indices({ dateDebut, dateFin }) {
   const dispatch = useDispatch();
-  const [indices, setIndices] = useState([]);
-  const [indicesData, setIndicesData] = useState([]);
-  const [classes, setClasses] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [sCategories, setSCategories] = useState([]);
   const [selectedIndices, setSelectedIndices] = useState([]);
-  const [selectedClasses, setSelectedClasses] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedSCategories, setSeletedSCategories] = useState([]);
   const [isShow, setIsShow] = useState(false);
   const [data, setData] = useState([]);
   const [showCompa, setShowCompa] = useState(false);
@@ -83,89 +76,6 @@ function Indices({ dateDebut, dateFin }) {
     showPerformanceChart();
     showRendementRisqueChart();
   }, [dateDebut, dateFin, selectedIndices]);
-  useEffect(() => {
-    setSelectedCategories([]);
-    setSeletedSCategories([]);
-    setSelectedIndices([]);
-    const categories = [...new Set(indicesData.map((item) => item.categorie))];
-    const sCategories = [
-      ...new Set(indicesData.map((item) => item.S_CATEGORIE)),
-    ];
-    const indices = [...new Set(indicesData.map((item) => item.NOM_INDICE))];
-    const filtred = indicesData.filter((item) =>
-      selectedClasses.includes(item.classe)
-    );
-    if (selectedClasses.length > 0) {
-      console.log("Filtered", filtred);
-      const newCat = [...new Set(filtred.map((item) => item.categorie))];
-      const newSCat = [...new Set(filtred.map((item) => item.S_CATEGORIE))];
-      const newIndices = [...new Set(filtred.map((item) => item.NOM_INDICE))];
-      console.log("new Cat", newCat);
-      console.log("new Scat", newSCat);
-      console.log("newIndices Sc", newIndices);
-      setCategories(newCat);
-      setSCategories(newSCat);
-      setIndices(newIndices);
-    } else {
-      console.log("selectedClasses else");
-
-      setCategories(categories);
-      setSCategories(sCategories);
-      setIndices(indices);
-    }
-  }, [selectedClasses]);
-
-  useEffect(() => {
-    setSeletedSCategories([]);
-    setSelectedIndices([]);
-    const sCategories = [
-      ...new Set(indicesData.map((item) => item.S_CATEGORIE)),
-    ];
-    const indices = [...new Set(indicesData.map((item) => item.NOM_INDICE))];
-    let filtred = indicesData;
-    if (selectedClasses.length > 0) {
-      filtred = filtred.filter((item) => selectedClasses.includes(item.classe));
-    }
-    if (selectedCategories.length > 0) {
-      filtred = filtred.filter((item) =>
-        selectedCategories.includes(item.categorie)
-      );
-      console.log("setSCategories filtred", filtred);
-    }
-    const newSCat = [...new Set(filtred.map((item) => item.S_CATEGORIE))];
-    const newIndices = [...new Set(filtred.map((item) => item.NOM_INDICE))];
-    console.log("setSCategories newSCa", newSCat);
-    console.log("setSCategories newIndices", newIndices);
-    setSCategories(newSCat);
-    setIndices(newIndices);
-  }, [selectedCategories]);
-
-  useEffect(() => {
-    let filtred = indicesData.filter((item) =>
-      selectedSCategories.includes(item.S_CATEGORIE)
-    );
-    console.log("filtered sCta", filtred);
-
-    if (selectedClasses.length > 0) {
-      filtred = indicesData.filter((item) =>
-        selectedClasses.includes(item.classe)
-      );
-    }
-    if (selectedCategories.length > 0) {
-      filtred = indicesData.filter((item) =>
-        selectedCategories.includes(item.categorie)
-      );
-    }
-    if (selectedSCategories.length > 0) {
-      filtred = filtred.filter((item) =>
-        selectedSCategories.includes(item.S_CATEGORIE)
-      );
-    }
-    console.log("selectedSCategories", filtred);
-    const indices = [...new Set(indicesData.map((item) => item.NOM_INDICE))];
-    const newIndices = [...new Set(filtred.map((item) => item.NOM_INDICE))];
-    setIndices(newIndices.length > 0 ? newIndices : indices);
-  }, [selectedSCategories]);
 
   useEffect(() => {
     setShowCompa(false);
@@ -192,62 +102,30 @@ function Indices({ dateDebut, dateFin }) {
       setIsShow(false);
     }
   }, [selectedIndices]);
-  useEffect(() => {
-    dispatch(getIndices())
-      .unwrap()
-      .then((successValue) => {
-        console.log("indices success", successValue);
-        setIndicesData(successValue.data);
-        setClasses(successValue.classes);
-        setCategories(successValue.categories);
-        setSCategories(successValue.sCategories);
-        setIndices(successValue.indices);
-      })
-      .catch((rejectedValue) => {
-        console.log("univers", rejectedValue);
-        if (rejectedValue.status) {
-          dispatch(logout());
-        }
-        notyf.error("Request Failed");
-      });
-  }, []);
   return (
     <>
       <AccordionBox title={"Selection des indices"}>
-        <Box className="">
-          {indicesData.length > 0 && (
-            <Box className="flex gap-4 flex-wrap">
-              <SelectIndices
-                label={"Classes"}
-                indices={classes}
-                selectedIndices={selectedClasses}
-                setSelectedIndices={setSelectedClasses}
-              />
-              <SelectIndices
-                label={"Catégories"}
-                indices={categories}
-                selectedIndices={selectedCategories}
-                setSelectedIndices={setSelectedCategories}
-              />
-              <SelectIndices
-                label={"Sous-catégories"}
-                indices={sCategories}
-                selectedIndices={selectedSCategories}
-                setSelectedIndices={setSeletedSCategories}
-              />
-              <SelectIndices
-                label={"Indices"}
-                indices={indices}
-                selectedIndices={selectedIndices}
-                disableCloseOnSelect={false}
-                setSelectedIndices={setSelectedIndices}
-              />
-            </Box>
-          )}
+        <Box>
+          <IndicesComponent
+            setSelectedIndices={setSelectedIndices}
+            selectedIndices={selectedIndices}
+            disableCloseOnSelect
+            blurOnSelect
+          />
           {loadingIndicesChart && <MainLoader />}
           <ChartContainer width={400}>
-            {isShow && !loadingIndicesChart && <IndicesChart data={data} />}
-            {showCompa && <ComparaisonIndices data={compaData} />}
+            {isShow && !loadingIndicesChart && (
+              <>
+                {/* <IndicesChart data={data} /> */}
+                <IndicesChartV2 data={data} />
+              </>
+            )}
+            {showCompa && (
+              <>
+                {/* <ComparaisonIndices data={compaData} /> */}
+                <ComparaisonIndicesV2 data={compaData} />
+              </>
+            )}
           </ChartContainer>
         </Box>
         <Box className="block max-w-[400px] mt-4 mx-auto">
@@ -275,8 +153,10 @@ function Indices({ dateDebut, dateFin }) {
               </div>
             </div>
             <ChartContainer width={400}>
-              <PerformanceChart data={g1Data} />
-              <VolatiliteChart data={g2Data} />
+              {/* <PerformanceChart data={g1Data} /> */}
+              <PerformanceChartV2 data={g1Data} />
+              {/* <VolatiliteChart data={g2Data} /> */}
+              <VolatiliteChartV2 data={g2Data} />
             </ChartContainer>
           </>
         )}

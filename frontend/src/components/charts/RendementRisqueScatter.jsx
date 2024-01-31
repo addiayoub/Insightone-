@@ -2,23 +2,59 @@ import React, { memo, useMemo, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../hooks/useChartTheme";
 import { generateRandomColorsArray } from "../../utils/generateRandomColorsArray";
+import useSeriesSelector from "../../hooks/useSeriesSelector";
+
+const getSeriesData = (data) => {
+  const colors = generateRandomColorsArray(data.length);
+  // return data.map((item, index) => ({
+  //   value: [item.Volatilite * 100, item.Performance * 100, item.NOM_INDICE],
+  //   name: item.NOM_INDICE,
+  //   itemStyle: {
+  //     color: colors[index],
+  //   },
+  // }));
+  data = formatData(data);
+  return data.map(([x, y, name], index) => ({
+    name,
+    type: "effectScatter",
+    symbol: "circle",
+    symbolSize: 20,
+    data: [[x, y]],
+    label: {
+      show: true,
+      position: "top",
+      formatter: (params) => params.name,
+      fontSize: 9,
+    },
+    itemStyle: {
+      color: colors[index],
+    },
+  }));
+};
+
+const formatData = (data) => {
+  return data.map((item) => [
+    item.Volatilite * 100,
+    item.Performance * 100,
+    item.NOM_INDICE,
+  ]);
+};
 
 function RendementRisqueScatter({ data }) {
   const theme = useChartTheme();
-  const colors = useMemo(() => generateRandomColorsArray(data.length), [data]);
   console.log("RendementRisqueScatter", data);
-  const series = useMemo(() => {
-    return data.map((item, index) => ({
-      value: [item.Volatilite * 100, item.Performance * 100],
-      name: item.NOM_INDICE,
-      itemStyle: {
-        color: colors[index],
-      },
-    }));
-  }, [data]);
   const min = useMemo(
     () => Math.min(...data.map((item) => Math.trunc(item.Performance * 100))),
     [data]
+  );
+  const seriesData = useMemo(() => getSeriesData(data), [data]);
+  const seriesNames = useMemo(
+    () => seriesData.map((serie) => serie.name),
+    [seriesData]
+  );
+  const { selectedLegend, SeriesSelector } = useSeriesSelector(
+    seriesNames,
+    seriesNames
   );
   const options = useMemo(() => {
     return {
@@ -29,16 +65,18 @@ function RendementRisqueScatter({ data }) {
         ...theme.title,
       },
       legend: {
-        data: ["MASI"],
-        orient: "verticaly",
+        // data: seriesNames,
+        orient: "horizontal",
         zLevel: 5,
-        right: 0,
-        bottom: "0",
+        left: "center",
+        bottom: 0,
+        width: "60%",
+        selected: selectedLegend,
         type: "scroll",
         ...theme.legend,
       },
       grid: {
-        bottom: "50",
+        bottom: "80",
       },
       toolbox: {
         feature: {
@@ -56,6 +94,9 @@ function RendementRisqueScatter({ data }) {
         name: "Risque",
         nameLocation: "middle",
         nameGap: 30,
+        axisLabel: {
+          ...theme.xAxis.nameTextStyle,
+        },
         nameTextStyle: {
           fontSize: 16,
           ...theme.xAxis.nameTextStyle,
@@ -68,6 +109,9 @@ function RendementRisqueScatter({ data }) {
         nameLocation: "middle",
         nameGap: 30,
         min: min,
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
         nameTextStyle: {
           fontSize: 16,
           ...theme.yAxis.nameTextStyle,
@@ -86,34 +130,23 @@ function RendementRisqueScatter({ data }) {
           )}% <br /> Risque: ${value[0].toFixed(2)}%`;
         },
       },
-      series: [
-        {
-          type: "effectScatter",
-          symbol: "circle",
-          symbolSize: 20,
-          data: series,
-          color: "red",
-          label: {
-            show: true,
-            position: "top",
-            formatter: (params) => params.name,
-            fontSize: 9,
-          },
-        },
-      ],
+      series: seriesData,
     };
-  }, [series, theme]);
+  }, [seriesData, selectedLegend, theme]);
 
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        height: "500px",
-        minWidth: "600px",
-        width: "100%",
-        margin: "auto",
-      }}
-    />
+    <div>
+      <SeriesSelector />
+      <ReactECharts
+        option={options}
+        style={{
+          height: "500px",
+          minWidth: "600px",
+          width: "100%",
+          margin: "auto",
+        }}
+      />
+    </div>
   );
 }
 

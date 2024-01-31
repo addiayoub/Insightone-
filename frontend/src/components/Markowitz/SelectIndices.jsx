@@ -27,6 +27,7 @@ function SelectIndices({
   selectedIndices,
   setSelectedIndices,
   disableCloseOnSelect = true,
+  blurOnSelect = false,
   width = 250,
 }) {
   indices = [...new Set(indices)];
@@ -45,6 +46,7 @@ function SelectIndices({
       id={`id-${label}-${Math.random() * 100}`}
       options={indices}
       disableCloseOnSelect={disableCloseOnSelect}
+      blurOnSelect={blurOnSelect}
       value={selectedIndices}
       filterOptions={(options, params) => {
         const filter = createFilterOptions();

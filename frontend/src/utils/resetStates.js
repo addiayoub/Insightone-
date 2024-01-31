@@ -6,7 +6,7 @@ import {
   resetData,
 } from "../redux/slices/DataSlice";
 import { store } from "../redux/store";
-import { resetSectorialData } from "../redux/slices/SectorialSlice";
+import { resetSectorialData } from "../redux/slices/AnalyseSectorialSlice";
 
 const resetStates = () => {
   store.dispatch(setUsers([]));

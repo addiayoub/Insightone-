@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAnalysesData, getIndicateursData } from "../actions/AnalyseActions";
+import {
+  getAnalysesData,
+  getIndicateursData,
+} from "../actions/AnalyseChartisteActions";
 
 const initialState = {
   loading: false,
@@ -7,7 +10,7 @@ const initialState = {
   data: [],
 };
 
-const analyseSlice = createSlice({
+const analyseChartisteSlice = createSlice({
   name: "analyse",
   initialState,
   reducers: {
@@ -35,5 +38,5 @@ const analyseSlice = createSlice({
   },
 });
 
-export const { resetData } = analyseSlice.actions;
-export default analyseSlice.reducer;
+export const { resetData } = analyseChartisteSlice.actions;
+export default analyseChartisteSlice.reducer;

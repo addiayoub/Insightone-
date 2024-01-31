@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getIndicateursData } from "../../redux/actions/AnalyseActions";
+import { getIndicateursData } from "../../redux/actions/AnalyseChartisteActions";
 import { Box, Button, Autocomplete, TextField } from "@mui/material";
 import AccordionBox from "../AccordionBox";
 import dayjs from "dayjs";
@@ -102,7 +102,9 @@ const titres = [
 ];
 
 function Index() {
-  const { data, loading, error } = useSelector((state) => state.analyse);
+  const { data, loading, error } = useSelector(
+    (state) => state.analyseChartiste
+  );
   const [date, setDate] = useState(dayjs());
   const [titre, setTitre] = useState("ITISSALAT AL-MAGHRIB");
   const [isShow, setIsShow] = useState(false);

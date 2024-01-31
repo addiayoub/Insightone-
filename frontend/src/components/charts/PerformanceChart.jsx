@@ -2,6 +2,7 @@ import React from "react";
 import DarkChart from "./DarkChart";
 
 function PerformanceChart({ data }) {
+  console.log("Performance dta", data);
   const seriesData = [];
   for (const key in data) {
     seriesData.push({

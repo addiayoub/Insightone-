@@ -4,6 +4,7 @@ import formatIndicesChartData from "../../utils/formatIndicesChartData";
 import moment from "moment";
 
 function IndicesChart({ data }) {
+  console.log("data", data);
   const seriesData = useMemo(
     () => formatIndicesChartData(data, "VALEUR"),
     [data]
@@ -51,7 +52,8 @@ function IndicesChart({ data }) {
           {
             condition: {
               maxWidth: 500,
-              maxHeight: 400,
+              minHeight: 400,
+              maxHeight: 800,
             },
             chartOptions: {
               legend: {

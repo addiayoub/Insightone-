@@ -4,9 +4,9 @@ import dashboardReducer from "./slices/DashboardSlice";
 import rapportReducer from "./slices/DataSlice";
 import themeReducer from "./slices/ThemeSlice";
 import userReducer from "./slices/UserSlice";
-import AnalyseReducer from "./slices/AnalyseSlice";
+import AnalyseChartisteReducer from "./slices/AnalyseChartisteSlice";
 import StockReducer from "./slices/StockSlice";
-import SectorialReducer from "./slices/SectorialSlice";
+import AnalyseSectorialReducer from "./slices/AnalyseSectorialSlice";
 import authMiddleware from "./middleware/authMiddleware";
 import OpcvmReducer from "./slices/OpcvmSlice";
 import BacktestReducer from "./slices/BacktestSlice";
@@ -20,9 +20,9 @@ export const store = configureStore({
     dashboard: dashboardReducer,
     rapport: rapportReducer,
     theme: themeReducer,
-    analyse: AnalyseReducer,
+    analyseChartiste: AnalyseChartisteReducer,
     stock: StockReducer,
-    sectorial: SectorialReducer,
+    analyseSectorial: AnalyseSectorialReducer,
     opcvm: OpcvmReducer,
     backtest: BacktestReducer,
     tracking: TrackingReducer,

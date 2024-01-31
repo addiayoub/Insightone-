@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axiosClient from "../../axios";
 
 export const getSectorialData = createAsyncThunk(
-  "sectorial/getSectorialData",
+  "analyseSectorial/getSectorialData",
   async ({ dateDebut, dateFin }, thunkAPI) => {
     try {
       const response = await axiosClient.get(`/sectorial/`, {

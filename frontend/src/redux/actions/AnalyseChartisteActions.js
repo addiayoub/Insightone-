@@ -49,7 +49,7 @@ const determineResume = (countObj) => {
 };
 
 export const getAnalysesData = createAsyncThunk(
-  "analyse/getAnalysesData",
+  "analyseChartisteSlice/getAnalysesData",
   async ({ titre }, thunkAPI) => {
     try {
       const response = await axiosClient.get(`/analyse`, {
@@ -76,7 +76,7 @@ export const getAnalysesData = createAsyncThunk(
 );
 
 export const getIndicateursData = createAsyncThunk(
-  "analyse/getIndicateursData",
+  "analyseChartisteSlice/getIndicateursData",
   async ({ date, titre }, thunkAPI) => {
     try {
       date = formatDate(date["$d"]);

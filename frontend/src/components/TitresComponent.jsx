@@ -5,6 +5,7 @@ import { filterSelects, generateSelects } from "../utils/generateSelects";
 import { Box } from "@mui/material";
 import SelectIndices from "./Markowitz/SelectIndices";
 import SingleSelect from "./SingleSelect";
+import { notyf } from "../utils/notyf";
 
 // const choice = "OPCVM";
 

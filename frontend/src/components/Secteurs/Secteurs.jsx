@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSectorialData } from "../../redux/actions/SectorialActions";
+import { getSectorialData } from "../../redux/actions/AnalyseSectorialActions";
 import SecteurEvolution from "./SecteurEvolution";
 import Loader, { Loader2 } from "../loader/Loader";
 import SecteurPerformance from "./SecteurPerformance";
@@ -24,7 +24,7 @@ function Secteurs() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
   const { data, loading, error, news, lastSeance } = useSelector(
-    (state) => state.sectorial
+    (state) => state.analyseSectorial
   );
   const dispatch = useDispatch();
   const handelSearch = () => {

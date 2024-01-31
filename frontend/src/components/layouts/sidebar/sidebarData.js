@@ -48,12 +48,12 @@ export const sidebarData = [
     subMenu: [
       {
         title: "Sectorielle",
-        link: "sectorial",
+        link: "analyse-sectorial",
         icon: Layers,
       },
       {
         title: "Chartiste",
-        link: "analyses",
+        link: "analyse-chartiste",
         icon: BarChart2,
       },
     ],

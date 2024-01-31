@@ -1,31 +1,35 @@
-import React, { useMemo } from "react";
 import ReactECharts from "echarts-for-react";
-import moment from "moment";
-import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import useChartTheme from "../../hooks/useChartTheme";
+import moment from "moment/moment";
+import React, { memo, useMemo } from "react";
+import useChartTheme from "../hooks/useChartTheme";
+import { defaultOptions } from "../utils/chart/defaultOptions";
+import { Box } from "@mui/material";
+import useSeriesSelector from "../hooks/useSeriesSelector";
+import { formatNumberWithSpaces } from "../utils/formatNumberWithSpaces";
+import generateXYChartSeries from "../utils/chart/generateXYChartSeries";
 
-const EChartsPreview = ({ data }) => {
+const ComparaisonIndicesV2 = ({ data }) => {
   const theme = useChartTheme();
   console.log("EChartsPreview", data);
   const seriesData = useMemo(
-    () =>
-      Object.entries(data).map(([key, items]) => ({
-        name: key,
-        type: "line",
-        data: items.map((item) => [
-          moment(item.Date_VL).valueOf(),
-          item.VL_AJUSTE,
-        ]),
-        showSymbol: false,
-      })),
+    () => generateXYChartSeries(data, "COTATION_B100"),
     [data]
+  );
+  const seriesNames = useMemo(
+    () => seriesData.map((serie) => serie.name),
+    [seriesData]
+  );
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesNames,
+    seriesNames
   );
   const options = useMemo(() => {
     return {
+      ...defaultOptions,
       title: {
-        text: "Evolution du volume des titres sélectionnés",
+        text: "Comparaison des indices",
+        left: "center",
         ...theme.title,
-        left: "left",
       },
       xAxis: {
         type: "time",
@@ -34,17 +38,23 @@ const EChartsPreview = ({ data }) => {
             return moment(value).format("DD-MM-YYYY");
           },
           hideOverlap: true,
+          ...theme.xAxis.nameTextStyle,
         },
+        ...theme.xAxis,
       },
       yAxis: {
         type: "value",
         nameLocation: "middle",
         nameGap: 50,
-        name: "Volume Ajuste",
+        name: "VALEUR",
+        axisLabel: {
+          ...theme.yAxis.nameTextStyle,
+        },
         ...theme.yAxis,
       },
       legend: {
-        bottom: "0%",
+        selected: selectedLegend,
+        bottom: "9%",
         orient: "horizontal",
         type: "scroll",
         width: "80%",
@@ -53,6 +63,7 @@ const EChartsPreview = ({ data }) => {
       series: seriesData,
       tooltip: {
         trigger: "axis",
+        confine: true,
         valueFormatter: (value) => formatNumberWithSpaces(value),
         axisPointer: {
           type: "line",
@@ -64,20 +75,6 @@ const EChartsPreview = ({ data }) => {
           },
         },
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          top: "85%",
-          start: 0,
-          end: 100,
-        },
-      ],
       grid: {
         left: "50px",
         right: "80px",
@@ -96,15 +93,17 @@ const EChartsPreview = ({ data }) => {
         top: "20px",
       },
     };
-  }, [seriesData, theme]);
-
+  }, [seriesData, selectedLegend, theme]);
   return (
-    <ReactECharts
-      option={options}
-      style={{ minHeight: 500 }}
-      key={JSON.stringify(options)}
-    />
+    <Box>
+      <SeriesSelector />
+      <ReactECharts
+        option={options}
+        style={{ minHeight: 500, height: 600, maxHeight: 750 }}
+        key={JSON.stringify(options)}
+      />
+    </Box>
   );
 };
 
-export default EChartsPreview;
+export default memo(ComparaisonIndicesV2);

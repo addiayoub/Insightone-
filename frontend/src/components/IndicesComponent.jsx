@@ -4,7 +4,12 @@ import { useDispatch } from "react-redux";
 import { getIndices } from "../redux/actions/DataActions";
 import { Box } from "@mui/material";
 
-const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
+const IndicesComponent = ({
+  selectedIndices,
+  setSelectedIndices,
+  disableCloseOnSelect,
+  blurOnSelect = false,
+}) => {
   const [indices, setIndices] = useState([]);
   const [indicesData, setIndicesData] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -148,8 +153,9 @@ const IndicesComponent = ({ selectedIndices, setSelectedIndices }) => {
         label={"Indices"}
         indices={indices}
         selectedIndices={selectedIndices}
-        // disableCloseOnSelect={false}
+        disableCloseOnSelect={!disableCloseOnSelect}
         setSelectedIndices={setSelectedIndices}
+        blurOnSelect={blurOnSelect}
       />
     </Box>
   );

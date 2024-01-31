@@ -14,7 +14,7 @@ export const getData = createAsyncThunk("data/getData", async (_, thunkAPI) => {
     const response = await axiosClient.get(`/data`);
     return response.data;
   } catch (error) {
-    handleActionsError(error, thunkAPI);
+    return handleActionsError(error, thunkAPI);
   }
 });
 
@@ -38,7 +38,7 @@ export const getDataTest = createAsyncThunk(
       console.log(response);
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -62,7 +62,7 @@ export const getDataWithContraints = createAsyncThunk(
       console.log("data with", response);
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -87,7 +87,7 @@ export const getChartData = createAsyncThunk(
       console.log("chart data with", response.data);
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -118,7 +118,7 @@ export const getIndices = createAsyncThunk(
         indices,
       };
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -133,7 +133,7 @@ export const getTitres = createAsyncThunk(
 
       return response.data.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -151,7 +151,7 @@ export const getIndicesChart = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -169,7 +169,7 @@ export const getComparaison = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -187,7 +187,7 @@ export const getFirstGraph = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -205,7 +205,7 @@ export const getRendementRisqueData = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -218,7 +218,7 @@ export const getSecteurs = createAsyncThunk(
       console.log(response);
       return response.data;
     } catch (error) {
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );

@@ -33,8 +33,8 @@ function RouterProvider() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/rapports" element={<Data />} />
             <Route path="/markowitz" element={<Markowitz />} />
-            <Route path="/analyses" element={<Index />} />
-            <Route path="/sectorial" element={<Secteurs />} />
+            <Route path="/analyse-chartiste" element={<Index />} />
+            <Route path="/analyse-sectorial" element={<Secteurs />} />
             <Route path="/opcvm" element={<Opcvm />} />
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />

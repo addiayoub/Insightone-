@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getSectorialData } from "../actions/SectorialActions";
+import { getSectorialData } from "../actions/AnalyseSectorialActions";
 
 const initialState = {
   loading: false,
@@ -9,8 +9,8 @@ const initialState = {
   lastSeance: [],
 };
 
-const analyseSlice = createSlice({
-  name: "sectorial",
+const analyseSectorialSlice = createSlice({
+  name: "analyseSectorial",
   initialState,
   reducers: {
     resetData: (state) => {
@@ -42,5 +42,5 @@ const analyseSlice = createSlice({
   },
 });
 
-export const { resetData: resetSectorialData } = analyseSlice.actions;
-export default analyseSlice.reducer;
+export const { resetData: resetSectorialData } = analyseSectorialSlice.actions;
+export default analyseSectorialSlice.reducer;

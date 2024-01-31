@@ -18,7 +18,7 @@ export const getStockData = createAsyncThunk(
     } catch (error) {
       console.log(error);
       // return custom error message from backend if present
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -36,7 +36,7 @@ export const getCapitalisationData = createAsyncThunk(
     } catch (error) {
       console.log(error);
       // return custom error message from backend if present
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -53,7 +53,7 @@ export const getDashboardData = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -128,7 +128,7 @@ export const getMarketData = createAsyncThunk(
       return result;
     } catch (error) {
       console.log(error);
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -167,7 +167,7 @@ export const getSecteurs_2 = createAsyncThunk(
       return response.data;
     } catch (error) {
       console.log(error);
-      handleActionsError(error, thunkAPI);
+      return handleActionsError(error, thunkAPI);
     }
   }
 );
@@ -278,7 +278,7 @@ export const getMarketData_2 = createAsyncThunk(
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue("Server Error");
-      // handleActionsError(error, thunkAPI);
+      // return handleActionsError(error, thunkAPI);
     }
   }
 );
