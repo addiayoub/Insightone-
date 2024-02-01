@@ -1,12 +1,17 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import { graphic } from "echarts";
 import moment from "moment";
 
 const QuatileSemaine = ({ data }) => {
   const theme = useChartTheme();
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const seriesData = data.map((item) => item.quartile_perf_1S);
   console.log("seriesData", seriesData);
   const seances = data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY"));
@@ -57,6 +62,7 @@ const QuatileSemaine = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -95,6 +101,7 @@ const QuatileSemaine = ({ data }) => {
   return (
     <ReactECharts
       option={options}
+      ref={chartRef}
       style={{
         height: "500px",
         minWidth: "600px",

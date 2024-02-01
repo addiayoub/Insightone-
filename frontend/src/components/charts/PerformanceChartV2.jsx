@@ -1,8 +1,9 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../hooks/useChartTheme";
 import useSeriesSelector from "../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const PerformanceChartV2 = ({ data }) => {
   const theme = useChartTheme();
@@ -24,6 +25,8 @@ const PerformanceChartV2 = ({ data }) => {
     seriesNames,
     seriesNames
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
@@ -55,6 +58,7 @@ const PerformanceChartV2 = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -92,6 +96,7 @@ const PerformanceChartV2 = ({ data }) => {
           minHeight: 500,
           margin: "15px 0",
         }}
+        ref={chartRef}
       />
     </Box>
   );

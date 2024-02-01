@@ -1,10 +1,13 @@
 import moment from "moment";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import BacktestData from "../../Test/BacktesData.json";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 // {
 //       "seance": "2023-12-01",
 //       "Somme actif_AP": 5000002540.43,
@@ -74,6 +77,8 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
       })),
     [bubblesData]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const tooltip = withBubbles ? { formatter: tooltipFormatter } : {};
   const seriesData = withBubbles
     ? seriesNames
@@ -104,6 +109,7 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -170,6 +176,7 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
         height: "500px",
         maxHeight: "600px",
       }}
+      ref={chartRef}
     />
   );
 };

@@ -1,6 +1,9 @@
 import ReactECharts from "echarts-for-react";
-import React, { memo, useMemo, useState } from "react";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo, useRef, useState } from "react";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import { extractKeys } from "../../../utils/extractKeys";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { Box } from "@mui/material";
@@ -37,6 +40,9 @@ function Evolution({
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("selectedPtf ", selectedPtf);
   const excludeSeance = extractKeys(data, ["seance"]);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
+  console.log("myFullscreen", myFullscreen);
   const seriesData = excludeSeance
     .map((seriesName) => data.map((item) => item[seriesName]))
     .flat()
@@ -44,6 +50,7 @@ function Evolution({
   // const minYAxisValue = Math.min(...seriesData);
   console.log("excludeSeance", excludeSeance);
   const theme = useChartTheme();
+
   data = transformData(data);
   console.log("data, before", data);
   data = filterData(data, [/SIM/]);
@@ -155,6 +162,7 @@ function Evolution({
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -208,6 +216,7 @@ function Evolution({
       <SaveToExcel data={data} fileName={"Evolution B100"} />
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{
           height: "500px",

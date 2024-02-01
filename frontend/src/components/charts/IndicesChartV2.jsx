@@ -1,8 +1,11 @@
 import ReactECharts from "echarts-for-react";
 import moment from "moment/moment";
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
-import { defaultOptions } from "../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../utils/chart/defaultOptions";
 import { Box } from "@mui/material";
 import useSeriesSelector from "../../hooks/useSeriesSelector";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
@@ -10,6 +13,8 @@ import generateXYChartSeries from "../../utils/chart/generateXYChartSeries";
 const IndicesChartV2 = ({ data }) => {
   const theme = useChartTheme();
   console.log("EChartsPreview", data);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const seriesData = useMemo(
     () => generateXYChartSeries(data, "VALEUR"),
     [data]
@@ -84,6 +89,7 @@ const IndicesChartV2 = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -98,6 +104,7 @@ const IndicesChartV2 = ({ data }) => {
     <Box>
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{ minHeight: 500, height: 600, maxHeight: 750 }}
         key={JSON.stringify(options)}

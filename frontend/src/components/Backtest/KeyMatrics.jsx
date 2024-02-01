@@ -36,7 +36,14 @@ const KeyMatrics = ({ data }) => {
   return (
     <>
       {newData.map((tableRows, index) => {
-        return <Table rows={tableRows} key={index} columns={keyPerfColumns} />;
+        return (
+          <Table
+            rows={tableRows}
+            key={index}
+            columns={keyPerfColumns}
+            className="h-fit"
+          />
+        );
       })}
     </>
   );

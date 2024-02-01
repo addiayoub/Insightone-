@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { useSelector } from "react-redux";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
@@ -7,7 +7,10 @@ import generateCategorieSeries from "../../../utils/generateCategorieSeries";
 import { Box } from "@mui/material";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
 import NominalPoids from "../../NominalPoids";
-const generateOptions = (seriesNames, seriesData, title, theme) => {
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+
+const generateOptions = (seriesNames, seriesData, title, theme, chartRef) => {
+  const myFullscreen = getFullscreenFeature(chartRef);
   return {
     title: {
       text: title,
@@ -21,10 +24,12 @@ const generateOptions = (seriesNames, seriesData, title, theme) => {
     },
     toolbox: {
       feature: {
+        myFullscreen,
         restore: {},
         saveAsImage: {},
         dataView: {},
       },
+
       right: 0,
       top: 15,
     },
@@ -45,23 +50,39 @@ const generateOptions = (seriesNames, seriesData, title, theme) => {
       {
         name: "",
         type: "pie",
-        radius: ["40%", "70%"],
+        data: seriesData,
+        radius: ["10%", "70%"],
+        // radius: "50%",
         avoidLabelOverlap: false,
         label: {
-          show: false,
-          position: "center",
-        },
-        emphasis: {
-          label: {
-            show: false,
-            fontSize: 15,
-            fontWeight: "bold",
+          // alignTo: "edge",
+          show: true,
+          formatter: function (params) {
+            let name = params.name;
+            const { value } = params;
+            if (name.length > 5) {
+              const newName = name.split(" ");
+
+              name = newName.join(" \n");
+            }
+            return `${name}:${value.toFixed(2)}%`;
           },
+          minMargin: 6,
+          edgeDistance: 10,
+          lineHeight: 15,
         },
         labelLine: {
-          show: false,
+          length: 10,
+          length2: 0,
+          maxSurfaceAngle: 500,
         },
-        data: seriesData,
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: "rgba(0, 0, 0, 0.5)",
+          },
+        },
       },
     ],
   };
@@ -84,6 +105,8 @@ const SIMPoids = ({ SIM }) => {
         .sort((a, b) => b.value - a.value),
     [df_poids, SIM]
   );
+  const chart1Ref = useRef(null);
+  const chart2Ref = useRef(null);
   const seriesNames = useMemo(
     () => seriesData.map((serie) => serie.name),
     [seriesData]
@@ -114,7 +137,7 @@ const SIMPoids = ({ SIM }) => {
   );
 
   const options = useMemo(
-    () => generateOptions(seriesNames, seriesData, "Titres", theme),
+    () => generateOptions(seriesNames, seriesData, "Titres", theme, chart1Ref),
     [theme, seriesData, seriesNames, SIM]
   );
 
@@ -124,39 +147,42 @@ const SIMPoids = ({ SIM }) => {
         categorieSeriesNames,
         categorieSeries,
         "Secteurs d'activités",
-        theme
+        theme,
+        chart2Ref
       ),
     [categorieSeriesNames, categorieSeries, SIM, theme]
   );
   console.log("options", optionsForCategories);
   return (
-    <Box>
+    <Box className="flex flex-wrap justify-center gap-8">
       <NominalPoids data={seriesData} />
-      <GridContainer extraCss="gap-4 mt-[80px]">
-        {/* <SeriesSelector /> */}
+      {/* <GridContainer extraCss="gap-4 mt-[80px]"> */}
+      {/* <SeriesSelector /> */}
 
-        {/* <SeriesSelector2 /> */}
-        <GridItem>
-          <ReactECharts
-            option={optionsForCategories}
-            style={{
-              height: 400,
-              // width: 500,
-              // maxWidth: 500,
-            }}
-          />
-        </GridItem>
-        <GridItem>
-          <ReactECharts
-            option={options}
-            style={{
-              height: 400,
-              // width: 500,
-              // maxWidth: 500,
-            }}
-          />
-        </GridItem>
-      </GridContainer>
+      {/* <SeriesSelector2 /> */}
+      {/* <GridItem> */}
+      <ReactECharts
+        ref={chart1Ref}
+        option={optionsForCategories}
+        style={{
+          height: 600,
+          width: "100%",
+          maxWidth: 800,
+        }}
+      />
+      {/* </GridItem> */}
+      {/* <GridItem> */}
+      <ReactECharts
+        ref={chart2Ref}
+        option={options}
+        style={{
+          height: 600,
+          width: "100%",
+          maxWidth: 800,
+        }}
+      />
+      {/* </GridItem> */}
+      {/* </GridContainer> */}
     </Box>
   );
 };

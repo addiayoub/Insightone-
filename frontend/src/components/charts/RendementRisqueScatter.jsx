@@ -1,8 +1,9 @@
-import React, { memo, useMemo, useState } from "react";
+import React, { memo, useMemo, useRef, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../hooks/useChartTheme";
 import { generateRandomColorsArray } from "../../utils/generateRandomColorsArray";
 import useSeriesSelector from "../../hooks/useSeriesSelector";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const getSeriesData = (data) => {
   const colors = generateRandomColorsArray(data.length);
@@ -56,6 +57,8 @@ function RendementRisqueScatter({ data }) {
     seriesNames,
     seriesNames
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
@@ -80,6 +83,7 @@ function RendementRisqueScatter({ data }) {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: "none",
           },
@@ -139,6 +143,7 @@ function RendementRisqueScatter({ data }) {
       <SeriesSelector />
       <ReactECharts
         option={options}
+        ref={chartRef}
         style={{
           height: "500px",
           minWidth: "600px",

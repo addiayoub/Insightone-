@@ -1,9 +1,10 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { graphic } from "echarts";
 import { consistencyFunc } from "../../../utils/consistencyFunc";
 import { gradientPalette } from "../../../utils/generateRandomColorsArray";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const objh = [
   {
@@ -85,6 +86,8 @@ const Consistency = ({ chartData }) => {
       };
     });
   }, [seriesNames, data, gradientPalette]);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     const dd = seriesData.reverse();
     return {
@@ -108,6 +111,7 @@ const Consistency = ({ chartData }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -139,6 +143,7 @@ const Consistency = ({ chartData }) => {
   return (
     <ReactECharts
       option={options}
+      ref={chartRef}
       style={{
         height: "500px",
         minWidth: "600px",

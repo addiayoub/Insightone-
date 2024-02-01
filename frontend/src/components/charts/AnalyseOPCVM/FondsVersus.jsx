@@ -1,9 +1,12 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 const FondsVersus = ({ data }) => {
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const theme = useChartTheme();
   const societeGes = useMemo(
     () => [...new Set(data.map((item) => item.Nom_Gerant))],
@@ -83,6 +86,7 @@ const FondsVersus = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: "none",
           },
@@ -152,6 +156,7 @@ const FondsVersus = ({ data }) => {
   return (
     <ReactECharts
       option={options}
+      ref={chartRef}
       style={{
         height: "500px",
         minWidth: "600px",

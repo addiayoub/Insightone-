@@ -1,7 +1,8 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import echarts from "echarts/lib/echarts";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 // const lineData = data.map((item) => item.Frequency * 100);
 // const barData = data.map((item) => item.KDE);
@@ -15,6 +16,8 @@ const DistrubitionMonthly = ({ data }) => {
   );
   const min = Math.min(...xAxisData);
   const max = Math.max(...xAxisData);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   console.log("Min DistrubitionMonthly", min, max);
   const options = useMemo(() => {
     return {
@@ -36,6 +39,7 @@ const DistrubitionMonthly = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           magicType: { show: true, type: ["line", "bar"] },
           restore: { show: true },
           saveAsImage: { show: true },
@@ -120,6 +124,7 @@ const DistrubitionMonthly = ({ data }) => {
   }, [theme, data, xAxisData]);
   return (
     <ReactECharts
+      ref={chartRef}
       option={options}
       style={{
         minHeight: 500,

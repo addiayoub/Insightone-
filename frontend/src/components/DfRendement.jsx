@@ -91,13 +91,13 @@ const DfRendement = ({ forSIM }) => {
           {!backData.loading && backData.data.keyPerf.length > 0 && (
             <>
               <h3>Key Performance Metrics</h3>
-              <Table
+              {/* <Table
                 columns={keyPerfColumns}
                 rows={backData.data.keyPerf}
                 pageSize={100}
                 className="h-max"
-              />
-              {/* <KeyMatrics data={backData.data.keyPerf} /> */}
+              /> */}
+              <KeyMatrics data={backData.data.keyPerf} />
             </>
           )}
           {!backData.loading && backData.data.worstDrawdowns.length > 0 && (

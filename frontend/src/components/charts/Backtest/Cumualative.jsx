@@ -1,10 +1,13 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
 import SaveToExcel from "../../SaveToExcel";
 import { extractKeys } from "../../../utils/extractKeys";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 
 const getOptions = (
@@ -13,8 +16,10 @@ const getOptions = (
   title,
   theme,
   selectedLegend = [],
+  chartRef,
   ptf = ""
 ) => {
+  const myFullscreen = getFullscreenFeature(chartRef);
   return {
     title: {
       text: title,
@@ -30,6 +35,7 @@ const getOptions = (
     },
     toolbox: {
       feature: {
+        myFullscreen,
         dataZoom: {
           yAxisIndex: true,
         },
@@ -87,7 +93,8 @@ const simOpt = "SIM optimal";
 const Cumualative = ({ data, forSIM }) => {
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("render Cumualative", data, selectedPtf);
-
+  const chart1Ref = useRef(null);
+  const chart2Ref = useRef(null);
   const theme = useChartTheme();
   const seriesNames = useMemo(
     () =>
@@ -133,7 +140,8 @@ const Cumualative = ({ data, forSIM }) => {
         seriesNames,
         "Cumulative Returns vs Benchmark",
         theme,
-        selectedLegend
+        selectedLegend,
+        chart1Ref
       ),
     [theme, data, selectedLegend, seriesNames]
   );
@@ -145,6 +153,7 @@ const Cumualative = ({ data, forSIM }) => {
         "Cumulative Returns vs Benchmark (Log Scaled)",
         theme,
         selectedLegend2,
+        chart2Ref,
         selectedPtf
       ),
     [theme, data, selectedLegend2, seriesNames, selectedPtf]
@@ -160,6 +169,7 @@ const Cumualative = ({ data, forSIM }) => {
         <SeriesSelector />
         <ReactECharts
           option={options}
+          ref={chart1Ref}
           style={{
             minHeight: 500,
             margin: "15px 0",
@@ -169,6 +179,7 @@ const Cumualative = ({ data, forSIM }) => {
       <div className="realative">
         <SeriesSelector2 />
         <ReactECharts
+          ref={chart2Ref}
           option={options2}
           style={{
             minHeight: 500,

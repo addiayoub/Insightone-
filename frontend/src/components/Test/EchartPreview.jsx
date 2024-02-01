@@ -1,8 +1,9 @@
-import React, { memo, useEffect, useMemo, useState } from "react";
+import React, { memo, useEffect, useMemo, useRef, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
 import useChartTheme from "../../hooks/useChartTheme";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const formatData = (data) => {
   const seriesData = [];
@@ -24,7 +25,8 @@ const EChartsPreview = ({ data }) => {
   const seriesData = useMemo(() => formatData(data), [data]);
   const theme = useChartTheme();
   console.log("e preview data", data);
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
@@ -93,6 +95,7 @@ const EChartsPreview = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -109,6 +112,7 @@ const EChartsPreview = ({ data }) => {
       style={{
         minHeight: 500,
       }}
+      ref={chartRef}
       key={JSON.stringify(options)}
     />
   );

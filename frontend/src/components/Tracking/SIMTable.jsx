@@ -17,7 +17,6 @@ const transformData = (data, field) => {
       const { CATEGORIE } = titresWithReference.find(
         (row) => row.TITRE.toLowerCase() === item.titre.toLowerCase()
       );
-      console.log(item);
       return {
         SECTEUR_ACTIVITE: CATEGORIE,
         titre: item.titre,
@@ -49,7 +48,7 @@ const SIMTable = ({ SIM }) => {
   return (
     <div className="">
       <SavePortefeuille data={transformedData} field={SIM} type="Actions" />
-      <Table rows={rows} columns={columns} pageSize={10} />
+      <Table rows={rows} columns={columns} pageSize={25} />
     </div>
   );
 };

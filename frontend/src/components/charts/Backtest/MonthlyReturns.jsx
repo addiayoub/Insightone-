@@ -1,7 +1,8 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import groupBy from "../../../utils/groupBy";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions.js";
 
 function transformData(data, months) {
   const heatmapData = [];
@@ -16,6 +17,8 @@ function transformData(data, months) {
 
 const MonthlyReturns = ({ data, title }) => {
   const theme = useChartTheme();
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const years = useMemo(
     () => [...new Set(data.map((item) => item.index))],
     [data]
@@ -104,6 +107,7 @@ const MonthlyReturns = ({ data, title }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           saveAsImage: {},
         },
         top: "20px",
@@ -122,6 +126,7 @@ const MonthlyReturns = ({ data, title }) => {
   }, [heatmapData, theme, months, years, title, values]);
   return (
     <ReactECharts
+      ref={chartRef}
       option={options}
       style={{
         height: 500,

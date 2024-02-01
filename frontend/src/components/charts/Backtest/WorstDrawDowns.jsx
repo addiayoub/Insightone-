@@ -1,13 +1,18 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import SaveToExcel from "../../SaveToExcel";
 
 const WorstDrawDowns = ({ data, evolution }) => {
   console.log("WorstDrawDowns", data);
   console.log("Evolu", evolution);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const { selectedPtf } = useSelector((state) => state.backtest);
   const theme = useChartTheme();
   const lineData = useMemo(
@@ -46,6 +51,7 @@ const WorstDrawDowns = ({ data, evolution }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -108,7 +114,11 @@ const WorstDrawDowns = ({ data, evolution }) => {
   return (
     <div className="relative">
       <SaveToExcel data={data} fileName="Worst 5 Drawdowns Periods" />
-      <ReactECharts option={options} style={{ minHeight: 500 }} />
+      <ReactECharts
+        option={options}
+        style={{ minHeight: 500 }}
+        ref={chartRef}
+      />
     </div>
   );
 };

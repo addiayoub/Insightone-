@@ -1,4 +1,3 @@
-import titresWithReference from "../../data/titresWithReference.json";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 export const moyColumns = [
   {
@@ -56,7 +55,7 @@ export const simColumns = (SIM) => {
     },
     {
       field: "Poids",
-      headerName: "Poids",
+      headerName: "Poids(%)",
       width: 200,
       flex: 0.3,
       valueGetter: (params) => params.row[SIM]?.toFixed(2),

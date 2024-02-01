@@ -1,14 +1,19 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import moment from "moment";
 
 const xAxisLabels = ["Weekly", "Quarterly", "Monthly", "Yearly"];
 
 const Quantiles = ({ data }) => {
   const theme = useChartTheme();
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const yearly = data
     .map((item) => item.Yearly * 100)
     .filter((item) => item !== 0);
@@ -28,7 +33,6 @@ const Quantiles = ({ data }) => {
       left: "center",
       ...theme.title,
     },
-
     dataset: [
       {
         source: dataset,
@@ -47,6 +51,7 @@ const Quantiles = ({ data }) => {
     ],
     toolbox: {
       feature: {
+        myFullscreen,
         dataZoom: {
           yAxisIndex: true,
         },
@@ -109,7 +114,9 @@ const Quantiles = ({ data }) => {
       },
     ],
   };
-  return <ReactECharts option={options} style={{ minHeight: 500 }} />;
+  return (
+    <ReactECharts option={options} style={{ minHeight: 500 }} ref={chartRef} />
+  );
 };
 
 export default memo(Quantiles);

@@ -1,8 +1,11 @@
 import ReactECharts from "echarts-for-react";
 import moment from "moment/moment";
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
-import { defaultOptions } from "../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../utils/chart/defaultOptions";
 import SaveToExcel from "../SaveToExcel";
 import { Box } from "@mui/material";
 import { extractKeys } from "../../utils/extractKeys";
@@ -49,7 +52,8 @@ function EvolutionB100({
     seriesNames,
     seriesNames
   );
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     const seriesData = seriesNames
       .map((seriesName) => data.map((item) => item[seriesName]))
@@ -73,6 +77,7 @@ function EvolutionB100({
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -137,6 +142,7 @@ function EvolutionB100({
       <SaveToExcel data={data} fileName={"Evolution B100"} />
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{
           height: "500px",

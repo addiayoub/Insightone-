@@ -19,8 +19,7 @@ const path = require("path");
 const connectToDb = require("./config/database");
 
 // middleware
-app.use(express.json());
-app.use(cookieParser());
+// app.options("*", cors());
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -30,6 +29,8 @@ app.use(
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, "public")));
 
 // connect to DB

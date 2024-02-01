@@ -1,9 +1,10 @@
-import React, { useMemo, memo } from "react";
+import React, { useMemo, memo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
 import { formatDate } from "../../utils/FormatDate";
 import useChartTheme from "../../hooks/useChartTheme";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const formatData = (data, firstCoursAjusteValues) => {
   const seriesData = [];
@@ -38,7 +39,8 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
     });
     return firstCoursAjusteValues;
   };
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const firstCoursAjusteValues = getFirstCoursAjusteValues(data);
 
   const seriesData = formatData(data, firstCoursAjusteValues);
@@ -114,6 +116,7 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -130,6 +133,7 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
       option={options}
       key={JSON.stringify(options)}
       style={{ minHeight: 500 }}
+      ref={chartRef}
     />
   );
 };

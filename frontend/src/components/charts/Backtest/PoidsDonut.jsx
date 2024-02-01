@@ -1,12 +1,15 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const PoidsDonut = ({ data, title, field }) => {
   const seriesData = data.map((item) => ({
     name: item.titre,
     value: item[field],
   }));
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const theme = useChartTheme();
   const options = useMemo(() => {
     return {
@@ -19,6 +22,15 @@ const PoidsDonut = ({ data, title, field }) => {
         trigger: "item",
         confine: true,
         valueFormatter: (value) => value?.toFixed(2) + "%",
+      },
+      toolbox: {
+        feature: {
+          myFullscreen,
+          restore: {},
+          saveAsImage: {},
+          dataView: {},
+        },
+        top: "20px",
       },
       legend: {
         type: "scroll",
@@ -60,6 +72,7 @@ const PoidsDonut = ({ data, title, field }) => {
   return (
     <ReactECharts
       option={options}
+      ref={chartRef}
       style={{
         // height: "500px",
         // maxHeight: "600px",

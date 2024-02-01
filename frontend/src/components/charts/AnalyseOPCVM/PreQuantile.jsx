@@ -1,7 +1,10 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 const series = [
@@ -192,7 +195,8 @@ const PreQuantile = ({ data }) => {
     };
   }, [data]);
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
@@ -209,6 +213,7 @@ const PreQuantile = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -261,6 +266,7 @@ const PreQuantile = ({ data }) => {
     <>
       <ReactECharts
         option={options}
+        ref={chartRef}
         style={{
           height: "500px",
           maxHeight: "600px",

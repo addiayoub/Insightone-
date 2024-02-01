@@ -10,12 +10,15 @@ import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const Scatter = ({ data }) => {
   const theme = useChartTheme();
   const [SIM, setSIM] = useState(null);
   const [minSIM, setMinSIM] = useState(null);
   const colors = useMemo(() => generateRandomColorsArray(data.length), [data]);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const poidsRef = useRef(null);
   console.log("Scatter", data);
   const formatedData = useMemo(() => {
@@ -89,6 +92,7 @@ const Scatter = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: "none",
           },
@@ -161,6 +165,7 @@ const Scatter = ({ data }) => {
     <>
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{
           height: "500px",

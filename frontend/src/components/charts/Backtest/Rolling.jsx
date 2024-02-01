@@ -1,7 +1,10 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import moment from "moment";
 import SaveToExcel from "../../SaveToExcel";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
@@ -16,6 +19,8 @@ const Rolling = ({ data, title, allSeries, forSIM }) => {
       ),
     [data]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const initSeries =
     allSeries || !forSIM ? seriesNames : [seriesNames[0], "SIM optimal"];
   const { SeriesSelector, selectedLegend } = useSeriesSelector(
@@ -39,6 +44,7 @@ const Rolling = ({ data, title, allSeries, forSIM }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -100,6 +106,7 @@ const Rolling = ({ data, title, allSeries, forSIM }) => {
       <SaveToExcel data={data} fileName={title} />
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{
           minHeight: 500,

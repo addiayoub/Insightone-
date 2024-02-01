@@ -1,14 +1,18 @@
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 import { grey } from "@mui/material/colors";
-import * as React from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../../../redux/actions/UserActions";
 import { notyf } from "../../../utils/notyf";
+import ModalComponent from "../../Modal";
+import DeleteModal from "../../DeleteModal";
 
 export default function Delete({ open, setModalOff, id }) {
   const dispatch = useDispatch();
@@ -26,55 +30,26 @@ export default function Delete({ open, setModalOff, id }) {
             return;
           }
           // notyf.error(rejectedValue);
-          console.log("delete rejectedValue:", rejectedValue);
+          console.log("delete rejectedWithValue:", rejectedValue);
         });
-      setModalOff();
     } catch (error) {
       console.log(error);
     }
   };
-
+  const handleConfirmation = (confirmation) => {
+    if (confirmation) {
+      handelDelete(id);
+    }
+    setModalOff();
+  };
   return (
     <div>
-      <Dialog
-        open={open}
-        onClose={() => setModalOff()}
-        aria-labelledby="delete-dialog-title"
-        aria-describedby="delete-dialog-description"
-      >
-        <DialogTitle id="delete-dialog-title">
-          Confirmation de suppression
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="delete-dialog-description">
-            Êtes-vous sûr de vouloir supprimer cet utilisateur ?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions sx={{ margin: "0 auto 10px" }}>
-          <Button
-            variant="contained"
-            disableElevation
-            color="hover"
-            sx={{
-              "&:hover": {
-                bgcolor: grey[400],
-              },
-            }}
-            onClick={() => setModalOff()}
-          >
-            Annuler
-          </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            color="error"
-            onClick={() => handelDelete(id)}
-            autoFocus
-          >
-            Supprimer
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <ModalComponent open={open} handleClose={() => setModalOff()}>
+        <DeleteModal
+          bodyText="Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
+          handleDeleteConfirmation={handleConfirmation}
+        />
+      </ModalComponent>
     </div>
   );
 }

@@ -1,7 +1,8 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const EoyChart = ({ data, forSIM }) => {
   const theme = useChartTheme();
@@ -11,6 +12,8 @@ const EoyChart = ({ data, forSIM }) => {
     () => Object.keys(data[0]).filter((key) => key !== "Year" && key !== "Won"),
     [data]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const series = useMemo(
     () =>
       seriesName.map((key) => ({
@@ -57,6 +60,7 @@ const EoyChart = ({ data, forSIM }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -88,6 +92,7 @@ const EoyChart = ({ data, forSIM }) => {
     <>
       <SeriesSelector />
       <ReactECharts
+        ref={chartRef}
         option={options}
         style={{
           minHeight: 500,

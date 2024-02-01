@@ -1,7 +1,10 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import moment from "moment";
 
 const DailyReturns = ({ data }) => {
@@ -11,6 +14,8 @@ const DailyReturns = ({ data }) => {
     () => Object.keys(data[0]).filter((key) => key !== "seance"),
     [data]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const series = useMemo(
     () =>
       seriesName.map((key) => ({
@@ -62,6 +67,7 @@ const DailyReturns = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -97,6 +103,7 @@ const DailyReturns = ({ data }) => {
   return (
     <ReactECharts
       option={options}
+      ref={chartRef}
       style={{
         minHeight: 500,
       }}

@@ -1,13 +1,18 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import SaveToExcel from "../../SaveToExcel";
 
 const Underwater = ({ data }) => {
   console.log("Underwater data", data);
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const { selectedPtf } = useSelector((state) => state.backtest);
   const theme = useChartTheme();
   const seances = useMemo(
@@ -33,6 +38,7 @@ const Underwater = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -95,6 +101,7 @@ const Underwater = ({ data }) => {
       <SaveToExcel data={data} fileName={"Underwater Plot"} />
       <ReactECharts
         option={options}
+        ref={chartRef}
         style={{
           minHeight: 500,
           margin: "15px 0",

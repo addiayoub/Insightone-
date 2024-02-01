@@ -1,13 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const PtfPoids = ({ data, field, sumOf, title }) => {
   const sorted = useMemo(
     () => [...data].sort((a, b) => b[field] - a[field]),
     [data, field]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const sumSecteur = useMemo(() => {
     return data.reduce((acc, row) => {
       const secteur = row[sumOf];
@@ -53,6 +56,7 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           saveAsImage: {},
           dataView: {},
         },
@@ -109,6 +113,7 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
           maxHeight: "500px",
           height: "500px",
         }}
+        ref={chartRef}
       />
     </>
   );

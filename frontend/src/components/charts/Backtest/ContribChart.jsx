@@ -1,13 +1,15 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import useChartTheme from "../../../hooks/useChartTheme";
 import { useSelector } from "react-redux";
+import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
 
 const ContribChart = ({ data }) => {
   console.log("ContribChart rendered", data);
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("selectedPtf", selectedPtf);
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const titles = useMemo(() => data.map((item) => item.titre), [data]);
   console.log(
     "negative values",
@@ -67,6 +69,7 @@ const ContribChart = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: false,
           },
@@ -109,6 +112,7 @@ const ContribChart = ({ data }) => {
         minHeight: chartHeight,
       }}
       className="my-[15px]"
+      ref={chartRef}
     />
   );
 };

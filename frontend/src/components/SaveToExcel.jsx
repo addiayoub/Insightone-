@@ -25,8 +25,8 @@ const SaveToExcel = ({ data, fileName }) => {
     <IconButton
       variant="contained"
       onClick={exportToExcel}
-      className="bg-primary absolute right-0 top-20 z-[9] hover:bg-secondary"
-      title="Export CSV"
+      className="bg-primary absolute right-0 top-[100px] z-[9] hover:bg-secondary"
+      title="Export Excel"
     >
       <Save size={20} color="white" />
     </IconButton>

@@ -1,7 +1,10 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
-import { defaultOptions } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 
 const series = [
@@ -16,6 +19,8 @@ const AnalyseQuatile = ({ data }) => {
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
     [data]
   );
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
@@ -32,6 +37,7 @@ const AnalyseQuatile = ({ data }) => {
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: true,
           },
@@ -90,6 +96,7 @@ const AnalyseQuatile = ({ data }) => {
     <>
       <ReactECharts
         option={options}
+        ref={chartRef}
         style={{
           height: "500px",
           maxHeight: "600px",
