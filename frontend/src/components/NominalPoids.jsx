@@ -33,7 +33,7 @@ const NominalPoids = ({ data }) => {
           borderRadius: "5px",
         }}
       >
-        Correlation: {nominalPoids}
+        Duration: {nominalPoids}
       </Box>
     )
   );

@@ -139,6 +139,11 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
         {
           type: "value",
           axisLabel: {
+            formatter: function (value) {
+              // Convert the value to millions and add 'M' at the end
+              // return (value / 1e9).toFixed(0) + " M";
+              return value;
+            },
             ...theme.yAxis.nameTextStyle,
           },
           ...theme.yAxis,

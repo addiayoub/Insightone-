@@ -183,13 +183,13 @@ const Scatter = ({ data }) => {
                 <SIMPoids SIM={SIM} />
               </GridItem>
             </GridContainer>
-            <IconButton
+            {/* <IconButton
               onClick={() => setSIM(minSIM)}
               className="bg-primary"
               title="Réinitialiser"
             >
               <RefreshCcw size={18} color="#fff" />
-            </IconButton>
+            </IconButton> */}
             {/* <GridContainer xGap={4} exqtraCss=" items-center"> */}
             {/* <GridItem cols={7}> */}
             <SIMEvolution SIM={SIM} />

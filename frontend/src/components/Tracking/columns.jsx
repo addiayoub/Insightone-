@@ -60,7 +60,9 @@ export const simColumns = (SIM) => {
       width: 200,
       flex: 0.3,
       valueGetter: (params) => params.row[SIM]?.toFixed(2),
-      renderCell: (params) => params.row[SIM]?.toFixed(2),
+      renderCell: (params) => (
+        <span className="font-semibold">{params.row[SIM]?.toFixed(2)}</span>
+      ),
     },
     {
       field: "somme",

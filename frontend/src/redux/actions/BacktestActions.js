@@ -29,9 +29,10 @@ export const getPortef = createAsyncThunk(
     thunkAPI
   ) => {
     const { ptfToBacktest } = thunkAPI.getState().backtest;
+    const operations = df_op.map(({ _id, ...rest }) => rest);
     const body = {
       df_poids: transformForBacktest([ptfToBacktest]),
-      df_op: df_op.length < 1 ? [{}] : df_op,
+      df_op: df_op.length < 1 ? [{}] : operations,
       // [
       //   {
       // Date: "18/12/2023",

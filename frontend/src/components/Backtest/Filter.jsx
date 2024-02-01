@@ -16,7 +16,7 @@ import TitresComponent from "../TitresComponent";
 import { formatDate } from "../../utils/FormatDate";
 import BacktestOperations from "./BacktestOperations";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
-import { GridCsvExportMenuItem } from "@mui/x-data-grid";
+import { v4 as uuidv4 } from "uuid";
 
 const buttons = [
   {
@@ -172,11 +172,12 @@ function Filter({ setIsShow }) {
   const addOperation = () => {
     console.log("isValidOperation", isValidOperation);
     const opera = {
+      _id: uuidv4(),
       Date: formatDate(backtestDate["$d"]),
       Sens: sens,
       INSTRUMENT: instrument,
       Quantité: qte === "" ? qte : parseInt(qte),
-      Poids: poids === "" ? poids : poids * 100,
+      Poids: poids === "" ? poids : poids,
     };
     if (isValidOperation) {
       setOperations((prev) => [...prev, opera]);
@@ -340,7 +341,10 @@ function Filter({ setIsShow }) {
             </GridItem>
             <GridItem>
               {operations.length > 0 && (
-                <BacktestOperations operations={operations} />
+                <BacktestOperations
+                  operations={operations}
+                  setOperations={setOperations}
+                />
               )}
             </GridItem>
           </GridContainer>

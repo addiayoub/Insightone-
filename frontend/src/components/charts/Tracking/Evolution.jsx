@@ -55,6 +55,7 @@ function Evolution({
   console.log("min values", rangeValues);
   const seriesNames = Object.keys(data[0])
     .filter((key) => key !== "seance")
+    .reverse()
     .concat(selectedPtf);
   const rangeSeries = useMemo(() => {
     return {
@@ -131,7 +132,7 @@ function Evolution({
   const options = useMemo(() => {
     return {
       title: {
-        text: "",
+        text: "Pré-selection quantitative",
         left: "center",
         ...theme.title,
       },
