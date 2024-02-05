@@ -19,6 +19,7 @@ import MainLoader from "../loaders/MainLoader";
 import NewUnivers from "./NewUnivres";
 import { notyf } from "../../utils/notyf";
 import { columns } from "./columns";
+import { FileText } from "react-feather";
 
 function Markowitz() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
@@ -64,7 +65,7 @@ function Markowitz() {
             <>
               <Indices dateDebut={dateDebut} dateFin={dateFin} />
               <Contraintes />
-              <AccordionBox title={"Data"} isExpanded={true}>
+              <AccordionBox title={"Data"} isExpanded={true} Icon={FileText}>
                 <h3 className="text-right">{`${
                   filterMarko.filteredData.length
                 }/${filterMarko.data.length} (${calculatePercentage(

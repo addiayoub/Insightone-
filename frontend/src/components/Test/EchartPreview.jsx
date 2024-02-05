@@ -1,9 +1,7 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { memo, useMemo } from "react";
 import moment from "moment";
-import useChartTheme from "../../hooks/useChartTheme";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+import LineChart from "../charts/Default/LineChart";
 
 const formatData = (data) => {
   const seriesData = [];
@@ -15,7 +13,7 @@ const formatData = (data) => {
         // name: moment(item.SEANCE).format("DD-MM-YYYY"),
         value: [moment(item.SEANCE).valueOf(), item.Cours_Ajuste],
       })),
-      showSymbol: false,
+      symbol: "none",
     });
   }
   return seriesData;
@@ -23,15 +21,11 @@ const formatData = (data) => {
 
 const EChartsPreview = ({ data }) => {
   const seriesData = useMemo(() => formatData(data), [data]);
-  const theme = useChartTheme();
   console.log("e preview data", data);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
         text: "Evolution du cours des titres sélectionnés",
-        ...theme.title,
         left: "left",
       },
       xAxis: {
@@ -40,22 +34,15 @@ const EChartsPreview = ({ data }) => {
           formatter: function (value) {
             return moment(value).format("DD-MM-YYYY");
           },
-          hideOverlap: true,
         },
       },
       legend: {
-        bottom: "0%",
-        orient: "horizontal",
-        type: "scroll",
         width: "80%",
-        ...theme.legend,
       },
       yAxis: {
-        type: "value",
         name: "Valeur Ajuste",
         nameLocation: "middle",
         nameGap: 50,
-        ...theme.yAxis,
       },
       series: seriesData,
       tooltip: {
@@ -72,49 +59,21 @@ const EChartsPreview = ({ data }) => {
           },
         },
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          top: "85%",
-          start: 0,
-          end: 100,
-        },
-      ],
       grid: {
         left: "50px",
         right: "80px",
-        bottom: "15%",
-        top: "10%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
     };
-  }, [theme, seriesData]);
+  }, [seriesData]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: 500,
-      }}
-      ref={chartRef}
-      key={JSON.stringify(options)}
-    />
+    <>
+      <LineChart
+        options={options}
+        style={{
+          minHeight: 500,
+        }}
+      />
+    </>
   );
 };
 

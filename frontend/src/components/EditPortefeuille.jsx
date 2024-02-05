@@ -8,6 +8,7 @@ import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
 import { PlusSquare, Lock, Save, Trash, Zap, Unlock } from "react-feather";
 import ModalComponent from "./Modal";
 import DeleteModal from "./DeleteModal";
+import { DeleteButton } from "./Ui/Buttons";
 
 const EditPortefeuille = ({
   oldRows,
@@ -86,19 +87,13 @@ const EditPortefeuille = ({
           >
             Ajuster <Zap size={18} />
           </Button>
-          <Button
-            size="small"
-            color="error"
-            className="flex gap-1 items-center"
-            variant="contained"
+          <DeleteButton
             onClick={() => {
               console.log("rowsToDelete", rowsToDelete);
               setIsOpen(true);
             }}
             disabled={rowsToDelete.length < 1}
-          >
-            Supprimer <Trash size={18} />
-          </Button>
+          />
           <Button
             size="small"
             className="flex gap-1 items-center"

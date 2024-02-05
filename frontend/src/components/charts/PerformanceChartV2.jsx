@@ -1,102 +1,53 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { memo, useMemo } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
-import useSeriesSelector from "../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
-import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+import BarChart from "./Default/BarChart";
+
+const getSeries = (data) => {
+  return Object.entries(data).map(([key, items]) => ({
+    name: key,
+    type: "bar",
+    data: items.map((item) => item.Performance * 100),
+  }));
+};
 
 const PerformanceChartV2 = ({ data }) => {
-  const theme = useChartTheme();
-
   console.log("data", data);
-  const series = useMemo(
-    () =>
-      Object.entries(data).map(([key, items]) => ({
-        name: key,
-        type: "bar",
-        data: items.map((item) => item.Performance * 100),
-      })),
-    [data]
-  );
+  const series = useMemo(() => getSeries(data), [data]);
   console.log("series", series);
   const seriesNames = Object.keys(data);
   const years = data[seriesNames[0]].map((item) => item.ANNEE);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(
-    seriesNames,
-    seriesNames
-  );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
         text: "Performance",
         left: "center",
-        ...theme.title,
-      },
-      tooltip: {
-        trigger: "axis",
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2) + "%",
-      },
-      legend: {
-        // data: seriesNames,
-        selected: selectedLegend,
-        orient: "horizontal",
-        zLevel: 23,
-        width: "60%",
-        left: "center",
-        bottom: "9%",
-        type: "scroll",
-        ...theme.legend,
       },
       grid: {
         right: "5%",
-        top: "10%",
-        bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
       },
       xAxis: {
         type: "category",
         data: years,
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       yAxis: {
-        type: "value",
         axisLabel: {
           formatter: "{value}%",
-          ...theme.yAxis.nameTextStyle,
         },
-        ...theme.yAxis,
       },
       series: series,
     };
-  }, [series, seriesNames, selectedLegend, theme]);
+  }, [series, years, seriesNames]);
   return (
     <Box>
-      <SeriesSelector />
-      <ReactECharts
-        option={options}
+      <BarChart
+        options={options}
         style={{
           minHeight: 500,
           margin: "15px 0",
         }}
-        ref={chartRef}
+        showSeriesSelector
       />
     </Box>
   );

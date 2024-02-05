@@ -1,20 +1,11 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
+import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
-import SaveToExcel from "../../SaveToExcel";
+import LineChart from "../Default/LineChart";
 
 const WorstDrawDowns = ({ data, evolution }) => {
   console.log("WorstDrawDowns", data);
   console.log("Evolu", evolution);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const { selectedPtf } = useSelector((state) => state.backtest);
-  const theme = useChartTheme();
   const lineData = useMemo(
     () => evolution.map((item) => item[selectedPtf] * 100),
     [evolution, selectedPtf]
@@ -39,42 +30,14 @@ const WorstDrawDowns = ({ data, evolution }) => {
       title: {
         text: "Worst 5 Drawdowns Periods",
         left: "center",
-        ...theme.title,
-      },
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "cross",
-        },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
       },
       grid: {
         right: "100px",
-        top: "10%",
-        bottom: "15%",
-        containLabel: true,
       },
       xAxis: {
         type: "category",
         boundaryGap: true,
         data: xAxisData,
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       visualMap: {
         show: false,
@@ -85,14 +48,9 @@ const WorstDrawDowns = ({ data, evolution }) => {
         },
       },
       yAxis: {
-        type: "value",
         axisPointer: {
           snap: true,
         },
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       series: [
         {
@@ -108,18 +66,18 @@ const WorstDrawDowns = ({ data, evolution }) => {
           },
         },
       ],
-      ...defaultOptions,
     };
-  }, [theme, lineData, xAxisData, marksArea]);
+  }, [lineData, xAxisData, marksArea]);
   return (
-    <div className="relative">
-      <SaveToExcel data={data} fileName="Worst 5 Drawdowns Periods" />
-      <ReactECharts
-        option={options}
-        style={{ minHeight: 500 }}
-        ref={chartRef}
-      />
-    </div>
+    <LineChart
+      options={options}
+      style={{ minHeight: 500 }}
+      saveToExcel={{
+        show: true,
+        fileName: "Worst 5 Drawdowns Periods",
+        data,
+      }}
+    />
   );
 };
 

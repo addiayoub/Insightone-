@@ -1,16 +1,17 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
 import moment from "moment";
-import SaveToExcel from "../../SaveToExcel";
-import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import LineChart from "../Default/LineChart";
+
+const getSeries = (data, seriesNames) => {
+  return seriesNames.map((serieName) => ({
+    name: serieName,
+    type: "line",
+    symbol: "none",
+    data: data.map((item) => (item[serieName] === 0 ? null : item[serieName])),
+  }));
+};
 
 const Rolling = ({ data, title, allSeries, forSIM }) => {
-  const theme = useChartTheme();
   console.log("Render Rolling ", title);
   const seriesNames = useMemo(
     () =>
@@ -19,99 +20,43 @@ const Rolling = ({ data, title, allSeries, forSIM }) => {
       ),
     [data]
   );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const initSeries =
     allSeries || !forSIM ? seriesNames : [seriesNames[0], "SIM optimal"];
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(
-    seriesNames,
-    initSeries
+  const series = useMemo(
+    () => getSeries(data, seriesNames),
+    [data, seriesNames]
   );
-
   const options = useMemo(() => {
     return {
       title: {
         text: title,
         left: "center",
-        ...theme.title,
       },
       grid: {
         right: "100px",
-        top: "10%",
-        // right: "3%",
-        bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
-      },
-      tooltip: {
-        trigger: "axis",
-        textStyle: {
-          overflow: "breakAll",
-          width: 40,
-        },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
       },
       xAxis: {
         type: "category",
         data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       legend: {
-        data: seriesNames,
-        orient: "horizontal",
-        zLevel: 23,
-        width: "60%",
         left: "center",
-        bottom: "9%",
-        type: "scroll",
-        selected: selectedLegend,
-        ...theme.legend,
       },
-      yAxis: {
-        type: "value",
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
-      series: seriesNames.map((serieName) => ({
-        name: serieName,
-        type: "line",
-        symbol: "none",
-        data: data.map((item) =>
-          item[serieName] === 0 ? null : item[serieName]
-        ),
-      })),
-      ...defaultOptions,
+      seriesNames: { seriesList: seriesNames, init: initSeries },
+      series,
     };
-  }, [defaultOptions, theme, selectedLegend, seriesNames, data]);
+  }, [seriesNames, series, data]);
 
   return (
-    <div className="relative">
-      <SaveToExcel data={data} fileName={title} />
-      <SeriesSelector />
-      <ReactECharts
-        ref={chartRef}
-        option={options}
+    <div>
+      <LineChart
+        options={options}
         style={{
           minHeight: 500,
           margin: "15px 0",
         }}
+        showSeriesSelector
+        saveToExcel={{ show: true, data, fileName: title }}
       />
     </div>
   );

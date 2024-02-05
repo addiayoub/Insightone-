@@ -11,6 +11,7 @@ import {
 } from "../../redux/slices/OpcvmSlice";
 import ResetButton from "../ResetButton";
 import filterDataSet from "../../utils/filterDataSet";
+import { Tool } from "react-feather";
 
 function Contraintes() {
   const { data, dataSet } = useSelector((state) => state.opcvm);
@@ -50,6 +51,7 @@ function Contraintes() {
       <AccordionBox
         title={"Contraintes sur l'univers"}
         detailsClass={"flex justify-between items-center flex-wrap gap-y-2"}
+        Icon={Tool}
       >
         <Box>
           <Contrainte label="Performance">

@@ -1,83 +1,58 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
+import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
-import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import BarChart from "../Default/BarChart";
+
+const getSeries = (data) => {
+  const values = data
+    .map((item) => ({
+      name: item.titre,
+      value: item.contrib_ptf,
+    }))
+    .filter((ele) => Math.abs(ele.value) > 0.01);
+  values.sort((a, b) => a.value - b.value);
+  return values.map(({ name, value }) => ({
+    name,
+    value,
+    itemStyle: {
+      color: value < 0 ? "#ee4658" : "#21cc6d",
+    },
+  }));
+};
 
 const ContribChart = ({ data }) => {
   console.log("ContribChart rendered", data);
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("selectedPtf", selectedPtf);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const titles = useMemo(() => data.map((item) => item.titre), [data]);
   console.log(
     "negative values",
     data.map((item) => item[selectedPtf] * 100)
   );
-  const seriesData = useMemo(() => {
-    const values = data
-      .map((item) => ({
-        name: item.titre,
-        value: item.contrib_ptf,
-      }))
-      .filter((ele) => Math.abs(ele.value) > 0.01);
-    values.sort((a, b) => a.value - b.value);
-    return values.map(({ name, value }) => ({
-      name,
-      value,
-      itemStyle: {
-        color: value < 0 ? "#ee4658" : "#21cc6d",
-      },
-    }));
-  }, [data, selectedPtf]);
+  const seriesData = useMemo(() => getSeries(data), [data, selectedPtf]);
   console.log("seriesData", seriesData);
-  const theme = useChartTheme();
   const options = useMemo(() => {
     return {
       title: {
         text: "Contribution",
         left: "center",
-        ...theme.title,
       },
       grid: {
         right: "100px",
-        top: "50px",
-        containLabel: true,
+        top: "70px",
       },
       tooltip: {
-        trigger: "axis",
         axisPointer: {
           // type: "cross",
           crossStyle: {
             color: "#999",
           },
         },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       xAxis: {
         type: "value",
         axisPointer: {
           type: "shadow",
         },
-        axisLabel: {
-          hideOverlap: true,
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: false,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
       },
       yAxis: {
         type: "category",
@@ -88,11 +63,6 @@ const ContribChart = ({ data }) => {
         axisPointer: {
           type: "shadow",
         },
-        axisLabel: {
-          // hideOverlap: true,
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       series: [
         {
@@ -103,17 +73,17 @@ const ContribChart = ({ data }) => {
         },
       ],
     };
-  }, [seriesData, theme]);
+  }, [seriesData]);
   const chartHeight = seriesData.length * 15 + 200;
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        minHeight: chartHeight,
-      }}
-      className="my-[15px]"
-      ref={chartRef}
-    />
+    <>
+      <BarChart
+        options={options}
+        style={{
+          minHeight: chartHeight,
+        }}
+      />
+    </>
   );
 };
 

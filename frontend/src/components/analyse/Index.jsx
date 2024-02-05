@@ -17,6 +17,8 @@ import {
   columnsNews,
 } from "./columns";
 import PatternsChandeliers from "./PatternsChandeliers";
+import { SearchButton } from "../Ui/Buttons";
+import { MenuBoard } from "iconsax-react";
 
 const titres = [
   "ARADEI CAPITAL",
@@ -122,6 +124,7 @@ function Index() {
         detailsClass={"flex items-center flex-wrap gap-2"}
         title={"Choix du titre"}
         isExpanded={true}
+        Icon={MenuBoard}
       >
         <DateComponent label={"Date début"} date={date} setDate={setDate} />
         <Autocomplete
@@ -134,15 +137,7 @@ function Index() {
           size="small"
           renderInput={(params) => <TextField {...params} label="Titres" />}
         />
-        <Button
-          variant="contained"
-          size="small"
-          color="primary"
-          disabled={loading}
-          onClick={handelClick}
-        >
-          Rechercher
-        </Button>
+        <SearchButton disabled={loading} onClick={handelClick} />
       </AccordionBox>
 
       {loading && <MainLoader />}

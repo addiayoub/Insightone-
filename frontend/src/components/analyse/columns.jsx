@@ -1,4 +1,5 @@
 import { formatDate } from "../../utils/FormatDate";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 
 const textColor = (cellValue) => {
   let className = " ";
@@ -27,7 +28,10 @@ const columnsIndi = [
     headerName: "Valeur",
     width: 360,
     flex: 1,
-    renderCell: (params) => params.row?.Valeur?.toFixed(2),
+    renderCell: (params) => {
+      const value = +params.row?.Valeur?.toFixed(2);
+      return formatNumberWithSpaces(value);
+    },
   },
   {
     field: "Type_position",

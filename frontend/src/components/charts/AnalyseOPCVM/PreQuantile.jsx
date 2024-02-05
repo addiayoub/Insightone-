@@ -1,11 +1,6 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { memo, useMemo } from "react";
 import moment from "moment";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
-import useChartTheme from "../../../hooks/useChartTheme";
+import LineChart from "../Default/LineChart";
 
 const series = [
   { name: "DENOMINATION_OPCVM", data: "opc_b100" },
@@ -62,7 +57,6 @@ const rangeOpts = {
 };
 
 const PreQuantile = ({ data }) => {
-  const theme = useChartTheme();
   const allValues = useMemo(
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
     [data]
@@ -82,28 +76,13 @@ const PreQuantile = ({ data }) => {
     () => series.map((serie) => data[0][serie.name]),
     [series, data]
   );
-  const quart1Values = Array.from(
-    { length: rangeValues.q_05.length },
-    (_, index) => rangeValues.q_05[index] + rangeValues.quart1[index]
-  );
-  const quart2Values = Array.from(
-    { length: rangeValues.quart1.length },
-    (_, index) => rangeValues.q_05[index] + rangeValues.quart2[index]
-  );
-  const quart3Values = Array.from(
-    { length: rangeValues.quart2.length },
-    (_, index) => rangeValues.q_05[index] + rangeValues.quart3[index]
-  );
-  const q_95Values = Array.from(
-    { length: rangeValues.quart3.length },
-    (_, index) => rangeValues.q_05[index] + rangeValues.q_95[index]
-  );
   const baseSeries = series.map((serie) => ({
     name:
       serie.name === "ajust_b100"
         ? "Perf ajustée de la classe"
         : data[0][serie.name],
     type: "line",
+    symbol: "none",
     data: data.map((item) => item[serie.data]),
   }));
   const q_05 = useMemo(() => {
@@ -195,78 +174,31 @@ const PreQuantile = ({ data }) => {
     };
   }, [data]);
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
         text: "",
         left: "center",
-        ...theme.title,
       },
+      legend: { data: legendData },
       grid: {
         right: "80px",
-        top: "10%",
-        // right: "3%",
-        bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
-      },
-      tooltip: {
-        trigger: "axis",
-        textStyle: {
-          overflow: "breakAll",
-          width: 40,
-        },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
       },
       xAxis: {
         type: "category",
         data: data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
-      },
-      legend: {
-        data: legendData,
-        type: "scroll",
-        orient: "horizontal",
-        zLevel: 23,
-        width: "60%",
-        left: "center",
-        bottom: "9%",
-        ...theme.legend,
       },
       yAxis: {
         type: "value",
         min: yMin,
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       series: seriesData,
-      ...defaultOptions,
     };
-  }, [defaultOptions, data, series, allValues, theme]);
+  }, [data, allValues, seriesData]);
   return (
     <>
-      <ReactECharts
-        option={options}
-        ref={chartRef}
+      <LineChart
+        options={options}
         style={{
           height: "500px",
           maxHeight: "600px",

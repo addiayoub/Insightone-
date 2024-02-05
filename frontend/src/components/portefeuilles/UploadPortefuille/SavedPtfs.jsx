@@ -12,6 +12,7 @@ import {
 import { notyf } from "../../../utils/notyf";
 import ModalComponent from "../../Modal";
 import DeleteModal from "../../DeleteModal";
+import { DeleteButton, ValidateButton } from "../../Ui/Buttons";
 
 const types = ["Actions", "OPCVM"];
 
@@ -89,27 +90,17 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, show, setShow }) => {
           value={ptf}
           setValue={setPtf}
         />
-        <Button
-          variant="contained"
-          className="min-w-[115px] flex gap-2 items-center"
-          color="primary"
+        <ValidateButton
           size="small"
-          id="valider-btn"
+          className="min-w-[115px]"
           onClick={handleValider}
           disabled={!ptf}
-        >
-          Valider <CheckSquare size={18} />
-        </Button>
-        <Button
-          variant="contained"
-          color="error"
-          size="small"
-          className="min-w-[115px] flex gap-2 items-center"
+        />
+        <DeleteButton
           onClick={() => setIsOpen(true)}
           disabled={!ptf}
-        >
-          Supprimer <Trash size={18} />
-        </Button>
+          className="min-w-[115px]"
+        />
       </Box>
       <ModalComponent open={isOpen} handleClose={() => setIsOpen(false)}>
         <DeleteModal handleDeleteConfirmation={handleDelete} />

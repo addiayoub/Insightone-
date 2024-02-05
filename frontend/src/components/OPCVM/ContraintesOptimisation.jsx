@@ -19,6 +19,9 @@ import TabTest from "./TabTest";
 import checkExistence from "../../utils/checkExistence";
 import EvolutionB100 from "../charts/EvolutionB100";
 import { notyf } from "../../utils/notyf";
+import { ValidateButton } from "../Ui/Buttons";
+import { MouseCircle, PresentionChart } from "iconsax-react";
+import { MousePointer, Tool } from "react-feather";
 
 function ContraintesOptimisation({ dateDebut, contraintesOp }) {
   const [contraintes, setContraintes] = useState([]);
@@ -151,7 +154,7 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
   };
   return (
     <>
-      <AccordionBox title={"Contraintes d'optimisation"}>
+      <AccordionBox title={"Contraintes d'optimisation"} Icon={Tool}>
         <Box className="flex justify-between flex-wrap gap-4">
           <Box className="flex">
             <SelectMultipl
@@ -179,20 +182,16 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
           />
         </Box>
         <Box className="block max-w-[400px] mt-4 mx-auto">
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={handleValider}
-          >
-            Valider
-          </Button>
+          <ValidateButton fullWidth onClick={handleValider} />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}
       {showPoids && <TabTest components={components} isOPCVM />}
       {showPoids && !portefeuilleSimule.loading && (
-        <AccordionBox title={"Evolution B100 portefeuille simulé"}>
+        <AccordionBox
+          title={"Evolution B100 portefeuille simulé"}
+          Icon={PresentionChart}
+        >
           <EvolutionB100 data={portefeuilleSimule.data} />
         </AccordionBox>
       )}

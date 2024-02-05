@@ -1,15 +1,12 @@
 import React from "react";
-import DateComp from "../Dashboard/DateComp";
 import { Box } from "@mui/material";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSectorialData } from "../../redux/actions/AnalyseSectorialActions";
 import SecteurEvolution from "./SecteurEvolution";
-import Loader, { Loader2 } from "../loader/Loader";
 import SecteurPerformance from "./SecteurPerformance";
 import News from "./News";
-import SecteurChart from "./SecteurChart";
 import Period from "../Period";
 import MainLoader from "../loaders/MainLoader";
 import GridContainer, { GridItem } from "../Ui/GridContainer";

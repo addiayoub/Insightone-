@@ -3,8 +3,9 @@ import React, { useState, useEffect, memo } from "react";
 import AccordionBox from "../AccordionBox";
 import DateComponent from "../DateComponent";
 import SelectIndices from "../Markowitz/SelectIndices";
-import { Autocomplete, Button, TextField } from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
+import { SearchButton } from "../Ui/Buttons";
 
 const Filter = () => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
@@ -50,16 +51,11 @@ const Filter = () => {
           <TextField {...params} label="Portefeuilles" />
         )}
       />
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
+      <SearchButton
         onClick={() => {
           console.log("Ptf", ptf);
         }}
-      >
-        Rechercher
-      </Button>
+      />
     </AccordionBox>
   );
 };

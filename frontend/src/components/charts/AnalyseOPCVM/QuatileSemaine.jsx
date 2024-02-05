@@ -1,77 +1,35 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
 import { graphic } from "echarts";
 import moment from "moment";
+import BarChart from "../Default/BarChart";
 
 const QuatileSemaine = ({ data }) => {
-  const theme = useChartTheme();
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const seriesData = data.map((item) => item.quartile_perf_1S);
   console.log("seriesData", seriesData);
-  const seances = data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY"));
+  const seances = useMemo(
+    () => data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),
+    [data]
+  );
   const options = useMemo(() => {
     return {
       title: {
         text: "Quartile par semaine",
         left: "center",
-        ...theme.title,
       },
       grid: {
         right: "100px",
-        // right: "3%",
-        bottom: "15%",
-        containLabel: true,
+        bottom: "10%",
       },
       xAxis: {
         data: seances,
         type: "category",
-        axisTick: {
-          show: false,
-        },
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        axisLine: {
-          show: false,
-        },
         z: 10,
-        ...theme.xAxis.nameTextStyle,
-      },
-      yAxis: {
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis.nameTextStyle,
       },
       tooltip: {
         trigger: "item",
-        confine: true,
-        // valueFormatter: (value) => value?.toFixed(2),
+        valueFormatter: (value) => value,
       },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
-      },
+      dataZoom: true,
       series: [
         {
           type: "bar",
@@ -95,21 +53,21 @@ const QuatileSemaine = ({ data }) => {
           data: seriesData,
         },
       ],
-      ...defaultOptions,
     };
-  }, [data, theme, seances, defaultOptions]);
+  }, [seriesData, seances]);
   return (
-    <ReactECharts
-      option={options}
-      ref={chartRef}
-      style={{
-        height: "500px",
-        minWidth: "600px",
-        width: "100%",
-        margin: "15px auto",
-      }}
-    />
+    <>
+      <BarChart
+        style={{
+          height: "500px",
+          minWidth: "600px",
+          width: "100%",
+          margin: "15px auto",
+        }}
+        options={options}
+      />
+    </>
   );
 };
 
-export default QuatileSemaine;
+export default memo(QuatileSemaine);

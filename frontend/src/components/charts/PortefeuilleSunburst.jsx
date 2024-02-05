@@ -1,9 +1,12 @@
 import ReactECharts from "echarts-for-react";
-import React from "react";
+import React, { useRef } from "react";
 import groupBy from "../../utils/groupBy";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 function PortefeuilleSunburst({ data, field }) {
   const test = groupBy(data, "SECTEUR_ACTIVITE");
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   console.log(test);
   const series = [];
   for (const key in test) {
@@ -29,6 +32,13 @@ function PortefeuilleSunburst({ data, field }) {
     },
     grid: {
       left: "100%",
+    },
+    toolbox: {
+      feature: {
+        myFullscreen,
+        saveAsImage: {},
+      },
+      top: "20px",
     },
     series: {
       type: "sunburst",
@@ -83,6 +93,7 @@ function PortefeuilleSunburst({ data, field }) {
       style={{
         height: "500px",
       }}
+      ref={chartRef}
     />
   );
 }

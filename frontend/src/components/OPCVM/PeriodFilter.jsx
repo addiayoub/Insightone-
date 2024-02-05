@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DateComponent from "../DateComponent";
 import AccordionBox from "../AccordionBox";
-import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getData,
@@ -12,6 +11,7 @@ import SelectIndices from "../Markowitz/SelectIndices";
 import { notyf } from "../../utils/notyf";
 import { setParams } from "../../redux/slices/OpcvmSlice";
 import { formatDate } from "../../utils/FormatDate";
+import { SearchButton } from "../Ui/Buttons";
 
 function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   const { societes } = useSelector((state) => state.opcvm);
@@ -98,15 +98,7 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
         setSelectedIndices={setSelectedClasses}
         selectedIndices={selectedClasses}
       />
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        disabled={disabled}
-        onClick={handleSearch}
-      >
-        Rechercher
-      </Button>
+      <SearchButton disabled={disabled} onClick={handleSearch} />
     </AccordionBox>
   );
 }

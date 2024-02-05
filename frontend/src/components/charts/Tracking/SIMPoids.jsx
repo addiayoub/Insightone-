@@ -8,44 +8,18 @@ import { Box } from "@mui/material";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
 import NominalPoids from "../../NominalPoids";
 import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import PieChart from "../Default/PieChart";
 
-const generateOptions = (seriesNames, seriesData, title, theme, chartRef) => {
-  const myFullscreen = getFullscreenFeature(chartRef);
+const generateOptions = (seriesNames, seriesData, title) => {
   return {
     title: {
       text: title,
       left: "center",
-      ...theme.title,
-    },
-    tooltip: {
-      trigger: "item",
-      valueFormatter: (value) => value?.toFixed(2) + "%",
-      confine: true,
-    },
-    toolbox: {
-      feature: {
-        myFullscreen,
-        restore: {},
-        saveAsImage: {},
-        dataView: {},
-      },
-
-      right: 0,
-      top: 15,
-    },
-    legend: {
-      // data: seriesNames,
-      type: "scroll",
-      orient: "horizontal",
-      zLevel: 23,
-      width: "60%",
-      left: "center",
-      bottom: "0",
-      ...theme.legend,
     },
     grid: {
       top: "0%",
     },
+    seriesNames: { seriesList: seriesNames, init: seriesNames },
     series: [
       {
         name: "",
@@ -111,10 +85,6 @@ const SIMPoids = ({ SIM }) => {
     () => seriesData.map((serie) => serie.name),
     [seriesData]
   );
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(
-    seriesNames,
-    seriesNames
-  );
 
   const categorieSeries = useMemo(
     () => generateCategorieSeries(seriesData),
@@ -137,7 +107,7 @@ const SIMPoids = ({ SIM }) => {
   );
 
   const options = useMemo(
-    () => generateOptions(seriesNames, seriesData, "Titres", theme, chart1Ref),
+    () => generateOptions(seriesNames, seriesData, "Titres"),
     [theme, seriesData, seriesNames, SIM]
   );
 
@@ -146,9 +116,7 @@ const SIMPoids = ({ SIM }) => {
       generateOptions(
         categorieSeriesNames,
         categorieSeries,
-        "Secteurs d'activités",
-        theme,
-        chart2Ref
+        "Secteurs d'activités"
       ),
     [categorieSeriesNames, categorieSeries, SIM, theme]
   );
@@ -158,10 +126,9 @@ const SIMPoids = ({ SIM }) => {
       <NominalPoids data={seriesData} />
       {/* <GridContainer extraCss="gap-4 mt-[80px]"> */}
       {/* <SeriesSelector /> */}
-
       {/* <SeriesSelector2 /> */}
       {/* <GridItem> */}
-      <ReactECharts
+      {/* <ReactECharts
         ref={chart1Ref}
         option={optionsForCategories}
         style={{
@@ -169,10 +136,19 @@ const SIMPoids = ({ SIM }) => {
           width: "100%",
           maxWidth: 800,
         }}
+      /> */}
+      <PieChart
+        options={optionsForCategories}
+        style={{
+          height: 600,
+          width: "100%",
+          maxWidth: 800,
+        }}
+        showSeriesSelector
       />
       {/* </GridItem> */}
       {/* <GridItem> */}
-      <ReactECharts
+      {/* <ReactECharts
         ref={chart2Ref}
         option={options}
         style={{
@@ -180,6 +156,15 @@ const SIMPoids = ({ SIM }) => {
           width: "100%",
           maxWidth: 800,
         }}
+      /> */}
+      <PieChart
+        options={options}
+        style={{
+          height: 600,
+          width: "100%",
+          maxWidth: 800,
+        }}
+        showSeriesSelector
       />
       {/* </GridItem> */}
       {/* </GridContainer> */}

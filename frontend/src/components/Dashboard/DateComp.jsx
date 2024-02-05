@@ -4,6 +4,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import React from "react";
 import AccordionBox from "../AccordionBox";
+import { SearchButton } from "../Ui/Buttons";
 
 function DateComp({ date, setDate, onSearch, isLoading = false }) {
   const handelClick = () => {
@@ -24,15 +25,7 @@ function DateComp({ date, setDate, onSearch, isLoading = false }) {
           onChange={(newValue) => setDate(newValue)}
         />
       </LocalizationProvider>
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        disabled={isLoading}
-        onClick={handelClick}
-      >
-        Rechercher
-      </Button>
+      <SearchButton disabled={isLoading} onClick={handelClick} />
     </AccordionBox>
   );
 }

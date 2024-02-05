@@ -12,6 +12,8 @@ import MainLoader from "../loaders/MainLoader";
 import PortefeuilleAleatoires from "../charts/PortefeuilleAleatoires";
 import PortefeuilleFrontiere from "../charts/PortefeuilleFrontiere";
 import Ptf from "../Markowitz/PortefeuilleFrontiere";
+import { Aperture } from "react-feather";
+import { ValidateButton } from "../Ui/Buttons";
 
 function GenerationPortefeuille() {
   const [PTF, setPTF] = useState("");
@@ -45,10 +47,14 @@ function GenerationPortefeuille() {
       .then(() => setShow(true))
       .finally(() => setIsLoading(false));
   };
-
+  const isDisabled =
+    isLoading || PTF === "" || risque === "" || nbrPointFront === "";
   return (
     <>
-      <AccordionBox title={"Génération de portefeuille aléatoire"}>
+      <AccordionBox
+        title={"Génération de portefeuille aléatoire"}
+        Icon={Aperture}
+      >
         <Box>
           <FormControl className="flex flex-wrap flex-row gap-2.5 items-center mb-3">
             <Typography
@@ -115,14 +121,11 @@ function GenerationPortefeuille() {
           </FormControl>
         </Box>
         <Box className="block max-w-[400px] mt-4 mx-auto">
-          <Button
-            variant="contained"
-            color="primary"
+          <ValidateButton
             fullWidth
             onClick={handleClick}
-          >
-            Valider
-          </Button>
+            disabled={isDisabled}
+          />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}
@@ -139,19 +142,9 @@ function GenerationPortefeuille() {
             setOpen={setOpen}
           />
         )}
-      {/* {name && (
-        <Ptf
-          data={frontiereWeights.filter((item) => item[name] > 0.01)}
-          field={name}
-        />
-      )} */}
       {show && !isLoading && evolutionB100Frontiere.data && (
         <PortefeuilleFrontiere data={evolutionB100Frontiere.data} />
       )}
-
-      {/* {show && !portefeuilleSimule.loading && (
-        <EvolutionB100 data={portefeuilleSimule.data} />
-      )} */}
     </>
   );
 }

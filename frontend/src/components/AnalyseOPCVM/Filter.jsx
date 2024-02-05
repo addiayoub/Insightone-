@@ -7,6 +7,7 @@ import SingleSelect from "../SingleSelect";
 import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { getAnalyse } from "../../redux/actions/AnalyseOPCVMActions";
+import { SearchButton } from "../Ui/Buttons";
 
 const seuilOptions = [0.1, 0.2, 0.25, 0.5];
 const periodeOptions = ["YTD", "1an", "3ans", "5ans"];
@@ -57,14 +58,7 @@ const Filter = ({ setIsShow }) => {
             setValue={setPeriode}
           />
         </Box>
-        <Button
-          variant="contained"
-          className="w-fit"
-          onClick={handleClick}
-          size="small"
-        >
-          Rechercher
-        </Button>
+        <SearchButton onClick={handleClick} className="w-fit" />
       </AccordionBox>
     </>
   );

@@ -12,6 +12,7 @@ import {
 import ConverTable from "../../portefeuilles/UploadPortefuille/ConvertTable";
 import PtfFresh from "../../portefeuilles/UploadPortefuille/PtfFresh";
 import UploadPortefeuille from "../../portefeuilles/UploadPortefuille/UploadPortefeuille";
+import { Wallet } from "iconsax-react";
 
 const Upload = ({ setShow, show }) => {
   const [selectedPtfs, setSelectedPtfs] = useState([]);
@@ -83,7 +84,7 @@ const Upload = ({ setShow, show }) => {
         setSelectedPtfs={setSelectedPtfs}
         setShow={setShow}
       /> */}
-      <AccordionBox title={"Choix du portefeuille"} isExpanded>
+      <AccordionBox title={"Choix du portefeuille"} isExpanded Icon={Wallet}>
         <Choice tabs={tabs} />
       </AccordionBox>
 

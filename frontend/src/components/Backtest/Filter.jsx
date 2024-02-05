@@ -17,6 +17,9 @@ import { formatDate } from "../../utils/FormatDate";
 import BacktestOperations from "./BacktestOperations";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { v4 as uuidv4 } from "uuid";
+import { Dashboard } from "@mui/icons-material";
+import { Trash2 } from "react-feather";
+import { SearchButton } from "../Ui/Buttons";
 
 const buttons = [
   {
@@ -348,15 +351,7 @@ function Filter({ setIsShow }) {
               )}
             </GridItem>
           </GridContainer>
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
-            className="mt-3"
-            onClick={handleSearch}
-          >
-            Rechercher
-          </Button>
+          <SearchButton onClick={handleSearch} className="mt-3" />
         </AccordionBox>
       )}
     </Box>

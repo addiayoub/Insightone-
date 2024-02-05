@@ -1,81 +1,48 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
 import moment from "moment";
+import BarChart from "../Default/BarChart";
+
+const getSeries = (data, seriesNames) => {
+  return seriesNames.map((key) => ({
+    name: key,
+    type: "bar",
+    data: data.map((item) => ({
+      value: item[key] * 100,
+      itemStyle: {
+        color: item[key] < 0 ? "#ee4658" : "#21cc6d",
+      },
+    })),
+  }));
+};
 
 const DailyReturns = ({ data }) => {
   console.log("render DailyReturns");
-  const theme = useChartTheme();
   const seriesName = useMemo(
     () => Object.keys(data[0]).filter((key) => key !== "seance"),
     [data]
   );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
-  const series = useMemo(
-    () =>
-      seriesName.map((key) => ({
-        name: key,
-        type: "bar",
-        data: data.map((item) => ({
-          value: item[key] * 100,
-          itemStyle: {
-            color: item[key] < 0 ? "#ee4658" : "#21cc6d",
-          },
-        })),
-      })),
-    [seriesName, data]
-  );
+  const series = useMemo(() => getSeries(data, seriesName), [seriesName, data]);
   const options = useMemo(() => {
     return {
       title: {
         text: "Returns",
         left: "center",
-        ...theme.title,
       },
       tooltip: {
-        trigger: "axis",
         axisPointer: {
           // type: "cross",
           crossStyle: {
             color: "#999",
           },
         },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       legend: {
         show: false,
-        data: seriesName,
-        orient: "vertical",
-        zLevel: 23,
-        height: "50%",
-        top: "center",
-        right: 0,
-        type: "scroll",
-        ...theme.legend,
       },
       grid: {
         right: "100px",
         top: "10%",
         bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
       },
       xAxis: {
         type: "category",
@@ -83,31 +50,25 @@ const DailyReturns = ({ data }) => {
         axisPointer: {
           type: "shadow",
         },
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
+      dataZoom: true,
       yAxis: {
-        type: "value",
         axisLabel: {
           formatter: "{value} %",
-          ...theme.yAxis.nameTextStyle,
         },
-        ...theme.yAxis,
       },
       series: series,
-      ...defaultOptions,
     };
-  }, [theme, defaultOptions, series, seriesName]);
+  }, [series, seriesName]);
   return (
-    <ReactECharts
-      option={options}
-      ref={chartRef}
-      style={{
-        minHeight: 500,
-      }}
-    />
+    <>
+      <BarChart
+        options={options}
+        style={{
+          minHeight: 500,
+        }}
+      />
+    </>
   );
 };
 

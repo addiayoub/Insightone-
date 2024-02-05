@@ -1,13 +1,11 @@
 import React, { useMemo, memo } from "react";
-import ReactECharts from "echarts-for-react";
 import { downColor, upColor } from "../../utils/generateRandomColorsArray";
-import useChartTheme from "../../hooks/useChartTheme";
-import { defaultOptions } from "../../utils/chart/defaultOptions";
+import BarChart from "../charts/Default/BarChart";
 
 const color = (dataArray) => {
   let result = [];
   const values = [];
-  dataArray.map((item) => values.push((item.Rdt_cum * 100).toFixed(2)));
+  dataArray.map((item) => values.push(item.Rdt_cum * 100));
   values
     .sort((a, b) => a - b)
     .map((value) => {
@@ -29,9 +27,6 @@ const color = (dataArray) => {
 
 function SecteurPerformance({ data, height = "400px" }) {
   console.log("Last seance", data);
-
-  const theme = useChartTheme();
-
   const yAxisValues = useMemo(
     () => data.map((item) => item.nom_indice),
     [data]
@@ -41,55 +36,26 @@ function SecteurPerformance({ data, height = "400px" }) {
       title: {
         text: "Performance Secteur",
         left: "center",
-
-        ...theme.title,
       },
       tooltip: {
-        trigger: "axis",
         axisPointer: {
           type: "shadow",
         },
-        ...defaultOptions.tooltip,
       },
       grid: {
         left: "3%",
         right: "4%",
         bottom: "3%",
-        containLabel: true,
       },
-      xAxis: [
-        {
-          type: "value",
-          splitLine: {
-            show: false,
-          },
-          axisLabel: {
-            ...theme.xAxis.nameTextStyle,
-          },
-          ...theme.xAxis,
+      xAxis: {
+        type: "value",
+        splitLine: {
+          show: false,
         },
-      ],
-      yAxis: [
-        {
-          type: "category",
-          axisTick: {
-            show: false,
-          },
-          data: yAxisValues,
-          axisLabel: {
-            ...theme.yAxis.nameTextStyle,
-          },
-          ...theme.yAxis,
-        },
-      ],
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: "none",
-          },
-          restore: {},
-          saveAsImage: {},
-        },
+      },
+      yAxis: {
+        type: "category",
+        data: yAxisValues,
       },
       series: [
         {
@@ -105,8 +71,8 @@ function SecteurPerformance({ data, height = "400px" }) {
         },
       ],
     };
-  }, [data, yAxisValues, theme, defaultOptions]);
-  return <ReactECharts option={options} style={{ height }} />;
+  }, [data, yAxisValues]);
+  return <BarChart options={options} style={{ height }} />;
 }
 
 export default memo(SecteurPerformance);

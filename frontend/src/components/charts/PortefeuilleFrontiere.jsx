@@ -1,11 +1,24 @@
-import ReactECharts from "echarts-for-react";
-import moment from "moment/moment";
+import moment from "moment";
 import React, { memo, useMemo } from "react";
-import useChartTheme from "../../hooks/useChartTheme";
+import LineChart from "./Default/LineChart";
+
+const getSeries = (data, seriesNames) => {
+  return seriesNames.map((name) => {
+    return {
+      name: name,
+      itemStyle: {
+        color: name.startsWith("ptf") ? "#ccc" : "",
+      },
+      type: "line",
+      symbol: "none",
+      data: data.map((item) => item[name]).filter((item) => item !== undefined),
+    };
+  });
+};
+
 // Evolution base 100 des Portefeuille simulé
 function PortefeuilleFrontiere({ data }) {
   console.log("PortefeuilleFrontiere({ data })", data);
-  const theme = useChartTheme();
   const all = [
     ...data["df_vl_ptf"],
     ...data["Evolution base 100 des Portefeuille simulé"],
@@ -16,16 +29,7 @@ function PortefeuilleFrontiere({ data }) {
       all.flatMap((obj) => Object.keys(obj).filter((key) => key !== "seance"))
     ),
   ];
-  const series = names.map((name) => {
-    return {
-      name: name,
-      itemStyle: {
-        color: name.startsWith("ptf") ? "#ccc" : "",
-      },
-      type: "line",
-      data: all.map((item) => item[name]).filter((item) => item !== undefined),
-    };
-  });
+  const series = useMemo(() => getSeries(all, names), [all, names]);
   const minYAxisValue = useMemo(() => {
     const seriesData = series.map((s) => s.data).flat();
     return Math.min(...seriesData);
@@ -36,77 +40,32 @@ function PortefeuilleFrontiere({ data }) {
       title: {
         text: "Evolution B100 Portefeuille Frontiere Efficiente",
         left: "center",
-        ...theme.title,
       },
       grid: {
-        top: "10%",
-        bottom: "15%",
         right: "19%",
-        containLabel: true,
       },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
+      legend: {
+        orient: "vertical",
+        height: "50%",
+        top: "center",
+        right: 0,
       },
-      tooltip: {
-        trigger: "axis",
-        valueFormatter: (value) => value.toFixed(2),
-      },
-      dataZoom: [
-        {
-          type: "slider",
-          show: true,
-          xAxisIndex: [0],
-          start: 0,
-          end: 100,
-        },
-        {
-          type: "inside",
-          xAxisIndex: [0],
-          start: 0,
-          end: 100,
-        },
-      ],
       xAxis: {
         type: "category",
         data: data["Evolution base 100 des Portefeuille simulé"].map((item) =>
           moment(item.seance).format("DD/MM/YYYY")
         ),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
-      },
-      legend: {
-        data: names.map((name) => name),
-        orient: "verticaly",
-        zLevel: 5,
-        top: "center",
-        right: "0",
-        type: "scroll",
-        ...theme.legend,
       },
       yAxis: {
         type: "value",
         min: Math.trunc(minYAxisValue),
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       series: series,
     };
-  }, [series, theme, data]);
+  }, [series, minYAxisValue, data]);
   return (
-    <ReactECharts
-      option={options}
-      className="my-5"
+    <LineChart
+      options={options}
       style={{
         height: "500px",
         maxHeight: "600px",

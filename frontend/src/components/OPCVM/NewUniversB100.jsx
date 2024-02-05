@@ -1,9 +1,9 @@
-import React, { useMemo, memo } from "react";
+import React, { useMemo, memo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
 import { formatDate } from "../../utils/FormatDate";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import useChartTheme from "../../hooks/useChartTheme";
+import LineChart from "../charts/Default/LineChart";
 
 const getFirstCoursAjusteValues = (data) => {
   const firstCoursAjusteValues = {};
@@ -21,31 +21,23 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
     () => getFirstCoursAjusteValues(data),
     [data]
   );
-  const seriesData = Object.keys(data).map((key) => ({
+  const seriesNames = Object.keys(data);
+  const seriesData = seriesNames.map((key) => ({
     name: key,
     type: "line",
     data: data[key].map((item) => [
       moment(item.Date_VL).valueOf(),
       (item.VL_AJUSTE / firstCoursAjusteValues[key]) * 100,
     ]),
-    showSymbol: false,
+    symbol: "none",
   }));
-  const theme = useChartTheme();
   const options = useMemo(() => {
     return {
       title: {
         text: `Comparaison en base 100 des titres sélectionnés \n entre le ${formatDate(
           dateDebut["$d"]
         )} et ${formatDate(dateFin["$d"])}`,
-        ...theme.title,
         left: "center",
-      },
-      legend: {
-        bottom: "0%",
-        orient: "horizontal",
-        type: "scroll",
-        width: "80%",
-        ...theme.legend,
       },
       xAxis: {
         type: "time",
@@ -56,17 +48,15 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
           hideOverlap: true,
         },
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       yAxis: {
-        type: "value",
         name: "Valeur Ajuste",
         nameLocation: "middle",
         nameGap: 50,
-        ...theme.yAxis,
       },
       series: seriesData,
       tooltip: {
         valueFormatter: (value) => formatNumberWithSpaces(value),
-        trigger: "axis",
         axisPointer: {
           type: "line",
           label: {
@@ -77,45 +67,18 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
           },
         },
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          top: "85%",
-          start: 0,
-          end: 100,
-        },
-      ],
       grid: {
         left: "50px",
         right: "80px",
-        bottom: "15%",
-        top: "10%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
     };
-  }, [theme, seriesData]);
+  }, [seriesData, seriesNames]);
 
   return (
-    <ReactECharts
-      option={options}
+    <LineChart
+      options={options}
       style={{ minHeight: 500 }}
-      key={JSON.stringify(options)}
+      // showSeriesSelector
     />
   );
 };

@@ -1,87 +1,51 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
-import echarts from "echarts/lib/echarts";
-import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
+import BarChart from "../Default/BarChart";
 
 // const lineData = data.map((item) => item.Frequency * 100);
 // const barData = data.map((item) => item.KDE);
 // const xAxisData = data.map((item) => item.Returns * 100);
 const DistrubitionMonthly = ({ data }) => {
   console.log("Render DistrubitionMonthly");
-  const theme = useChartTheme();
   const xAxisData = useMemo(
     () => data.map((item) => (item.Returns * 100).toFixed(2)),
     [data]
   );
   const min = Math.min(...xAxisData);
   const max = Math.max(...xAxisData);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   console.log("Min DistrubitionMonthly", min, max);
   const options = useMemo(() => {
     return {
       title: {
         text: "Distribution of Weekly Returns",
         left: "center",
-        ...theme.title,
       },
       tooltip: {
-        trigger: "axis",
         axisPointer: {
           // type: "cross",
           crossStyle: {
             color: "#999",
           },
         },
-        confine: true,
         valueFormatter: (value) => value?.toFixed(2),
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          magicType: { show: true, type: ["line", "bar"] },
-          restore: { show: true },
-          saveAsImage: { show: true },
-          dataView: {},
-          dataZoom: {
-            yAxisIndex: true,
-          },
-        },
       },
       legend: {
         show: false,
       },
-      xAxis: [
-        {
-          type: "category",
-          data: [...xAxisData, max + 1],
-          boundaryGap: true,
-          axisPointer: {
-            type: "shadow",
-          },
-          axisLabel: {
-            ...theme.xAxis.nameTextStyle,
-          },
-          ...theme.xAxis,
+      grid: { top: "15%" },
+      xAxis: {
+        type: "category",
+        data: [...xAxisData, max + 1],
+        boundaryGap: true,
+        axisPointer: {
+          type: "shadow",
         },
-      ],
+      },
       yAxis: [
         {
-          type: "value",
           name: "KDB",
-          axisLabel: {
-            ...theme.yAxis.nameTextStyle,
-          },
-          ...theme.yAxis,
         },
         {
-          type: "value",
           name: "Frequency",
-          axisLabel: {
-            ...theme.yAxis.nameTextStyle,
-          },
-          ...theme.yAxis,
         },
       ],
       series: [
@@ -121,15 +85,16 @@ const DistrubitionMonthly = ({ data }) => {
         },
       ],
     };
-  }, [theme, data, xAxisData]);
+  }, [data, xAxisData]);
   return (
-    <ReactECharts
-      ref={chartRef}
-      option={options}
-      style={{
-        minHeight: 500,
-      }}
-    />
+    <>
+      <BarChart
+        options={options}
+        style={{
+          minHeight: 500,
+        }}
+      />
+    </>
   );
 };
 

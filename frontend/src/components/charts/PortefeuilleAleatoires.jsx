@@ -1,10 +1,34 @@
-import React, { useState, useRef, useMemo, useEffect } from "react";
+import React, { useState, useRef, useMemo, useEffect, memo } from "react";
 import ReactECharts from "echarts-for-react";
 import { IconButton } from "@mui/material";
 import { Eye, EyeOff } from "react-feather";
 import useChartTheme from "../../hooks/useChartTheme";
 import PtfRange from "./PtfRange";
 import Ptf from "../Markowitz/PortefeuilleFrontiere";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+
+const seriesData = [
+  {
+    name: "PTF equi-pondéré",
+    color: "black",
+  },
+  {
+    name: "PTF Minimum Variance",
+    color: "green",
+  },
+  {
+    name: "MASI Rentabilité",
+    color: "red",
+  },
+  {
+    name: "PTF Max Rendement",
+    color: "purple",
+  },
+  {
+    name: "PTF Markowitz",
+    color: "blue",
+  },
+];
 
 function PortefeuilleAleatoires({
   data,
@@ -14,6 +38,7 @@ function PortefeuilleAleatoires({
   type,
 }) {
   const chart = useRef(null);
+  const myFullscreen = getFullscreenFeature(chart);
   const tabRef = useRef(null);
   const [name, setName] = useState(null);
   const theme = useChartTheme();
@@ -27,28 +52,6 @@ function PortefeuilleAleatoires({
       color: "#e100ff",
     },
   }));
-  const seriesData = [
-    {
-      name: "PTF equi-pondéré",
-      color: "black",
-    },
-    {
-      name: "PTF Minimum Variance",
-      color: "green",
-    },
-    {
-      name: "MASI Rentabilité",
-      color: "red",
-    },
-    {
-      name: "PTF Max Rendement",
-      color: "purple",
-    },
-    {
-      name: "PTF Markowitz",
-      color: "blue",
-    },
-  ];
   const ptf = frontiere.map((item) => ({
     value: [item.Risque * 100, item.Rendement * 100],
     name: item.ptf,
@@ -81,6 +84,7 @@ function PortefeuilleAleatoires({
       },
       toolbox: {
         feature: {
+          myFullscreen,
           dataZoom: {
             yAxisIndex: "none",
           },
@@ -253,4 +257,4 @@ function PortefeuilleAleatoires({
   );
 }
 
-export default PortefeuilleAleatoires;
+export default memo(PortefeuilleAleatoires);

@@ -1,9 +1,6 @@
-import React, { memo, useMemo, useRef, useState } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../hooks/useChartTheme";
+import React, { memo, useMemo } from "react";
 import { generateRandomColorsArray } from "../../utils/generateRandomColorsArray";
-import useSeriesSelector from "../../hooks/useSeriesSelector";
-import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+import ScatterChart from "./Default/ScatterChart";
 
 const getSeriesData = (data) => {
   const colors = generateRandomColorsArray(data.length);
@@ -42,7 +39,6 @@ const formatData = (data) => {
 };
 
 function RendementRisqueScatter({ data }) {
-  const theme = useChartTheme();
   console.log("RendementRisqueScatter", data);
   const min = useMemo(
     () => Math.min(...data.map((item) => Math.trunc(item.Performance * 100))),
@@ -53,79 +49,30 @@ function RendementRisqueScatter({ data }) {
     () => seriesData.map((serie) => serie.name),
     [seriesData]
   );
-  const { selectedLegend, SeriesSelector } = useSeriesSelector(
-    seriesNames,
-    seriesNames
-  );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
         text: "Analyse Rendement/Risque Période Annualisée",
         left: "center",
-        top: 0,
-        ...theme.title,
       },
       legend: {
-        // data: seriesNames,
         orient: "horizontal",
-        zLevel: 5,
         left: "center",
         bottom: 0,
         width: "60%",
-        selected: selectedLegend,
-        type: "scroll",
-        ...theme.legend,
       },
       grid: {
         bottom: "80",
       },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: "none",
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        right: 0,
-        top: 15,
-      },
       xAxis: {
-        type: "value",
         name: "Risque",
-        nameLocation: "middle",
-        nameGap: 30,
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        nameTextStyle: {
-          fontSize: 16,
-          ...theme.xAxis.nameTextStyle,
-        },
         // min: Math.min(...data.map((item) => Math.trunc(item.Volatilite * 100))),
       },
       yAxis: {
-        type: "value",
         name: "Rendement",
-        nameLocation: "middle",
-        nameGap: 30,
-        min: min,
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        nameTextStyle: {
-          fontSize: 16,
-          ...theme.yAxis.nameTextStyle,
-        },
+        min,
       },
       tooltip: {
-        trigger: "item",
-        axisPointer: {
-          type: "cross",
-        },
         formatter: function (params) {
           const { name, seriesName, value } = params;
           const res = name !== "" ? name : seriesName;
@@ -134,24 +81,24 @@ function RendementRisqueScatter({ data }) {
           )}% <br /> Risque: ${value[0].toFixed(2)}%`;
         },
       },
+      seriesNames: { seriesList: seriesNames },
       series: seriesData,
     };
-  }, [seriesData, selectedLegend, theme]);
+  }, [seriesData, seriesNames]);
 
   return (
-    <div>
-      <SeriesSelector />
-      <ReactECharts
-        option={options}
-        ref={chartRef}
+    <>
+      <ScatterChart
+        options={options}
         style={{
           height: "500px",
           minWidth: "600px",
           width: "100%",
           margin: "auto",
         }}
+        showSeriesSelector
       />
-    </div>
+    </>
   );
 }
 

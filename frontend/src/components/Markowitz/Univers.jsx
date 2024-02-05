@@ -24,6 +24,7 @@ import Heatmap from "../charts/Heatmap";
 import UniversB100 from "../charts/UniversB100";
 import MainLoader from "../loaders/MainLoader";
 import ChartContainer from "../ChartContainer";
+import { ValidateButton } from "../Ui/Buttons";
 
 function not(a, b) {
   return a.filter((value) => b.indexOf(value) === -1);
@@ -247,16 +248,11 @@ export default function Univers({
           )}
         </Box>
         <Box className="max-w-[400px] mx-auto mt-10">
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
-            className="w-full"
+          <ValidateButton
+            fullWidth
             disabled={isLoading || right.length < 1}
             onClick={getMatrice_correlation_Covariance}
-          >
-            {isLoading ? "Veuillez patienter..." : "Valider"}
-          </Button>
+          />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}

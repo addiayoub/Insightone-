@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { memo, useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -22,6 +22,7 @@ import IndicesChartV2 from "../charts/IndicesChartV2";
 import ComparaisonIndicesV2 from "../ComparaisonIndicesV2";
 import PerformanceChartV2 from "../charts/PerformanceChartV2";
 import VolatiliteChartV2 from "../charts/VolatiliteChartV2";
+import { ValidateButton } from "../Ui/Buttons";
 
 function Indices({ dateDebut, dateFin }) {
   const dispatch = useDispatch();
@@ -129,17 +130,13 @@ function Indices({ dateDebut, dateFin }) {
           </ChartContainer>
         </Box>
         <Box className="block max-w-[400px] mt-4 mx-auto">
-          <Button
-            variant="contained"
-            color="primary"
+          <ValidateButton
             fullWidth
             onClick={handleSearch}
             disabled={
               selectedIndices.length < 1 || loadingCompa || loadingIndicesChart
             }
-          >
-            {loadingCompa ? "Veuillez patienter..." : "Valider"}
-          </Button>
+          />
         </Box>
         {loadingCompa && <MainLoader />}
         {showCompa && (

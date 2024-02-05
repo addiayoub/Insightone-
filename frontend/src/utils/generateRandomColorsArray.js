@@ -299,7 +299,7 @@ export function generateRandomColorsArray(length) {
     "#dce77a",
     "#77ecca",
   ];
-  return colors.slice(0, length - 1);
+  return colors.slice(length);
 }
 export const upColor = "#ec0000";
 export const downColor = "#00da3c";

@@ -6,6 +6,7 @@ import AccordionBox from "../AccordionBox";
 import RangeSlider from "../SliderCom";
 import Contrainte from "../Contrainte";
 import ResetButton from "../ResetButton";
+import { Tool } from "react-feather";
 
 const getValueRangeFromStars = (stars) => {
   switch (stars) {
@@ -64,6 +65,7 @@ function Contraintes() {
       <AccordionBox
         title={"Contraintes sur l'univers"}
         detailsClass={"flex justify-between items-center flex-wrap gap-y-2"}
+        Icon={Tool}
       >
         <Box>
           <Contrainte label="Performance">

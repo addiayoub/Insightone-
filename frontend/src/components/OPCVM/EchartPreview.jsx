@@ -1,30 +1,28 @@
-import React, { useMemo } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { useMemo, useRef } from "react";
 import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import useChartTheme from "../../hooks/useChartTheme";
+import LineChart from "../charts/Default/LineChart";
+
+const getSeriesData = (data) => {
+  return Object.entries(data).map(([key, items]) => ({
+    name: key,
+    type: "line",
+    data: items.map((item) => [moment(item.Date_VL).valueOf(), item.VL_AJUSTE]),
+    symbol: "none",
+  }));
+};
 
 const EChartsPreview = ({ data }) => {
-  const theme = useChartTheme();
-  console.log("EChartsPreview", data);
-  const seriesData = useMemo(
-    () =>
-      Object.entries(data).map(([key, items]) => ({
-        name: key,
-        type: "line",
-        data: items.map((item) => [
-          moment(item.Date_VL).valueOf(),
-          item.VL_AJUSTE,
-        ]),
-        showSymbol: false,
-      })),
-    [data]
+  const seriesData = useMemo(() => getSeriesData(data), [data]);
+  const seriesNames = useMemo(
+    () => seriesData.map((item) => item.name),
+    [seriesData]
   );
+  console.log("seriesNames EchartPre", seriesNames);
   const options = useMemo(() => {
     return {
       title: {
         text: "Evolution du volume des titres sélectionnés",
-        ...theme.title,
         left: "left",
       },
       xAxis: {
@@ -33,26 +31,16 @@ const EChartsPreview = ({ data }) => {
           formatter: function (value) {
             return moment(value).format("DD-MM-YYYY");
           },
-          hideOverlap: true,
         },
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       yAxis: {
-        type: "value",
         nameLocation: "middle",
         nameGap: 50,
         name: "Volume Ajuste",
-        ...theme.yAxis,
-      },
-      legend: {
-        bottom: "0%",
-        orient: "horizontal",
-        type: "scroll",
-        width: "80%",
-        ...theme.legend,
       },
       series: seriesData,
       tooltip: {
-        trigger: "axis",
         valueFormatter: (value) => formatNumberWithSpaces(value),
         axisPointer: {
           type: "line",
@@ -64,45 +52,24 @@ const EChartsPreview = ({ data }) => {
           },
         },
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          top: "85%",
-          start: 0,
-          end: 100,
-        },
-      ],
       grid: {
         left: "50px",
         right: "80px",
-        bottom: "15%",
-        top: "10%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
     };
-  }, [seriesData, theme]);
+  }, [seriesData, seriesNames]);
 
   return (
-    <ReactECharts
-      option={options}
+    // <ReactECharts
+    //   option={options}
+    //   style={{ minHeight: 500 }}
+    //   key={JSON.stringify(options)}
+    //   ref={chart}
+    // />
+    <LineChart
+      options={options}
       style={{ minHeight: 500 }}
-      key={JSON.stringify(options)}
+      // showSeriesSelector
     />
   );
 };

@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { memo } from "react";
+import { Settings } from "react-feather";
 
 const AccordionBox = ({
   accordionClass = "",
@@ -14,6 +15,7 @@ const AccordionBox = ({
   detailsClass = "",
   title,
   isExpanded = false,
+  Icon = Settings,
   children,
 }) => {
   return (
@@ -22,12 +24,13 @@ const AccordionBox = ({
       className={`my-5 ${accordionClass}`}
     >
       <AccordionSummary
-        className={summaryClass}
+        className={`flex flex-wrap items-center ${summaryClass}`}
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography variant="title" className="capitalize">
+        <Icon className="mr-3" color="var(--primary-color)" />
+        <Typography variant="title" className="capitalize leading-[24px]">
           {title}
         </Typography>
       </AccordionSummary>

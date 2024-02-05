@@ -19,7 +19,7 @@ import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces.js";
 import { Box, Button } from "@mui/material";
 import dayjs from "dayjs";
 import Donut from "../charts/Donut.jsx";
-import { ArrowDown, ArrowRight, ArrowUp } from "react-feather";
+import { ArrowDown, ArrowRight, ArrowUp, Calendar } from "react-feather";
 import P_DU_M from "../../data/PERFORMANCE_DU_MARCHE_PARAM1.json";
 import V_PAR_M_P1 from "../../data/VOLUME_PAR_MARCHE_PARAM1.json";
 import P_V_MC from "../../data/PRINCIPAUX_VOLUMES_MC_PARAM1";
@@ -64,6 +64,19 @@ const gridStyle = {
   gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
   alignItems: "center",
   gap: "0 15px",
+};
+
+const lastItem = (arr) => {
+  return arr[arr.length - 1];
+};
+const determineMarketStatus = (variation) => {
+  if (variation > 0.5) {
+    return "Bullish";
+  } else if (variation >= -0.5 && variation <= 0.5) {
+    return "Neutral";
+  } else {
+    return "Bearish";
+  }
 };
 
 function Index() {
@@ -120,18 +133,6 @@ function Index() {
   const [show, setShow] = useState(false);
   const [seanceDate, setSeanceDate] = useState("");
   const dispatch = useDispatch();
-  const lastItem = (arr) => {
-    return arr[arr.length - 1];
-  };
-  const determineMarketStatus = (variation) => {
-    if (variation > 0.5) {
-      return "Bullish";
-    } else if (variation >= -0.5 && variation <= 0.5) {
-      return "Neutral";
-    } else {
-      return "Bearish";
-    }
-  };
 
   const firstCall = () => {
     getSliderDataAction(date);
@@ -181,6 +182,7 @@ function Index() {
         detailsClass={"flex items-center flex-wrap gap-2"}
         title={"Choix de la période"}
         isExpanded={true}
+        Icon={Calendar}
       >
         <DateComponent label={"Date"} date={date} setDate={setDate} />
         <Button

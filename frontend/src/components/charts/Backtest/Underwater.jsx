@@ -1,20 +1,11 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
-import useChartTheme from "../../../hooks/useChartTheme";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
-import SaveToExcel from "../../SaveToExcel";
+import LineChart from "../Default/LineChart";
 
 const Underwater = ({ data }) => {
   console.log("Underwater data", data);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const { selectedPtf } = useSelector((state) => state.backtest);
-  const theme = useChartTheme();
   const seances = useMemo(
     () => data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
     [data]
@@ -27,44 +18,22 @@ const Underwater = ({ data }) => {
   const options = useMemo(() => {
     return {
       tooltip: {
-        trigger: "axis",
-        confine: true,
         valueFormatter: (value) => value?.toFixed(2) + "%",
       },
       title: {
         left: "center",
         text: "Underwater Plot",
-        ...theme.title,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          dataView: {},
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
       xAxis: {
         type: "category",
         boundaryGap: false,
         data: seances,
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
       yAxis: {
-        type: "value",
         boundaryGap: [0, "100%"],
         axisLabel: {
           formatter: "{value}%",
-          ...theme.yAxis.nameTextStyle,
         },
-        ...theme.yAxis,
       },
       series: [
         {
@@ -87,27 +56,20 @@ const Underwater = ({ data }) => {
           itemStyle: {
             color: "blue",
           },
-          // lineStyle: {
-          //   type: "dashed", // Set to 'dashed' for a dashed line
-          // },
           data: average,
         },
       ],
-      ...defaultOptions,
     };
-  }, [selectedPtf, seriesData, average, theme, seances, defaultOptions]);
+  }, [selectedPtf, seriesData, average, seances]);
   return (
-    <div className="relative">
-      <SaveToExcel data={data} fileName={"Underwater Plot"} />
-      <ReactECharts
-        option={options}
-        ref={chartRef}
-        style={{
-          minHeight: 500,
-          margin: "15px 0",
-        }}
-      />
-    </div>
+    <LineChart
+      options={options}
+      style={{
+        minHeight: 500,
+        margin: "15px 0",
+      }}
+      saveToExcel={{ show: true, data, fileName: "Underwater Plot" }}
+    />
   );
 };
 

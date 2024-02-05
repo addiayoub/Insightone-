@@ -31,6 +31,7 @@ import SavedPtfs from "./UploadPortefuille/SavedPtfs";
 import PtfFresh from "./UploadPortefuille/PtfFresh";
 import PoidsDonut from "../charts/Backtest/PoidsDonut";
 import DeleteModal from "../DeleteModal";
+import { Wallet } from "iconsax-react";
 
 const types = ["Actions", "OPCVM"];
 
@@ -197,7 +198,7 @@ const Portefeuilles = () => {
           </Button>
         </Box> */}
       {/* </AccordionBox> */}
-      <AccordionBox title={"Backtester via"} isExpanded={true}>
+      <AccordionBox title={"Backtester via"} isExpanded={true} Icon={Wallet}>
         <Choice tabs={tabs} />
       </AccordionBox>
       {/* <ConverTable /> */}

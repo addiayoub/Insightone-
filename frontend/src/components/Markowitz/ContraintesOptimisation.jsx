@@ -21,6 +21,9 @@ import MainLoader from "../loaders/MainLoader";
 import TabTest from "../OPCVM/TabTest";
 import checkExistence from "../../utils/checkExistence";
 import selectStyle from "../../utils/SelectMultiple";
+import { ValidateButton } from "../Ui/Buttons";
+import { Tool } from "react-feather";
+import { PresentionChart } from "iconsax-react";
 
 const filterResult = (contraintes, resultArr) => {
   return resultArr.filter((obj) => contraintes.includes(obj.indice));
@@ -195,9 +198,16 @@ export default function ContraintesOptimisation({
   //   evolutionB100.loading ||
   //   poidsMasi.loading ||
   //   portefeuilleRendementMaximale.loading;
+  const isApiCall =
+    loading ||
+    contraintesPoids.loading ||
+    evolutionB100.loading ||
+    portefeuilleMarkowitz.loading ||
+    portefeuilleRendementMaximale.loading ||
+    poidsMasi.loading;
   return (
     <>
-      <AccordionBox title={"Contraintes d'optimisation"}>
+      <AccordionBox title={"Contraintes d'optimisation"} Icon={Tool}>
         <Box className="flex justify-between flex-wrap gap-4">
           <Box className="flex">
             <Box>
@@ -250,29 +260,11 @@ export default function ContraintesOptimisation({
         </Box>
 
         <Box className="block max-w-[400px] mt-4 mx-auto">
-          <Button
-            variant="contained"
-            color="primary"
+          <ValidateButton
             fullWidth
-            disabled={
-              loading ||
-              portefeuilleMarkowitz.loading ||
-              contraintesPoids.loading ||
-              evolutionB100.loading ||
-              portefeuilleRendementMaximale.loading ||
-              poidsMasi.loading
-            }
+            disabled={isApiCall}
             onClick={handleValider}
-          >
-            {loading ||
-            contraintesPoids.loading ||
-            evolutionB100.loading ||
-            portefeuilleMarkowitz.loading ||
-            portefeuilleRendementMaximale.loading ||
-            poidsMasi.loading
-              ? "Veuillez patienter..."
-              : "Valider"}
-          </Button>
+          />
         </Box>
       </AccordionBox>
 
@@ -294,7 +286,10 @@ export default function ContraintesOptimisation({
       )} */}
       {showPoids && <TabTest components={components} />}
       {showPoids && !evolutionB100.loading && evolutionB100.data.length > 0 && (
-        <AccordionBox title={"Evolution B100 portefeuille simulé"}>
+        <AccordionBox
+          title={"Evolution B100 portefeuille simulé"}
+          Icon={PresentionChart}
+        >
           <EvolutionB100 data={evolutionB100.data} />
         </AccordionBox>
       )}

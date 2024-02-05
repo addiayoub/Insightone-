@@ -3,10 +3,11 @@ import AccordionBox from "../AccordionBox";
 import Table from "../Table";
 import { calculatePercentage } from "../../utils/calculatePercentage";
 import { columns } from "./columns";
+import { FileText } from "react-feather";
 
 function Data({ data }) {
   return (
-    <AccordionBox title={"Data"} isExpanded>
+    <AccordionBox title={"Data"} isExpanded Icon={FileText}>
       <h3 className="text-right">{`${data.filteredData.length}/${
         data.data.length
       } (${calculatePercentage(

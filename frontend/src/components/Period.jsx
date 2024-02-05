@@ -1,9 +1,10 @@
-import { Button } from "@mui/material";
 import React, { memo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { resetContraints } from "../redux/slices/DataSlice";
 import AccordionBox from "./AccordionBox";
 import DateComponent from "./DateComponent";
+import { SearchButton } from "./Ui/Buttons";
+import { Calendar } from "react-feather";
 
 function Period({ dateDebut, setDateDebut, dateFin, setDateFin, onSearch }) {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function Period({ dateDebut, setDateDebut, dateFin, setDateFin, onSearch }) {
       detailsClass={"flex items-center flex-wrap gap-2"}
       title={"choix de la période"}
       isExpanded={true}
+      Icon={Calendar}
     >
       <DateComponent
         date={dateDebut}
@@ -23,14 +25,7 @@ function Period({ dateDebut, setDateDebut, dateFin, setDateFin, onSearch }) {
         label={"Date début"}
       />
       <DateComponent date={dateFin} setDate={setDateFin} label={"Date fin"} />
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        onClick={handelClick}
-      >
-        Rechercher
-      </Button>
+      <SearchButton onClick={handelClick} />
     </AccordionBox>
   );
 }

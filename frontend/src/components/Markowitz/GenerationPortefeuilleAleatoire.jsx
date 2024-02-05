@@ -12,6 +12,8 @@ import MainLoader from "../loaders/MainLoader";
 import PortefeuilleDonut from "../charts/PortefeuilleDonut";
 import Modal from "../Modal";
 import Ptf from "./PortefeuilleFrontiere";
+import { ValidateButton } from "../Ui/Buttons";
+import { Aperture } from "react-feather";
 
 function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
   const [PTF, setPTF] = useState("");
@@ -60,9 +62,18 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
   useEffect(() => {
     console.log("name", name);
   }, [name]);
+  const isDisabled =
+    contraintesPoids?.data?.df_return?.length < 1 ||
+    isLoading ||
+    PTF === "" ||
+    risque === "" ||
+    nbrPointFront === "";
   return (
     <>
-      <AccordionBox title={"Génération de portefeuille aléatoire"}>
+      <AccordionBox
+        title={"Génération de portefeuille aléatoire"}
+        Icon={Aperture}
+      >
         <Box>
           <FormControl className="flex flex-wrap flex-row gap-2.5 items-center mb-3">
             <Typography
@@ -129,19 +140,11 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
           </FormControl>
         </Box>
         <Box className="block max-w-[400px] mt-4 mx-auto">
-          <Button
-            variant="contained"
-            color="primary"
+          <ValidateButton
             fullWidth
-            disabled={
-              contraintesPoids?.data?.df_return?.length < 1 || isLoading
-            }
+            disabled={isDisabled}
             onClick={handleClick}
-          >
-            {loading || evolutionB100Frontiere.loading
-              ? "Veuillez patienter..."
-              : "Valider"}
-          </Button>
+          />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}

@@ -1,13 +1,8 @@
 import moment from "moment";
-import React, { useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { useMemo } from "react";
 import useChartTheme from "../../../hooks/useChartTheme";
-import BacktestData from "../../Test/BacktesData.json";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import LineChart from "../Default/LineChart";
 // {
 //       "seance": "2023-12-01",
 //       "Somme actif_AP": 5000002540.43,
@@ -77,20 +72,20 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
       })),
     [bubblesData]
   );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const tooltip = withBubbles ? { formatter: tooltipFormatter } : {};
   const seriesData = withBubbles
     ? seriesNames
         .map((seriesName) => ({
           name: seriesName,
           type: "line",
+          symbol: "none",
           data: data.map((item) => item[seriesName]),
         }))
         .concat(bubbles)
     : seriesNames.map((seriesName) => ({
         name: seriesName,
         type: "line",
+        symbol: "none",
         data: data.map((item) => item[seriesName]),
       }));
   const options = useMemo(() => {
@@ -98,49 +93,21 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
       title: {
         text: title,
         left: "center",
-        ...theme.title,
       },
       grid: {
         right: "133px",
-        top: "10%",
         // right: "3%",
         bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
       tooltip: {
-        trigger: "axis",
         ...tooltip,
         valueFormatter: (value) => formatNumberWithSpaces(value),
       },
       xAxis: {
         type: "category",
         data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
-      legend: {
-        data: seriesNames,
-        orient: "vertical",
-        zLevel: 5,
-        height: "300px",
-        top: "center",
-        right: "0",
-        type: "scroll",
-        ...theme.legend,
-      },
+
       yAxis: [
         {
           type: "value",
@@ -165,19 +132,19 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
         },
       ],
       series: seriesData,
-      ...defaultOptions,
     };
-  }, [theme, seriesData, data, defaultOptions]);
+  }, [seriesData, data]);
   return (
-    <ReactECharts
-      option={options}
-      style={{
-        margin: "50px auto",
-        height: "500px",
-        maxHeight: "600px",
-      }}
-      ref={chartRef}
-    />
+    <>
+      <LineChart
+        options={options}
+        style={{
+          margin: "50px auto",
+          height: "500px",
+          maxHeight: "600px",
+        }}
+      />
+    </>
   );
 };
 

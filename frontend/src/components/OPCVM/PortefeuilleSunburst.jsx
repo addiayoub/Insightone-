@@ -1,8 +1,9 @@
 import ReactECharts from "echarts-for-react";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import groupBy from "../../utils/groupBy";
 import { ToggleLeft, ToggleRight } from "react-feather";
 import { IconButton } from "@mui/material";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const societeFirstFun = (data) => {
   const res = [];
@@ -86,6 +87,8 @@ function PortefeuilleSunburst({ data, field }) {
   const toggleHierarchy = () => {
     setIsClassification((prevState) => !prevState);
   };
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   console.log(test);
   const societeFirst = () => {
     const res = [];
@@ -184,6 +187,13 @@ function PortefeuilleSunburst({ data, field }) {
     title: {
       text: "",
     },
+    toolbox: {
+      feature: {
+        myFullscreen,
+        saveAsImage: {},
+      },
+      top: "20px",
+    },
     grid: {
       // left: "100%",
     },
@@ -253,8 +263,9 @@ function PortefeuilleSunburst({ data, field }) {
         style={{
           height: "500px",
         }}
+        ref={chartRef}
       />
-      <div className="absolute right-0 text-[10px] top-0 max-w-[100px] mb-5">
+      <div className="absolute left-0 text-[10px] top-0 max-w-[100px] mb-5">
         <span>Société de gestion</span>
         <IconButton
           color="primary"

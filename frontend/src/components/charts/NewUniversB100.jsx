@@ -1,10 +1,8 @@
-import React, { useMemo, memo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { useMemo, memo } from "react";
 import moment from "moment";
 import { formatDate } from "../../utils/FormatDate";
-import useChartTheme from "../../hooks/useChartTheme";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+import LineChart from "./Default/LineChart";
 
 const formatData = (data, firstCoursAjusteValues) => {
   const seriesData = [];
@@ -19,31 +17,33 @@ const formatData = (data, firstCoursAjusteValues) => {
           (item.Cours_Ajuste / firstCoursAjusteValues[item.CLE_TITRE]) * 100,
         ],
       })),
-      showSymbol: false,
+      symbol: "none",
     });
   }
   return seriesData;
 };
+const getFirstCoursAjusteValues = (data) => {
+  const firstCoursAjusteValues = {};
+  Object.keys(data).forEach((key) => {
+    const valuesForKey = data[key];
+    const cle = data[key][0]["CLE_TITRE"];
 
+    valuesForKey.sort((a, b) => new Date(a.SEANCE) - new Date(b.SEANCE));
+    const firstValue = valuesForKey[0]?.Cours_Ajuste;
+    firstCoursAjusteValues[cle] = firstValue;
+  });
+  return firstCoursAjusteValues;
+};
 const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
-  const theme = useChartTheme();
-  const getFirstCoursAjusteValues = (data) => {
-    const firstCoursAjusteValues = {};
-    Object.keys(data).forEach((key) => {
-      const valuesForKey = data[key];
-      const cle = data[key][0]["CLE_TITRE"];
+  const firstCoursAjusteValues = useMemo(
+    () => getFirstCoursAjusteValues(data),
+    [data]
+  );
 
-      valuesForKey.sort((a, b) => new Date(a.SEANCE) - new Date(b.SEANCE));
-      const firstValue = valuesForKey[0]?.Cours_Ajuste;
-      firstCoursAjusteValues[cle] = firstValue;
-    });
-    return firstCoursAjusteValues;
-  };
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
-  const firstCoursAjusteValues = getFirstCoursAjusteValues(data);
-
-  const seriesData = formatData(data, firstCoursAjusteValues);
+  const seriesData = useMemo(
+    () => formatData(data, firstCoursAjusteValues),
+    [data, firstCoursAjusteValues]
+  );
 
   const options = useMemo(() => {
     return {
@@ -53,7 +53,6 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
         )} et ${formatDate(dateFin["$d"])} \n`,
         left: "center",
         top: -5,
-        ...theme.title,
       },
       xAxis: {
         type: "time",
@@ -62,18 +61,12 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
           formatter: function (value) {
             return moment(value).format("DD-MM-YYYY");
           },
-          hideOverlap: true,
         },
       },
       legend: {
-        bottom: "0%",
-        orient: "horizontal",
-        type: "scroll",
         width: "80%",
-        ...theme.legend,
       },
       yAxis: {
-        type: "value",
         name: "Cours_Ajuste",
         nameLocation: "middle",
         nameGap: 50,
@@ -93,48 +86,18 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
           },
         },
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          top: "85%",
-          start: 0,
-          end: 100,
-        },
-      ],
       grid: {
         left: "10%",
         right: "15%",
         bottom: "15%",
-        top: "10%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        top: "20px",
       },
     };
-  }, [seriesData, theme]);
+  }, [seriesData]);
 
   return (
-    <ReactECharts
-      option={options}
-      key={JSON.stringify(options)}
-      style={{ minHeight: 500 }}
-      ref={chartRef}
-    />
+    <>
+      <LineChart options={options} style={{ minHeight: 500 }} />
+    </>
   );
 };
 

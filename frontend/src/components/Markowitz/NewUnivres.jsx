@@ -16,6 +16,8 @@ import groupBy from "../../utils/groupBy";
 import EChartsPreview from "../Test/EchartPreview";
 import NewUniversB100 from "../charts/NewUniversB100";
 import TransferList from "../TransferList";
+import { ValidateButton } from "../Ui/Buttons";
+import { MousePointer } from "react-feather";
 
 export default function NewUnivers({
   dateDebut,
@@ -78,7 +80,7 @@ export default function NewUnivers({
 
   return (
     <>
-      <AccordionBox title={"Selection de l'univers"}>
+      <AccordionBox title={"Selection de l'univers"} Icon={MousePointer}>
         <TransferList
           checked={checked}
           setChecked={setChecked}
@@ -104,16 +106,11 @@ export default function NewUnivers({
           </ChartContainer>
         )}
         <Box className="max-w-[400px] mx-auto mt-10">
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
-            className="w-full"
+          <ValidateButton
+            fullWidth
             disabled={isLoading || right.length < 1}
             onClick={getMatrice_correlation_Covariance}
-          >
-            {isLoading ? "Veuillez patienter..." : "Valider"}
-          </Button>
+          />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}

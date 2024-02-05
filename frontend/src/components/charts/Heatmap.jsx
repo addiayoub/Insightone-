@@ -1,6 +1,7 @@
 import ReactECharts from "echarts-for-react";
-import React from "react";
+import React, { useRef } from "react";
 import useChartTheme from "../../hooks/useChartTheme";
+import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
 
 const calculateChartHeight = (array) => {
   let height = "300px";
@@ -25,7 +26,8 @@ const transformCorrelationDataForHeatmap = (data, companies) => {
 function Heatmap({ data }) {
   const companies = data.map((item) => item.index);
   const theme = useChartTheme();
-
+  const chartRef = useRef(null);
+  const myFullscreen = getFullscreenFeature(chartRef);
   const correlationHeatmapData = transformCorrelationDataForHeatmap(
     data,
     companies
@@ -51,6 +53,13 @@ function Heatmap({ data }) {
       top: "0%",
       left: "5%",
       containLabel: true,
+    },
+    toolbox: {
+      feature: {
+        myFullscreen,
+        saveAsImage: {},
+      },
+      top: "20px",
     },
     xAxis: {
       type: "category",
@@ -119,6 +128,7 @@ function Heatmap({ data }) {
       <ReactECharts
         option={option}
         notMerge={true}
+        ref={chartRef}
         lazyUpdate={true}
         style={{
           minHeight: calculateChartHeight(companies),

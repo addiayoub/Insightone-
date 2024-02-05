@@ -17,6 +17,7 @@ import { setSelectedPtf } from "../../redux/slices/BacktestSlice";
 import SelectedTitres from "../charts/SelectedTitres";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { notyf } from "../../utils/notyf";
+import { SearchButton } from "../Ui/Buttons";
 
 const buttons = [
   {
@@ -154,15 +155,11 @@ const Filter = ({ setIsShow }) => {
         })}
         {list.length > 0 && <SelectedIndices list={list} />}
         {list.length > 0 && <SelectedTitres selectedTitres={list} />}
-        <Button
-          variant="contained"
+        <SearchButton
           className="w-fit mt-3"
           disabled={isDisabled}
           onClick={handleClick}
-          size="small"
-        >
-          Rechercher
-        </Button>
+        />
       </AccordionBox>
     </>
   );

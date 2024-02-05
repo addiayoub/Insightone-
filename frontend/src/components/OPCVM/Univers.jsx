@@ -13,6 +13,8 @@ import groupBy from "../../utils/groupBy";
 import EChartsPreview from "./EchartPreview";
 import NewUniversB100 from "./NewUniversB100";
 import TransferList from "../TransferList";
+import { ValidateButton } from "../Ui/Buttons";
+import { MousePointer } from "react-feather";
 
 function Univers({ dateDebut, dateFin, setContraintesOp }) {
   const {
@@ -74,7 +76,7 @@ function Univers({ dateDebut, dateFin, setContraintesOp }) {
 
   return (
     <>
-      <AccordionBox title={"Selection de l'univers"}>
+      <AccordionBox title={"Selection de l'univers"} Icon={MousePointer}>
         <TransferList
           checked={checked}
           setChecked={setChecked}
@@ -94,15 +96,7 @@ function Univers({ dateDebut, dateFin, setContraintesOp }) {
           </ChartContainer>
         )}
         <Box className="max-w-[400px] mx-auto mt-10">
-          <Button
-            variant="contained"
-            size="small"
-            color="primary"
-            className="w-full"
-            onClick={getMatrice}
-          >
-            {isLoading ? "Veuillez patienter..." : "Valider"}
-          </Button>
+          <ValidateButton fullWidth onClick={getMatrice} disabled={isLoading} />
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}

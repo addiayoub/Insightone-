@@ -59,7 +59,7 @@ export const loeilExpertColumns = [
             variant="body2"
             className="mr-3 font-semibold min-w-[90px] text-right"
           >
-            {formatNumberWithSpaces(value.toFixed(2))}
+            {formatNumberWithSpaces(value?.toFixed(2))}
           </Typography>
           <RenderStarsWithRating
             value={value}
@@ -95,7 +95,7 @@ export const indicateursRisqueColumns = [
             variant="body2"
             className="mr-3 font-semibold min-w-[90px] text-right"
           >
-            {formatNumberWithSpaces(value.toFixed(2))}
+            {formatNumberWithSpaces(value?.toFixed(2))}
           </Typography>
           <RenderStarsWithRating
             value={value}
@@ -205,7 +205,7 @@ export const sidewaysColumns = [
     field: "sideways_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.sideways_re.toFixed(2) + "%",
+    renderCell: (params) => params.row.sideways_re?.toFixed(2) + "%",
   },
 ];
 export const bearColumns = [
@@ -219,7 +219,7 @@ export const bearColumns = [
     field: "bear_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.bear_re.toFixed(2) + "%",
+    renderCell: (params) => params.row.bear_re?.toFixed(2) + "%",
   },
 ];
 
@@ -234,7 +234,7 @@ export const bullColumns = [
     field: "bull_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.bull_re.toFixed(2) + "%",
+    renderCell: (params) => params.row.bull_re?.toFixed(2) + "%",
   },
 ];
 

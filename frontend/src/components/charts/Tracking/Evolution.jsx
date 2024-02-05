@@ -1,16 +1,9 @@
-import ReactECharts from "echarts-for-react";
-import React, { memo, useMemo, useRef, useState } from "react";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
+import React, { memo, useMemo } from "react";
 import { extractKeys } from "../../../utils/extractKeys";
-import useChartTheme from "../../../hooks/useChartTheme";
 import { Box } from "@mui/material";
-import SaveToExcel from "../../SaveToExcel";
-import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import filterData from "../../../utils/filterData";
 import { useSelector } from "react-redux";
+import LineChart from "../Default/LineChart";
 
 function transformData(data) {
   return data.map((item) => {
@@ -30,26 +23,18 @@ function transformData(data) {
   });
 }
 
-function Evolution({
-  data,
-  isGrid,
-  title = "Evolution base 100 des Portefeuilles simulés",
-}) {
+function Evolution({ data }) {
   console.log("Evolution", data);
   const originalData = data;
   const { selectedPtf } = useSelector((state) => state.backtest);
   console.log("selectedPtf ", selectedPtf);
   const excludeSeance = extractKeys(data, ["seance"]);
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
-  console.log("myFullscreen", myFullscreen);
   const seriesData = excludeSeance
     .map((seriesName) => data.map((item) => item[seriesName]))
     .flat()
     .filter((value) => value !== undefined);
   // const minYAxisValue = Math.min(...seriesData);
   console.log("excludeSeance", excludeSeance);
-  const theme = useChartTheme();
 
   data = transformData(data);
   console.log("data, before", data);
@@ -117,13 +102,6 @@ function Evolution({
     }))
     .concat(SIMSerie)
     .concat(rangeSeries);
-  // const [selectedLegend, setSelectedLegend] = useState([]);
-  console.log("series evo", series);
-  const { SeriesSelector, selectedLegend } = useSeriesSelector(seriesNames, [
-    "SIM optimal",
-    selectedPtf,
-    "SIM",
-  ]);
   const forMinVal = useMemo(
     () =>
       seriesNames
@@ -141,83 +119,34 @@ function Evolution({
       title: {
         text: "Pré-selection quantitative",
         left: "center",
-        ...theme.title,
       },
       legend: {
         data: seriesNames,
-        type: "scroll",
-        orient: "horizontal",
-        zLevel: 23,
-        width: "60%",
         left: "center",
-        bottom: "9%",
-        selected: selectedLegend,
-        ...theme.legend,
       },
       grid: {
-        right: isGrid ? "100px" : "20%",
-        top: "10%",
-        bottom: "15%",
-        containLabel: true,
+        right: "20%",
       },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
+      seriesNames: {
+        seriesList: seriesNames,
+        init: ["SIM optimal", selectedPtf, "SIM"],
       },
       xAxis: {
         type: "category",
-
         data: data.map((item) => item.seance),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
       yAxis: {
         type: "value",
-        max: 110,
         min: Math.trunc(minYAxisValue),
-        show: true,
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
-      tooltip: {
-        trigger: "axis",
-        textStyle: {
-          overflow: "breakAll",
-          width: 40,
-        },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
       },
       series,
-      ...defaultOptions,
     };
-  }, [
-    defaultOptions,
-    minYAxisValue,
-    data,
-    series,
-    seriesNames,
-    selectedLegend,
-  ]);
+  }, [minYAxisValue, data, series, seriesNames]);
   return (
     <Box className="relative">
-      <SaveToExcel data={data} fileName={"Evolution B100"} />
-      <SeriesSelector />
-      <ReactECharts
-        ref={chartRef}
-        option={options}
+      <LineChart
+        showSeriesSelector
+        options={options}
         style={{
           height: "500px",
           maxHeight: "600px",

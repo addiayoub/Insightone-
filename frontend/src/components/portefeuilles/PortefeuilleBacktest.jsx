@@ -183,17 +183,21 @@ const PortefeuilleBacktest = () => {
             <ContribChart data={data.ptfsContrib} />
           )}
           {!loading && isShow && data.ptfsContrib.length > 0 && (
-            <Box className="flex">
-              <PoidsDonut
-                data={data.ptfsContrib}
-                field={"poids_initial"}
-                title={"Poids initial"}
-              />
-              <PoidsDonut
-                data={data.ptfsContrib}
-                field={"poids_final"}
-                title={"Poids final"}
-              />
+            <Box className="flex flex-wrap justify-center gap-4">
+              <Box className="basis-3/12">
+                <PoidsDonut
+                  data={data.ptfsContrib}
+                  field={"poids_initial"}
+                  title={"Poids initial"}
+                />
+              </Box>
+              <Box className="basis-3/12">
+                <PoidsDonut
+                  data={data.ptfsContrib}
+                  field={"poids_final"}
+                  title={"Poids final"}
+                />
+              </Box>
             </Box>
           )}
         </Box>

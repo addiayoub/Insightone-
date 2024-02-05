@@ -1,6 +1,9 @@
 import React, { memo } from "react";
 import calculateNominalPoids from "../utils/nominalPoids";
 import { Box } from "@mui/material";
+import { Timer1 } from "iconsax-react";
+import { HourglassFull } from "@mui/icons-material";
+import HourglassIcon from "../icons/Hourglass";
 
 const nominalTitres = [
   "NOMINAL 1 MOIS",
@@ -27,13 +30,13 @@ const NominalPoids = ({ data }) => {
   return (
     hasNominalTitre.length > 0 && (
       <Box
-        className="w-fit p-2 text-lg font-medium"
+        className="w-fit p-2 text-lg font-medium flex items-center gap-2"
         sx={{
           border: "3px solid var(--primary-color)",
           borderRadius: "5px",
         }}
       >
-        Duration: {nominalPoids}
+        <HourglassIcon /> Duration: {nominalPoids}
       </Box>
     )
   );

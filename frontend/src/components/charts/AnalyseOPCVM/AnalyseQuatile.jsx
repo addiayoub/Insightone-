@@ -1,11 +1,6 @@
-import React, { memo, useMemo, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import React, { memo, useMemo } from "react";
 import moment from "moment";
-import {
-  defaultOptions,
-  getFullscreenFeature,
-} from "../../../utils/chart/defaultOptions";
-import useChartTheme from "../../../hooks/useChartTheme";
+import LineChart from "../Default/LineChart";
 
 const series = [
   { name: "ajust_b100", data: "ajust_b100" },
@@ -14,72 +9,25 @@ const series = [
 ];
 
 const AnalyseQuatile = ({ data }) => {
-  const theme = useChartTheme();
   const allValues = useMemo(
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
     [data]
   );
-  const chartRef = useRef(null);
-  const myFullscreen = getFullscreenFeature(chartRef);
   const options = useMemo(() => {
     return {
       title: {
         text: "",
         left: "center",
-        ...theme.title,
       },
       grid: {
         right: "80px",
-        top: "10%",
-        // right: "3%",
-        bottom: "15%",
-        containLabel: true,
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-          },
-          restore: {},
-          saveAsImage: {},
-          dataView: {},
-        },
-        top: "20px",
-      },
-      tooltip: {
-        trigger: "axis",
-        textStyle: {
-          overflow: "breakAll",
-          width: 40,
-        },
-        confine: true,
-        valueFormatter: (value) => value?.toFixed(2),
       },
       xAxis: {
         type: "category",
         data: data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
-      },
-      legend: {
-        type: "scroll",
-        orient: "horizontal",
-        zLevel: 23,
-        width: "60%",
-        left: "center",
-        bottom: "9%",
-        ...theme.legend,
       },
       yAxis: {
-        type: "value",
         min: Math.trunc(Math.min(...allValues)),
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
       },
       series: series.map((serie) => ({
         name:
@@ -89,14 +37,12 @@ const AnalyseQuatile = ({ data }) => {
         type: "line",
         data: data.map((item) => item[serie.data]),
       })),
-      ...defaultOptions,
     };
-  }, [defaultOptions, data, series, allValues, theme]);
+  }, [data, series, allValues]);
   return (
     <>
-      <ReactECharts
-        option={options}
-        ref={chartRef}
+      <LineChart
+        options={options}
         style={{
           height: "500px",
           maxHeight: "600px",
