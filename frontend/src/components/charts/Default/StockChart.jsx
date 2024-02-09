@@ -15,7 +15,7 @@ const initSaveToExcel = {
   fileName: new Date().getTime(),
 };
 
-const PieChart = ({
+const StockChart = ({
   options,
   style,
   showSeriesSelector,
@@ -26,14 +26,16 @@ const PieChart = ({
   const myFullscreen = getFullscreenFeature(chart);
   const theme = useChartTheme();
   const { show, data, fileName } = saveToExcel;
-  console.log("render LineChart");
+  console.log("render StockChart");
   const {
     title,
     grid,
     tooltip,
+    xAxis,
     series,
+    yAxis,
     legend,
-    seriesNames: { seriesList = [], init = [] } = {},
+    seriesNames: { seriesList = [], init = seriesList } = {},
     ...rest
   } = options;
   const { SeriesSelector, selectedLegend } = useSeriesSelector(
@@ -41,8 +43,9 @@ const PieChart = ({
     init
   );
   const {
+    dataZoom: zoom,
     toolbox: {
-      feature: { saveAsImage, dataView, restore },
+      feature: { saveAsImage, dataZoom, restore },
     },
   } = defaultOptions;
   const baseOptions = useMemo(() => {
@@ -51,13 +54,39 @@ const PieChart = ({
         ...(title ?? {}),
         ...theme.title,
       },
+      xAxis: {
+        ...(xAxis ?? {}),
+        axisLabel: {
+          hideOverlap: true,
+          ...xAxis?.axisLabel,
+          ...theme.xAxis.nameTextStyle,
+        },
+        min: "dataMin",
+        max: "dataMax",
+        boundaryGap: false,
+        axisLine: { onZero: false },
+        splitLine: { show: false },
+        ...theme.xAxis,
+      },
+      yAxis: {
+        ...(yAxis ?? {}),
+        axisLabel: {
+          hideOverlap: true,
+          ...yAxis?.axisLabel,
+          ...theme.yAxis.nameTextStyle,
+        },
+        scale: true,
+        splitArea: {
+          show: true,
+        },
+        ...theme.yAxis,
+      },
       legend: {
         orient: "horizontal",
         zLevel: 23,
         width: "70%",
+        bottom: "9%",
         type: "scroll",
-        left: "center",
-        bottom: "0",
         textStyle: {
           width: 150,
           rich: {
@@ -71,36 +100,42 @@ const PieChart = ({
         ...theme.legend,
       },
       grid: {
-        bottom: "10%",
+        right: "100px",
+        top: "10%",
+        bottom: "15%",
         containLabel: true,
         ...(grid ?? {}),
       },
       tooltip: {
-        trigger: "item",
+        axisPointer: {
+          type: "cross",
+        },
+        trigger: "axis",
         textStyle: {
           overflow: "breakAll",
           width: 40,
         },
         confine: true,
-        valueFormatter: (value) => value?.toFixed(2) + "%",
+        // valueFormatter: (value) => value?.toFixed(2),
         ...(tooltip ?? {}),
       },
       toolbox: {
         feature: {
           myFullscreen,
-          restore,
           saveAsImage,
-          dataView,
+          dataZoom,
+          restore,
         },
         top: "20px",
       },
+      zoom,
       series,
       ...rest,
     };
   }, [series, selectedLegend, options, theme]);
 
   return (
-    <Box className="relative w-full">
+    <Box className="relative">
       {show && <SaveToExcel data={data} fileName={fileName} />}
       {showSeriesSelector && <SeriesSelector />}
       <ReactECharts
@@ -113,4 +148,4 @@ const PieChart = ({
   );
 };
 
-export default memo(PieChart);
+export default memo(StockChart);

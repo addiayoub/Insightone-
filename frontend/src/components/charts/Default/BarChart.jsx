@@ -1,6 +1,9 @@
 import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
-import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
@@ -46,7 +49,7 @@ const BarChart = ({
     series,
     yAxis,
     legend,
-    dataZoom = false,
+    dataZoom,
     seriesNames: { seriesList = [], init = [] } = {},
     ...rest
   } = options;
@@ -54,7 +57,19 @@ const BarChart = ({
     seriesList,
     init
   );
-  const zoom = dataZoom ? { dataZoom: zoomOpts } : {};
+  console.log("datazoom", dataZoom);
+  const zoom = dataZoom ?? zoomOpts;
+  const {
+    toolbox: {
+      feature: {
+        saveAsImage,
+        magicType,
+        dataZoom: zoomFeat,
+        restore,
+        dataView,
+      },
+    },
+  } = defaultOptions;
   const baseOptions = useMemo(() => {
     return {
       title: {
@@ -149,28 +164,16 @@ const BarChart = ({
       toolbox: {
         feature: {
           myFullscreen,
-          magicType: {
-            show: true,
-            type: ["line", "bar"],
-            option: {
-              line: {
-                smooth: true,
-              },
-            },
-            iconStyle: { borderColor: "blue" },
-          },
-          dataZoom: {
-            yAxisIndex: true,
-            iconStyle: { borderColor: "blue" },
-          },
-          restore: { iconStyle: { borderColor: "blue" } },
-          saveAsImage: { iconStyle: { borderColor: "blue" } },
-          dataView: { iconStyle: { borderColor: "blue" } },
+          magicType,
+          dataZoom: zoomFeat,
+          restore,
+          saveAsImage,
+          dataView,
         },
         top: "20px",
       },
       series,
-      ...zoom,
+      dataZoom: zoom,
       ...rest,
     };
   }, [series, selectedLegend, options, theme]);

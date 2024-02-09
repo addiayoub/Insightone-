@@ -69,7 +69,6 @@ const Scatter = ({ data }) => {
       legend: {
         top: "20%",
       },
-      seriesNames: { seriesList: seriesNames },
       xAxis: {
         name: "TE",
         nameGap: 30,

@@ -1,20 +1,38 @@
 import ReactECharts from "echarts-for-react";
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import { formatDate } from "../../utils/FormatDate";
 import useChartTheme from "../../hooks/useChartTheme";
 import { upColor, downColor } from "../../utils/generateRandomColorsArray";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../utils/chart/defaultOptions";
+
+const {
+  toolbox: {
+    feature: { saveAsImage, dataZoom, restore, brush },
+  },
+} = defaultOptions;
 
 function EvolutionMasi({ data }) {
   const theme = useChartTheme();
   const chartData = useMemo(() => {
     return data.map((item) => [
+      // item.COURS_OUVERTURE,
+      // item.COURS_PLUS_BAS,
+      // item.COURS_PLUS_HAUT,
+      // item.COURS_CLOTURE,
+      // item.VARIATION,
       item.COURS_OUVERTURE,
+      item.COURS_CLOTURE,
       item.COURS_PLUS_BAS,
       item.COURS_PLUS_HAUT,
-      item.COURS_CLOTURE,
       item.VARIATION,
     ]);
   }, [data]);
+  const chart = useRef(null);
+  const myFullscreen = getFullscreenFeature(chart);
+
   const options = useMemo(() => {
     return {
       animation: true,
@@ -59,13 +77,13 @@ function EvolutionMasi({ data }) {
       },
       toolbox: {
         feature: {
-          dataZoom: {
-            yAxisIndex: false,
-          },
-          brush: {
-            type: ["lineX", "clear"],
-          },
+          myFullscreen,
+          dataZoom,
+          restore,
+          saveAsImage,
+          brush,
         },
+        top: "20px",
       },
       brush: {
         xAxisIndex: "all",
@@ -189,7 +207,9 @@ function EvolutionMasi({ data }) {
       ],
     };
   }, [data, theme]);
-  return <ReactECharts option={options} style={{ height: "500px" }} />;
+  return (
+    <ReactECharts option={options} style={{ height: "500px" }} ref={chart} />
+  );
 }
 
 export default memo(EvolutionMasi);

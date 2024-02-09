@@ -1,14 +1,12 @@
-import ReactECharts from "echarts-for-react";
 import React, { memo, useMemo } from "react";
 import { transformData } from "../../utils/dataTransformation";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import { formatDate } from "../../utils/FormatDate";
-import useChartTheme from "../../hooks/useChartTheme";
+import BarChart from "../charts/Default/BarChart";
 
 function VolumeEchange({ chartData }) {
   const data = useMemo(() => transformData(chartData), [chartData]);
   console.log("VolumeEchange");
-  const theme = useChartTheme();
   const options = useMemo(() => {
     return {
       grid: {
@@ -26,22 +24,14 @@ function VolumeEchange({ chartData }) {
             color: "#999",
           },
         },
-      },
-      toolbox: {
-        feature: {
-          dataView: { show: false, readOnly: false },
-          magicType: { show: false, type: ["line", "bar"] },
-          restore: { show: true },
-          dataZoom: {
-            yAxisIndex: false,
-          },
-          saveAsImage: { show: true },
+        valueFormatter: function (value) {
+          const val = (value / 1e6).toFixed(2);
+          return formatNumberWithSpaces(val);
         },
       },
       title: {
         text: "Volume échangé hebdomadaire",
         left: "center",
-        ...theme.title,
       },
       legend: {
         data: [
@@ -50,23 +40,15 @@ function VolumeEchange({ chartData }) {
           "Volume moyen YTD",
           "Volume moyen 1AN",
         ],
-        ...theme.legend,
-        orient: "horizontal",
         bottom: "10%",
       },
-      xAxis: [
-        {
-          type: "category",
-          data: data.seance.map((item) => formatDate(item)),
-          axisPointer: {
-            type: "shadow",
-          },
-          axisLabel: {
-            ...theme.xAxis.nameTextStyle,
-          },
-          ...theme.xAxis,
+      xAxis: {
+        type: "category",
+        data: data.seance.map((item) => formatDate(item)),
+        axisPointer: {
+          type: "shadow",
         },
-      ],
+      },
       dataZoom: [
         {
           type: "slider",
@@ -76,66 +58,40 @@ function VolumeEchange({ chartData }) {
         },
       ],
       yAxis: {
-        type: "value",
         axisLabel: {
           formatter: function (value) {
             const val = (value / 1e6).toFixed(2);
             return formatNumberWithSpaces(val) + " MMAD";
           },
-          ...theme.yAxis.nameTextStyle,
         },
-        ...theme.yAxis,
       },
       series: [
         {
           name: "Volume Marché de blocs",
           type: "bar",
           data: data.Volume_MB,
-          tooltip: {
-            valueFormatter: function (value) {
-              const val = (value / 1e6).toFixed(2);
-              return formatNumberWithSpaces(val);
-            },
-          },
         },
         {
           name: "Volume Marché central",
           type: "bar",
           data: data.Volume_MC,
-          tooltip: {
-            valueFormatter: function (value) {
-              const val = (value / 1e6).toFixed(2);
-              return formatNumberWithSpaces(val);
-            },
-          },
         },
         {
           name: "Volume moyen YTD",
           type: "line",
           data: data.moyen_volume_ytd,
-          tooltip: {
-            valueFormatter: function (value) {
-              const val = (value / 1e6).toFixed(2);
-              return formatNumberWithSpaces(val);
-            },
-          },
         },
         {
           name: "Volume moyen 1AN",
           type: "line",
           data: data.moyen_volume_1an,
-          tooltip: {
-            valueFormatter: function (value) {
-              const val = (value / 1e6).toFixed(2);
-              return formatNumberWithSpaces(val);
-            },
-          },
         },
       ],
     };
-  }, [data, theme]);
+  }, [data]);
   return (
-    <ReactECharts option={options} style={{ height: "500px", width: "100%" }} />
+    // <ReactECharts option={options} style={{ height: "500px", width: "100%" }} />
+    <BarChart options={options} style={{ height: "500px", width: "100%" }} />
   );
 }
 

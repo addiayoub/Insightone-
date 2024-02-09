@@ -1,6 +1,9 @@
 import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
-import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
@@ -39,6 +42,12 @@ const LineChart = ({
     seriesList,
     init
   );
+  const {
+    dataZoom: zoom,
+    toolbox: {
+      feature: { saveAsImage, dataZoom, restore },
+    },
+  } = defaultOptions;
   const baseOptions = useMemo(() => {
     return {
       title: {
@@ -102,28 +111,13 @@ const LineChart = ({
       toolbox: {
         feature: {
           myFullscreen,
-          dataZoom: {
-            yAxisIndex: true,
-            iconStyle: { borderColor: "blue" },
-          },
-          restore: { iconStyle: { borderColor: "blue" } },
-          saveAsImage: { iconStyle: { borderColor: "blue" } },
+          saveAsImage,
+          dataZoom,
+          restore,
         },
         top: "20px",
       },
-      dataZoom: [
-        {
-          type: "inside",
-          start: 0,
-          end: 100,
-        },
-        {
-          show: true,
-          type: "slider",
-          start: 0,
-          end: 100,
-        },
-      ],
+      zoom,
       series,
       ...rest,
     };

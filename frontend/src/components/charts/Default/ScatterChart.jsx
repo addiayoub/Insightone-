@@ -1,6 +1,9 @@
 import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
-import { getFullscreenFeature } from "../../../utils/chart/defaultOptions";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
@@ -25,6 +28,11 @@ const ScatterChart = ({ options, style, onEvents, showSeriesSelector }) => {
     seriesList,
     init
   );
+  const {
+    toolbox: {
+      feature: { saveAsImage, dataZoom, restore, dataView },
+    },
+  } = defaultOptions;
   const baseOptions = useMemo(() => {
     return {
       title: {
@@ -69,7 +77,7 @@ const ScatterChart = ({ options, style, onEvents, showSeriesSelector }) => {
         ...yAxis,
         type: "value",
         nameLocation: "middle",
-        nameGap: 30,
+        nameGap: 50,
         axisLabel: {
           hideOverlap: true,
           ...yAxis?.axisLabel,
@@ -103,13 +111,10 @@ const ScatterChart = ({ options, style, onEvents, showSeriesSelector }) => {
       toolbox: {
         feature: {
           myFullscreen,
-          dataZoom: {
-            yAxisIndex: "none",
-            iconStyle: { borderColor: "blue" },
-          },
-          restore: { iconStyle: { borderColor: "blue" } },
-          saveAsImage: { iconStyle: { borderColor: "blue" } },
-          dataView: { iconStyle: { borderColor: "blue" } },
+          dataZoom,
+          restore,
+          saveAsImage,
+          dataView,
         },
         right: 0,
         top: "10px",

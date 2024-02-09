@@ -1,17 +1,15 @@
-import ReactECharts from "echarts-for-react";
 import React, { memo, useMemo } from "react";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
-import useChartTheme from "../../hooks/useChartTheme";
 import {
   upColor,
   downColor,
   downBorderColor,
   upBorderColor,
 } from "../../utils/generateRandomColorsArray";
-
+import StockChart from "./Default/StockChart";
+const seriesNames = ["optimum", "MA5", "MA10", "MA20", "MA30"];
 function Echart({ data }) {
-  const theme = useChartTheme();
   const data0 = useMemo(
     () =>
       candelChartTransformData(
@@ -26,15 +24,7 @@ function Echart({ data }) {
   );
   const options = useMemo(() => {
     return {
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "cross",
-        },
-      },
       legend: {
-        data: ["optimum", "MA5", "MA10", "MA20", "MA30"],
-        ...theme.legend,
         padding: 10,
       },
       grid: {
@@ -45,35 +35,8 @@ function Echart({ data }) {
       xAxis: {
         type: "category",
         data: data0.categoryData,
-        boundaryGap: false,
-        axisLine: { onZero: false },
-        splitLine: { show: false },
-        min: "dataMin",
-        max: "dataMax",
-        axisLabel: {
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
       },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: "none",
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-      },
-      yAxis: {
-        scale: true,
-        splitArea: {
-          show: true,
-        },
-        axisLabel: {
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
+      seriesNames: { seriesList: seriesNames },
       dataZoom: [
         {
           type: "inside",
@@ -221,9 +184,13 @@ function Echart({ data }) {
         },
       ],
     };
-  }, [data0, theme]);
+  }, [data0]);
 
-  return <ReactECharts option={options} style={{ height: "500px" }} />;
+  return (
+    <>
+      <StockChart options={options} style={{ height: "500px" }} />
+    </>
+  );
 }
 
 export default memo(Echart);

@@ -1,17 +1,17 @@
-import ReactECharts from "echarts-for-react";
 import React, { memo, useMemo } from "react";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
 import { calculateMA } from "../../utils/calculateMA";
-import useChartTheme from "../../hooks/useChartTheme";
 import {
   upColor,
   downColor,
   downBorderColor,
   upBorderColor,
 } from "../../utils/generateRandomColorsArray";
+import StockChart from "../charts/Default/StockChart";
+
+const seriesNames = ["optimum", "MA5", "MA10", "MA20", "MA30"];
 
 function PatternsChandeliers({ data }) {
-  const theme = useChartTheme();
   const data0 = useMemo(
     () =>
       candelChartTransformData(
@@ -30,17 +30,8 @@ function PatternsChandeliers({ data }) {
         text: "PATTERNS DE CHANDELIERS",
         left: "left",
         top: "top",
-        ...theme.title,
-      },
-      tooltip: {
-        trigger: "axis",
-        axisPointer: {
-          type: "cross",
-        },
       },
       legend: {
-        data: ["optimum", "MA5", "MA10", "MA20", "MA30"],
-        ...theme.legend,
         padding: 10,
       },
       grid: {
@@ -51,27 +42,8 @@ function PatternsChandeliers({ data }) {
       xAxis: {
         type: "category",
         data: data0.categoryData,
-        boundaryGap: false,
-        axisLine: { onZero: false },
-        splitLine: { show: false },
-        min: "dataMin",
-        max: "dataMax",
       },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: "none",
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-      },
-      yAxis: {
-        scale: true,
-        splitArea: {
-          show: true,
-        },
-      },
+      seriesNames: { seriesList: seriesNames },
       dataZoom: [
         {
           type: "inside",
@@ -219,8 +191,12 @@ function PatternsChandeliers({ data }) {
         },
       ],
     };
-  }, [data0, theme]);
+  }, [data0]);
 
-  return <ReactECharts option={options} style={{ height: "500px" }} />;
+  return (
+    <>
+      <StockChart options={options} style={{ height: "500px" }} />
+    </>
+  );
 }
 export default memo(PatternsChandeliers);
