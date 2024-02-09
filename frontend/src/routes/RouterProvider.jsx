@@ -22,11 +22,13 @@ import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Index.jsx";
 import Tracking from "../components/Tracking/Index.jsx";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/Index.jsx";
+import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 
 function RouterProvider() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route element={<AuthRoute />}>
             <Route path="/" element={<Dashboard />} />
