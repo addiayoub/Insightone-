@@ -51,7 +51,7 @@ const DailyReturns = ({ data }) => {
           type: "shadow",
         },
       },
-      dataZoom: true,
+      showDataZoom: true,
       yAxis: {
         axisLabel: {
           formatter: "{value} %",

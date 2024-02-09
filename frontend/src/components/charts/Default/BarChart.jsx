@@ -48,6 +48,7 @@ const BarChart = ({
     xAxis,
     series,
     yAxis,
+    showDataZoom = false,
     legend,
     dataZoom,
     seriesNames: { seriesList = [], init = [] } = {},
@@ -57,8 +58,11 @@ const BarChart = ({
     seriesList,
     init
   );
-  console.log("datazoom", dataZoom);
-  const zoom = dataZoom ?? zoomOpts;
+  console.log(showDataZoom, "dataZoom", dataZoom);
+  const dataZoomChoice = dataZoom ?? zoomOpts;
+  const zoom = showDataZoom ? dataZoomChoice : [];
+  console.log("zoom is", zoom);
+
   const {
     toolbox: {
       feature: {

@@ -49,6 +49,7 @@ function VolumeEchange({ chartData }) {
           type: "shadow",
         },
       },
+      showDataZoom: true,
       dataZoom: [
         {
           type: "slider",

@@ -117,7 +117,7 @@ const LineChart = ({
         },
         top: "20px",
       },
-      zoom,
+      dataZoom: zoom,
       series,
       ...rest,
     };

@@ -29,7 +29,7 @@ const QuatileSemaine = ({ data }) => {
         trigger: "item",
         valueFormatter: (value) => value,
       },
-      dataZoom: true,
+      showDataZoom: true,
       series: [
         {
           type: "bar",

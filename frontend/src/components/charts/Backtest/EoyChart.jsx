@@ -37,6 +37,7 @@ const EoyChart = ({ data, forSIM }) => {
         right: "5%",
         bottom: "15%",
       },
+      showDataZoom: true,
       xAxis: {
         type: "category",
         data: years,
