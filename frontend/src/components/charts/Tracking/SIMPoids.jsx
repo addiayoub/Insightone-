@@ -73,7 +73,7 @@ const SIMPoids = ({ SIM }) => {
   const seriesData = useMemo(
     () =>
       df_poids
-        .filter((ele) => ele[SIM] > 0.001)
+        // .filter((ele) => ele[SIM] > 0.001)
         .map((item) => ({
           value: item[SIM] * 100,
           name: item.titre,
@@ -81,6 +81,7 @@ const SIMPoids = ({ SIM }) => {
         .sort((a, b) => b.value - a.value),
     [df_poids, SIM]
   );
+  console.log("sere is ", seriesData);
   const seriesNames = useMemo(
     () => seriesData.map((serie) => serie.name),
     [seriesData]
@@ -121,10 +122,10 @@ const SIMPoids = ({ SIM }) => {
     categorieSeriesNames
   );
 
-  const options = useMemo(
-    () => generateOptions(seriesNames, seriesData, "Titres"),
-    [theme, seriesData, seriesNames, SIM]
-  );
+  const options = useMemo(() => {
+    const series = seriesData.filter((serie) => serie.value > 0.001);
+    return generateOptions(seriesNames, series, "Titres");
+  }, [theme, seriesData, seriesNames, SIM]);
 
   const optionsForCategories = useMemo(
     () =>

@@ -2,7 +2,7 @@ import titresWithReference from "../data/titresWithReference.json";
 
 export default function generateCategorieSeries(titresSeries) {
   const categorieSeries = {};
-
+  titresSeries = titresSeries.filter((ele) => ele.value > 0.001);
   // Iterate through titres series data
   titresSeries.forEach((titreData) => {
     const titreName = titreData.name;
@@ -38,7 +38,8 @@ export default function generateCategorieSeries(titresSeries) {
 
 export function generateGroupeSeries(titresSeries) {
   const groupeSeries = {};
-
+  let sum = 0;
+  titresSeries = titresSeries.filter((ele) => ele.value > 0.00001);
   // Iterate through titres series data
   titresSeries.forEach((titreData) => {
     const titreName = titreData.name;
@@ -61,17 +62,18 @@ export function generateGroupeSeries(titresSeries) {
 
       // Add the value of the current titre to the corresponding CATEGORIE
       groupeSeries[groupe].value += titreData.value;
+      sum += titreData.value;
     }
   });
 
   // Convert the object to an array of objects
   const result = Object.values(groupeSeries).sort((a, b) => b.value - a.value);
-  console.log("generate result", result);
+  console.log("generateGroupeSeries result", result, sum);
   return result;
 }
 export function generateClassSeries(titresSeries) {
   const classesSeries = {};
-
+  titresSeries = titresSeries.filter((ele) => ele.value > 0.00001);
   // Iterate through titres series data
   titresSeries.forEach((titreData) => {
     const titreName = titreData.name;
@@ -99,6 +101,6 @@ export function generateClassSeries(titresSeries) {
 
   // Convert the object to an array of objects
   const result = Object.values(classesSeries).sort((a, b) => b.value - a.value);
-  console.log("generate result", result);
+  console.log("generateClassSeries result", result);
   return result;
 }

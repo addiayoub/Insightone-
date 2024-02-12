@@ -73,21 +73,21 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
     [bubblesData]
   );
   const tooltip = withBubbles ? { formatter: tooltipFormatter } : {};
-  const seriesData = withBubbles
-    ? seriesNames
-        .map((seriesName) => ({
-          name: seriesName,
-          type: "line",
-          symbol: "none",
-          data: data.map((item) => item[seriesName]),
-        }))
-        .concat(bubbles)
-    : seriesNames.map((seriesName) => ({
-        name: seriesName,
-        type: "line",
-        symbol: "none",
-        data: data.map((item) => item[seriesName]),
-      }));
+  const lineSeries = seriesNames.map((seriesName) => ({
+    name: seriesName,
+    type: "line",
+    symbol: "none",
+    data: data.map((item) => item[seriesName]),
+  }));
+  // Extract all data points from lineSeries into a single array
+  const allDataPoints = useMemo(
+    () => lineSeries.reduce((acc, series) => [...acc, ...series.data], []),
+    [lineSeries]
+  );
+
+  // Find the minimum value using Math.min
+  const minValue = useMemo(() => Math.min(...allDataPoints), [allDataPoints]);
+  const seriesData = withBubbles ? lineSeries.concat(bubbles) : lineSeries;
   const options = useMemo(() => {
     return {
       title: {
@@ -111,6 +111,7 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
       yAxis: [
         {
           type: "value",
+          min: Math.trunc(minValue),
           axisLabel: {
             formatter: function (value) {
               // Convert the value to millions and add 'M' at the end
@@ -123,7 +124,7 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
         },
         {
           type: "value",
-          min: 0,
+          // min: 0,
           // max: 10, // Adjust the range based on your data
           // interval: 2,
           // axisLabel: {

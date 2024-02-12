@@ -22,6 +22,10 @@ const FondsVersus = ({ data }) => {
       item.Nom_Gerant,
     ]);
   }, [data]);
+  const seriesNames = useMemo(
+    () => [...new Set(data.map((item) => item.Nom_Gerant))],
+    [data]
+  );
   const seriesData = useMemo(
     () =>
       formatedData.map(([x, y, z, name, sg]) => ({
@@ -92,6 +96,7 @@ const FondsVersus = ({ data }) => {
           formatter: (value) => parseFloat(value).toFixed(2),
         },
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       tooltip: {
         trigger: "item",
         formatter: function (params) {
@@ -108,7 +113,7 @@ const FondsVersus = ({ data }) => {
 
       series: seriesData,
     };
-  }, [seriesData, data, axisValues]);
+  }, [seriesData, data, seriesNames, axisValues]);
   return (
     <>
       <ScatterChart
@@ -119,6 +124,7 @@ const FondsVersus = ({ data }) => {
           width: "100%",
           margin: "15px auto",
         }}
+        showSeriesSelector
       />
     </>
   );
