@@ -7,7 +7,7 @@ import {
   downBorderColor,
   upBorderColor,
 } from "../../utils/generateRandomColorsArray";
-import StockChart from "../charts/Default/StockChart";
+import TradingChart from "../charts/Default/TradingChart";
 
 const seriesNames = ["optimum", "MA5", "MA10", "MA20", "MA30"];
 
@@ -195,7 +195,7 @@ function PatternsChandeliers({ data }) {
 
   return (
     <>
-      <StockChart options={options} style={{ height: "500px" }} />
+      <TradingChart options={options} style={{ height: "500px" }} />
     </>
   );
 }

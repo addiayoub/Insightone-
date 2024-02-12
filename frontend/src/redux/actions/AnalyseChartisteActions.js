@@ -168,7 +168,9 @@ export const getIndicateursData = createAsyncThunk(
         analyseTech,
         bilan,
         compteRes,
-        patternsChand,
+        patternsChand: patternsChand.sort(
+          (a, b) => new Date(a.SEANCE) - new Date(b.SEANCE)
+        ),
         news,
         resume,
       };

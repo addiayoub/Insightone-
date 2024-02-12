@@ -180,13 +180,13 @@ function Chart({ data }) {
         highcharts={Highcharts}
         options={option1}
         ref={chart1Ref}
-        // constructorType={"stockChart"}
+        // constructorType={"TradingChart"}
       />
       <HighchartsReact
         highcharts={Highcharts}
         options={option2}
         ref={chart2Ref}
-        // constructorType={"stockChart"}
+        // constructorType={"TradingChart"}
       />
       {modalIsOpen && <SettingsModal />}
     </>

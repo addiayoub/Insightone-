@@ -7,7 +7,7 @@ import {
   downBorderColor,
   upBorderColor,
 } from "../../utils/generateRandomColorsArray";
-import StockChart from "./Default/StockChart";
+import TradingChart from "./Default/TradingChart";
 const seriesNames = ["optimum", "MA5", "MA10", "MA20", "MA30"];
 function Echart({ data }) {
   const data0 = useMemo(
@@ -188,7 +188,7 @@ function Echart({ data }) {
 
   return (
     <>
-      <StockChart options={options} style={{ height: "500px" }} />
+      <TradingChart options={options} style={{ height: "500px" }} />
     </>
   );
 }

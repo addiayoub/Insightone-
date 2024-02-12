@@ -15,7 +15,7 @@ const initSaveToExcel = {
   fileName: new Date().getTime(),
 };
 
-const StockChart = ({
+const TradingChart = ({
   options,
   style,
   showSeriesSelector,
@@ -26,7 +26,7 @@ const StockChart = ({
   const myFullscreen = getFullscreenFeature(chart);
   const theme = useChartTheme();
   const { show, data, fileName } = saveToExcel;
-  console.log("render StockChart");
+  console.log("render TradingChart");
   const {
     title,
     grid,
@@ -148,4 +148,4 @@ const StockChart = ({
   );
 };
 
-export default memo(StockChart);
+export default memo(TradingChart);
