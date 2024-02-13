@@ -151,7 +151,7 @@ const PRINCIPALES_VARIATIONS = [
   },
   {
     field: "perf_prec",
-    headerName: "Perf (1s) ",
+    headerName: "Perf (1j) ",
     flex: 1,
     renderCell: (params) => {
       const val = (params.row.perf_prec * 100).toFixed(2);

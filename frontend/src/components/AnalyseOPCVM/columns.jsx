@@ -134,7 +134,6 @@ export const barometreColumns = [
             ratingIcon="square"
             color="var(--primary-color)"
           />
-          <span>{marche}</span>
         </div>
       );
     },

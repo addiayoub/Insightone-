@@ -28,7 +28,7 @@ function Portefeuille({ title, data, field, compare, saveAll = false }) {
       // sx={gridStyle}
       className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-y-4 gap-x-12 mb-10"
     >
-      <Box className="md:col-span-8 lg:col-span-8 xl:col-span-8">
+      <Box className="md:col-span-8 lg:col-span-8 xl:col-span-8 h-fit">
         {/* <Table columns={columns} rows={rows} pageSize={25} /> */}
         <PortefeuilleTable rows={rows} field={field} />
       </Box>

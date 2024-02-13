@@ -11,7 +11,7 @@ import LineChart from "../Default/LineChart";
 //       "Montant total": 5000000000,
 //       "VL": 100,
 //       "VL non rebalancé": 99.99999999999999,
-//       "Dividende total": 0,
+//       "Dividende total": 5000000,
 //       "Montant Dividende Réinvesti": 0,
 //       "Reliquat dividende": 0,
 //       "Montant total sans dividende": 5000000000,
@@ -30,10 +30,18 @@ const tooltipFormatter = (params) => {
     2
   )}</span><br />${bubbles}`;
 };
+const obb = {
+  type: "value",
+  min: 0,
+  // max: 10, // Adjust the range based on your data
+  // interval: 2,
+  // axisLabel: {
+  //   formatter: "{value} K",
+  // },
+};
 
 const VlChart = ({ data, seriesNames, title, withBubbles }) => {
   console.log("data", data);
-  const theme = useChartTheme();
 
   // const seriesNames = Object.keys(data[0]).filter((key) =>
   //   ["VL non rebalancé", "VL sans dividende", "VL"].includes(key)
@@ -87,6 +95,7 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
 
   // Find the minimum value using Math.min
   const minValue = useMemo(() => Math.min(...allDataPoints), [allDataPoints]);
+  console.log("VL minValue", minValue, bubblesData, data);
   const seriesData = withBubbles ? lineSeries.concat(bubbles) : lineSeries;
   const options = useMemo(() => {
     return {
@@ -108,30 +117,17 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
         data: data.map((item) => moment(item.seance).format("DD/MM/YYYY")),
       },
 
-      yAxis: [
-        {
-          type: "value",
-          min: Math.trunc(minValue),
-          axisLabel: {
-            formatter: function (value) {
-              // Convert the value to millions and add 'M' at the end
-              // return (value / 1e9).toFixed(0) + " M";
-              return value;
-            },
-            ...theme.yAxis.nameTextStyle,
+      yAxis: {
+        type: "value",
+        min: Math.trunc(minValue),
+        axisLabel: {
+          formatter: function (value) {
+            // Convert the value to millions and add 'M' at the end
+            // return (value / 1e9).toFixed(0) + " M";
+            return formatNumberWithSpaces(value);
           },
-          ...theme.yAxis,
         },
-        {
-          type: "value",
-          // min: 0,
-          // max: 10, // Adjust the range based on your data
-          // interval: 2,
-          // axisLabel: {
-          //   formatter: "{value} K",
-          // },
-        },
-      ],
+      },
       series: seriesData,
     };
   }, [seriesData, data]);

@@ -105,12 +105,12 @@ export const contribColumns = [
   },
   {
     field: "date_debut",
-    headerName: "Date début",
+    headerName: "Date Début",
     renderCell: (params) => moment(params.row.date_debut).format("DD/MM/YYYY"),
   },
   {
     field: "date_fin",
-    headerName: "Date fin",
+    headerName: "Date Fin",
     renderCell: (params) => moment(params.row.date_fin).format("DD/MM/YYYY"),
   },
   {

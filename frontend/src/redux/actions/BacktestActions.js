@@ -33,6 +33,8 @@ export const getPortef = createAsyncThunk(
     const body = {
       df_poids: transformForBacktest([ptfToBacktest]),
       df_op: df_op.length < 1 ? [{}] : operations,
+      // df_poids: [{}],
+      // df_op: [{}],
       // [
       //   {
       // Date: "18/12/2023",
@@ -75,6 +77,10 @@ export const getPortef = createAsyncThunk(
           },
         }
       );
+      // const response = await apiNewMarko.post(
+      //   `${apiTrading}POST/get_portef/?start=25%2F12%2F2023&end=01%2F02%2F2024&Flag_hebdo=1&CMP_Cloture=0&Div_Reinvesti=1&montant_investi=10000000&Flag_Trading=0&momentum_contrarien=1&upside_downside=5`,
+      //   body
+      // );
       console.log("get_portef", response);
       return response.data;
     } catch (error) {

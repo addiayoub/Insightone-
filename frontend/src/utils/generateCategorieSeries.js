@@ -104,3 +104,44 @@ export function generateClassSeries(titresSeries) {
   console.log("generateClassSeries result", result);
   return result;
 }
+
+const dd = [
+  {
+    Societe_Gestion: "AFG ASSET MANAGEMENT",
+    Classification: "MONETAIRE",
+    Type_OPC: "FGP",
+    TICKER: "ACM",
+    class: "MON",
+    sdg: "AFG",
+    titre: "AFG CASH MANAGEMENT",
+    PTF_Min_Var: 10,
+  },
+  {
+    Societe_Gestion: "AFG ASSET MANAGEMENT",
+    Classification: "OMLT",
+    Type_OPC: "FGP",
+    TICKER: "AIF2",
+    class: "OML",
+    sdg: "AFG",
+    titre: "AFG INCOME FUND",
+    PTF_Min_Var: 10,
+  },
+];
+
+export function generateSeries(data, field, sumOf = "Classification") {
+  const sum = data.reduce((acc, row) => {
+    const secteur = row[sumOf];
+    acc[secteur] = (acc[secteur] || 0) + (row[field] || 0);
+    return acc;
+  }, {});
+
+  const seriesNames = [...new Set(data.map((item) => item[sumOf]))];
+  const seriesData = seriesNames
+    .map((secteur) => ({
+      name: secteur,
+      value: sum[secteur],
+    }))
+    .sort((a, b) => b.value - a.value);
+  console.log("Generate ", seriesData);
+  return seriesData;
+}

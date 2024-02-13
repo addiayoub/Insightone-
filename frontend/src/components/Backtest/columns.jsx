@@ -1,5 +1,6 @@
 import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import TextColor from "../Dashboard/TextColor";
 
 export const contribColumns = [
   {
@@ -20,21 +21,30 @@ export const contribColumns = [
     headerName: "Contrib PTF rebalancé",
     width: 200,
     flex: 0.3,
-    renderCell: (params) => params.row["Contrib PTF rebalancé"].toFixed(5),
+    renderCell: (params) => {
+      const value = params.row["Contrib PTF rebalancé"] * 100;
+      return <TextColor value={value} percentage />;
+    },
   },
   {
     field: "Contrib PTF non rebalancé",
     headerName: "Contrib PTF non rebalancé",
     width: 200,
     flex: 0.3,
-    renderCell: (params) => params.row["Contrib PTF non rebalancé"].toFixed(5),
+    renderCell: (params) => {
+      const value = params.row["Contrib PTF non rebalancé"] * 100;
+      return <TextColor value={value} percentage />;
+    },
   },
   {
     field: "Contribution rebalancement",
     headerName: "Contribution rebalancement",
     width: 200,
     flex: 0.3,
-    renderCell: (params) => params.row["Contribution rebalancement"].toFixed(7),
+    renderCell: (params) => {
+      const value = params.row["Contribution rebalancement"] * 100;
+      return <TextColor value={value} percentage fractionDigits={5} />;
+    },
   },
 ];
 
