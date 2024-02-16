@@ -12,7 +12,7 @@ const getSeries = (data, seriesNames) => {
 };
 
 const Rolling = ({ data, title, allSeries, forSIM }) => {
-  console.log("Render Rolling ", title);
+  console.log("Render Rolling ", title, data);
   const seriesNames = useMemo(
     () =>
       Object.keys(data[0]).filter(

@@ -39,14 +39,15 @@ export default function generateCategorieSeries(titresSeries) {
 export function generateGroupeSeries(titresSeries) {
   const groupeSeries = {};
   let sum = 0;
+  const notMatching = [];
   titresSeries = titresSeries.filter((ele) => ele.value > 0.00001);
   // Iterate through titres series data
   titresSeries.forEach((titreData) => {
-    const titreName = titreData.name;
+    const titreName = titreData.name.toLocaleLowerCase();
 
     // Find the corresponding reference data for the current titre
     const matchingReference = titresWithReference.find(
-      (ref) => ref.TITRE === titreName
+      (ref) => ref.REFERENCE.toLocaleLowerCase() === titreName
     );
 
     if (matchingReference) {
@@ -63,12 +64,20 @@ export function generateGroupeSeries(titresSeries) {
       // Add the value of the current titre to the corresponding CATEGORIE
       groupeSeries[groupe].value += titreData.value;
       sum += titreData.value;
+    } else {
+      notMatching.push(titreName);
     }
   });
 
   // Convert the object to an array of objects
   const result = Object.values(groupeSeries).sort((a, b) => b.value - a.value);
-  console.log("generateGroupeSeries result", result, sum);
+  console.log(
+    "generateGroupeSeries result",
+    result,
+    sum,
+    "notMatching",
+    notMatching
+  );
   return result;
 }
 export function generateClassSeries(titresSeries) {
@@ -76,11 +85,11 @@ export function generateClassSeries(titresSeries) {
   titresSeries = titresSeries.filter((ele) => ele.value > 0.00001);
   // Iterate through titres series data
   titresSeries.forEach((titreData) => {
-    const titreName = titreData.name;
+    const titreName = titreData.name.toLocaleLowerCase();
 
     // Find the corresponding reference data for the current titre
     const matchingReference = titresWithReference.find(
-      (ref) => ref.TITRE === titreName
+      (ref) => ref.REFERENCE.toLocaleLowerCase() === titreName
     );
 
     if (matchingReference) {
