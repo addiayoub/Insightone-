@@ -67,9 +67,14 @@ const EvolInsuffisanceLiquidite = ({ data }) => {
     };
   }, [lineData, barData, seances]);
   return (
-    <div>
-      <LineChart options={options} />
-    </div>
+    <LineChart
+      options={options}
+      saveToExcel={{
+        show: true,
+        data,
+        fileName: "Evolution de l'insuffisance de liquidité",
+      }}
+    />
   );
 };
 

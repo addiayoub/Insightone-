@@ -121,6 +121,11 @@ const Scatter = ({ data }) => {
         onEvents={{
           click: handleClick,
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
       <div ref={poidsRef}>
         {SIM && (

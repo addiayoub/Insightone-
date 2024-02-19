@@ -3,15 +3,27 @@ import ReactECharts from "echarts-for-react";
 import {
   defaultOptions,
   getFullscreenFeature,
+  getExportToExcelFeature,
 } from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
 import { Box } from "@mui/material";
-
-const ScatterChart = ({ options, style, onEvents, showSeriesSelector }) => {
+const initSaveToExcel = {
+  show: false,
+  data: [],
+  fileName: new Date().getTime(),
+};
+const ScatterChart = ({
+  options,
+  style,
+  onEvents,
+  showSeriesSelector,
+  saveToExcel = initSaveToExcel,
+}) => {
   console.log("options", options);
   const chart = useRef(null);
   const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
   const theme = useChartTheme();
   const {
     title,
@@ -111,6 +123,7 @@ const ScatterChart = ({ options, style, onEvents, showSeriesSelector }) => {
       toolbox: {
         feature: {
           myFullscreen,
+          myExportToExcel,
           dataZoom,
           restore,
           saveAsImage,

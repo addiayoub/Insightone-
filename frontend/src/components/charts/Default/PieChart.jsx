@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import {
   defaultOptions,
   getFullscreenFeature,
+  getExportToExcelFeature,
 } from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
@@ -24,6 +25,7 @@ const PieChart = ({
   console.log("options", options, saveToExcel);
   const chart = useRef(null);
   const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
   const theme = useChartTheme();
   const { show, data, fileName } = saveToExcel;
   console.log("render LineChart");
@@ -88,6 +90,7 @@ const PieChart = ({
       toolbox: {
         feature: {
           myFullscreen,
+          myExportToExcel,
           restore,
           saveAsImage,
           dataView,
@@ -101,7 +104,7 @@ const PieChart = ({
 
   return (
     <Box className="relative w-full">
-      {show && <SaveToExcel data={data} fileName={fileName} />}
+      {/* {show && <SaveToExcel data={data} fileName={fileName} />} */}
       {showSeriesSelector && <SeriesSelector />}
       <ReactECharts
         option={baseOptions}

@@ -125,8 +125,12 @@ export const getFixedIncome = createAsyncThunk(
       );
       return {
         TMPInterbancaire,
-        indiceTMP,
-        indiceMonia,
+        indiceTMP: indiceTMP.sort(
+          (a, b) => new Date(a.Seance) - new Date(b.Seance)
+        ),
+        indiceMonia: indiceMonia.sort(
+          (a, b) => new Date(a.seance) - new Date(b.seance)
+        ),
         avance7j,
         instrumentSwap,
         avance24h,
@@ -137,7 +141,9 @@ export const getFixedIncome = createAsyncThunk(
         leveesTresor,
         tauxPrimaire,
         tauxSecondaire,
-        evolInsuffisanceLiquidite,
+        evolInsuffisanceLiquidite: evolInsuffisanceLiquidite.sort(
+          (a, b) => new Date(a.date_complete) - new Date(b.date_complete)
+        ),
         insuffisance,
         commentaires,
         volumeSecondaire,

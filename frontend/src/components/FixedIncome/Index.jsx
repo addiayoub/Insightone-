@@ -20,6 +20,7 @@ import GridContainer, { GridItem } from "../Ui/GridContainer";
 import TauxSec from "../charts/FixedIncome/TauxSec";
 import Commentaires from "./Commentaires";
 import groupBy from "../../utils/groupBy";
+import CourbeTaux from "../charts/FixedIncome/CourbeTaux";
 
 const Index = () => {
   const [show, setShow] = useState(false);
@@ -112,6 +113,25 @@ const Index = () => {
             <Table rows={data.leveesTresor} columns={leveesTresorColumns} />
           </div>
         )}
+        <GridContainer>
+          {show && data.tauxPrimaire.length > 0 && (
+            <GridItem>
+              <CourbeTaux
+                data={data.tauxPrimaire}
+                title="Courbe primaire des taux"
+                isPrimaire
+              />
+            </GridItem>
+          )}
+          {show && data.tauxSecondaire.length > 0 && (
+            <GridItem>
+              <CourbeTaux
+                data={data.tauxSecondaire}
+                title="Courbe secondaire des taux"
+              />
+            </GridItem>
+          )}
+        </GridContainer>
         {show && data.tauxSecondaire.length > 0 && (
           <div>
             <TauxSec data={data.tauxSecondaire} />

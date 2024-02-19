@@ -38,7 +38,7 @@ const IndiceMonia = ({ data }) => {
       },
       yAxis: [
         {
-          min: Math.trunc(Math.min(...lineData)),
+          min: Math.min(...lineData),
           axisLabel: {
             formatter: (value) => value + "%",
           },
@@ -53,20 +53,34 @@ const IndiceMonia = ({ data }) => {
           type: "line",
           smooth: true,
           data: lineData,
+          symbol: "none",
         },
         {
-          name: "Volume",
+          name: "Volume (M MAD)",
           type: "bar",
           yAxisIndex: 1,
           smooth: true,
           data: barData,
+          itemStyle: {
+            color: "rgb(52 211 153)",
+            emphasis: {
+              color: "rgb(110 231 183)",
+            },
+          },
         },
       ],
     };
   }, [lineData, barData, seances]);
   return (
     <div>
-      <LineChart options={options} />
+      <LineChart
+        options={options}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: "Evolution du taux MONIA",
+        }}
+      />
     </div>
   );
 };

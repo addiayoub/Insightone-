@@ -53,7 +53,15 @@ const IndiceTMP = ({ data }) => {
   }, [lineData, seances]);
   return (
     <>
-      <LineChart options={options} style={{ minHeight: 500 }} />
+      <LineChart
+        options={options}
+        style={{ minHeight: 500 }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: "Évolution du TMP interbancaire",
+        }}
+      />
     </>
   );
 };

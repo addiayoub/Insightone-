@@ -146,6 +146,11 @@ function Evolution({ data }) {
     <Box className="relative">
       <LineChart
         showSeriesSelector
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
         options={options}
         style={{
           height: "500px",

@@ -65,6 +65,11 @@ const Consistency = ({ chartData }) => {
           width: "100%",
           margin: "15px auto",
         }}
+        saveToExcel={{
+          show: true,
+          data: chartData,
+          fileName: options.title.text,
+        }}
         options={options}
       />
     </>

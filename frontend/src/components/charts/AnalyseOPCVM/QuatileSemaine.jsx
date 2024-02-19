@@ -64,6 +64,11 @@ const QuatileSemaine = ({ data }) => {
           width: "100%",
           margin: "15px auto",
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
         options={options}
       />
     </>

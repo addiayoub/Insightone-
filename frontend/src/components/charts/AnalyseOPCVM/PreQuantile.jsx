@@ -203,6 +203,10 @@ const PreQuantile = ({ data }) => {
           height: "500px",
           maxHeight: "600px",
         }}
+        saveToExcel={{
+          show: true,
+          data,
+        }}
       />
     </>
   );

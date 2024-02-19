@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import useChartTheme from "../../../hooks/useChartTheme";
 import generateCategorieSeries, {
@@ -219,4 +219,4 @@ const SIMPoids = ({ SIM }) => {
   );
 };
 
-export default SIMPoids;
+export default memo(SIMPoids);

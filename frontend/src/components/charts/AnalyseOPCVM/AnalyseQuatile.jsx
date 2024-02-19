@@ -36,6 +36,7 @@ const AnalyseQuatile = ({ data }) => {
             : data[0][serie.name],
         type: "line",
         data: data.map((item) => item[serie.data]),
+        symbol: "none",
       })),
     };
   }, [data, series, allValues]);
@@ -46,6 +47,10 @@ const AnalyseQuatile = ({ data }) => {
         style={{
           height: "500px",
           maxHeight: "600px",
+        }}
+        saveToExcel={{
+          show: true,
+          data,
         }}
       />
     </>

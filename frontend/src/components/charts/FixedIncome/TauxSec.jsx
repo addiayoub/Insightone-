@@ -124,7 +124,14 @@ const TauxSec = ({ data }) => {
   }, [data, seriesNames]);
   return (
     <>
-      <BarChart options={options} />
+      <BarChart
+        options={options}
+        saveToExcel={{
+          show: true,
+          data: [data],
+          fileName: "Evolution des taux secondaires",
+        }}
+      />
     </>
   );
 };

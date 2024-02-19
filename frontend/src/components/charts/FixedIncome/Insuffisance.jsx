@@ -39,10 +39,7 @@ const Insuffisance = ({ data }) => {
           label: {
             show: true,
             position: "bottom",
-            // formatter: "{b} \n {c}",
             formatter: function (params) {
-              // Use toFixed(2) to format the value with two decimal places
-              console.log("params are", params);
               return `${params.name}\n ${formatNumberWithSpaces(params.value)}`;
             },
           },
@@ -52,7 +49,14 @@ const Insuffisance = ({ data }) => {
   }, [data, seriesNames]);
   return (
     <>
-      <BarChart options={options} />
+      <BarChart
+        options={options}
+        saveToExcel={{
+          show: true,
+          data: [data],
+          fileName: "Répartition de l'insuffisance bancaire par composante",
+        }}
+      />
     </>
   );
 };

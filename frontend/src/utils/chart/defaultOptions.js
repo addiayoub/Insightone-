@@ -1,3 +1,37 @@
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
+const exportToExcel = (data, fileName) => {
+  data = Array.isArray(data) ? data : [data];
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+  // Buffer to store the generated Excel file
+  const excelBuffer = XLSX.write(workbook, {
+    bookType: "xlsx",
+    type: "array",
+  });
+  const blob = new Blob([excelBuffer], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+  });
+
+  saveAs(blob, `${fileName}.xlsx`);
+};
+
+export const getExportToExcelFeature = (options) => {
+  const { data, fileName, show } = options;
+  console.log("getExportToExcelFeature options", options);
+  return {
+    show,
+    title: "Export Excel",
+    icon: "path://M21 7v12q0 .825-.587 1.413T19 21H5q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h12zm-9 11q1.25 0 2.125-.875T15 15q0-1.25-.875-2.125T12 12q-1.25 0-2.125.875T9 15q0 1.25.875 2.125T12 18m-6-8h9V6H6z",
+    iconStyle: { borderColor: "#444ce7" },
+    onclick: function () {
+      return exportToExcel(data, fileName ? fileName : new Date().getTime());
+    },
+  };
+};
+
 const goFullscreen = (chartRef) => {
   const chart = chartRef.current.getEchartsInstance();
   const element = chart.getDom();

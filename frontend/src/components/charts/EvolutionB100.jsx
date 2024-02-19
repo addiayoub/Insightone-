@@ -98,8 +98,8 @@ function EvolutionB100({
       <LineChart
         saveToExcel={{
           show: true,
-          data: data,
-          fileName: "Evolution B100",
+          data,
+          fileName: title,
         }}
         options={options}
         style={{

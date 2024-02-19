@@ -2,6 +2,7 @@ import React, { memo, useMemo, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import {
   defaultOptions,
+  getExportToExcelFeature,
   getFullscreenFeature,
 } from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
@@ -21,9 +22,15 @@ const LineChart = ({
   showSeriesSelector,
   saveToExcel = initSaveToExcel,
 }) => {
-  console.log("options", options, saveToExcel);
+  console.log(
+    "LineChart baseoptions",
+    options,
+    saveToExcel,
+    saveToExcel.fileName ? saveToExcel.fileName : initSaveToExcel.fileName
+  );
   const chart = useRef(null);
   const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
   const theme = useChartTheme();
   const { show, data, fileName } = saveToExcel;
   console.log("render LineChart");
@@ -122,6 +129,7 @@ const LineChart = ({
       toolbox: {
         feature: {
           myFullscreen,
+          myExportToExcel,
           saveAsImage,
           dataZoom,
           restore,
@@ -136,7 +144,7 @@ const LineChart = ({
 
   return (
     <Box className="relative">
-      {show && <SaveToExcel data={data} fileName={fileName} />}
+      {/* {show && <SaveToExcel data={data} fileName={fileName} />} */}
       {showSeriesSelector && <SeriesSelector />}
       <ReactECharts
         option={baseOptions}
