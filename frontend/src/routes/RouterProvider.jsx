@@ -22,6 +22,7 @@ import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Index.jsx";
 import Tracking from "../components/Tracking/Index.jsx";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/Index.jsx";
+import FixedIncome from "../components/FixedIncome/Index.jsx";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 
 function RouterProvider() {
@@ -42,6 +43,7 @@ function RouterProvider() {
             <Route path="/portefeuilles" element={<Portefeuilles />} />
             <Route path="/tracking" element={<Tracking />} />
             <Route path="/analyse-opcvm" element={<AnalyseOPCVM />} />
+            <Route path="/fixed-income" element={<FixedIncome />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

@@ -22,6 +22,7 @@ import {
   Compass,
   Globe,
   Pocket,
+  DollarSign,
 } from "react-feather";
 
 export const sidebarData = [
@@ -149,5 +150,12 @@ export const sidebarData = [
         icon: Compass,
       },
     ],
+  },
+  {
+    title: "Fixed income",
+    // icon: Briefcase,
+    icon: DollarSign,
+    link: "fixed-income",
+    isPrivate: false,
   },
 ];

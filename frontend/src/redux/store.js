@@ -12,6 +12,7 @@ import OpcvmReducer from "./slices/OpcvmSlice";
 import BacktestReducer from "./slices/BacktestSlice";
 import TrackingReducer from "./slices/TrackingSlice";
 import analyseOPCVMReducer from "./slices/analyseOPCVMSlice";
+import fixedIncomeReducer from "./slices/FixedIncomeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
     backtest: BacktestReducer,
     tracking: TrackingReducer,
     analyseOPCVM: analyseOPCVMReducer,
+    fixedIncome: fixedIncomeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

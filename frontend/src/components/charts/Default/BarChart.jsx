@@ -51,6 +51,7 @@ const BarChart = ({
     showDataZoom = false,
     legend,
     dataZoom,
+    toolbox,
     seriesNames: { seriesList = [], init = [] } = {},
     ...rest
   } = options;
@@ -100,18 +101,19 @@ const BarChart = ({
         ...theme.legend,
       },
       xAxis: {
-        ...(xAxis ?? {}),
-        axisLabel: {
-          hideOverlap: true,
-          ...xAxis?.axisLabel,
-          ...theme.xAxis.nameTextStyle,
-        },
         axisTick: {
           show: false,
         },
         axisLine: {
           show: false,
         },
+        ...(xAxis ?? {}),
+        axisLabel: {
+          hideOverlap: true,
+          ...xAxis?.axisLabel,
+          ...theme.xAxis.nameTextStyle,
+        },
+
         ...theme.xAxis,
       },
       yAxis: Array.isArray(yAxis)
@@ -175,6 +177,7 @@ const BarChart = ({
           dataView,
         },
         top: "20px",
+        ...toolbox,
       },
       series,
       dataZoom: zoom,
@@ -189,7 +192,10 @@ const BarChart = ({
       <ReactECharts
         option={baseOptions}
         key={JSON.stringify(baseOptions)}
-        style={style}
+        style={{
+          minHeight: "400px",
+          ...style,
+        }}
         ref={chart}
       />
     </Box>

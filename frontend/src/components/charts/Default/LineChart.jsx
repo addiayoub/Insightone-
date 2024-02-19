@@ -63,16 +63,27 @@ const LineChart = ({
         },
         ...theme.xAxis,
       },
-      yAxis: {
-        type: "value",
-        ...(yAxis ?? {}),
-        axisLabel: {
-          hideOverlap: true,
-          ...yAxis?.axisLabel,
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
+      yAxis: Array.isArray(yAxis)
+        ? yAxis.map((config) => ({
+            ...config,
+            type: "value",
+            axisLabel: {
+              hideOverlap: true,
+              ...config?.axisLabel,
+              ...theme.yAxis.nameTextStyle,
+            },
+            ...theme.yAxis,
+          }))
+        : {
+            type: "value",
+            ...(yAxis ?? {}),
+            axisLabel: {
+              hideOverlap: true,
+              ...yAxis?.axisLabel,
+              ...theme.yAxis.nameTextStyle,
+            },
+            ...theme.yAxis,
+          },
       legend: {
         orient: "horizontal",
         zLevel: 23,
@@ -130,7 +141,10 @@ const LineChart = ({
       <ReactECharts
         option={baseOptions}
         key={JSON.stringify(baseOptions)}
-        style={style}
+        style={{
+          minHeight: 500,
+          ...style,
+        }}
         ref={chart}
       />
     </Box>
