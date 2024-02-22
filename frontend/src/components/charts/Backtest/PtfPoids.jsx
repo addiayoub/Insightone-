@@ -1,6 +1,6 @@
-import React, { useMemo, useRef } from "react";
-import useChartTheme from "../../../hooks/useChartTheme";
+import React, { memo, useMemo, useRef } from "react";
 import PieChart from "../Default/PieChart";
+import { generateSeries } from "../../../utils/generateCategorieSeries";
 
 const PtfPoids = ({ data, field, sumOf, title }) => {
   const sorted = useMemo(
@@ -14,6 +14,8 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
       return acc;
     }, {});
   }, [data, field, sumOf]);
+  const sgSeries = generateSeries(data, field, "Classification");
+  console.log("PtfPoids sgSeries", sgSeries);
   const secteurs = [...new Set(data.map((item) => item[sumOf]))];
   const poidsSecteur = secteurs
     .map((secteur) => ({
@@ -33,7 +35,6 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
   const seriesData = sumOf ? poidsSecteur : poidsTitre;
   const seriesNames = seriesData.map((item) => item.name);
   console.log("PtfPoids", data, sorted);
-  const theme = useChartTheme();
   const options = useMemo(() => {
     return {
       title: {
@@ -66,6 +67,7 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
             minMargin: 6,
             edgeDistance: 10,
             lineHeight: 15,
+            rotate: -15,
           },
           labelLine: {
             length: 10,
@@ -97,4 +99,4 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
   );
 };
 
-export default PtfPoids;
+export default memo(PtfPoids);

@@ -110,7 +110,7 @@ export const portfolioAllocationAction = createAsyncThunk(
       // ?start=25%2F12%2F2020&end=02%2F02%2F2024&risk_free_rate=0.009
       const response = await apiNewMarko.post(
         `Black_Litterman_Portfolio/POST/Portfolio_Allocation/`,
-        body1,
+        body,
         {
           params: {
             start: formatDate(dateDebut["$d"]),

@@ -101,6 +101,7 @@ export const transformForPtfAlloca = (ptfs) => {
     const { field, data } = ptf;
     if (data) {
       const ptfData = data.filter((item) => item[field] > 0);
+      const form = { valeur: "LES", view: 0.05, min: 0, max: 0.1 };
       const dd = ptfData.map((item) => {
         return {
           valeur: item.titre,

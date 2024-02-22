@@ -289,7 +289,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
       />
       {showActions && newRows.length > 0 && (
         <GridContainer extraCss="my-4">
-          <GridItem>
+          <GridItem cols={4}>
             <PtfPoids
               data={newRows}
               field={field}
@@ -297,7 +297,15 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
               title="Poids des sociétés des gestions"
             />
           </GridItem>
-          <GridItem>
+          <GridItem cols={4}>
+            <PtfPoids
+              data={newRows}
+              field={field}
+              sumOf="Classification"
+              title="Classification"
+            />
+          </GridItem>
+          <GridItem cols={4}>
             <PtfPoids data={newRows} field={field} title="Poids des titres" />
           </GridItem>
         </GridContainer>
