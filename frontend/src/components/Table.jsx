@@ -68,7 +68,6 @@ function Table({
     setClickedRowId(params.id);
     setRow(params.row);
   }, []);
-  console.log("rows are", rows);
   return (
     <>
       <StripedDataGrid

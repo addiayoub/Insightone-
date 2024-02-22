@@ -195,7 +195,15 @@ function PatternsChandeliers({ data }) {
 
   return (
     <>
-      <TradingChart options={options} style={{ height: "500px" }} />
+      <TradingChart
+        options={options}
+        style={{ height: "500px" }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+      />
     </>
   );
 }

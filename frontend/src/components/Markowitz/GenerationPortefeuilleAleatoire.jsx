@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import AccordionBox from "../AccordionBox";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -179,4 +179,4 @@ function GenerationPortefeuilleAleatoire({ dateDebut, dateFin, titres }) {
   );
 }
 
-export default GenerationPortefeuilleAleatoire;
+export default memo(GenerationPortefeuilleAleatoire);

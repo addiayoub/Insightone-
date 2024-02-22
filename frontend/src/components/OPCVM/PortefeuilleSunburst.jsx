@@ -129,11 +129,14 @@ const createOptions = (seriesData) => {
 function PortefeuilleSunburst({ data, field }) {
   console.log("PortefeuilleSunburst data", data);
   console.log("render PortefeuilleSunburst", generateSeries(data, field));
-  const classiSeries = generateSeries(data, field);
+  const classiSeries = useMemo(
+    () => generateSeries(data, field),
+    [data, field]
+  );
   const sgSeries = generateSeries(data, field, "Societe_Gestion");
-  const sgOpts = createOptions(sgSeries);
-  const classiOpts = createOptions(sgSeries);
-  const test = groupBy(data, "Classification");
+  const sgOpts = useMemo(() => createOptions(sgSeries), [sgSeries]);
+  const classiOpts = useMemo(() => createOptions(classiSeries), [classiSeries]);
+  const test = useMemo(() => groupBy(data, "Classification"), [data]);
   const [isClassification, setIsClassification] = useState(false);
   const [series, setSeries] = useState();
   const toggleHierarchy = () => {

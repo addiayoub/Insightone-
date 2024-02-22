@@ -52,7 +52,15 @@ const CapitalisationChart = ({ data }) => {
 
   return (
     <>
-      <LineChart options={options} style={{ height: "450px" }} />
+      <LineChart
+        options={options}
+        style={{ height: "450px" }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: "Capitalisation",
+        }}
+      />
     </>
   );
 };

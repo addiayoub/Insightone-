@@ -3,7 +3,7 @@ import React, { memo } from "react";
 const Commentaires = ({ data }) => {
   return (
     <div
-      className="my-3 p-4 rounded-md"
+      className="my-3 p-4 rounded-md max-h-[400px] overflow-y-auto"
       style={{ border: "1px solid var(--primary-color)" }}
     >
       <h2 className="mb-3 underline decoration-primary underline-offset-4">
@@ -11,7 +11,7 @@ const Commentaires = ({ data }) => {
       </h2>
       {Object.keys(data).map((commentTitle, index) => {
         return (
-          <div key={index} className="my-2">
+          <div key={index} className="my-4">
             <span className="my-2 font-bold">{commentTitle}</span>
             {data[commentTitle].map((commentObj, index) => {
               return (

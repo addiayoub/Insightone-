@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FormControl, Typography } from "@mui/material";
 
 const Contrainte = ({ label, children, width = 100 }) => {
@@ -16,4 +16,4 @@ const Contrainte = ({ label, children, width = 100 }) => {
     </FormControl>
   );
 };
-export default Contrainte;
+export default memo(Contrainte);

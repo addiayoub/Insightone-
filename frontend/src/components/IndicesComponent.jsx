@@ -111,23 +111,32 @@ const IndicesComponent = ({
   }, [selectedSCategories]);
 
   useEffect(() => {
-    dispatch(getIndices())
-      .unwrap()
-      .then((successValue) => {
-        console.log("indices success", successValue);
-        setIndicesData(successValue.data);
-        setClasses(successValue.classes);
-        setCategories(successValue.categories);
-        setSCategories(successValue.sCategories);
-        setIndices(successValue.indices);
-      })
-      .catch((rejectedValue) => {
-        console.log("univers", rejectedValue);
-        if (rejectedValue.status) {
-          dispatch(logout());
-        }
-        notyf.error("Request Failed");
-      });
+    if (!localStorage.getItem("indices")) {
+      dispatch(getIndices())
+        .unwrap()
+        .then((successValue) => {
+          console.log("indices success", successValue);
+          setIndicesData(successValue.data);
+          setClasses(successValue.classes);
+          setCategories(successValue.categories);
+          setSCategories(successValue.sCategories);
+          setIndices(successValue.indices);
+        })
+        .catch((rejectedValue) => {
+          console.log("univers", rejectedValue);
+          if (rejectedValue.status) {
+            dispatch(logout());
+          }
+          notyf.error("Request Failed");
+        });
+    } else {
+      const indices = JSON.parse(localStorage.getItem("indices"));
+      setIndicesData(indices.data);
+      setClasses(indices.classes);
+      setCategories(indices.categories);
+      setSCategories(indices.sCategories);
+      setIndices(indices.indices);
+    }
   }, []);
   return (
     <Box className="flex gap-2 flex-wrap">

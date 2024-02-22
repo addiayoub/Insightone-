@@ -110,6 +110,16 @@ export const getIndices = createAsyncThunk(
         ...new Set(response.data.data.map((item) => item.S_CATEGORIE)),
       ];
       console.log("INDICES res", { classes, categories, sCategories, indices });
+      localStorage.setItem(
+        "indices",
+        JSON.stringify({
+          data: response.data.data,
+          classes,
+          categories,
+          sCategories,
+          indices,
+        })
+      );
       return {
         data: response.data.data,
         classes,
@@ -130,7 +140,7 @@ export const getTitres = createAsyncThunk(
       const response = await axiosClient.get(`/data/getTitres/`);
 
       console.log("getTitres", response.data.data);
-
+      localStorage.setItem("titres", JSON.stringify(response.data.data));
       return response.data.data;
     } catch (error) {
       return handleActionsError(error, thunkAPI);

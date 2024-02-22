@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useRef } from "react";
+import React, { memo, useMemo, useRef, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import {
   defaultOptions,
@@ -42,7 +42,7 @@ const LineChart = ({
     series,
     yAxis,
     legend,
-    seriesNames: { seriesList = [], init = [] } = {},
+    seriesNames: { seriesList = [], init = seriesList } = {},
     ...rest
   } = options;
   const { SeriesSelector, selectedLegend } = useSeriesSelector(
@@ -52,7 +52,7 @@ const LineChart = ({
   const {
     dataZoom: zoom,
     toolbox: {
-      feature: { saveAsImage, dataZoom, restore },
+      feature: { saveAsImage, dataZoom, restore, dataView },
     },
   } = defaultOptions;
   const baseOptions = useMemo(() => {
@@ -61,15 +61,25 @@ const LineChart = ({
         ...(title ?? {}),
         ...theme.title,
       },
-      xAxis: {
-        ...(xAxis ?? {}),
-        axisLabel: {
-          hideOverlap: true,
-          ...xAxis?.axisLabel,
-          ...theme.xAxis.nameTextStyle,
-        },
-        ...theme.xAxis,
-      },
+      xAxis: Array.isArray(xAxis)
+        ? yAxis.map((config) => ({
+            ...(config ?? {}),
+            axisLabel: {
+              hideOverlap: true,
+              ...config?.axisLabel,
+              ...theme.xAxis.nameTextStyle,
+            },
+            ...theme.xAxis,
+          }))
+        : {
+            ...(xAxis ?? {}),
+            axisLabel: {
+              hideOverlap: true,
+              ...xAxis?.axisLabel,
+              ...theme.xAxis.nameTextStyle,
+            },
+            ...theme.xAxis,
+          },
       yAxis: Array.isArray(yAxis)
         ? yAxis.map((config) => ({
             ...config,
@@ -131,6 +141,7 @@ const LineChart = ({
           myFullscreen,
           myExportToExcel,
           saveAsImage,
+          dataView,
           dataZoom,
           restore,
         },
@@ -141,7 +152,16 @@ const LineChart = ({
       ...rest,
     };
   }, [series, selectedLegend, options, theme]);
-
+  useEffect(() => {
+    const chartInstance = chart.current.getEchartsInstance();
+    chartInstance.dispatchAction({
+      type: "showDataView",
+    });
+    // Perform any custom logic with the series data
+    // console.log("Series Data:", seriesData);
+    console.log("getEchartsInstance", chartInstance);
+  }, []);
+  const handleOpen = () => console.log("dataViewOpend");
   return (
     <Box className="relative">
       {/* {show && <SaveToExcel data={data} fileName={fileName} />} */}

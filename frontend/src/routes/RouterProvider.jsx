@@ -15,7 +15,7 @@ import UpdateUser from "../pages/UpdateUser";
 import AdminRoutes from "./AdminRoutes";
 import AuthRoute from "./AuthRoute";
 import LoginRoute from "./LoginRoute";
-import Secteurs from "../components/Secteurs/Secteurs.jsx";
+import AnalyseSectorial from "../components/Secteurs/Secteurs.jsx";
 import Markowitz from "../components/Markowitz/Markowitz.jsx";
 import Opcvm from "../components/OPCVM/Index.jsx";
 import Backtest from "../components/Backtest/Backtest.jsx";
@@ -23,6 +23,7 @@ import Portefeuilles from "../components/portefeuilles/Index.jsx";
 import Tracking from "../components/Tracking/Index.jsx";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/Index.jsx";
 import FixedIncome from "../components/FixedIncome/Index.jsx";
+import BlackLitterman from "../components/BlackLitterman/Index.jsx";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 
 function RouterProvider() {
@@ -37,13 +38,14 @@ function RouterProvider() {
             <Route path="/rapports" element={<Data />} />
             <Route path="/markowitz" element={<Markowitz />} />
             <Route path="/analyse-chartiste" element={<Index />} />
-            <Route path="/analyse-sectorial" element={<Secteurs />} />
+            <Route path="/analyse-sectorial" element={<AnalyseSectorial />} />
             <Route path="/opcvm" element={<Opcvm />} />
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
             <Route path="/tracking" element={<Tracking />} />
             <Route path="/analyse-opcvm" element={<AnalyseOPCVM />} />
             <Route path="/fixed-income" element={<FixedIncome />} />
+            <Route path="/black-litterman" element={<BlackLitterman />} />
           </Route>
           <Route element={<AdminRoutes />}>
             <Route path="/users" element={<Users />} />

@@ -13,16 +13,14 @@ const gridStyle = {
 };
 
 function Portefeuille({ title, data, field, compare, saveAll = false }) {
-  const rows = compare
-    ? data
-    : data
-        .filter((item) => item[field] >= 0.01)
-        .map((item) => ({
-          ...item,
-          [field]: field === "Poids_MASI" ? item[field] * 100 : item[field],
-        }))
-        .sort((a, b) => b[field] - a[field]);
-  console.log("rows", rows);
+  const rows = data
+    .filter((item) => item[field] >= 0.01)
+    .map((item) => ({
+      ...item,
+      [field]: field === "Poids_MASI" ? item[field] * 100 : item[field],
+    }))
+    .sort((a, b) => b[field] - a[field]);
+  console.log("Portefeuille front 2 rows", rows, field, compare);
   return (
     <Box
       // sx={gridStyle}

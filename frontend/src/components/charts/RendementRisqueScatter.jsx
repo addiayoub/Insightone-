@@ -53,7 +53,8 @@ function RendementRisqueScatter({ data }) {
     return {
       title: {
         text: "Analyse Rendement/Risque Période Annualisée",
-        left: "center",
+        left: "10%",
+        top: 0,
       },
       legend: {
         orient: "horizontal",
@@ -97,6 +98,11 @@ function RendementRisqueScatter({ data }) {
           margin: "auto",
         }}
         showSeriesSelector
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
     </>
   );

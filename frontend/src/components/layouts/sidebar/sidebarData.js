@@ -24,6 +24,7 @@ import {
   Pocket,
   DollarSign,
 } from "react-feather";
+import { ChartScatterIcon } from "../../../icons/Icons";
 
 export const sidebarData = [
   {
@@ -73,6 +74,11 @@ export const sidebarData = [
         icon: Dribbble,
       },
       {
+        title: "Black Litterman",
+        link: "black-litterman",
+        icon: Briefcase,
+      },
+      {
         title: "Fonds de fonds",
         link: "opcvm",
         icon: Box,
@@ -119,12 +125,12 @@ export const sidebarData = [
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Backtest",
+        title: "Backtest personalisé",
         link: "backtest",
         icon: BarChart2,
       },
       {
-        title: "Backtest personalisé",
+        title: "Backtest",
         link: "portefeuilles",
         icon: Pocket,
       },
@@ -153,7 +159,6 @@ export const sidebarData = [
   },
   {
     title: "Fixed income",
-    // icon: Briefcase,
     icon: DollarSign,
     link: "fixed-income",
     isPrivate: false,

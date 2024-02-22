@@ -55,7 +55,7 @@ const BarChart = ({
     legend,
     dataZoom,
     toolbox,
-    seriesNames: { seriesList = [], init = [] } = {},
+    seriesNames: { seriesList = [], init = seriesList } = {},
     ...rest
   } = options;
   const { SeriesSelector, selectedLegend } = useSeriesSelector(

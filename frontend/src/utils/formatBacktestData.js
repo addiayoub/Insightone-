@@ -95,6 +95,30 @@ export const transformForBacktest = (ptfs) => {
   // return mergeDataByKeyBeta(newData, "valeur");
 };
 
+export const transformForPtfAlloca = (ptfs) => {
+  const newData = [];
+  ptfs.forEach((ptf) => {
+    const { field, data } = ptf;
+    if (data) {
+      const ptfData = data.filter((item) => item[field] > 0);
+      const dd = ptfData.map((item) => {
+        return {
+          valeur: item.titre,
+          view: 0.05,
+          min: 0,
+          max: 0.1,
+          // [`"${name}"`]: item[field],
+        };
+      });
+      newData.push(...dd);
+    }
+  });
+  console.log("transformForPtfAlloca", newData);
+  return newData;
+  // return mergeDataByKey(newData, "valeur");
+  // return mergeDataByKeyBeta(newData, "valeur");
+};
+
 const mergeDataByKey = (data, key) => {
   console.log("mergeDataByKey input", data);
   const result = data.reduce((acc, item) => {

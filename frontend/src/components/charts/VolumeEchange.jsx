@@ -92,7 +92,15 @@ function VolumeEchange({ chartData }) {
   }, [data]);
   return (
     // <ReactECharts option={options} style={{ height: "500px", width: "100%" }} />
-    <BarChart options={options} style={{ height: "500px", width: "100%" }} />
+    <BarChart
+      options={options}
+      style={{ height: "500px", width: "100%" }}
+      saveToExcel={{
+        show: true,
+        data,
+        fileName: options.title.text,
+      }}
+    />
   );
 }
 

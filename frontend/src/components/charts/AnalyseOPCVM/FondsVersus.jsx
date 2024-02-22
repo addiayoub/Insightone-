@@ -124,6 +124,11 @@ const FondsVersus = ({ data }) => {
           width: "100%",
           margin: "15px auto",
         }}
+        saveToExcel={{
+          data,
+          show: true,
+          fileName: options.title.text,
+        }}
         showSeriesSelector
       />
     </>

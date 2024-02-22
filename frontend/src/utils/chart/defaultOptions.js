@@ -100,7 +100,10 @@ export const defaultOptions = {
         iconStyle: { borderColor: "#444ce7" },
         title: "Enregister sous image",
       },
-      dataView: { iconStyle: { borderColor: "#444ce7" } },
+      dataView: {
+        iconStyle: { borderColor: "#444ce7" },
+        readOnly: true,
+      },
       restore: {
         title: "Réinitialiser",
         iconStyle: { borderColor: "#444ce7" },

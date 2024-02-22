@@ -27,6 +27,7 @@ const SavePortefeuille = ({
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [choice, setChoice] = useState("single");
+  const [isSaving, setIsSaving] = useState(false);
   console.log("saveAll", saveAll);
   console.log("oldParams", oldParams);
   data = injectMinMax(data);
@@ -37,6 +38,7 @@ const SavePortefeuille = ({
       : useSelector((state) => state.rapport);
   const dispatch = useDispatch();
   const handleSave = () => {
+    setIsSaving(true);
     console.log("Title", title);
     console.log("params", params);
     console.log("choice", choice);
@@ -75,7 +77,8 @@ const SavePortefeuille = ({
         dispatch(setSelectedPtf(ptfs[0]["name"]));
         notyf.success(message);
       })
-      .catch((error) => notyf.error(error));
+      .catch((error) => notyf.error(error))
+      .finally(() => setIsSaving(false));
   };
   const reset = () => {
     setOpen(false);
@@ -154,8 +157,12 @@ const SavePortefeuille = ({
             >
               Annuler
             </Button>
-            <Button variant="contained" onClick={handleSave} disabled={!title}>
-              Enregistrer
+            <Button
+              variant="contained"
+              onClick={handleSave}
+              disabled={!title || isSaving}
+            >
+              {isSaving ? "Veuillez patienter..." : "Enregistrer"}
             </Button>
           </Box>
         </Box>

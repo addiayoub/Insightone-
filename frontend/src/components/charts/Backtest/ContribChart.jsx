@@ -82,6 +82,11 @@ const ContribChart = ({ data }) => {
         style={{
           minHeight: chartHeight,
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
     </>
   );

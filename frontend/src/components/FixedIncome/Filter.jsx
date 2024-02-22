@@ -6,6 +6,7 @@ import { SearchButton } from "../Ui/Buttons";
 import { useDispatch, useSelector } from "react-redux";
 import { getFixedIncome } from "../../redux/actions/FixedIncomeActions";
 import MainLoader from "../loaders/MainLoader";
+import { Calendar } from "react-feather";
 
 const Filter = ({ setShow }) => {
   const { loading } = useSelector((state) => state.fixedIncome);
@@ -27,6 +28,7 @@ const Filter = ({ setShow }) => {
         title="Paramétres"
         isExpanded
         detailsClass="flex gap-2 items-center"
+        Icon={Calendar}
       >
         <DateComponent {...{ date, setDate }} />
         <SearchButton onClick={handleSearch} />

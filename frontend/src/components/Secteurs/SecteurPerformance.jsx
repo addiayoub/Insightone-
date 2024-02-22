@@ -72,7 +72,17 @@ function SecteurPerformance({ data, height = "400px" }) {
       ],
     };
   }, [data, yAxisValues]);
-  return <BarChart options={options} style={{ height }} />;
+  return (
+    <BarChart
+      options={options}
+      style={{ height }}
+      saveToExcel={{
+        show: true,
+        data,
+        fileName: options.title.text,
+      }}
+    />
+  );
 }
 
 export default memo(SecteurPerformance);

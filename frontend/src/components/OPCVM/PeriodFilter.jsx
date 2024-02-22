@@ -35,10 +35,15 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSocietesGestion())
-      .unwrap()
-      .then(({ data }) => setSocietes(data))
-      .catch((error) => notyf.error("getSocietesGestion " + error));
+    if (!localStorage.getItem("societesGestion")) {
+      dispatch(getSocietesGestion())
+        .unwrap()
+        .then(({ data }) => setSocietes(data))
+        .catch((error) => notyf.error("getSocietesGestion " + error));
+    } else {
+      const sg = JSON.parse(localStorage.getItem("societesGestion"));
+      setSocietes(sg);
+    }
   }, []);
   const handleSearch = () => {
     const params = {

@@ -33,6 +33,7 @@ const ScatterChart = ({
     series,
     yAxis,
     legend,
+    toolbox,
     seriesNames: { seriesList = [], init = seriesList } = {},
     ...rest
   } = options;
@@ -85,22 +86,41 @@ const ScatterChart = ({
         },
         ...theme.xAxis,
       },
-      yAxis: {
-        ...yAxis,
-        type: "value",
-        nameLocation: "middle",
-        nameGap: 50,
-        axisLabel: {
-          hideOverlap: true,
-          ...yAxis?.axisLabel,
-          ...theme.yAxis.nameTextStyle,
-        },
-        nameTextStyle: {
-          fontSize: 14,
-          ...theme.yAxis.nameTextStyle,
-        },
-        ...theme.yAxis,
-      },
+      yAxis: Array.isArray(yAxis)
+        ? yAxis.map((yAxisConfig) => ({
+            ...yAxisConfig,
+            type: "value",
+            nameLocation: "middle",
+            nameGap: 50,
+            axisLabel: {
+              hideOverlap: true,
+              ...yAxisConfig?.axisLabel,
+              ...theme.yAxis.nameTextStyle,
+            },
+            nameTextStyle: {
+              fontSize: 14,
+              ...theme.yAxis.nameTextStyle,
+            },
+            ...theme.yAxis,
+          }))
+        : [
+            {
+              ...yAxis,
+              type: "value",
+              nameLocation: "middle",
+              nameGap: 50,
+              axisLabel: {
+                hideOverlap: true,
+                ...yAxis?.axisLabel,
+                ...theme.yAxis.nameTextStyle,
+              },
+              nameTextStyle: {
+                fontSize: 14,
+                ...theme.yAxis.nameTextStyle,
+              },
+              ...theme.yAxis,
+            },
+          ],
       grid: {
         bottom: "50",
         top: "10%",
@@ -131,6 +151,7 @@ const ScatterChart = ({
         },
         right: 0,
         top: "10px",
+        ...(toolbox ?? {}),
       },
       series,
       ...rest,
@@ -142,7 +163,10 @@ const ScatterChart = ({
       <ReactECharts
         option={baseOptions}
         key={JSON.stringify(baseOptions)}
-        style={style}
+        style={{
+          minHeight: 400,
+          ...style,
+        }}
         ref={chart}
         onEvents={onEvents}
       />

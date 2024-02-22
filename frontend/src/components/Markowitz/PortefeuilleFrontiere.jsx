@@ -17,6 +17,7 @@ const gridStyle = {
 };
 
 function PortefeuilleFrontiere({ data, field, ptfs, type }) {
+  console.log("PortefeuilleFrontiere data", data);
   const rows = data
     .filter((item) => item[field] >= 0.01)
     .map((item) => ({
@@ -24,7 +25,7 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
       [field]: item[field] * 100,
     }))
     .sort((a, b) => b[field] - a[field]);
-  console.log("rows", rows);
+  console.log("rows PortefeuilleFrontiere", rows);
   console.log("Type...", type);
   const columns = [
     {

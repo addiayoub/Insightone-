@@ -63,6 +63,11 @@ const IndicesChartV2 = ({ data }) => {
         style={{ minHeight: 500, height: 600, maxHeight: 750 }}
         options={options}
         showSeriesSelector
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
     </Box>
   );

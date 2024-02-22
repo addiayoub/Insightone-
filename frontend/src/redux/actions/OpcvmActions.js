@@ -62,6 +62,10 @@ export const getSocietesGestion = createAsyncThunk(
     try {
       const response = await axiosClient.get(`/opcvm/getSocietesGestion`);
       console.log("getSocietesGestion", response.data);
+      localStorage.setItem(
+        "societesGestion",
+        JSON.stringify(response.data.data)
+      );
       return response.data;
     } catch (error) {
       return handleActionsError(error, thunkAPI);

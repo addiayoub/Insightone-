@@ -140,6 +140,11 @@ const VlChart = ({ data, seriesNames, title, withBubbles }) => {
           height: "500px",
           maxHeight: "600px",
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title,
+        }}
       />
     </>
   );

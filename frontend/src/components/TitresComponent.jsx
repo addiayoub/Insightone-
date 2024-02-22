@@ -41,10 +41,17 @@ const TitresComponent = ({
   console.log("render titres comp", filteredSelects);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getTitres())
-      .unwrap()
-      .then((data) => setTitres(data))
-      .catch((e) => notyf.error("error fetch titres"));
+    if (!localStorage.getItem("titres")) {
+      dispatch(getTitres())
+        .unwrap()
+        .then((data) => {
+          setTitres(data);
+        })
+        .catch((e) => notyf.error("error fetch titres"));
+    } else {
+      const titres = JSON.parse(localStorage.getItem("titres"));
+      setTitres(titres);
+    }
   }, []);
   return (
     <>

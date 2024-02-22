@@ -21,9 +21,12 @@ function DfContrib({ title, data }) {
     },
   }));
   return (
-    <AccordionBox title={title} isExpanded>
-      <Table columns={columns} rows={data} />
-    </AccordionBox>
+    // <AccordionBox title={title} isExpanded>
+    <>
+      <h3>{title}</h3>
+      <Table columns={columns} rows={data} className="h-fit" />
+    </>
+    // </AccordionBox>
   );
 }
 

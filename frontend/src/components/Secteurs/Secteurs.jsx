@@ -27,7 +27,7 @@ function Secteurs() {
   const handelSearch = () => {
     dispatch(getSectorialData({ dateDebut, dateFin }))
       .unwrap()
-      .then()
+      .then((success) => console.log("SectorialData", success))
       .catch((err) => console.log(err));
   };
   return (

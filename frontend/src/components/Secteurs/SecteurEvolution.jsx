@@ -51,7 +51,16 @@ function SecteurEvolution({ data, height }) {
   }, [seriesData, categories, seriesNames]);
   return (
     <>
-      <LineChart options={options} style={{ height }} showSeriesSelector />
+      <LineChart
+        options={options}
+        style={{ height }}
+        showSeriesSelector
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+      />
     </>
   );
 }

@@ -6,6 +6,7 @@ import useChartTheme from "../../hooks/useChartTheme";
 import PtfRange from "./PtfRange";
 import Ptf from "../Markowitz/PortefeuilleFrontiere";
 import { getFullscreenFeature } from "../../utils/chart/defaultOptions";
+import ScatterChart from "./Default/ScatterChart";
 
 const seriesData = [
   {
@@ -38,27 +39,34 @@ function PortefeuilleAleatoires({
   type,
 }) {
   const chart = useRef(null);
-  const myFullscreen = getFullscreenFeature(chart);
   const tabRef = useRef(null);
   const [name, setName] = useState(null);
   const theme = useChartTheme();
   const results = data.results.map((item) => [item.X, item.Y]);
   const rendement = data.results.map((item) => +item.Y.toFixed(2));
   console.log("PortefeuilleAleatoires - Renreded aga");
-  const labels = data["df_Val_return_std_dev"].map((item) => ({
-    value: [item.X, item.Y],
-    name: item.labels,
-    itemStyle: {
-      color: "#e100ff",
-    },
-  }));
-  const ptf = frontiere.map((item) => ({
-    value: [item.Risque * 100, item.Rendement * 100],
-    name: item.ptf,
-    itemStyle: {
-      color: "#808080",
-    },
-  }));
+  const labels = useMemo(
+    () =>
+      data["df_Val_return_std_dev"].map((item) => ({
+        value: [item.X, item.Y],
+        name: item.labels,
+        itemStyle: {
+          color: "#e100ff",
+        },
+      })),
+    [data["df_Val_return_std_dev"]]
+  );
+  const ptf = useMemo(
+    () =>
+      frontiere.map((item) => ({
+        value: [item.Risque * 100, item.Rendement * 100],
+        name: item.ptf,
+        itemStyle: {
+          color: "#808080",
+        },
+      })),
+    [frontiere]
+  );
   const [isShow, setIsShow] = useState(true);
   const options = useMemo(() => {
     return {
@@ -66,33 +74,15 @@ function PortefeuilleAleatoires({
         text: "Traçage de la frontière efficiente",
         left: "center",
         top: 0,
-        ...theme.title,
       },
       legend: {
-        data: seriesData.map((item) => item.name),
-        orient: "verticaly",
-        zLevel: 5,
-        right: 0,
+        // data: seriesData.map((item) => item.name),
         top: "10%",
-        type: "scroll",
-        ...theme.legend,
       },
       grid: {
         bottom: "50",
         left: "50",
         right: "200",
-      },
-      toolbox: {
-        feature: {
-          myFullscreen,
-          dataZoom: {
-            yAxisIndex: "none",
-          },
-          restore: {},
-          saveAsImage: {},
-        },
-        left: 0,
-        top: 15,
       },
       visualMap: {
         min: Math.min(...rendement),
@@ -128,35 +118,13 @@ function PortefeuilleAleatoires({
         // valueFormatter: (value) => value.toFixed(2),
       },
 
-      xAxis: [
-        {
-          type: "value",
-          name: "Risque",
-          nameLocation: "middle",
-          nameGap: 30,
-          axisLabel: {
-            ...theme.xAxis.nameTextStyle,
-          },
-          nameTextStyle: {
-            fontSize: 19,
-            ...theme.xAxis.nameTextStyle,
-          },
-          ...theme.yAxis,
-        },
-      ],
+      xAxis: {
+        name: "Risque",
+      },
+      toolbox: { left: 0 },
       yAxis: [
         {
-          type: "value",
           name: "Rendement",
-          nameLocation: "middle",
-          nameGap: 30,
-          axisLabel: {
-            ...theme.yAxis.nameTextStyle,
-          },
-          nameTextStyle: {
-            fontSize: 19,
-            ...theme.yAxis.nameTextStyle,
-          },
         },
       ],
       series: [
@@ -223,13 +191,17 @@ function PortefeuilleAleatoires({
   return (
     <>
       <div className="relative mb-10">
-        <ReactECharts
-          option={options}
+        <ScatterChart
+          options={options}
           style={{ height: "650px", width: "100%" }}
           onEvents={{
             click: handleClick,
           }}
-          ref={chart}
+          saveToExcel={{
+            show: true,
+            data,
+            fileName: options.title.text,
+          }}
         />
         <IconButton
           className="absolute right-0 text-[10px] top-0 max-w-[100px] mb-5"

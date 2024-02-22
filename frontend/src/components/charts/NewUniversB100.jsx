@@ -96,7 +96,15 @@ const NewUniversB100 = ({ data, dateDebut, dateFin }) => {
 
   return (
     <>
-      <LineChart options={options} style={{ minHeight: 500 }} />
+      <LineChart
+        options={options}
+        style={{ minHeight: 500 }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+      />
     </>
   );
 };

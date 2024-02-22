@@ -46,6 +46,11 @@ const VolatiliteChartV2 = ({ data }) => {
           minHeight: 500,
           margin: "15px 0",
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
         showSeriesSelector
       />
     </Box>

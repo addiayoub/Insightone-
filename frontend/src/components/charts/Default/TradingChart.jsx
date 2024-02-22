@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import {
   defaultOptions,
   getFullscreenFeature,
+  getExportToExcelFeature,
 } from "../../../utils/chart/defaultOptions";
 import useChartTheme from "../../../hooks/useChartTheme";
 import useSeriesSelector from "../../../hooks/useSeriesSelector";
@@ -24,6 +25,7 @@ const TradingChart = ({
   console.log("options", options, saveToExcel);
   const chart = useRef(null);
   const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
   const theme = useChartTheme();
   const { show, data, fileName } = saveToExcel;
   console.log("render TradingChart");
@@ -122,6 +124,7 @@ const TradingChart = ({
       toolbox: {
         feature: {
           myFullscreen,
+          myExportToExcel,
           saveAsImage,
           dataZoom,
           restore,

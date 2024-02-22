@@ -72,6 +72,11 @@ const EChartsPreview = ({ data }) => {
         style={{
           minHeight: 500,
         }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
     </>
   );

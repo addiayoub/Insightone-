@@ -60,6 +60,11 @@ const ComparaisonIndicesV2 = ({ data }) => {
         options={options}
         showSeriesSelector
         style={{ minHeight: 500, height: 600, maxHeight: 750 }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
       />
     </Box>
   );

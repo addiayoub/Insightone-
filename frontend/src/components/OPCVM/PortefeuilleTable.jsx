@@ -118,6 +118,7 @@ const updatePoids = (setState, titreToUpdate, newData, field) => {
 // };
 
 const PortefeuilleTable = ({ rows, field, showActions, params }) => {
+  console.log("rows from PortefeuilleTable", rows, field);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
@@ -125,6 +126,7 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   const [rowToDelete, setRowToDelete] = useState(null);
   const [poids, setPoids] = useState(null);
   const [newRows, setNewRows] = useState(rows);
+  console.log("New rows from PortefeuilleTable", newRows, field);
   const [newTitre, setNewTitre] = useState("");
   const { ptfToBacktest } = useSelector((state) => state.backtest);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -257,7 +259,10 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
   useEffect(() => {
     console.log("selectedRows ara", selectedRows);
   }, [selectedRows]);
-
+  useEffect(() => {
+    setNewRows(rows);
+    console.log("Rows changed");
+  }, [rows]);
   return (
     <>
       {showActions && (

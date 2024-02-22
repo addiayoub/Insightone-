@@ -14,22 +14,8 @@ import {
 } from "../../redux/actions/BacktestActions";
 import EvolutionB100 from "../charts/EvolutionB100";
 import ContribChart from "../charts/Backtest/ContribChart";
-import Cumualative from "../charts/Backtest/Cumualative";
-import EoyChart from "../charts/Backtest/EoyChart";
-import DistrubitionMonthly from "../charts/Backtest/DistrubitionMonthly";
-import Rolling from "../charts/Backtest/Rolling";
-import WorstDrawDowns from "../charts/Backtest/WorstDrawDowns";
-import MonthlyReturns from "../charts/Backtest/MonthlyReturns";
 import Table from "../Table";
-import {
-  contribColumns,
-  eoyColumns,
-  generateKeyPerfColumns,
-  worstDrawdownsColumns,
-} from "./Tables/columns";
-import DailyReturns from "../charts/Backtest/DailyReturns";
-import Quantiles from "../charts/Backtest/Quantiles";
-import Underwater from "../charts/Backtest/Underwater";
+import { contribColumns } from "./Tables/columns";
 import Poids from "../charts/Backtest/Poids";
 import PoidsDonut from "../charts/Backtest/PoidsDonut";
 import DfRendement from "../DfRendement";
@@ -55,7 +41,7 @@ const PortefeuilleBacktest = () => {
   const [indices, setIndices] = useState([]);
   const [selectedIndices, setSelectedIndices] = useState([]);
   const [selectedOPC, setSelectedOPC] = useState([]);
-  const [rf, setRf] = useState(2);
+  const [rf, setRf] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
   const [isShow, setIsShow] = useState(false);
   useEffect(() => {
@@ -99,12 +85,6 @@ const PortefeuilleBacktest = () => {
   //   ...selectedIndices,
   //   ...selectedOPC,
   // ]);
-  const headers =
-    backData.data.keyPerf.length > 0
-      ? Object.keys(backData.data.keyPerf[0]).filter((ele) => ele !== "Metric")
-      : [];
-  console.log("headers is", headers);
-  const keyPerfColumns = generateKeyPerfColumns(headers);
 
   return (
     <>
