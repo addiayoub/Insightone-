@@ -6,16 +6,21 @@ import dayjs from "dayjs";
 import TitresComponent from "../../TitresComponent";
 import { SearchButton } from "../../Ui/Buttons";
 import { useDispatch } from "react-redux";
-import { portfolioOptiAction } from "../../../redux/actions/BlackLittermanActions";
+import { meanRiskOptiAction } from "../../../redux/actions/BlackLittermanActions";
 
 const Filter = () => {
-  const [points, setPoints] = useState("");
+  const [points, setPoints] = useState(50);
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs().subtract(2, "day"));
-  const [selectedTitres, setSelectedTitres] = useState([]);
+  const [selectedTitres, setSelectedTitres] = useState([
+    "AFMA",
+    "ITISSALAT AL-MAGHRIB",
+  ]);
   const dispatch = useDispatch();
   const handleSearch = () => {
-    // dispatch(portfolioOptiAction());
+    dispatch(
+      meanRiskOptiAction({ points, dateDebut, dateFin, titres: selectedTitres })
+    );
     console.log("HandleSearch");
   };
   return (
@@ -43,7 +48,11 @@ const Filter = () => {
           }}
         />
       </Box>
-
+      <TitresComponent
+        choice="Actions"
+        {...{ selectedTitres, setSelectedTitres }}
+        isMultipl
+      />
       <SearchButton className="w-fit" onClick={handleSearch} />
     </AccordionBox>
   );

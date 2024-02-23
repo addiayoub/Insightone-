@@ -28,7 +28,7 @@ function Portefeuille({ title, data, field, compare, saveAll = false }) {
     >
       <Box className="md:col-span-8 lg:col-span-8 xl:col-span-8 h-fit">
         {/* <Table columns={columns} rows={rows} pageSize={25} /> */}
-        <PortefeuilleTable rows={rows} field={field} />
+        <PortefeuilleTable {...{ rows, field }} />
       </Box>
       <Box className="md:col-span-4 lg:col-span-4 xl:col-span-4">
         {rows.length > 0 && (

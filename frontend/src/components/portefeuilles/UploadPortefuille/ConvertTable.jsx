@@ -77,7 +77,6 @@ const ConverTable = ({ handlePtfToBacktest }) => {
         .then((success) => {
           console.log("success", success);
           dispatch(setPortefeuilles(success.portefeuilles));
-          setNoHeaders(false);
           setPtfName("");
           notyf.success(success.message);
           handlePtfToBacktest(success.portefeuilles, ptfName);

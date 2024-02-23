@@ -261,37 +261,77 @@ export const portefeuilleAleatoire_ = createAsyncThunk(
     const poids = thunkAPI.getState().opcvm.contraintesPoids.data.df_return;
     const dataset = thunkAPI.getState().opcvm.dataSet.filteredData;
     try {
-      const response = await apiNewMarko.post(
-        `${apiOPCVMUrl}POST/GENERATION_PORTEFEUILLES_ALEATOIRES/`,
+      const urls = [
         {
-          dataset,
-          df_poids_min_max: poids,
-        },
-        {
-          params: {
-            NB_PTF_ALEA: PTF,
-            risk_free_rate: risque / 100,
+          url: "GENERATION_PORTEFEUILLES_ALEATOIRES",
+          params: { NB_PTF_ALEA: PTF, risk_free_rate: risque / 100 },
+          body: {
+            dataset,
+            df_poids_min_max: poids,
           },
-        }
-      );
-      const response2 = await apiNewMarko.post(
-        `${apiOPCVMUrl}POST/DISCRETISATION_RENDEMENTS/`,
-        {
-          dataset,
-          df_poids_min_max: poids,
+          varName: "response",
         },
         {
+          url: "DISCRETISATION_RENDEMENTS",
           params: {
             num_points_front: nbrPointFront,
           },
-        }
+          body: {
+            dataset,
+            df_poids_min_max: poids,
+          },
+          varName: "response2",
+        },
+      ];
+      const [{ response }, { response2 }] = await Promise.all(
+        urls.map(async ({ url, varName, params, body }) => {
+          try {
+            const response = await apiNewMarko.post(
+              `${apiOPCVMUrl}POST/${url}`,
+              body,
+              {
+                params,
+              }
+            );
+            return { [varName]: response.data };
+          } catch (error) {
+            console.log(error);
+            return [];
+          }
+        })
       );
+
+      // const response = await apiNewMarko.post(
+      //   `${apiOPCVMUrl}POST/GENERATION_PORTEFEUILLES_ALEATOIRES/`,
+      //   {
+      //     dataset,
+      //     df_poids_min_max: poids,
+      //   },
+      //   {
+      //     params: {
+      //       NB_PTF_ALEA: PTF,
+      //       risk_free_rate: risque / 100,
+      //     },
+      //   }
+      // );
+      // const response2 = await apiNewMarko.post(
+      //   `${apiOPCVMUrl}POST/DISCRETISATION_RENDEMENTS/`,
+      //   {
+      //     dataset,
+      //     df_poids_min_max: poids,
+      //   },
+      //   {
+      //     params: {
+      //       num_points_front: nbrPointFront,
+      //     },
+      //   }
+      // );
       console.log("opcvm/GENERATION_PORTEFEUILLES_ALEATOIRES", response);
       console.log("opcvm/DISCRETISATION_RENDEMENTS", response2);
       return {
-        data: response.data,
-        frontiere: response2.data["Frontière"],
-        frontiereWeights: response2.data["df_frontier_weights"],
+        data: response,
+        frontiere: response2["Frontière"],
+        frontiereWeights: response2["df_frontier_weights"],
       };
     } catch (error) {
       console.log("error", error);

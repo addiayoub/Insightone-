@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  meanRiskOptiAction,
   portfolioAllocationAction,
   portfolioOptiAction,
   valueAtRiskAction,
@@ -37,6 +38,23 @@ const initialState = {
       rets: [],
       weights: [],
       portfolioPerf: [],
+    },
+    loading: false,
+    error: null,
+  },
+  meanRiskOpti: {
+    data: {
+      weights: [],
+      weightsBl: [],
+      views: [],
+      assetClasses: [],
+      frontier: [],
+      mu: [],
+      cov: [],
+      y: [],
+      ws: [],
+      p: [],
+      q: [],
     },
     loading: false,
     error: null,
@@ -125,6 +143,36 @@ const BlackLittermanSlice = createSlice({
         portfolioAllocation.loading = false;
         portfolioAllocation.error = payload;
         portfolioAllocation.data = initialState.portfolioAllocation.data;
+      }
+    );
+
+    // Mean Risk Optimization
+    builder.addCase(meanRiskOptiAction.pending, ({ meanRiskOpti }) => {
+      meanRiskOpti.loading = true;
+    });
+    builder.addCase(
+      meanRiskOptiAction.fulfilled,
+      ({ meanRiskOpti }, { payload }) => {
+        meanRiskOpti.loading = false;
+        meanRiskOpti.data.y = payload.Y;
+        meanRiskOpti.data.assetClasses = payload.asset_classes;
+        meanRiskOpti.data.cov = payload.cov;
+        meanRiskOpti.data.q = payload.df_Q;
+        meanRiskOpti.data.p = payload.df_P;
+        meanRiskOpti.data.frontier = payload.df_frontier;
+        meanRiskOpti.data.weights = payload.df_weights;
+        meanRiskOpti.data.weightsBl = payload.df_weights_bl;
+        meanRiskOpti.data.views = payload.views;
+        meanRiskOpti.data.mu = payload.mu;
+        meanRiskOpti.data.ws = payload.w_s;
+      }
+    );
+    builder.addCase(
+      meanRiskOptiAction.rejected,
+      ({ meanRiskOpti }, { payload }) => {
+        meanRiskOpti.loading = false;
+        meanRiskOpti.error = payload;
+        meanRiskOpti.data = initialState.meanRiskOpti.data;
       }
     );
   },

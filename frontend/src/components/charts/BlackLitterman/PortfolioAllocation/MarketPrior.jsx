@@ -17,7 +17,7 @@ const getSeries = (dataArray, field) => {
 };
 
 function MarketPrior({ data, field = "market_prior", title = "Market Prior" }) {
-  console.log("Last seance", data);
+  console.log("MarketPrior Data", data);
   const yAxisValues = useMemo(() => data.map((item) => item.Symbol), [data]);
   const options = useMemo(() => {
     return {

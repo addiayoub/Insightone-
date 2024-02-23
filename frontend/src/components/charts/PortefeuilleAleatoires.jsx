@@ -220,6 +220,7 @@ function PortefeuilleAleatoires({
               ptfs={frontiere}
               data={frontiereWeights.filter((item) => item[name] > 0.01)}
               field={name}
+              setField={setName}
               type={type}
             />
           </>

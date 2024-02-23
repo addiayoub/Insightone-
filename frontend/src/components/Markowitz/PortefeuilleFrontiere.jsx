@@ -1,12 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import Table from "../Table";
-import PortefeuilleDonut from "../charts/PortefeuilleDonut";
-import { Box } from "@mui/material";
 import AccordionBox from "../AccordionBox";
-import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
 import PtfRange from "../charts/PtfRange";
-import SavePortefeuille from "../SavePortefeuille";
 import Portefeuille from "../OPCVM/Portefeuille";
 import PortefeuilleMarko from "../Markowitz/Portefeuille";
 
@@ -16,14 +11,14 @@ const gridStyle = {
   gap: "60px 15px",
 };
 
-function PortefeuilleFrontiere({ data, field, ptfs, type }) {
+function PortefeuilleFrontiere({ data, field, ptfs, type, setField }) {
   console.log("PortefeuilleFrontiere data", data);
   const rows = data
     .filter((item) => item[field] >= 0.01)
-    .map((item) => ({
-      ...item,
-      [field]: item[field] * 100,
-    }))
+    // .map((item) => ({
+    //   ...item,
+    //   [field]: item[field] * 100,
+    // }))
     .sort((a, b) => b[field] - a[field]);
   console.log("rows PortefeuilleFrontiere", rows);
   console.log("Type...", type);
@@ -48,7 +43,7 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
   ];
   return (
     <AccordionBox title={field} isExpanded={true}>
-      <PtfRange ptfs={ptfs} selected={field} />
+      <PtfRange ptfs={ptfs} selected={field} setSelected={setField} />
       {type === "OPCVM" ? (
         <Portefeuille data={rows} field={field} saveAll={true} />
       ) : (
@@ -76,4 +71,4 @@ function PortefeuilleFrontiere({ data, field, ptfs, type }) {
   );
 }
 
-export default PortefeuilleFrontiere;
+export default memo(PortefeuilleFrontiere);

@@ -4,7 +4,7 @@ import { TextField, Box, Divider } from "@mui/material";
 import DateComponent from "../DateComponent";
 import dayjs from "dayjs";
 import { SearchButton } from "../Ui/Buttons";
-import Views from "./Views";
+import Views from "./MeanRiskOpti/Views";
 const Filter = () => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs());

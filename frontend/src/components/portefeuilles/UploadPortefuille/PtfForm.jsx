@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Button,
@@ -19,6 +19,9 @@ const PtfForm = ({
   isDisabled,
   isFresh,
 }) => {
+  useEffect(() => {
+    console.log("No hedaers is", noHeaders, isFresh);
+  }, [noHeaders]);
   return (
     <>
       {!isFresh && (

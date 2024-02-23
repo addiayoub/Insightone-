@@ -1,6 +1,5 @@
 import React, { memo, useMemo } from "react";
 import BarChart from "../../Default/BarChart";
-
 const getSeries = (data, seriesNames) => {
   return seriesNames.map((key) => ({
     name: key,
@@ -8,12 +7,27 @@ const getSeries = (data, seriesNames) => {
     data: data.map((item) => item[key] * 100),
   }));
 };
-
-const seriesNames = ["Prior", "Posterior", "Views", "rdt", "rdt_annualisé"];
-
-const Rets = ({ data }) => {
-  console.log("render Rets");
-  const xAxisData = useMemo(() => data.map((item) => item.Symbol), [data]);
+const dd = {
+  index: "BCI",
+  MV: 8.453354192163286e-9,
+  MAD: 4.4777454780315413e-10,
+  MSV: 3.1001347032766896e-8,
+  FLPM: 4.488381617501468e-8,
+  SLPM: 8.982153888342903e-9,
+  CVaR: 1.93291955533976e-9,
+  EVaR: 2.6916569674315775e-9,
+  WR: 2.3704472245933946e-10,
+  MDD: 0.01586137971782455,
+  ADD: 4.875094259895514e-10,
+  CDaR: 1.3811929095957961e-9,
+  UCI: 2.607102936262812e-8,
+  EDaR: 0.013018788258217987,
+};
+const RiskMeasures = ({ data }) => {
+  const seriesNames = useMemo(() =>
+    Object.keys(data[0]).filter((key) => key !== "index")
+  );
+  const xAxisData = useMemo(() => data.map((item) => item.index), [data]);
   const series = useMemo(
     () => getSeries(data, seriesNames),
     [data, seriesNames]
@@ -22,7 +36,7 @@ const Rets = ({ data }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: "Rets",
+        text: "Risk Measures",
         left: "center",
       },
       tooltip: {
@@ -72,4 +86,4 @@ const Rets = ({ data }) => {
   );
 };
 
-export default memo(Rets);
+export default memo(RiskMeasures);

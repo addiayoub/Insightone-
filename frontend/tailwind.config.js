@@ -1,8 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   important: "#root",
   theme: {
+    screens: {
+      phone: { max: "639px" },
+      tablet: { min: "640px", max: "1023px" },
+      laptop: { min: "1024px", max: "1279px" },
+      desktop: { min: "1280px", max: "1535px" },
+      wide: { min: "1536px" },
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
         primary: "#444ce7",

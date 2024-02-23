@@ -110,7 +110,7 @@ export const portfolioAllocationAction = createAsyncThunk(
       // ?start=25%2F12%2F2020&end=02%2F02%2F2024&risk_free_rate=0.009
       const response = await apiNewMarko.post(
         `Black_Litterman_Portfolio/POST/Portfolio_Allocation/`,
-        body,
+        body1,
         {
           params: {
             start: formatDate(dateDebut["$d"]),
@@ -128,6 +128,91 @@ export const portfolioAllocationAction = createAsyncThunk(
     }
   }
 );
+
+export const meanRiskOptiAction = createAsyncThunk(
+  "BlackLitterman/meanRiskOptiAction",
+  async ({ dateDebut, dateFin, titres, points }, thunkAPI) => {
+    const body = {
+      list_valeur: [
+        "IAM",
+        "BCP",
+        "ATW",
+        "BOA",
+        "CDM",
+        "ADH",
+        "BCI",
+        "CIH",
+        "SAH",
+        "UMR",
+        "SBM",
+        "SMI",
+        "EQD",
+        "BAL",
+        "ALM",
+        "GAZ",
+        "HPS",
+        "LES",
+        "CSR",
+        "DWY",
+      ],
+      df_views: [
+        {
+          Type: "Classes",
+          Set: "Industry",
+          Position: "TELECOMMUNICATIONS",
+          Sign: ">=",
+          Weight: 0.08,
+          "Type Relative": "Assets",
+          "Relative Set": "",
+          Relative: "HPS",
+        },
+        {
+          Type: "All Assets",
+          Set: "",
+          Position: "",
+          Sign: ">=",
+          Weight: 0.02,
+          "Type Relative": "",
+          "Relative Set": "",
+          Relative: "",
+        },
+      ],
+    };
+    try {
+      const response = await apiNewMarko.post(
+        `Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/`,
+        body,
+        {
+          params: {
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+            points,
+          },
+        }
+      );
+      console.log("Black_Litterman_Mean_Risk_Optimization", response.data);
+      return response.data;
+    } catch (error) {
+      console.log("portfolioAllocationAction error", error);
+      return thunkAPI.rejectWithValue("Error server");
+    }
+  }
+);
+
+const objBL = [
+  {
+    Metric: "Expected annual return",
+    Value: 0.04177842985018807,
+  },
+  {
+    Metric: "Annual volatility",
+    Value: 0.0980833211774846,
+  },
+  {
+    Metric: "Sharpe Ratio",
+    Value: 0.2220400939603113,
+  },
+];
 
 // [
 //   { valeur: "ADH", view: 0.05, min: 0, max: 0.1 },

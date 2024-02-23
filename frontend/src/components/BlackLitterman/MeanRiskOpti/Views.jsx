@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, IconButton, TextField } from "@mui/material";
 import { PlusCircle, Trash } from "react-feather";
-import SingleSelect from "../SingleSelect";
+import SingleSelect from "../../SingleSelect";
 import { v4 as uuidv4 } from "uuid";
 
 const types = ["Relative", "Absolue"];
@@ -82,7 +82,11 @@ const Views = () => {
     secteur2: null,
   });
   console.log("Views are", views);
-  const disabled = false;
+  const disabled =
+    !newView.type ||
+    newView.value === "" ||
+    !newView.secteur1 ||
+    (newView.type === "Relative" && !newView.secteur2);
   const addView = () => {
     const viewWithId = { ...newView, id: uuidv4() };
     setViews((prevViews) => [...prevViews, viewWithId]);

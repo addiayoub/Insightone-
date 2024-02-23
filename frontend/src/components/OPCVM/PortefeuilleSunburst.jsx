@@ -313,14 +313,14 @@ function PortefeuilleSunburst({ data, field }) {
   return (
     <div>
       <PieChart
-        options={sgOpts}
+        options={classiOpts}
         style={{
           maxHeight: "310px",
           height: "310px",
         }}
       />
       <PieChart
-        options={classiOpts}
+        options={sgOpts}
         style={{
           maxHeight: "310px",
           height: "310px",

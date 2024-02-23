@@ -1,10 +1,7 @@
 import React, { memo, useState } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
-import DfContrib from "../../Backtest/DfContrib";
 import MainLoader from "../../loaders/MainLoader";
-import Views from "../Views";
-import ViewsList from "../Todo";
 import ValueAtRiskRange from "../../charts/BlackLitterman/ValueAtRisk/ValueAtRiskRange";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";
 import Table from "../../Table";
@@ -26,8 +23,6 @@ const Index = () => {
     <>
       <Filter {...{ setIsShow }} />
       {loading && <MainLoader />}
-      {/* <Views /> */}
-      {/* <ViewsList /> */}
       {show && data.portfolioSims.length > 0 && (
         <ValueAtRiskRange data={data.portfolioSims} />
       )}

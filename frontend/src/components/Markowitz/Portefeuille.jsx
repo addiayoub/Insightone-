@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
 import SavePortefeuille from "../SavePortefeuille";
 import PortefeuilleTable from "./PortefeuilleTable";
@@ -54,4 +54,4 @@ function Portefeuille({ title, data, field, compare, saveAll = false }) {
   );
 }
 
-export default Portefeuille;
+export default memo(Portefeuille);
