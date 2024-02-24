@@ -89,6 +89,12 @@ const LineChart = ({
               ...config?.axisLabel,
               ...theme.yAxis.nameTextStyle,
             },
+            min: function (value) {
+              return value.min?.toFixed(2);
+            },
+            max: function (value) {
+              return value.max?.toFixed(2);
+            },
             ...theme.yAxis,
           }))
         : {
@@ -98,6 +104,12 @@ const LineChart = ({
               hideOverlap: true,
               ...yAxis?.axisLabel,
               ...theme.yAxis.nameTextStyle,
+            },
+            min: function (value) {
+              return value.min?.toFixed(2);
+            },
+            max: function (value) {
+              return value.max?.toFixed(2);
             },
             ...theme.yAxis,
           },

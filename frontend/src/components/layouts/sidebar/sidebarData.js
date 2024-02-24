@@ -30,10 +30,24 @@ export const sidebarData = [
   {
     icon: BackwardItem,
     title: "Tableau de bord",
-    link: "",
     isPrivate: false,
+    link: null,
+    isPrivate: false,
+    iconClosed: ChevronDown,
+    iconOpened: ChevronUp,
+    subMenu: [
+      {
+        title: "Actions",
+        link: "",
+        icon: Layers,
+      },
+      {
+        title: "Obligataire",
+        icon: DollarSign,
+        link: "fixed-income",
+      },
+    ],
   },
-
   {
     icon: User,
     title: "Utilisateurs",
@@ -71,13 +85,27 @@ export const sidebarData = [
       {
         title: "Actions BVC",
         link: "markowitz",
+        iconClosed: ChevronDown,
+        iconOpened: ChevronUp,
         icon: Dribbble,
+        nestedMenu: [
+          {
+            title: "Markowitz",
+            link: "markowitz",
+            icon: Dribbble,
+          },
+          {
+            title: "Black Litterman",
+            link: "black-litterman",
+            icon: Briefcase,
+          },
+        ],
       },
-      {
-        title: "Black Litterman",
-        link: "black-litterman",
-        icon: Briefcase,
-      },
+      // {
+      //   title: "Black Litterman",
+      //   link: "black-litterman",
+      //   icon: Briefcase,
+      // },
       {
         title: "Fonds de fonds",
         link: "opcvm",
@@ -125,7 +153,7 @@ export const sidebarData = [
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Backtest personalisé",
+        title: "Tridbot",
         link: "backtest",
         icon: BarChart2,
       },
@@ -156,11 +184,5 @@ export const sidebarData = [
         icon: Compass,
       },
     ],
-  },
-  {
-    title: "Fixed income",
-    icon: DollarSign,
-    link: "fixed-income",
-    isPrivate: false,
   },
 ];

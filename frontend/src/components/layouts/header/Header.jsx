@@ -83,7 +83,7 @@ function Header() {
             <li>
               <Link to="/logout" onClick={handelLogout}>
                 <Logout size="25" />
-                Déconnecion
+                Déconnexion
               </Link>
             </li>
           </ul>

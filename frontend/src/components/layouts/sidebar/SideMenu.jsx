@@ -1,13 +1,62 @@
-import React, { useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setPath } from "../../../redux/slices/DashboardSlice";
 
+const NestedMenu = ({ menuItem, isHovered }) => {
+  console.log("render NestedMEnu");
+  const [isShow, setIsShow] = useState(false);
+  const showNestedNav = () => setIsShow(!isShow);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("isShow", isShow);
+  }, [isShow]);
+  console.log("NestedMenu item is", menuItem);
+  const { nestedMenu, title, icon } = menuItem;
+  return (
+    <div className="nested-menu" onClick={nestedMenu && showNestedNav}>
+      <div className="nested-menu-header flex font-semibold cursor-pointer  text-[15px] gap-x-[15px]">
+        {icon && <menuItem.icon size={25} className="icon" />}
+        <div className="flex items-center justify-between  w-full nested-menu-link-title">
+          <span>{title}</span>
+          <span>
+            {nestedMenu && isShow ? (
+              <menuItem.iconOpened />
+            ) : nestedMenu ? (
+              <menuItem.iconClosed />
+            ) : null}
+          </span>
+        </div>
+      </div>
+      {isShow && isHovered && (
+        <div className="nestedmenu-links">
+          {nestedMenu.map((item, index) => {
+            return (
+              <Link
+                className="nestedmenu-link"
+                to={item.link}
+                key={index}
+                onClick={() => dispatch(setPath(item.link))}
+              >
+                {item.icon && <item.icon size={18} className="icon" />}
+                <span className="nestedmenu-link-title">{item.title}</span>
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const SideMenu = ({ item, isHovered }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
+  const [isShow, setIsShow] = useState(false);
+  const showNestedNav = () => setIsShow(!isShow);
   const dispatch = useDispatch();
   const { isOpen, path } = useSelector((state) => state.dashboard);
+  console.log("render SideMEnu", isShow, subnav);
   return (
     <>
       <Link
@@ -30,17 +79,61 @@ const SideMenu = ({ item, isHovered }) => {
       {subnav && isHovered && (
         <div className="submenu-links">
           {item.subMenu.map((item, index) => {
-            return (
-              <Link
-                to={item.link}
-                key={index}
-                className={`submenu-link ${item.link} ${
-                  path === item.link ? "active" : ""
-                }`}
-                onClick={() => dispatch(setPath(item.link))}
+            const { icon, link, nestedMenu, title } = item;
+            return nestedMenu ? (
+              // <NestedMenu menuItem={item} key={index} {...{ isHovered }} />
+              <div
+                className="nested-menu"
+                onClick={nestedMenu && showNestedNav}
               >
-                {item.icon && <item.icon size={22} className="icon" />}
-                <span className="submenu-link-title">{item.title}</span>
+                <div className="nested-menu-header flex font-semibold cursor-pointer  text-[15px] gap-x-[15px]">
+                  {icon && <item.icon size={25} className="icon" />}
+                  <div className="flex items-center justify-between  w-full nested-menu-link-title">
+                    <span>{title}</span>
+                    <span>
+                      {nestedMenu && isShow ? (
+                        <item.iconOpened />
+                      ) : nestedMenu ? (
+                        <item.iconClosed />
+                      ) : null}
+                    </span>
+                  </div>
+                </div>
+                {isShow && isHovered && (
+                  <div className="nestedmenu-links">
+                    {nestedMenu.map((item, index) => {
+                      return (
+                        <Link
+                          className="nestedmenu-link"
+                          to={item.link}
+                          key={index}
+                          onClick={() => {
+                            dispatch(setPath(item.link));
+                          }}
+                        >
+                          {item.icon && (
+                            <item.icon size={18} className="icon" />
+                          )}
+                          <span className="nestedmenu-link-title">
+                            {item.title}
+                          </span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                to={link}
+                key={index}
+                className={`submenu-link ${link} ${
+                  path === link ? "active" : ""
+                }`}
+                onClick={() => dispatch(setPath(link))}
+              >
+                {icon && <item.icon size={22} className="icon" />}
+                <span className="submenu-link-title">{title}</span>
               </Link>
             );
           })}
@@ -50,4 +143,4 @@ const SideMenu = ({ item, isHovered }) => {
   );
 };
 
-export default SideMenu;
+export default memo(SideMenu);

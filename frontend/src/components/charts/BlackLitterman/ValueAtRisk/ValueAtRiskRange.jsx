@@ -21,18 +21,12 @@ const ValueAtRiskRange = ({ data }) => {
     () => getSeries(data, seriesNames),
     [data, seriesNames]
   );
-  const minValue = useMemo(() =>
-    Math.min(...series.map((item) => item.data).flat())
-  );
-  console.log("MinValue", minValue);
+
   const options = useMemo(() => {
     return {
       xAxis: {
         type: "category",
         data: xAxisData,
-      },
-      yAxis: {
-        min: Math.trunc(minValue),
       },
       tooltip: {
         trigger: "item",

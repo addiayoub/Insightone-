@@ -10,7 +10,7 @@ import SideMenu from "./SideMenu";
 
 function Sidebar() {
   const { isOpen, path } = useSelector((state) => state.dashboard);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
   const { role } = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

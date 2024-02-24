@@ -8,6 +8,7 @@ import RiskMeasures from "../../charts/BlackLitterman/PortfolioAllocation/RiskMe
 import Table from "../../Table";
 import { assetClassesColumns } from "./columns";
 import Views from "./Views";
+import FrontierMean from "../../charts/BlackLitterman/MeanRiskOpti/FrontierMean";
 
 const Index = () => {
   const {
@@ -30,6 +31,9 @@ const Index = () => {
       )}
       {show && data.weightsBl.length > 0 && <Frontier data={data.frontier} />}
       {show && data.ws.length > 0 && <RiskMeasures data={data.ws} />}
+      {show && data.ws.length > 0 && data.mu.length > 0 && (
+        <FrontierMean xAxisData={data.mu[0]} yAxisData={data.ws} />
+      )}
     </>
   );
 };

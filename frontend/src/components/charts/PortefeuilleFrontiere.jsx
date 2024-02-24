@@ -30,11 +30,11 @@ function PortefeuilleFrontiere({ data }) {
     ),
   ];
   const series = useMemo(() => getSeries(all, names), [all, names]);
-  const minYAxisValue = useMemo(() => {
-    const seriesData = series.map((s) => s.data).flat();
-    return Math.min(...seriesData);
-  }, [series]);
-  console.log("min y val", minYAxisValue);
+  // const minYAxisValue = useMemo(() => {
+  //   const seriesData = series.map((s) => s.data).flat();
+  //   return Math.min(...seriesData);
+  // }, [series]);
+  // console.log("min y val", minYAxisValue);
   const options = useMemo(() => {
     return {
       title: {
@@ -58,11 +58,10 @@ function PortefeuilleFrontiere({ data }) {
       },
       yAxis: {
         type: "value",
-        min: Math.trunc(minYAxisValue),
       },
       series: series,
     };
-  }, [series, minYAxisValue, data]);
+  }, [series, data]);
   return (
     <LineChart
       options={options}
