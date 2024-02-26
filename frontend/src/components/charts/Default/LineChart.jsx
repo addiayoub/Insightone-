@@ -90,10 +90,10 @@ const LineChart = ({
               ...theme.yAxis.nameTextStyle,
             },
             min: function (value) {
-              return value.min?.toFixed(2);
+              return value?.min?.toFixed(2);
             },
             max: function (value) {
-              return value.max?.toFixed(2);
+              return value?.max?.toFixed(2);
             },
             ...theme.yAxis,
           }))
@@ -106,10 +106,10 @@ const LineChart = ({
               ...theme.yAxis.nameTextStyle,
             },
             min: function (value) {
-              return value.min?.toFixed(2);
+              return value?.min?.toFixed(2);
             },
             max: function (value) {
-              return value.max?.toFixed(2);
+              return value?.max?.toFixed(2);
             },
             ...theme.yAxis,
           },

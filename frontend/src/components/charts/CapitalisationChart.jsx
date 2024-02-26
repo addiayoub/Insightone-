@@ -28,7 +28,7 @@ const CapitalisationChart = ({ data }) => {
         axisLabel: {
           formatter: function (value) {
             const val = value / 1000000000;
-            return val + "M";
+            return val?.toFixed(2) + "M";
           },
         },
       },

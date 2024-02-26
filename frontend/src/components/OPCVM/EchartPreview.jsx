@@ -33,7 +33,7 @@ const EChartsPreview = ({ data }) => {
           },
         },
       },
-      seriesNames: { seriesList: seriesNames, init: seriesNames },
+      seriesNames: { seriesList: seriesNames },
       yAxis: {
         nameLocation: "middle",
         nameGap: 50,

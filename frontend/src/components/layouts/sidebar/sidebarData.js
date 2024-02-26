@@ -153,7 +153,7 @@ export const sidebarData = [
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Tridbot",
+        title: "Tradebot",
         link: "backtest",
         icon: BarChart2,
       },
