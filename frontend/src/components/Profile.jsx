@@ -1,14 +1,13 @@
 import { Container, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
-import "notyf/notyf.min.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import EndAdorment from "../components/EndAdorment";
 import { updateProfile } from "../redux/actions/UserActions";
 import { updateUsername } from "../redux/slices/AuthSlice";
 import { setPath } from "../redux/slices/DashboardSlice";
 import { resetUpdateProfileState } from "../redux/slices/UserSlice";
 import { notyf } from "../utils/notyf";
+import EndAdorment from "./Ui/EndAdorment";
 
 function Profile() {
   const { user } = useSelector((state) => state.auth);

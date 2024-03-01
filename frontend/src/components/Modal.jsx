@@ -1,8 +1,9 @@
 import React from "react";
-import Box from "@mui/material/Box";
+import { Box, Typography, IconButton, Divider } from "@mui/material";
 import Modal from "@mui/material/Modal";
+import { X } from "react-feather";
 
-const style = {
+const basedStyle = {
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -14,11 +15,34 @@ const style = {
   p: 4,
 };
 
-export default function ModalComponent({ open, handleClose, children }) {
+export default function ModalComponent({
+  open,
+  handleClose,
+  style = {},
+  className,
+  children,
+  withHeader,
+  headerText,
+}) {
   return (
     <div>
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={style}>{children}</Box>
+      <Modal open={open} onClose={handleClose} className={`${className}`}>
+        <Box sx={{ ...basedStyle, ...style }}>
+          {withHeader && (
+            <Box className="mb-3">
+              <Box className="flex justify-between items-center mb-1">
+                <Typography variant="h6" component="h4">
+                  {headerText}
+                </Typography>
+                <IconButton onClick={handleClose}>
+                  <X size={18} color="var(--error-color)" />
+                </IconButton>
+              </Box>
+              <Divider />
+            </Box>
+          )}
+          {children}
+        </Box>
       </Modal>
     </div>
   );

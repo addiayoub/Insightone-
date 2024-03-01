@@ -13,7 +13,7 @@ import Users from "../components/users/Users.jsx";
 import AddUser from "../pages/AddUser";
 import UpdateUser from "../pages/UpdateUser";
 import AdminRoutes from "./AdminRoutes";
-import AuthRoute from "./AuthRoute";
+import UserRoutes from "./UserRoutes.jsx";
 import LoginRoute from "./LoginRoute";
 import AnalyseSectorial from "../components/Secteurs/Secteurs.jsx";
 import Markowitz from "../components/Markowitz/Markowitz.jsx";
@@ -25,6 +25,7 @@ import AnalyseOPCVM from "../components/AnalyseOPCVM/Index.jsx";
 import FixedIncome from "../components/FixedIncome/Index.jsx";
 import BlackLitterman from "../components/BlackLitterman/Index.jsx";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
+import AuthRoutes from "./AuthRoutes.jsx";
 
 function RouterProvider() {
   return (
@@ -32,9 +33,11 @@ function RouterProvider() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route element={<AuthRoute />}>
-            <Route path="/" element={<Dashboard />} />
+          <Route element={<AuthRoutes />}>
             <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route element={<UserRoutes />}>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/rapports" element={<Data />} />
             <Route path="/markowitz" element={<Markowitz />} />
             <Route path="/analyse-chartiste" element={<Index />} />

@@ -85,6 +85,7 @@ const SideMenu = ({ item, isHovered }) => {
               <div
                 className="nested-menu"
                 onClick={nestedMenu && showNestedNav}
+                key={index}
               >
                 <div className="nested-menu-header flex font-semibold cursor-pointer  text-[15px] gap-x-[15px]">
                   {icon && <item.icon size={25} className="icon" />}
@@ -106,7 +107,7 @@ const SideMenu = ({ item, isHovered }) => {
                         <Link
                           className="nestedmenu-link"
                           to={item.link}
-                          key={index}
+                          key={`${item.link}-${index}`}
                           onClick={() => {
                             dispatch(setPath(item.link));
                           }}

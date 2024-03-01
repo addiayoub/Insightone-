@@ -5,15 +5,17 @@ import axios from "axios";
 export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   try {
     const response = await axiosClient.post(`/api/auth/login`, user);
-    const response2 = await axios.post(
-      `https://192.168.11.109:9090/token/generate-token/`,
-      {
-        username: "consumer",
-        password: "consumer",
-      }
-    );
+    // const response2 = await axios.post(
+    //   `https://192.168.11.109:9090/token/generate-token/`,
+    //   {
+    //     username: "consumer",
+    //     password: "consumer",
+    //   }
+    // );
     const data = await response.data;
-    const apiToken = await response2.data;
+    // const apiToken = await response2.data;
+    const apiToken =
+      "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25zdW1lciIsImlhdCI6MTcwOTI4Nzg0MywiZXhwIjoxNzA5Mzc0MjQzfQ.OYsYOHqg5MJtObcI_jgFccF8Wb450P7PB3lm2Z4gN00";
     localStorage.setItem("user", JSON.stringify(data));
     localStorage.setItem("apiToken", apiToken);
     console.log("Api Token ", apiToken);

@@ -18,6 +18,7 @@ import Logo from "../assets/images/Logo.png";
 import runLogoutTimer from "../utils/runLogoutTimer";
 import theme, { darkTheme, lightTheme } from "../utils/theme";
 import Intro from "./animation/Intro";
+import EndAdorment from "./Ui/EndAdorment";
 
 function Copyright(props) {
   return (
@@ -41,6 +42,7 @@ export default function SignIn() {
   const [loginInfos, setLoginInfos] = useState({ username: "", password: "" });
   const { loading, error } = useSelector((state) => state.auth);
   const { darkTheme: darkMode } = useSelector((state) => state.theme);
+  const [isVisible, setIsVisible] = useState(false);
   const handelChange = (e) => {
     const { name, value } = e.target;
     setLoginInfos({
@@ -126,9 +128,17 @@ export default function SignIn() {
                     fullWidth
                     name="password"
                     label="Mot de passe"
-                    type="password"
+                    type={isVisible ? "text" : "password"}
                     id="password"
                     value={loginInfos.password}
+                    InputProps={{
+                      endAdornment: (
+                        <EndAdorment
+                          visible={isVisible}
+                          setVisible={setIsVisible}
+                        />
+                      ),
+                    }}
                     onChange={handelChange}
                     autoComplete="current-password"
                   />

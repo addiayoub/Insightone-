@@ -55,3 +55,25 @@ export const ValidateButton = ({
     </Button>
   );
 };
+
+const CustomButton = ({
+  size = "small",
+  variant = "contained",
+  color = "primary",
+  className,
+  text,
+  icon,
+  ...rest
+}) => {
+  return (
+    <Button
+      {...{ size, color, variant }}
+      {...rest}
+      className={`flex gap-1 items-center ${className}`}
+    >
+      {text}
+      {icon}
+    </Button>
+  );
+};
+export default CustomButton;
