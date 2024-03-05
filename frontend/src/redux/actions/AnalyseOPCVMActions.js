@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
-import apiMarko from "../../api/apiMarko";
+import getAPI from "../../api/getAPI";
 import partitionData from "../../utils/partitionData";
 
 export const getAnalyse = createAsyncThunk(
@@ -87,7 +87,7 @@ export const getAnalyse = createAsyncThunk(
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
-            const response = await apiMarko.get(`GETAPI?${url}${params}`);
+            const response = await getAPI.get(`GETAPI?${url}${params}`);
             return { [varName]: response.data };
           } catch (error) {
             console.log(error);

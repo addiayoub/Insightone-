@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
-import getApi from "../../api/apiMarko";
+import getApi from "../../api/getAPI";
 
 export const getFixedIncome = createAsyncThunk(
   "fixedIncome/getFixedIncome",
@@ -150,7 +150,9 @@ export const getFixedIncome = createAsyncThunk(
       };
     } catch (error) {
       console.log(error);
-      return thunkAPI.rejectWithValue("Server Error");
+      return thunkAPI.rejectWithValue(
+        "Une erreur interne est survenue. Veuillez réessayer"
+      );
     }
   }
 );

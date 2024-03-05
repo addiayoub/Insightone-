@@ -25,8 +25,6 @@ export default function Update({ open, setModalOff, userData }) {
     setUsername("");
     setPassword("");
     setPasswordConfirmation("");
-    setVisiblePassword(false);
-    setVisiblePasswordConfir(false);
   };
 
   useEffect(() => {

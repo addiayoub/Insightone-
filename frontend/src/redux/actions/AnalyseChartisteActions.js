@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosClient from "../../axios";
-import apiMarko from "../../api/apiMarko";
+import axiosClient from "../../api/axios";
+import getAPI from "../../api/getAPI";
 import { formatDate } from "../../utils/FormatDate";
 
 const countTypePositions = (data, propertyNames) => {
@@ -133,7 +133,7 @@ export const getIndicateursData = createAsyncThunk(
         { evolCours },
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
-          const response = await apiMarko.get(`GETAPI?${url}${params}`);
+          const response = await getAPI.get(`GETAPI?${url}${params}`);
           return { [varName]: response.data };
         })
       );

@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosClient from "../../axios";
-import axios from "axios";
+import axiosClient from "../../api/axios";
 import apiAxios from "../../apiAxios";
 import { handleActionsError } from "../../utils/handleActionsError";
 import { formatDate } from "../../utils/FormatDate";
 import { transformToJSON } from "../../utils/transformToJSON";
-import apiMarko from "../../api/apiMarko";
+import getAPI from "../../api/getAPI";
 import apiNewMarko from "../../api/apiNewMarko";
 const apiNewMarkoUrl = "NEW_MARKO/";
 
@@ -232,13 +231,6 @@ export const getSecteurs = createAsyncThunk(
     }
   }
 );
-
-// {
-//           headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25zdW1lciIsImlhdCI6MTcwMTUxOTI3OSwiZXhwIjoxNzAxNjA1Njc5fQ.1TQgo4Fub788BlLs1eUh5jqwBzck-cEGYjtcCHTcvH8`,
-//           },
-//         }
 export const Matrice_correlation_Covariance = createAsyncThunk(
   "data/Matrice_correlation_Covariance",
   async (_, thunkAPI) => {
@@ -510,7 +502,7 @@ export const filterMarkoAction = createAsyncThunk(
       const dd = formatDate(dateDebut["$d"]);
       const df = formatDate(dateFin["$d"]);
       console.log("filterMarkoAction dates", dd, df);
-      const response = await apiMarko.get(`GETAPI?FILTER_MARKO&${dd}&${df}`);
+      const response = await getAPI.get(`GETAPI?FILTER_MARKO&${dd}&${df}`);
       console.log("FilterMarko", response.data);
       const result = response.data;
       const valeurs = result.map((item) => item.LIBELLE);
@@ -574,18 +566,3 @@ export const getDataSet = createAsyncThunk(
     }
   }
 );
-export const corr = createAsyncThunk("data/corr", async (_, thunkAPI) => {
-  try {
-    const response = await apiNewMarko.post(
-      `${apiNewMarkoUrl}POST/Matrice_correlation_Covariance/`,
-      {
-        dataset: thunkAPI.getState().rapport.dataSet.data,
-      }
-    );
-    console.log("corr", response);
-    return response.data;
-  } catch (error) {
-    console.log("error", error);
-    return thunkAPI.rejectWithValue(error);
-  }
-});

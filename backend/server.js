@@ -45,5 +45,5 @@ app.use("/sectorial", sectorialRoutes);
 app.use("/opcvm", opcvmRoutes);
 
 app.listen(process.env.PORT, () => {
-  console.log("App listened on port 4000");
+  console.log(`App listened on port ${process.env.PORT}`);
 });

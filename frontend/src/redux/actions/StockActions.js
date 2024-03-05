@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axiosClient from "../../axios";
+import axiosClient from "../../api/axios";
 import { handleActionsError } from "../../utils/handleActionsError";
 import axios from "axios";
-import apiMarko from "../../api/apiMarko";
+import getAPI from "../../api/getAPI";
 import { formatDate } from "../../utils/FormatDate";
 
 export const getStockData = createAsyncThunk(
@@ -62,38 +62,28 @@ export const getMarketData = createAsyncThunk(
   async ({ date }, thunkAPI) => {
     try {
       date = formatDate(date["$d"]);
-      const perfMarche = await apiMarko.get(`GETAPI?Perf_Indice&${date}`);
-      const volMarche = await apiMarko.get(`GETAPI?Perf_volume&${date}`);
-      const princContrib = await apiMarko.get(`GETAPI?Perf_contrib&${date}`);
-      const princVolumeMB = await apiMarko.get(
-        `GETAPI?Perf_volumes_MB&${date}`
-      );
-      const princVolumeMC = await apiMarko.get(
-        `GETAPI?Perf_volumes_MC&${date}`
-      );
-      const evolMasi = await apiMarko.get(`GETAPI?Evol_masi&${date}`);
-      const volumeEchan = await apiMarko.get(`GETAPI?Volume_echange&${date}`);
-      const PlusHaussesBaissesVolume = await apiMarko.get(
+      const perfMarche = await getAPI.get(`GETAPI?Perf_Indice&${date}`);
+      const volMarche = await getAPI.get(`GETAPI?Perf_volume&${date}`);
+      const princContrib = await getAPI.get(`GETAPI?Perf_contrib&${date}`);
+      const princVolumeMB = await getAPI.get(`GETAPI?Perf_volumes_MB&${date}`);
+      const princVolumeMC = await getAPI.get(`GETAPI?Perf_volumes_MC&${date}`);
+      const evolMasi = await getAPI.get(`GETAPI?Evol_masi&${date}`);
+      const volumeEchan = await getAPI.get(`GETAPI?Volume_echange&${date}`);
+      const PlusHaussesBaissesVolume = await getAPI.get(
         `GETAPI?Plus_hausses_baisses_volume&${date}`
       );
-      const staticSociete = await apiMarko.get(`GETAPI?Static_societe&${date}`);
-      const staticSociete2 = await apiMarko.get(
-        `GETAPI?static_societe2&${date}`
-      );
-      const perfMasiVolume = await apiMarko.get(
+      const staticSociete = await getAPI.get(`GETAPI?Static_societe&${date}`);
+      const staticSociete2 = await getAPI.get(`GETAPI?static_societe2&${date}`);
+      const perfMasiVolume = await getAPI.get(
         `GETAPI?Perf_masi_volume&${date}`
       );
-      const titreEchange = await apiMarko.get(`GETAPI?Titre_echange&${date}`);
-      const plusFortesVar = await apiMarko.get(
-        `GETAPI?Hebdo_fortes_var&${date}`
-      );
-      const perfSecteurs = await apiMarko.get(`GETAPI?Perf_secteurs&${date}`);
-      const capmarche = await apiMarko.get(`GETAPI?Cap_marche&${date}`);
-      const masiVolumeYTD = await apiMarko.get(
-        `GETAPI?Masi_volume_ytd&${date}`
-      );
-      const masiVolume = await apiMarko.get(`GETAPI?Masi_volume_1an&${date}`);
-      const commentaire = await apiMarko.get(`GETAPI?comm_marche&${date}`);
+      const titreEchange = await getAPI.get(`GETAPI?Titre_echange&${date}`);
+      const plusFortesVar = await getAPI.get(`GETAPI?Hebdo_fortes_var&${date}`);
+      const perfSecteurs = await getAPI.get(`GETAPI?Perf_secteurs&${date}`);
+      const capmarche = await getAPI.get(`GETAPI?Cap_marche&${date}`);
+      const masiVolumeYTD = await getAPI.get(`GETAPI?Masi_volume_ytd&${date}`);
+      const masiVolume = await getAPI.get(`GETAPI?Masi_volume_1an&${date}`);
+      const commentaire = await getAPI.get(`GETAPI?comm_marche&${date}`);
       const result = {
         perfMarche: perfMarche.data,
         volMarche: volMarche.data,
@@ -221,7 +211,7 @@ export const getMarketData_2 = createAsyncThunk(
         comm_marche,
       ] = await Promise.all(
         urls.map(async (url) => {
-          const response = await apiMarko.get(`GETAPI?${url}&${date}`);
+          const response = await getAPI.get(`GETAPI?${url}&${date}`);
           return { [url]: response.data };
         })
       );
@@ -289,7 +279,7 @@ export const getComments = createAsyncThunk(
     console.log("getComments");
     try {
       date = formatDate(date["$d"]);
-      const response = await apiMarko.get(`GETAPI?comm_marche&${date}`);
+      const response = await getAPI.get(`GETAPI?comm_marche&${date}`);
       console.log("comments data", response);
       return response.data;
     } catch (error) {

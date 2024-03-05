@@ -1,9 +1,9 @@
 import axios from "axios";
 const apiUrl = "https://192.168.11.109:9090/";
 
-const apiMarko = axios.create({
+const getAPI = axios.create({
   baseURL: apiUrl,
-  withCredentials: true,
+  // withCredentials: true,
   responseType: "json",
   paramsSerializer: {
     indexes: null,
@@ -11,7 +11,7 @@ const apiMarko = axios.create({
   },
 });
 
-apiMarko.interceptors.request.use((config) => {
+getAPI.interceptors.request.use((config) => {
   const token = localStorage.getItem("apiToken");
   console.log("Token from", localStorage.getItem("apiToken"));
   if (token) {
@@ -22,4 +22,4 @@ apiMarko.interceptors.request.use((config) => {
   return config;
 });
 
-export default apiMarko;
+export default getAPI;

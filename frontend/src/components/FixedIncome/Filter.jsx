@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import AccordionBox from "../AccordionBox";
 import DateComponent from "../DateComponent";
 import dayjs from "dayjs";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFixedIncome } from "../../redux/actions/FixedIncomeActions";
 import MainLoader from "../loaders/MainLoader";
 import { Calendar } from "react-feather";
-
+import { notyf } from "../../utils/notyf";
 const Filter = ({ setShow }) => {
   const { loading } = useSelector((state) => state.fixedIncome);
   const [date, setDate] = useState(dayjs("02/09/2024"));
@@ -20,7 +20,10 @@ const Filter = ({ setShow }) => {
         console.log("Resp ", resp);
         setShow(true);
       })
-      .catch((error) => console.log("Error ", error));
+      .catch((error) => {
+        console.log("Error ", error);
+        notyf.error(error);
+      });
   };
   return (
     <>
@@ -38,4 +41,4 @@ const Filter = ({ setShow }) => {
   );
 };
 
-export default Filter;
+export default memo(Filter);
