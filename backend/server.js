@@ -15,6 +15,7 @@ const stockRoutes = require("./routes/stock");
 const analyseRoutes = require("./routes/analyse");
 const sectorialRoutes = require("./routes/sectorial");
 const opcvmRoutes = require("./routes/opcvm");
+const CompOpcvmRoutes = require("./routes/compositionOpcvm");
 const path = require("path");
 const connectToDb = require("./config/database");
 
@@ -43,6 +44,7 @@ app.use("/stock", stockRoutes);
 app.use("/analyse", analyseRoutes);
 app.use("/sectorial", sectorialRoutes);
 app.use("/opcvm", opcvmRoutes);
+app.use("/composition-opcvm", CompOpcvmRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`App listened on port ${process.env.PORT}`);

@@ -1,4 +1,3 @@
-const Data = require("../models/dataModel");
 const connection = require("../config/connection");
 const sql = require("mssql");
 class _OpcvmController {
