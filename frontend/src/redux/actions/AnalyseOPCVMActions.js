@@ -3,6 +3,14 @@ import { formatDate } from "../../utils/FormatDate";
 import getAPI from "../../api/getAPI";
 import partitionData from "../../utils/partitionData";
 
+const barometreSortOrder = {
+  "Très haussier": 4,
+  Haussier: 3,
+  Neutre: 2,
+  Baissier: 1,
+  "Très baissier": 0,
+};
+
 export const getAnalyse = createAsyncThunk(
   "AnalyseOPCVM/getAnalyse",
   async ({ date, opcvm, seuil, periode }, thunkAPI) => {
@@ -109,7 +117,9 @@ export const getAnalyse = createAsyncThunk(
         ),
         performance: separatePerf,
         classementPerformance,
-        barometreQuantalys,
+        barometreQuantalys: barometreQuantalys.sort(
+          (a, b) => barometreSortOrder[a.marche] - barometreSortOrder[b.marche]
+        ),
         loeilExpert,
         indicateursRisque,
         fondsVersusCat1,

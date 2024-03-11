@@ -67,7 +67,7 @@ const PtfPoids = ({ data, field, sumOf, title }) => {
             minMargin: 6,
             edgeDistance: 10,
             lineHeight: 15,
-            rotate: -15,
+            rotate: -2,
           },
           labelLine: {
             length: 10,

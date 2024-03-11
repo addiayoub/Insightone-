@@ -13,11 +13,11 @@ import UniversB100 from "../charts/UniversB100";
 import MainLoader from "../loaders/MainLoader";
 import ChartContainer from "../ChartContainer";
 import groupBy from "../../utils/groupBy";
-import EChartsPreview from "../Test/EchartPreview";
 import NewUniversB100 from "../charts/NewUniversB100";
 import TransferList from "../TransferList";
 import { ValidateButton } from "../Ui/Buttons";
 import { MousePointer } from "react-feather";
+import EchartPreview from "../charts/Markowitz/EchartPreview";
 
 export default function NewUnivers({
   dateDebut,
@@ -92,7 +92,7 @@ export default function NewUnivers({
         {showChart && (
           <ChartContainer width={400}>
             {/* <ChartPreview data={chartData} /> */}
-            <EChartsPreview data={chartData} />
+            <EchartPreview data={chartData} />
             <NewUniversB100
               data={chartData}
               dateDebut={dateDebut}

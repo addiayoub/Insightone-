@@ -45,9 +45,9 @@ export const generateKeyPerfColumns = (keys) => {
     basedColumns.push({
       field: item,
       headerName: item,
-      // flex: 0.8,
+      // flex: 1 / keys.length,
       // align: "center",
-      width: 150,
+      width: 100,
       renderCell: (params) => {
         const value = params.row[item];
         if (value.includes("%")) {

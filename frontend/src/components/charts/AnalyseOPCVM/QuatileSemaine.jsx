@@ -4,7 +4,10 @@ import moment from "moment";
 import BarChart from "../Default/BarChart";
 
 const QuatileSemaine = ({ data }) => {
-  const seriesData = data.map((item) => item.quartile_perf_1S);
+  const seriesData = useMemo(
+    () => data.map((item) => item.quartile_perf_1S).filter((item) => item < 5),
+    [data]
+  );
   console.log("seriesData", seriesData);
   const seances = useMemo(
     () => data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),

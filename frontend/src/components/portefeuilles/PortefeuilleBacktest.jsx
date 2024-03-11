@@ -19,6 +19,7 @@ import { contribColumns } from "./Tables/columns";
 import Poids from "../charts/Backtest/Poids";
 import PoidsDonut from "../charts/Backtest/PoidsDonut";
 import DfRendement from "../DfRendement";
+import TitresComponent from "../TitresComponent";
 
 const opc = [
   "OPC ACTIONS FGP AJUSTE",
@@ -28,9 +29,10 @@ const opc = [
   "OPC OMLT FGP AJUSTE",
 ];
 
-const PortefeuilleBacktest = () => {
+const PortefeuilleBacktest = ({ initOpcvm = null }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(5, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
+  const [opcvm, setOpcvm] = useState(initOpcvm);
   const {
     evolutionB100Ptfs: { loading, data },
     backtestData: backData,
@@ -60,12 +62,15 @@ const PortefeuilleBacktest = () => {
   }, []);
   const handleBacktest = () => {
     console.log("ptfToBacktest", ptfToBacktest);
+    const list_indices = [opcvm, ...selectedIndices, ...selectedOPC].filter(
+      (item) => item !== null
+    );
     setIsShow(false);
     dispatch(
       getEvolutionB100Portef({
         dateDebut,
         dateFin,
-        list_indices: [...selectedIndices, ...selectedOPC],
+        list_indices,
       })
     )
       .unwrap()
@@ -77,7 +82,8 @@ const PortefeuilleBacktest = () => {
       });
   };
   const isDisabled =
-    selectedIndices.length < 1 || selectedOPC.length < 1 || rf === "";
+    (selectedIndices.length < 1 && selectedOPC.length < 1 && !opcvm) ||
+    rf === "";
   const showLoading = isLoading || loading || backData.loading;
   console.log("backData.data.keyPerf", backData.data.keyPerf);
   // const keyPerfColumns = generateKeyPerfColumns([
@@ -88,50 +94,54 @@ const PortefeuilleBacktest = () => {
 
   return (
     <>
-      <AccordionBox
-        title="Backtest"
-        isExpanded={true}
-        detailsClass="flex flex-wrap gap-3 items-center"
-      >
-        <DateComponent
-          date={dateDebut}
-          setDate={setDateDebut}
-          label="Date Début"
-        />
-        <DateComponent date={dateFin} setDate={setDateFin} label="Date Fin" />
-        <SelectIndices
-          indices={indices}
-          selectedIndices={selectedIndices}
-          setSelectedIndices={setSelectedIndices}
-          label="Indices"
-        />
-        <SelectIndices
-          indices={opc}
-          selectedIndices={selectedOPC}
-          setSelectedIndices={setSelectedOPC}
-          label="OPC"
-        />
-        <TextField
-          id="rf-dep"
-          label="Risk Free Rate"
-          type="number"
-          size="small"
-          value={rf}
-          onChange={(event) => {
-            setRf(event.target.value);
-          }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          InputProps={{
-            inputProps: {
-              min: 0,
-            },
-          }}
-        />
+      <AccordionBox title="Backtest" isExpanded={true}>
+        <Box className="flex flex-wrap gap-3 items-center">
+          <DateComponent
+            date={dateDebut}
+            setDate={setDateDebut}
+            label="Date Début"
+          />
+          <DateComponent date={dateFin} setDate={setDateFin} label="Date Fin" />
+          <SelectIndices
+            indices={indices}
+            selectedIndices={selectedIndices}
+            setSelectedIndices={setSelectedIndices}
+            label="Indices"
+          />
+          <SelectIndices
+            indices={opc}
+            selectedIndices={selectedOPC}
+            setSelectedIndices={setSelectedOPC}
+            label="OPC"
+          />
+          <TitresComponent
+            choice="OPCVM"
+            selectedTitres={opcvm}
+            setSelectedTitres={setOpcvm}
+          />
+          <TextField
+            id="rf-dep"
+            label="Risk Free Rate"
+            type="number"
+            size="small"
+            value={rf}
+            onChange={(event) => {
+              setRf(event.target.value);
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            InputProps={{
+              inputProps: {
+                min: 0,
+              },
+            }}
+          />
+        </Box>
         <Button
           variant="contained"
           size="small"
+          className="my-2"
           onClick={handleBacktest}
           disabled={isDisabled}
         >

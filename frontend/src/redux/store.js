@@ -12,6 +12,7 @@ import OpcvmReducer from "./slices/OpcvmSlice";
 import BacktestReducer from "./slices/BacktestSlice";
 import TrackingReducer from "./slices/TrackingSlice";
 import analyseOPCVMReducer from "./slices/analyseOPCVMSlice";
+import compOPCVMReducer from "./slices/CompOpcvmSlice";
 import fixedIncomeReducer from "./slices/FixedIncomeSlice";
 import BlackLittermanReducer from "./slices/BlackLittermanSlice";
 
@@ -31,6 +32,7 @@ export const store = configureStore({
     analyseOPCVM: analyseOPCVMReducer,
     fixedIncome: fixedIncomeReducer,
     blackLitterman: BlackLittermanReducer,
+    compOpcvm: compOPCVMReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -12,7 +12,8 @@
 
 .main-container {
   overflow: hidden;
-  height: calc(100% - 64px); /* 64px => header height */
+  min-height: calc(100vh - 64px); /* 64px => header height */
+  height: 100%;
   width: 100%;
   padding: 24px 20px 20px;
   position: relative;

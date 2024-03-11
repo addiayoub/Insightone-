@@ -6,7 +6,7 @@ const titles = [
   "Performance",
   "Volatilité",
   "Sharpe",
-  "Performance An",
+  "Performance Annualisée",
   "Performance Annuelle",
 ];
 const PerformanceTables = ({ data }) => {

@@ -22,6 +22,7 @@ import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Index.jsx";
 import Tracking from "../components/Tracking/Index.jsx";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/Index.jsx";
+import CompositionOPCVM from "../components/CompositionOPCVM/";
 import FixedIncome from "../components/FixedIncome/Index.jsx";
 import BlackLitterman from "../components/BlackLitterman/Index.jsx";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
@@ -46,7 +47,8 @@ function RouterProvider() {
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
             <Route path="/tracking" element={<Tracking />} />
-            <Route path="/analyse-opcvm" element={<AnalyseOPCVM />} />
+            <Route path="/analyse-quantitative" element={<AnalyseOPCVM />} />
+            <Route path="/composition-opcvm" element={<CompositionOPCVM />} />
             <Route path="/fixed-income" element={<FixedIncome />} />
             <Route path="/black-litterman" element={<BlackLitterman />} />
           </Route>

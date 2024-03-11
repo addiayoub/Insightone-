@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from "react";
 import moment from "moment";
-import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import LineChart from "../charts/Default/LineChart";
+import LineChart from "../Default/LineChart";
+import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
 
 const formatData = (data) => {
   const seriesData = [];
@@ -19,7 +19,7 @@ const formatData = (data) => {
   return seriesData;
 };
 
-const EChartsPreview = ({ data }) => {
+const EChartPreview = ({ data }) => {
   const seriesData = useMemo(() => formatData(data), [data]);
   console.log("e preview data", data);
   const options = useMemo(() => {
@@ -82,4 +82,4 @@ const EChartsPreview = ({ data }) => {
   );
 };
 
-export default memo(EChartsPreview);
+export default memo(EChartPreview);

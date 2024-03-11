@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/material";
-import { Edit, Trash } from "iconsax-react";
+import { Edit, Trash2 } from "react-feather";
 export const getColumns = (handleDelete, handleEdit) => {
   return [
     {
@@ -36,7 +36,7 @@ export const getColumns = (handleDelete, handleEdit) => {
                 handleDelete({ state: true, payload: row._id });
               }}
             >
-              <Trash size="20" color="#ee4658" />
+              <Trash2 size="20" color="var(--error-color)" />
             </IconButton>
             <IconButton
               variant="contained"
@@ -48,7 +48,7 @@ export const getColumns = (handleDelete, handleEdit) => {
                 });
               }}
             >
-              <Edit size="20" color="#444ce7" />
+              <Edit size="20" color="var(--primary-color)" />
             </IconButton>
           </div>
         );

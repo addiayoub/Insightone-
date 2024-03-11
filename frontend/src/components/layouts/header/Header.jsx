@@ -1,5 +1,3 @@
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { IconButton } from "@mui/material";
 import {
   ArrowDown2,
@@ -13,11 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../../redux/slices/AuthSlice";
 import { toggleSidebar } from "../../../redux/slices/DashboardSlice";
-import { toggleTheme } from "../../../redux/slices/ThemeSlice";
 import { notyf } from "../../../utils/notyf";
 import resetStates from "../../../utils/resetStates";
 import "./Header.css";
-import { useEffect } from "react";
 import { ChevronsLeft, ChevronsRight } from "react-feather";
 import ToggleTheme from "./ToggleTheme";
 
@@ -30,6 +26,7 @@ function Header() {
   const handelLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    resetStates();
     notyf.success("Vous avez été déconnecté avec succès.");
   };
   return (

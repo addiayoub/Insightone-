@@ -174,13 +174,18 @@ export const sidebarData = [
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Analyse OPCVM",
-        link: "analyse-opcvm",
+        title: "Analyse quantitative",
+        link: "analyse-quantitative",
         icon: Globe,
       },
       {
         title: "Tracking des fonds",
         link: "tracking",
+        icon: Compass,
+      },
+      {
+        title: "Composition OPCVM",
+        link: "composition-opcvm",
         icon: Compass,
       },
     ],
