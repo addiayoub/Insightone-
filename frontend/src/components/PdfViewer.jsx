@@ -1,5 +1,4 @@
 import React from "react";
-import "../utils/pdfWorker.js";
 import { hostName } from "../api/config.js";
 import { Box } from "@mui/material";
 // Import Worker
@@ -14,6 +13,9 @@ import fr_FR from "@react-pdf-viewer/locales/lib/fr_FR.json";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 // Import styles of default layout plugin
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+const pdfjs = await import("pdfjs-dist/build/pdf");
+const pdfjsWorker = await import("pdfjs-dist/build/pdf.worker.entry");
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 const PdfViewer = ({ pdfFile = `${hostName}/files/3021.pdf` }) => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
@@ -22,7 +24,9 @@ const PdfViewer = ({ pdfFile = `${hostName}/files/3021.pdf` }) => {
     <>
       {pdfFile && (
         <Box className="h-[400px]">
-          <Worker>
+          <Worker
+          // workerUrl="https://unpkg.com/pdfjs-dist@2.12.313/build/pdf.worker.min.js"
+          >
             <Viewer
               className="pdf-viewer"
               fileUrl={pdfFile}
