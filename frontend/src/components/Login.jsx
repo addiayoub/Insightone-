@@ -19,6 +19,7 @@ import runLogoutTimer from "../utils/runLogoutTimer";
 import theme, { darkTheme, lightTheme } from "../utils/theme";
 import Intro from "./animation/Intro";
 import EndAdorment from "./Ui/EndAdorment";
+import { LogIn } from "react-feather";
 
 function Copyright(props) {
   return (
@@ -148,8 +149,15 @@ export default function SignIn() {
                     variant="contained"
                     sx={{ mt: 3, mb: 2 }}
                     disabled={loading}
+                    className="flex flex-wrap gap-2 items-center"
                   >
-                    {loading ? "Veuillez patienter..." : "Connexion"}
+                    {loading ? (
+                      "Veuillez patienter..."
+                    ) : (
+                      <>
+                        <span>Connexion</span> <LogIn size={20} />
+                      </>
+                    )}
                   </Button>
                   {error && <Alert severity="error">{error}</Alert>}
                 </Box>

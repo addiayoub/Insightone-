@@ -33,7 +33,7 @@ export const libelleColumns = [
   },
   {
     field: "SIMULE",
-    headerName: "Simulé",
+    headerName: "Proxy",
     width: 360,
     flex: 0.3,
     renderCell: ({ row }) => {
@@ -53,7 +53,7 @@ export const libelleColumns = [
 export const simColumns = [
   {
     field: "titre",
-    headerName: "Titre",
+    headerName: "Proxy",
     width: 360,
     flex: 0.5,
     renderCell: ({ row }) => {

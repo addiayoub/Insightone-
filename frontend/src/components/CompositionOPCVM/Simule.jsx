@@ -13,7 +13,7 @@ const Simule = ({ data }) => {
           <Table rows={data} columns={simColumns} pageSize={10} />
         </GridItem>
         <GridItem>
-          <PtfPoids data={data} field="Poids" title="" />
+          <PtfPoids data={data} field="Poids" title="Composition Proxy" />
         </GridItem>
       </GridContainer>
     </AccordionBox>

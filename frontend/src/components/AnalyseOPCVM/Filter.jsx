@@ -62,7 +62,7 @@ const Filter = ({ setIsShow }) => {
         </Box>
         <Divider />
         <Typography className="text-sm">Selection des OPCVM</Typography>
-        <Box className="flex gap-2 items-center">
+        <Box className="flex gap-2 items-start flex-wrap">
           <TitresComponent
             selectedTitres={opcvm}
             setSelectedTitres={setOpcvm}

@@ -1,12 +1,6 @@
-import { IconButton } from "@mui/material";
-import {
-  ArrowDown2,
-  ArrowUp2,
-  HambergerMenu,
-  Logout,
-  ProfileCircle,
-} from "iconsax-react";
 import React, { useState } from "react";
+import { IconButton } from "@mui/material";
+import { ArrowDown2, ArrowUp2, Logout, ProfileCircle } from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../../redux/slices/AuthSlice";
@@ -32,7 +26,7 @@ function Header() {
   return (
     <header className="header">
       <div
-        className={`menu-icon ${isOpen ? "opened" : "closed"}  toggle-sidebar`}
+        className={`menu-icon  ${isOpen ? "opened" : "closed"} toggle-sidebar`}
       >
         <IconButton onClick={() => dispatch(toggleSidebar(!isOpen))}>
           {isOpen ? <ChevronsLeft /> : <ChevronsRight />}

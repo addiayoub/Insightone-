@@ -61,7 +61,7 @@ SELECT date, Gestionnaire, OPCVM, comp.Classification
     try {
       const pool = await connection();
       const { opcvm } = req.query;
-      const query = `SELECT [DENOMINATION_OPCVM],[Code_Ptf] FROM [DataWarehouse].[DIM].[OPCVM] where DENOMINATION_OPCVM = (@opc)`;
+      const query = `SELECT [DENOMINATION_OPCVM],[Code_Ptf] FROM [DataWarehouse].[DIM].[OPCVM] where DENOMINATION_OPCVM like '%'+@opc+'%'`;
       const request = pool.request();
       const result = await request.input("opc", opcvm).query(query);
       const resp = result.recordset[0];

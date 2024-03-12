@@ -49,7 +49,7 @@ const Filter = ({ setIsShow }) => {
   return (
     <>
       <AccordionBox title="Filter" isExpanded>
-        <Box className="flex flex-wrap items-center gap-2">
+        <Box className="flex flex-wrap items-start gap-2">
           <TitresComponent
             selectedTitres={opcvm}
             setSelectedTitres={setOpcvm}
