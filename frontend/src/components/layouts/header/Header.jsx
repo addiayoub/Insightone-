@@ -52,15 +52,9 @@ function Header() {
             </span>
             <IconButton sx={{ padding: 0 }}>
               {isOpenDropdown ? (
-                <ArrowUp2
-                  size="25"
-                  color={`${theme.darkTheme ? "#fff" : "#373736"}`}
-                />
+                <ArrowUp2 size={23} />
               ) : (
-                <ArrowDown2
-                  size="25"
-                  color={`${theme.darkTheme ? "#fff" : "#373736"}`}
-                />
+                <ArrowDown2 size={23} />
               )}
             </IconButton>
           </div>

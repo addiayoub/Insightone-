@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const User = require("../models/userModel");
+
 const tokenExpiresIn = 60 * 60 * 24;
 class _authController {
   async login(req, res) {

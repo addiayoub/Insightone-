@@ -3,7 +3,7 @@ import { handleActionsError } from "../../utils/handleActionsError";
 import axiosClient from "../../api/axios";
 
 export const getData = createAsyncThunk(
-  "opcvm/getData",
+  "compOpcvm/getData",
   async ({ opcvm }, thunkAPI) => {
     try {
       const response = await axiosClient.get(`/composition-opcvm/`, {
@@ -30,7 +30,7 @@ export const getData = createAsyncThunk(
 );
 
 export const getNoteInformation = createAsyncThunk(
-  "opcvm/getNoteInformation",
+  "compOpcvm/getNoteInformation",
   async ({ opcvm }, thunkAPI) => {
     try {
       const response = await axiosClient.get(

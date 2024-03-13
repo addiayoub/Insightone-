@@ -6,7 +6,7 @@ import getAPI from "../../api/getAPI";
 import { formatDate } from "../../utils/FormatDate";
 
 export const getStockData = createAsyncThunk(
-  "user/getStockData",
+  "stock/getStockData",
   async ({ date }, thunkAPI) => {
     try {
       const response = await axiosClient.get(`/stock/stockChartData`, {
@@ -24,7 +24,7 @@ export const getStockData = createAsyncThunk(
 );
 
 export const getCapitalisationData = createAsyncThunk(
-  "user/getCapitalisationData",
+  "stock/getCapitalisationData",
   async ({ date }, thunkAPI) => {
     try {
       const response = await axiosClient.get(`/stock/getCapitalisationData`, {
