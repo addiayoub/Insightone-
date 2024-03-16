@@ -10,7 +10,6 @@ const exceljs = require("exceljs");
 const isPortefeuilleUnique = require("../utils/isPortefeuilleUnique");
 const transformPtfData = require("../utils/transformPtfData");
 const validatePortefeuilleTitres = require("../utils/validatePortefeuilleTitres");
-const dataController = require("./dataController");
 const getTitres = require("../utils/getTitres");
 
 class _UserController {
@@ -117,7 +116,9 @@ class _UserController {
         message: "Utilisateur non trouvé.",
       });
     }
-    await User.deleteOne({ _id: id });
+    // await User.deleteOne({ _id: id });
+    exists.isDeleted = true;
+    exists.save();
     return res
       .status(200)
       .json({ message: "L'utilisateur a été supprimé avec succès." });
@@ -194,11 +195,16 @@ class _UserController {
 
   async updateProfile(req, res) {
     try {
-      const { id } = req.params;
       const { username, password, passwordConfirmation } = req.body;
-      const user = await User.findById(id);
+      const loggedIn = req.user;
+      const user = await User.findById(loggedIn._id);
+      // await User.collection.dropIndexes();
       let newInfos = { username };
-      const exists = await User.findOne({ username, _id: { $ne: id } });
+      const exists = await User.findOne({
+        username,
+        isDeleted: false,
+        _id: { $ne: loggedIn._id },
+      });
 
       if (exists) {
         return res.status(400).json({
@@ -208,6 +214,11 @@ class _UserController {
           },
         });
       }
+
+      if (req.file) {
+        newInfos.pic = req.file.filename;
+      }
+
       user.username = username.toLowerCase();
 
       if (password || passwordConfirmation) {
@@ -235,7 +246,7 @@ class _UserController {
       }
 
       const newUser = await User.findByIdAndUpdate(
-        id,
+        loggedIn._id,
         { $set: newInfos },
         { new: true }
       );
@@ -243,16 +254,16 @@ class _UserController {
         message: "Vos informations ont été mises à jour avec succès",
         newUser,
       });
-    } catch {
+    } catch (error) {
+      console.log(error.message);
       res.status(500).json({
         error: "Une erreur s'est produite lors du traitement de la requête.",
       });
     }
   }
-
   async deleteAll(req, res) {
     try {
-      await User.deleteMany({});
+      await User.updateMany({}, { $set: { isDeleted: true } });
       res.json({ message: "done" });
     } catch (error) {
       res.json({ error });

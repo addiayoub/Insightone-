@@ -28,20 +28,6 @@ const initialState = {
   dataWithContraints: { data: [], loading: false, error: null },
   valeurs: [],
   fields: [],
-  customization: {
-    title: "",
-    xAxis: "Seance",
-    yAxis1: {
-      title: "Variation",
-      type: "line",
-      color: "#ff0000",
-    },
-    yAxis2: {
-      title: "Valeur",
-      type: "line",
-      color: "#0000FF",
-    },
-  },
   contraints: {
     performance: {
       operateur: "",
@@ -60,8 +46,6 @@ const initialState = {
       value: 0,
     },
   },
-  hideChart: true,
-  modalIsOpen: false,
   secteurs: {
     loading: false,
     error: null,
@@ -158,25 +142,6 @@ const dataSlice = createSlice({
     resetData: (state) => {
       state.data = [];
       state.fields = [];
-    },
-    setCustomization: (state, { payload }) => {
-      state.customization = payload;
-    },
-    resetCustomization: (state) => {
-      state.customization = {
-        title: "",
-        xAxis: "Seance",
-        yAxis1: {
-          title: "Variation",
-          type: "line",
-          color: "#ff0000",
-        },
-        yAxis2: {
-          title: "Valeur",
-          type: "column",
-          color: "#0000FF",
-        },
-      };
     },
     setContraints: (state, { payload }) => {
       console.log("setContraints", payload);
@@ -645,12 +610,8 @@ const dataSlice = createSlice({
 
 export const {
   resetData,
-  setCustomization,
   showChart,
   hideChart,
-  closeModal,
-  openModal,
-  resetCustomization,
   setContraints,
   resetContraints,
   setFilterMarkoData,

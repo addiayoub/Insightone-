@@ -110,19 +110,26 @@ export const showUser = createAsyncThunk(
 
 export const updateProfile = createAsyncThunk(
   "user/updateProfile",
-  async ({ id, user }, thunkAPI) => {
+  async ({ user }, thunkAPI) => {
     try {
-      const { data } = await axios.put(`/api/users/${id}/update-infos`, user);
+      console.log("update pr user", user);
+      let formData = new FormData();
+      formData.append("pic", user.pic);
+      formData.append("username", user.username);
+      formData.append("password", user.password);
+      formData.append("passwordConfirmation", user.passwordConfirmation);
+      const { data } = await axios.put(`/api/users/update-infos`, formData);
       console.log(`update profile action:`, data);
       return data;
     } catch (error) {
       // return custom error message from backend if present
+      console.log("error", error);
       if (error.response && error.response.data.message) {
         return thunkAPI.rejectWithValue(error.response.data.message);
       } else {
         return thunkAPI.rejectWithValue({
           failed: true,
-          message: error.message,
+          message: error?.message,
         });
       }
     }

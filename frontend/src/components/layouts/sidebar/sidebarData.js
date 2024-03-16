@@ -23,6 +23,8 @@ import {
   Globe,
   Pocket,
   DollarSign,
+  BarChart,
+  List,
 } from "react-feather";
 import { ChartScatterIcon } from "../../../icons/Icons";
 
@@ -52,6 +54,12 @@ export const sidebarData = [
     icon: User,
     title: "Utilisateurs",
     link: "users",
+    isPrivate: true,
+  },
+  {
+    icon: BarChart,
+    title: "Statistiques",
+    link: "statistiques",
     isPrivate: true,
   },
   {
@@ -152,6 +160,11 @@ export const sidebarData = [
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
+      {
+        title: "Consultation",
+        link: "consultation",
+        icon: List,
+      },
       {
         title: "Tradebot",
         link: "backtest",

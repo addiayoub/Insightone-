@@ -19,15 +19,25 @@ export default function ModalComponent({
   open,
   handleClose,
   style = {},
-  className,
+  modalStyle = {},
+  modalClassname,
+  containerClassName,
   children,
   withHeader,
   headerText,
 }) {
   return (
     <div>
-      <Modal open={open} onClose={handleClose} className={`${className}`}>
-        <Box sx={{ ...basedStyle, ...style }}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        sx={modalStyle}
+        className={`${modalClassname}`}
+      >
+        <Box
+          sx={{ ...basedStyle, ...style }}
+          className={`${containerClassName}`}
+        >
           {withHeader && (
             <Box className="mb-3">
               <Box className="flex justify-between items-center mb-1">

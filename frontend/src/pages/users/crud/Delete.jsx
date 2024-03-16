@@ -1,18 +1,9 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
-import { grey } from "@mui/material/colors";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../../../redux/actions/UserActions";
 import { notyf } from "../../../utils/notyf";
-import ModalComponent from "../../Modal";
-import DeleteModal from "../../DeleteModal";
+import DeleteModal from "../../../components/DeleteModal";
+import ModalComponent from "../../../components/Modal";
 
 export default function Delete({ open, setModalOff, id }) {
   const dispatch = useDispatch();
@@ -43,13 +34,11 @@ export default function Delete({ open, setModalOff, id }) {
     setModalOff();
   };
   return (
-    <div>
-      <ModalComponent open={open} handleClose={() => setModalOff()}>
-        <DeleteModal
-          bodyText="Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
-          handleDeleteConfirmation={handleConfirmation}
-        />
-      </ModalComponent>
-    </div>
+    <ModalComponent open={open} handleClose={() => setModalOff()}>
+      <DeleteModal
+        bodyText="Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
+        handleDeleteConfirmation={handleConfirmation}
+      />
+    </ModalComponent>
   );
 }

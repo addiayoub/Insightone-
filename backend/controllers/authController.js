@@ -30,6 +30,11 @@ class _authController {
           message: "Mot de passe incorrect. Veuillez réessayer.",
         });
       }
+
+      // Update login history
+      user.loginHistory.push(Date.now()); // Add current timestamp to login history
+      await user.save();
+
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: tokenExpiresIn,
       });
@@ -45,6 +50,7 @@ class _authController {
         username,
         role: user.isAdmin ? 305 : 300,
         token,
+        pic: user.pic,
         expiresIn: tokenExpiresIn,
         expiresAt: exp,
       });

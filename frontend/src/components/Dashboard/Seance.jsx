@@ -2,7 +2,7 @@ import moment from "moment";
 import React, { useMemo } from "react";
 import { Lock } from "react-feather";
 import { momentFr } from "../../utils/momentFr";
-moment.locale("fr", momentFr);
+moment.updateLocale("fr", momentFr);
 
 function Seance({ date }) {
   console.log("Seance({ date })", date);

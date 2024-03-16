@@ -15,10 +15,12 @@ import analyseOPCVMReducer from "./slices/analyseOPCVMSlice";
 import compOPCVMReducer from "./slices/CompOpcvmSlice";
 import fixedIncomeReducer from "./slices/FixedIncomeSlice";
 import BlackLittermanReducer from "./slices/BlackLittermanSlice";
+import AdminReducer from "./slices/AdminSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    admin: AdminReducer,
     user: userReducer,
     dashboard: dashboardReducer,
     rapport: rapportReducer,

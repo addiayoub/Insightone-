@@ -9,6 +9,7 @@ const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/user");
 const dataRoutes = require("./routes/data");
 const stockRoutes = require("./routes/stock");
@@ -39,6 +40,7 @@ connectToDb();
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/data", dataRoutes);
 app.use("/stock", stockRoutes);
 app.use("/analyse", analyseRoutes);

@@ -16,7 +16,7 @@ import { DeleteButton, ValidateButton } from "../../Ui/Buttons";
 
 const types = ["Actions", "OPCVM"];
 
-const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, show, setShow }) => {
+const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow }) => {
   const {
     portefeuilles: { loading, data },
   } = useSelector((state) => state.user);

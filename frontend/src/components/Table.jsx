@@ -10,7 +10,7 @@ import {
   gridClasses,
 } from "@mui/x-data-grid";
 import React, { memo, useCallback } from "react";
-import NewsModal from "./Secteurs/NewsModal";
+import NewsModal from "./AnalyseSectorial/NewsModal";
 import { useState } from "react";
 import injectId from "../utils/injectId";
 import { dataGridLocale } from "../utils/dataGridLocale";

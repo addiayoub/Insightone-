@@ -11,12 +11,6 @@ import Period from "../Period";
 import MainLoader from "../loaders/MainLoader";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 
-const gridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
-  alignItems: "center",
-  gap: "0 15px",
-};
 function Secteurs() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "year"));
   const [dateFin, setDateFin] = useState(dayjs());

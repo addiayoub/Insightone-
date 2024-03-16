@@ -5,21 +5,17 @@ import Echart from "../charts/Echart.jsx";
 import Cards from "./Cards.jsx";
 import {
   getCapitalisationData,
-  getDashboardData,
-  getMarketData,
   getMarketData_2,
-  getSecteurs_2,
   getSliderData,
   getStockData,
 } from "../../redux/actions/StockActions.js";
 import { transformData } from "../../utils/dataTransformation.js";
 import Card from "./Card.jsx";
 import { useEffect } from "react";
-import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces.js";
 import { Box, Button } from "@mui/material";
 import dayjs from "dayjs";
 import Donut from "../charts/Donut.jsx";
-import { ArrowDown, ArrowRight, ArrowUp, Calendar } from "react-feather";
+import { Calendar } from "react-feather";
 import P_DU_M from "../../data/PERFORMANCE_DU_MARCHE_PARAM1.json";
 import V_PAR_M_P1 from "../../data/VOLUME_PAR_MARCHE_PARAM1.json";
 import P_V_MC from "../../data/PRINCIPAUX_VOLUMES_MC_PARAM1";
@@ -35,7 +31,6 @@ import DataTable from "./DataTable.jsx";
 import EV from "../../data/EVOLUTION_MASI_PARAM1.json";
 import EvolutionMasi from "../charts/EvolutionMasi.jsx";
 import VolumeEchange from "../charts/VolumeEchange.jsx";
-import DateComp from "./DateComp.jsx";
 import VE from "../../data/VOLUME_ECHANGE_PARAM1.json";
 import Commentaire from "./Commentaire.jsx";
 import MainLoader from "../loaders/MainLoader.jsx";

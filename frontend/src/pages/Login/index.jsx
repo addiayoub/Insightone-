@@ -13,12 +13,12 @@ import {
 } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { apiAuth, login } from "../redux/actions/AuthActions";
-import Logo from "../assets/images/Logo.png";
-import runLogoutTimer from "../utils/runLogoutTimer";
-import theme, { darkTheme, lightTheme } from "../utils/theme";
-import Intro from "./animation/Intro";
-import EndAdorment from "./Ui/EndAdorment";
+import { login } from "../../redux/actions/AuthActions";
+import Logo from "../../assets/images/Logo.png";
+import runLogoutTimer from "../../utils/runLogoutTimer";
+import theme, { darkTheme, lightTheme } from "../../utils/theme";
+import Intro from "../../components/animation/Intro";
+import EndAdorment from "../../components/Ui/EndAdorment";
 import { LogIn } from "react-feather";
 
 function Copyright(props) {

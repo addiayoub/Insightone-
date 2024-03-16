@@ -6,38 +6,29 @@ import { logout } from "../../redux/slices/AuthSlice";
 import Create from "./crud/Create";
 import Delete from "./crud/Delete";
 import Update from "./crud/Update";
-import Table from "../Table";
-import MainLoader from "../loaders/MainLoader";
 import { getColumns } from "./columns";
 import { UserPlus } from "react-feather";
+import Table from "../../components/Table";
+import MainLoader from "../../components/loaders/MainLoader";
+import Show from "./crud/Show";
 
 function Users() {
   const { users, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
-  // Create
-  const [open, setOpen] = useState(false);
-  const setModalOff = () => setOpen(false);
-  const setModalOn = () => setOpen(true);
-  // Edit
-  const [openEdit, setOpenEdit] = useState({
-    state: false,
-    payload: null,
+  const [modals, setModals] = useState({
+    create: { state: false, payload: null },
+    delete: { state: false, payload: null },
+    update: { state: false, payload: null },
+    show: { state: false, payload: null },
   });
-  const setModalEditOff = () =>
-    setOpenEdit({
-      state: false,
-      payload: null,
+  const handleModals = (name, value = { state: false, payload: null }) => {
+    setModals((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
     });
-  const setModalEditOn = (user) =>
-    setOpenEdit({
-      state: true,
-      payload: user,
-    });
-  // Delete
-  const [openDelete, setOpenDelete] = useState({ state: false, payload: null });
-  const setModalDeleteOff = () => setOpenDelete(false);
-  const setModalDeleteOn = () => setOpenDelete(true);
+  };
   useEffect(() => {
     dispatch(fetchUsers())
       .unwrap()
@@ -52,7 +43,7 @@ function Users() {
       });
   }, [dispatch]);
 
-  const columns = getColumns(setOpenDelete, setOpenEdit);
+  const columns = getColumns(handleModals);
   return (
     <Box sx={{ width: "100%" }}>
       {loading && <MainLoader />}
@@ -67,32 +58,34 @@ function Users() {
         variant="contained"
         sx={{ margin: 1 }}
         size="small"
-        onClick={() => {
-          setOpen(true);
-        }}
+        onClick={() => handleModals("create", { state: true })}
       >
         <UserPlus size={20} color="#fff" className="mr-1" />
         ajouter un utilisateur
       </Button>
       <Table columns={columns} rows={users} pageSize={25} />
       {/* Modals */}
-      {open && (
-        <Create open={open} setModalOff={setModalOff} setModalOn={setModalOn} />
+      {modals.show.state && (
+        <Show data={modals.show} setModalOff={() => handleModals("show")} />
       )}
-      {openDelete.payload && (
-        <Delete
-          open={openDelete.state}
-          id={openDelete.payload}
-          setModalOff={setModalDeleteOff}
-          setModalOn={setModalDeleteOn}
+      {modals.create.state && (
+        <Create
+          open={modals.create.state}
+          setModalOff={() => handleModals("create")}
         />
       )}
-      {openEdit.payload && (
+      {modals.delete.payload && (
+        <Delete
+          open={modals.delete.state}
+          id={modals.delete.payload}
+          setModalOff={() => handleModals("delete")}
+        />
+      )}
+      {modals.update.payload && (
         <Update
-          open={openEdit.state}
-          userData={openEdit.payload}
-          setModalOff={setModalEditOff}
-          setModalOn={setModalEditOn}
+          open={modals.update.state}
+          userData={modals.update.payload}
+          setModalOff={() => handleModals("update")}
         />
       )}
     </Box>

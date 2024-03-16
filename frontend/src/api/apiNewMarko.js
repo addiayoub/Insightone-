@@ -14,7 +14,7 @@ const apiNewMarko = axios.create({
 
 apiNewMarko.interceptors.request.use((config) => {
   config.headers.Accept = `application/json`;
-
+  console.log("config", config);
   return config;
 });
 

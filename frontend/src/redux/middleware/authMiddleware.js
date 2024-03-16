@@ -8,7 +8,6 @@ const authMiddleware = (store) => (next) => (action) => {
   if (user) {
     const { expiresAt } = user;
     const currentTime = Date.now() / 1000;
-    console.log("Midd action", action);
     if (expiresAt < currentTime && action.type !== "auth/logout") {
       store.dispatch(logout());
       store.dispatch(setPath(""));
@@ -16,11 +15,9 @@ const authMiddleware = (store) => (next) => (action) => {
       notyf.error(
         `Votre session a expiré. Veuillez vous reconnecter pour continuer.`
       );
-      console.log("return false");
       return false;
     }
   }
-  console.log("next(action)");
 
   return next(action);
 };
