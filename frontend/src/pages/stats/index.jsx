@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getStats } from "../../redux/actions/AdminActions";
 import MainLoader from "../../components/loaders/MainLoader";
 import GridContainer, { GridItem } from "../../components/Ui/GridContainer";
-import { Shield, UserMinus, UserPlus } from "react-feather";
-import { Wallet } from "iconsax-react";
+import ApiLogs from "./ApiLogs";
+import { getStatsCards } from "./StatsCards";
+import ApiLog from "./ApiLog";
 
 const index = () => {
   const {
@@ -12,45 +13,7 @@ const index = () => {
   } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   console.log("data", data);
-  const cards = useMemo(() => {
-    return [
-      {
-        title: "Utilisateurs",
-        icon: <UserPlus className="text-primary" size={22} />,
-        value: data.totalUsers,
-      },
-      {
-        title: "Utilisateurs actifs",
-        icon: <UserPlus className="text-success" size={22} />,
-        value: data.activeUsers,
-      },
-      {
-        title: "Utilisateurs inactifs",
-        icon: <UserMinus className="text-error" size={22} />,
-        value: data.notActiveUsers,
-      },
-      {
-        title: "Admins",
-        icon: <Shield className="text-primary" size={22} />,
-        value: data.adminUsers,
-      },
-      {
-        title: "Portefeuilles",
-        icon: <Wallet className="text-primary" size={22} />,
-        value: data.totalPtfs,
-      },
-      {
-        title: "Portefeuilles Actions",
-        icon: <Wallet className="text-primary" size={22} />,
-        value: data.totalPtfs,
-      },
-      {
-        title: "Portefeuilles OPCVm",
-        icon: <Wallet className="text-primary" size={22} />,
-        value: data.totalPtfs,
-      },
-    ];
-  }, [data]);
+  const cards = useMemo(() => getStatsCards(data), [data]);
   useEffect(() => {
     dispatch(getStats());
   }, []);
@@ -67,10 +30,11 @@ const index = () => {
               );
             })}
           </GridContainer>
-          <h3 className="my-4">Stats</h3>
+          <ApiLogs />
         </>
       )}
       {loading && <MainLoader />}
+      {/* <ApiLog /> */}
     </div>
   );
 };

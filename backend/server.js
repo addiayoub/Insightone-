@@ -17,6 +17,7 @@ const analyseRoutes = require("./routes/analyse");
 const sectorialRoutes = require("./routes/sectorial");
 const opcvmRoutes = require("./routes/opcvm");
 const CompOpcvmRoutes = require("./routes/compositionOpcvm");
+const ApiLogRoutes = require("./routes/apiLogRoutes");
 const path = require("path");
 const connectToDb = require("./config/database");
 
@@ -41,6 +42,7 @@ connectToDb();
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/logs", ApiLogRoutes);
 app.use("/data", dataRoutes);
 app.use("/stock", stockRoutes);
 app.use("/analyse", analyseRoutes);

@@ -1,6 +1,32 @@
 const mongoose = require("mongoose");
 
 const usernameRegex = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim;
+
+const apiLog = {
+  baseURL: {
+    type: String,
+  },
+  url: {
+    type: String,
+  },
+  method: {
+    type: String,
+  },
+  executionTime: {
+    type: Number,
+  },
+  status: {
+    type: Number,
+  },
+  type: {
+    type: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+};
+
 const userSchema = new mongoose.Schema(
   {
     username: {
@@ -65,6 +91,7 @@ const userSchema = new mongoose.Schema(
         },
       },
     ],
+    apiLogs: [apiLog],
   },
   { timestamps: true }
 );

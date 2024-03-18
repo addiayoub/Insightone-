@@ -71,7 +71,7 @@ function Table({
   return (
     <>
       <StripedDataGrid
-        className={`${className} my-5 default-table`}
+        className={`${className} my-5 default-table overflow-auto w-full`}
         columns={columns}
         rows={rows}
         hideFooter={rows.length < 5 && !showFooter}

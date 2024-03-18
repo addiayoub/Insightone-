@@ -64,6 +64,5 @@ router.get("/:username", isAdmin, userController.show);
 router.post("/savePortefeuille", userController.savePortefeuille);
 router.post("/uploadCSV", upload.single("file"), userController.uploadCSV);
 router.post("/uploadTable", userController.uploadTable);
-
 router.delete("/", userController.deleteAll);
 module.exports = router;
