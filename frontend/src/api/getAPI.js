@@ -28,7 +28,7 @@ getAPI.interceptors.request.use((config) => {
 getAPI.interceptors.response.use(
   async function (response) {
     console.log("interceptors.response", response, response.config.metadata);
-    await handleResponse(response);
+    // await handleResponse(response);
     return response;
   },
   async function (error) {

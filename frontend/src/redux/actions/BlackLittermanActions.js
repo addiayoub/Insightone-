@@ -131,66 +131,135 @@ export const portfolioAllocationAction = createAsyncThunk(
 
 export const meanRiskOptiAction = createAsyncThunk(
   "BlackLitterman/meanRiskOptiAction",
-  async ({ dateDebut, dateFin, titres, points }, thunkAPI) => {
+  async ({ dateDebut, dateFin, points, rfr, raf, views }, thunkAPI) => {
+    views = views.map(({ id, ...rest }) => ({ ...rest }));
     const body = {
-      list_valeur: [
-        "IAM",
-        "BCP",
-        "ATW",
-        "BOA",
-        "CDM",
-        "ADH",
-        "BCI",
-        "CIH",
-        "SAH",
-        "UMR",
-        "SBM",
-        "SMI",
-        "EQD",
-        "BAL",
-        "ALM",
-        "GAZ",
-        "HPS",
-        "LES",
-        "CSR",
-        "DWY",
+      df_poids_min_max: [
+        {
+          valeur: "DISWAY",
+          minp: 0,
+          maxp: 0.1,
+        },
+        {
+          valeur: "ADDOHA",
+          minp: 0,
+          maxp: 0.1,
+        },
       ],
       df_views: [
         {
           Type: "Classes",
-          Set: "Industry",
           Position: "TELECOMMUNICATIONS",
           Sign: ">=",
           Weight: 0.08,
           "Type Relative": "Assets",
-          "Relative Set": "",
           Relative: "HPS",
         },
         {
           Type: "All Assets",
-          Set: "",
           Position: "",
           Sign: ">=",
           Weight: 0.02,
           "Type Relative": "",
-          "Relative Set": "",
           Relative: "",
         },
       ],
     };
+    const list_valeur = [
+      "IAM",
+      "BCP",
+      "ATW",
+      "BOA",
+      "CDM",
+      "ADH",
+      "BCI",
+      "CIH",
+      "SAH",
+      "UMR",
+      "SBM",
+      "SMI",
+      "EQD",
+      "BAL",
+      "ALM",
+      "GAZ",
+      "HPS",
+      "LES",
+      "CSR",
+      "DWY",
+    ];
     try {
+      const dataSetRes = await apiNewMarko.get(
+        `Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
+        {
+          params: {
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+            list_valeur,
+          },
+        }
+      );
+      const { dataset } = dataSetRes.data;
       const response = await apiNewMarko.post(
         `Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/`,
-        body,
+        { dataset, ...body },
         {
           params: {
             start: formatDate(dateDebut["$d"]),
             end: formatDate(dateFin["$d"]),
             points,
+            risk_free_rate: rfr,
+            risk_aversion_factor: raf,
           },
         }
       );
       console.log("Black_Litterman_Mean_Risk_Optimization", response.data);
+      return response.data;
+    } catch (error) {
+      console.log("meanRiskOptiAction error", error);
+      return thunkAPI.rejectWithValue("Error server");
+    }
+  }
+);
+
+export const meanRiskOptiDataSetAction = createAsyncThunk(
+  "BlackLitterman/meanRiskOptiAction",
+  async (_, thunkAPI) => {
+    const list_valeur = [
+      "IAM",
+      "BCP",
+      "ATW",
+      "BOA",
+      "CDM",
+      "ADH",
+      "BCI",
+      "CIH",
+      "SAH",
+      "UMR",
+      "SBM",
+      "SMI",
+      "EQD",
+      "BAL",
+      "ALM",
+      "GAZ",
+      "HPS",
+      "LES",
+      "CSR",
+      "DWY",
+    ];
+    try {
+      const response = await apiNewMarko.get(
+        `Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
+        {
+          params: {
+            start: "25/12/2018",
+            end: "11/04/2023",
+            list_valeur,
+          },
+        }
+      );
+      const { dataset } = response.data;
+      console.log("meanRiskOptiAction", response.data);
+      console.log("dataset", dataset);
       return response.data;
     } catch (error) {
       console.log("portfolioAllocationAction error", error);
@@ -211,6 +280,25 @@ const objBL = [
   {
     Metric: "Sharpe Ratio",
     Value: 0.2220400939603113,
+  },
+];
+
+const df_views = [
+  {
+    Type: "Classes",
+    Position: "TELECOMMUNICATIONS",
+    Sign: ">=",
+    Weight: 0.08,
+    "Type Relative": "Assets",
+    Relative: "HPS",
+  },
+  {
+    Type: "All Assets",
+    Position: "",
+    Sign: ">=",
+    Weight: 0.02,
+    "Type Relative": "",
+    Relative: "",
   },
 ];
 

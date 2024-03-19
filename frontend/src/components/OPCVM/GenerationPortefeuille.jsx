@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   evolutionB100Frontiere_,
   portefeuilleAleatoire_,
-  portefeuilleSimule_,
 } from "../../redux/actions/OpcvmActions";
-import EvolutionB100 from "../charts/EvolutionB100";
 import MainLoader from "../loaders/MainLoader";
 import PortefeuilleAleatoires from "../charts/PortefeuilleAleatoires";
 import PortefeuilleFrontiere from "../charts/PortefeuilleFrontiere";
-import Ptf from "../Markowitz/PortefeuilleFrontiere";
 import { Aperture } from "react-feather";
 import { ValidateButton } from "../Ui/Buttons";
 
@@ -20,7 +17,6 @@ function GenerationPortefeuille() {
   const [risque, setRisque] = useState("");
   const [nbrPointFront, setNbrPointFront] = useState("");
   const {
-    portefeuilleSimule,
     evolutionB100Frontiere,
     portefeuillesAleatoires: {
       data,

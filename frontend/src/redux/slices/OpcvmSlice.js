@@ -310,8 +310,8 @@ const opcvmSlice = createSlice({
     // portefeuilleAleatoire_;
     builder.addCase(
       portefeuilleAleatoire_.pending,
-      ({ portefeuilleSimule }) => {
-        portefeuilleSimule.loading = true;
+      ({ portefeuillesAleatoires }) => {
+        portefeuillesAleatoires.loading = true;
       }
     );
     builder.addCase(
@@ -333,7 +333,7 @@ const opcvmSlice = createSlice({
       }
     );
 
-    // portefeuilleSimule;
+    // evolutionB100Frontiere_;
     builder.addCase(
       evolutionB100Frontiere_.pending,
       ({ evolutionB100Frontiere }) => {

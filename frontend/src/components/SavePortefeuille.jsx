@@ -8,7 +8,6 @@ import { notyf } from "../utils/notyf";
 import ModalComponent from "./Modal";
 import { filterByPtf } from "../utils/filterByPtf";
 import { extractPtfKeys } from "../utils/extractPtfKeys";
-import { setPortefeuilles } from "../redux/slices/UserSlice";
 import {
   setPtfToBacktest,
   setSelectedPtf,
@@ -21,6 +20,7 @@ const SavePortefeuille = ({
   field,
   saveAll,
   oldParams,
+  dataToSave = [],
   isDisabled,
 }) => {
   const [open, setOpen] = useState(false);
@@ -30,7 +30,9 @@ const SavePortefeuille = ({
   const [isSaving, setIsSaving] = useState(false);
   console.log("saveAll", saveAll);
   console.log("oldParams", oldParams);
-  data = injectMinMax(data);
+  console.log("pure data", data);
+  console.log("data to Save", dataToSave);
+  data = injectMinMax(dataToSave);
   console.log("data injectMinMax", data);
   const { params } =
     type === "OPCVM"
@@ -47,14 +49,16 @@ const SavePortefeuille = ({
     if (choice === "all") {
       const fields = extractPtfKeys(data);
       const portefeuilles = [];
+      console.log("ALLO", fields, data);
       fields.forEach((field, index) => {
         const ptf = {
           name: `${title.trim()} ${index + 1}`,
           type,
           field,
           params,
-          data: isPtf ? filterByPtf(data, field) : data,
+          data: filterByPtf(data, field, isPtf),
         };
+
         portefeuilles.push(ptf);
       });
       ptfs.push(...portefeuilles);
@@ -64,7 +68,7 @@ const SavePortefeuille = ({
         type,
         field,
         params: oldParams ? oldParams : params,
-        data: isPtf ? filterByPtf(data, field) : data,
+        data: filterByPtf(data, field, isPtf),
       };
       ptfs.push(portefeuille);
     }

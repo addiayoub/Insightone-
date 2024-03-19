@@ -10,7 +10,7 @@ const Index = () => {
     <>
       <ValueAtRisk />
       <PortfolioOptim />
-      <MeanRiskOpti />
+      {/* <MeanRiskOpti /> */}
       <Divider className="h-[3px] bg-black" />
       <PortfolioAllocation />
     </>

@@ -45,9 +45,19 @@ function PortefeuilleFrontiere({ data, field, ptfs, type, setField }) {
     <AccordionBox title={field} isExpanded={true}>
       <PtfRange ptfs={ptfs} selected={field} setSelected={setField} />
       {type === "OPCVM" ? (
-        <Portefeuille data={rows} field={field} saveAll={true} />
+        <Portefeuille
+          data={rows}
+          field={field}
+          saveAll={true}
+          dataToSave={data}
+        />
       ) : (
-        <PortefeuilleMarko data={rows} field={field} saveAll={true} />
+        <PortefeuilleMarko
+          data={rows}
+          field={field}
+          saveAll={true}
+          dataToSave={data}
+        />
       )}
       {/* <Box
         // sx={gridStyle}

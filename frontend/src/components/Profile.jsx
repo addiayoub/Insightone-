@@ -88,7 +88,7 @@ function Profile() {
         <TextField
           id="password-field"
           type={visiblePassword ? "text" : "password"}
-          label="Mot de pass"
+          label="Mot de passe"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           variant="outlined"
@@ -108,7 +108,7 @@ function Profile() {
         <TextField
           id="password-confirmation-field"
           type={visiblePasswordConfir ? "text" : "password"}
-          label="Confirmation de mot de pass"
+          label="Confirmation de mot de passe"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           variant="outlined"

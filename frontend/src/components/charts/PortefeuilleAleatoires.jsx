@@ -218,7 +218,7 @@ function PortefeuilleAleatoires({
           <>
             <Ptf
               ptfs={frontiere}
-              data={frontiereWeights.filter((item) => item[name] > 0.01)}
+              data={frontiereWeights}
               field={name}
               setField={setName}
               type={type}

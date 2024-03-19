@@ -67,7 +67,7 @@ const Form = (props) => {
           {...((error?.usernamePassword || error?.password) && {
             error: true,
           })}
-          label="Mot de pass"
+          label="Mot de passe"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           variant="outlined"
@@ -86,7 +86,7 @@ const Form = (props) => {
         <TextField
           id="password-confirmation-field"
           type={visiblePasswordConfir ? "text" : "password"}
-          label="Confirmation de mot de pass"
+          label="Confirmation de mot de passe"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           variant="outlined"

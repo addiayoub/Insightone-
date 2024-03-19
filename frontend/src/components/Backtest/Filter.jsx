@@ -195,7 +195,7 @@ function Filter({ setIsShow }) {
     <Box>
       <Upload show={show} setShow={setShow} />
       {show && (
-        <AccordionBox title={"Filter"} isExpanded>
+        <AccordionBox title={"Filtre"} isExpanded>
           <Box className="flex items-center flex-wrap gap-2 mb-5">
             <DateComponent
               date={dateDebut}

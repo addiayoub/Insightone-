@@ -12,7 +12,14 @@ const gridStyle = {
   gap: "60px 15px",
 };
 
-function Portefeuille({ title, data, field, compare, saveAll = false }) {
+function Portefeuille({
+  title,
+  data,
+  field,
+  compare,
+  saveAll = false,
+  dataToSave,
+}) {
   const rows = data
     .filter((item) => item[field] >= 0.01)
     .map((item) => ({
@@ -20,7 +27,7 @@ function Portefeuille({ title, data, field, compare, saveAll = false }) {
       [field]: field === "Poids_MASI" ? item[field] * 100 : item[field],
     }))
     .sort((a, b) => b[field] - a[field]);
-  console.log("Portefeuille front 2 rows", rows, field, compare);
+  console.log("Portefeuille front 2 rows", rows, data, field, compare);
   return (
     <Box
       // sx={gridStyle}
@@ -38,6 +45,7 @@ function Portefeuille({ title, data, field, compare, saveAll = false }) {
             type={"OPCVM"}
             field={field}
             saveAll={saveAll}
+            dataToSave={dataToSave}
           />
         )}
         <PortefeuilleSunburst data={rows} field={field} />

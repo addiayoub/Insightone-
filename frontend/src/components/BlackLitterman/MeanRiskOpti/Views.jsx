@@ -1,20 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, IconButton, TextField } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
 import { PlusCircle, Trash } from "react-feather";
 import SingleSelect from "../../SingleSelect";
 import { v4 as uuidv4 } from "uuid";
+import { getViewPosition } from "../../../utils/getViewPosition";
+import { useSelector } from "react-redux";
+import Table from "../../Table";
+import { getColumns } from "./columns";
 
-const types = ["Relative", "Absolue"];
-const secteurs = ["BANQUES", "BOISSONS"];
+const types = ["Classes", "All Assets"];
 const operateurs = [">=", "<="];
 
 const View = ({ view, setView }) => {
+  const { ptfToBacktest } = useSelector((state) => state.backtest);
   const [type, setType] = useState(view.type);
-  const [secteur1, setSecteur1] = useState(view.secteur1);
-  const [secteur2, setSecteur2] = useState(view.secteur1);
+  const [typeRel, setTypeRel] = useState(view.typeRel);
+  const [position, setPosition] = useState(view.position);
+  const [positionRel, setPositionRel] = useState(view.position);
   const [operateur, setOperateur] = useState(">=");
   const [value, setValue] = useState(view.value);
-  console.log("The view is", view);
+  const [secteurs, setSecteurs] = useState([]);
+  const [secteursRel, setSecteursRel] = useState([]);
+  console.log("The view is", view, secteurs, ptfToBacktest);
+  useEffect(() => {
+    let secteurs = [];
+    if (type === "Classes") {
+      secteurs = getViewPosition(ptfToBacktest?.data, "SECTEUR_ACTIVITE");
+    } else if (type === "All Assets") {
+      secteurs = getViewPosition(ptfToBacktest?.data, "titre");
+    }
+    setSecteurs(secteurs);
+  }, [type]);
+  useEffect(() => {
+    let secteurs = [];
+    if (typeRel === "Classes") {
+      secteurs = getViewPosition(ptfToBacktest?.data, "SECTEUR_ACTIVITE");
+    } else if (typeRel === "All Assets") {
+      secteurs = getViewPosition(ptfToBacktest?.data, "titre");
+    }
+    setSecteursRel(secteurs);
+  }, [typeRel]);
   useEffect(() => {
     setView((prev) => {
       return {
@@ -22,11 +47,12 @@ const View = ({ view, setView }) => {
         type,
         value,
         operateur,
-        secteur1,
-        secteur2,
+        position,
+        positionRel,
+        typeRel,
       };
     });
-  }, [type, value, secteur1, secteur2, operateur]);
+  }, [type, value, position, positionRel, operateur, typeRel]);
   return (
     <Box className="flex gap-2 flex-wrap items-center my-2">
       <SingleSelect
@@ -37,9 +63,9 @@ const View = ({ view, setView }) => {
       />
       <SingleSelect
         options={secteurs}
-        value={view.secteur1}
-        setValue={setSecteur1}
-        label="Secteurs"
+        value={view.position}
+        setValue={setPosition}
+        label="Position"
       />
       <SingleSelect
         options={operateurs}
@@ -59,72 +85,101 @@ const View = ({ view, setView }) => {
           },
         }}
       />
-      {type === "Relative" && (
-        <SingleSelect
-          options={secteurs}
-          value={view.secteur2}
-          setValue={setSecteur2}
-          label="Secteurs"
-        />
-      )}
+      <SingleSelect
+        options={types}
+        value={view.typeRel}
+        setValue={setTypeRel}
+        label="Type relative"
+      />
+      <SingleSelect
+        options={secteursRel}
+        value={view.positionRel}
+        setValue={setPositionRel}
+        label="Position relative"
+      />
     </Box>
   );
 };
 
-const Views = () => {
-  const [views, setViews] = useState([]);
+const Views = ({ views, setViews }) => {
+  // const [views, setViews] = useState([]);
   const [newView, setNewView] = useState({
     id: "",
-    type: "Absolue",
+    type: "Classes",
     operateur: ">=",
     value: "",
-    secteur1: null,
-    secteur2: null,
+    typeRel: null,
+    position: null,
+    positionRel: null,
   });
   console.log("Views are", views);
   const disabled =
     !newView.type ||
+    !newView.typeRel ||
+    !newView.operateur ||
     newView.value === "" ||
-    !newView.secteur1 ||
-    (newView.type === "Relative" && !newView.secteur2);
+    !newView.position ||
+    !newView.positionRel;
   const addView = () => {
-    const viewWithId = { ...newView, id: uuidv4() };
+    const { type, operateur, value, typeRel, position, positionRel } = newView;
+    const v = {
+      Type: type,
+      Position: position,
+      Sign: operateur,
+      Weight: parseFloat((value / 100).toFixed(2)),
+      "Type Relative": typeRel,
+      Relative: positionRel,
+    };
+    const viewWithId = { ...v, id: uuidv4() };
     setViews((prevViews) => [...prevViews, viewWithId]);
     setNewView({
       id: "",
-      type: "Absolue",
+      type: "Classes",
       operateur: ">=",
       value: "",
-      secteur1: null,
-      secteur2: null,
+      typeRel: null,
+      position: null,
+      positionRel: null,
     });
   };
+  useEffect(() => {
+    console.log("nw view", newView);
+  }, [newView]);
   const deleteView = (viewId) => {
     setViews((prevViews) => prevViews.filter((view) => view.id !== viewId));
   };
+  const columns = getColumns(deleteView);
   return (
-    <Box className="my-2">
-      <h3>Views</h3>
-      <View setView={setNewView} view={newView} />
-      <IconButton disabled={disabled} onClick={addView}>
-        <PlusCircle
-          color={`${disabled ? "var(--text-muted)" : "var(--primary-color)"}`}
-        />
-      </IconButton>
+    <Box className="my-2 flex gap-2 flex-wrap ">
+      <Box>
+        <span className="tablet:text-md phone:text-sm laptop:text-lg font-semibold">
+          Views
+        </span>
+        <View setView={setNewView} view={newView} />
+        <IconButton disabled={disabled} onClick={addView}>
+          <PlusCircle
+            color={`${disabled ? "var(--text-muted)" : "var(--primary-color)"}`}
+          />
+        </IconButton>
+      </Box>
       {views.length > 0 && (
-        <div className="border border-indigo-600 border-solid rounded-md p-2 max-w-[50%]">
-          {views.map((view) => (
+        <Box className="border border-indigo-600 border-solid rounded-md p-2 max-h-[400px] overflow-auto max-w-full]">
+          <Table columns={columns} rows={views} />
+          {/* {views.map((view) => (
             <div
               key={view.id}
               className="flex flex-warp justify-between items-center bg-slate-200 text-black rounded-md p-2 my-2"
             >
-              <p>{`Type : ${view.type}, Operateur : ${view.operateur}, Value : ${view.value}, Secteur : ${view.secteur1}`}</p>
+              <p>
+                {`Type : ${view.Type},Position: ${view.Position}, Sign : ${view.Sign}, Weight : ${view.Weight}, Type Relative : ${view["Type Relative"]}, Position Relative: ${view.Relative}`}$
+              </p>
+
               <IconButton onClick={() => deleteView(view.id)}>
                 <Trash color="var(--error-color)" size={18} />
               </IconButton>
             </div>
-          ))}
-        </div>
+          ))} */}
+        </Box>
       )}
     </Box>
   );

@@ -72,7 +72,7 @@ class _UserController {
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
       const user = new User({
-        username: username.toLowerCase(),
+        username,
         password: hashedPassword,
         isAdmin,
       });
@@ -90,7 +90,7 @@ class _UserController {
 
       // Add the user to DB
       const savedUser = await User.create({
-        username: username.toLowerCase(),
+        username: username,
         password: hashedPassword,
         isAdmin,
       });
@@ -141,7 +141,7 @@ class _UserController {
           });
         }
       }
-      user.username = username.toLowerCase();
+      user.username = username;
       user.isAdmin = isAdmin;
       if (password || passwordConfirmation) {
         if (password !== passwordConfirmation) {
@@ -201,7 +201,7 @@ class _UserController {
       // await User.collection.dropIndexes();
       let newInfos = { username };
       const exists = await User.findOne({
-        username,
+        username: username.toLowerCase(),
         isDeleted: false,
         _id: { $ne: loggedIn._id },
       });
@@ -219,7 +219,7 @@ class _UserController {
         newInfos.pic = req.file.filename;
       }
 
-      user.username = username.toLowerCase();
+      user.username = username;
 
       if (password || passwordConfirmation) {
         if (password !== passwordConfirmation) {

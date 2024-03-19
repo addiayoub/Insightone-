@@ -15,6 +15,7 @@ const apiNewMarko = axios.create({
 
 apiNewMarko.interceptors.request.use((config) => {
   config.headers.Accept = `application/json`;
+  config.headers["Access-Control-Allow-Origin"] = "*";
   config.metadata = { startTime: new Date(), type: "FASTAPI" };
   console.log("config", config);
   return config;
@@ -22,12 +23,12 @@ apiNewMarko.interceptors.request.use((config) => {
 apiNewMarko.interceptors.response.use(
   async function (response) {
     console.log("interceptors.response", response, response.config.metadata);
-    await handleResponse(response);
+    // await handleResponse(response);
     return response;
   },
   async function (error) {
     console.log("interceptors.error", error, error.config.metadata);
-    await handleError(error);
+    // await handleError(error);
     return Promise.reject(error);
   }
 );

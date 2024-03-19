@@ -209,9 +209,8 @@ const PortefeuilleTable = ({ rows, field, showActions, params }) => {
         flex: 0.3,
         renderCell: (params) => {
           const val = params.row?.[field]?.toFixed(2);
-          return (
-            <span className="font-semibold">{formatNumberWithSpaces(val)}</span>
-          );
+          console.log("Poids val field", params.row);
+          return <span className="font-semibold">{val}</span>;
         },
       },
     ];

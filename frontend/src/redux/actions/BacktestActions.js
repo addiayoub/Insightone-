@@ -31,6 +31,7 @@ export const getPortef = createAsyncThunk(
     const { ptfToBacktest } = thunkAPI.getState().backtest;
     const operations = df_op.map(({ _id, ...rest }) => rest);
     const body = {
+      // LIBELLE - Min - Max - Importance
       df_poids: transformForBacktest([ptfToBacktest]),
       df_op: df_op.length < 1 ? [{}] : operations,
       // df_poids: [{}],

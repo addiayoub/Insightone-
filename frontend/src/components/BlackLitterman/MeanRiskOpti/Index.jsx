@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../../loaders/MainLoader";
@@ -9,18 +9,21 @@ import Table from "../../Table";
 import { assetClassesColumns } from "./columns";
 import Views from "./Views";
 import FrontierMean from "../../charts/BlackLitterman/MeanRiskOpti/FrontierMean";
+import Upload from "../../Backtest/UploadPtf/Upload";
 
 const Index = () => {
+  const [showFilter, setShowFilter] = useState(false);
   const {
     meanRiskOpti: { data, loading, error },
   } = useSelector((state) => state.blackLitterman);
   const show = !loading;
   return (
     <>
-      <Filter />
+      <Upload show={showFilter} setShow={setShowFilter} />
+      {showFilter && <Filter />}
       {/* <Views /> */}
       {loading && <MainLoader />}
-      {show && data.assetClasses.length > 0 && (
+      {/* {show && data.assetClasses.length > 0 && (
         <Table rows={data.assetClasses} columns={assetClassesColumns} />
       )}
       {show && data.weights.length > 0 && (
@@ -33,7 +36,7 @@ const Index = () => {
       {show && data.ws.length > 0 && <RiskMeasures data={data.ws} />}
       {show && data.ws.length > 0 && data.mu.length > 0 && (
         <FrontierMean xAxisData={data.mu[0]} yAxisData={data.ws} />
-      )}
+      )} */}
     </>
   );
 };

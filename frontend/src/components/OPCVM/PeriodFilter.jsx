@@ -75,7 +75,7 @@ function PeriodFilter({ dateDebut, setDateDebut, dateFin, setDateFin }) {
   };
   return (
     <AccordionBox
-      title={"Filter"}
+      title={"Filtre"}
       isExpanded={true}
       detailsClass={"flex items-center flex-wrap gap-2"}
     >

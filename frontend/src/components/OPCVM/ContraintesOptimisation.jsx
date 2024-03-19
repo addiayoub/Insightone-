@@ -185,6 +185,7 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
           <ValidateButton fullWidth onClick={handleValider} />
         </Box>
       </AccordionBox>
+      {portefeuilleSimule.loading && <h1>portefeuilleSimule.loading</h1>}
       {isLoading && <MainLoader />}
       {showPoids && <TabTest components={components} isOPCVM />}
       {showPoids && !portefeuilleSimule.loading && (
