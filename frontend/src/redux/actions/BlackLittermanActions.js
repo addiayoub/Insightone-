@@ -2,6 +2,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
 import apiNewMarko from "../../api/apiNewMarko";
 import { transformForPtfAlloca } from "../../utils/formatBacktestData";
+
+const url = "OPCVM/";
+
 export const valueAtRiskAction = createAsyncThunk(
   "BlackLitterman/valueAtRiskAction",
   async (
@@ -76,7 +79,6 @@ export const portfolioAllocationAction = createAsyncThunk(
       { valeur: "ALM", view: 0.05, min: 0, max: 0.1 },
       { valeur: "ATW", view: 0.05, min: 0, max: 0.1 },
       { valeur: "BAL", view: 0.05, min: 0, max: 0.1 },
-      { valeur: "BCI", view: 0.05, min: 0, max: 0.1 },
       { valeur: "BOA", view: 0.05, min: 0, max: 0.1 },
       { valeur: "BCP", view: 0.05, min: 0, max: 0.1 },
       { valeur: "CDM", view: 0.05, min: 0, max: 0.1 },
@@ -131,21 +133,29 @@ export const portfolioAllocationAction = createAsyncThunk(
 
 export const meanRiskOptiAction = createAsyncThunk(
   "BlackLitterman/meanRiskOptiAction",
-  async ({ dateDebut, dateFin, points, rfr, raf, views }, thunkAPI) => {
+  async ({ dateDebut, titres, dateFin, points, rfr, raf, views }, thunkAPI) => {
     views = views.map(({ id, ...rest }) => ({ ...rest }));
+    const { contraintesPoids } = thunkAPI.getState()["opcvm"];
+    const poidsMinMax = Array.isArray(contraintesPoids.data)
+      ? [{}]
+      : contraintesPoids.data.df_return;
+    console.log("contraintesPoids", contraintesPoids);
+    console.log("poidsMinMax ", poidsMinMax);
+    console.log("meanRiskOptiAction views", views);
     const body = {
-      df_poids_min_max: [
-        {
-          valeur: "DISWAY",
-          minp: 0,
-          maxp: 0.1,
-        },
-        {
-          valeur: "ADDOHA",
-          minp: 0,
-          maxp: 0.1,
-        },
-      ],
+      // df_poids_min_max: [
+      //   {
+      //     valeur: "DISWAY",
+      //     minp: 0,
+      //     maxp: 0.1,
+      //   },
+      //   {
+      //     valeur: "ADDOHA",
+      //     minp: 0,
+      //     maxp: 0.1,
+      //   },
+      // ],
+      df_poids_mn_max: poidsMinMax,
       df_views: [
         {
           Type: "Classes",
@@ -194,7 +204,7 @@ export const meanRiskOptiAction = createAsyncThunk(
           params: {
             start: formatDate(dateDebut["$d"]),
             end: formatDate(dateFin["$d"]),
-            list_valeur,
+            list_valeur: titres,
           },
         }
       );

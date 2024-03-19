@@ -8,8 +8,17 @@ import { useSelector } from "react-redux";
 import Table from "../../Table";
 import { getColumns } from "./columns";
 
-const types = ["Classes", "All Assets"];
+const types = ["Classes", "Assets"];
 const operateurs = [">=", "<="];
+
+const ref = {
+  OPCVM: {
+    Classes: "Classification",
+  },
+  Actions: {
+    Classes: "SECTEUR_ACTIVITE",
+  },
+};
 
 const View = ({ view, setView }) => {
   const { ptfToBacktest } = useSelector((state) => state.backtest);
@@ -25,8 +34,11 @@ const View = ({ view, setView }) => {
   useEffect(() => {
     let secteurs = [];
     if (type === "Classes") {
-      secteurs = getViewPosition(ptfToBacktest?.data, "SECTEUR_ACTIVITE");
-    } else if (type === "All Assets") {
+      secteurs = getViewPosition(
+        ptfToBacktest?.data,
+        ref[ptfToBacktest?.type]["Classes"]
+      );
+    } else if (type === types[1]) {
       secteurs = getViewPosition(ptfToBacktest?.data, "titre");
     }
     setSecteurs(secteurs);
@@ -34,8 +46,11 @@ const View = ({ view, setView }) => {
   useEffect(() => {
     let secteurs = [];
     if (typeRel === "Classes") {
-      secteurs = getViewPosition(ptfToBacktest?.data, "SECTEUR_ACTIVITE");
-    } else if (typeRel === "All Assets") {
+      secteurs = getViewPosition(
+        ptfToBacktest?.data,
+        ref[ptfToBacktest?.type]["Classes"]
+      );
+    } else if (typeRel === types[1]) {
       secteurs = getViewPosition(ptfToBacktest?.data, "titre");
     }
     setSecteursRel(secteurs);
@@ -101,6 +116,16 @@ const View = ({ view, setView }) => {
   );
 };
 
+const DEFAULT_VIEW = {
+  id: "",
+  type: "Classes",
+  operateur: ">=",
+  value: "",
+  typeRel: null,
+  position: null,
+  positionRel: null,
+};
+
 const Views = ({ views, setViews }) => {
   // const [views, setViews] = useState([]);
   const [newView, setNewView] = useState({
@@ -126,21 +151,13 @@ const Views = ({ views, setViews }) => {
       Type: type,
       Position: position,
       Sign: operateur,
-      Weight: parseFloat((value / 100).toFixed(2)),
+      Weight: parseFloat(value),
       "Type Relative": typeRel,
       Relative: positionRel,
     };
     const viewWithId = { ...v, id: uuidv4() };
     setViews((prevViews) => [...prevViews, viewWithId]);
-    setNewView({
-      id: "",
-      type: "Classes",
-      operateur: ">=",
-      value: "",
-      typeRel: null,
-      position: null,
-      positionRel: null,
-    });
+    setNewView(DEFAULT_VIEW);
   };
   useEffect(() => {
     console.log("nw view", newView);
@@ -152,7 +169,7 @@ const Views = ({ views, setViews }) => {
   return (
     <Box className="my-2 flex gap-2 flex-wrap ">
       <Box>
-        <span className="tablet:text-md phone:text-sm laptop:text-lg font-semibold">
+        <span className="tablet:text-md phone:text-sm laptop:text-lg font-semibold block mt-2.5 mb-3.5">
           Views
         </span>
         <View setView={setNewView} view={newView} />

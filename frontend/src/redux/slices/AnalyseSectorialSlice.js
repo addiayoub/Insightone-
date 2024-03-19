@@ -7,6 +7,8 @@ const initialState = {
   data: [],
   news: [],
   lastSeance: [],
+  perfMASI: [],
+  perfSectoriel: [],
 };
 
 const analyseSectorialSlice = createSlice({
@@ -27,6 +29,8 @@ const analyseSectorialSlice = createSlice({
       state.data = payload.data;
       state.news = payload.news;
       state.lastSeance = payload.lastSeance;
+      state.perfMASI = payload.perfMASI;
+      state.perfSectoriel = payload.perfSectoriel;
       state.loading = false;
     });
     builder.addCase(getSectorialData.rejected, (state, { payload }) => {

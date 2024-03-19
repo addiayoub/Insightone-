@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axiosClient from "../../api/axios";
+import { getPerfMASI, getPerfSectoriel } from "./PerfGlissanteActions";
+import { formatDate } from "../../utils/FormatDate";
 
 export const getSectorialData = createAsyncThunk(
   "analyseSectorial/getSectorialData",
@@ -9,7 +11,9 @@ export const getSectorialData = createAsyncThunk(
         params: { dateDebut, dateFin },
       });
       console.log(response.data);
-      return response.data;
+      const perfMASI = await getPerfMASI(formatDate(dateDebut["$d"]));
+      const perfSectoriel = await getPerfSectoriel(formatDate(dateDebut["$d"]));
+      return { ...response.data, perfMASI, perfSectoriel };
     } catch (error) {
       console.log(error);
       // return custom error message from backend if present

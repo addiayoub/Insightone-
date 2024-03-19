@@ -10,6 +10,7 @@ import { assetClassesColumns } from "./columns";
 import Views from "./Views";
 import FrontierMean from "../../charts/BlackLitterman/MeanRiskOpti/FrontierMean";
 import Upload from "../../Backtest/UploadPtf/Upload";
+import ContraintesOp from "../ContraintesOp";
 
 const Index = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -20,6 +21,7 @@ const Index = () => {
   return (
     <>
       <Upload show={showFilter} setShow={setShowFilter} />
+      {/* <ContraintesOp /> */}
       {showFilter && <Filter />}
       {/* <Views /> */}
       {loading && <MainLoader />}

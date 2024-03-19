@@ -20,6 +20,8 @@ const initialState = {
     insuffisance: [],
     commentaires: [],
     volumeSecondaire: [],
+    perfMBI: [],
+    perfNominal: [],
   },
   loading: false,
   error: null,
@@ -51,6 +53,8 @@ const fixedIncomeSlice = createSlice({
       state.data.insuffisance = payload.insuffisance;
       state.data.commentaires = payload.commentaires;
       state.data.volumeSecondaire = payload.volumeSecondaire;
+      state.data.perfMBI = payload.perfMBI;
+      state.data.perfNominal = payload.perfNominal;
     });
     builder.addCase(getFixedIncome.rejected, (state, { payload }) => {
       state.loading = false;

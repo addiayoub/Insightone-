@@ -1,13 +1,9 @@
 import { Box, FormControl, Select } from "@mui/material";
 import React from "react";
-import selectStyle from "../utils/SelectMultiple";
+import selectStyle from "../../utils/SelectMultiple";
 
-function SelectMultipl({
-  contraintes,
-  handleChangeMultiple,
-  contraintesOptimisation,
-}) {
-  console.log("contraintesOptimisation", contraintesOptimisation);
+function SelectMultipl({ setSelectedTitres, handleChangeMultiple, titres }) {
+  console.log("contrainte opti titres", titres);
   return (
     <Box>
       <FormControl
@@ -16,12 +12,12 @@ function SelectMultipl({
         <Select
           multiple
           native
-          value={contraintes}
+          value={setSelectedTitres}
           onChange={handleChangeMultiple}
           label=""
           sx={selectStyle}
         >
-          {contraintesOptimisation.map((valeur) => (
+          {titres.map((valeur) => (
             <option key={valeur} value={valeur}>
               {valeur}
             </option>

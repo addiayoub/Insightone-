@@ -5,7 +5,6 @@ const DataTable = ({
   title,
   columns,
   rows,
-  rowId,
   pagination = false,
   autoHeight = false,
   my = true,
@@ -16,7 +15,6 @@ const DataTable = ({
       <Table
         columns={columns}
         rows={rows}
-        rowId={rowId}
         pagination={pagination}
         autoHeight={autoHeight}
       />

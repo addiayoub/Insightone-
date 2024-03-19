@@ -53,6 +53,8 @@ import {
   SECTEURS,
 } from "./columns.jsx";
 import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
+import Table from "../Table.jsx";
+import { columns } from "../PerfGlis/columns.jsx";
 
 const gridStyle = {
   display: "grid",
@@ -93,6 +95,8 @@ function Index() {
     SECTEURS: VAR_SECTEURS,
     EVOLUTION_MASI: EV,
     VOLUME_ECHANGE: VE,
+    perfMASI: [],
+    perfSectoriel: [],
   });
   const [refresh, setRefresh] = useState(false);
   const handelSearch = useCallback(() => {
@@ -117,6 +121,8 @@ function Index() {
           SECTEURS: response.perfSecteurs,
           EVOLUTION_MASI: response.evolMasi,
           VOLUME_ECHANGE: response.volumeEchan,
+          perfMASI: response.perfMASI,
+          perfSectoriel: response.perfSectoriel,
         });
       })
       .catch(() => notyf.error("Server error"));
@@ -239,14 +245,26 @@ function Index() {
             title={"Performance du macrhé"}
             columns={PERFORMANCE_DU_MARCHE}
             rows={dataObject.PERFORMANCE_DU_MARCHE}
-            rowId={"Indices"}
           />
+          {dataObject.perfMASI.length > 0 && (
+            <DataTable
+              title={"Performance MASI"}
+              columns={columns}
+              rows={dataObject.perfMASI}
+            />
+          )}
+          {dataObject.perfSectoriel.length > 0 && (
+            <DataTable
+              title={"Performance Sectoriel"}
+              columns={columns}
+              rows={dataObject.perfSectoriel}
+            />
+          )}
           <div style={gridStyle}>
             <DataTable
               title={"Volume par marché"}
               columns={VOLUME_PAR_MARCHE}
               rows={dataObject.VOLUME_PAR_MARCHE}
-              rowId={"marche"}
             />
             <Donut data={dataObject.VOLUME_PAR_MARCHE} />
           </div>
@@ -254,43 +272,36 @@ function Index() {
             title={"Principaux volumes de marché central"}
             columns={PRINCIPAUX_VOLUMES_MC}
             rows={dataObject.PRINCIPAUX_VOLUMES_MC}
-            rowId={"INSTRUMENT"}
           />
           <DataTable
             title={"Principales variations"}
             columns={PRINCIPALES_VARIATIONS}
             rows={dataObject.PRINCIPALES_CONTRIB_PARAM1}
-            rowId={"LIBELLE"}
           />
           <DataTable
             title={"Titres les plus échangés sur le marché"}
             columns={TITRES_PLUS_ECHANGES}
             rows={dataObject.TITRES_PLUS_ECHANGES_PARAM1}
-            rowId={"valeur"}
           />
           <DataTable
             title={"Les plus fortes Hausses / Baisses du volume"}
             columns={PLUS_FORTES_HAUSSES_BAISSES_VOLUME}
             rows={dataObject.PLUS_FORTES_HAUSSES_BAISSES_VOLUME_PARAM1}
-            rowId={"Société"}
           />
           <DataTable
             title={"Plus fortes variations hebdomadaires"}
             columns={PLUS_FORTES_VARIATIONS}
             rows={dataObject.PLUS_FORTES_VARIATIONS}
-            rowId={"valeur"}
           />
           <div style={gridStyle}>
             <DataTable
               title={"Statistiques sociétés"}
               columns={STATISTIQUES_SOCIETES}
               rows={dataObject.STATISTIQUES_SOCIETES}
-              rowId={"s"}
             />
             <DataTable
               columns={STATISTIQUES_SOCIETES_2}
               rows={dataObject.STATISTIQUES_SOCIETES_2}
-              rowId={"sur_52_semaines"}
               my={false}
             />
           </div>
@@ -298,7 +309,6 @@ function Index() {
             columns={SECTEURS}
             title={"les secteurs les plus/moins performants"}
             rows={dataObject.SECTEURS}
-            rowId={"secteur"}
             pagination={true}
           />
           <Commentaire date={date} />

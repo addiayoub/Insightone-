@@ -10,13 +10,14 @@ import News from "./News";
 import Period from "../Period";
 import MainLoader from "../loaders/MainLoader";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
+import DataTable from "../Dashboard/DataTable";
+import { columns } from "../PerfGlis/columns";
 
 function Secteurs() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "year"));
   const [dateFin, setDateFin] = useState(dayjs());
-  const { data, loading, error, news, lastSeance } = useSelector(
-    (state) => state.analyseSectorial
-  );
+  const { data, loading, error, news, lastSeance, perfMASI, perfSectoriel } =
+    useSelector((state) => state.analyseSectorial);
   const dispatch = useDispatch();
   const handelSearch = () => {
     dispatch(getSectorialData({ dateDebut, dateFin }))
@@ -48,6 +49,20 @@ function Secteurs() {
               <SecteurPerformance data={lastSeance} height={"500px"} />
             </GridItem>
           </GridContainer>
+        )}
+        {perfMASI.length > 0 && (
+          <DataTable
+            title={"Performance MASI"}
+            columns={columns}
+            rows={perfMASI}
+          />
+        )}
+        {perfSectoriel.length > 0 && (
+          <DataTable
+            title={"Performance Sectoriel"}
+            columns={columns}
+            rows={perfSectoriel}
+          />
         )}
         {!loading && news.length > 0 && <News data={news} />}
       </Box>

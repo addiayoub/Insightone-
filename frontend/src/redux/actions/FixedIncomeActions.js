@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
 import getApi from "../../api/getAPI";
+import { getPerfMBI, getPerfNominal } from "./PerfGlissanteActions";
 
 export const getFixedIncome = createAsyncThunk(
   "fixedIncome/getFixedIncome",
@@ -123,6 +124,10 @@ export const getFixedIncome = createAsyncThunk(
           }
         })
       );
+      const perfMBI = await getPerfMBI(date);
+      const perfNominal = await getPerfNominal(date);
+      console.log("fixed MBI", perfMBI);
+      console.log("fixed perfNominal", perfNominal);
       return {
         TMPInterbancaire,
         indiceTMP: indiceTMP.sort(
@@ -147,6 +152,8 @@ export const getFixedIncome = createAsyncThunk(
         insuffisance,
         commentaires,
         volumeSecondaire,
+        perfMBI,
+        perfNominal,
       };
     } catch (error) {
       console.log(error);

@@ -10,7 +10,7 @@ import { Calendar } from "react-feather";
 import { notyf } from "../../utils/notyf";
 const Filter = ({ setShow }) => {
   const { loading } = useSelector((state) => state.fixedIncome);
-  const [date, setDate] = useState(dayjs("02/09/2024"));
+  const [date, setDate] = useState(dayjs());
   const dispatch = useDispatch();
   const handleSearch = () => {
     setShow(false);

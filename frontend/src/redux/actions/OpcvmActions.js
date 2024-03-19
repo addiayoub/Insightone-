@@ -151,6 +151,7 @@ export const contraintesPoids_ = createAsyncThunk(
       console.log("contraintesPoids", response);
       const result = {
         ...response.data,
+        message: "Success",
         df_return: response.data.df_return.map((item) => ({
           ...item,
           minp: item["minp"] / 100,

@@ -4,6 +4,7 @@ import { handleActionsError } from "../../utils/handleActionsError";
 import axios from "axios";
 import getAPI from "../../api/getAPI";
 import { formatDate } from "../../utils/FormatDate";
+import { getPerfMASI, getPerfSectoriel } from "./PerfGlissanteActions";
 
 export const getStockData = createAsyncThunk(
   "stock/getStockData",
@@ -215,7 +216,8 @@ export const getMarketData_2 = createAsyncThunk(
           return { [url]: response.data };
         })
       );
-
+      const perfMASI = await getPerfMASI(date);
+      const perfSectoriel = await getPerfSectoriel(date);
       console.log(
         "responses market data",
         Perf_Indice,
@@ -261,6 +263,8 @@ export const getMarketData_2 = createAsyncThunk(
         capmarche: Cap_marche.Cap_marche,
         masiVolumeYTD: Masi_volume_ytd.Masi_volume_ytd,
         masiVolume: Masi_volume_1an.Masi_volume_1an,
+        perfMASI,
+        perfSectoriel,
         // commentaire: comm_marche.comm_marche,
       };
 

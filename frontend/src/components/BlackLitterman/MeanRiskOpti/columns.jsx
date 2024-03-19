@@ -47,6 +47,9 @@ export const getColumns = (handler) => {
     {
       field: "Weight",
       headerName: "Poids",
+      renderCell: ({ row }) => (
+        <span className="">{row.Weight.toFixed(2)}%</span>
+      ),
     },
     {
       field: "Type Relative",
