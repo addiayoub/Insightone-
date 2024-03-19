@@ -10,7 +10,7 @@ import LoginRoute from "./LoginRoute";
 import AuthRoutes from "./AuthRoutes.jsx";
 import Login from "../pages/Login/index.jsx";
 import Dashboard from "../components/Dashboard/";
-import AnalyseChartiste from "../components/analyse/";
+import AnalyseChartiste from "../components/analyse";
 import Users from "../pages/users/";
 import Stats from "../pages/stats/";
 import AnalyseSectorial from "../components/AnalyseSectorial/";
