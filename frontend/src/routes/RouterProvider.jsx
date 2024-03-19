@@ -22,7 +22,7 @@ import Tracking from "../components/Tracking/";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/";
 import CompositionOPCVM from "../components/CompositionOPCVM/";
 import FixedIncome from "../components/FixedIncome/";
-import BlackLitterman from "../components/BlackLitterman/Index.jsx";
+import BlackLitterman from "../components/BlackLitterman/";
 import Consultation from "../components/Consultation/";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 import Ptfs from "../components/Consultation/Ptfs.jsx";
