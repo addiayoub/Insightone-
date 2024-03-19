@@ -17,7 +17,7 @@ import AnalyseSectorial from "../components/AnalyseSectorial/";
 import Markowitz from "../components/Markowitz/";
 import Opcvm from "../components/OPCVM/";
 import Backtest from "../components/Backtest/Backtest.jsx";
-import Portefeuilles from "../components/portefeuilles/";
+import Portefeuilles from "../components/portefeuilles/Portefeuilles.jsx";
 import Tracking from "../components/Tracking/";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/";
 import CompositionOPCVM from "../components/CompositionOPCVM/";
