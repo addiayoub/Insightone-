@@ -14,7 +14,7 @@ import AnalyseChartiste from "../components/analyse/index.jsx";
 import Users from "../pages/users/";
 import Stats from "../pages/stats/";
 import AnalyseSectorial from "../components/AnalyseSectorial/";
-import Markowitz from "../components/Markowitz/";
+import Markowitz from "../components/Markowitz/index.jsx";
 import Opcvm from "../components/OPCVM/";
 import Backtest from "../components/Backtest/Backtest.jsx";
 import Portefeuilles from "../components/portefeuilles/Portefeuilles.jsx";
