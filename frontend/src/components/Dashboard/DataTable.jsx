@@ -8,16 +8,12 @@ const DataTable = ({
   pagination = false,
   autoHeight = false,
   my = true,
+  density,
 }) => {
   return (
     <div className={`${my ? "my-5" : ""}`}>
       {title && <h3>{title}</h3>}
-      <Table
-        columns={columns}
-        rows={rows}
-        pagination={pagination}
-        autoHeight={autoHeight}
-      />
+      <Table {...{ columns, rows, pagination, autoHeight, density }} />
     </div>
   );
 };

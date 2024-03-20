@@ -44,6 +44,51 @@ const keys = [
   "perf_4ANS_an",
   "perf_5ANS_an",
 ];
+
+const columns1 = [
+  "perf_1S",
+  "perf_2S",
+  "perf_1M",
+  "perf_2M",
+  "perf_3M",
+  "perf_6M",
+  "perf_1AN",
+  "perf_2ANS",
+  "perf_3ANS",
+  "perf_4ANS",
+  "perf_5ANS",
+];
+const columns2 = [
+  "perf_3M_an",
+  "perf_6M_an",
+  "perf_1AN_an",
+  "perf_2ANS_an",
+  "perf_3ANS_an",
+  "perf_4ANS_an",
+  "perf_5ANS_an",
+];
+
+const headerNameRef = {
+  perf_1S: "1S",
+  perf_2S: "2S",
+  perf_1M: "1M",
+  perf_2M: "2M",
+  perf_3M: "3M",
+  perf_6M: "6M",
+  perf_1AN: "AN",
+  perf_2ANS: "2ANS",
+  perf_3ANS: "3ANS",
+  perf_4ANS: "4ANS",
+  perf_5ANS: "5ANS",
+  perf_3M_an: "3M an",
+  perf_6M_an: "6M an",
+  perf_1AN_an: "1AN an",
+  perf_2ANS_an: "2ANS an",
+  perf_3ANS_an: "3ANS an",
+  perf_4ANS_an: "4ANS an",
+  perf_5ANS_an: "5ANS an",
+};
+
 function valueToColor(value) {
   let color = "rgb(21 128 61)";
   if (value <= 10) {
@@ -63,36 +108,39 @@ function valueToColor(value) {
   }
   return color;
 }
-export const columns = [
-  {
-    field: "Seance",
-    headerName: "Seance",
-  },
-  {
-    field: "CLASSE",
-    headerName: "Classe",
-  },
-  {
-    field: "CATEGORIE",
-    headerName: "Categorie",
-  },
-  {
-    field: "INDICE",
-    headerName: "Indice",
-  },
-  ...keys.map((key) => ({
-    field: key,
-    headerName: key,
-    renderCell: ({ row }) => {
-      const value = parseFloat((row[key] * 100).toFixed(2));
-      return (
-        <span
-          className={`text-[#e2e8f0] min-w-[20px] w-full h-full flex justify-center items-center`}
-          style={{ backgroundColor: valueToColor(value) }}
-        >
-          {value}%
-        </span>
-      );
+
+export const getColumns = (isFirst) => {
+  const keys = isFirst ? columns1 : columns2;
+  return [
+    {
+      field: "Seance",
+      headerName: "Séance",
+      flex: 0.4,
     },
-  })),
-];
+    {
+      field: "INDICE",
+      headerName: "Indice",
+      flex: 0.7,
+      renderCell: ({ row }) => (
+        <span className="font-semibold">{row.INDICE}</span>
+      ),
+    },
+    ...keys.map((key) => ({
+      field: key,
+      headerName: headerNameRef[key],
+      flex: 0.35,
+      width: 100,
+      renderCell: ({ row }) => {
+        const value = parseFloat((row[key] * 100).toFixed(2));
+        return (
+          <span
+            className={`text-[#e2e8f0] min-w-[20px] w-full h-full flex justify-center items-center`}
+            style={{ backgroundColor: valueToColor(value) }}
+          >
+            {value}%
+          </span>
+        );
+      },
+    })),
+  ];
+};

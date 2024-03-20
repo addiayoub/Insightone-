@@ -11,7 +11,10 @@ import Period from "../Period";
 import MainLoader from "../loaders/MainLoader";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import DataTable from "../Dashboard/DataTable";
-import { columns } from "../PerfGlis/columns";
+import { getColumns } from "../PerfGlis/columns";
+
+const columns1 = getColumns(true);
+const columns2 = getColumns(false);
 
 function Secteurs() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "year"));
@@ -53,15 +56,33 @@ function Secteurs() {
         {perfMASI.length > 0 && (
           <DataTable
             title={"Performance MASI"}
-            columns={columns}
+            columns={columns1}
             rows={perfMASI}
+            density="comfortable"
+          />
+        )}
+        {perfMASI.length > 0 && (
+          <DataTable
+            title={"Performance MASI Annualisée"}
+            columns={columns2}
+            rows={perfMASI}
+            density="comfortable"
           />
         )}
         {perfSectoriel.length > 0 && (
           <DataTable
             title={"Performance Sectoriel"}
-            columns={columns}
+            columns={columns1}
             rows={perfSectoriel}
+            density="comfortable"
+          />
+        )}
+        {perfSectoriel.length > 0 && (
+          <DataTable
+            title={"Performance Sectoriel Annualisée"}
+            columns={columns2}
+            rows={perfSectoriel}
+            density="comfortable"
           />
         )}
         {!loading && news.length > 0 && <News data={news} />}

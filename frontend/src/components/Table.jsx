@@ -57,6 +57,7 @@ function Table({
   withCheckboxes,
   shouldHandleCellClick,
   setSelectedRows,
+  density = "standard",
 }) {
   const classes = useStyles();
   rows = injectId(rows);
@@ -84,6 +85,7 @@ function Table({
             labelRowsPerPage: "Lignes par page:",
           },
         }}
+        density={density}
         slots={slots}
         checkboxSelection={withCheckboxes}
         onRowSelectionModelChange={(ids) => {
