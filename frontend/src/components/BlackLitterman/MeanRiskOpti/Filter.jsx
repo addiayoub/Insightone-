@@ -19,13 +19,10 @@ const Filter = () => {
   const [raf, setRaf] = useState(0);
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs().subtract(2, "day"));
-  const [selectedTitres, setSelectedTitres] = useState([
-    "AFMA",
-    "ITISSALAT AL-MAGHRIB",
-  ]);
   const [views, setViews] = useState([]);
   const [titres, setTitres] = useState([]);
   const [show, setShow] = useState(false);
+  const type = ptfToBacktest?.type === "Actions" ? "rapport" : "opcvm";
   const dispatch = useDispatch();
   const handleSearch = () => {
     dispatch(
@@ -37,6 +34,7 @@ const Filter = () => {
         rfr,
         raf,
         views,
+        type,
       })
     );
     // dispatch(meanRiskOptiDataSetAction());
@@ -50,7 +48,10 @@ const Filter = () => {
   }, [ptfToBacktest]);
   return (
     <>
-      <ContraintesOptimisation {...{ titres, setShow }} type="OPCVM" />
+      <ContraintesOptimisation
+        {...{ titres, setShow }}
+        type={ptfToBacktest?.type}
+      />
       {show && (
         <AccordionBox
           title="Mean Risk Optimization"

@@ -8,11 +8,11 @@ import { Divider } from "@mui/material";
 const Index = () => {
   return (
     <>
-      <ValueAtRisk />
-      <PortfolioOptim />
-      {/* <MeanRiskOpti /> */}
-      <Divider className="h-[3px] bg-black" />
-      <PortfolioAllocation />
+      {/* <ValueAtRisk /> */}
+      {/* <PortfolioOptim /> */}
+      <MeanRiskOpti />
+      {/* <Divider className="h-[3px] bg-black" /> */}
+      {/* <PortfolioAllocation /> */}
     </>
   );
 };

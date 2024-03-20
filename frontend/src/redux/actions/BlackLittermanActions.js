@@ -133,9 +133,13 @@ export const portfolioAllocationAction = createAsyncThunk(
 
 export const meanRiskOptiAction = createAsyncThunk(
   "BlackLitterman/meanRiskOptiAction",
-  async ({ dateDebut, titres, dateFin, points, rfr, raf, views }, thunkAPI) => {
+  async (
+    { dateDebut, titres, dateFin, points, rfr, raf, views, type },
+    thunkAPI
+  ) => {
+    console.log("getType", type);
     views = views.map(({ id, ...rest }) => ({ ...rest }));
-    const { contraintesPoids } = thunkAPI.getState()["opcvm"];
+    const { contraintesPoids } = thunkAPI.getState()[type];
     const poidsMinMax = Array.isArray(contraintesPoids.data)
       ? [{}]
       : contraintesPoids.data.df_return;

@@ -262,7 +262,7 @@ export const CONTRAINTES_POIDS = createAsyncThunk(
         reqBody,
         {
           params: {
-            dataMasi: formatDate(dateDebut["$d"]),
+            dataMasi: dateDebut["$d"] ? formatDate(dateDebut["$d"]) : dateDebut,
             titres,
           },
         }
