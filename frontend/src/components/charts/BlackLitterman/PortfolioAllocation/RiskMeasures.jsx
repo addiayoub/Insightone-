@@ -1,11 +1,18 @@
 import React, { memo, useMemo } from "react";
 import BarChart from "../../Default/BarChart";
 const getSeries = (data, seriesNames) => {
-  return seriesNames.map((key) => ({
+  const seriesData = seriesNames.map((key) => ({
     name: key,
     type: "bar",
-    data: data.map((item) => item[key] * 100),
+    data: data
+      .filter((item) => item[key] > 0.001)
+      .map((item) => ({
+        name: key,
+        value: item[key] * 100,
+      })),
   }));
+  console.log("data of seriesData", seriesData);
+  return seriesData;
 };
 const dd = {
   index: "BCI",

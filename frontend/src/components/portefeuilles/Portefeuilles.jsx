@@ -34,8 +34,13 @@ import DeleteModal from "../DeleteModal";
 import { Wallet } from "iconsax-react";
 
 const types = ["Actions", "OPCVM"];
+const typesRef = {
+  all: ["Actions", "OPCVM"],
+  OPCVM: ["OPCVM"],
+  Actions: ["Actions"],
+};
 
-const Portefeuilles = () => {
+const Portefeuilles = ({ ptfsType = "all" }) => {
   const {
     portefeuilles: { loading, data },
   } = useSelector((state) => state.user);
@@ -99,22 +104,38 @@ const Portefeuilles = () => {
     {
       label: "la liste des portefeuilles enregistrés",
       component: SavedPtfs,
-      props: { selectedPtfs, setSelectedPtfs, show, setShow },
+      props: {
+        selectedPtfs,
+        setSelectedPtfs,
+        show,
+        setShow,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Convert-Table",
       component: ConverTable,
-      props: { setPtf, setType, handlePtfToBacktest },
+      props: {
+        setPtf,
+        setType,
+        handlePtfToBacktest,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Importer un portefeuille",
       component: UploadPortefeuille,
-      props: { setPtf, setType, handlePtfToBacktest },
+      props: {
+        setPtf,
+        setType,
+        handlePtfToBacktest,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Nouveau PTF",
       component: PtfFresh,
-      props: { handleFreshPtf },
+      props: { handleFreshPtf, ptfsType: typesRef[ptfsType] },
     },
   ];
   return (

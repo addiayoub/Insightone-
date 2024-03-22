@@ -58,6 +58,7 @@ function Table({
   shouldHandleCellClick,
   setSelectedRows,
   density = "standard",
+  sx,
 }) {
   const classes = useStyles();
   rows = injectId(rows);
@@ -84,6 +85,12 @@ function Table({
           pagination: {
             labelRowsPerPage: "Lignes par page:",
           },
+        }}
+        sx={{
+          boxShadow: 2,
+          border: 2,
+          borderColor: "primary.light",
+          ...sx,
         }}
         density={density}
         slots={slots}

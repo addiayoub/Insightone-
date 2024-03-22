@@ -14,7 +14,13 @@ import PtfFresh from "../../portefeuilles/UploadPortefuille/PtfFresh";
 import UploadPortefeuille from "../../portefeuilles/UploadPortefuille/UploadPortefeuille";
 import { Wallet } from "iconsax-react";
 
-const Upload = ({ setShow, show }) => {
+const typesRef = {
+  all: ["Actions", "OPCVM"],
+  OPCVM: ["OPCVM"],
+  Actions: ["Actions"],
+};
+
+const Upload = ({ setShow, show, ptfsType = "all" }) => {
   const [selectedPtfs, setSelectedPtfs] = useState([]);
   const [type, setType] = useState("Actions");
   const [ptf, setPtf] = useState(null);
@@ -59,22 +65,38 @@ const Upload = ({ setShow, show }) => {
     {
       label: "la liste des portefeuilles enregistrés",
       component: SavedPtfs,
-      props: { selectedPtfs, setSelectedPtfs, show, setShow },
+      props: {
+        selectedPtfs,
+        setSelectedPtfs,
+        show,
+        setShow,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Convert-Table",
       component: ConverTable,
-      props: { setPtf, setType, handlePtfToBacktest },
+      props: {
+        setPtf,
+        setType,
+        handlePtfToBacktest,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Importer un portefeuille",
       component: UploadPortefeuille,
-      props: { setPtf, setType, handlePtfToBacktest },
+      props: {
+        setPtf,
+        setType,
+        handlePtfToBacktest,
+        ptfsType: typesRef[ptfsType],
+      },
     },
     {
       label: "Nouveau PTF",
       component: PtfFresh,
-      props: { handleFreshPtf },
+      props: { handleFreshPtf, ptfsType: typesRef[ptfsType] },
     },
   ];
   return (

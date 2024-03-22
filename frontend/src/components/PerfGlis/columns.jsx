@@ -80,13 +80,13 @@ const headerNameRef = {
   perf_3ANS: "3ANS",
   perf_4ANS: "4ANS",
   perf_5ANS: "5ANS",
-  perf_3M_an: "3M an",
-  perf_6M_an: "6M an",
-  perf_1AN_an: "1AN an",
-  perf_2ANS_an: "2ANS an",
-  perf_3ANS_an: "3ANS an",
-  perf_4ANS_an: "4ANS an",
-  perf_5ANS_an: "5ANS an",
+  perf_3M_an: "3M",
+  perf_6M_an: "6M",
+  perf_1AN_an: "1AN",
+  perf_2ANS_an: "2ANS",
+  perf_3ANS_an: "3ANS",
+  perf_4ANS_an: "4ANS",
+  perf_5ANS_an: "5ANS",
 };
 
 function valueToColor(value) {
@@ -108,8 +108,79 @@ function valueToColor(value) {
   }
   return color;
 }
+function getColor(value, min, max) {
+  // Normalize the value between 0 and 1
+  let normalizedValue = (value - min) / (max - min);
 
-export const getColumns = (isFirst) => {
+  // Interpolate between red (255, 0, 0) and green (0, 255, 0)
+  let red = Math.round(255 * (1 - normalizedValue));
+  let green = Math.round(255 * normalizedValue);
+
+  // Construct the RGB color string
+  let color = `rgb(${red}, ${green}, 0)`;
+
+  return color;
+}
+const geeg = (pct) => {
+  const percentColors = [
+    { pct: 0.0, color: { r: 0xff, g: 0x00, b: 0 } },
+    { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
+    { pct: 1.0, color: { r: 0x00, g: 0xff, b: 0 } },
+  ];
+  for (var i = 1; i < percentColors.length - 1; i++) {
+    if (pct < percentColors[i].pct) {
+      break;
+    }
+  }
+  var lower = percentColors[i - 1];
+  var upper = percentColors[i];
+  var range = upper.pct - lower.pct;
+  var rangePct = (pct - lower.pct) / range;
+  var pctLower = 1 - rangePct;
+  var pctUpper = rangePct;
+  var color = {
+    r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
+    g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
+    b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper),
+  };
+  return "rgb(" + [color.r, color.g, color.b].join(",") + ")";
+};
+function getValueColor(value, min, max) {
+  // Clamp the value to be within the min-max range
+  value = Math.min(Math.max(value, min), max);
+
+  // Calculate the normalized value between 0 and 1
+  let normalizedValue = (value - min) / (max - min);
+
+  // Calculate the RGB values based on the normalized value
+  let red = Math.floor((1 - normalizedValue) * 255);
+  let green = Math.floor(normalizedValue * 255);
+
+  // Construct the CSS color string
+  let color = "rgb(" + red + "," + green + ",0)";
+
+  return color;
+}
+
+function getMinMaxValues(data, keys) {
+  let min = Infinity;
+  let max = -Infinity;
+  console.log("getMinMaxValues", data);
+  data.forEach((item) => {
+    keys.forEach((key) => {
+      const value = item[key];
+      if (value < min) {
+        min = value;
+      }
+      if (value > max) {
+        max = value;
+      }
+    });
+  });
+
+  return { min, max };
+}
+export const getColumns2 = (data, isFirst) => {
   const keys = isFirst ? columns1 : columns2;
   return [
     {
@@ -120,15 +191,15 @@ export const getColumns = (isFirst) => {
     {
       field: "INDICE",
       headerName: "Indice",
-      flex: 0.7,
-      renderCell: ({ row }) => (
-        <span className="font-semibold">{row.INDICE}</span>
-      ),
+      flex: isFirst ? 0.8 : 0.7,
+      renderCell: ({ row }) => {
+        return <span className="font-semibold">{row.INDICE}</span>;
+      },
     },
     ...keys.map((key) => ({
       field: key,
       headerName: headerNameRef[key],
-      flex: 0.35,
+      flex: isFirst ? 0.32 : 0.4,
       width: 100,
       renderCell: ({ row }) => {
         const value = parseFloat((row[key] * 100).toFixed(2));
@@ -136,6 +207,47 @@ export const getColumns = (isFirst) => {
           <span
             className={`text-[#e2e8f0] min-w-[20px] w-full h-full flex justify-center items-center`}
             style={{ backgroundColor: valueToColor(value) }}
+          >
+            {value}%
+          </span>
+        );
+      },
+    })),
+  ];
+};
+export const getColumns = (data, isFirst) => {
+  const keys = isFirst ? columns1 : columns2;
+  const { min, max } = getMinMaxValues(data, keys);
+  console.log("{ min, max }", { min, max });
+  return [
+    {
+      field: "Seance",
+      headerName: "Séance",
+      flex: 0.4,
+    },
+    {
+      field: "INDICE",
+      headerName: "Indice",
+      flex: isFirst ? 0.8 : 0.7,
+      renderCell: ({ row }) => {
+        return <span className="font-semibold">{row.INDICE}</span>;
+      },
+    },
+    ...keys.map((key) => ({
+      field: key,
+      headerName: headerNameRef[key],
+      flex: isFirst ? 0.32 : 0.4,
+      width: 100,
+      renderCell: ({ row }) => {
+        const value = parseFloat((row[key] * 100).toFixed(2));
+        // const {min, max} = getMinMaxValues()
+        return (
+          <span
+            className={`text-[#000] min-w-[20px] w-full h-full flex justify-center items-center`}
+            // style={{ backgroundColor: valueToColor(value) }}
+            // style={{ backgroundColor: getColor(value, min, max) }}
+            // style={{ backgroundColor: geeg(value / 100) }}
+            style={{ backgroundColor: getValueColor(value / 100, min, max) }}
           >
             {value}%
           </span>

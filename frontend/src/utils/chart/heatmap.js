@@ -7,11 +7,18 @@ export const calculateChartHeight = (array) => {
   }
   return height;
 };
-export const transformCorrelationDataForHeatmap = (data, companies) => {
+export const transformCorrelationDataForHeatmap = (
+  data,
+  companies,
+  withPerc = false
+) => {
   const heatmapData = companies
     .map((company1, rowIndex) => {
       return companies.map((company2, colIndex) => {
-        return [colIndex, rowIndex, +data[rowIndex][company2].toFixed(2)];
+        const value = withPerc
+          ? data[rowIndex][company2] * 100
+          : data[rowIndex][company2];
+        return [colIndex, rowIndex, parseFloat(value.toFixed(2))];
       });
     })
     .flat();

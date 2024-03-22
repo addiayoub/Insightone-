@@ -128,6 +128,7 @@ const DEFAULT_VIEW = {
 
 const Views = ({ views, setViews }) => {
   // const [views, setViews] = useState([]);
+  const [key, setKey] = useState(0);
   const [newView, setNewView] = useState({
     id: "",
     type: "Classes",
@@ -151,7 +152,7 @@ const Views = ({ views, setViews }) => {
       Type: type,
       Position: position,
       Sign: operateur,
-      Weight: parseFloat(value),
+      Weight: parseFloat(value / 100),
       "Type Relative": typeRel,
       Relative: positionRel,
     };
@@ -172,7 +173,7 @@ const Views = ({ views, setViews }) => {
         <span className="tablet:text-md phone:text-sm laptop:text-lg font-semibold block mt-2.5 mb-3.5">
           Views
         </span>
-        <View setView={setNewView} view={newView} />
+        <View setView={setNewView} view={newView} key={key} />
         <IconButton disabled={disabled} onClick={addView}>
           <PlusCircle
             color={`${disabled ? "var(--text-muted)" : "var(--primary-color)"}`}

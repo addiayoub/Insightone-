@@ -6,39 +6,66 @@ import dayjs from "dayjs";
 import TitresComponent from "../../TitresComponent";
 import { SearchButton } from "../../Ui/Buttons";
 import { useDispatch, useSelector } from "react-redux";
-import { meanRiskOptiAction } from "../../../redux/actions/BlackLittermanActions";
+import {
+  meanRiskOptiAction,
+  meanRiskOptiOpcAction,
+} from "../../../redux/actions/BlackLittermanActions";
 import Views from "./Views";
 import { getViewPosition } from "../../../utils/getViewPosition";
 import ContraintesOptimisation from "../../ContraintesOptimisation/";
+import { notyf } from "../../../utils/notyf";
 
-const Filter = () => {
+const Filter = ({ ptfType, setIsShow }) => {
   const { ptfToBacktest } = useSelector((state) => state.backtest);
-
   const [points, setPoints] = useState(50);
-  const [rfr, setRfr] = useState(0);
+  const [rfr, setRfr] = useState(3);
   const [raf, setRaf] = useState(0);
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(2, "year"));
   const [dateFin, setDateFin] = useState(dayjs().subtract(2, "day"));
   const [views, setViews] = useState([]);
   const [titres, setTitres] = useState([]);
   const [show, setShow] = useState(false);
-  const type = ptfToBacktest?.type === "Actions" ? "rapport" : "opcvm";
   const dispatch = useDispatch();
   const handleSearch = () => {
-    dispatch(
-      meanRiskOptiAction({
-        titres,
-        points,
-        dateDebut,
-        dateFin,
-        rfr,
-        raf,
-        views,
-        type,
-      })
-    );
-    // dispatch(meanRiskOptiDataSetAction());
-    console.log("HandleSearch");
+    console.log("ptfType", ptfToBacktest);
+    setIsShow(false);
+    if (ptfType === "Actions") {
+      dispatch(
+        meanRiskOptiAction({
+          titres,
+          points,
+          dateDebut,
+          dateFin,
+          rfr,
+          raf,
+          views,
+        })
+      )
+        .unwrap()
+        .then(() => setIsShow(true))
+        .catch((error) => {
+          notyf.error("Server Error");
+        });
+    } else {
+      console.log("call meanRiskOptiOpcAction");
+      dispatch(
+        meanRiskOptiOpcAction({
+          titres,
+          points,
+          dateDebut,
+          dateFin,
+          rfr,
+          raf,
+          views,
+          type: ptfType,
+        })
+      )
+        .unwrap()
+        .then(() => setIsShow(true))
+        .catch((error) => {
+          notyf.error("Server Error");
+        });
+    }
   };
   useEffect(() => {
     console.log("useEffcet ptf", ptfToBacktest);
@@ -51,6 +78,7 @@ const Filter = () => {
       <ContraintesOptimisation
         {...{ titres, setShow }}
         type={ptfToBacktest?.type}
+        dateDebut={ptfToBacktest?.params?.dateDebut}
       />
       {show && (
         <AccordionBox
@@ -108,7 +136,7 @@ const Filter = () => {
           <SearchButton
             className="w-fit"
             onClick={handleSearch}
-            // disabled={views.length < 1}
+            disabled={views.length < 1}
           />
         </AccordionBox>
       )}

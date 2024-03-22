@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Box } from "@mui/material";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -12,9 +12,6 @@ import MainLoader from "../loaders/MainLoader";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import DataTable from "../Dashboard/DataTable";
 import { getColumns } from "../PerfGlis/columns";
-
-const columns1 = getColumns(true);
-const columns2 = getColumns(false);
 
 function Secteurs() {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "year"));
@@ -56,7 +53,7 @@ function Secteurs() {
         {perfMASI.length > 0 && (
           <DataTable
             title={"Performance MASI"}
-            columns={columns1}
+            columns={getColumns(perfMASI, true)}
             rows={perfMASI}
             density="comfortable"
           />
@@ -64,7 +61,7 @@ function Secteurs() {
         {perfMASI.length > 0 && (
           <DataTable
             title={"Performance MASI Annualisée"}
-            columns={columns2}
+            columns={getColumns(perfMASI, false)}
             rows={perfMASI}
             density="comfortable"
           />
@@ -72,7 +69,7 @@ function Secteurs() {
         {perfSectoriel.length > 0 && (
           <DataTable
             title={"Performance Sectoriel"}
-            columns={columns1}
+            columns={getColumns(perfSectoriel, true)}
             rows={perfSectoriel}
             density="comfortable"
           />
@@ -80,7 +77,7 @@ function Secteurs() {
         {perfSectoriel.length > 0 && (
           <DataTable
             title={"Performance Sectoriel Annualisée"}
-            columns={columns2}
+            columns={getColumns(perfSectoriel, false)}
             rows={perfSectoriel}
             density="comfortable"
           />

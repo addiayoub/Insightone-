@@ -22,7 +22,8 @@ import Tracking from "../components/Tracking/";
 import AnalyseOPCVM from "../components/AnalyseOPCVM/";
 import CompositionOPCVM from "../components/CompositionOPCVM/";
 import FixedIncome from "../components/FixedIncome/";
-import BlackLitterman from "../components/BlackLitterman/";
+// import BlackLitterman from "../components/BlackLitterman/";
+import MeanRisk from "../components/BlackLitterman/MeanRiskOpti/Index.jsx";
 import Consultation from "../components/Consultation/";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 import Ptfs from "../components/Consultation/Ptfs.jsx";
@@ -47,8 +48,15 @@ function RouterProvider() {
 
             {/* CREATION DE PTF */}
             <Route path="/markowitz" element={<Markowitz />} />
-            <Route path="/black-litterman" element={<BlackLitterman />} />
+            <Route
+              path="/black-litterman"
+              element={<MeanRisk type="Actions" />}
+            />
             <Route path="/opcvm" element={<Opcvm />} />
+            <Route
+              path="/black-litterman-opc"
+              element={<MeanRisk type="OPCVM" />}
+            />
 
             {/* SIMULATION */}
             <Route path="/consultation" element={<Ptfs />} />

@@ -23,9 +23,6 @@ import groupBy from "../../utils/groupBy";
 import CourbeTaux from "../charts/FixedIncome/CourbeTaux";
 import { getColumns } from "../PerfGlis/columns";
 
-const columns1 = getColumns(true);
-const columns2 = getColumns(false);
-
 const Index = () => {
   const [show, setShow] = useState(false);
   const { data } = useSelector((state) => state.fixedIncome);
@@ -58,14 +55,14 @@ const Index = () => {
             <h3>Performance MBI</h3>
             <Table
               rows={data.perfMBI}
-              columns={columns1}
+              columns={getColumns(data.perfMBI, true)}
               pageSize={10}
               density="comfortable"
             />
             <h3>Performance MBI Annualisée</h3>
             <Table
               rows={data.perfMBI}
-              columns={columns2}
+              columns={getColumns(data.perfMBI, false)}
               pageSize={10}
               density="comfortable"
             />
@@ -76,14 +73,14 @@ const Index = () => {
             <h3>Performance Nominal</h3>
             <Table
               rows={data.perfNominal}
-              columns={columns1}
+              columns={getColumns(data.perfNominal, true)}
               pageSize={10}
               density="comfortable"
             />
             <h3>Performance Nominal Annualisée</h3>
             <Table
               rows={data.perfNominal}
-              columns={columns1}
+              columns={getColumns(data.perfNominal, false)}
               pageSize={10}
               density="comfortable"
             />

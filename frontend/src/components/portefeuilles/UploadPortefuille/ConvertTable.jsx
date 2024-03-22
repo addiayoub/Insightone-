@@ -13,10 +13,10 @@ import PtfForm from "./PtfForm";
 import useDataXLTheme from "../../../hooks/useDataXLTheme";
 import { locale } from "../../../utils/dataGridXLLocale";
 
-const ConverTable = ({ handlePtfToBacktest }) => {
+const ConverTable = ({ handlePtfToBacktest, ptfsType }) => {
   const dgxlRef = useRef(null);
   const [ptfName, setPtfName] = useState("");
-  const [ptfType, setPtfType] = useState("Actions");
+  const [ptfType, setPtfType] = useState(ptfsType[0]);
   const [invalidsTitres, setInvalidsTitres] = useState([]);
   const [noHeaders, setNoHeaders] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -115,6 +115,7 @@ const ConverTable = ({ handlePtfToBacktest }) => {
           setPtfName,
           setPtfType,
           upload,
+          ptfsType,
           isDisabled,
         }}
       />

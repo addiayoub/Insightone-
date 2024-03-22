@@ -14,22 +14,20 @@ import ModalComponent from "../../Modal";
 import DeleteModal from "../../DeleteModal";
 import { DeleteButton, ValidateButton } from "../../Ui/Buttons";
 
-const types = ["Actions", "OPCVM"];
-
-const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow }) => {
+const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
   const {
     portefeuilles: { loading, data },
   } = useSelector((state) => state.user);
-  const [type, setType] = useState("Actions");
+  const [type, setType] = useState(ptfsType[0]);
   const [ptf, setPtf] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (selectedPtfs.length < 1) {
       setShow(false);
     }
   }, [selectedPtfs]);
+  useEffect(() => setType(ptfsType), [ptfsType]);
   useEffect(() => {
     setShow(false);
     console.log("ptf", ptf);
@@ -74,13 +72,16 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow }) => {
   const portefeuilles = data
     .filter((ptf) => ptf.type === type)
     .map((ptf) => ptf.name);
+  useEffect(() => {
+    setType(ptfsType[0]);
+  }, [ptfsType]);
 
   return (
     <>
       <Box className="flex flex-wrap gap-3 items-center">
         <SingleSelect
           label={"Type"}
-          options={types}
+          options={ptfsType}
           value={type}
           setValue={setType}
         />

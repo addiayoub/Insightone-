@@ -18,6 +18,7 @@ const PtfForm = ({
   upload,
   isDisabled,
   isFresh,
+  ptfsType,
 }) => {
   useEffect(() => {
     console.log("No hedaers is", noHeaders, isFresh);
@@ -45,7 +46,7 @@ const PtfForm = ({
         />
         <SingleSelect
           label="Type"
-          options={["Actions", "OPCVM"]}
+          options={ptfsType}
           value={ptfType}
           setValue={setPtfType}
         />

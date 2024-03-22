@@ -133,13 +133,9 @@ export const portfolioAllocationAction = createAsyncThunk(
 
 export const meanRiskOptiAction = createAsyncThunk(
   "BlackLitterman/meanRiskOptiAction",
-  async (
-    { dateDebut, titres, dateFin, points, rfr, raf, views, type },
-    thunkAPI
-  ) => {
-    console.log("getType", type);
+  async ({ dateDebut, titres, dateFin, points, rfr, raf, views }, thunkAPI) => {
     views = views.map(({ id, ...rest }) => ({ ...rest }));
-    const { contraintesPoids } = thunkAPI.getState()[type];
+    const { contraintesPoids } = thunkAPI.getState().rapport;
     const poidsMinMax = Array.isArray(contraintesPoids.data)
       ? [{}]
       : contraintesPoids.data.df_return;
@@ -147,60 +143,9 @@ export const meanRiskOptiAction = createAsyncThunk(
     console.log("poidsMinMax ", poidsMinMax);
     console.log("meanRiskOptiAction views", views);
     const body = {
-      // df_poids_min_max: [
-      //   {
-      //     valeur: "DISWAY",
-      //     minp: 0,
-      //     maxp: 0.1,
-      //   },
-      //   {
-      //     valeur: "ADDOHA",
-      //     minp: 0,
-      //     maxp: 0.1,
-      //   },
-      // ],
-      df_poids_mn_max: poidsMinMax,
-      df_views: [
-        {
-          Type: "Classes",
-          Position: "TELECOMMUNICATIONS",
-          Sign: ">=",
-          Weight: 0.08,
-          "Type Relative": "Assets",
-          Relative: "HPS",
-        },
-        {
-          Type: "All Assets",
-          Position: "",
-          Sign: ">=",
-          Weight: 0.02,
-          "Type Relative": "",
-          Relative: "",
-        },
-      ],
+      df_poids_min_max: poidsMinMax,
+      df_views: views,
     };
-    const list_valeur = [
-      "IAM",
-      "BCP",
-      "ATW",
-      "BOA",
-      "CDM",
-      "ADH",
-      "BCI",
-      "CIH",
-      "SAH",
-      "UMR",
-      "SBM",
-      "SMI",
-      "EQD",
-      "BAL",
-      "ALM",
-      "GAZ",
-      "HPS",
-      "LES",
-      "CSR",
-      "DWY",
-    ];
     try {
       const dataSetRes = await apiNewMarko.get(
         `Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
@@ -215,6 +160,58 @@ export const meanRiskOptiAction = createAsyncThunk(
       const { dataset } = dataSetRes.data;
       const response = await apiNewMarko.post(
         `Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/`,
+        { dataset, ...body },
+        {
+          params: {
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+            points,
+            risk_free_rate: rfr,
+            risk_aversion_factor: raf,
+          },
+        }
+      );
+      console.log("Black_Litterman_Mean_Risk_Optimization", response.data);
+      return response.data;
+    } catch (error) {
+      console.log("meanRiskOptiAction error", error);
+      return thunkAPI.rejectWithValue("Error server");
+    }
+  }
+);
+
+export const meanRiskOptiOpcAction = createAsyncThunk(
+  "BlackLitterman/meanRiskOptiOpcAction",
+  async (
+    { dateDebut, titres, dateFin, points, rfr, raf, views, type },
+    thunkAPI
+  ) => {
+    views = views.map(({ id, ...rest }) => ({ ...rest }));
+    const { contraintesPoids } = thunkAPI.getState()["opcvm"];
+    const poidsMinMax = Array.isArray(contraintesPoids.data)
+      ? [{}]
+      : contraintesPoids.data.df_return;
+    console.log("contraintesPoids", contraintesPoids);
+    console.log("poidsMinMax ", poidsMinMax);
+    console.log("meanRiskOptiOpcAction views", views);
+    const body = {
+      df_poids_min_max: poidsMinMax,
+      df_views: views,
+    };
+    try {
+      const dataSetRes = await apiNewMarko.get(
+        `Black_Litterman_Mean_Risk_Optimization_opc/POST/get_dataset/`,
+        {
+          params: {
+            start: formatDate(dateDebut["$d"]),
+            end: formatDate(dateFin["$d"]),
+            list_valeur: titres,
+          },
+        }
+      );
+      const { dataset } = dataSetRes.data;
+      const response = await apiNewMarko.post(
+        `Black_Litterman_Mean_Risk_Optimization_opc/POST/Black_Litterman_Mean_Risk_Optimization/`,
         { dataset, ...body },
         {
           params: {

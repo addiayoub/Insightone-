@@ -55,9 +55,6 @@ import {
 import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
 import { getColumns } from "../PerfGlis/columns.jsx";
 
-const columns1 = getColumns(true);
-const columns2 = getColumns(false);
-
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",
@@ -252,13 +249,13 @@ function Index() {
             <>
               <DataTable
                 title={"Performance MASI"}
-                columns={columns1}
+                columns={getColumns(dataObject.perfMASI, true)}
                 rows={dataObject.perfMASI}
                 density="comfortable"
               />
               <DataTable
                 title={"Performance MASI Annualisée"}
-                columns={columns1}
+                columns={getColumns(dataObject.perfMASI, false)}
                 rows={dataObject.perfMASI}
                 density="comfortable"
               />
@@ -268,13 +265,13 @@ function Index() {
             <>
               <DataTable
                 title={"Performance Sectoriel"}
-                columns={columns1}
+                columns={getColumns(dataObject.perfSectoriel, true)}
                 rows={dataObject.perfSectoriel}
                 density="comfortable"
               />
               <DataTable
                 title={"Performance Sectoriel Annualisée"}
-                columns={columns2}
+                columns={getColumns(dataObject.perfSectoriel, false)}
                 rows={dataObject.perfSectoriel}
                 density="comfortable"
               />

@@ -2,21 +2,14 @@ import React, { memo, useState, useEffect } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../../loaders/MainLoader";
-import SharpeMeanVar from "../../charts/BlackLitterman/MeanRiskOpti/SharpeMeanVar";
-import Frontier from "../../charts/BlackLitterman/MeanRiskOpti/Frontier";
-import RiskMeasures from "../../charts/BlackLitterman/PortfolioAllocation/RiskMeasures";
-import Table from "../../Table";
-import { assetClassesColumns } from "./columns";
-import FrontierMean from "../../charts/BlackLitterman/MeanRiskOpti/FrontierMean";
-import Upload from "../../Backtest/UploadPtf/Upload";
-import Opc from "./OPC/index";
-const Index = ({ type = "all" }) => {
+import Upload from "../../../Backtest/UploadPtf/Upload";
+
+const Index = ({ type = "Actions" }) => {
   const [showFilter, setShowFilter] = useState(false);
   const {
     meanRiskOpti: { data, loading, error },
   } = useSelector((state) => state.blackLitterman);
   const show = !loading;
-  const [isShow, setIsShow] = useState(false);
   const [key, setKey] = useState(0); // force render
   useEffect(() => {
     setKey((prevKey) => prevKey + 1);
@@ -30,10 +23,9 @@ const Index = ({ type = "all" }) => {
         setShow={setShowFilter}
         ptfsType={type}
       />
-      {showFilter && <Filter ptfType={type} setIsShow={setIsShow} />}
+      {showFilter && <Filter />}
       {/* <Views /> */}
       {loading && <MainLoader />}
-      {showFilter && isShow && <Opc />}
       {/* {show && data.assetClasses.length > 0 && (
         <Table rows={data.assetClasses} columns={assetClassesColumns} />
       )}

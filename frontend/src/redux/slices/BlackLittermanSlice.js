@@ -1,10 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   meanRiskOptiAction,
+  meanRiskOptiOpcAction,
   portfolioAllocationAction,
   portfolioOptiAction,
   valueAtRiskAction,
 } from "../actions/BlackLittermanActions";
+const OPCVM_INIT = {
+  weights: [],
+  assetClasses: [],
+  views: [],
+  constraints: [],
+  p: [],
+  q: [],
+  weightsBl: [],
+  frontier: [],
+  mu: [],
+  cov: [],
+  Y: [],
+  wS: [],
+  PlotEfficientFrontier: [],
+  indic: [],
+  PtfComposition: [],
+  riskContributionPerAsset: [],
+  ptfHistogram: [],
+  riskHisto: [],
+  price: [],
+  dd: [],
+  riskDD: [],
+};
+
 const initialState = {
   valueAtRisk: {
     data: {
@@ -58,6 +83,14 @@ const initialState = {
     },
     loading: false,
     error: null,
+  },
+  meanRisk: {
+    OPCVM: {
+      data: [],
+      loading: false,
+      error: null,
+    },
+    Actions: { data: [], loading: false, error: null },
   },
 };
 
@@ -146,7 +179,7 @@ const BlackLittermanSlice = createSlice({
       }
     );
 
-    // Mean Risk Optimization
+    // Mean Risk Optimization (Actions)
     builder.addCase(meanRiskOptiAction.pending, ({ meanRiskOpti }) => {
       meanRiskOpti.loading = true;
     });
@@ -173,6 +206,27 @@ const BlackLittermanSlice = createSlice({
         meanRiskOpti.loading = false;
         meanRiskOpti.error = payload;
         meanRiskOpti.data = initialState.meanRiskOpti.data;
+      }
+    );
+
+    // Mean Risk Optimization (OPCVM)
+    builder.addCase(meanRiskOptiOpcAction.pending, (state, action) => {
+      state.meanRisk.OPCVM.loading = true;
+      // alert(`pendiing.. ${state.meanRisk.OPCVM.loading ? "YES" : "NO"}`);
+    });
+    builder.addCase(
+      meanRiskOptiOpcAction.fulfilled,
+      ({ meanRisk: { OPCVM } }, { payload }) => {
+        OPCVM.loading = false;
+        OPCVM.data = payload;
+      }
+    );
+    builder.addCase(
+      meanRiskOptiOpcAction.rejected,
+      ({ meanRisk: { OPCVM } }, { payload }) => {
+        OPCVM.loading = false;
+        OPCVM.error = payload;
+        OPCVM.data = initialState.meanRisk.OPCVM.data;
       }
     );
   },

@@ -13,6 +13,7 @@ import { contraintesPoids_ } from "../../redux/actions/OpcvmActions";
 import { notyf } from "../../utils/notyf";
 import checkExistence from "../../utils/checkExistence";
 import { CONTRAINTES_POIDS } from "../../redux/actions/DataActions";
+import MainLoader from "../loaders/MainLoader";
 
 const tt = [
   "AD BALANCED FUND",
@@ -46,7 +47,7 @@ const index = ({ titres = tt, type, setShow, dateDebut = "18/02/2024" }) => {
   const [contrainteVal, setContraintVal] = useState([]);
   const [contrainteRelaVal, setContrainteRelaVal] = useState([]);
   const [error, setError] = useState("");
-  // const [loding, setLoading] = u
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const handleContrainteVal = (array) => {
     setContraintVal(array);
@@ -71,7 +72,9 @@ const index = ({ titres = tt, type, setShow, dateDebut = "18/02/2024" }) => {
       setError(null);
     }
   }, [titres]);
-
+  useEffect(() => {
+    setSelectedTitres([]);
+  }, [contrainteVal, contrainteRelaVal]);
   const handleClick = (choice, operator, value) => {
     if (selectedTitres.length > 0 && value !== "") {
       const selectedChoice = selectedTitres.map((indice) => ({
@@ -113,6 +116,7 @@ const index = ({ titres = tt, type, setShow, dateDebut = "18/02/2024" }) => {
   const handleValider = () => {
     console.log("contraintes are", contrainteVal);
     setShow(false);
+    setLoading(true);
     if (type === "Actions") {
       dispatch(
         CONTRAINTES_POIDS({
@@ -131,9 +135,9 @@ const index = ({ titres = tt, type, setShow, dateDebut = "18/02/2024" }) => {
           console.log("contraintes error", error);
           notyf.error("Error 505");
           setShow(false);
-        });
+        })
+        .finally(() => setLoading(false));
     } else {
-      alert("call OPCVM");
       dispatch(
         contraintesPoids_({
           titres,
@@ -143,45 +147,49 @@ const index = ({ titres = tt, type, setShow, dateDebut = "18/02/2024" }) => {
         .unwrap()
         .then((resp) => {
           console.log("resp", resp);
-          notyf.success(resp.message);
+          // notyf.success(resp.message);
           setShow(true);
         })
         .catch((error) => {
           console.log("contraintes error", error);
           notyf.error("Error 505");
           setShow(false);
-        });
+        })
+        .finally(() => setLoading(false));
     }
   };
   return (
-    <AccordionBox title={"Contraintes d'optimisation"} Icon={Tool} isExpanded>
-      <Box className="flex justify-between flex-wrap gap-4">
-        <Box className="flex">
-          <SelectMultipl
-            {...{ titres, selectedTitres, handleChangeMultiple }}
+    <>
+      <AccordionBox title={"Contraintes d'optimisation"} Icon={Tool} isExpanded>
+        <Box className="flex justify-between flex-wrap gap-4">
+          <Box className="flex">
+            <SelectMultipl
+              {...{ titres, selectedTitres, handleChangeMultiple }}
+            />
+            <RadioBtn data={[">=", "<=", "="]} setOperateur={setOperateur} />
+          </Box>
+          <ContraintesValue
+            operateur={operateur}
+            opValue={opValue}
+            setOpValue={setOpValue}
+            handleClick={handleClick}
+            error={error}
+            relative={type === "Actions"}
           />
-          <RadioBtn data={[">=", "<=", "="]} setOperateur={setOperateur} />
+          <Result
+            contrainteVal={contrainteVal}
+            setContraintVal={handleContrainteVal}
+            contrainteRelaVal={contrainteRelaVal}
+            setContrainteRelaVal={handleContrainteRelaVal}
+            relative={type === "Actions"}
+          />
         </Box>
-        <ContraintesValue
-          operateur={operateur}
-          opValue={opValue}
-          setOpValue={setOpValue}
-          handleClick={handleClick}
-          error={error}
-          relative={type === "Actions"}
-        />
-        <Result
-          contrainteVal={contrainteVal}
-          setContraintVal={handleContrainteVal}
-          contrainteRelaVal={contrainteRelaVal}
-          setContrainteRelaVal={handleContrainteRelaVal}
-          relative={type === "Actions"}
-        />
-      </Box>
-      <Box className="block max-w-[400px] mt-4 mx-auto">
-        <ValidateButton fullWidth onClick={handleValider} />
-      </Box>
-    </AccordionBox>
+        <Box className="block max-w-[400px] mt-4 mx-auto">
+          <ValidateButton fullWidth onClick={handleValider} />
+        </Box>
+      </AccordionBox>
+      {loading && <MainLoader />}
+    </>
   );
 };
 

@@ -63,7 +63,8 @@ const Frontier = ({ data }) => {
     return {
       color: colors,
       title: {
-        text: "",
+        text: "Frontier",
+        x: "center",
       },
       grid: {
         right: "100px",

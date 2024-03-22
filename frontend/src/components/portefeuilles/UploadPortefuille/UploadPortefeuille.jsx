@@ -10,10 +10,10 @@ import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
 const fileTypes = ["csv"];
 
-const UploadPortefeuille = ({ handlePtfToBacktest }) => {
+const UploadPortefeuille = ({ handlePtfToBacktest, ptfsType }) => {
   const [file, setFile] = useState(null);
   const [ptfName, setPtfName] = useState("");
-  const [ptfType, setPtfType] = useState("Actions");
+  const [ptfType, setPtfType] = useState(ptfsType[0]);
   const [invalidsTitres, setInvalidsTitres] = useState([]);
   const [noHeaders, setNoHeaders] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -76,6 +76,7 @@ const UploadPortefeuille = ({ handlePtfToBacktest }) => {
           setNoHeaders,
           setPtfName,
           setPtfType,
+          ptfsType,
           upload,
           isDisabled,
         }}

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PtfForm from "./PtfForm";
 import { Button, Box } from "@mui/material";
 
-const PtfFresh = ({ handleFreshPtf }) => {
+const PtfFresh = ({ handleFreshPtf, ptfsType }) => {
   const [ptfName, setPtfName] = useState("");
-  const [ptfType, setPtfType] = useState("Actions");
+  const [ptfType, setPtfType] = useState(ptfsType[0]);
   const create = () => {
     handleFreshPtf(ptfName, ptfType);
   };
@@ -17,6 +17,7 @@ const PtfFresh = ({ handleFreshPtf }) => {
           ptfName,
           setPtfName,
           setPtfType,
+          ptfsType,
         }}
         isFresh
       />

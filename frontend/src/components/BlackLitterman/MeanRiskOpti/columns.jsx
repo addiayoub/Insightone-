@@ -48,7 +48,7 @@ export const getColumns = (handler) => {
       field: "Weight",
       headerName: "Poids",
       renderCell: ({ row }) => (
-        <span className="">{row.Weight.toFixed(2)}%</span>
+        <span className="">{(row.Weight * 100).toFixed(2)}%</span>
       ),
     },
     {
@@ -71,3 +71,72 @@ export const getColumns = (handler) => {
     },
   ];
 };
+
+const dd = {
+  "": "Mean Return (1)",
+  Values: "0.0443%",
+  "(Return - MAR)/Risk": "",
+};
+const headers = {
+  names: [
+    "Profitability and Other Inputs",
+    "Risk Measures based on Returns",
+    "Risk Measures based on Drawdowns (3)",
+  ],
+  style:
+    "bg-indigo-600 text-white h-full w-full flex justify-center items-center",
+};
+const checkHeader = (row) => {
+  if (
+    headers.names.includes(row[""]) &&
+    row.Values === "" &&
+    row["(Return - MAR)/Risk"] === ""
+  ) {
+    return true;
+  }
+  return false;
+};
+export const indicColumns = [
+  {
+    field: "h",
+    headerName: "",
+    // width: 200,
+    flex: 0.5,
+    renderCell: ({ row }) => {
+      const isHeader = checkHeader(row);
+      return (
+        <strong className={`${isHeader ? headers.style : "block mx-4"}`}>
+          {row[""]}
+        </strong>
+      );
+    },
+  },
+  {
+    field: "Values",
+    headerName: "Values",
+    // width: 200,
+    flex: 0.5,
+    renderCell: ({ row }) => {
+      const isHeader = checkHeader(row);
+      return (
+        <span className={`${isHeader ? headers.style : "font-medium"}`}>
+          {row.Values}
+        </span>
+      );
+    },
+  },
+  {
+    field: "(Return - MAR)/Risk",
+    headerName: "(Return - MAR)/Risk",
+    // width: 200,
+    flex: 0.5,
+    renderCell: ({ row }) => {
+      const isHeader = checkHeader(row);
+      return (
+        <span className={`${isHeader ? headers.style : "font-medium"}`}>
+          {row["(Return - MAR)/Risk"]}
+        </span>
+      );
+    },
+  },
+];

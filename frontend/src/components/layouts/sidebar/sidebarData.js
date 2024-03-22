@@ -116,8 +116,24 @@ export const sidebarData = [
       // },
       {
         title: "Fonds de fonds",
-        link: "opcvm",
+        link: null,
         icon: Box,
+        iconClosed: ChevronDown,
+        iconOpened: ChevronUp,
+        icon: Dribbble,
+        nestedMenu: [
+          {
+            title: "Fonds de fonds",
+            link: "opcvm",
+            icon: Box,
+            icon: Dribbble,
+          },
+          {
+            title: "Black Litterman",
+            link: "black-litterman-opc",
+            icon: Briefcase,
+          },
+        ],
       },
     ],
   },
