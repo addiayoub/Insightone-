@@ -80,6 +80,10 @@ const TauxSec = ({ data }) => {
   data = data[data.length - 1];
   console.log("Insuffisance", data);
   console.log("seriesNames", seriesNames);
+  const seriesData = useMemo(
+    () => seriesNames.map((serieName) => data[serieName] * 100),
+    [seriesNames, data]
+  );
   const options = useMemo(() => {
     return {
       title: {
@@ -87,7 +91,7 @@ const TauxSec = ({ data }) => {
         left: "center",
       },
       tooltip: {
-        valueFormatter: (value) => formatNumberWithSpaces(value ?? 0),
+        valueFormatter: (value) => formatNumberWithSpaces(value ?? 0) + "%",
         axisPointer: {
           type: "shadow",
         },
@@ -110,7 +114,7 @@ const TauxSec = ({ data }) => {
       series: [
         {
           type: "bar",
-          data: seriesNames.map((serieName) => data[serieName]),
+          data: seriesData,
           label: {
             show: true,
             position: "top",

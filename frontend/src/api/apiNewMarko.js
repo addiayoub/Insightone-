@@ -22,12 +22,12 @@ apiNewMarko.interceptors.request.use((config) => {
 });
 apiNewMarko.interceptors.response.use(
   async function (response) {
-    console.log("interceptors.response", response, response.config.metadata);
+    // console.log("interceptors.response", response, response.config.metadata);
     // await handleResponse(response);
     return response;
   },
   async function (error) {
-    console.log("interceptors.error", error, error.config.metadata);
+    // console.log("interceptors.error", error, error.config.metadata);
     // await handleError(error);
     return Promise.reject(error);
   }

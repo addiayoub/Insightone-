@@ -14,7 +14,10 @@ const getAPI = axios.create({
 
 getAPI.interceptors.request.use((config) => {
   const token = localStorage.getItem("apiToken");
-  console.log("Token from", localStorage.getItem("apiToken"));
+  console.log(
+    "Token from",
+    localStorage.getItem("apiToken") ? "EXIST" : "NOT EXISTS"
+  );
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -27,12 +30,10 @@ getAPI.interceptors.request.use((config) => {
 
 getAPI.interceptors.response.use(
   async function (response) {
-    console.log("interceptors.response", response, response.config.metadata);
     // await handleResponse(response);
     return response;
   },
   async function (error) {
-    console.log("interceptors.error", error, error.config.metadata);
     await handleError(error);
     return Promise.reject(error);
   }

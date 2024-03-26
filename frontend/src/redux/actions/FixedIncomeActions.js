@@ -126,6 +126,7 @@ export const getFixedIncome = createAsyncThunk(
       );
       const perfMBI = await getPerfMBI(date);
       const perfNominal = await getPerfNominal(date);
+      const sliderData = [];
       console.log("fixed MBI", perfMBI);
       console.log("fixed perfNominal", perfNominal);
       return {

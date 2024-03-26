@@ -42,7 +42,16 @@ function CustomToolbar() {
 const getRowClassName = (params) =>
   params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd";
 const paginationOptions = [5, 10, 25, 50, 100];
-
+const defaultSx = {
+  boxShadow: 2,
+  border: 2,
+  borderColor: "primary.light",
+};
+const cellWithoutP = {
+  "& .MuiDataGrid-cell": {
+    padding: 0,
+  },
+};
 function Table({
   columns,
   rows,
@@ -58,6 +67,7 @@ function Table({
   shouldHandleCellClick,
   setSelectedRows,
   density = "standard",
+  withoutCellP,
   sx,
 }) {
   const classes = useStyles();
@@ -70,6 +80,8 @@ function Table({
     setClickedRowId(params.id);
     setRow(params.row);
   }, []);
+  const mergedSx = withoutCellP ? { ...defaultSx, ...cellWithoutP } : defaultSx;
+  console.log("withoutCellP", mergedSx, withoutCellP);
   return (
     <>
       <StripedDataGrid
@@ -87,9 +99,7 @@ function Table({
           },
         }}
         sx={{
-          boxShadow: 2,
-          border: 2,
-          borderColor: "primary.light",
+          ...mergedSx,
           ...sx,
         }}
         density={density}

@@ -22,14 +22,59 @@ import Commentaires from "./Commentaires";
 import groupBy from "../../utils/groupBy";
 import CourbeTaux from "../charts/FixedIncome/CourbeTaux";
 import { getColumns } from "../PerfGlis/columns";
+import Slider, { SliderItem } from "../Slider";
+import PerfTable from "../PerfGlis/PerfTable";
+
+const sliderdd = [
+  {
+    TICKER: "AFM",
+    Seance: "2024-03-22T00:00:00.000Z",
+    Cours_Cloture: 1204,
+    Evolution: -0.08,
+    Volume: 1204,
+  },
+  {
+    TICKER: "AFM",
+    Seance: "2024-03-22T00:00:00.000Z",
+    Cours_Cloture: 1204,
+    Evolution: -0.08,
+    Volume: 1204,
+  },
+  {
+    TICKER: "AFM",
+    Seance: "2024-03-22T00:00:00.000Z",
+    Cours_Cloture: 1204,
+    Evolution: -0.08,
+    Volume: 1204,
+  },
+];
 
 const Index = () => {
   const [show, setShow] = useState(false);
   const { data } = useSelector((state) => state.fixedIncome);
-
+  const sliderData = [...data.perfMBI, ...data.perfNominal];
+  console.log("sliderdata", data.perfMBI);
   return (
     <>
       <Filter {...{ setShow }} />
+      {show && sliderData.length > 0 && (
+        <Slider>
+          {sliderData.map((item) => {
+            return (
+              <SliderItem
+                key={item.INDICE}
+                name={item.INDICE}
+                leftPrefix={"1S: "}
+                left={item.perf_1AN * 100}
+                middlePrefix={"1AN: "}
+                middle={item.perf_1S * 100}
+                rightPrefix={"YTD: "}
+                right={item.perf_YTD * 100}
+              />
+            );
+          })}
+        </Slider>
+      )}
       <Box className="flex flex-col gap-8 my-2">
         {show && data.TMPInterbancaire.length > 0 && (
           <div>
@@ -51,38 +96,21 @@ const Index = () => {
         </GridContainer>
 
         {show && data.perfMBI.length > 0 && (
-          <Box>
-            <h3>Performance MBI</h3>
-            <Table
-              rows={data.perfMBI}
-              columns={getColumns(data.perfMBI, true)}
-              pageSize={10}
-              density="comfortable"
-            />
-            <h3>Performance MBI Annualisée</h3>
-            <Table
-              rows={data.perfMBI}
-              columns={getColumns(data.perfMBI, false)}
-              pageSize={10}
-              density="comfortable"
-            />
-          </Box>
+          <>
+            <PerfTable data={data.perfMBI} isFirst title="Performance MBI" />
+            <PerfTable data={data.perfMBI} title="Performance MBI Annualisée" />
+          </>
         )}
         {show && data.perfNominal.length > 0 && (
           <Box>
-            <h3>Performance Nominal</h3>
-            <Table
-              rows={data.perfNominal}
-              columns={getColumns(data.perfNominal, true)}
-              pageSize={10}
-              density="comfortable"
+            <PerfTable
+              data={data.perfNominal}
+              isFirst
+              title="Performance Nominal"
             />
-            <h3>Performance Nominal Annualisée</h3>
-            <Table
-              rows={data.perfNominal}
-              columns={getColumns(data.perfNominal, false)}
-              pageSize={10}
-              density="comfortable"
+            <PerfTable
+              data={data.perfNominal}
+              title="Performance Nominal Annualisée"
             />
           </Box>
         )}

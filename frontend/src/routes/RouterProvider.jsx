@@ -11,6 +11,7 @@ import AuthRoutes from "./AuthRoutes.jsx";
 import Login from "../pages/Login/index.jsx";
 import Dashboard from "../components/Dashboard/";
 import AnalyseChartiste from "../components/analyse/index.jsx";
+import ProfileFin from "../components/ProfileFin/";
 import Users from "../pages/users/";
 import Stats from "../pages/stats/";
 import AnalyseSectorial from "../components/AnalyseSectorial/";
@@ -27,6 +28,8 @@ import MeanRisk from "../components/BlackLitterman/MeanRiskOpti/Index.jsx";
 import Consultation from "../components/Consultation/";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 import Ptfs from "../components/Consultation/Ptfs.jsx";
+import News from "../pages/News/";
+import ArticleDetails from "../pages/News/ArticleDetails.jsx";
 
 function RouterProvider() {
   return (
@@ -38,13 +41,18 @@ function RouterProvider() {
             {/* <Route path="/profile" element={<Profile />} /> */}
           </Route>
           <Route element={<UserRoutes />}>
+            {/* NEWS */}
+            <Route path="/news" element={<News />} />
+            <Route path="/news/article/:id" element={<ArticleDetails />} />
+
             {/* DASHBOARD */}
             <Route path="/" element={<Dashboard />} />
             <Route path="/fixed-income" element={<FixedIncome />} />
 
             {/* ANALYSE */}
             <Route path="/analyse-chartiste" element={<AnalyseChartiste />} />
-            <Route path="/analyse-sectorial" element={<AnalyseSectorial />} />
+            <Route path="/analyse-sectorielle" element={<AnalyseSectorial />} />
+            <Route path="/profile-financier" element={<ProfileFin />} />
 
             {/* CREATION DE PTF */}
             <Route path="/markowitz" element={<Markowitz />} />

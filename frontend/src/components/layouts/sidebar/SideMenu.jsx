@@ -105,7 +105,9 @@ const SideMenu = ({ item, isHovered }) => {
                     {nestedMenu.map((item, index) => {
                       return (
                         <Link
-                          className="nestedmenu-link"
+                          className={`nestedmenu-link ${
+                            path === item.link ? "active" : ""
+                          }`}
                           to={item.link}
                           key={`${item.link}-${index}`}
                           onClick={() => {

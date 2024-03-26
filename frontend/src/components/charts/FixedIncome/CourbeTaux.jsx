@@ -140,7 +140,10 @@ const CourbeTaux = ({ data, title, isPrimaire }) => {
         },
       },
       yAxis: {
-        min: Math.min(...seriesData),
+        min: function (value) {
+          return value.min.toFixed(5);
+        },
+        axisLabel: { formatter: "{value} %" },
       },
       toolbox: {
         top: "5px",

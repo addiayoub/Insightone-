@@ -1,4 +1,4 @@
-import { Balance } from "@mui/icons-material";
+import { Article, Balance, Newspaper } from "@mui/icons-material";
 import {
   BackwardItem,
   Chart,
@@ -64,21 +64,36 @@ export const sidebarData = [
   },
   {
     icon: Activity,
-    title: "Analyse",
+    title: "Analyse Bourse",
     link: null,
     isPrivate: false,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Sectorielle",
-        link: "analyse-sectorial",
+        title: "Profil technique",
+        title: "Analyse Sectorielle",
+        link: "analyse-sectorielle",
         icon: Layers,
       },
       {
-        title: "Chartiste",
-        link: "analyse-chartiste",
-        icon: BarChart2,
+        title: "Titre côté",
+        link: "profile-financier",
+        iconClosed: ChevronDown,
+        iconOpened: ChevronUp,
+        icon: Box,
+        nestedMenu: [
+          {
+            title: "Profile technique",
+            link: "analyse-chartiste",
+            icon: BarChart2,
+          },
+          {
+            title: "Profile financier",
+            link: "profile-financier",
+            icon: BarChart2,
+          },
+        ],
       },
     ],
   },
@@ -218,5 +233,11 @@ export const sidebarData = [
         icon: Compass,
       },
     ],
+  },
+  {
+    title: "News",
+    icon: Article,
+    link: "news",
+    isPrivate: false,
   },
 ];

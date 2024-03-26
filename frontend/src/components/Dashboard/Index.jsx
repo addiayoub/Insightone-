@@ -53,7 +53,7 @@ import {
   SECTEURS,
 } from "./columns.jsx";
 import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
-import { getColumns } from "../PerfGlis/columns.jsx";
+import PerfTable from "../PerfGlis/PerfTable.jsx";
 
 const gridStyle = {
   display: "grid",
@@ -247,32 +247,28 @@ function Index() {
           />
           {dataObject.perfMASI.length > 0 && (
             <>
-              <DataTable
+              <PerfTable
                 title={"Performance MASI"}
-                columns={getColumns(dataObject.perfMASI, true)}
-                rows={dataObject.perfMASI}
-                density="comfortable"
+                data={dataObject.perfMASI}
+                isFirst
               />
-              <DataTable
+              <PerfTable
                 title={"Performance MASI Annualisée"}
-                columns={getColumns(dataObject.perfMASI, false)}
-                rows={dataObject.perfMASI}
-                density="comfortable"
+                data={dataObject.perfMASI}
               />
             </>
           )}
           {dataObject.perfSectoriel.length > 0 && (
             <>
-              <DataTable
-                title={"Performance Sectoriel"}
-                columns={getColumns(dataObject.perfSectoriel, true)}
-                rows={dataObject.perfSectoriel}
+              <PerfTable
+                title={"Performance Sectorielle"}
+                data={dataObject.perfSectoriel}
+                isFirst
                 density="comfortable"
               />
-              <DataTable
-                title={"Performance Sectoriel Annualisée"}
-                columns={getColumns(dataObject.perfSectoriel, false)}
-                rows={dataObject.perfSectoriel}
+              <PerfTable
+                title={"Performance Sectorielle Annualisée"}
+                data={dataObject.perfSectoriel}
                 density="comfortable"
               />
             </>
