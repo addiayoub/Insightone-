@@ -10,5 +10,6 @@ const resetStates = () => {
   store.dispatch(hideChart());
   store.dispatch(resetData());
   store.dispatch(resetSectorialData());
+  localStorage.clear();
 };
 export default resetStates;

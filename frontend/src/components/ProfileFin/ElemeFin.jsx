@@ -7,7 +7,6 @@ import GridContainer, { GridItem } from "../Ui/GridContainer";
 
 const ElemeFin = () => {
   const { data } = useSelector((state) => state.profileFin);
-
   return (
     <>
       {data?.cmptResResu.length > 0 && (
@@ -16,8 +15,7 @@ const ElemeFin = () => {
             <h4>Compte de résultat</h4>
             <Table
               rows={data?.cmptResResu}
-              // columns={resumeCols(data?.cmptResResu)}
-              columns={res}
+              columns={resumeCols(data?.cmptResResu)}
               pageSize={50}
               density={"compact"}
             />

@@ -30,6 +30,12 @@ import { ChartScatterIcon } from "../../../icons/Icons";
 
 export const sidebarData = [
   {
+    title: "News",
+    icon: Article,
+    link: "",
+    isPrivate: false,
+  },
+  {
     icon: BackwardItem,
     title: "Tableau de bord",
     isPrivate: false,
@@ -40,13 +46,13 @@ export const sidebarData = [
     subMenu: [
       {
         title: "Actions",
-        link: "",
+        link: "dashboard-actions",
         icon: Layers,
       },
       {
         title: "Obligataire",
         icon: DollarSign,
-        link: "fixed-income",
+        link: "dashboard-taux",
       },
     ],
   },
@@ -233,11 +239,5 @@ export const sidebarData = [
         icon: Compass,
       },
     ],
-  },
-  {
-    title: "News",
-    icon: Article,
-    link: "news",
-    isPrivate: false,
   },
 ];

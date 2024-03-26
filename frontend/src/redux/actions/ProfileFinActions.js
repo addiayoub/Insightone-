@@ -63,8 +63,7 @@ export const getData = createAsyncThunk(
         bilan: bilan.slice(1),
         dividende,
         bilanRes: transformData(bilanRes),
-        // cmptResResu: transformData(cmptResResu),
-        cmptResResu: cmptResResu,
+        cmptResResu: transformData(cmptResResu),
         fluxRes: transformData(fluxRes),
       };
     } catch (error) {

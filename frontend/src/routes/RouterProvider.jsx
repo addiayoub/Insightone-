@@ -42,12 +42,12 @@ function RouterProvider() {
           </Route>
           <Route element={<UserRoutes />}>
             {/* NEWS */}
-            <Route path="/news" element={<News />} />
+            <Route path="" element={<News />} />
             <Route path="/news/article/:id" element={<ArticleDetails />} />
 
             {/* DASHBOARD */}
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/fixed-income" element={<FixedIncome />} />
+            <Route path="/dashboard-actions" element={<Dashboard />} />
+            <Route path="/dashboard-taux" element={<FixedIncome />} />
 
             {/* ANALYSE */}
             <Route path="/analyse-chartiste" element={<AnalyseChartiste />} />

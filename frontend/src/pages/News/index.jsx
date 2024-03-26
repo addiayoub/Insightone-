@@ -18,6 +18,7 @@ const index = () => {
     <>
       <Filter />
       {loading && <MainLoader />}
+
       {!loading &&
         news.map((item, index) => {
           return (
