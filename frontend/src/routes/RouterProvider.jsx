@@ -38,7 +38,7 @@ function RouterProvider() {
         <ScrollToTop />
         <Routes>
           <Route element={<AuthRoutes />}>
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            {/* <Route path="/profil" element={<Profile />} /> */}
           </Route>
           <Route element={<UserRoutes />}>
             {/* NEWS */}
@@ -52,7 +52,7 @@ function RouterProvider() {
             {/* ANALYSE */}
             <Route path="/analyse-chartiste" element={<AnalyseChartiste />} />
             <Route path="/analyse-sectorielle" element={<AnalyseSectorial />} />
-            <Route path="/profile-financier" element={<ProfileFin />} />
+            <Route path="/profil-financier" element={<ProfileFin />} />
 
             {/* CREATION DE PTF */}
             <Route path="/markowitz" element={<Markowitz />} />

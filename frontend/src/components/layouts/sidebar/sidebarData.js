@@ -84,19 +84,19 @@ export const sidebarData = [
       },
       {
         title: "Titre côté",
-        link: "profile-financier",
+        link: "profil-financier",
         iconClosed: ChevronDown,
         iconOpened: ChevronUp,
         icon: Box,
         nestedMenu: [
           {
-            title: "Profile technique",
+            title: "Profil technique",
             link: "analyse-chartiste",
             icon: BarChart2,
           },
           {
-            title: "Profile financier",
-            link: "profile-financier",
+            title: "Profil financier",
+            link: "profil-financier",
             icon: BarChart2,
           },
         ],
