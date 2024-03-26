@@ -20,6 +20,7 @@ const PortefeuilleActions = ({
       >
         <SavePortefeuille
           data={newRows}
+          dataToSave={newRows}
           field={field}
           type={ptfType}
           oldParams={params}

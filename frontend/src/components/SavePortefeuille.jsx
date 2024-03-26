@@ -50,6 +50,7 @@ const SavePortefeuille = ({
       const fields = extractPtfKeys(data);
       const portefeuilles = [];
       console.log("ALLO", fields, data);
+      console.log("we will save", data);
       fields.forEach((field, index) => {
         const ptf = {
           name: `${title.trim()} ${index + 1}`,
@@ -70,6 +71,7 @@ const SavePortefeuille = ({
         params: oldParams ? oldParams : params,
         data: filterByPtf(data, field, isPtf),
       };
+      console.log("we will save filterByPtf ", portefeuille);
       ptfs.push(portefeuille);
     }
     dispatch(savePortefeuille({ portefeuille: ptfs }))
