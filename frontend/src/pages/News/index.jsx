@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, memo } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../../components/loaders/MainLoader";
 import { useNavigate } from "react-router-dom";
 import ArticleSummary from "./ArticleSummary";
+// import dn from "../../components/Test/news.json";
+
 const index = () => {
   const {
     loading,
@@ -14,8 +16,12 @@ const index = () => {
   const goToArticle = (index) => {
     navigateTo(`/news/article/${index}`);
   };
+  // useEffect(() => {
+  //   const titres = dn.map((item) => item.titres_bvc);
+  //   console.log("titres lib", [...new Set(titres)].sort());
+  // }, []);
   return (
-    <React.Fragment key={Date.now()}>
+    <>
       <Filter />
       {loading && <MainLoader />}
       {!loading &&
@@ -30,8 +36,8 @@ const index = () => {
             </>
           );
         })}
-    </React.Fragment>
+    </>
   );
 };
 
-export default index;
+export default memo(index);

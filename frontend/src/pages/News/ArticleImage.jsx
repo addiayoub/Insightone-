@@ -4,9 +4,10 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 // const basePath = `${window.location.origin}/titres_pics/`;
 const basePath = `/src/assets/images/titres_pics/`;
+const bp = "/src/assets/images/logo_images/";
 
 const getImg = (name) => {
-  const src = `/src/assets/images/titres_pics/${name}.png`;
+  const src = `${basePath}${name}.png`;
   return src;
 };
 

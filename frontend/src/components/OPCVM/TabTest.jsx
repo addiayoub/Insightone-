@@ -46,6 +46,7 @@ const TabTest = ({ components, isOPCVM }) => {
                   data={component.data ?? []}
                   title={component.title}
                   field={component.field}
+                  dataToSave={component.data ?? []}
                 />
               )}
             </TabPanel>

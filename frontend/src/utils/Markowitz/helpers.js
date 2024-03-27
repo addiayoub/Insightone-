@@ -199,37 +199,73 @@ const calculateSumPoids = (data, field) => {
   return parseFloat(sum.toFixed(2));
 };
 
+// REPLACE THE DELETED ROWS WITH => 0
+const dataDiff = (oldData, newData, field) => {
+  const diff = oldData.map((oldRow) => {
+    const matchingNewRow = newData.find((newRow) =>
+      Object.keys(oldRow).every((key) => oldRow[key] === newRow[key])
+    );
+
+    if (matchingNewRow) {
+      return matchingNewRow;
+    } else {
+      // If old row doesn't exist in new data, replace ptf3 with 0
+      return { ...oldRow, [field]: 0 };
+    }
+  });
+  return diff;
+};
+
+function countNonZero(data, prop) {
+  // Filter the data array to include only elements where the specified property value is not equal to 0
+  const filteredData = data.filter((item) => item[prop] !== 0);
+
+  // Return the count of filtered elements
+  return filteredData.length;
+}
+
 const ajuster = (newRows, setNewRows, field, oldRows) => {
   const locked = newRows.filter((item) => item.isLocked);
   const sumLocked = calculateSumPoids(locked, field);
   const oldSum = calculateSumPoids(oldRows, field);
   const newSum = calculateSumPoids(newRows, field);
-  const reliquat = 100 - sumLocked;
+  const oldReliquat = 100 - sumLocked;
+  const reliquat = oldSum - newSum;
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
-
+  const diff = dataDiff(oldRows, newRows, field);
+  const count = countNonZero(diff, field);
   console.log("--------------- AJUSTER FUNC ---------------");
   console.log("sumLocked", sumLocked);
+  console.log("oldReliquat", oldReliquat);
   console.log("reliquat", reliquat);
   console.log("newRows", newRows);
   console.log("oldRows", oldRows);
   console.log("oldSum", oldSum);
   console.log("newSum", newSum);
+  console.log("diff", diff);
+  console.log("count", count);
   setNewRows((prevData) =>
     prevData.map((item) => {
       if (sumLocked === 0) {
+        const reliquat = oldSum - newSum;
+        const diff = dataDiff(oldRows, newRows, field);
+        const count = countNonZero(diff, field);
+        const value = reliquat / count;
         console.log("sumlOCked is zero", sumLocked);
         console.log("unLockedTitres", unLockedTitres);
         if (unLockedTitres.includes(item.titre)) {
           console.log("unLockedTitres.includes", true);
-          let newPoids = 100 / unLockedTitres.length;
+          // let newPoids = 100 / unLockedTitres.length;
+          let newPoids = item[field] > 0 ? item[field] + value : item[field];
           newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
           console.log("newPoids", newPoids);
           return { ...item, [field]: newPoids };
         }
         return { ...item };
       } else {
+        const reliquat = oldSum - sumLocked;
         if (unLockedTitres.includes(item.titre)) {
           if (item[field] == 0) {
             let newPoids = reliquat / unLockedTitres.length;

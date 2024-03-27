@@ -27,7 +27,14 @@ export const handleError = async (error) => {
     response: { status, type },
   } = error;
   const executionTime = (endTime - startTime) / 1000;
-  await apiLogs({ baseURL, method, url, status, executionTime, type });
+  await apiLogs({
+    baseURL,
+    method,
+    url,
+    executionTime,
+    status: status,
+    type: type,
+  });
 };
 
 export const apiLogs = async (logData) => {

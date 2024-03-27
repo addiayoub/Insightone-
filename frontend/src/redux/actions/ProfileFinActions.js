@@ -83,7 +83,8 @@ export const getNews = createAsyncThunk(
       ];
       const response = await getAPI.get(`GETAPI?NEWS&${dateDebut}&${dateFin}`);
       localStorage.setItem("news", JSON.stringify(response.data));
-      console.log("get News data", response.data);
+      const titres = response.data.map((item) => item.titres_bvc);
+      console.log("get News data", response.data, titres);
       return response.data;
     } catch (error) {
       console.log(error);
