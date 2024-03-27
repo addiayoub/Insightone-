@@ -82,7 +82,7 @@ const EditPortefeuille = ({
             variant="contained"
             size="small"
             color="success"
-            onClick={() => ajuster(newRows, setNewRows, field)}
+            onClick={() => ajuster(newRows, setNewRows, field, oldRows)}
             className="flex gap-1 items-center"
           >
             Ajuster <Zap size={18} />

@@ -1,12 +1,12 @@
 import React from "react";
 import Table from "../Table";
 import { useSelector } from "react-redux";
-import { res, resumeCols } from "./columns";
+import { resumeCols } from "./columns";
 import Chart from "../charts/ProfileFin/DataChart";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 
 const ElemeFin = () => {
-  const { data } = useSelector((state) => state.profileFin);
+  const { data } = useSelector((state) => state.profilFin);
   return (
     <>
       {data?.cmptResResu.length > 0 && (

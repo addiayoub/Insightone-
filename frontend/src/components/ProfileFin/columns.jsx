@@ -121,7 +121,7 @@ export const dividendeCols = [
   {
     field: "date_detachement",
     headerName: "Date de détachement",
-    flex: 0.7,
+    flex: 0.5,
     renderCell: ({ row }) => {
       return <span>{moment(row.date_detachement).format("DD/MM/YYYY")}</span>;
     },
@@ -170,21 +170,56 @@ export const res = [
 export const resumeCols = (data) => {
   console.log("resume", data);
   const fields = Object.keys(data[0]);
-  // .filter(item !== "SEANCE")
-  const columns = fields.map((field) => ({
-    field,
-    headerName: field,
-    flex: 0.4,
-    renderCell: ({ row }) => {
-      return (
-        <span className={` ${field === "SEANCE" ? "font-semibold" : ""}`}>
-          {field === "SEANCE"
-            ? moment(row[field]).format("DD/MM/YYYY")
-            : formatNumberWithSpaces(row[field])}
-        </span>
-      );
-    },
+  // .filter((item) => item !== "SEANCE");
+  const headers = data.map((item) => moment(item).format("DD/MM/YYYY"));
+  let coll = headers.map((header, index) => ({
+    headerName: header,
   }));
+  console.log("headers", headers, fields);
+  const cols = fields.map((field, index) => {
+    coll[index] = {
+      ...coll[index],
+      field: field,
+      flex: 0.4,
+      renderCell: ({ row }) => {
+        return (
+          <span
+            className={` ${
+              field === "SEANCE" ? "font-semibold" : ""
+            } w-full max-w-[66px] text-right`}
+          >
+            {field}
+            {/* {field === "SEANCE"
+              ? moment(row[field]).format("DD/MM/YYYY")
+              : formatNumberWithSpaces(row[field])} */}
+          </span>
+        );
+      },
+    };
+    return coll[index];
+  });
+  const columns = fields.map((field, index) => {
+    console.log(`index: ${index} - dd ${data[index] ?? "empty"}`);
+    return {
+      field,
+      headerName: field,
+      // headerAlign: "center",
+      flex: 0.4,
+      renderCell: ({ row }) => {
+        return (
+          <span
+            className={` ${
+              field === "SEANCE" ? "font-semibold" : ""
+            } w-full max-w-[66px] text-right`}
+          >
+            {field === "SEANCE"
+              ? moment(row[field]).format("DD/MM/YYYY")
+              : formatNumberWithSpaces(row[field])}
+          </span>
+        );
+      },
+    };
+  });
   console.log("columns", columns);
   return columns;
 };

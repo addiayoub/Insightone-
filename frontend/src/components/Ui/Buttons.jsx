@@ -63,6 +63,7 @@ const CustomButton = ({
   className,
   text,
   icon,
+  isBefore,
   ...rest
 }) => {
   return (
@@ -71,8 +72,9 @@ const CustomButton = ({
       {...rest}
       className={`flex gap-1 items-center ${className}`}
     >
+      {isBefore && icon}
       {text}
-      {icon}
+      {!isBefore && icon}
     </Button>
   );
 };

@@ -3,11 +3,12 @@ import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../loaders/MainLoader";
 import Table from "../Table";
-import { bilanCols, dividendeCols, resumeCols } from "./columns";
+import { bilanCols } from "./columns";
 import Choice from "../portefeuilles/Choice";
 import ElemeFin from "./ElemeFin";
+import Dividende from "./Dividende";
 const ProfileFin = () => {
-  const { data, loading } = useSelector((state) => state.profileFin);
+  const { data, loading } = useSelector((state) => state.profilFin);
   const [isShow, setIsShow] = useState(false);
   const show = !loading && !Array.isArray(data) && isShow;
   console.log("data?.cmptResResu", data?.cmptResResu);
@@ -41,12 +42,9 @@ const ProfileFin = () => {
       },
       {
         label: "Dividende",
-        component: Table,
+        component: Dividende,
         props: {
-          rows: data?.dividende,
-          columns: dividendeCols,
-          pageSize: 50,
-          density: "compact",
+          data: data?.dividende,
         },
       },
     ];

@@ -199,22 +199,33 @@ const calculateSumPoids = (data, field) => {
   return parseFloat(sum.toFixed(2));
 };
 
-const ajuster = (newRows, setNewRows, field) => {
+const ajuster = (newRows, setNewRows, field, oldRows) => {
   const locked = newRows.filter((item) => item.isLocked);
   const sumLocked = calculateSumPoids(locked, field);
-  console.log("sumLocked", sumLocked);
+  const oldSum = calculateSumPoids(oldRows, field);
+  const newSum = calculateSumPoids(newRows, field);
   const reliquat = 100 - sumLocked;
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
 
+  console.log("--------------- AJUSTER FUNC ---------------");
+  console.log("sumLocked", sumLocked);
+  console.log("reliquat", reliquat);
+  console.log("newRows", newRows);
+  console.log("oldRows", oldRows);
+  console.log("oldSum", oldSum);
+  console.log("newSum", newSum);
   setNewRows((prevData) =>
     prevData.map((item) => {
       if (sumLocked === 0) {
-        console.log("sumlOCked is", sumLocked);
+        console.log("sumlOCked is zero", sumLocked);
+        console.log("unLockedTitres", unLockedTitres);
         if (unLockedTitres.includes(item.titre)) {
+          console.log("unLockedTitres.includes", true);
           let newPoids = 100 / unLockedTitres.length;
           newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
+          console.log("newPoids", newPoids);
           return { ...item, [field]: newPoids };
         }
         return { ...item };

@@ -1,4 +1,6 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 // const basePath = `${window.location.origin}/titres_pics/`;
 const basePath = `/src/assets/images/titres_pics/`;
@@ -35,5 +37,19 @@ const ArticleImage = ({ name, className }) => {
     />
   );
 };
+
+// <LazyLoadImage
+//   alt={name}
+//   src={`${getImg(name)}`} // use normal <img> attributes as props
+//   // width={"100%"}
+//   height={"100%"}
+//   effect="blur"
+//   onError={(ev) => {
+//     ev.currentTarget.onerror = null;
+//     ev.target.src = `${basePath}${getRandPic()}`;
+//   }}
+//   className={`w-full h-full bg-error ${className}`}
+//   style={{ border: "1px solid", width: "100%" }}
+// />;
 
 export default ArticleImage;

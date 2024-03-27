@@ -27,7 +27,7 @@ export const store = configureStore({
     rapport: rapportReducer,
     theme: themeReducer,
     analyseChartiste: AnalyseChartisteReducer,
-    profileFin: ProfileFinReducer,
+    profilFin: ProfileFinReducer,
     stock: StockReducer,
     analyseSectorial: AnalyseSectorialReducer,
     opcvm: OpcvmReducer,

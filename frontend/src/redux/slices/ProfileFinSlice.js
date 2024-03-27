@@ -14,7 +14,7 @@ const initialState = {
   loading: false,
 };
 const ProfileFinSlice = createSlice({
-  name: "profileFin",
+  name: "profilFin",
   initialState,
   extraReducers: (builder) => {
     //
