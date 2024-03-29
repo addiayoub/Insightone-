@@ -28,6 +28,7 @@ import MeanRisk from "../components/BlackLitterman/MeanRiskOpti/Index.jsx";
 import Consultation from "../components/Consultation/";
 import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
 import Ptfs from "../components/Consultation/Ptfs.jsx";
+import AnalyseMBI from "../components/AnalyseMBI/index.jsx";
 import News from "../pages/News/";
 import ArticleDetails from "../pages/News/ArticleDetails.jsx";
 
@@ -43,6 +44,7 @@ function RouterProvider() {
           <Route element={<UserRoutes />}>
             {/* NEWS */}
             <Route path="" element={<News />} />
+            <Route path="/analyse-mbi" element={<AnalyseMBI />} />
             <Route path="/news/article/:id" element={<ArticleDetails />} />
 
             {/* DASHBOARD */}

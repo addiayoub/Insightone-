@@ -48,6 +48,7 @@
     "react-router-dom": "^6.16.0",
     "swiper": "^11.0.7",
     "uuid": "^9.0.1",
+    "vite-plugin-require": "^1.1.14",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

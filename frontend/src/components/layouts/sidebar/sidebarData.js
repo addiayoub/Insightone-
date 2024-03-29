@@ -240,4 +240,9 @@ export const sidebarData = [
       },
     ],
   },
+  {
+    title: "Analyse MBI",
+    link: "analyse-mbi",
+    icon: Activity,
+  },
 ];

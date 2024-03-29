@@ -1,11 +1,11 @@
 import React, { memo } from "react";
 import ArticleImage from "./ArticleImage";
 import moment from "moment";
+import { getImageURL } from "../../utils/image-util";
 
 const images = [];
 
 const ArticleSummary = (props) => {
-  console.log("imagesicv", images);
   const { Titre, descrip, onClick, Date, titres_bvc, sources } = props;
   return (
     <div className="float-left mb-8 w-full sm:flex items-center">
@@ -21,6 +21,7 @@ const ArticleSummary = (props) => {
       <div className="float-left mt-8 w-full pl-0 leading-8 sm:mt-0 sm:w-1/2 sm:flex-1 sm:pl-4 md:block md:w-auto">
         <div>
           <span>{titres_bvc}</span>
+          {/* <span>URL{getImageURL(titres_bvc)}</span> */}
           <h3 className="cursor-pointer hover:underline" onClick={onClick}>
             {Titre}
           </h3>

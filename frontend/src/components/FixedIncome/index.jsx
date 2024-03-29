@@ -53,7 +53,7 @@ const Index = () => {
   const [show, setShow] = useState(false);
   const { data } = useSelector((state) => state.fixedIncome);
   const sliderData = [...data.perfMBI, ...data.perfNominal];
-  console.log("sliderdata", data.perfMBI);
+  console.log("sliderdata", data.perfMBI, show);
   return (
     <>
       <Filter {...{ setShow }} />
@@ -64,12 +64,12 @@ const Index = () => {
               <SliderItem
                 key={item.INDICE}
                 name={item.INDICE}
+                left={item.perf_1S * 100}
                 leftPrefix={"1S: "}
-                left={item.perf_1AN * 100}
+                middle={item.perf_1AN * 100}
                 middlePrefix={"1AN: "}
-                middle={item.perf_1S * 100}
-                rightPrefix={"YTD: "}
                 right={item.perf_YTD * 100}
+                rightPrefix={"YTD: "}
               />
             );
           })}

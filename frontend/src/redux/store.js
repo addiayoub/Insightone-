@@ -16,6 +16,7 @@ import compOPCVMReducer from "./slices/CompOpcvmSlice";
 import fixedIncomeReducer from "./slices/FixedIncomeSlice";
 import BlackLittermanReducer from "./slices/BlackLittermanSlice";
 import ProfileFinReducer from "./slices/ProfileFinSlice";
+import AnalyseMBIReducer from "./slices/AnalyseMBISlice";
 import AdminReducer from "./slices/AdminSlice";
 
 export const store = configureStore({
@@ -37,6 +38,7 @@ export const store = configureStore({
     fixedIncome: fixedIncomeReducer,
     blackLitterman: BlackLittermanReducer,
     compOpcvm: compOPCVMReducer,
+    analyseMBI: AnalyseMBIReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

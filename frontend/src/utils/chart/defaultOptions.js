@@ -115,3 +115,42 @@ export const defaultOptions = {
     },
   },
 };
+
+export const defaultPie = {
+  name: "",
+  type: "pie",
+  radius: ["30%", "70%"],
+  // radius: "50%",
+  avoidLabelOverlap: false,
+  label: {
+    // alignTo: "edge",
+    show: true,
+    formatter: function (params) {
+      let name = params.name;
+      const { value } = params;
+      if (name.length > 5) {
+        const newName = name.split(" ");
+
+        name = newName.join(" \n");
+      }
+      return `${name}:${value.toFixed(2)}%`;
+    },
+    fontSize: 9,
+    minMargin: 6,
+    edgeDistance: 10,
+    lineHeight: 15,
+    rotate: -2,
+  },
+  labelLine: {
+    length: 10,
+    length2: 0,
+    maxSurfaceAngle: 500,
+  },
+  emphasis: {
+    itemStyle: {
+      shadowBlur: 10,
+      shadowOffsetX: 0,
+      shadowColor: "rgba(0, 0, 0, 0.5)",
+    },
+  },
+};

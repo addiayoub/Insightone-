@@ -8,7 +8,7 @@ import SingleSelect from "./SingleSelect";
 import { notyf } from "../utils/notyf";
 
 // const choice = "OPCVM";
-
+// Actions - OPCVM - Indices
 const TitresComponent = ({
   selectedTitres,
   setSelectedTitres,

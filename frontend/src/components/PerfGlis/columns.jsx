@@ -1,3 +1,4 @@
+import moment from "moment";
 import TextColor from "../Dashboard/TextColor";
 
 const obb = {
@@ -201,6 +202,9 @@ export const getColumns = (data, isFirst) => {
     {
       field: "Seance",
       headerName: "Séance",
+      renderCell: ({ row }) => (
+        <span>{moment(row.Seance).format("DD/MM/YYYY")}</span>
+      ),
       flex: 0.4,
     },
     {

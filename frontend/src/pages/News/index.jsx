@@ -31,7 +31,7 @@ const index = () => {
               <ArticleSummary
                 {...item}
                 onClick={() => goToArticle(index + 1)}
-                key={`${item.Titre}-${index}`}
+                // key={`${item.Titre}-${index}`}
               />
             </>
           );
