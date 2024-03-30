@@ -53,14 +53,13 @@ const index = () => {
               <span>{filtered.length}</span>/<span>{news.length}</span>
             </div>
           </Box>
-          {filtered?.map((item, index) => {
+          {filtered?.map((item) => {
             return (
-              <>
-                <ArticleSummary
-                  {...item}
-                  onClick={() => goToArticle(index + 1)}
-                />
-              </>
+              <ArticleSummary
+                {...item}
+                key={item.id}
+                onClick={() => goToArticle(item.id)}
+              />
             );
           })}
         </Box>

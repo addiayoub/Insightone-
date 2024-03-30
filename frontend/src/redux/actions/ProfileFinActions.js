@@ -83,8 +83,9 @@ export const getNews = createAsyncThunk(
         formatDate(dateFin["$d"]),
       ];
       const response = await getAPI.get(`GETAPI?NEWS&${dateDebut}&${dateFin}`);
-      const news = response.data?.map((item) => ({
+      const news = response.data?.map((item, index) => ({
         ...item,
+        id: index + 1,
         image: getRandPic(item.titres_bvc),
       }));
       localStorage.setItem("news", JSON.stringify(news));

@@ -5,7 +5,8 @@ import moment from "moment";
 const images = [];
 
 const ArticleSummary = (props) => {
-  const { image, Titre, descrip, onClick, Date, titres_bvc, sources } = props;
+  const { id, image, Titre, descrip, onClick, Date, titres_bvc, sources } =
+    props;
   return (
     <div className="float-left mb-8 w-full sm:flex items-center">
       <div className="float-left w-full pr-0 sm:w-1/2 sm:pr-4 md:w-auto">

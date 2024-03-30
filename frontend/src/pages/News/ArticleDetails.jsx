@@ -12,9 +12,9 @@ const ArticleDetails = () => {
     data: { news },
   } = useSelector((state) => state.profilFin);
   const { id } = useParams();
-  const article = news[id - 1];
+  const article = news.find((item) => item.id == id);
   const navigateTo = useNavigate();
-  console.log("index is", id, news[id], news);
+  console.log("index is", id, article, news[id], news);
   useEffect(() => {
     if (!article) {
       console.log("article not found");
@@ -22,7 +22,7 @@ const ArticleDetails = () => {
     }
   }, [article]);
   if (!article) {
-    return <h1>No article</h1>;
+    return <h1>No article {id}</h1>;
   }
   return (
     <>
