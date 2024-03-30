@@ -1,6 +1,6 @@
 import React from "react";
 
-const basePath = `/src/assets/images/pics/`;
+const basePath = `/src/assets/images/titres_logo/`;
 
 const ArticleImage = ({ name, className }) => {
   return (
