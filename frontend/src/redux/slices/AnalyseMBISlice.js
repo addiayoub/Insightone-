@@ -9,6 +9,7 @@ const initialState = {
     cumulCABenchRes: [],
     perfGlisNomi: [],
     cumulStatproBench: [],
+    stateProRes: [],
     perfGlisMBI: [],
     evolMBI: [],
     evolNomi: [],
@@ -45,6 +46,7 @@ const AnalyseMBISlice = createSlice({
         MBIFields,
         cumulAXABenchRes,
         cumulCABenchRes,
+        stateProRes,
       } = payload;
       state.loading = false;
       state.data = {
@@ -62,6 +64,7 @@ const AnalyseMBISlice = createSlice({
         MBIFields,
         cumulAXABenchRes,
         cumulCABenchRes,
+        stateProRes,
       };
     });
     builder.addCase(getData.rejected, (state, payload) => {

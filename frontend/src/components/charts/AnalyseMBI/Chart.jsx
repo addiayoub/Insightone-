@@ -39,7 +39,7 @@ const Chart = ({ data }) => {
           formatter: (value) => value + "%",
         },
         min: function (value) {
-          return value.min.toFixed(2) - 10;
+          return value.min.toFixed(2);
         },
       },
       // series: {

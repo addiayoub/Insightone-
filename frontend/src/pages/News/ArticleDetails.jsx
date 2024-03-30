@@ -52,7 +52,7 @@ const ArticleDetails = () => {
           </div>
         </div>
         <div className="mb-6 mt-8 relative h-[294px] w-full overflow-hidden sm:h-[420px] xl:h-[441px]">
-          <ArticleImage name={article.titres_bvc} className="object-fit" />
+          <ArticleImage name={article.image} className="object-fit" />
           <div className="absolute bottom-0 w-full bg-gray-500/50 px-3.5 py-3">
             <p className="text-xs text-gray-200"></p>
           </div>

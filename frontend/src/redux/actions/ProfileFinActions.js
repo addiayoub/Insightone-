@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import getAPI from "../../api/getAPI";
 import { formatDate } from "../../utils/FormatDate";
+import { getRandPic } from "../../utils/newsHelpers";
 
 export const getData = createAsyncThunk(
   "profileFinacier/getData",
@@ -82,10 +83,14 @@ export const getNews = createAsyncThunk(
         formatDate(dateFin["$d"]),
       ];
       const response = await getAPI.get(`GETAPI?NEWS&${dateDebut}&${dateFin}`);
-      localStorage.setItem("news", JSON.stringify(response.data));
-      const titres = response.data.map((item) => item.titres_bvc);
-      console.log("get News data", response.data, titres);
-      return response.data;
+      const news = response.data?.map((item) => ({
+        ...item,
+        image: getRandPic(item.titres_bvc),
+      }));
+      localStorage.setItem("news", JSON.stringify(news));
+      const titres = news.map((item) => item.titres_bvc);
+      console.log("get News data", news, titres);
+      return news;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue("Server Error");

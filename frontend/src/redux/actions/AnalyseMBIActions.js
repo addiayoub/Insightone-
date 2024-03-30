@@ -136,6 +136,30 @@ export const getData = createAsyncThunk(
       ];
       cumulCABenchRes[0]["Perf indice"] = getPerIndice(cumulCABenchRes[0]);
       console.log("cumulAXABenchRes", cumulAXABenchRes);
+
+      const stateProRes = [
+        {
+          "Effet taux act period": calcResume(
+            cumulStatproBench,
+            "effet_Taux_act_period"
+          ),
+          "Effet courbe period": calcResume(
+            cumulStatproBench,
+            "effet_Courbe_period"
+          ),
+          "Effet spread period": calcResume(
+            cumulStatproBench,
+            "effet_Spread_period"
+          ),
+          "Effet convexite period": calcResume(
+            cumulStatproBench,
+            "effet_Convexite_period"
+          ),
+          Residu: calcResume(cumulStatproBench, "Residu_Titre_period"),
+        },
+      ];
+      stateProRes[0]["Perf indice"] = getPerIndice(cumulStatproBench[0]);
+
       // COMPOSITION FINAL MBI
       const sumTotVal = calcResume(compFinMBI, "TOTAL_VALO");
       console.log("sum tot", sumTotVal);
@@ -155,9 +179,10 @@ export const getData = createAsyncThunk(
         cumulAXABenchRes,
         cumulCABench,
         cumulCABenchRes,
-        perfGlisNomi,
+        perfGlisNomi: getLastPerfGli(perfGlisNomi),
         cumulStatproBench,
-        perfGlisMBI,
+        stateProRes,
+        perfGlisMBI: getLastPerfGli(perfGlisMBI),
         evolMBI,
         evolNomi,
         evolMBIB100,
@@ -208,4 +233,19 @@ function getPerIndice(obj) {
   }
 
   return parseFloat(sum.toFixed(2));
+}
+
+function getLastPerfGli(data) {
+  if (data?.length > 0) {
+    data.sort((a, b) => {
+      // Convert the date strings to Date objects for comparison
+      const dateA = new Date(a.Seance);
+      const dateB = new Date(b.Seance);
+
+      // Compare the dates in descending order
+      return dateB - dateA;
+    });
+    return [data[0]];
+  }
+  return data;
 }

@@ -1,12 +1,11 @@
 import React, { memo } from "react";
 import ArticleImage from "./ArticleImage";
 import moment from "moment";
-import { getImageURL } from "../../utils/image-util";
 
 const images = [];
 
 const ArticleSummary = (props) => {
-  const { Titre, descrip, onClick, Date, titres_bvc, sources } = props;
+  const { image, Titre, descrip, onClick, Date, titres_bvc, sources } = props;
   return (
     <div className="float-left mb-8 w-full sm:flex items-center">
       <div className="float-left w-full pr-0 sm:w-1/2 sm:pr-4 md:w-auto">
@@ -14,14 +13,12 @@ const ArticleSummary = (props) => {
           className="flex w-full items-center overflow-hidden md:h-[214px] md:w-[340px] cursor-pointer"
           onClick={onClick}
         >
-          {/* <ArticleImage name={"ATLANTASANAD"} /> */}
-          <ArticleImage name={titres_bvc} />
+          <ArticleImage name={image} />
         </div>
       </div>
       <div className="float-left mt-8 w-full pl-0 leading-8 sm:mt-0 sm:w-1/2 sm:flex-1 sm:pl-4 md:block md:w-auto">
         <div>
-          <span>{titres_bvc}</span>
-          {/* <span>URL{getImageURL(titres_bvc)}</span> */}
+          {/* <span>{titres_bvc}</span> */}
           <h3 className="cursor-pointer hover:underline" onClick={onClick}>
             {Titre}
           </h3>

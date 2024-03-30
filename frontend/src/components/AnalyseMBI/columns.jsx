@@ -171,22 +171,8 @@ const caBenchCols = [
     headerName: "Nom bench",
   },
   {
-    field: "date_debut",
-    headerName: "Date début",
-    isDate: true,
-  },
-  {
-    field: "date_final",
-    headerName: "Date final",
-    isDate: true,
-  },
-  {
-    field: "code_benchmark",
-    headerName: "code",
-  },
-  {
     field: "Maturite_end",
-    headerName: "Maturite end",
+    headerName: "Maturite (Année)",
     isNum: true,
   },
   {
@@ -202,91 +188,109 @@ const caBenchCols = [
     field: "Wbi",
     headerName: "Wbi",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_coupon",
     headerName: "effet coupon",
+    isPerce: true,
     isNum: true,
   },
   {
     field: "effet_amortissement",
     headerName: "effet amortissement",
+    isPerce: true,
     isNum: true,
   },
   {
     field: "effet_niveau",
     headerName: "effet niveau",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_courbe",
     headerName: "effet courbe",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_spread",
     headerName: "effet spread",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Residu_Titre",
     headerName: "Residu Titre",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "contrib_Residu_Period",
     headerName: "contrib Residu Period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "perf_indice_cumul",
     headerName: "perf indice cumul",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Produit_perf",
     headerName: "Produit perf",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_coupon_period",
     headerName: "effet coupon period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_amortissement_period",
     headerName: "effet amortissement period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_niveau_period",
     headerName: "effet niveau period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_courbe_period",
     headerName: "effet courbe period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_spread_period",
     headerName: "effet spread period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Residu_Titre_per",
     headerName: "Residu Titre per",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Diff_Perf",
     headerName: "Diff Perf",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Residu_Titre_period",
     headerName: "Residu Titre period",
     isNum: true,
+    isPerce: true,
   },
 ];
 
@@ -326,22 +330,8 @@ const statproBenchCols = [
     headerName: "Nom bench",
   },
   {
-    field: "date_debut",
-    headerName: "Date début",
-    isDate: true,
-  },
-  {
-    field: "date_final",
-    headerName: "Date final",
-    isDate: true,
-  },
-  {
-    field: "code_benchmark",
-    headerName: "code",
-  },
-  {
     field: "Maturite_end",
-    headerName: "Maturite end",
+    headerName: "Maturite (Année)",
     isNum: true,
   },
   {
@@ -357,40 +347,68 @@ const statproBenchCols = [
     field: "Wbi",
     headerName: "Wbi",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_Taux_act_period",
     headerName: "effet Taux act period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_Courbe_period",
     headerName: "effet courbe period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_Spread_period",
     headerName: "effet spread period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "effet_Convexite_period",
     headerName: "effet Convexite period",
     isNum: true,
+    isPerce: true,
   },
   {
     field: "Residu_Titre_period",
     headerName: "Residu Titre period",
     isNum: true,
-  },
-  {
-    field: "perf_indice_cumul",
-    headerName: "perf indice cumul",
-    isNum: true,
+    isPerce: true,
   },
 ];
 
 export const statPro = createColumns(statproBenchCols);
+
+const statProFields = [
+  "Effet taux act period",
+  "Effet courbe period",
+  "Effet spread period",
+  "Effet convexite period",
+  "Residu",
+  "Perf indice",
+];
+
+export const statProRes = [
+  ...statProFields.map((field) => ({
+    field,
+    flex: 0.3,
+    renderCell: ({ row }) => <span>{row[field]}%</span>,
+  })),
+  // {
+  //   field: "Perf indice",
+  //   flex: 0.3,
+  //   renderCell: ({ row }) => {
+  //     const values = caFields.map((field) => row[field]);
+  //     const value = values.reduce((sum, currentValue) => sum + currentValue, 0);
+  //     console.log("Value", values, row, "value is", value);
+  //     return <span>{value.toFixed(2)}%</span>;
+  //   },
+  // },
+];
 const a = {
   SEANCE_AVANT: "2024-02-24T00:00:00.000+00:00",
   VARIATION: 0.00008540516588229075,
@@ -465,8 +483,8 @@ const mbiFieldsCols = [
   { field: "INDICE", headerName: "Indice" },
   { field: "DURATION", headerName: " DURATION", isNum: true },
   { field: "MOY_DURATION", headerName: "MOY DURATION", isNum: true },
-  { field: "YTM", headerName: "YTM", isNum: true },
-  { field: "COUPON", headerName: "COUPON", isNum: true },
+  { field: "YTM", headerName: "YTM", isNum: true, isPerce: true },
+  { field: "COUPON", headerName: "COUPON", isNum: true, isPerce: true },
 ];
 export const mbiFields = createColumns(mbiFieldsCols);
 
@@ -504,15 +522,19 @@ export const compFinMBI = createColumns(compFinMBICols);
 function createColumns(cols) {
   return cols.map((col) => {
     const flex = col?.flex ? { flex: col?.flex } : {};
+    const withPerce = col?.isPerce;
     const def = {
       field: col.field,
-      headerName: col.headerName,
+      headerName: `${col.headerName}`,
       width: 200,
       renderCell: ({ row }) => {
         let value = row[col.field];
         if (col?.isDate) {
           value = moment(value).format("DD/MM/YYYY");
-        } else if (col?.isNum) value = parseFloat(value?.toFixed(2));
+        } else if (col?.isNum) {
+          value = withPerce ? value * 100 : value;
+          value = parseFloat(value?.toFixed(2));
+        }
         return <span>{value}</span>;
       },
     };

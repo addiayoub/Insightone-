@@ -12,8 +12,8 @@ const getSeries = (data) => {
 
 const getFacialData = (data) => {
   const facialRef = [1, 2, 3, 4, 5, 6];
-  const facial = data.map((item) => item["TAUX_FACIAL"]);
-  const poids = data.map((item) => item["poids"] / 100);
+  const facial = data.map((item) => Math.trunc(item["TAUX_FACIAL"]));
+  const poids = data.map((item) => item["poids"]);
   return facialRef
     .map((item) => ({
       name: item,
@@ -25,7 +25,7 @@ const getFacialData = (data) => {
 const getDateJouiData = (data) => {
   const years = data.map((item) => moment(item.DATE_JOUISSANCE).year());
   const yearsCre = [...new Set(years)];
-  const poids = data.map((item) => item["poids"] / 100);
+  const poids = data.map((item) => item["poids"]);
   return yearsCre
     .map((item) => ({
       name: item,
