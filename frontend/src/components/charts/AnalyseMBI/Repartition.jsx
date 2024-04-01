@@ -12,7 +12,7 @@ const getSeries = (data) => {
 
 const getFacialData = (data) => {
   const facialRef = [1, 2, 3, 4, 5, 6];
-  const facial = data.map((item) => Math.trunc(item["TAUX_FACIAL"]));
+  const facial = data.map((item) => Math.trunc(item["TAUX_FACIAL"] * 100));
   const poids = data.map((item) => item["poids"]);
   return facialRef
     .map((item) => ({

@@ -14,6 +14,9 @@ const TitresComponent = ({
   setSelectedTitres,
   choice,
   isMultipl,
+  filterField,
+  isIn = true,
+  filterValues,
 }) => {
   const [titres, setTitres] = useState({
     Actions: [],
@@ -23,7 +26,7 @@ const TitresComponent = ({
   const [selectedClasses, setSelectedClasses] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const selects = useMemo(
-    () => generateSelects(titres, choice),
+    () => generateSelects(titres, choice, filterField, isIn, filterValues),
     [choice, titres]
   );
   const filteredSelects = useMemo(
@@ -33,8 +36,7 @@ const TitresComponent = ({
         choice,
         selects,
         selectedClasses,
-        selectedCategories,
-        []
+        selectedCategories
       ),
     [titres, selects, selectedClasses, selectedCategories]
   );

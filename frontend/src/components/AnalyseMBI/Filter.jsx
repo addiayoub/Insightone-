@@ -32,6 +32,8 @@ const Filter = () => {
         choice="Indices"
         setSelectedTitres={setBencn}
         selectedTitres={bench}
+        filterField="categorie"
+        filterValues={["MBI"]}
       />
       <SearchButton onClick={handleSearch} className="w-full max-w-fit" />
     </AccordionBox>

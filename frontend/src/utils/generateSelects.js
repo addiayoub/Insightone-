@@ -1,6 +1,17 @@
-const generateSelects = (titres, choice) => {
+const filter = (data, field, isIn = true, values = []) => {
+  if (field && data.length > 0) {
+    if (isIn) {
+      return data.filter((item) => item[field].includes(values));
+    }
+    return data.filter((item) => !item[field].includes(values));
+  }
+  return data;
+};
+
+const generateSelects = (titres, choice, filterField, isIn, filterValues) => {
   const selects = [];
   console.log("titres", titres);
+  titres[choice] = filter(titres[choice], filterField, isIn, filterValues);
   switch (choice) {
     case "OPCVM":
       selects.push({
@@ -60,6 +71,7 @@ const generateSelects = (titres, choice) => {
   }
   return selects;
 };
+
 function getLabels(choice) {
   switch (choice) {
     case "OPCVM":
@@ -95,11 +107,19 @@ const filterSelects = (
   selects,
   classes,
   categories,
-  excludeTitres
+  excludeTitres = []
 ) => {
   const labels = getLabels(choice);
   data = data[choice];
+  data = data.filter((item) => item.categorie === "MBI");
   const select = selects[0];
+  console.log("labels", labels);
+  console.log("data", data);
+  console.log("select", select);
+  console.log(
+    "dd",
+    data.filter((item) => item.categorie === "MBI")
+  );
   let filteredCate = select.categories.data;
   let filteredTitres = select.titres.data;
   const CLASSES = { label: labels.classes, data: select.classes.data };
