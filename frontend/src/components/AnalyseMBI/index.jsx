@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Filter from "./Filter";
 import MainLoader from "../loaders/MainLoader";
@@ -23,15 +23,17 @@ import Evol from "../charts/AnalyseMBI/Evol";
 import Repartition from "../charts/AnalyseMBI/Repartition";
 import PerfTable from "../PerfGlis/PerfTable";
 import AccordionBox from "../AccordionBox";
+import PerfGlis from "../charts/AnalyseMBI/PerfGlis";
 
 const index = () => {
   const { data, loading } = useSelector((state) => state.analyseMBI);
-  const show = !loading;
+  const [isShow, setIsShow] = useState(false);
+  const show = isShow && !loading;
   console.log("analyse MBI ", data);
   return (
     <div>
       {loading && <MainLoader />}
-      <Filter />
+      <Filter setIsShow={setIsShow} />
       {show && data.MBIFields.length > 0 && (
         <Box>
           {/* <Box>
@@ -89,6 +91,7 @@ const index = () => {
       )}
       {show && data.perfGlisMBI.length > 0 && (
         <>
+          {/* <PerfGlis data={data.perfGlisMBI[0]} /> */}
           <PerfTable data={data.perfGlisMBI} isFirst title="Performance MBI" />
           <PerfTable
             data={data.perfGlisMBI}

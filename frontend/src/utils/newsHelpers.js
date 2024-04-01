@@ -313,7 +313,7 @@ const getPicsCount = (name) => {
   }
   return {
     folderName: "DEFAULT",
-    count: 5,
+    count: 24,
   };
 };
 

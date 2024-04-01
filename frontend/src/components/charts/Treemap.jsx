@@ -1,20 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 
-const upColor = "#ec0000";
-const downColor = "#00da3c";
-
-const defineColor = (value) => {
-  let color = "#aaa";
-  if (value < 0) {
-    color = downColor;
-  }
-  if (value > 0) {
-    color = upColor;
-  }
-  return color;
-};
-
 const transformDataForTreeMap = (data) => {
   const treemapData = [];
   data.forEach((item) => {

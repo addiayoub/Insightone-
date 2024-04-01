@@ -70,21 +70,34 @@ export const sidebarData = [
   },
   {
     icon: Activity,
-    title: "Analyse Bourse",
+    title: "Analyse Quantitative",
     link: null,
     isPrivate: false,
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
       {
-        title: "Profil technique",
         title: "Analyse Sectorielle",
         link: "analyse-sectorielle",
         icon: Layers,
+        iconClosed: ChevronDown,
+        iconOpened: ChevronUp,
+        nestedMenu: [
+          {
+            title: "Indices sectoriels BVC",
+            link: "analyse-sectorielle",
+            icon: BarChart2,
+          },
+          {
+            title: "Indices MBI",
+            link: "analyse-mbi",
+            icon: BarChart2,
+          },
+        ],
       },
       {
         title: "Titre côté",
-        link: "profil-financier",
+        link: null,
         iconClosed: ChevronDown,
         iconOpened: ChevronUp,
         icon: Box,
@@ -98,6 +111,32 @@ export const sidebarData = [
             title: "Profil financier",
             link: "profil-financier",
             icon: BarChart2,
+          },
+        ],
+      },
+      {
+        title: "OPCVM",
+        // icon: Briefcase,
+        icon: Wallet,
+        link: null,
+        isPrivate: false,
+        iconClosed: ChevronDown,
+        iconOpened: ChevronUp,
+        nestedMenu: [
+          {
+            title: "Composition OPCVM",
+            link: "composition-opcvm",
+            icon: Compass,
+          },
+          {
+            title: "Analyse quantitative",
+            link: "analyse-quantitative",
+            icon: Globe,
+          },
+          {
+            title: "Tracking des fonds",
+            link: "tracking",
+            icon: Compass,
           },
         ],
       },
@@ -158,37 +197,6 @@ export const sidebarData = [
       },
     ],
   },
-
-  // {
-  //   icon: Dribbble,
-  //   title: "Markowitz",
-  //   link: "markowitz",
-  //   isPrivate: false,
-  // },
-  // {
-  //   icon: Activity,
-  //   title: "Analyses",
-  //   link: "analyses",
-  //   isPrivate: false,
-  // },
-  // {
-  //   icon: Box,
-  //   title: "OPCVM",
-  //   link: "opcvm",
-  //   isPrivate: false,
-  // },
-  // {
-  //   icon: BarChart2,
-  //   title: "Backtest",
-  //   link: "backtest",
-  //   isPrivate: false,
-  // },
-  // {
-  //   icon: Folder,
-  //   title: "Consultation",
-  //   link: "portefeuilles",
-  //   isPrivate: false,
-  // },
   {
     title: "Simulation",
     icon: Folder,
@@ -211,32 +219,6 @@ export const sidebarData = [
         title: "Backtest",
         link: "portefeuilles",
         icon: Pocket,
-      },
-    ],
-  },
-  {
-    title: "Analyse OPCVM",
-    // icon: Briefcase,
-    icon: Wallet,
-    link: null,
-    isPrivate: false,
-    iconClosed: ChevronDown,
-    iconOpened: ChevronUp,
-    subMenu: [
-      {
-        title: "Analyse quantitative",
-        link: "analyse-quantitative",
-        icon: Globe,
-      },
-      {
-        title: "Tracking des fonds",
-        link: "tracking",
-        icon: Compass,
-      },
-      {
-        title: "Composition OPCVM",
-        link: "composition-opcvm",
-        icon: Compass,
       },
     ],
   },

@@ -1,21 +1,7 @@
 import React, { memo, useMemo } from "react";
 import BarChart from "../Default/BarChart";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
-
-const obj = {
-  taux_13S: 0.0298,
-  Taux_5A: 0.035360692102928123,
-  taux_26S: 0.029939285714285713,
-  Taux_25A: 0.0486351842503786,
-  Taux_15A: 0.04216059654631083,
-  Taux_2A: 0.03267582417582418,
-  taux_52S: 0.030903448607710344,
-  Taux_1A: 0.031376675712846025,
-  Taux_30A: 0.05158480565371025,
-  date_complete: "2023-12-29",
-  Taux_20A: 0.045683947501261986,
-  Taux_10A: 0.038659974259974264,
-};
+import { downColor, upColor } from "../../../utils/generateRandomColorsArray";
 
 const seriesNamesRef = {
   taux_13S: {
@@ -63,7 +49,7 @@ const seriesNamesRef = {
     order: 11,
   },
 };
-const seriesNames = [
+const basedSeriesNames = [
   "taux_13S",
   "taux_26S",
   "taux_52S",
@@ -76,14 +62,43 @@ const seriesNames = [
   "Taux_25A",
   "Taux_30A",
 ];
-const TauxSec = ({ data }) => {
-  data = data[data.length - 1];
-  console.log("Insuffisance", data);
-  console.log("seriesNames", seriesNames);
-  const seriesData = useMemo(
-    () => seriesNames.map((serieName) => data[serieName] * 100),
-    [seriesNames, data]
+
+const formatData = (data) => {
+  // data is desc by date
+  if (data.length > 1) {
+    const difference = {};
+    const obj1 = data[0];
+    const obj2 = data[1];
+    basedSeriesNames.forEach((serieName) => {
+      difference[serieName] = obj1[serieName] - obj2[serieName];
+    });
+    return difference;
+  }
+  return data[data.length - 1];
+};
+
+const getSeries = (data) => {
+  data = formatData(data);
+  console.log("getSeries data", data);
+  const seriesData = basedSeriesNames.map((serieName) => {
+    const value = parseFloat((data[serieName] * 100).toFixed(2));
+    return {
+      value,
+      itemStyle: {
+        color: value >= 0 ? "#22c55e" : "#ef4444",
+      },
+    };
+  });
+  const seriesNames = basedSeriesNames.map(
+    (serieName) => seriesNamesRef[serieName].ref
   );
+  return { seriesNames, seriesData };
+};
+
+const TauxSec = ({ data }) => {
+  console.log("Insuffisance data", data, formatData(data));
+  console.log("basedSeriesNames", basedSeriesNames);
+  const { seriesData, seriesNames } = useMemo(() => getSeries(data), [data]);
   const options = useMemo(() => {
     return {
       title: {
@@ -98,7 +113,7 @@ const TauxSec = ({ data }) => {
       },
       xAxis: {
         type: "category",
-        data: seriesNames.map((serieName) => seriesNamesRef[serieName].ref),
+        data: seriesNames,
         axisLine: {
           show: true,
         },
@@ -125,7 +140,7 @@ const TauxSec = ({ data }) => {
         },
       ],
     };
-  }, [data, seriesNames]);
+  }, [seriesData, seriesNames]);
   return (
     <>
       <BarChart
@@ -133,7 +148,7 @@ const TauxSec = ({ data }) => {
         saveToExcel={{
           show: true,
           data: [data],
-          fileName: "Evolution des taux secondaires",
+          fileName: options.title.text,
         }}
       />
     </>

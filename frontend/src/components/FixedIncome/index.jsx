@@ -66,10 +66,12 @@ const Index = () => {
                 name={item.INDICE}
                 left={item.perf_1S * 100}
                 leftPrefix={"1S: "}
+                leftWithColor
                 middle={item.perf_1AN * 100}
                 middlePrefix={"1AN: "}
                 right={item.perf_YTD * 100}
                 rightPrefix={"YTD: "}
+                rightWithColor
               />
             );
           })}
@@ -183,19 +185,12 @@ const Index = () => {
         <GridContainer>
           {show && data.tauxPrimaire.length > 0 && (
             <GridItem>
-              <CourbeTaux
-                data={data.tauxPrimaire}
-                title="Courbe primaire des taux"
-                isPrimaire
-              />
+              <CourbeTaux data={data.tauxPrimaire} isPrimaire />
             </GridItem>
           )}
           {show && data.tauxSecondaire.length > 0 && (
             <GridItem>
-              <CourbeTaux
-                data={data.tauxSecondaire}
-                title="Courbe secondaire des taux"
-              />
+              <CourbeTaux data={data.tauxSecondaire} />
             </GridItem>
           )}
         </GridContainer>

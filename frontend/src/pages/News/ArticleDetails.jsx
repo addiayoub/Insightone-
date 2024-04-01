@@ -3,7 +3,7 @@ import React, { memo, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ArticleImage from "./ArticleImage";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import CustomButton from "../../components/Ui/Buttons";
 import { ArrowLeft } from "react-feather";
 
@@ -51,17 +51,22 @@ const ArticleDetails = () => {
             </div>
           </div>
         </div>
-        <div className="mb-6 mt-8 relative h-[294px] w-full overflow-hidden sm:h-[420px] xl:h-[441px]">
-          <ArticleImage name={article.image} className="object-fit" />
-          <div className="absolute bottom-0 w-full bg-gray-500/50 px-3.5 py-3">
-            <p className="text-xs text-gray-200"></p>
+        <div>
+          <div className="mb-6 mt-8 relative h-[200px] w-[50%]  float-left overflow-hidden sm:h-[320px] xl:h-[340px] bg-[#f7f7f7] phone:float-none phone:w-full tablet:float-none tablet:w-full phone:mx-0 tablet:mx-0 mx-8">
+            <ArticleImage name={article.image} className="object-fit" />
+            <div className="absolute bottom-0 w-full bg-gray-500/50 px-3.5 py-3">
+              <p className="text-xs text-gray-200"></p>
+            </div>
           </div>
-        </div>
-        <div className="mb-5 mt-3.5  md:mb-8 md:mt-6">
-          <div className="h-px bg-[#E6E9EB]"></div>
-        </div>
-        <div className="">
-          <div className="text-[17px] leading-8">{article.article}</div>
+          {/* Article content */}
+          <div
+            className="text-[17px] leading-relaxed mt-8"
+            dangerouslySetInnerHTML={{
+              __html: article.article.replace(/\./g, ".<br />"),
+            }}
+          >
+            {/* {article.article.replace(/\./g, "<br />")} */}
+          </div>
         </div>
       </div>
     </>

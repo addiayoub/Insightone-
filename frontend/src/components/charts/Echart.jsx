@@ -57,10 +57,10 @@ function Echart({ data }) {
           type: "candlestick",
           data: data0.values,
           itemStyle: {
-            color: upColor,
-            color0: downColor,
-            borderColor: upBorderColor,
-            borderColor0: downBorderColor,
+            color: downColor,
+            color0: upColor,
+            borderColor: downBorderColor,
+            borderColor0: upBorderColor,
           },
           markPoint: {
             label: {

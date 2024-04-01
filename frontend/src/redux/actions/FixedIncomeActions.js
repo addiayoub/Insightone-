@@ -126,7 +126,6 @@ export const getFixedIncome = createAsyncThunk(
       );
       const perfMBI = await getPerfMBI(date);
       const perfNominal = await getPerfNominal(date);
-      const sliderData = [];
       console.log("fixed MBI", perfMBI);
       console.log("fixed perfNominal", perfNominal);
       return {
@@ -145,8 +144,12 @@ export const getFixedIncome = createAsyncThunk(
         placementsTresorJour,
         pensionLivree,
         leveesTresor,
-        tauxPrimaire,
-        tauxSecondaire,
+        tauxPrimaire: tauxPrimaire.sort(
+          (a, b) => new Date(b.date_complete) - new Date(a.date_complete)
+        ),
+        tauxSecondaire: tauxSecondaire.sort(
+          (a, b) => new Date(b.date_complete) - new Date(a.date_complete)
+        ),
         evolInsuffisanceLiquidite: evolInsuffisanceLiquidite.sort(
           (a, b) => new Date(a.date_complete) - new Date(b.date_complete)
         ),

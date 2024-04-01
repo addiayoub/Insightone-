@@ -99,11 +99,11 @@ function EvolutionMasi({ data }) {
         pieces: [
           {
             value: 1,
-            color: downColor,
+            color: upColor,
           },
           {
             value: -1,
-            color: upColor,
+            color: downColor,
           },
         ],
       },

@@ -106,6 +106,7 @@ const getSeriesData = (data, seriesNames) => {
 };
 
 const CourbeTaux = ({ data, title, isPrimaire }) => {
+  console.log("CourbeTaux data ", title, data);
   const primaryData = data[data.length - 1];
   console.log("primaryData", primaryData);
   const secondaryData = data[0] ?? [];
@@ -122,8 +123,16 @@ const CourbeTaux = ({ data, title, isPrimaire }) => {
   const options = useMemo(() => {
     return {
       title: {
-        text: title,
-        left: "10%",
+        text: `Courbe ${
+          isPrimaire ? "primaire" : "secondaire"
+        } des taux \n entre ${moment(primaryData.date_complete).format(
+          "DD/MM/YYYY"
+        )} et ${moment(secondaryData.date_complete).format("DD/MM/YYYY")}`,
+        left: "5%",
+        textStyle: {
+          fontWeight: "normal",
+          fontSize: 30,
+        },
         top: "0",
       },
       tooltip: {
@@ -131,6 +140,9 @@ const CourbeTaux = ({ data, title, isPrimaire }) => {
         axisPointer: {
           type: "shadow",
         },
+      },
+      grid: {
+        top: "70px",
       },
       xAxis: {
         type: "category",

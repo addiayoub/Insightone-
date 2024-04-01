@@ -19,7 +19,7 @@ const textColor = (value) => {
   return (
     <div className={`py-1 px-[5px] flex items-center gap-1 ${className}`}>
       <p className="text-[12px] leading-[21px]">
-        <span>{value.toFixed(2)}</span>
+        <span>{formatNumberWithSpaces(value)}</span>
       </p>
       {arrow}
     </div>
@@ -45,10 +45,13 @@ export const SliderItem = (props) => {
     right,
     leftSuffix,
     leftPrefix,
+    leftWithColor,
     middlePrefix,
     middleSuffix,
+    middleWithColor = true,
     rightSuffix,
     rightPrefix,
+    rightWithColor,
   } = props;
   return (
     <div className="w-auto">
@@ -58,26 +61,38 @@ export const SliderItem = (props) => {
         </p>
         <div className="inline-flex items-center justify-start">
           {/* LEFT */}
-          <p className="text-[12px] leading-[21px] text-gray-500 mr[18px] whitespace-nowrap">
+          {/* <p className="text-[12px] leading-[21px] text-gray-500 mr[18px] whitespace-nowrap">
             <span>
               <span className="font-semibold">{leftPrefix}</span>
               {formatNumberWithSpaces(left)}
               {leftSuffix}
             </span>
-          </p>
+          </p> */}
+          <div className="text-[12px] leading-[21px] flex items-center gap-0 mx-[6px] text-gray-500">
+            <span className="font-semibold">{leftPrefix}</span>
+            {leftWithColor ? textColor(left) : formatNumberWithSpaces(left)}
+            <span>{leftSuffix}</span>
+          </div>
           {/* MIDDLE */}
           <div className="text-[12px] leading-[21px] flex items-center gap-0 mx-[6px] text-gray-500">
             <span className="font-semibold">{middlePrefix}</span>
-            {textColor(middle)}
+            {middleWithColor
+              ? textColor(middle)
+              : formatNumberWithSpaces(middle)}
             {middleSuffix}
           </div>
           {/* RIGHT */}
-          <p className="text-[12px] leading-[21px] text-gray-500 mr[18px] whitespace-nowrap">
+          <div className="text-[12px] leading-[21px] flex items-center gap-0 mx-[6px] text-gray-500">
+            <span className="font-semibold">{rightPrefix}</span>
+            {rightWithColor ? textColor(right) : formatNumberWithSpaces(right)}
+            <span>{rightSuffix}</span>
+          </div>
+          {/* <p className="text-[12px] leading-[21px] text-gray-500 mr[18px] whitespace-nowrap">
             <span>
               <span className="font-semibold">{rightPrefix} </span>
               {formatNumberWithSpaces(right)} {rightSuffix}
             </span>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

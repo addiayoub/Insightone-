@@ -12,12 +12,12 @@ const color = (dataArray) => {
       if (value < 0) {
         result.push({
           value,
-          itemStyle: { color: upColor },
+          itemStyle: { color: downColor },
         });
       } else {
         result.push({
           value,
-          itemStyle: { color: downColor },
+          itemStyle: { color: upColor },
         });
       }
     });

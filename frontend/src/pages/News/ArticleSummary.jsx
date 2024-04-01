@@ -11,7 +11,7 @@ const ArticleSummary = (props) => {
     <div className="float-left mb-8 w-full sm:flex items-center">
       <div className="float-left w-full pr-0 sm:w-1/2 sm:pr-4 md:w-auto">
         <div
-          className="flex w-full items-center overflow-hidden md:h-[214px] md:w-[340px] cursor-pointer"
+          className="flex w-full items-center overflow-hidden md:h-[214px] md:w-[340px] cursor-pointer bg-[#f7f7f7]"
           onClick={onClick}
         >
           <ArticleImage name={image} />

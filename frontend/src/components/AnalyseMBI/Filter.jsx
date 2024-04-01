@@ -8,19 +8,23 @@ import { SearchButton } from "../Ui/Buttons";
 import { Box } from "@mui/material";
 import TitresComponent from "../TitresComponent";
 
-const Filter = () => {
+const Filter = ({ setIsShow }) => {
   const [dateDebut, setDateDebut] = useState(dayjs().subtract(1, "month"));
   const [dateFin, setDateFin] = useState(dayjs());
   const [bench, setBencn] = useState("MBI CT");
   const dispatch = useDispatch();
   const handleSearch = () => {
+    setIsShow(false);
     dispatch(
       getData({
         dateDebut: "25/02/2024",
         dateFin: "25/03/2024",
         bench,
       })
-    );
+    )
+      .unwrap()
+      .then(() => setIsShow(true))
+      .catch(() => setIsShow(false));
   };
   return (
     <AccordionBox isExpanded title="Filtre" detailsClass="flex flex-col gap-2">

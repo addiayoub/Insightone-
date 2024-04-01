@@ -46,7 +46,7 @@ const columns2 = [
   "perf_5ANS_an",
 ];
 
-const headerNameRef = {
+export const ref = {
   perf_1S: "1S",
   perf_1M: "1M",
   perf_2M: "2M",
@@ -59,87 +59,14 @@ const headerNameRef = {
   perf_3ANS: "3ANS",
   perf_4ANS: "4ANS",
   perf_5ANS: "5ANS",
-  perf_3M_an: "3M",
-  perf_6M_an: "6M",
+  perf_3M_an: "3M an",
+  perf_6M_an: "6M an",
   perf_1AN_an: "1AN",
   perf_2ANS_an: "2ANS",
   perf_3ANS_an: "3ANS",
   perf_4ANS_an: "4ANS",
   perf_5ANS_an: "5ANS",
 };
-
-function valueToColor(value) {
-  let color = "rgb(21 128 61)";
-  if (value <= 10) {
-    color = "rgb(153 27 27)";
-  } else if (value <= 20) {
-    color = "rgb(185 28 28)";
-  } else if (value <= 30) {
-    color = "rgb(220 38 38)";
-  } else if (value <= 40) {
-    color = "rgb(239 68 68)";
-  } else if (value <= 50) {
-    color = "rgb(74 222 128)";
-  } else if (value <= 60) {
-    color = "rgb(34 197 94)";
-  } else if (value <= 80) {
-    color = "rgb(22 163 74)";
-  }
-  return color;
-}
-function getColor(value, min, max) {
-  // Normalize the value between 0 and 1
-  let normalizedValue = (value - min) / (max - min);
-
-  // Interpolate between red (255, 0, 0) and green (0, 255, 0)
-  let red = Math.round(255 * (1 - normalizedValue));
-  let green = Math.round(255 * normalizedValue);
-
-  // Construct the RGB color string
-  let color = `rgb(${red}, ${green}, 0)`;
-
-  return color;
-}
-const geeg = (pct) => {
-  const percentColors = [
-    { pct: 0.0, color: { r: 0xff, g: 0x00, b: 0 } },
-    { pct: 0.5, color: { r: 0xff, g: 0xff, b: 0 } },
-    { pct: 1.0, color: { r: 0x00, g: 0xff, b: 0 } },
-  ];
-  for (var i = 1; i < percentColors.length - 1; i++) {
-    if (pct < percentColors[i].pct) {
-      break;
-    }
-  }
-  var lower = percentColors[i - 1];
-  var upper = percentColors[i];
-  var range = upper.pct - lower.pct;
-  var rangePct = (pct - lower.pct) / range;
-  var pctLower = 1 - rangePct;
-  var pctUpper = rangePct;
-  var color = {
-    r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
-    g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
-    b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper),
-  };
-  return "rgb(" + [color.r, color.g, color.b].join(",") + ")";
-};
-function getValueColor(value, min, max) {
-  // Clamp the value to be within the min-max range
-  value = Math.min(Math.max(value, min), max);
-
-  // Calculate the normalized value between 0 and 1
-  let normalizedValue = (value - min) / (max - min);
-
-  // Calculate the RGB values based on the normalized value
-  let red = Math.floor((1 - normalizedValue) * 255);
-  let green = Math.floor(normalizedValue * 255);
-
-  // Construct the CSS color string
-  let color = "rgb(" + red + "," + green + ",0)";
-
-  return color;
-}
 
 function getMinMaxValues(data, keys) {
   let min = Infinity;
@@ -177,7 +104,7 @@ export const getColumns2 = (data, isFirst) => {
     },
     ...keys.map((key) => ({
       field: key,
-      headerName: headerNameRef[key],
+      headerName: ref[key],
       flex: isFirst ? 0.32 : 0.4,
       width: 100,
       renderCell: ({ row }) => {
@@ -217,7 +144,7 @@ export const getColumns = (data, isFirst) => {
     },
     ...keys.map((key) => ({
       field: key,
-      headerName: headerNameRef[key],
+      headerName: ref[key],
       flex: isFirst ? 0.32 : 0.4,
       width: 100,
       renderCell: ({ row }) => {
