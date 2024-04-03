@@ -23,7 +23,7 @@ export const getData = createAsyncThunk(
           varName: "cumulCABench",
         },
         {
-          url: "PERF_GLIS_NOMINAL",
+          url: "PERF_GLISS_NOMINAL",
           params: `&${bench}&${dateDebut}&${dateFin}`,
           varName: "perfGlisNomi",
         },
@@ -33,7 +33,7 @@ export const getData = createAsyncThunk(
           varName: "cumulStatproBench",
         },
         {
-          url: "PERF_GLIS_MBI",
+          url: "PERF_GLISS_MBI",
           params: `&${bench}&${dateDebut}&${dateFin}`,
           varName: "perfGlisMBI",
         },
