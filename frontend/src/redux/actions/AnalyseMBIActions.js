@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { formatDate } from "../../utils/FormatDate";
 import getAPI from "../../api/getAPI";
+import { getLastItem } from "../../utils/getLastItem";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 
 export const getData = createAsyncThunk(
   "AnalyseMBI/getData",
@@ -21,7 +23,7 @@ export const getData = createAsyncThunk(
           varName: "cumulCABench",
         },
         {
-          url: "PERF_GLISS_NOMINAL",
+          url: "PERF_GLIS_NOMINAL",
           params: `&${bench}&${dateDebut}&${dateFin}`,
           varName: "perfGlisNomi",
         },
@@ -31,7 +33,7 @@ export const getData = createAsyncThunk(
           varName: "cumulStatproBench",
         },
         {
-          url: "PERF_GLISS_MBI",
+          url: "PERF_GLIS_MBI",
           params: `&${bench}&${dateDebut}&${dateFin}`,
           varName: "perfGlisMBI",
         },
@@ -91,10 +93,11 @@ export const getData = createAsyncThunk(
             return { [varName]: response.data };
           } catch (error) {
             console.log(error);
-            return [];
+            return { [varName]: [] };
           }
         })
       );
+      const perf = 0.25;
       const cumulAXABenchRes = [
         {
           "Portage systematique": calcResume(
@@ -120,7 +123,8 @@ export const getData = createAsyncThunk(
           ),
         },
       ];
-      cumulAXABenchRes[0]["Perf indice"] = getPerIndice(cumulAXABenchRes[0]);
+      // cumulAXABenchRes[0]["Perf indice"] = getPerIndice(cumulAXABenchRes[0]);
+      cumulAXABenchRes[0]["Residu"] = getResidu(perf, cumulAXABenchRes[0]);
       const cumulCABenchRes = [
         {
           "Effet coupon": calcResume(cumulCABench, "effet_coupon_period"),
@@ -134,7 +138,8 @@ export const getData = createAsyncThunk(
           Residu: calcResume(cumulCABench, "Residu_Titre_period"),
         },
       ];
-      cumulCABenchRes[0]["Perf indice"] = getPerIndice(cumulCABenchRes[0]);
+      // cumulCABenchRes[0]["Perf indice"] = getPerIndice(cumulCABenchRes[0]);
+      cumulCABenchRes[0]["Perf indice"] = getResidu(perf, cumulCABenchRes[0]);
       console.log("cumulAXABenchRes", cumulAXABenchRes);
 
       const stateProRes = [
@@ -158,22 +163,22 @@ export const getData = createAsyncThunk(
           Residu: calcResume(cumulStatproBench, "Residu_Titre_period"),
         },
       ];
-      stateProRes[0]["Perf indice"] = getPerIndice(cumulStatproBench[0]);
+      // stateProRes[0]["Perf indice"] = getPerIndice(cumulStatproBench[0]);
+      stateProRes[0]["Perf indice"] = getResidu(perf, cumulStatproBench[0]);
 
       // COMPOSITION FINAL MBI
       const sumTotVal = calcResume(compFinMBI, "TOTAL_VALO");
-      console.log("sum tot", sumTotVal);
+
       compFinMBI = compFinMBI.map((item) => {
-        console.log(
-          `COMPFINMBI: ${item["TOTAL_VALO"]} / ${sumTotVal} = ${
-            item["TOTAL_VALO"] / sumTotVal
-          }`
-        );
         return {
           ...item,
           poids: (item["TOTAL_VALO"] / sumTotVal) * 100,
         };
       });
+      // CARDS STATS
+      let stats = handleStats(getLastItem(MBIFields));
+      stats.perf = perf;
+      console.log("STATS", stats);
       return {
         cumulAXABench,
         cumulAXABenchRes,
@@ -184,6 +189,7 @@ export const getData = createAsyncThunk(
         stateProRes,
         perfGlisMBI: getLastPerfGli(perfGlisMBI),
         evolMBI,
+        stats,
         evolNomi,
         evolMBIB100,
         evolNomiB100,
@@ -235,6 +241,10 @@ function getPerIndice(obj) {
   return parseFloat(sum.toFixed(2));
 }
 
+function getResidu(perf, sum) {
+  return parseFloat((perf - getPerIndice(sum)).toFixed(2));
+}
+
 function getLastPerfGli(data) {
   if (data?.length > 0) {
     data.sort((a, b) => {
@@ -248,4 +258,23 @@ function getLastPerfGli(data) {
     return [data[0]];
   }
   return data;
+}
+
+function handleStats(data) {
+  let stats = {
+    duration: "-",
+    moyDuration: "-",
+    coupon: "-",
+    ytm: "-",
+  };
+  if (!Array.isArray(data)) {
+    stats = {
+      duration: parseFloat((data["DURATION"] * 100).toFixed(2)),
+      moyDuration: parseFloat((data["MOY_DURATION"] * 100).toFixed(2)),
+      coupon: parseFloat((data["COUPON"] * 100).toFixed(2)),
+      ytm: parseFloat((data["YTM"] * 100).toFixed(2)),
+    };
+  }
+  return stats;
+  // return Object.entries(stats).map(([key, value]) => ({ name: key, value }));
 }

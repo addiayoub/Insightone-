@@ -29,6 +29,7 @@ function SelectIndices({
   disableCloseOnSelect = true,
   blurOnSelect = false,
   width = 250,
+  show = true,
 }) {
   indices = [...new Set(indices)];
   const allOption = "Sélectionner tout";
@@ -40,46 +41,54 @@ function SelectIndices({
     }
     setSelectedIndices(value);
   };
-  return (
-    <Autocomplete
-      multiple
-      id={`id-${label}-${Math.random() * 100}`}
-      options={indices}
-      disableCloseOnSelect={disableCloseOnSelect}
-      blurOnSelect={blurOnSelect}
-      value={selectedIndices}
-      filterOptions={(options, params) => {
-        const filter = createFilterOptions();
-        const filtered = filter(options, params);
-        return filtered.length > 0 ? [allOption, ...filtered] : [];
-      }}
-      onChange={handleIndicesChange}
-      noOptionsText={"aucune option"}
-      getOptionLabel={(option) => option}
-      ListboxProps={{ style: { maxHeight: 300 } }}
-      renderOption={(props, option, { selected }) => (
-        <li {...props}>
-          <Checkbox
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8 }}
-            checked={
-              option === allOption
-                ? !!(selectedIndices.length === indices.length)
-                : selected
-            }
+  if (show) {
+    return (
+      <Autocomplete
+        multiple
+        id={`id-${label}-${Math.random() * 100}`}
+        options={indices}
+        disableCloseOnSelect={disableCloseOnSelect}
+        blurOnSelect={blurOnSelect}
+        value={selectedIndices}
+        filterOptions={(options, params) => {
+          const filter = createFilterOptions();
+          const filtered = filter(options, params);
+          return filtered.length > 0 ? [allOption, ...filtered] : [];
+        }}
+        onChange={handleIndicesChange}
+        noOptionsText={"aucune option"}
+        getOptionLabel={(option) => option}
+        ListboxProps={{ style: { maxHeight: 300 } }}
+        renderOption={(props, option, { selected }) => (
+          <li {...props}>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={
+                option === allOption
+                  ? !!(selectedIndices.length === indices.length)
+                  : selected
+              }
+            />
+            {option}
+          </li>
+        )}
+        limitTags={4}
+        sx={{ width }}
+        menuprops={MenuProps}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={label}
+            placeholder={label}
+            size="small"
           />
-          {option}
-        </li>
-      )}
-      limitTags={4}
-      sx={{ width: width }}
-      menuprops={MenuProps}
-      renderInput={(params) => (
-        <TextField {...params} label={label} placeholder={label} size="small" />
-      )}
-    />
-  );
+        )}
+      />
+    );
+  }
+  return null;
 }
 
 export default SelectIndices;

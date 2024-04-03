@@ -27,17 +27,21 @@ const Filter = ({ setIsShow }) => {
       .catch(() => setIsShow(false));
   };
   return (
-    <AccordionBox isExpanded title="Filtre" detailsClass="flex flex-col gap-2">
-      <Box className="flex items-center gap-2">
-        <DateComponent date={dateDebut} setDate={setDateDebut} />
-        <DateComponent date={dateFin} setDate={setDateFin} />
-      </Box>
+    <AccordionBox
+      isExpanded
+      title="Filtre"
+      detailsClass="flex items-center flex-wrap gap-2"
+    >
+      <DateComponent date={dateDebut} setDate={setDateDebut} />
+      <DateComponent date={dateFin} setDate={setDateFin} />
       <TitresComponent
         choice="Indices"
         setSelectedTitres={setBencn}
         selectedTitres={bench}
         filterField="categorie"
         filterValues={["MBI"]}
+        showClasses={false}
+        showCategories={false}
       />
       <SearchButton onClick={handleSearch} className="w-full max-w-fit" />
     </AccordionBox>

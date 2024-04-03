@@ -14,8 +14,9 @@ const getSeries = (data, seriesNames, percentage) => {
 };
 
 const Evol = ({ data, title = "", fields, percentage = false }) => {
+  console.log("EVOLDAtA", data);
   const xData = useMemo(
-    () => data.map((item) => moment(item.SEANCE).format("DD/MM/YYYY")),
+    () => data.map((item) => moment(item.DATE).format("DD/MM/YYYY")),
     [data]
   );
   const series = useMemo(

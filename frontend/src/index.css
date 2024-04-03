@@ -146,7 +146,7 @@ body.dark-mode .cards {
 }
 body.dark-mode .card {
   background-color: var(--navbars-bg) !important;
-  box-shadow: var(--dark-box-shadow);
+  box-shadow: var(--dark-box-shadow) !important;
 }
 ul {
   list-style-type: none;

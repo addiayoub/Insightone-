@@ -1,10 +1,22 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import BarChart from "../Default/BarChart";
+import { downColor, upColor } from "../../../utils/generateRandomColorsArray";
+import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
 
-const Chart = ({ data }) => {
+const getPlaceholder = (data) => {
+  let cumulativeSum = 0;
+  const seriesData = data.map((value) => {
+    cumulativeSum += value;
+    return cumulativeSum;
+  });
+  return seriesData;
+};
+
+const WaterfallChart = ({ data }) => {
   const xData = useMemo(() => Object.keys(data[0]), [data]);
   const yData = useMemo(() => Object.values(data[0]), [data]);
-  console.log("Chart data", data);
+  const placeholder = useMemo(() => getPlaceholder(yData), [yData]);
+  console.log("WaterfallChart data", data);
   const options = useMemo(() => {
     return {
       title: {
@@ -12,7 +24,7 @@ const Chart = ({ data }) => {
         x: "center",
       },
       tooltip: {
-        valueFormatter: (value) => value?.toFixed(2) + "%",
+        valueFormatter: (value) => formatNumberWithSpaces(value) + "%",
       },
       legend: {
         left: "center",
@@ -42,31 +54,45 @@ const Chart = ({ data }) => {
           return value.min.toFixed(2);
         },
       },
-      // series: {
-      //   type: "bar",
-      //   stack: "Total",
-      //   data: yData,
-      // },
       series: [
+        {
+          type: "bar",
+          stack: "total",
+          itemStyle: {
+            borderColor: "transparent",
+            color: "transparent",
+          },
+          emphasis: {
+            itemStyle: {
+              borderColor: "transparent",
+              color: "transparent",
+            },
+          },
+          data: placeholder,
+          tooltip: {
+            show: false,
+          },
+        },
         {
           type: "bar",
           stack: "total",
           label: {
             show: true,
+            formatter: ({ value }) => value + "%",
           },
           emphasis: {
             focus: "series",
           },
           data: yData.map((value, index) => ({
             value,
-            // itemStyle: {
-            //   color: value > 0 ? "#4CAF50" : "#F44336",
-            // },
+            itemStyle: {
+              color: value > 0 ? upColor : downColor,
+            },
           })),
         },
       ],
     };
-  }, [yData, xData]);
+  }, [yData, xData, placeholder]);
   return (
     <>
       <BarChart
@@ -85,4 +111,4 @@ const Chart = ({ data }) => {
   );
 };
 
-export default Chart;
+export default memo(WaterfallChart);

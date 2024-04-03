@@ -4,6 +4,7 @@ import { defaultPie } from "../../../utils/chart/defaultOptions";
 import { sumOfField } from "../../../utils/sumOfField";
 import { sumIf } from "../../../utils/caluclations";
 import moment from "moment";
+import { findMinMax } from "../../../utils/findMinMax";
 const getSeries = (data) => {
   return data
     .map((item) => ({ name: item.TITRE, value: item.poids }))
@@ -11,12 +12,24 @@ const getSeries = (data) => {
 };
 
 const getFacialData = (data) => {
-  const facialRef = [1, 2, 3, 4, 5, 6];
+  function getFacialRef(max) {
+    const result = [];
+    const maxValue = max > 0 ? max : 1; // Ensure max is at least 1
+
+    for (let i = 1; i <= maxValue; i++) {
+      result.push(i);
+    }
+
+    return result;
+  }
+  let { max } = findMinMax(data, "TAUX_FACIAL");
+  max = Math.trunc(max * 100);
+  const facialRef = getFacialRef(max);
   const facial = data.map((item) => Math.trunc(item["TAUX_FACIAL"] * 100));
   const poids = data.map((item) => item["poids"]);
   return facialRef
     .map((item) => ({
-      name: item,
+      name: item + "%",
       value: sumIf(facial, item, poids) * 100,
     }))
     .sort((a, b) => b.value - a.value);
@@ -40,19 +53,22 @@ const titleRef = {
   jouissance: "Répartition par date de jouissance",
 };
 
+const getChoix = (data, choix) => {
+  switch (choix) {
+    case "titre":
+      return getSeries(data);
+    case "facial":
+      return getFacialData(data);
+    case "jouissance":
+      return getDateJouiData(data);
+    default:
+      return getSeries(data);
+  }
+};
+
 const Repartition = ({ data, type = "titre" }) => {
-  const seriesData = useMemo(() => {
-    switch (type) {
-      case "titre":
-        return getSeries(data);
-      case "facial":
-        return getFacialData(data);
-      case "jouissance":
-        return getDateJouiData(data);
-      default:
-        return getSeries(data);
-    }
-  }, [data]);
+  const seriesData = useMemo(() => getChoix(data, type), [data, type]);
+
   const options = useMemo(() => {
     return {
       title: {

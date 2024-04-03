@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { useSelector } from "react-redux";
 import Filter from "./Filter";
 import MainLoader from "../loaders/MainLoader";
@@ -16,7 +16,7 @@ import {
   statProRes,
 } from "./columns";
 import { Box } from "@mui/material";
-import Chart from "../charts/AnalyseMBI/Chart";
+import WaterfallChart from "../charts/AnalyseMBI/WaterfallChart";
 import EvolB100 from "../charts/AnalyseMBI/EvolB100";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import Evol from "../charts/AnalyseMBI/Evol";
@@ -24,6 +24,8 @@ import Repartition from "../charts/AnalyseMBI/Repartition";
 import PerfTable from "../PerfGlis/PerfTable";
 import AccordionBox from "../AccordionBox";
 import PerfGlis from "../charts/AnalyseMBI/PerfGlis";
+import { Table as TableIcon } from "react-feather";
+import Stats from "./Stats";
 
 const index = () => {
   const { data, loading } = useSelector((state) => state.analyseMBI);
@@ -34,6 +36,7 @@ const index = () => {
     <div>
       {loading && <MainLoader />}
       <Filter setIsShow={setIsShow} />
+      {show && !Array.isArray(data.stats) && <Stats data={data.stats} />}
       {show && data.MBIFields.length > 0 && (
         <Box>
           {/* <Box>
@@ -45,7 +48,7 @@ const index = () => {
               <Evol
                 data={data.MBIFields}
                 fields={["DURATION", "MOY_DURATION"]}
-                title="Evolution de la duration etla duration moyenne"
+                title="Evolution de la duration et la duration moyenne"
               />
             </GridItem>
             <GridItem>
@@ -60,19 +63,9 @@ const index = () => {
         </Box>
       )}
       {show && data.evolMBIB100.length > 0 && (
-        <GridContainer>
-          <GridItem>
-            <h3>Evolution MBI base 100</h3>
-            <Table
-              rows={data.evolMBIB100}
-              columns={evolMBIB100}
-              pageSize={10}
-            />
-          </GridItem>
-          <GridItem>
-            <EvolB100 data={data.evolMBIB100} title="Evolution MBI B100" />
-          </GridItem>
-        </GridContainer>
+        <Box className="my-8">
+          <EvolB100 data={data.evolMBIB100} title="Evolution MBI B100" />
+        </Box>
       )}
       {show && data.evolNomiB100.length > 0 && (
         <GridContainer>
@@ -116,7 +109,12 @@ const index = () => {
         <Box>
           <Box>
             <h3>Composition</h3>
-            <Table rows={data.compFinMBI} columns={compFinMBI} pageSize={10} />
+            <Table
+              rows={data.compFinMBI}
+              columns={compFinMBI}
+              pageSize={10}
+              density="compact"
+            />
           </Box>
           <GridContainer>
             <GridItem>
@@ -130,10 +128,10 @@ const index = () => {
       )}
       {show && data.cumulAXABench.length > 0 && (
         <AccordionBox isExpanded title="Attribution de la performance">
-          <Box>
+          <AccordionBox isExpanded title="AXA invest">
             <GridContainer>
               <GridItem cols={7}>
-                <h3>AXA Bench</h3>
+                {/* <h3>AXA Bench</h3> */}
                 <Table
                   rows={data.cumulAXABenchRes}
                   columns={axaBenchRes}
@@ -141,16 +139,20 @@ const index = () => {
                 />
               </GridItem>
               <GridItem cols={5}>
-                <Chart data={data.cumulAXABenchRes} />
+                <WaterfallChart data={data.cumulAXABenchRes} />
               </GridItem>
             </GridContainer>
-            <Table rows={data.cumulAXABench} columns={axaBench} pageSize={25} />
-          </Box>
+            <Table
+              rows={data.cumulAXABench}
+              columns={axaBench}
+              pageSize={25}
+              density="compact"
+            />
+          </AccordionBox>
           {show && data.cumulCABench.length > 0 && (
-            <Box>
+            <AccordionBox title="Crédit agricole" Icon={TableIcon}>
               <GridContainer>
                 <GridItem cols={7}>
-                  <h3>CA Bench</h3>
                   <Table
                     rows={data.cumulCABenchRes}
                     columns={caBenchdRes}
@@ -158,14 +160,19 @@ const index = () => {
                   />
                 </GridItem>
                 <GridItem cols={5}>
-                  <Chart data={data.cumulCABenchRes} />
+                  <WaterfallChart data={data.cumulCABenchRes} />
                 </GridItem>
               </GridContainer>
-              <Table rows={data.cumulCABench} columns={caBench} pageSize={25} />
-            </Box>
+              <Table
+                rows={data.cumulCABench}
+                columns={caBench}
+                pageSize={25}
+                density="compact"
+              />
+            </AccordionBox>
           )}
           {show && data.cumulStatproBench.length > 0 && (
-            <Box>
+            <AccordionBox title="Méthode STATPRO" Icon={TableIcon}>
               <GridContainer>
                 <GridItem cols={7}>
                   <Table
@@ -175,38 +182,49 @@ const index = () => {
                   />
                 </GridItem>
                 <GridItem cols={5}>
-                  <Chart data={data.stateProRes} />
+                  <WaterfallChart data={data.stateProRes} />
                 </GridItem>
               </GridContainer>
               <Table
                 rows={data.cumulStatproBench}
                 columns={statPro}
                 pageSize={25}
+                density="compact"
               />
-            </Box>
+            </AccordionBox>
           )}
         </AccordionBox>
       )}
       {show && data.evolMBI.length > 0 && (
         <Box>
           <h3>Evolution MBI</h3>
-          <Table rows={data.evolMBI} columns={evolMBI} pageSize={25} />
+          <Table
+            rows={data.evolMBI}
+            columns={evolMBI}
+            pageSize={25}
+            density="compact"
+          />
           {/* <Table
             rows={data.cumulCABenchRes}
             columns={caBenchdRes}
             pageSize={25}
           /> */}
-          {/* <Chart data={data.cumulCABenchRes} /> */}
+          {/* <WaterfallChart data={data.cumulCABenchRes} /> */}
         </Box>
       )}
       {show && data.evolNomi.length > 0 && (
         <Box>
           <h3>Evolution Nominal</h3>
-          <Table rows={data.evolNomi} columns={evolMBI} pageSize={25} />
+          <Table
+            rows={data.evolNomi}
+            columns={evolMBI}
+            pageSize={25}
+            density="compact"
+          />
         </Box>
       )}
     </div>
   );
 };
 
-export default index;
+export default memo(index);

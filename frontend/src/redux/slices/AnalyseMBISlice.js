@@ -18,6 +18,7 @@ const initialState = {
     compFinMBI: [],
     operGisements: [],
     MBIFields: [],
+    stats: [],
   },
   loading: false,
   error: null,
@@ -47,6 +48,7 @@ const AnalyseMBISlice = createSlice({
         cumulAXABenchRes,
         cumulCABenchRes,
         stateProRes,
+        stats,
       } = payload;
       state.loading = false;
       state.data = {
@@ -65,6 +67,7 @@ const AnalyseMBISlice = createSlice({
         cumulAXABenchRes,
         cumulCABenchRes,
         stateProRes,
+        stats,
       };
     });
     builder.addCase(getData.rejected, (state, payload) => {

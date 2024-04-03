@@ -14,6 +14,8 @@ const TitresComponent = ({
   setSelectedTitres,
   choice,
   isMultipl,
+  showClasses = true,
+  showCategories = true,
   filterField,
   isIn = true,
   filterValues,
@@ -61,8 +63,12 @@ const TitresComponent = ({
         return (
           <Box className="flex flex-wrap gap-2 item-center" key={index}>
             {Object.keys(select).map((key) => {
+              console.log("TitresComp key", key);
               const { label, data } = select[key];
               const isSingleSelect = key === "titres" && !isMultipl;
+              const isVisibleClasses = showClasses && key === "classes";
+              const isVisibleCategories =
+                showCategories && key === "categories";
               return isSingleSelect ? (
                 <SingleSelect
                   key={`${label}-${index + 1}`}
@@ -82,6 +88,13 @@ const TitresComponent = ({
                       : key === "categories"
                       ? selectedCategories
                       : selectedTitres
+                  }
+                  show={
+                    key === "classes"
+                      ? isVisibleClasses
+                      : key === "categories"
+                      ? isVisibleCategories
+                      : true
                   }
                   setSelectedIndices={
                     key === "classes"

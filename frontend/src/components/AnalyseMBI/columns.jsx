@@ -1,4 +1,5 @@
 import moment from "moment";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 
 const d = {
   Classe_Mat: "CT",
@@ -34,28 +35,20 @@ const d = {
   Portage_swap_spread_period: 0,
 };
 
-export const axaBench = [
+const axaBenchCols = [
   {
     field: "nom_benchmark",
     headerName: "Nom Bench",
-
-    renderCell: ({ row }) => <strong>{row.nom_benchmark}</strong>,
   },
   {
     field: "date_debut",
     headerName: "Date début",
-
-    renderCell: ({ row }) => (
-      <span>{moment(row.date_beg).format("DD/MM/YYYY")}</span>
-    ),
+    isDate: true,
   },
   {
     field: "date_final",
     headerName: "Date final",
-
-    renderCell: ({ row }) => (
-      <span>{moment(row.date_final).format("DD/MM/YYYY")}</span>
-    ),
+    isDate: true,
   },
   {
     field: "code",
@@ -64,78 +57,60 @@ export const axaBench = [
   {
     field: "Maturite_end",
     headerName: "Maturite end",
-    renderCell: ({ row }) => <span>{row.Maturite_end.toFixed(2)}</span>,
+    width: 100,
+    isNum: true,
   },
   {
     field: "Classe_Mat",
     headerName: "Classe_Mat",
+    width: 100,
   },
   {
     field: "Fourchette_Mat",
     headerName: "Fourchette",
+    width: 100,
   },
   {
     field: "Wbi",
     headerName: "Wbi",
-    renderCell: ({ row }) => <span>{row.Wbi.toFixed(2)}</span>,
+    cellWidth: "70%",
+    width: 90,
+    isNum: true,
+    isPerce: true,
   },
   {
     field: "Portage_systematique_period",
     headerName: "Portage systematique period",
-    renderCell: ({ row }) => (
-      <span>{row.Portage_systematique_period.toFixed(2)}</span>
-    ),
-  },
-  {
-    field: "Portage_swap_spread_period",
-    headerName: "Portage swap spread period",
-    renderCell: ({ row }) => (
-      <span>{row.Portage_swap_spread_period.toFixed(2)}</span>
-    ),
+    isPerce: true,
+    isNum: true,
   },
   {
     field: "portage_specifique_period",
     headerName: "Portage specifique period",
-    renderCell: ({ row }) => (
-      <span>{row.portage_specifique_period.toFixed(2)}</span>
-    ),
+    isPerce: true,
+    isNum: true,
   },
   {
     field: "Var_taux_systematique",
     headerName: "Var taux systematique",
-    renderCell: ({ row }) => (
-      <span>{row.Var_taux_systematique.toFixed(2)}</span>
-    ),
-  },
-  {
-    field: "Var_swap_period",
-    headerName: "Var swap period",
-    renderCell: ({ row }) => <span>{row.Var_swap_period.toFixed(2)}</span>,
-  },
-  {
-    field: "Variation_taux_specifique_period",
-    headerName: "Variation taux specifique period",
-    renderCell: ({ row }) => (
-      <span>{row.Variation_taux_specifique_period.toFixed(2)}</span>
-    ),
+    isPerce: true,
+    isNum: true,
   },
   {
     field: "Residu_Titre_per",
     headerName: "Residu Titre per",
-    renderCell: ({ row }) => <span>{row.Residu_Titre_per.toFixed(2)}</span>,
-  },
-  {
-    field: "Diff_Perf",
-    headerName: "Diff Perf",
-    renderCell: ({ row }) => <span>{row.Diff_Perf.toFixed(2)}</span>,
+    isPerce: true,
+    isNum: true,
   },
   {
     field: "Residu_Titre_period",
     headerName: "Residu Titre period",
-    renderCell: ({ row }) => <span>{row.Residu_Titre_period.toFixed(2)}</span>,
+    isPerce: true,
+    isNum: true,
   },
 ];
 
+export const axaBench = createColumns(axaBenchCols);
 const axaFields = [
   "Portage systematique",
   "Portage swap spread",
@@ -143,7 +118,7 @@ const axaFields = [
   "Var taux systematique",
   "Var swap",
   "Var taux specifique",
-  "Perf indice",
+  "Residu",
 ];
 
 export const axaBenchRes = [
@@ -169,54 +144,30 @@ const caBenchCols = [
   {
     field: "nom_benchmark",
     headerName: "Nom bench",
+    width: 150,
   },
   {
     field: "Maturite_end",
     headerName: "Maturite (Année)",
     isNum: true,
+    width: 100,
   },
   {
     field: "Classe_Mat",
     headerName: "Classe Mat",
+    width: 100,
   },
   ,
   {
     field: "Fourchette_Mat",
     headerName: "Fourchette",
+    width: 100,
   },
   {
     field: "Wbi",
     headerName: "Wbi",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "effet_coupon",
-    headerName: "effet coupon",
-    isPerce: true,
-    isNum: true,
-  },
-  {
-    field: "effet_amortissement",
-    headerName: "effet amortissement",
-    isPerce: true,
-    isNum: true,
-  },
-  {
-    field: "effet_niveau",
-    headerName: "effet niveau",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "effet_courbe",
-    headerName: "effet courbe",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "effet_spread",
-    headerName: "effet spread",
+    cellWidth: "70%",
+    width: 90,
     isNum: true,
     isPerce: true,
   },
@@ -225,30 +176,21 @@ const caBenchCols = [
     headerName: "Residu Titre",
     isNum: true,
     isPerce: true,
+    width: 120,
   },
   {
     field: "contrib_Residu_Period",
     headerName: "contrib Residu Period",
     isNum: true,
     isPerce: true,
-  },
-  {
-    field: "perf_indice_cumul",
-    headerName: "perf indice cumul",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "Produit_perf",
-    headerName: "Produit perf",
-    isNum: true,
-    isPerce: true,
+    width: 160,
   },
   {
     field: "effet_coupon_period",
     headerName: "effet coupon period",
     isNum: true,
     isPerce: true,
+    width: 160,
   },
   {
     field: "effet_amortissement_period",
@@ -261,36 +203,21 @@ const caBenchCols = [
     headerName: "effet niveau period",
     isNum: true,
     isPerce: true,
+    width: 160,
   },
   {
     field: "effet_courbe_period",
     headerName: "effet courbe period",
     isNum: true,
     isPerce: true,
+    width: 160,
   },
   {
     field: "effet_spread_period",
     headerName: "effet spread period",
     isNum: true,
     isPerce: true,
-  },
-  {
-    field: "Residu_Titre_per",
-    headerName: "Residu Titre per",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "Diff_Perf",
-    headerName: "Diff Perf",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "Residu_Titre_period",
-    headerName: "Residu Titre period",
-    isNum: true,
-    isPerce: true,
+    width: 160,
   },
 ];
 
@@ -346,6 +273,8 @@ const statproBenchCols = [
   {
     field: "Wbi",
     headerName: "Wbi",
+    cellWidth: "70%",
+    width: 90,
     isNum: true,
     isPerce: true,
   },
@@ -370,12 +299,6 @@ const statproBenchCols = [
   {
     field: "effet_Convexite_period",
     headerName: "effet Convexite period",
-    isNum: true,
-    isPerce: true,
-  },
-  {
-    field: "Residu_Titre_period",
-    headerName: "Residu Titre period",
     isNum: true,
     isPerce: true,
   },
@@ -447,9 +370,10 @@ const evolMBICols = [
     field: "VALEUR_AVANT",
     headerName: "Valeur avant",
     isNum: true,
+    width: 100,
   },
 ];
-export const evolMBI = createColumns(evolMBICols);
+export const evolMBI = createColumns(evolMBICols, false);
 
 const evolMBIB100Cols = [
   {
@@ -506,36 +430,80 @@ const comp = {
 
 const compFinMBICols = [
   { field: "TITRE", headerName: "Titre" },
-  { field: "BDT", headerName: "BDT" },
+  { field: "BDT", headerName: "BDT", width: 150 },
   { field: "DATE_JOUISSANCE", headerName: "DATE JOUISSANCE", isDate: true },
   { field: "DATE_MATURITE", headerName: "DATE MATURITE", isDate: true },
   { field: "CLASSE", headerName: "Classe" },
-  { field: "VALORISATION", headerName: "VALORISATION", isNum: true },
-  { field: "TAUX_RENDEMENT", headerName: "TAUX RENDEMENT", isNum: true },
-  { field: "TAUX_FACIAL", headerName: "TAUX FACIAL", isNum: true },
+  {
+    field: "VALORISATION",
+    headerName: "VALORISATION",
+    isNum: true,
+  },
+  {
+    field: "TAUX_RENDEMENT",
+    headerName: "TAUX RENDEMENT",
+    isNum: true,
+    isPerce: true,
+  },
+  {
+    field: "TAUX_FACIAL",
+    headerName: "TAUX FACIAL",
+    isNum: true,
+    isPerce: true,
+  },
   { field: "GISEMENT_MDH", headerName: "GISEMENT MDH", isNum: true },
-  { field: "TOTAL_VALO", headerName: "TOTAL VALO", isNum: true },
-  { field: "poids", headerName: "Poids (%)", isNum: true },
+  {
+    field: "TOTAL_VALO",
+    headerName: "TOTAL VALO MDH",
+    isNum: true,
+    isMill: true,
+  },
+  {
+    field: "poids",
+    headerName: "Poids",
+    width: 92,
+    isNum: true,
+    isPerce: true,
+  },
 ];
 export const compFinMBI = createColumns(compFinMBICols);
 
-function createColumns(cols) {
-  return cols.map((col) => {
+function createColumns(cols, isAlign = true) {
+  return cols.map((col, index) => {
     const flex = col?.flex ? { flex: col?.flex } : {};
     const withPerce = col?.isPerce;
+    const isMill = col?.isMill;
+    const cellWidth = col?.cellWidth ?? "50%";
+    const style = isAlign
+      ? {
+          minWidth: cellWidth,
+        }
+      : {};
     const def = {
       field: col.field,
       headerName: `${col.headerName}`,
-      width: 200,
+      width: col?.width ?? 200,
       renderCell: ({ row }) => {
         let value = row[col.field];
         if (col?.isDate) {
           value = moment(value).format("DD/MM/YYYY");
         } else if (col?.isNum) {
           value = withPerce ? value * 100 : value;
+          value = isMill ? value / 1e6 : value;
           value = parseFloat(value?.toFixed(2));
+          value = formatNumberWithSpaces(value);
         }
-        return <span>{value}</span>;
+        return index > 0 ? (
+          <span className={`text-right`} style={style}>
+            {value}
+            {withPerce ? "%" : ""}
+          </span>
+        ) : (
+          <strong>
+            {value}
+            {withPerce ? "%" : ""}
+          </strong>
+        );
       },
     };
     return def;
