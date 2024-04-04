@@ -259,16 +259,19 @@ const statproBenchCols = [
   {
     field: "Maturite_end",
     headerName: "Maturite (Année)",
+    width: 170,
     isNum: true,
   },
   {
     field: "Classe_Mat",
     headerName: "Classe Mat",
+    width: 100,
   },
   ,
   {
     field: "Fourchette_Mat",
     headerName: "Fourchette",
+    width: 100,
   },
   {
     field: "Wbi",
@@ -321,16 +324,6 @@ export const statProRes = [
     flex: 0.3,
     renderCell: ({ row }) => <span>{row[field]}%</span>,
   })),
-  // {
-  //   field: "Perf indice",
-  //   flex: 0.3,
-  //   renderCell: ({ row }) => {
-  //     const values = caFields.map((field) => row[field]);
-  //     const value = values.reduce((sum, currentValue) => sum + currentValue, 0);
-  //     console.log("Value", values, row, "value is", value);
-  //     return <span>{value.toFixed(2)}%</span>;
-  //   },
-  // },
 ];
 const a = {
   SEANCE_AVANT: "2024-02-24T00:00:00.000+00:00",
@@ -468,6 +461,41 @@ const compFinMBICols = [
 ];
 export const compFinMBI = createColumns(compFinMBICols);
 
+const g = {
+  A_N: "A",
+  Code_ISIN: "MA0002018374",
+  Ligne: "10 ans",
+  Taux_Facial: 0.04,
+  Date_Maturite: "2034-09-18",
+  Date_Emission: "2024-01-02",
+  Date_Effet: "2024-03-04",
+  Mois: "févr-24",
+  Nature_Echange: "OPR PRIMAIRE",
+  Nominal: 100000.0,
+  Gisement_MDH: 2642.1,
+  Code_Echange: 3,
+};
+const opeGisementsCols = [
+  { field: "Ligne", headerName: "Ligne", width: 160 },
+  { field: "A_N", headerName: "A_N", width: 60 },
+  { field: "Code_ISIN", headerName: "Code_ISIN" },
+  { field: "Date_Emission", headerName: "Date Emission", isDate: true },
+  { field: "Date_Maturite", headerName: "Date_Maturite", isDate: true },
+  {
+    field: "Taux_Facial",
+    headerName: "Taux Facial",
+    isNum: true,
+    isPerce: true,
+  },
+  { field: "Gisement_MDH", headerName: "Gisement MDH", isNum: true },
+  { field: "Date_Effet", headerName: "Date Effet", isDate: true },
+  // { field: "Mois", headerName: "Mois" },
+  // { field: "Nature_Echange", headerName: "Nature_Echange" },
+  // { field: "Nominal", headerName: "Nominal" },
+  // { field: "Code_Echange", headerName: "Code_Echange" },
+];
+export const operGisements = createColumns(opeGisementsCols);
+
 function createColumns(cols, isAlign = true) {
   return cols.map((col, index) => {
     const flex = col?.flex ? { flex: col?.flex } : {};
@@ -483,6 +511,7 @@ function createColumns(cols, isAlign = true) {
       field: col.field,
       headerName: `${col.headerName}`,
       width: col?.width ?? 200,
+      ...flex,
       renderCell: ({ row }) => {
         let value = row[col.field];
         if (col?.isDate) {

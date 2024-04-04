@@ -12,6 +12,7 @@ import {
   evolMBI,
   evolMBIB100,
   mbiFields,
+  operGisements,
   statPro,
   statProRes,
 } from "./columns";
@@ -218,6 +219,17 @@ const index = () => {
           <Table
             rows={data.evolNomi}
             columns={evolMBI}
+            pageSize={25}
+            density="compact"
+          />
+        </Box>
+      )}
+      {show && data.operGisements.length > 0 && (
+        <Box>
+          <h3>Opérations Gisements</h3>
+          <Table
+            rows={data.operGisements}
+            columns={operGisements}
             pageSize={25}
             density="compact"
           />
