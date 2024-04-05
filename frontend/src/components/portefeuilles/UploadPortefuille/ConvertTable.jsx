@@ -12,6 +12,7 @@ import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
 import useDataXLTheme from "../../../hooks/useDataXLTheme";
 import { locale } from "../../../utils/dataGridXLLocale";
+import { setPtfName as ptfToSave } from "../../../redux/slices/PtfSlice";
 
 const ConverTable = ({ handlePtfToBacktest, ptfsType }) => {
   const dgxlRef = useRef(null);
@@ -72,6 +73,7 @@ const ConverTable = ({ handlePtfToBacktest, ptfsType }) => {
     const data = transformToJSON(tableData, !noHeaders);
     console.log("data to upload", data);
     if (data.length > 0) {
+      dispatch(ptfToSave(ptfName));
       dispatch(uploadTable({ data, ptfName, ptfType, noHeaders }))
         .unwrap()
         .then((success) => {

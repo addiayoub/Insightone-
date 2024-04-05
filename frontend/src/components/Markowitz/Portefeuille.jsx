@@ -1,14 +1,10 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import PortefeuilleSunburst from "../charts/PortefeuilleSunburst";
 import SavePortefeuille from "../SavePortefeuille";
 import PortefeuilleTable from "./PortefeuilleTable";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
-const gridStyle = {
-  display: "grid",
-  // gridTemplateColumns: "repeat(2, minmax(500px, 1fr))",
-  gridTemplateColumns: "repeat(2, 7fr 5fr)",
-  gap: "60px 15px",
-};
+import { useDispatch } from "react-redux";
+import { setPtfName } from "../../redux/slices/PtfSlice";
 
 function Portefeuille({
   title,
@@ -19,7 +15,7 @@ function Portefeuille({
   dataToSave = [],
 }) {
   console.log("rows before", field, data);
-
+  const dispatch = useDispatch();
   const rows = compare
     ? data
     : data
@@ -35,6 +31,9 @@ function Portefeuille({
     field,
     data.filter((item) => item[field] < 0.01)
   );
+  useEffect(() => {
+    dispatch(setPtfName(""));
+  }, []);
   return (
     <GridContainer
       // sx={gridStyle}

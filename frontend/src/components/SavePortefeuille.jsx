@@ -1,5 +1,5 @@
 import { Box, Button, Divider, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { memo } from "react";
 import { Save } from "react-feather";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,8 +23,9 @@ const SavePortefeuille = ({
   dataToSave = [],
   isDisabled,
 }) => {
+  const { ptfName } = useSelector((state) => state.ptf);
   const [open, setOpen] = useState(false);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(ptfName);
   const [error, setError] = useState("");
   const [choice, setChoice] = useState("single");
   const [isSaving, setIsSaving] = useState(false);
@@ -34,6 +35,7 @@ const SavePortefeuille = ({
   console.log("data to Save", dataToSave);
   data = injectMinMax(dataToSave);
   console.log("data injectMinMax", data);
+  useEffect(() => setTitle(ptfName), [ptfName]);
   const { params } =
     type === "OPCVM"
       ? useSelector((state) => state.opcvm)

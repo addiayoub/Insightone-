@@ -13,6 +13,7 @@ import { notyf } from "../../../utils/notyf";
 import ModalComponent from "../../Modal";
 import DeleteModal from "../../DeleteModal";
 import { DeleteButton, ValidateButton } from "../../Ui/Buttons";
+import { setPtfName } from "../../../redux/slices/PtfSlice";
 
 const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
   const {
@@ -46,6 +47,7 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
     console.log("choosen", choosen);
     console.log("data", data);
     console.log("choosenPtf", choosenPtf);
+    dispatch(setPtfName(ptf));
     setSelectedPtfs([choosen]);
     dispatch(setPtfToBacktest(choosen));
     dispatch(setSelectedPtf(ptf));

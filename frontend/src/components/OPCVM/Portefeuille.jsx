@@ -1,11 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import Table from "../Table";
 import { Box } from "@mui/material";
 import PortefeuilleSunburst from "./PortefeuilleSunburst";
 import SavePortefeuille from "../SavePortefeuille";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PortefeuilleTable from "./PortefeuilleTable";
+import { setPtfName } from "../../redux/slices/PtfSlice";
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))",
@@ -20,6 +21,7 @@ function Portefeuille({
   saveAll = false,
   dataToSave,
 }) {
+  const dispatch = useDispatch();
   const rows = data
     .filter((item) => item[field] >= 0.01)
     .map((item) => ({
@@ -28,6 +30,9 @@ function Portefeuille({
     }))
     .sort((a, b) => b[field] - a[field]);
   console.log("Portefeuille front 2 rows", rows, data, field, compare);
+  useEffect(() => {
+    dispatch(setPtfName(""));
+  }, []);
   return (
     <Box
       // sx={gridStyle}

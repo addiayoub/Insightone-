@@ -19,6 +19,7 @@ import RiskManageReducer from "./slices/RiskManageSlice";
 import ProfileFinReducer from "./slices/ProfileFinSlice";
 import AnalyseMBIReducer from "./slices/AnalyseMBISlice";
 import AdminReducer from "./slices/AdminSlice";
+import PtfReducer from "./slices/PtfSlice";
 
 export const store = configureStore({
   reducer: {
@@ -41,6 +42,7 @@ export const store = configureStore({
     riskManage: RiskManageReducer,
     compOpcvm: compOPCVMReducer,
     analyseMBI: AnalyseMBIReducer,
+    ptf: PtfReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

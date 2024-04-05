@@ -8,6 +8,7 @@ import { setPortefeuilles } from "../../../redux/slices/UserSlice";
 import MainLoader from "../../loaders/MainLoader";
 import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
+import { setPtfName as setPtfToSave } from "../../../redux/slices/PtfSlice";
 const fileTypes = ["csv"];
 
 const UploadPortefeuille = ({ handlePtfToBacktest, ptfsType }) => {
@@ -24,6 +25,7 @@ const UploadPortefeuille = ({ handlePtfToBacktest, ptfsType }) => {
   const upload = () => {
     setInvalidsTitres([]);
     setIsLoading(true);
+    dispatch(setPtfToSave(ptfName));
     dispatch(uploadCsv({ file, ptfName, ptfType, noHeaders }))
       .unwrap()
       .then((success) => {
