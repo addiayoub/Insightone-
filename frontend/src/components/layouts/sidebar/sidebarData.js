@@ -2,6 +2,7 @@ import { Article, Balance, Newspaper } from "@mui/icons-material";
 import {
   BackwardItem,
   Chart,
+  Diagram,
   Document,
   User,
   Wallet,
@@ -205,11 +206,11 @@ export const sidebarData = [
     iconClosed: ChevronDown,
     iconOpened: ChevronUp,
     subMenu: [
-      {
-        title: "Consultation",
-        link: "consultation",
-        icon: List,
-      },
+      // {
+      //   title: "Consultation",
+      //   link: "consultation",
+      //   icon: List,
+      // },
       {
         title: "Tradebot",
         link: "backtest",
@@ -219,6 +220,11 @@ export const sidebarData = [
         title: "Backtest",
         link: "portefeuilles",
         icon: Pocket,
+      },
+      {
+        title: "Risk management",
+        link: "risk-management",
+        icon: Diagram,
       },
     ],
   },

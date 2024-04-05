@@ -34,16 +34,16 @@ const mergeDataByKeyBeta = (data, key) => {
   return result;
 };
 
-export const transformBacktestData = (ptfs) => {
+export const transformBacktestData = (ptfs, propName) => {
   const newData = [];
   ptfs.forEach((ptf) => {
     const { field, name } = ptf;
     const ptfData = ptf.data.filter((item) => item[field] > 0);
+    const poids = propName ? propName : name;
     const dd = ptfData.map((item) => {
       return {
         valeur: item.titre,
-        [name]: item[field],
-        // [`"${name}"`]: item[field],
+        [poids]: item[field],
       };
     });
     newData.push(...dd);

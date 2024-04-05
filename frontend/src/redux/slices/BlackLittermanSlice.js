@@ -4,7 +4,6 @@ import {
   meanRiskOptiOpcAction,
   portfolioAllocationAction,
   portfolioOptiAction,
-  valueAtRiskAction,
 } from "../actions/BlackLittermanActions";
 const OPCVM_INIT = {
   weights: [],
@@ -31,16 +30,6 @@ const OPCVM_INIT = {
 };
 
 const initialState = {
-  valueAtRisk: {
-    data: {
-      historicalVar: [],
-      parametricVar: [],
-      portfolioSims: [],
-      varCvar: [],
-    },
-    loading: false,
-    error: null,
-  },
   portfolioOpti: {
     data: {
       weights: [],
@@ -98,29 +87,6 @@ const BlackLittermanSlice = createSlice({
   name: "BlackLittermanSlice",
   initialState,
   extraReducers: (builder) => {
-    // Value At Risk
-    builder.addCase(valueAtRiskAction.pending, ({ valueAtRisk }) => {
-      valueAtRisk.loading = true;
-    });
-    builder.addCase(
-      valueAtRiskAction.fulfilled,
-      ({ valueAtRisk }, { payload }) => {
-        valueAtRisk.loading = false;
-        valueAtRisk.data.historicalVar = payload.df_Historical_VaR;
-        valueAtRisk.data.parametricVar = payload.df_Parametric_VaR;
-        valueAtRisk.data.portfolioSims = payload.df_portfolio_sims;
-        valueAtRisk.data.varCvar = payload.df_VaR_CVaR;
-      }
-    );
-    builder.addCase(
-      valueAtRiskAction.rejected,
-      ({ valueAtRisk }, { payload }) => {
-        valueAtRisk.loading = false;
-        valueAtRisk.data = initialState.valueAtRisk.data;
-        valueAtRisk.error = payload;
-      }
-    );
-
     // Portfolio Optimization
     builder.addCase(portfolioOptiAction.pending, ({ portfolioOpti }) => {
       portfolioOpti.loading = true;

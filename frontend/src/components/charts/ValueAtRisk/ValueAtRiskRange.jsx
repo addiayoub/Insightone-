@@ -1,25 +1,32 @@
 import React, { memo, useMemo } from "react";
-import LineChart from "../../Default/LineChart";
-import { formatNumberWithSpaces } from "../../../../utils/formatNumberWithSpaces";
+import LineChart from "../Default/LineChart";
+import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
+import moment from "moment";
 
-const getSeries = (data, seriesNames) => {
-  return seriesNames.map((serieName) => ({
+const getSeries = (data) => {
+  const seriesNames = Object.keys(data[0]).filter(
+    (seriesName) => seriesName !== "seance"
+  );
+  const series = seriesNames.map((serieName) => ({
     name: serieName,
     type: "line",
+    symbolSize: 0,
     // symbol: "none",
-    itemStyle: { color: "rgba(204,204,204,0.7)" },
-    lineStyle: { color: "rgba(204,204,204,0.7)" },
+    itemStyle: { color: "rgba(204,204,204,0.25)" },
+    lineStyle: { color: "rgba(204,204,204,0.25)" },
     data: data.map((item) => item[serieName]),
   }));
+
+  const xAxisData = data.map((item) =>
+    moment(item.seance).format("DD/MM/YYYY")
+  );
+
+  return { series, seriesNames, xAxisData };
 };
 const ValueAtRiskRange = ({ data }) => {
-  const seriesNames = Object.keys(data[0]).filter(
-    (seriesName) => seriesName !== "days"
-  );
-  const xAxisData = useMemo(() => data.map((item) => item.days));
-  const series = useMemo(
-    () => getSeries(data, seriesNames),
-    [data, seriesNames]
+  const { series, xAxisData, seriesNames } = useMemo(
+    () => getSeries(data),
+    [data]
   );
 
   const options = useMemo(() => {
@@ -28,6 +35,7 @@ const ValueAtRiskRange = ({ data }) => {
         type: "category",
         data: xAxisData,
       },
+      yAxis: { min: "dataMin", max: "dataMax" },
       tooltip: {
         trigger: "item",
         valueFormatter: (value) => formatNumberWithSpaces(value),
@@ -41,7 +49,7 @@ const ValueAtRiskRange = ({ data }) => {
       options={options}
       showSeriesSelector
       style={{
-        minHeight: 500,
+        height: 500,
       }}
       saveToExcel={{
         show: true,

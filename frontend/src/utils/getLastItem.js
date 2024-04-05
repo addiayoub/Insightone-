@@ -4,3 +4,11 @@ export const getLastItem = (arr) => {
   }
   return arr[arr.length - 1];
 };
+
+export const getLastItemWithFilter = (array, condition) => {
+  // Filter the array based on the condition
+  const filteredArray = array.filter(condition);
+
+  // Get the last element from the filtered array
+  return filteredArray.pop();
+};

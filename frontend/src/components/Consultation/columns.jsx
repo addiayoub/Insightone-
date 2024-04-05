@@ -75,35 +75,35 @@ export const cols = [
     field: "name",
     headerName: "PTF",
     renderCell: ({ row }) => <strong>{row.name}</strong>,
-    flex: 1,
+    width: 180,
   },
   {
     field: "type",
     headerName: "Type",
-    flex: 0.3,
+    width: 100,
     renderCell: ({ row }) => <strong>{row.type}</strong>,
   },
   {
     field: "createdAt",
     headerName: "Date de création",
-    flex: 0.4,
+    width: 150,
     renderCell: ({ row }) => moment(row.createdAt).format("DD/MM/YYYY"),
   },
   {
     field: "params-1",
     headerName: "Date début BKT",
-    flex: 0.4,
+    width: 150,
     renderCell: ({ row }) => row.params.dateDebut,
   },
   {
     field: "params-2",
-    headerName: "Date fin BKT",
-    flex: 0.4,
+    width: 150,
     renderCell: ({ row }) => row.params.dateFin,
   },
   {
     field: "Nb_secteurs",
     headerName: "Nb secteurs",
+    width: 90,
     renderCell: ({ row }) => {
       const { data, type } = row;
       const secteur =
@@ -115,7 +115,7 @@ export const cols = [
   {
     field: "Nb_titres",
     headerName: "Nb titres",
-    width: 150,
+    width: 90,
     renderCell: ({ row }) => {
       const { data } = row;
       return data.length;
@@ -124,7 +124,7 @@ export const cols = [
   {
     field: "poids_total",
     headerName: "Poids total (%)",
-    flex: 0.4,
+    width: 110,
     renderCell: ({ row }) => {
       const { data, field } = row;
       return (

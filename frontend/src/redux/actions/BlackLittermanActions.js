@@ -5,37 +5,6 @@ import { transformForPtfAlloca } from "../../utils/formatBacktestData";
 
 const url = "OPCVM/";
 
-export const valueAtRiskAction = createAsyncThunk(
-  "BlackLitterman/valueAtRiskAction",
-  async (
-    { dateDebut, dateFin, days, initInvest, mcSims, titres },
-    thunkAPI
-  ) => {
-    try {
-      // ?start=25%2F12%2F2020&end=02%2F02%2F2024&Days=100&InitialInvestment=10000&mc_sims=100&list_valeur=AFMA&list_valeur=ITISSALAT AL-MAGHRIB
-      const response = await apiNewMarko.post(
-        "Value_at_Risk/POST/Value_at_Risk/",
-        {},
-        {
-          params: {
-            start: formatDate(dateDebut["$d"]),
-            end: formatDate(dateFin["$d"]),
-            Days: +days,
-            InitialInvestment: initInvest * 1e6,
-            mc_sims: mcSims,
-            list_valeur: titres,
-          },
-        }
-      );
-      // console.log(Object.keys(response.data));
-      return response.data;
-    } catch (error) {
-      console.log("valueAtRiskAction error", error);
-      return thunkAPI.rejectWithValue("Error server");
-    }
-  }
-);
-
 export const portfolioOptiAction = createAsyncThunk(
   "BlackLitterman/portfolioOptiAction",
   async ({ nbPtfs, dateDebut, dateFin, titres }, thunkAPI) => {

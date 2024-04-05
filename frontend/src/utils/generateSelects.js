@@ -111,15 +111,10 @@ const filterSelects = (
 ) => {
   const labels = getLabels(choice);
   data = data[choice];
-  data = data.filter((item) => item.categorie === "MBI");
   const select = selects[0];
   console.log("labels", labels);
   console.log("data", data);
   console.log("select", select);
-  console.log(
-    "dd",
-    data.filter((item) => item.categorie === "MBI")
-  );
   let filteredCate = select.categories.data;
   let filteredTitres = select.titres.data;
   const CLASSES = { label: labels.classes, data: select.classes.data };

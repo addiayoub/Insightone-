@@ -1,5 +1,6 @@
 import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { createColumns } from "../../utils/createColumns";
 
 const d = {
   Classe_Mat: "CT",
@@ -495,46 +496,3 @@ const opeGisementsCols = [
   // { field: "Code_Echange", headerName: "Code_Echange" },
 ];
 export const operGisements = createColumns(opeGisementsCols);
-
-function createColumns(cols, isAlign = true) {
-  return cols.map((col, index) => {
-    const flex = col?.flex ? { flex: col?.flex } : {};
-    const withPerce = col?.isPerce;
-    const isMill = col?.isMill;
-    const cellWidth = col?.cellWidth ?? "50%";
-    const style = isAlign
-      ? {
-          minWidth: cellWidth,
-        }
-      : {};
-    const def = {
-      field: col.field,
-      headerName: `${col.headerName}`,
-      width: col?.width ?? 200,
-      ...flex,
-      renderCell: ({ row }) => {
-        let value = row[col.field];
-        if (col?.isDate) {
-          value = moment(value).format("DD/MM/YYYY");
-        } else if (col?.isNum) {
-          value = withPerce ? value * 100 : value;
-          value = isMill ? value / 1e6 : value;
-          value = parseFloat(value?.toFixed(2));
-          value = formatNumberWithSpaces(value);
-        }
-        return index > 0 ? (
-          <span className={`text-right`} style={style}>
-            {value}
-            {withPerce ? "%" : ""}
-          </span>
-        ) : (
-          <strong>
-            {value}
-            {withPerce ? "%" : ""}
-          </strong>
-        );
-      },
-    };
-    return def;
-  });
-}

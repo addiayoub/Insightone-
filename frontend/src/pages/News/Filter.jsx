@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { getNews } from "../../redux/actions/ProfileFinActions";
 
 const Filter = () => {
-  const [dateDebut, setDateDebut] = useState(dayjs().subtract(3, "month"));
+  const [dateDebut, setDateDebut] = useState(dayjs().subtract(7, "days"));
   const [dateFin, setDateFin] = useState(dayjs());
   const dispatch = useDispatch();
   const handleSearch = () => {

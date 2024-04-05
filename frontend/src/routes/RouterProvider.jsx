@@ -31,6 +31,7 @@ import Ptfs from "../components/Consultation/Ptfs.jsx";
 import AnalyseMBI from "../components/AnalyseMBI/index.jsx";
 import News from "../pages/News/";
 import ArticleDetails from "../pages/News/ArticleDetails.jsx";
+import RiskManage from "../components/RiskManage/";
 
 function RouterProvider() {
   return (
@@ -72,6 +73,7 @@ function RouterProvider() {
             <Route path="/consultation" element={<Ptfs />} />
             <Route path="/backtest" element={<Backtest />} />
             <Route path="/portefeuilles" element={<Portefeuilles />} />
+            <Route path="/risk-management" element={<RiskManage />} />
 
             {/* ANALYSE OPCVM */}
             <Route path="/tracking" element={<Tracking />} />
