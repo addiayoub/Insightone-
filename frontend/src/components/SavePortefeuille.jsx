@@ -13,6 +13,7 @@ import {
   setSelectedPtf,
 } from "../redux/slices/BacktestSlice";
 import { injectMinMax } from "../utils/injectId";
+import OverridePtf from "./OverridePtf";
 
 const SavePortefeuille = ({
   data,
@@ -29,6 +30,8 @@ const SavePortefeuille = ({
   const [error, setError] = useState("");
   const [choice, setChoice] = useState("single");
   const [isSaving, setIsSaving] = useState(false);
+  const [override, setOverride] = useState(false);
+  const [showOverride, setShowOverride] = useState(false);
   console.log("saveAll", saveAll);
   console.log("oldParams", oldParams);
   console.log("pure data", data);
@@ -41,8 +44,10 @@ const SavePortefeuille = ({
       ? useSelector((state) => state.opcvm)
       : useSelector((state) => state.rapport);
   const dispatch = useDispatch();
-  const handleSave = () => {
+  const handleSave = (decision) => {
     setIsSaving(true);
+    setShowOverride(false);
+    setOverride(false);
     console.log("Title", title);
     console.log("params", params);
     console.log("choice", choice);
@@ -76,7 +81,7 @@ const SavePortefeuille = ({
       console.log("we will save filterByPtf ", portefeuille);
       ptfs.push(portefeuille);
     }
-    dispatch(savePortefeuille({ portefeuille: ptfs }))
+    dispatch(savePortefeuille({ portefeuille: ptfs, override: decision }))
       .unwrap()
       .then(({ message, portefeuilles }) => {
         reset();
@@ -85,13 +90,31 @@ const SavePortefeuille = ({
         dispatch(setSelectedPtf(ptfs[0]["name"]));
         notyf.success(message);
       })
-      .catch((error) => notyf.error(error))
+      .catch(({ message, exists }) => {
+        console.log("SAVE ERROR", message, exists);
+        if (exists) {
+          setShowOverride(true);
+        }
+        notyf.error(message);
+      })
       .finally(() => setIsSaving(false));
   };
   const reset = () => {
     setOpen(false);
-    setTitle("");
+    setOverride(false);
+    setShowOverride(false);
+    setTitle(ptfName ? ptfName : "");
   };
+
+  const handleOverride = (decision) => {
+    if (decision) {
+      setOverride(true);
+      handleSave(true);
+    }
+    setOverride(false);
+    setShowOverride(false);
+  };
+
   return (
     <>
       <Box className="p-3 flex flex-wrap">
@@ -150,6 +173,9 @@ const SavePortefeuille = ({
             variant="outlined"
             autoFocus
           />
+          {showOverride && !isSaving && (
+            <OverridePtf {...{ handleOverride, title }} />
+          )}
           <Box
             sx={{
               alignSelf: "end",
@@ -167,8 +193,8 @@ const SavePortefeuille = ({
             </Button>
             <Button
               variant="contained"
-              onClick={handleSave}
-              disabled={!title || isSaving}
+              onClick={() => handleSave(false)}
+              disabled={!title || isSaving || showOverride}
             >
               {isSaving ? "Veuillez patienter..." : "Enregistrer"}
             </Button>

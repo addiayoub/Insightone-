@@ -138,20 +138,26 @@ export const updateProfile = createAsyncThunk(
 
 export const savePortefeuille = createAsyncThunk(
   "user/savePortefeuille",
-  async ({ portefeuille }, thunkAPI) => {
+  async ({ portefeuille, override }, thunkAPI) => {
     try {
       const { id } = thunkAPI.getState().auth.user;
       console.log("User auth", thunkAPI.getState().auth.user, portefeuille);
       const response = await axios.post(`/api/users/savePortefeuille`, {
         id,
         portefeuille,
+        override,
       });
       console.log(`savePortefeuille`, response);
       return response.data;
     } catch (error) {
       console.log(error);
       if (error.response && error.response.data.message) {
-        return thunkAPI.rejectWithValue(error.response.data.message);
+        const { message, exists } = error.response.data;
+        return thunkAPI.rejectWithValue({
+          failed: true,
+          message,
+          exists,
+        });
       } else {
         return thunkAPI.rejectWithValue({
           failed: true,

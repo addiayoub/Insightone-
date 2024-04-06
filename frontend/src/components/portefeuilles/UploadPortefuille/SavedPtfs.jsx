@@ -34,6 +34,7 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
     console.log("ptf", ptf);
     if (ptf) {
       const choosen = data.find((item) => item.name === ptf);
+      // dispatch(setPtfName(ptf));
       setSelectedPtfs([choosen]);
     } else {
       setSelectedPtfs([]);
