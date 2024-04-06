@@ -1,12 +1,7 @@
-const moment = require("moment");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
-const path = require("path");
 const csvtojson = require("csvtojson");
-const excelToJson = require("convert-excel-to-json");
-const csv = require("fast-csv");
-const exceljs = require("exceljs");
 const isPortefeuilleUnique = require("../utils/isPortefeuilleUnique");
 const transformPtfData = require("../utils/transformPtfData");
 const validatePortefeuilleTitres = require("../utils/validatePortefeuilleTitres");
@@ -272,7 +267,7 @@ class _UserController {
 
   async savePortefeuille(req, res) {
     try {
-      const { id, portefeuille } = req.body;
+      const { id, portefeuille, override } = req.body;
       console.log("savePortefeuille", req.body);
       // Find the user
       const user = await User.findById(id);
@@ -284,26 +279,40 @@ class _UserController {
       // Initialize portefeuilles as an array if it's undefined
       user.portefeuilles = user.portefeuilles || [];
 
-      // Check if the portefeuille name already exists
-      // const isPortefeuilleNameExists = user.portefeuilles.find(
-      //   (existing) =>
-      //     existing.name === portefeuille.name &&
-      //     existing.type === portefeuille.type
-      // );
       const areUnique = isPortefeuilleUnique(portefeuille, user.portefeuilles);
-      if (!areUnique) {
+      if (!areUnique && !override) {
         return res.status(400).json({
+          exists: true,
+          areUnique,
           message:
             "Le titre du portefeuille existe déjà. Veuillez choisir un autre titre.",
         });
       }
+      if (override) {
+        let lastIndex = 0;
+        portefeuille.forEach((ptf) => {
+          const index = user.portefeuilles.findIndex(
+            (item) => item.name === ptf.name && item.type === ptf.type
+          );
+          if (index !== -1) {
+            lastIndex = index;
+          }
+          user.portefeuilles[index] = ptf;
+          // portefeuille items > old portefeuilles
+          if (index === -1) {
+            user.portefeuilles.splice(lastIndex + 1, 0, ptf);
+          }
+        });
 
-      // Add the new portefeuille to the user's portefeuilles array
-      user.portefeuilles.push(...portefeuille);
-      // Save the updated user to the database
-      await user.save();
+        await user.save();
+      } else {
+        // Add the new portefeuille to the user's portefeuilles array
+        user.portefeuilles.push(...portefeuille);
+        // Save the updated user to the database
+        await user.save();
+      }
 
-      res.status(201).json({
+      return res.status(201).json({
         message: "Portefeuille enregistré avec succès.",
         portefeuilles: user.portefeuilles,
       });
