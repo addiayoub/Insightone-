@@ -5,6 +5,10 @@ import MainLoader from "../../components/loaders/MainLoader";
 import { useNavigate } from "react-router-dom";
 import ArticleSummary from "./ArticleSummary";
 import { Box, TextField } from "@mui/material";
+import Swiper from "../../components/Ui/Swiper/";
+import { SwiperSlide } from "swiper/react";
+import MainArticle from "./MainArticle";
+import NewsSwiper from "./NewsSwiper";
 // import dn from "../../components/Test/news.json";
 
 function searchAndFilterNews(data, searchTerm) {
@@ -39,10 +43,11 @@ const index = () => {
   return (
     <>
       <Filter />
+
       {loading && <MainLoader />}
       {!loading && news?.length > 0 && (
         <Box>
-          <Box className="mb-4 shadow-lg flex justify-between items-center p-4 rounded-md">
+          <Box className="mb-12 shadow-lg flex justify-between items-center p-4 rounded-md">
             <TextField
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -53,15 +58,11 @@ const index = () => {
               <span>{filtered.length}</span>/<span>{news.length}</span>
             </div>
           </Box>
-          {filtered?.map((item) => {
-            return (
-              <ArticleSummary
-                {...item}
-                key={item.id}
-                onClick={() => goToArticle(item.id)}
-              />
-            );
-          })}
+          <MainArticle
+            {...filtered[0]}
+            onClick={() => goToArticle(filtered[0]["id"])}
+          />
+          <NewsSwiper news={filtered} goToArticle={goToArticle} />
         </Box>
       )}
     </>
