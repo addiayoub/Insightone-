@@ -154,3 +154,26 @@ export const defaultPie = {
     },
   },
 };
+
+export const rangeOpts = {
+  z: -1,
+  name: "Range",
+  stack: "Min",
+  tooltip: {
+    show: false,
+  },
+  type: "line",
+  areaStyle: {
+    color: "rgba(204,204,204,0.5)",
+    opacity: 1,
+    origin: "start",
+  },
+  lineStyle: {
+    opacity: 0,
+  },
+  itemStyle: { color: "rgba(204,204,204,0.5)", opacity: 1 },
+  emphasis: {
+    disabled: true,
+  },
+  symbolSize: 0,
+};

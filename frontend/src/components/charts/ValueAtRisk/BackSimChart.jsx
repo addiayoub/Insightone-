@@ -1,29 +1,8 @@
+import React, { memo, useMemo } from "react";
 import moment from "moment";
-import React, { useMemo } from "react";
 import LineChart from "../Default/LineChart";
-
-const rangeOpts = {
-  z: -1,
-  name: "Range",
-  stack: "Min",
-  tooltip: {
-    show: false,
-  },
-  type: "line",
-  areaStyle: {
-    color: "rgba(204,204,204,0.5)",
-    opacity: 1,
-    origin: "start",
-  },
-  lineStyle: {
-    opacity: 0,
-  },
-  itemStyle: { color: "rgba(204,204,204,0.5)", opacity: 1 },
-  emphasis: {
-    disabled: true,
-  },
-  symbolSize: 0,
-};
+import { rangeOpts } from "../../../utils/chart/defaultOptions";
+import { getLastItemWithFilter } from "../../../utils/getLastItem";
 
 const seriesData = (data) => {
   const seances = data.map((item) => moment(item.seance).format("DD/MM/YYYY"));
@@ -44,7 +23,35 @@ const seriesData = (data) => {
   return { seances, mean, min, max, range };
 };
 
+const getMarksArea = (data, forSim) => {
+  const type = forSim ? "MC Simulation" : "Backtest";
+  const color = forSim ? "#30c63f" : "#8784d9";
+  const condition = (item) => item.label === type;
+  const { seance: start } = data.find(condition);
+  const { seance: end } = getLastItemWithFilter(data, condition);
+  const marksArea = {
+    z: -1,
+    itemStyle: {
+      color,
+    },
+    data: [
+      [
+        {
+          name: type,
+          xAxis: moment(start).format("DD/MM/YYYY"),
+        },
+        {
+          xAxis: moment(end).format("DD/MM/YYYY"),
+        },
+      ],
+    ],
+  };
+  return marksArea;
+};
+
 const BackSimChart = ({ data }) => {
+  console.log("BackSimChart", data);
+  console.log("getMarks", getMarksArea(data));
   const { seances, mean, max, min, range } = useMemo(
     () => seriesData(data),
     [data]
@@ -54,6 +61,9 @@ const BackSimChart = ({ data }) => {
       xAxis: {
         type: "category",
         data: seances,
+      },
+      grid: {
+        top: "15%",
       },
       yAxis: { type: "value", max: "dataMax", min: "dataMin" },
       series: [
@@ -67,6 +77,7 @@ const BackSimChart = ({ data }) => {
             type: "dashed",
             color: "red",
           },
+          markArea: getMarksArea(data),
         },
         {
           name: "Min",
@@ -76,6 +87,7 @@ const BackSimChart = ({ data }) => {
           data: min,
           itemStyle: { color: "rgba(204,204,204,0.9)" },
           lineStyle: { color: "rgba(204,204,204,0.9)" },
+          markArea: getMarksArea(data, true),
         },
         ,
         {
@@ -107,4 +119,4 @@ const BackSimChart = ({ data }) => {
   );
 };
 
-export default BackSimChart;
+export default memo(BackSimChart);
