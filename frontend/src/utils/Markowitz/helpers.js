@@ -229,23 +229,9 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
   const sumLocked = calculateSumPoids(locked, field);
   const oldSum = calculateSumPoids(oldRows, field);
   const newSum = calculateSumPoids(newRows, field);
-  const oldReliquat = 100 - sumLocked;
-  const reliquat = oldSum - newSum;
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
-  const diff = dataDiff(oldRows, newRows, field);
-  const count = countNonZero(diff, field);
-  console.log("--------------- AJUSTER FUNC ---------------");
-  console.log("sumLocked", sumLocked);
-  console.log("oldReliquat", oldReliquat);
-  console.log("reliquat", reliquat);
-  console.log("newRows", newRows);
-  console.log("oldRows", oldRows);
-  console.log("oldSum", oldSum);
-  console.log("newSum", newSum);
-  console.log("diff", diff);
-  console.log("count", count);
   setNewRows((prevData) =>
     prevData.map((item) => {
       if (sumLocked === 0) {
@@ -253,14 +239,18 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
         const diff = dataDiff(oldRows, newRows, field);
         const count = countNonZero(diff, field);
         const value = reliquat / count;
-        console.log("sumlOCked is zero", sumLocked);
-        console.log("unLockedTitres", unLockedTitres);
         if (unLockedTitres.includes(item.titre)) {
-          console.log("unLockedTitres.includes", true);
           // let newPoids = 100 / unLockedTitres.length;
           let newPoids = item[field] > 0 ? item[field] + value : item[field];
-          newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
-          console.log("newPoids", newPoids);
+          newPoids =
+            isNaN(newPoids) || newPoids < 0 ? 0 : (newPoids * 100) / oldSum;
+          // console.log("newPoids", newPoids / oldSum);
+          console.log(
+            `poids should be: ${item.titre}: ${
+              (newPoids * 100) / oldSum
+            } #### ${newPoids}`,
+            item
+          );
           return { ...item, [field]: newPoids };
         }
         return { ...item };

@@ -1,12 +1,10 @@
-import React, { useEffect, memo, useState } from "react";
+import React, { memo, useState } from "react";
 import Filter from "./Filter";
 import { useSelector } from "react-redux";
 import MainLoader from "../../components/loaders/MainLoader";
 import { useNavigate } from "react-router-dom";
 import ArticleSummary from "./ArticleSummary";
 import { Box, TextField } from "@mui/material";
-import Swiper from "../../components/Ui/Swiper/";
-import { SwiperSlide } from "swiper/react";
 import MainArticle from "./MainArticle";
 import NewsSwiper from "./NewsSwiper";
 // import dn from "../../components/Test/news.json";

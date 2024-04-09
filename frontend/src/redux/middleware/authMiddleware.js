@@ -2,6 +2,7 @@ import { notyf } from "../../utils/notyf";
 import resetStates from "../../utils/resetStates";
 import { logout } from "../slices/AuthSlice";
 import { setPath } from "../slices/DashboardSlice";
+import { resetNews } from "../slices/ProfileFinSlice";
 
 const authMiddleware = (store) => (next) => (action) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -11,6 +12,8 @@ const authMiddleware = (store) => (next) => (action) => {
     if (expiresAt < currentTime && action.type !== "auth/logout") {
       store.dispatch(logout());
       store.dispatch(setPath(""));
+      store.dispatch(resetNews());
+
       console.log("Logged u out");
       notyf.error(
         `Votre session a expiré. Veuillez vous reconnecter pour continuer.`

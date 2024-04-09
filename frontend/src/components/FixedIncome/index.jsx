@@ -25,30 +25,6 @@ import { getColumns } from "../PerfGlis/columns";
 import Slider, { SliderItem } from "../Slider";
 import PerfTable from "../PerfGlis/PerfTable";
 
-const sliderdd = [
-  {
-    TICKER: "AFM",
-    Seance: "2024-03-22T00:00:00.000Z",
-    Cours_Cloture: 1204,
-    Evolution: -0.08,
-    Volume: 1204,
-  },
-  {
-    TICKER: "AFM",
-    Seance: "2024-03-22T00:00:00.000Z",
-    Cours_Cloture: 1204,
-    Evolution: -0.08,
-    Volume: 1204,
-  },
-  {
-    TICKER: "AFM",
-    Seance: "2024-03-22T00:00:00.000Z",
-    Cours_Cloture: 1204,
-    Evolution: -0.08,
-    Volume: 1204,
-  },
-];
-
 const Index = () => {
   const [show, setShow] = useState(false);
   const { data } = useSelector((state) => state.fixedIncome);

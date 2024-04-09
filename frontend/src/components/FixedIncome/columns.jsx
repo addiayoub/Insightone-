@@ -1,6 +1,7 @@
 import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import TextColor from "../Dashboard/TextColor";
+import { createColumns } from "../../utils/createColumns";
 // {
 //     "Date_valeur": "2023-12-20T23:00:00.000+00:00",
 //     "taux": 3,
@@ -183,7 +184,14 @@ export const placementsTresorJColumns = [
     },
   },
 ];
-
+const placementsTresorDef = [
+  {
+    field: "DATE_REGLEMENT",
+    headerName: "Du",
+    flex: 0.5,
+    isdate: true,
+  },
+];
 export const placementsTresorColumns = [
   {
     field: "DATE_REGLEMENT",
@@ -221,93 +229,43 @@ export const placementsTresorColumns = [
   },
 ];
 
-export const pretsGarantisColumns = [
-  {
-    field: "Date_valeur",
-    headerName: "Du",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_valeur).format("DD/MM/YYYY")}</strong>
-    ),
-  },
+const pretsGarantisDef = [
+  { field: "Date_valeur", headerName: "Du", flex: 0.5, isDate: true },
   {
     field: "Date_Echeance",
     headerName: "Au",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_Echeance).format("DD/MM/YYYY")}</strong>
+    renderCell: (row) => (
+      <strong>{moment(row.Date_Echeance).format("DD/MM/YYYY")}</strong>
     ),
   },
-  {
-    field: "montant_servi",
-    headerName: "Montant",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.montant_servi);
-      return value;
-    },
-  },
+  { field: "montant_servi", headerName: "Montant", flex: 0.5, isNum: true },
   {
     field: "taux",
     headerName: "Taux",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.taux;
+
+    renderCell: (row) => {
+      const value = row.taux;
       return value + "%";
     },
   },
 ];
+export const pretsGarantisColumns = createColumns(pretsGarantisDef);
 
-export const avance7jColumns = [
-  {
-    field: "Date_valeur",
-    headerName: "Du",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_valeur).format("DD/MM/YYYY")}</strong>
-    ),
-  },
-  {
-    field: "Date_Echeance",
-    headerName: "Au",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_Echeance).format("DD/MM/YYYY")}</strong>
-    ),
-  },
-  {
-    field: "propose",
-    headerName: "Propose",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.propose);
-      return value;
-    },
-  },
-  {
-    field: "retenu",
-    headerName: "Retenu",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.retenu);
-      return value;
-    },
-  },
+const avance7jDef = [
+  { field: "Date_valeur", headerName: "Du", flex: 0.5, isDate: true },
+  { field: "Date_Echeance", headerName: "Au", flex: 0.5, isDate: true },
+  { field: "propose", headerName: "Propose", flex: 0.5, isNum: true },
+  { field: "retenu", headerName: "Retenu", flex: 0.5, isNum: true },
+  { field: "retenu", headerName: "Retenu", flex: 0.5, isNum: true },
   {
     field: "variation",
     headerName: "Variation",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.variation;
+    isNum: true,
+    renderCell: (row) => {
+      const value = row.variation;
       return (
         <TextColor
           {...{ value }}
@@ -319,46 +277,27 @@ export const avance7jColumns = [
     },
   },
 ];
-export const tmpColumns = [
+export const avance7jColumns = createColumns(avance7jDef, false);
+
+const tmpDef = [
   {
     field: "periode",
     headerName: "Maturité",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => <strong>{params.row.periode}</strong>,
   },
   {
     field: "date_deb",
     headerName: "Date début",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => moment(params.row.date_deb).format("DD/MM/YYYY"),
+    isDate: true,
   },
   {
     field: "date_fin",
     headerName: "Date début",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => moment(params.row.date_fin).format("DD/MM/YYYY"),
+    isDate: true,
   },
-  {
-    field: "Moyenne",
-    headerName: "Moyenne",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.Moyenne * 100;
-      return value.toFixed(2) + "%";
-    },
-  },
-  {
-    field: "Volatilite",
-    headerName: "Volatilité",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.Volatilite * 100;
-      return value.toFixed(2) + "%";
-    },
-  },
+  { field: "Moyenne", headerName: "Moyenne", isNum: true, isPerce: true },
+  { field: "Volatilite", headerName: "Volatilité", isNum: true, isPerce: true },
 ];
+export const tmpColumns = createColumns(tmpDef, false);

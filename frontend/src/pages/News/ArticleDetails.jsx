@@ -3,7 +3,6 @@ import React, { memo, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ArticleImage from "./ArticleImage";
-import { Box, Button } from "@mui/material";
 import CustomButton from "../../components/Ui/Buttons";
 import { ArrowLeft } from "react-feather";
 
@@ -60,7 +59,7 @@ const ArticleDetails = () => {
           </div>
           {/* Article content */}
           <div
-            className="text-[17px] leading-relaxed mt-8"
+            className="text-[17px] leading-loose mt-8"
             dangerouslySetInnerHTML={{
               __html: article.article.replace(/\./g, ".<br />"),
             }}

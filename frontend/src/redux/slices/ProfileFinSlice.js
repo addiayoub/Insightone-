@@ -16,6 +16,11 @@ const initialState = {
 const ProfileFinSlice = createSlice({
   name: "profilFin",
   initialState,
+  reducers: {
+    resetNews: (state) => {
+      state.data.news = [];
+    },
+  },
   extraReducers: (builder) => {
     //
     builder.addCase(getData.pending, (state) => {
@@ -53,4 +58,5 @@ const ProfileFinSlice = createSlice({
   },
 });
 
+export const { resetNews } = ProfileFinSlice.actions;
 export default ProfileFinSlice.reducer;

@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 const Card = (props) => {
-  const { title, value, icon } = props;
+  const { title, value, icon, subText } = props;
   return (
     <div className="p-8 rounded-xl flex flex-col gap-x-2 gap-y-4 max-h-[160px] shadow-lg cursor-pointer select-none card">
       <div className="flex gap-4 items-center">
@@ -13,6 +13,7 @@ const Card = (props) => {
       <p className="flex items-center gap-2">
         <span className="font-semibold">{value}</span>
       </p>
+      <p className="font-semibold">{subText}</p>
     </div>
   );
 };

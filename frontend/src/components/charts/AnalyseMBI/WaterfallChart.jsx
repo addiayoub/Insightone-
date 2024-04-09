@@ -17,6 +17,7 @@ const WaterfallChart = ({ data }) => {
   const yData = useMemo(() => Object.values(data[0]), [data]);
   const placeholder = useMemo(() => getPlaceholder(yData), [yData]);
   console.log("WaterfallChart data", data);
+  console.log("placeholder", placeholder);
   const options = useMemo(() => {
     return {
       title: {
@@ -78,7 +79,10 @@ const WaterfallChart = ({ data }) => {
           stack: "total",
           label: {
             show: true,
-            formatter: ({ value }) => value + "%",
+            formatter: ({ value }, index) => {
+              console.log("param", index);
+              return value + "%";
+            },
           },
           emphasis: {
             focus: "series",

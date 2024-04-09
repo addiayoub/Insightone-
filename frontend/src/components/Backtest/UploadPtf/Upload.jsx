@@ -13,6 +13,7 @@ import ConverTable from "../../portefeuilles/UploadPortefuille/ConvertTable";
 import PtfFresh from "../../portefeuilles/UploadPortefuille/PtfFresh";
 import UploadPortefeuille from "../../portefeuilles/UploadPortefuille/UploadPortefeuille";
 import { Wallet } from "iconsax-react";
+import { notyf } from "../../../utils/notyf";
 
 const typesRef = {
   all: ["Actions", "OPCVM"],

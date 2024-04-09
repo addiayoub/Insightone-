@@ -196,23 +196,6 @@ const index = () => {
           )}
         </AccordionBox>
       )}
-      {show && data.evolMBI.length > 0 && (
-        <Box>
-          <h3>Evolution MBI</h3>
-          <Table
-            rows={data.evolMBI}
-            columns={evolMBI}
-            pageSize={25}
-            density="compact"
-          />
-          {/* <Table
-            rows={data.cumulCABenchRes}
-            columns={caBenchdRes}
-            pageSize={25}
-          /> */}
-          {/* <WaterfallChart data={data.cumulCABenchRes} /> */}
-        </Box>
-      )}
       {show && data.evolNomi.length > 0 && (
         <Box>
           <h3>Evolution Nominal</h3>
