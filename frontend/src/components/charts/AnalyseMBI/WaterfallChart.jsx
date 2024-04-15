@@ -4,10 +4,11 @@ import { downColor, upColor } from "../../../utils/generateRandomColorsArray";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
 
 const getPlaceholder = (data) => {
-  let cumulativeSum = 0;
-  const seriesData = data.map((value) => {
-    cumulativeSum += value;
-    return cumulativeSum;
+  let seriesData = [0];
+  let sum = 0;
+  data.map((value) => {
+    sum += value;
+    seriesData.push(parseFloat(sum.toFixed(3)));
   });
   return seriesData;
 };
@@ -17,6 +18,7 @@ const WaterfallChart = ({ data }) => {
   const yData = useMemo(() => Object.values(data[0]), [data]);
   const placeholder = useMemo(() => getPlaceholder(yData), [yData]);
   console.log("WaterfallChart data", data);
+  console.log("yData data", yData);
   console.log("placeholder", placeholder);
   const options = useMemo(() => {
     return {
@@ -46,6 +48,9 @@ const WaterfallChart = ({ data }) => {
         axisLine: {
           show: true,
         },
+        axisLabel: {
+          hideOverlap: false,
+        },
       },
       yAxis: {
         axisLabel: {
@@ -57,12 +62,14 @@ const WaterfallChart = ({ data }) => {
       },
       series: [
         {
+          name: "",
           type: "bar",
-          stack: "total",
+          stack: "Total",
           itemStyle: {
             borderColor: "transparent",
             color: "transparent",
           },
+          tooltip: { show: false },
           emphasis: {
             itemStyle: {
               borderColor: "transparent",
@@ -70,29 +77,27 @@ const WaterfallChart = ({ data }) => {
             },
           },
           data: placeholder,
-          tooltip: {
-            show: false,
-          },
+          stackStrategy: "all",
         },
         {
           type: "bar",
-          stack: "total",
+          stack: "Total",
+          stackStrategy: "all",
+          data: yData,
           label: {
             show: true,
-            formatter: ({ value }, index) => {
-              console.log("param", index);
+            formatter: ({ value }) => {
               return value + "%";
             },
           },
           emphasis: {
             focus: "series",
           },
-          data: yData.map((value, index) => ({
-            value,
-            itemStyle: {
-              color: value > 0 ? upColor : downColor,
+          itemStyle: {
+            color: ({ value }) => {
+              return value > 0 ? upColor : downColor;
             },
-          })),
+          },
         },
       ],
     };

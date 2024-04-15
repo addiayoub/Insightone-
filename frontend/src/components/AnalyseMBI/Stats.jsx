@@ -5,6 +5,7 @@ import Card from "../Ui/Card";
 import TextColor from "../Dashboard/TextColor";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import HourglassIcon from "../../icons/Hourglass";
+import Cards from "../Ui/Cards";
 const g = {
   duration: 45.12,
   moyDuration: 43.75,
@@ -67,17 +68,7 @@ const getCards = (data) => {
 
 const Stats = ({ data }) => {
   const cards = useMemo(() => getCards(data), [data]);
-  return (
-    <GridContainer>
-      {cards.map((card, index) => {
-        return (
-          <GridItem cols={3} key={index} extraCss="md:col-span-4">
-            <Card {...card} />
-          </GridItem>
-        );
-      })}
-    </GridContainer>
-  );
+  return <Cards cards={cards} />;
 };
 
 export default Stats;

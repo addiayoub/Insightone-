@@ -171,7 +171,7 @@ export const getData = createAsyncThunk(
         },
       ];
       // stateProRes[0]["Perf indice"] = getPerIndice(cumulStatproBench[0]);
-      stateProRes[0]["Perf indice"] = perf;
+      stateProRes[0]["Perf indice"] = parseFloat((perf * 100).toFixed(2));
 
       // COMPOSITION FINAL MBI
       const sumTotVal = calcResume(compFinMBI, "TOTAL_VALO");
