@@ -111,46 +111,46 @@ const Index = () => {
         )}
         {showAnalyStyle && (
           <AccordionBox title="Analyse de style" isExpanded Icon={TableIcon}>
-            <GridContainer extraCss="mt-8 mb-12 gap-4">
+            <GridContainer extraCss="my-4 gap-4">
               {data.loeilExpert.length > 0 && (
                 <GridItem>
-                  <h3>L'œil de l'expert</h3>
                   <Table
                     columns={loeilExpertColumns}
                     rows={data.loeilExpert}
                     pageSize={50}
+                    legend="L'œil de l'expert"
                   />
                 </GridItem>
               )}
               {data.indicateursRisque.length > 0 && (
                 <GridItem>
-                  <h3>Indicateurs de risque</h3>
                   <Table
                     columns={indicateursRisqueColumns}
                     rows={data.indicateursRisque}
                     pageSize={50}
+                    legend="Indicateurs de risque"
                   />
                 </GridItem>
               )}
             </GridContainer>
-            <GridContainer extraCss="my-24 gap-4">
+            <GridContainer extraCss="my-4 gap-4">
               {data.barometreQuantalys.length > 0 && (
                 <GridItem>
-                  <h3>Baromètre ID&A TECH</h3>
                   <Table
                     columns={barometreColumns}
                     rows={data.barometreQuantalys}
                     pageSize={50}
+                    legend="Baromètre ID&A TECH"
                   />
                 </GridItem>
               )}
               {data.classementPerformance.length > 0 && (
                 <GridItem>
-                  <h3>Classement de la performance</h3>
                   <Table
                     columns={classementPerfColumns}
                     rows={data.classementPerformance}
                     pageSize={50}
+                    legend="Classement de la performance"
                   />
                 </GridItem>
               )}
@@ -166,16 +166,25 @@ const Index = () => {
         {showData && data.analyseLipper1.length > 0 && (
           <GridContainer extraCss="items-center gap-x-4 my-8" xGap={4}>
             <GridItem cols={4}>
-              <h3>BEAR MARKET</h3>
-              <Table rows={data.analyseLipper1} columns={bearColumns} />
+              <Table
+                rows={data.analyseLipper1}
+                columns={bearColumns}
+                legend="BEAR MARKET"
+              />
             </GridItem>
             <GridItem cols={4}>
-              <h3>SIDEWAYS MARKET</h3>
-              <Table rows={data.analyseLipper1} columns={sidewaysColumns} />
+              <Table
+                rows={data.analyseLipper1}
+                columns={sidewaysColumns}
+                legend="SIDEWAYS MARKET"
+              />
             </GridItem>
             <GridItem cols={4}>
-              <h3>BULL MARKET</h3>
-              <Table rows={data.analyseLipper1} columns={bullColumns} />
+              <Table
+                rows={data.analyseLipper1}
+                columns={bullColumns}
+                legend="BULL MARKET"
+              />
             </GridItem>
           </GridContainer>
         )}

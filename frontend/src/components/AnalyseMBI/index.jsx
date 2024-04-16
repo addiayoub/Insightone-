@@ -71,11 +71,11 @@ const index = () => {
       {show && data.evolNomiB100.length > 0 && (
         <GridContainer>
           <GridItem>
-            <h3>Evolution Nominal base 100</h3>
             <Table
               rows={data.evolNomiB100}
               columns={evolMBIB100}
               pageSize={10}
+              legend="Evolution Nominal base 100"
             />
           </GridItem>
           <GridItem>
@@ -109,12 +109,12 @@ const index = () => {
       {show && data.compFinMBI.length > 0 && (
         <Box>
           <Box>
-            <h3>Composition</h3>
             <Table
               rows={data.compFinMBI}
               columns={compFinMBI}
               pageSize={10}
               density="compact"
+              legend="Composition"
             />
           </Box>
           <GridContainer>
@@ -198,12 +198,12 @@ const index = () => {
       )}
       {show && data.evolNomi.length > 0 && (
         <Box>
-          <h3>Evolution Nominal</h3>
           <Table
             rows={data.evolNomi}
             columns={evolMBI}
             pageSize={25}
             density="compact"
+            legend="Evolution Nominal"
           />
         </Box>
       )}

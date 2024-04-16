@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import MainLoader from "../../../loaders/MainLoader";
 import { Box } from "@mui/material";
@@ -65,4 +65,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default memo(index);

@@ -10,6 +10,8 @@ const defaultRenderCell = (row, col, index, isAlign) => {
     isMill,
     cellWidth = "50%",
     cellAlign = "right",
+    cellPrefix = "",
+    cellSuffix = "",
   } = col;
   let value = row[field];
   const style = isAlign
@@ -27,13 +29,17 @@ const defaultRenderCell = (row, col, index, isAlign) => {
   }
   return index > 0 ? (
     <span className={`text-${cellAlign}`} style={style}>
+      {cellPrefix}
       {value}
       {isPerce ? "%" : ""}
+      {cellSuffix}
     </span>
   ) : (
     <strong>
+      {cellPrefix}
       {value}
       {isPerce ? "%" : ""}
+      {cellSuffix}
     </strong>
   );
 };
@@ -46,6 +52,7 @@ export function createColumns(cols, isAlign = true) {
       field,
       headerName,
       renderCell = defaultRenderCell,
+      ...rest
     } = col;
     const flex = col?.flex ? { flex: col?.flex } : {};
 
@@ -55,6 +62,7 @@ export function createColumns(cols, isAlign = true) {
       headerAlign,
       width,
       ...flex,
+      ...rest,
       renderCell: ({ row }) => renderCell(row, col, index, isAlign),
     };
     return def;

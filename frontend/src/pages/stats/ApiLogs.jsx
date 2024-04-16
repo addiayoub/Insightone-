@@ -18,8 +18,7 @@ const ApiLogs = () => {
   );
   return (
     <Box className="my-8">
-      <h3>ApiLogs</h3>
-      <Table rows={rows} columns={columns} pageSize={10} />
+      <Table rows={rows} columns={columns} pageSize={10} legend="ApiLogs" />
 
       {data?.apiLogsByUser?.length > 0 && (
         <ApiLogsByUserChart data={data.apiLogsByUser} />

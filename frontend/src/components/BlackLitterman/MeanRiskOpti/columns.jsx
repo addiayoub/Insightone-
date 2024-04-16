@@ -1,5 +1,6 @@
 import { IconButton } from "@mui/material";
 import { Trash2 } from "react-feather";
+import { createColumns } from "../../../utils/createColumns";
 
 const obj = {
   Assets: "ADH",
@@ -96,13 +97,13 @@ const checkHeader = (row) => {
   }
   return false;
 };
-export const indicColumns = [
+
+const indiceDef = [
   {
     field: "h",
     headerName: "",
-    // width: 200,
     flex: 0.5,
-    renderCell: ({ row }) => {
+    renderCell: (row) => {
       const isHeader = checkHeader(row);
       return (
         <strong className={`${isHeader ? headers.style : "block mx-4"}`}>
@@ -114,9 +115,8 @@ export const indicColumns = [
   {
     field: "Values",
     headerName: "Values",
-    // width: 200,
     flex: 0.5,
-    renderCell: ({ row }) => {
+    renderCell: (row) => {
       const isHeader = checkHeader(row);
       return (
         <span className={`${isHeader ? headers.style : "font-medium"}`}>
@@ -128,9 +128,8 @@ export const indicColumns = [
   {
     field: "(Return - MAR)/Risk",
     headerName: "(Return - MAR)/Risk",
-    // width: 200,
     flex: 0.5,
-    renderCell: ({ row }) => {
+    renderCell: (row) => {
       const isHeader = checkHeader(row);
       return (
         <span className={`${isHeader ? headers.style : "font-medium"}`}>
@@ -140,3 +139,4 @@ export const indicColumns = [
     },
   },
 ];
+export const indicColumns = createColumns(indiceDef, false);

@@ -5,31 +5,7 @@ import {
   portfolioAllocationAction,
   portfolioOptiAction,
 } from "../actions/BlackLittermanActions";
-const OPCVM_INIT = {
-  weights: [],
-  assetClasses: [],
-  views: [],
-  constraints: [],
-  p: [],
-  q: [],
-  weightsBl: [],
-  frontier: [],
-  mu: [],
-  cov: [],
-  Y: [],
-  wS: [],
-  PlotEfficientFrontier: [],
-  indic: [],
-  PtfComposition: [],
-  riskContributionPerAsset: [],
-  ptfHistogram: [],
-  riskHisto: [],
-  price: [],
-  dd: [],
-  riskDD: [],
-};
-
-const initialState = {
+const INIT = {
   portfolioOpti: {
     data: {
       weights: [],
@@ -83,9 +59,23 @@ const initialState = {
   },
 };
 
+const initialState = INIT;
+
 const BlackLittermanSlice = createSlice({
   name: "BlackLittermanSlice",
   initialState,
+  reducers: {
+    resetMeanRisk: (state) => {
+      state.meanRisk = {
+        OPCVM: {
+          data: [],
+          loading: false,
+          error: null,
+        },
+        Actions: { data: [], loading: false, error: null },
+      };
+    },
+  },
   extraReducers: (builder) => {
     // Portfolio Optimization
     builder.addCase(portfolioOptiAction.pending, ({ portfolioOpti }) => {
@@ -109,7 +99,7 @@ const BlackLittermanSlice = createSlice({
       portfolioOptiAction.rejected,
       ({ portfolioOpti }, { payload }) => {
         portfolioOpti.loading = false;
-        portfolioOpti.data = initialState.portfolioOpti.data;
+        portfolioOpti.data = INIT.portfolioOpti.data;
         portfolioOpti.error = payload;
       }
     );
@@ -141,7 +131,7 @@ const BlackLittermanSlice = createSlice({
       ({ portfolioAllocation }, { payload }) => {
         portfolioAllocation.loading = false;
         portfolioAllocation.error = payload;
-        portfolioAllocation.data = initialState.portfolioAllocation.data;
+        portfolioAllocation.data = INIT.portfolioAllocation.data;
       }
     );
 
@@ -171,15 +161,17 @@ const BlackLittermanSlice = createSlice({
       ({ meanRiskOpti }, { payload }) => {
         meanRiskOpti.loading = false;
         meanRiskOpti.error = payload;
-        meanRiskOpti.data = initialState.meanRiskOpti.data;
+        meanRiskOpti.data = INIT.meanRiskOpti.data;
       }
     );
 
     // Mean Risk Optimization (OPCVM)
-    builder.addCase(meanRiskOptiOpcAction.pending, (state, action) => {
-      state.meanRisk.OPCVM.loading = true;
-      // alert(`pendiing.. ${state.meanRisk.OPCVM.loading ? "YES" : "NO"}`);
-    });
+    builder.addCase(
+      meanRiskOptiOpcAction.pending,
+      ({ meanRisk: { OPCVM } }) => {
+        OPCVM.loading = true;
+      }
+    );
     builder.addCase(
       meanRiskOptiOpcAction.fulfilled,
       ({ meanRisk: { OPCVM } }, { payload }) => {
@@ -192,10 +184,10 @@ const BlackLittermanSlice = createSlice({
       ({ meanRisk: { OPCVM } }, { payload }) => {
         OPCVM.loading = false;
         OPCVM.error = payload;
-        OPCVM.data = initialState.meanRisk.OPCVM.data;
+        OPCVM.data = INIT.meanRisk.OPCVM.data;
       }
     );
   },
 });
-
+export const { resetMeanRisk } = BlackLittermanSlice.actions;
 export default BlackLittermanSlice.reducer;

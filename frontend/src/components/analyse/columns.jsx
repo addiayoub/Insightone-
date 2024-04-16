@@ -1,5 +1,4 @@
-import { formatDate } from "../../utils/FormatDate";
-import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { createColumns } from "../../utils/createColumns";
 
 const textColor = (cellValue) => {
   let className = " ";
@@ -14,52 +13,50 @@ const textColor = (cellValue) => {
   }
   return <span className={`${className} font-semibold`}>{cellValue}</span>;
 };
-
-const columnsIndi = [
+// Indicateurs techniques
+const indiDef = [
   {
     field: "Nom",
     headerName: "Nom",
-    width: 360,
     flex: 1.5,
-    renderCell: (params) => <strong>{params.row.Nom}</strong>,
   },
   {
     field: "Valeur",
     headerName: "Valeur",
-    width: 360,
     flex: 1,
-    renderCell: (params) => {
-      const value = +params.row?.Valeur?.toFixed(2);
-      return formatNumberWithSpaces(value);
-    },
+    headerAlign: "center",
+    align: "left",
+    isNum: true,
   },
   {
     field: "Type_position",
     headerName: "Type de position",
-    width: 360,
-    flex: 1,
-    renderCell: (params) => {
-      const cellValue = params.row.Type_position;
+    // width: 360,
+    flex: 0.7,
+    renderCell: (row) => {
+      const cellValue = row.Type_position;
       return textColor(cellValue);
     },
   },
 ];
-const columnsMoy = [
+const columnsIndi = createColumns(indiDef);
+
+// Moyennes Mobiles
+const moyDef = [
   {
     field: "Periode",
     headerName: "Nom",
     flex: 0.5,
-    renderCell: (params) => <strong>{params.row.Periode}</strong>,
   },
   {
     field: "Simple",
     headerName: "Simple",
     flex: 1,
-    renderCell: (params) => {
+    renderCell: (row) => {
       return (
         <div className="flex gap-2.5">
-          <span>{params.row?.Simple?.toFixed(2)}</span>
-          {textColor(params.row.sign_simple)}
+          <span>{row?.Simple?.toFixed(2)}</span>
+          {textColor(row.sign_simple)}
         </div>
       );
     },
@@ -68,36 +65,40 @@ const columnsMoy = [
     field: "Exponentiel",
     headerName: "Exponentiel",
     flex: 1,
-    renderCell: (params) => {
+    renderCell: (row) => {
       return (
         <div className="flex gap-2.5">
-          <span>{params.row?.Exponentiel?.toFixed(2)}</span>
-          {textColor(params.row.sign_expo)}
+          <span>{row?.Exponentiel?.toFixed(2)}</span>
+          {textColor(row.sign_expo)}
         </div>
       );
     },
   },
 ];
-const columnsNews = [
+const columnsMoy = createColumns(moyDef);
+
+// News
+const newsDef = [
   {
     field: "libelle",
     headerName: "Libellé",
     flex: 0.3,
-    renderCell: (params) => <strong>{params.row.libelle}</strong>,
   },
   {
     field: "seance",
     headerName: "Séance",
     flex: 0.3,
-    renderCell: (params) => <strong>{formatDate(params.row.seance)}</strong>,
+    isDate: true,
   },
   {
     field: "titre",
     headerName: "Titre",
     flex: 1,
-    renderCell: (params) => params.row.titre,
   },
 ];
+const columnsNews = createColumns(newsDef);
+
+//
 const columnsBilan = [
   {
     field: "a",

@@ -30,11 +30,11 @@ const Index = () => {
         )}
         {show && data.varCvar.length > 0 && (
           <GridItem>
-            <h3>VaR CVaR</h3>
             <Table
               rows={data.varCvar}
               columns={varCvarColumns}
               className="h-fit"
+              legend={"VaR CVaR"}
             />
           </GridItem>
         )}

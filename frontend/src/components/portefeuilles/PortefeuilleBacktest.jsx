@@ -195,12 +195,12 @@ const PortefeuilleBacktest = ({ initOpcvm = null }) => {
 
       {!loading && isShow && data.ptfsContrib.length > 0 && (
         <>
-          <h3>Contribution {data.ptfsContrib[0].PTF}</h3>
           <Table
             columns={contribColumns}
             rows={data.ptfsContrib}
             pageSize={10}
             className="h-max"
+            legend={`Contribution ${data.ptfsContrib[0].PTF}`}
           />
         </>
       )}

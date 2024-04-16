@@ -86,41 +86,7 @@ function getMinMaxValues(data, keys) {
 
   return { min, max };
 }
-export const getColumns2 = (data, isFirst) => {
-  const keys = isFirst ? columns1 : columns2;
-  return [
-    {
-      field: "Seance",
-      headerName: "Séance",
-      flex: 0.4,
-    },
-    {
-      field: "INDICE",
-      headerName: "Indice",
-      flex: isFirst ? 0.8 : 0.7,
-      renderCell: ({ row }) => {
-        return <span className="font-semibold">{row.INDICE}</span>;
-      },
-    },
-    ...keys.map((key) => ({
-      field: key,
-      headerName: ref[key],
-      flex: isFirst ? 0.32 : 0.4,
-      width: 100,
-      renderCell: ({ row }) => {
-        const value = parseFloat((row[key] * 100).toFixed(2));
-        return (
-          <span
-            className={`text-[#e2e8f0] min-w-[20px] w-full h-full flex justify-center items-center`}
-            // style={{ backgroundColor: valueToColor(value) }}
-          >
-            {value}%
-          </span>
-        );
-      },
-    })),
-  ];
-};
+
 export const getColumns = (data, isFirst) => {
   const keys = isFirst ? columns1 : columns2;
   const { min, max } = getMinMaxValues(data, keys);
@@ -149,7 +115,6 @@ export const getColumns = (data, isFirst) => {
       width: 100,
       renderCell: ({ row }) => {
         const value = parseFloat((row[key] * 100).toFixed(2));
-        // const {min, max} = getMinMaxValues()
         return (
           <TextColor
             value={row[key]}
@@ -157,15 +122,6 @@ export const getColumns = (data, isFirst) => {
             textAlign="left"
             withoutArrow
           />
-          // <span
-          //   className={`text-[#000] min-w-[20px] w-full h-full flex justify-center items-center`}
-          //   style={{ backgroundColor: valueToColor(value) }}
-          //   style={{ backgroundColor: getColor(value, min, max) }}
-          //   style={{ backgroundColor: geeg(value / 100) }}
-          //   style={{ backgroundColor: getValueColor(value / 100, min, max) }}
-          // >
-          //   {value}%
-          // </span>
         );
       },
     })),

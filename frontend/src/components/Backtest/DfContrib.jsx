@@ -23,8 +23,7 @@ function DfContrib({ title, data }) {
   return (
     // <AccordionBox title={title} isExpanded>
     <>
-      <h3>{title}</h3>
-      <Table columns={columns} rows={data} className="h-fit" />
+      <Table columns={columns} rows={data} className="h-fit" legend={title} />
     </>
     // </AccordionBox>
   );

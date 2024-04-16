@@ -11,12 +11,15 @@ const titles = [
 ];
 const PerformanceTables = ({ data }) => {
   return (
-    <GridContainer extraCss="my-12 gap-4">
+    <GridContainer extraCss="my-4 gap-4">
       {data.map((tableRows, index) => {
         return (
-          <GridItem key={index} cols={6} extraCss="h-fit">
-            <h3>{titles[index]}</h3>
-            <Table rows={tableRows} columns={performanceColumns} />
+          <GridItem key={titles[index]} cols={6} extraCss="h-fit">
+            <Table
+              rows={tableRows}
+              columns={performanceColumns}
+              legend={titles[index]}
+            />
           </GridItem>
         );
       })}

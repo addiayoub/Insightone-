@@ -56,6 +56,11 @@ const View = ({ view, setView }) => {
     setSecteursRel(secteurs);
   }, [typeRel]);
   useEffect(() => {
+    if (type == typeRel) {
+      setSecteursRel((prev) => secteurs.filter((item) => item !== position));
+    }
+  }, [type, position, typeRel, positionRel]);
+  useEffect(() => {
     setView((prev) => {
       return {
         ...prev,
@@ -183,20 +188,6 @@ const Views = ({ views, setViews }) => {
       {views.length > 0 && (
         <Box className="border border-indigo-600 border-solid rounded-md p-2 max-h-[400px] overflow-auto max-w-full]">
           <Table columns={columns} rows={views} />
-          {/* {views.map((view) => (
-            <div
-              key={view.id}
-              className="flex flex-warp justify-between items-center bg-slate-200 text-black rounded-md p-2 my-2"
-            >
-              <p>
-                {`Type : ${view.Type},Position: ${view.Position}, Sign : ${view.Sign}, Weight : ${view.Weight}, Type Relative : ${view["Type Relative"]}, Position Relative: ${view.Relative}`}$
-              </p>
-
-              <IconButton onClick={() => deleteView(view.id)}>
-                <Trash color="var(--error-color)" size={18} />
-              </IconButton>
-            </div>
-          ))} */}
         </Box>
       )}
     </Box>

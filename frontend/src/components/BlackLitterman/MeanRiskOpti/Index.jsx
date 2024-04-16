@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from "react";
 import Filter from "./Filter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MainLoader from "../../loaders/MainLoader";
 import SharpeMeanVar from "../../charts/BlackLitterman/MeanRiskOpti/SharpeMeanVar";
 import Frontier from "../../charts/BlackLitterman/MeanRiskOpti/Frontier";
@@ -10,16 +10,21 @@ import { assetClassesColumns } from "./columns";
 import FrontierMean from "../../charts/BlackLitterman/MeanRiskOpti/FrontierMean";
 import Upload from "../../Backtest/UploadPtf/Upload";
 import Opc from "./OPC/index";
+import { resetMeanRisk } from "../../../redux/slices/BlackLittermanSlice";
 const Index = ({ type = "all" }) => {
   const [showFilter, setShowFilter] = useState(false);
   const {
-    meanRiskOpti: { data, loading, error },
+    meanRisk: {
+      OPCVM: { loading },
+    },
   } = useSelector((state) => state.blackLitterman);
-  const show = !loading;
   const [isShow, setIsShow] = useState(false);
+  const show = showFilter && isShow && !loading;
+  const dispatch = useDispatch();
   const [key, setKey] = useState(0); // force render
   useEffect(() => {
     setKey((prevKey) => prevKey + 1);
+    dispatch(resetMeanRisk());
   }, [type]);
 
   return (
@@ -33,7 +38,7 @@ const Index = ({ type = "all" }) => {
       {showFilter && <Filter ptfType={type} setIsShow={setIsShow} />}
       {/* <Views /> */}
       {loading && <MainLoader />}
-      {showFilter && isShow && <Opc />}
+      {show && <Opc />}
       {/* {show && data.assetClasses.length > 0 && (
         <Table rows={data.assetClasses} columns={assetClassesColumns} />
       )}

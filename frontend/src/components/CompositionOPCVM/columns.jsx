@@ -1,4 +1,5 @@
 import moment from "moment";
+import { createColumns } from "../../utils/createColumns";
 
 const obj = {
   date: "2022-09-30T00:00:00.000Z",
@@ -21,81 +22,76 @@ const obj = {
   SIMULE: "TMP",
   Poids: 0.053042292078822405,
 };
-export const libelleColumns = [
+// Composition
+const libellDef = [
   {
     field: "LIBELLE",
     headerName: "Libellé",
     width: 360,
     flex: 0.5,
-    renderCell: ({ row }) => {
-      return <span className="font-semibold">{row.LIBELLE}</span>;
-    },
   },
   {
     field: "SIMULE",
     headerName: "Proxy",
-    width: 360,
     flex: 0.3,
-    renderCell: ({ row }) => {
+    renderCell: (row) => {
       return <span className="font-semibold">{row.SIMULE ?? "NULL"}</span>;
     },
   },
   {
     field: "Poids",
     headerName: "Poids(%)",
-    width: 360,
     flex: 0.2,
-    renderCell: ({ row }) => {
+    renderCell: (row) => {
       return <span className="font-semibold">{row.Poids.toFixed(2)}%</span>;
     },
   },
 ];
-export const simColumns = [
+export const libelleColumns = createColumns(libellDef);
+
+// Simulation
+const simDef = [
   {
     field: "titre",
     headerName: "Proxy",
-    width: 360,
-    flex: 0.5,
-    renderCell: ({ row }) => {
+    flex: 1,
+    renderCell: (row) => {
       return <span className="font-semibold">{row.titre}</span>;
     },
   },
   {
     field: "Poids",
     headerName: "Poids(%)",
-    width: 360,
-    flex: 0.5,
-    renderCell: ({ row }) => {
+    flex: 0.6,
+    renderCell: (row) => {
       return <span className="font-semibold">{row.Poids.toFixed(2)}%</span>;
     },
   },
 ];
-export const columns = [
+export const simColumns = createColumns(simDef);
+
+// Allocation d'actifs
+const def = [
   {
     field: "date",
     headerName: "Date de composition",
-    width: 360,
     flex: 0.5,
-    renderCell: ({ row }) => {
-      return <span>{moment(row.date).format("DD/MM/YYYY")}</span>;
-    },
+    isDate: true,
   },
   {
     field: "Gestionnaire",
     headerName: "Gestionnaire",
-    width: 360,
     flex: 0.5,
   },
   {
     field: "OPCVM",
     headerName: "OPCVM",
-    width: 360,
     flex: 0.5,
   },
   {
     field: "Classification",
     headerName: "Classification",
-    width: 360,
     flex: 0.5,
   },
 ];
+export const columns = createColumns(def, false);

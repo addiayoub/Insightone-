@@ -64,10 +64,10 @@ function PatternsChandeliers({ data }) {
           type: "candlestick",
           data: data0.values,
           itemStyle: {
-            color: upColor,
-            color0: downColor,
-            borderColor: upBorderColor,
-            borderColor0: downBorderColor,
+            color0: upColor,
+            color: downColor,
+            borderColor0: upBorderColor,
+            borderColor: downBorderColor,
           },
           markPoint: {
             label: {

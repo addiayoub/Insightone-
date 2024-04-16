@@ -1,5 +1,6 @@
 import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { createColumns } from "../../utils/createColumns";
 
 const determineLevel = (str) => {
   const length = str.length;
@@ -117,19 +118,19 @@ const dd1 = {
   date_detachement: "2023-06-22T00:00:00.000+00:00",
   montant_dividende: 35.0,
 };
-export const dividendeCols = [
+// Dividende
+const divDef = [
   {
     field: "date_detachement",
     headerName: "Date de détachement",
     flex: 0.5,
-    renderCell: ({ row }) => {
-      return <span>{moment(row.date_detachement).format("DD/MM/YYYY")}</span>;
-    },
+    isDate: true,
   },
   {
     field: "montant_dividende",
     headerName: "Dividende",
     flex: 0.4,
+    isNum: true,
   },
   {
     field: "type_dividende",
@@ -140,11 +141,10 @@ export const dividendeCols = [
     field: "date_paiement",
     headerName: "Date de paiement",
     flex: 0.4,
-    renderCell: ({ row }) => {
-      return <span>{moment(row.date_paiement).format("DD/MM/YYYY")}</span>;
-    },
+    isDate: true,
   },
 ];
+export const dividendeCols = createColumns(divDef);
 
 const resDD = {
   PERIODICITE: "Annuel",

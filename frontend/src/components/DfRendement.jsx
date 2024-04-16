@@ -102,12 +102,12 @@ const DfRendement = ({ forSIM }) => {
           )}
           {!backData.loading && backData.data.worstDrawdowns.length > 0 && (
             <>
-              <h3>Worst 10 Drawdowns</h3>
               <Table
                 columns={worstDrawdownsColumns}
                 rows={backData.data.worstDrawdowns}
                 pageSize={10}
                 className="h-max"
+                legend="Worst 10 Drawdowns"
               />
             </>
           )}

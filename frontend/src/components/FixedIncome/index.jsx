@@ -55,10 +55,11 @@ const Index = () => {
       )}
       <Box className="flex flex-col gap-8 my-2">
         {show && data.TMPInterbancaire.length > 0 && (
-          <div>
-            <h3>TMP interbancaire</h3>
-            <Table rows={data.TMPInterbancaire} columns={tmpColumns} />
-          </div>
+          <Table
+            rows={data.TMPInterbancaire}
+            columns={tmpColumns}
+            legend="TMP interbancaire"
+          />
         )}
         <GridContainer>
           {show && data.indiceTMP.length > 0 && (
@@ -99,64 +100,68 @@ const Index = () => {
           <Insuffisance data={data.insuffisance} />
         )}
         {show && data.avance7j.length > 0 && (
-          <div>
-            <h3>Avances à 7 jours (M MAD)</h3>
-            <Table rows={data.avance7j} columns={avance7jColumns} />
-          </div>
+          <Table
+            rows={data.avance7j}
+            columns={avance7jColumns}
+            legend="Avances à 7 jours (M MAD)"
+          />
         )}
         <GridContainer extraCss="mb-12">
-          {show && data.instrumentSwap.length > 0 && (
+          {/* {show && data.instrumentSwap.length > 0 && (
             <GridItem>
-              <h3>Swap de change (M MAD)</h3>
               <Table
                 rows={data.instrumentSwap}
                 columns={instrumentSwap}
+                legend="Swap de change (M MAD)"
                 className="h-full"
               />
             </GridItem>
-          )}
+          )} */}
           {show && data.pensionLivree.length > 0 && (
             <GridItem>
-              <h3>Pension livrée (M MAD)</h3>
               <Table
                 rows={data.pensionLivree}
                 columns={pensionLivreeColumns}
                 className="h-full"
+                legend="Pension livrée (M MAD)"
               />
             </GridItem>
           )}
         </GridContainer>
         {show && data.pretsGarantis.length > 0 && (
-          <div>
-            <h3>Prêts garantis (M MAD)</h3>
-            <Table rows={data.pretsGarantis} columns={pretsGarantisColumns} />
-          </div>
+          <Table
+            rows={data.pretsGarantis}
+            columns={pretsGarantisColumns}
+            legend="Prêts garantis (M MAD)"
+          />
         )}
         <GridContainer extraCss="mb-12">
           {show && data.placementsTresor.length > 0 && (
             <GridItem>
-              <h3>Placements hebdomadaires du Trésor</h3>
               <Table
                 rows={data.placementsTresor}
                 columns={placementsTresorColumns}
+                legend="Placements hebdomadaires du Trésor"
               />
             </GridItem>
           )}
           {show && data.placementsTresorJour.length > 0 && (
             <GridItem>
-              <h3>Placements du Trésor par jour</h3>
               <Table
                 rows={data.placementsTresorJour}
                 columns={placementsTresorJColumns}
+                legend="Placements du Trésor par jour"
               />
             </GridItem>
           )}
         </GridContainer>
         {show && data.leveesTresor.length > 0 && (
-          <div>
-            <h3>Levées du Trésor</h3>
-            <Table rows={data.leveesTresor} columns={leveesTresorColumns} />
-          </div>
+          <Table
+            rows={data.leveesTresor}
+            columns={leveesTresorColumns}
+            pageSize={10}
+            legend="Levées du Trésor"
+          />
         )}
         <GridContainer>
           {show && data.tauxPrimaire.length > 0 && (

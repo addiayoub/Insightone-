@@ -2,20 +2,21 @@ import { Typography } from "@mui/material";
 import TextColor from "../Dashboard/TextColor";
 import RenderStarsWithRating from "../Markowitz/RenderStarsWithRating";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import { createColumns } from "../../utils/createColumns";
 
-export const performanceColumns = [
+// Perfeormance
+const perfDef = [
   {
     field: "perf",
     headerName: "Performance",
     flex: 0.3,
-    renderCell: (params) => <strong>{params.row.perf}</strong>,
   },
   {
     field: "perf_opc",
     headerName: "Fonds",
     flex: 0.3,
-    renderCell: (params) => {
-      const value = params.row.perf_opc;
+    renderCell: (row) => {
+      const value = row.perf_opc;
       return <TextColor value={value} percentage textAlign="center" />;
     },
   },
@@ -23,8 +24,8 @@ export const performanceColumns = [
     field: "perf_bench",
     headerName: "Benchmark",
     flex: 0.3,
-    renderCell: (params) => {
-      const value = params.row.perf_bench;
+    renderCell: (row) => {
+      const value = row.perf_bench;
       return <TextColor value={value} percentage textAlign="center" />;
     },
   },
@@ -32,12 +33,13 @@ export const performanceColumns = [
     field: "perf_classe",
     headerName: "Catégorie",
     flex: 0.3,
-    renderCell: (params) => {
-      const value = params.row.perf_classe;
+    renderCell: (row) => {
+      const value = row.perf_classe;
       return <TextColor value={value} percentage textAlign="center" />;
     },
   },
 ];
+export const performanceColumns = createColumns(perfDef);
 
 export const loeilExpertColumns = [
   {
@@ -184,58 +186,53 @@ export const classementPerfColumns = [
   },
 ];
 
-// {
-//     "bull_re": 0.42748091603053434,
-//     "bull_ab": 112,
-//     "bear_ab": 72,
-//     "bear_re": 0.2748091603053435,
-//     "sideways_ab": 78,
-//     "sideways_re": 0.29770992366412213
-// }
-
-export const sidewaysColumns = [
+// SIDEWAYS MARKET
+const sidewaysDef = [
   {
     field: "sideways_ab",
     headerName: "Absolue",
     flex: 0.3,
-    renderCell: (params) => <strong>{params.row.sideways_ab}</strong>,
   },
   {
     field: "sideways_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.sideways_re?.toFixed(2) + "%",
+    renderCell: (row) => row.sideways_re?.toFixed(2) + "%",
   },
 ];
-export const bearColumns = [
+export const sidewaysColumns = createColumns(sidewaysDef);
+
+// BEAR MARKET
+const bearDef = [
   {
     field: "bear_ab",
     headerName: "Absolue",
     flex: 0.3,
-    renderCell: (params) => <strong>{params.row.bear_ab}</strong>,
   },
   {
     field: "bear_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.bear_re?.toFixed(2) + "%",
+    renderCell: (row) => row.bear_re?.toFixed(2) + "%",
   },
 ];
+export const bearColumns = createColumns(bearDef);
 
-export const bullColumns = [
+// BEAR MARKET
+const bullDef = [
   {
     field: "bull_ab",
     headerName: "Absolue",
     flex: 0.3,
-    renderCell: (params) => <strong>{params.row.bull_ab}</strong>,
   },
   {
     field: "bull_re",
     headerName: "Relative",
     flex: 0.3,
-    renderCell: (params) => params.row.bull_re?.toFixed(2) + "%",
+    renderCell: (row) => row.bull_re?.toFixed(2) + "%",
   },
 ];
+export const bullColumns = createColumns(bullDef);
 
 const classementPerfRating = (value) => {
   switch (value) {

@@ -2,233 +2,179 @@ import moment from "moment";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import TextColor from "../Dashboard/TextColor";
 import { createColumns } from "../../utils/createColumns";
-// {
-//     "Date_valeur": "2023-12-20T23:00:00.000+00:00",
-//     "taux": 3,
-//     "Date_Echeance": "2024-01-17T23:00:00.000+00:00",
-//     "montant_servi": 1328
-// }
-// {
-//     "Coupon": 4.3,
-//     "Taux Min": 4.2299,
-//     "Taux Max": 4.3164,
-//     "Taux limite": 4.2754,
-//     "%": 64,
-//     "TMP": 4.2567,
-//     "Proposé": 2253,
-//     "Retenu": 1443,
-//     "SEANCE": "2023-09-01T23:00:00.000+00:00",
-//     "Echéance": "2034-06-18T23:00:00.000+00:00",
-//     "Maturité": "10 ans"
-// }
 
-export const leveesTresorColumns = [
+// Levées du Trésor
+const leveesTresorDef = [
   {
     field: "Maturité",
     headerName: "Maturité",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => <strong>{params.row["Maturité"]}</strong>,
   },
   {
     field: "Echéance",
     headerName: "Echéance",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.Echéance;
+    renderCell: (row) => {
+      const value = row.Echéance;
       return value ? <strong>{moment(value).format("DD/MM/YYYY")}</strong> : "";
     },
   },
   {
     field: "Coupon",
     headerName: "Coupon",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.Coupon;
+    renderCell: (row) => {
+      const value = row.Coupon;
       return value !== null ? value + "%" : "";
     },
   },
   {
     field: "Proposé",
     headerName: "Proposé",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.Proposé);
+    renderCell: (row) => {
+      const value = formatNumberWithSpaces(row.Proposé);
       return value ?? "";
     },
   },
   {
     field: "Taux Min",
     headerName: "Taux Min",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row["Taux Min"];
+    renderCell: (row) => {
+      const value = row["Taux Min"];
       return value !== null ? value + "%" : "";
     },
   },
   {
     field: "Taux Max",
     headerName: "Taux Max",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row["Taux Max"];
+    renderCell: (row) => {
+      const value = row["Taux Max"];
       return value !== null ? value + "%" : "";
     },
   },
   {
     field: "Retenu",
     headerName: "Retenu",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.Retenu);
+    renderCell: (row) => {
+      const value = formatNumberWithSpaces(row.Retenu);
       return value ?? "";
     },
   },
   {
     field: "Taux limite",
     headerName: "Taux limite",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row["Taux limite"];
+    renderCell: (row) => {
+      const value = row["Taux limite"];
       return value !== null ? value + "%" : "";
     },
   },
   {
     field: "TMP",
     headerName: "TMP",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row["TMP"];
+    renderCell: (row) => {
+      const value = row["TMP"];
       return value !== null ? value + "%" : "";
     },
   },
   {
     field: "%",
     headerName: "%",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row["%"];
+    renderCell: (row) => {
+      const value = row["%"];
       return value !== null ? value + "%" : "";
     },
   },
 ];
+export const leveesTresorColumns = createColumns(leveesTresorDef, false);
 
-export const pensionLivreeColumns = [
+// Pension livrée
+const pensionLivreeDef = [
   {
     field: "date_valeur",
     headerName: "Du",
-    width: 200,
+    isDate: true,
     flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.date_valeur).format("DD/MM/YYYY")}</strong>
-    ),
   },
   {
     field: "Date_Echeance",
     headerName: "Au",
-    width: 200,
+    isDate: true,
     flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_Echeance).format("DD/MM/YYYY")}</strong>
-    ),
   },
   {
     field: "montant_servi",
     headerName: "Montant",
-    width: 200,
+    isNum: true,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.montant_servi);
-      return value;
-    },
   },
   {
     field: "taux",
     headerName: "Taux",
-    width: 200,
+    isPerce: true,
     flex: 0.5,
-    renderCell: (params) => {
-      const value = params.row.taux;
-      return value + "%";
-    },
   },
 ];
+export const pensionLivreeColumns = createColumns(pensionLivreeDef, false);
 
-export const placementsTresorJColumns = [
+// Placements du Trésor par jour
+const placementsTresorJDef = [
   {
     field: "seance",
     headerName: "Séance",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.seance).format("dddd D MMMM YYYY")}</strong>
+    isDate: true,
+    renderCell: (row) => (
+      <strong>{moment(row.seance).format("dddd D MMMM YYYY")}</strong>
     ),
   },
   {
     field: "Montant_jour",
     headerName: "Montant",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.Montant_jour);
-      return value;
-    },
+    isNum: true,
   },
 ];
+export const placementsTresorJColumns = createColumns(
+  placementsTresorJDef,
+  false
+);
+
+// Placements hebdomadaires du Trésor
 const placementsTresorDef = [
   {
     field: "DATE_REGLEMENT",
     headerName: "Du",
     flex: 0.5,
-    isdate: true,
-  },
-];
-export const placementsTresorColumns = [
-  {
-    field: "DATE_REGLEMENT",
-    headerName: "Du",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.DATE_REGLEMENT).format("DD/MM/YYYY")}</strong>
-    ),
+    isDate: true,
   },
   {
     field: "DATE_ECHEANCE",
     headerName: "Au",
-    width: 200,
     flex: 0.5,
-    renderCell: (params) => (
-      <strong>{moment(params.row.Date_Echeance).format("DD/MM/YYYY")}</strong>
-    ),
+    isDate: true,
   },
   {
     field: "MONTANT_PLACE",
     headerName: "Montant",
-    width: 200,
-    flex: 0.5,
-    renderCell: (params) => {
-      const value = formatNumberWithSpaces(params.row.MONTANT_PLACE);
-      return value;
-    },
+    isNum: true,
   },
   {
     field: "DUREE",
     headerName: "Durée",
-    width: 200,
     flex: 0.5,
   },
 ];
+export const placementsTresorColumns = createColumns(
+  placementsTresorDef,
+  false
+);
 
+// Prêts garantis (M MAD)
 const pretsGarantisDef = [
   { field: "Date_valeur", headerName: "Du", flex: 0.5, isDate: true },
   {
@@ -253,11 +199,11 @@ const pretsGarantisDef = [
 ];
 export const pretsGarantisColumns = createColumns(pretsGarantisDef);
 
+// Avances à 7 jours (M MAD)
 const avance7jDef = [
   { field: "Date_valeur", headerName: "Du", flex: 0.5, isDate: true },
   { field: "Date_Echeance", headerName: "Au", flex: 0.5, isDate: true },
   { field: "propose", headerName: "Propose", flex: 0.5, isNum: true },
-  { field: "retenu", headerName: "Retenu", flex: 0.5, isNum: true },
   { field: "retenu", headerName: "Retenu", flex: 0.5, isNum: true },
   {
     field: "variation",
@@ -279,6 +225,7 @@ const avance7jDef = [
 ];
 export const avance7jColumns = createColumns(avance7jDef, false);
 
+// TMP interbancaire
 const tmpDef = [
   {
     field: "periode",
@@ -297,7 +244,20 @@ const tmpDef = [
     flex: 0.5,
     isDate: true,
   },
-  { field: "Moyenne", headerName: "Moyenne", isNum: true, isPerce: true },
-  { field: "Volatilite", headerName: "Volatilité", isNum: true, isPerce: true },
+
+  {
+    field: "Moyenne",
+    headerName: "Moyenne",
+    isNum: true,
+    isPerce: true,
+    flex: 0.3,
+  },
+  {
+    field: "Volatilite",
+    headerName: "Volatilité",
+    isNum: true,
+    isPerce: true,
+    flex: 0.3,
+  },
 ];
 export const tmpColumns = createColumns(tmpDef, false);

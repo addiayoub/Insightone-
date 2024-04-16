@@ -14,6 +14,7 @@ import NewsModal from "./AnalyseSectorial/NewsModal";
 import { useState } from "react";
 import injectId from "../utils/injectId";
 import { dataGridLocale } from "../utils/dataGridLocale";
+import { Box } from "@mui/material";
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
     backgroundColor:
@@ -69,6 +70,7 @@ function Table({
   density = "standard",
   withoutCellP,
   sx,
+  legend,
 }) {
   const classes = useStyles();
   rows = injectId(rows);
@@ -83,7 +85,8 @@ function Table({
   const mergedSx = withoutCellP ? { ...defaultSx, ...cellWithoutP } : defaultSx;
   console.log("withoutCellP", mergedSx, withoutCellP);
   return (
-    <>
+    <Box>
+      {legend && <h3>{legend}</h3>}
       <StripedDataGrid
         className={` my-5 default-table w-full ${className}`}
         columns={columns}
@@ -125,7 +128,7 @@ function Table({
           handleClose={handleClose}
         />
       )}
-    </>
+    </Box>
   );
 }
 

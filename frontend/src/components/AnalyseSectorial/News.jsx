@@ -41,7 +41,6 @@ const columns = [
 function News({ data }) {
   return (
     <>
-      <h3>News</h3>
       <Table
         columns={columns}
         rows={data}
@@ -50,6 +49,7 @@ function News({ data }) {
         shouldHandleCellClick
         showOnClick={true}
         pageSize={50}
+        legend="News"
       />
     </>
   );

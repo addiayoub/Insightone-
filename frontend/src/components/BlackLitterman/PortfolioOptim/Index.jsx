@@ -33,49 +33,52 @@ const Index = () => {
       <GridContainer extraCss="my-8">
         {show && data.weights.length > 0 && (
           <GridItem>
-            <h3>PORTFOLIO WEIGHTS:</h3>
             <Table
               columns={weightsColumns}
               rows={data.weights}
               className="h-fit"
+              legend="PORTFOLIO WEIGHTS:"
             />
           </GridItem>
         )}
         {show && data.metrics.length > 0 && (
           <GridItem>
-            <h3>PORTFOLIO METRICS:</h3>
             <Table
               columns={metricsColumns}
               rows={data.metrics}
               className="h-fit"
+              legend="PORTFOLIO METRICS:"
             />
           </GridItem>
         )}
       </GridContainer>
       {show && data.simulations.length > 0 && (
         <>
-          <h3>SIMULATIONS RESULT:</h3>
-          <Table columns={simulationsColumns} rows={data.simulations} />
+          <Table
+            columns={simulationsColumns}
+            rows={data.simulations}
+            legend="SIMULATIONS RESULT:"
+          />
         </>
       )}
       <GridContainer extraCss="my-5">
         {show && data.optimizedSharpe.length > 0 && (
           <GridItem>
-            <h3>OPTIMIZED SHARPE:</h3>
             <Table
               columns={optimizedColumns}
               rows={data.optimizedSharpe}
+              legend="OPTIMIZED SHARPE:"
               className="h-fit"
             />
           </GridItem>
         )}
         {show && data.optimizedVolatility.length > 0 && (
           <GridItem>
-            <h3>OPTIMIZED VOLATILITY:</h3>
             <Table
               columns={optimizedColumns}
               rows={data.optimizedVolatility}
               className="h-fit"
+              legend="OPTIMIZED VOLATILITY:"
             />
           </GridItem>
         )}
