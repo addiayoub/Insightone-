@@ -157,7 +157,7 @@ export const defaultPie = {
 
 export const rangeOpts = {
   z: -1,
-  name: "Range",
+  name: "",
   stack: "Min",
   tooltip: {
     show: false,

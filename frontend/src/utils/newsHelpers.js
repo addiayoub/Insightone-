@@ -320,7 +320,6 @@ const getPicsCount = (name) => {
 const getRandPic = (name) => {
   const { count, folderName } = getPicsCount(name);
   const randPic = Math.floor(Math.random() * count) + 1;
-  console.log("folder name", `${folderName}/${randPic}.png`);
   return `${folderName}/${randPic}.png`;
 };
 export { getRandPic };

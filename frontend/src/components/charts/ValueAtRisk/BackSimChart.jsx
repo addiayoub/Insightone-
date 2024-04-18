@@ -25,7 +25,7 @@ const seriesData = (data) => {
 
 const getMarksArea = (data, forSim) => {
   const type = forSim ? "MC Simulation" : "Backtest";
-  const color = forSim ? "#30c63f" : "#8784d9";
+  const color = forSim ? "rgba(48, 198, 63,0.11)" : "rgba(204,204,204,0.2)";
   const condition = (item) => item.label === type;
   const { seance: start } = data.find(condition);
   const { seance: end } = getLastItemWithFilter(data, condition);

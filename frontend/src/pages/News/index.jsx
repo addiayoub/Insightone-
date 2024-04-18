@@ -28,7 +28,6 @@ const index = () => {
     data: { news },
   } = useSelector((state) => state.profilFin);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log("Newws are", news.slice(0, 6));
   const navigateTo = useNavigate();
   const goToArticle = (index) => {
     navigateTo(`/news/article/${index}`);

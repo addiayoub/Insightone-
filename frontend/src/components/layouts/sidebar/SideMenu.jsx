@@ -56,7 +56,7 @@ const SubMenuList = ({ item, isHovered, nestedId, handleNestedNav, path }) => {
             )}
           </div>
         ) : (
-          <SubMenuLink {...{ item, path }} />
+          <SubMenuLink {...{ item, path }} key={`${title}-${index}`} />
         );
       })}
     </div>
