@@ -1,9 +1,12 @@
 import React, { useState, useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CheckSquare, Trash } from "react-feather";
+import { CheckSquare, RefreshCcw, Trash } from "react-feather";
 import SingleSelect from "../../SingleSelect";
 import { Box, Button } from "@mui/material";
-import { deletePortefeuilles } from "../../../redux/actions/UserActions";
+import {
+  deletePortefeuilles,
+  getPortefeuilles,
+} from "../../../redux/actions/UserActions";
 import { setPortefeuilles } from "../../../redux/slices/UserSlice";
 import {
   setPtfToBacktest,
@@ -12,7 +15,7 @@ import {
 import { notyf } from "../../../utils/notyf";
 import ModalComponent from "../../Modal";
 import DeleteModal from "../../DeleteModal";
-import { DeleteButton, ValidateButton } from "../../Ui/Buttons";
+import CustomButton, { DeleteButton, ValidateButton } from "../../Ui/Buttons";
 import { setPtfName } from "../../../redux/slices/PtfSlice";
 
 const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
@@ -78,7 +81,12 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
   useEffect(() => {
     setType(ptfsType[0]);
   }, [ptfsType]);
-
+  const handleRefresh = () => {
+    dispatch(getPortefeuilles({ type: "" }))
+      .unwrap()
+      .then(() => notyf.success("Portefeuilles actualisés avec succès"))
+      .catch(() => notyf.error("Error Fetch portefeuilles"));
+  };
   return (
     <>
       <Box className="flex flex-wrap gap-3 items-center">
@@ -104,6 +112,13 @@ const SavedPtfs = ({ selectedPtfs, setSelectedPtfs, setShow, ptfsType }) => {
           onClick={() => setIsOpen(true)}
           disabled={!ptf}
           className="min-w-[115px]"
+        />
+        <CustomButton
+          onClick={handleRefresh}
+          text="Actualiser"
+          color="success"
+          disabled={loading}
+          icon={<RefreshCcw size={15} />}
         />
       </Box>
       <ModalComponent open={isOpen} handleClose={() => setIsOpen(false)}>
