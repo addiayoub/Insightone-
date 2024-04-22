@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import PtfRange from "../charts/PtfRange";
 import Portefeuille from "../OPCVM/Portefeuille";
 import PortefeuilleMarko from "../Markowitz/Portefeuille";

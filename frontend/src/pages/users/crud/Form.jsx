@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, TextField } from "@mui/material";
 import FormLabel from "@mui/material/FormLabel";
 import EndAdorment from "../../../components/Ui/EndAdorment";
-import ToggleButtons from "../../../components/ToggleButtons";
+import ToggleButtons from "../../../components/Ui/ToggleButtons";
 
 const style = {
   width: "100%",

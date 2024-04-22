@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import RangeSlider from "../SliderCom";
 import Contrainte from "../Contrainte";
 import {

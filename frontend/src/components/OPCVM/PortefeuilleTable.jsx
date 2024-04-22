@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Table from "../Table";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
-import ModalComponent from "../Modal";
+import ModalComponent from "../Modal/index";
 import EditPoidsTitreForm from "./EditPoids/EditPoidsTitreForm";
 import Actions from "./EditPoids/Actions";
 import { calculateSumClassification } from "../../utils/OPCVM/helpers.js";
@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPtfToBacktest } from "../../redux/slices/BacktestSlice.js";
 import PortefeuilleActions from "../PortefeuilleActions.jsx";
 import PortefeuillePeriod from "../PortefeuillePeriod.jsx";
-import DeleteModal from "../DeleteModal.jsx";
+import DeleteModal from "../Modal/DeleteModal.jsx";
 import PtfPoids from "../charts/Backtest/PtfPoids.jsx";
 import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
 

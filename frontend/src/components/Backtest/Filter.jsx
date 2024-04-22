@@ -1,8 +1,8 @@
 import React, { useState, memo } from "react";
 import DateComponent from "../DateComponent";
 import dayjs from "dayjs";
-import AccordionBox from "../AccordionBox";
-import ToggleButtons from "../ToggleButtons";
+import AccordionBox from "../Ui/AccordionBox";
+import ToggleButtons from "../Ui/ToggleButtons";
 import Contrainte from "../Contrainte";
 import { Box, Button, Divider, TextField } from "@mui/material";
 import RangeSlider from "../SliderCom";

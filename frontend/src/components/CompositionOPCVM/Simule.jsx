@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../Table";
 import { simColumns } from "./columns";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import PtfPoids from "../charts/Backtest/PtfPoids";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 

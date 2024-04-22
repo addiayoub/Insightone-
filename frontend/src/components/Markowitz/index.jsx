@@ -7,7 +7,7 @@ import {
   filterMarkoAction,
 } from "../../redux/actions/DataActions";
 import { resetContraints, setParams } from "../../redux/slices/DataSlice";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import ContraintesOptimisation from "./ContraintesOptimisation";
 import Indices from "./Indices";
 import Contraintes from "./Contraintes";

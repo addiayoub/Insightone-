@@ -4,7 +4,7 @@ import moment from "moment";
 import { getColumns } from "./columns";
 import MainLoader from "../loaders/MainLoader";
 import { Box } from "@mui/material";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { Wallet } from "iconsax-react";
 import PortefeuillePeriod from "../PortefeuillePeriod";
 import Table from "../Table";

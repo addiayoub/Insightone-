@@ -6,7 +6,7 @@ import {
   getChartData,
   getDataSet,
 } from "../../redux/actions/DataActions";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import ChartPreview from "../charts/ChartPreview";
 import Heatmap from "../charts/Heatmap";
 import UniversB100 from "../charts/UniversB100";

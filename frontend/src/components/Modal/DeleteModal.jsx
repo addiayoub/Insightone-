@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Button } from "@mui/material";
+import React, { memo } from "react";
+import { Button } from "@mui/material";
 import { AlertTriangle } from "react-feather";
 
 const DeleteModal = ({
@@ -45,4 +45,4 @@ const DeleteModal = ({
   );
 };
 
-export default DeleteModal;
+export default memo(DeleteModal);

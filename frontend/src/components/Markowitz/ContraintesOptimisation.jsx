@@ -1,8 +1,6 @@
-import { Box, Button, Tabs, Tab } from "@mui/material";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { React, useEffect, useMemo, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import { React, memo, useEffect, useMemo, useState } from "react";
+import { Box } from "@mui/material";
+import AccordionBox from "../Ui/AccordionBox";
 import ContraintesOpResult from "./ContraintesOpResult";
 import ContraintesOpValue from "./ContraintesOpValue";
 import RadioBtn from "./RadioBtn";
@@ -24,15 +22,13 @@ import selectStyle from "../../utils/SelectMultiple";
 import { ValidateButton } from "../Ui/Buttons";
 import { Tool } from "react-feather";
 import { PresentionChart } from "iconsax-react";
+import SelectMultipl from "../ContraintesOptimisation/SelectMultipl";
 
 const filterResult = (contraintes, resultArr) => {
   return resultArr.filter((obj) => contraintes.includes(obj.indice));
 };
 
-export default function ContraintesOptimisation({
-  contraintesOptimisation,
-  dateDebut,
-}) {
+function ContraintesOptimisation({ contraintesOptimisation, dateDebut }) {
   const [personName, setPersonName] = useState([]);
   const handleChangeMultiple = (event) => {
     const { options } = event.target;
@@ -211,24 +207,11 @@ export default function ContraintesOptimisation({
         <Box className="flex justify-between flex-wrap gap-4">
           <Box className="flex">
             <Box>
-              <FormControl
-                sx={{ m: 1, minWidth: 120, maxWidth: 300, marginRight: "20px" }}
-              >
-                <Select
-                  multiple
-                  native
-                  value={personName}
-                  onChange={handleChangeMultiple}
-                  label=""
-                  sx={selectStyle}
-                >
-                  {contraintesOptimisation.map((valeur) => (
-                    <option key={valeur} value={valeur}>
-                      {valeur}
-                    </option>
-                  ))}
-                </Select>
-              </FormControl>
+              <SelectMultipl
+                titres={contraintesOptimisation}
+                setSelectedTitres={personName}
+                handleChangeMultiple={handleChangeMultiple}
+              />
               {showErrors &&
                 !contraintesPoids.loading &&
                 contraintesPoids.data?.errors_df_ab?.length > 0 && (
@@ -308,3 +291,4 @@ export default function ContraintesOptimisation({
     </>
   );
 }
+export default memo(ContraintesOptimisation);

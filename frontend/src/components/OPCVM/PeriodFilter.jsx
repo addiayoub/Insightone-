@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DateComponent from "../DateComponent";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getData,

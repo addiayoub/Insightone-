@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { Box } from "@mui/material";
 import SelectMultipl from "./SelectMultipl";
 import { Tool } from "react-feather";

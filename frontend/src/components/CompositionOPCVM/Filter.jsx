@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { useDispatch } from "react-redux";
 import {
   getData,
@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import PdfViewer from "../PdfViewer";
 import MainLoader from "../loaders/MainLoader";
 import { hostName } from "../../api/config";
-import ModalComponent from "../Modal";
+import ModalComponent from "../Modal/index";
 import { FileText } from "react-feather";
 
 const Filter = ({ setIsShow }) => {

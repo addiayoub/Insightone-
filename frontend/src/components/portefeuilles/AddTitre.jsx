@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import Contrainte from "../Contrainte";
-import ToggleButtons from "../ToggleButtons";
+import ToggleButtons from "../Ui/ToggleButtons";
 import { useDispatch } from "react-redux";
 import { getTitres } from "../../redux/actions/DataActions";
 import { notyf } from "../../utils/notyf";

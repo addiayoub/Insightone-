@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import TitresComponent from "../TitresComponent";
 import SingleSelect from "../SingleSelect";
 import { SearchButton } from "../Ui/Buttons";

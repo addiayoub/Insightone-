@@ -10,7 +10,7 @@ import resetStates from "../../../utils/resetStates";
 import "./Header.css";
 import { ChevronsLeft, ChevronsRight } from "react-feather";
 import ToggleTheme from "./ToggleTheme";
-import ModalComponent from "../../Modal";
+import ModalComponent from "../../Modal/index";
 import Profile from "../../Profile.jsx";
 import { hostName } from "../../../api/config.js";
 

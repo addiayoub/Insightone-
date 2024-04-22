@@ -3,7 +3,7 @@ import { generateRandomColorsArray } from "../../../utils/generateRandomColorsAr
 import SIMPoids from "./SIMPoids";
 import SIMTable from "../../Tracking/SIMTable";
 import SIMEvolution from "./SIMEvolution";
-import AccordionBox from "../../AccordionBox";
+import AccordionBox from "../../Ui/AccordionBox";
 import { IconButton } from "@mui/material";
 import { RefreshCcw } from "react-feather";
 import GridContainer, { GridItem } from "../../Ui/GridContainer";

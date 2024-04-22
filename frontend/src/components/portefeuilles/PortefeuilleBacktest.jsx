@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import DateComponent from "../DateComponent";
 import dayjs from "dayjs";
 import { useDispatch, useSelector } from "react-redux";

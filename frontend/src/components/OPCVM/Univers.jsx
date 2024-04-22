@@ -5,7 +5,7 @@ import { setFilteredDataSet } from "../../redux/slices/OpcvmSlice";
 import { getChartData, getMatriceCorr } from "../../redux/actions/OpcvmActions";
 import { notyf } from "../../utils/notyf";
 import MainLoader from "../loaders/MainLoader";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import Heatmap from "../charts/Heatmap";
 import ChartContainer from "../ChartContainer";
 import filterDataSet from "../../utils/filterDataSet";

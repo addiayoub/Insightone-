@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../../../redux/actions/UserActions";
 import { notyf } from "../../../utils/notyf";
-import DeleteModal from "../../../components/DeleteModal";
-import ModalComponent from "../../../components/Modal";
+import DeleteModal from "../../../components/Modal/DeleteModal";
+import ModalComponent from "../../../components/Modal/index";
 
 export default function Delete({ open, setModalOff, id }) {
   const dispatch = useDispatch();

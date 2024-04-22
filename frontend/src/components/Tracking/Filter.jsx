@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import DateComponent from "../DateComponent";
 import { TextField, Box, Button, Typography, Divider } from "@mui/material";
 import IndicesComponent from "../IndicesComponent";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { generationPtfAlea } from "../../redux/actions/TrackingActions";
 import TitresComponent from "../TitresComponent";
 import Contrainte from "../Contrainte";
-import ToggleButtons from "../ToggleButtons";
+import ToggleButtons from "../Ui/ToggleButtons";
 import {
   backtestAction,
   getEvolutionB100Portef,

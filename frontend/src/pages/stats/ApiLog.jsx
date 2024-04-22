@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ModalComponenet from "../../components/Modal";
+import ModalComponenet from "../../components/Modal/index";
 const ApiLog = () => {
   const [open, setOpen] = useState(false);
   return (

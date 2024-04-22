@@ -9,7 +9,7 @@ import {
 } from "../../redux/actions/DataActions";
 import { logout } from "../../redux/slices/AuthSlice";
 import groupBy from "../../utils/groupBy";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import ComparaisonIndices from "../charts/ComparaisonIndices";
 import PerformanceChart from "../charts/PerformanceChart";
 import VolatiliteChart from "../charts/VolatiliteChart";

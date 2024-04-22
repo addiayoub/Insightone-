@@ -36,7 +36,7 @@ import Commentaire from "./Commentaire.jsx";
 import MainLoader from "../loaders/MainLoader.jsx";
 import DashSlider from "./DashSlider.jsx";
 import Seance from "./Seance.jsx";
-import AccordionBox from "../AccordionBox.jsx";
+import AccordionBox from "../Ui/AccordionBox.jsx";
 import DateComponent from "../DateComponent.jsx";
 import { notyf } from "../../utils/notyf.js";
 import Clock from "../Clock/Clock.jsx";

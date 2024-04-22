@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getPortefeuilles } from "../../../redux/actions/UserActions";
 import SavedPtfs from "../../portefeuilles/UploadPortefuille/SavedPtfs";
 import TabsComponent from "../../TabsComponent";
-import AccordionBox from "../../AccordionBox";
+import AccordionBox from "../../Ui/AccordionBox";
 import Choice from "../../portefeuilles/Choice";
 import {
   setPtfToBacktest,

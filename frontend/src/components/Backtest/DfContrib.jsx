@@ -1,5 +1,5 @@
 import React from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import Table from "../Table";
 import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 

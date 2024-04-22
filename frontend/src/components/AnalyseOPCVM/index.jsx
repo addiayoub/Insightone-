@@ -21,7 +21,7 @@ import QuatileSemaine from "../charts/AnalyseOPCVM/QuatileSemaine";
 import Consistency from "../charts/AnalyseOPCVM/Consistency";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import Guages from "../charts/AnalyseOPCVM/Guages";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import PerformanceTables from "./PerformanceTables";
 import { Aperture, BarChart, Table as TableIcon } from "react-feather";
 import { PresentionChart } from "iconsax-react";

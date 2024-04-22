@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { resetContraints } from "../redux/slices/DataSlice";
-import AccordionBox from "./AccordionBox";
+import AccordionBox from "./Ui/AccordionBox";
 import DateComponent from "./DateComponent";
 import { SearchButton } from "./Ui/Buttons";
 import { Calendar } from "react-feather";

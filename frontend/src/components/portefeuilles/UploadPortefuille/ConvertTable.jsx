@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { setPortefeuilles } from "../../../redux/slices/UserSlice";
 import { notyf } from "../../../utils/notyf";
 import MainLoader from "../../loaders/MainLoader";
-import GridSelection from "../../GridSelection";
+import GridSelection from "../../GridSelection/index";
 import InvalidsTitres from "../../InvalidsTitres";
 import PtfForm from "./PtfForm";
 import useDataXLTheme from "../../../hooks/useDataXLTheme";

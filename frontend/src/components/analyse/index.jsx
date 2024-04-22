@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getIndicateursData } from "../../redux/actions/AnalyseChartisteActions";
 import { Box, Button, Autocomplete, TextField } from "@mui/material";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import dayjs from "dayjs";
 import { notyf } from "../../utils/notyf";
 import MainLoader from "../loaders/MainLoader";

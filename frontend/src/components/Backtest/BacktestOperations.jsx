@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Table from "../Table";
 import { Box, Button } from "@mui/material";
 import { Trash } from "react-feather";
-import ModalComponent from "../Modal";
-import DeleteModal from "../DeleteModal";
+import ModalComponent from "../Modal/index";
+import DeleteModal from "../Modal/DeleteModal";
 
 const columns = [
   {

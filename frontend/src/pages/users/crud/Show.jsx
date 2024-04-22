@@ -2,7 +2,7 @@ import React, { memo, useMemo } from "react";
 import { Box, Typography } from "@mui/material";
 import { LogIn, User, Key } from "react-feather";
 import { Wallet } from "iconsax-react";
-import ModalComponent from "../../../components/Modal";
+import ModalComponent from "../../../components/Modal/index";
 import { hostName } from "../../../api/config";
 import moment from "moment";
 import { momentFr } from "../../../utils/momentFr";

@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
-import "./GridSelection.css";
 import { ChevronDown } from "react-feather";
+import "./GridSelection.css";
 
 function GridSelection({ setRows, setCols, cols, rows }) {
   const [selectedRows, setSelectedRows] = useState(rows);

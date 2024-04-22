@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -6,7 +7,6 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import React, { memo } from "react";
 import { Settings } from "react-feather";
 
 const AccordionBox = ({

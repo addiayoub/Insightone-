@@ -3,7 +3,7 @@ import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
 import Table from "../Table";
 import PortefeuilleDonut from "../charts/PortefeuilleDonut";
 import { Box } from "@mui/material";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(500px, 1fr))",

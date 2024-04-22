@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AccordionBox from "../../components/AccordionBox";
+import AccordionBox from "../../components/Ui/AccordionBox";
 import DateComponent from "../../components/DateComponent";
 import dayjs from "dayjs";
 import { SearchButton } from "../../components/Ui/Buttons";

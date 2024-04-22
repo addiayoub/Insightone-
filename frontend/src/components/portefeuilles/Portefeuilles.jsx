@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deletePortefeuilles,
@@ -15,7 +15,7 @@ import { CheckSquare, Trash } from "react-feather";
 import { notyf } from "../../utils/notyf";
 import Portefeuille from "../OPCVM/Portefeuille";
 import PortefeuilleMarko from "../Markowitz/Portefeuille";
-import ModalComponent from "../Modal";
+import ModalComponent from "../Modal/index";
 import EditPortefeuille from "./EditPortefeuille";
 import TabsComponent from "../TabsComponent";
 import SingleSelect from "../SingleSelect";
@@ -30,7 +30,7 @@ import Choice from "./Choice";
 import SavedPtfs from "./UploadPortefuille/SavedPtfs";
 import PtfFresh from "./UploadPortefuille/PtfFresh";
 import PoidsDonut from "../charts/Backtest/PoidsDonut";
-import DeleteModal from "../DeleteModal";
+import DeleteModal from "../Modal/DeleteModal";
 import { Wallet } from "iconsax-react";
 
 const types = ["Actions", "OPCVM"];

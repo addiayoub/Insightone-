@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import React, { useState, useEffect, memo } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import DateComponent from "../DateComponent";
 import SelectIndices from "../Markowitz/SelectIndices";
 import { Autocomplete, TextField } from "@mui/material";

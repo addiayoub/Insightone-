@@ -1,5 +1,5 @@
 import React, { useState, memo, useEffect } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import DateComponent from "../DateComponent";
 import { Box, Divider, Typography } from "@mui/material";
 import TitresComponent from "../TitresComponent";
@@ -12,7 +12,7 @@ import NoteInfo from "./NoteInfo";
 import { getNoteInformation } from "../../redux/actions/CompOpcvmActions";
 import { hostName } from "../../api/config";
 import { FileText } from "react-feather";
-import ModalComponent from "../Modal";
+import ModalComponent from "../Modal/index";
 import PdfViewer from "../PdfViewer";
 
 const seuilOptions = [0.1, 0.2, 0.25, 0.5];

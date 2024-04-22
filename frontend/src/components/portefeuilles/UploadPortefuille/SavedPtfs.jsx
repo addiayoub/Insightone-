@@ -13,8 +13,8 @@ import {
   setSelectedPtf,
 } from "../../../redux/slices/BacktestSlice";
 import { notyf } from "../../../utils/notyf";
-import ModalComponent from "../../Modal";
-import DeleteModal from "../../DeleteModal";
+import ModalComponent from "../../Modal/index";
+import DeleteModal from "../../Modal/DeleteModal";
 import CustomButton, { DeleteButton, ValidateButton } from "../../Ui/Buttons";
 import { setPtfName } from "../../../redux/slices/PtfSlice";
 

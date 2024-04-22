@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AccordionBox from "../../AccordionBox";
+import AccordionBox from "../../Ui/AccordionBox";
 import { TextField, Box } from "@mui/material";
 import DateComponent from "../../DateComponent";
 import dayjs from "dayjs";

@@ -1,5 +1,5 @@
 import React from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 
 const NoteInfo = ({ opcvm }) => {
   return (

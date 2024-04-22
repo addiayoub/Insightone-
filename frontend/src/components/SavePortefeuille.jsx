@@ -5,7 +5,7 @@ import { Save } from "react-feather";
 import { useDispatch, useSelector } from "react-redux";
 import { savePortefeuille } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
-import ModalComponent from "./Modal";
+import ModalComponent from "./Modal/index";
 import { filterByPtf } from "../utils/filterByPtf";
 import { extractPtfKeys } from "../utils/extractPtfKeys";
 import {

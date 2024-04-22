@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, TextField, Typography } from "@mui/material";
 import React, { useState, useEffect, memo } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { useDispatch, useSelector } from "react-redux";
 import {
   EVOLUTION_B100_PORTEFEUILLE_FRONTIERE_EFFICIENTE,
@@ -10,7 +10,7 @@ import PortefeuilleAleatoires from "../charts/PortefeuilleAleatoires";
 import PortefeuilleFrontiere from "../charts/PortefeuilleFrontiere";
 import MainLoader from "../loaders/MainLoader";
 import PortefeuilleDonut from "../charts/PortefeuilleDonut";
-import Modal from "../Modal";
+import Modal from "../Modal/index";
 import Ptf from "./PortefeuilleFrontiere";
 import { ValidateButton } from "../Ui/Buttons";
 import { Aperture } from "react-feather";

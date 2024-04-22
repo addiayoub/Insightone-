@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { storeUser } from "../../../redux/actions/UserActions";
 import { notyf } from "../../../utils/notyf";
 import { resetStoreState } from "../../../redux/slices/UserSlice";
-import ModalComponent from "../../../components/Modal";
+import ModalComponent from "../../../components/Modal/index";
 import Form from "./Form";
 import Button from "../../../components/Ui/Buttons";
 import { UserPlus } from "react-feather";

@@ -2,7 +2,7 @@ import { Alert, Box, Button } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilterMarkoData, setValeurs } from "../../redux/slices/DataSlice";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import RangeSlider from "../SliderCom";
 import Contrainte from "../Contrainte";
 import ResetButton from "../ResetButton";

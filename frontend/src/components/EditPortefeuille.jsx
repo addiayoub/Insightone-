@@ -6,8 +6,8 @@ import { updatePortefeuilles } from "../redux/actions/UserActions";
 import { notyf } from "../utils/notyf";
 import { setPtfToBacktest } from "../redux/slices/BacktestSlice";
 import { PlusSquare, Lock, Save, Trash, Zap, Unlock } from "react-feather";
-import ModalComponent from "./Modal";
-import DeleteModal from "./DeleteModal";
+import ModalComponent from "./Modal/index";
+import DeleteModal from "./Modal/DeleteModal";
 import { DeleteButton } from "./Ui/Buttons";
 
 const EditPortefeuille = ({

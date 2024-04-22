@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import RadioBtn from "../Markowitz/RadioBtn";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import ContraintesOpValue from "../Markowitz/ContraintesOpValue";
 import ContraintesOpResult from "../Markowitz/ContraintesOpResult";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import SelectMultipl from "../SelectMultipl";
+// import SelectMultipl from "../SelectMultipl";
+import SelectMultipl from "../ContraintesOptimisation/SelectMultipl";
 import {
   portefeuilleMinimumVariance_,
   portefeuilleRendementMaximale_,
@@ -158,9 +159,12 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
         <Box className="flex justify-between flex-wrap gap-4">
           <Box className="flex">
             <SelectMultipl
-              contraintes={contraintes}
+              // contraintes={contraintes}
+              // handleChangeMultiple={handleChangeMultiple}
+              // contraintesOptimisation={contraintesOp}
+              setSelectedTitres={contraintes}
               handleChangeMultiple={handleChangeMultiple}
-              contraintesOptimisation={contraintesOp}
+              titres={contraintesOp}
             />
 
             <RadioBtn data={[">=", "<=", "="]} setOperateur={setOperateur} />

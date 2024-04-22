@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Box, Typography, IconButton, Divider } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { X } from "react-feather";
@@ -15,7 +15,7 @@ const basedStyle = {
   p: 4,
 };
 
-export default function ModalComponent({
+function ModalComponent({
   open,
   handleClose,
   style = {},
@@ -57,3 +57,4 @@ export default function ModalComponent({
     </div>
   );
 }
+export default memo(ModalComponent);

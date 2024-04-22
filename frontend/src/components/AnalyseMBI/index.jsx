@@ -23,7 +23,7 @@ import GridContainer, { GridItem } from "../Ui/GridContainer";
 import Evol from "../charts/AnalyseMBI/Evol";
 import Repartition from "../charts/AnalyseMBI/Repartition";
 import PerfTable from "../PerfGlis/PerfTable";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import PerfGlis from "../charts/AnalyseMBI/PerfGlis";
 import { Table as TableIcon } from "react-feather";
 import Stats from "./Stats";

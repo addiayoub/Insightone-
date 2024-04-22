@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { Box, FormControl, Typography, TextField, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {

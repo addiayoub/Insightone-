@@ -5,7 +5,7 @@ import MainLoader from "../loaders/MainLoader";
 import { Box } from "@mui/material";
 import SingleSelect from "../SingleSelect";
 import { ValidateButton } from "../Ui/Buttons";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import { Wallet } from "iconsax-react";
 import moment from "moment";
 import PortefeuillePeriod from "../PortefeuillePeriod";

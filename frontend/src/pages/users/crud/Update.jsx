@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../../redux/actions/UserActions";
 import { resetUpdateState } from "../../../redux/slices/UserSlice";
 import { notyf } from "../../../utils/notyf";
-import ModalComponent from "../../../components/Modal";
+import ModalComponent from "../../../components/Modal/index";
 import Button from "../../../components/Ui/Buttons";
 import { Edit } from "react-feather";
 import Form from "./Form";

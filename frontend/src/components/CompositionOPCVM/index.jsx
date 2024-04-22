@@ -7,7 +7,7 @@ import PtfPoids from "../charts/Backtest/PtfPoids";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { Box } from "@mui/material";
 import ValorisationChart from "../charts/CompOPCVm/ValorisationChart";
-import AccordionBox from "../AccordionBox";
+import AccordionBox from "../Ui/AccordionBox";
 import PortefeuilleBacktest from "../portefeuilles/PortefeuilleBacktest";
 import CustomButton from "../Ui/Buttons";
 import {
