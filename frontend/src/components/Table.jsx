@@ -57,7 +57,6 @@ function Table({
   columns,
   rows,
   rowId,
-  pagination = true,
   autoHeight = false,
   showOnClick = false,
   pageSize = 5,

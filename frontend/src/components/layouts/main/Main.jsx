@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import "./Main.css";
-import ScrollToTop from "../../ScrollToTop";
+import ScrollToTop from "../../Ui/ScrollToTop";
 export default function Main() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 

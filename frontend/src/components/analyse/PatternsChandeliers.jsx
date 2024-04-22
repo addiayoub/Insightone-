@@ -1,6 +1,6 @@
 import React, { memo, useMemo } from "react";
 import { candelChartTransformData } from "../../utils/candelChartTransformData";
-import { calculateMA } from "../../utils/calculateMA";
+import { calculateMA } from "../../utils/chart/calculateMA";
 import {
   upColor,
   downColor,

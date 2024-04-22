@@ -10,18 +10,15 @@ import {
 import { logout } from "../../redux/slices/AuthSlice";
 import groupBy from "../../utils/groupBy";
 import AccordionBox from "../Ui/AccordionBox";
-import ComparaisonIndices from "../charts/ComparaisonIndices";
-import PerformanceChart from "../charts/PerformanceChart";
-import VolatiliteChart from "../charts/VolatiliteChart";
 import MainLoader from "../loaders/MainLoader";
 import RendementRisqueScatter from "../charts/RendementRisqueScatter";
 import ChartContainer from "../ChartContainer";
 import RendementRisqueData from "./RendementRisqueData";
 import IndicesComponent from "../IndicesComponent";
-import IndicesChartV2 from "../charts/IndicesChartV2";
-import ComparaisonIndicesV2 from "../ComparaisonIndicesV2";
-import PerformanceChartV2 from "../charts/PerformanceChartV2";
-import VolatiliteChartV2 from "../charts/VolatiliteChartV2";
+import IndicesChart from "../charts/IndicesChart";
+import ComparaisonIndices from "../charts/ComparaisonIndices";
+import PerformanceChart from "../charts/PerformanceChart";
+import VolatiliteChart from "../charts/VolatiliteChart";
 import { ValidateButton } from "../Ui/Buttons";
 
 function Indices({ dateDebut, dateFin }) {
@@ -118,13 +115,13 @@ function Indices({ dateDebut, dateFin }) {
             {isShow && !loadingIndicesChart && (
               <>
                 {/* <IndicesChart data={data} /> */}
-                <IndicesChartV2 data={data} />
+                <IndicesChart data={data} />
               </>
             )}
             {showCompa && (
               <>
                 {/* <ComparaisonIndices data={compaData} /> */}
-                <ComparaisonIndicesV2 data={compaData} />
+                <ComparaisonIndices data={compaData} />
               </>
             )}
           </ChartContainer>
@@ -151,9 +148,9 @@ function Indices({ dateDebut, dateFin }) {
             </div>
             <ChartContainer width={400}>
               {/* <PerformanceChart data={g1Data} /> */}
-              <PerformanceChartV2 data={g1Data} />
+              <PerformanceChart data={g1Data} />
               {/* <VolatiliteChart data={g2Data} /> */}
-              <VolatiliteChartV2 data={g2Data} />
+              <VolatiliteChart data={g2Data} />
             </ChartContainer>
           </>
         )}

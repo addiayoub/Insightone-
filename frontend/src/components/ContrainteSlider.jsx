@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography, Slider, Input, FormControl } from "@mui/material";
 import { formatNumberWithSpaces } from "../utils/formatNumberWithSpaces";
 
-function RangeSlider({
+function ContrainteSlider({
   label,
   min,
   minLabel,
@@ -100,4 +100,4 @@ function RangeSlider({
   );
 }
 
-export default RangeSlider;
+export default ContrainteSlider;

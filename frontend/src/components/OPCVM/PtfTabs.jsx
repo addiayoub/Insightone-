@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Portefeuille from "../Markowitz/Portefeuille";
-const TabTest = ({ components }) => {
+import Portefeuille from "./Portefeuille";
+import PortefeuilleMarko from "../Markowitz/Portefeuille";
+
+const PtfTabs = ({ components, isOPCVM }) => {
   const [tabValue, setTabValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -32,11 +34,21 @@ const TabTest = ({ components }) => {
 
           {filteredComponents.map((component, index) => (
             <TabPanel key={index} value={tabValue} index={index}>
-              <Portefeuille
-                data={component.data ?? []}
-                title={component.title}
-                field={component.field}
-              />
+              {isOPCVM ? (
+                <Portefeuille
+                  data={component.data ?? []}
+                  title={component.title}
+                  field={component.field}
+                  dataToSave={component.data ?? []}
+                />
+              ) : (
+                <PortefeuilleMarko
+                  data={component.data ?? []}
+                  title={component.title}
+                  field={component.field}
+                  dataToSave={component.data ?? []}
+                />
+              )}
             </TabPanel>
           ))}
         </Box>
@@ -56,4 +68,4 @@ export const TabPanel = ({ children, value, index }) => (
   </div>
 );
 
-export default TabTest;
+export default memo(PtfTabs);

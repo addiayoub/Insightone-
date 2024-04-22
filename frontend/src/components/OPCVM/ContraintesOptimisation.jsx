@@ -16,7 +16,7 @@ import {
   portefeuilleSimule_,
 } from "../../redux/actions/OpcvmActions";
 import MainLoader from "../loaders/MainLoader";
-import TabTest from "./TabTest";
+import PtfTabs from "./PtfTabs";
 import checkExistence from "../../utils/checkExistence";
 import EvolutionB100 from "../charts/EvolutionB100";
 import { notyf } from "../../utils/notyf";
@@ -190,7 +190,7 @@ function ContraintesOptimisation({ dateDebut, contraintesOp }) {
         </Box>
       </AccordionBox>
       {isLoading && <MainLoader />}
-      {showPoids && <TabTest components={components} isOPCVM />}
+      {showPoids && <PtfTabs components={components} isOPCVM />}
       {showPoids && !portefeuilleSimule.loading && (
         <AccordionBox
           title={"Evolution B100 portefeuille simulé"}

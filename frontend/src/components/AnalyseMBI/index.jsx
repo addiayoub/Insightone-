@@ -16,7 +16,7 @@ import {
   statPro,
   statProRes,
 } from "./columns";
-import { Box } from "@mui/material";
+import { Box, Chip, Tooltip } from "@mui/material";
 import WaterfallChart from "../charts/AnalyseMBI/WaterfallChart";
 import EvolB100 from "../charts/AnalyseMBI/EvolB100";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
@@ -28,6 +28,14 @@ import PerfGlis from "../charts/AnalyseMBI/PerfGlis";
 import { Table as TableIcon } from "react-feather";
 import Stats from "./Stats";
 
+function OrderIdChip({ value }) {
+  return (
+    <Tooltip title={value}>
+      <Chip label={value.slice(0, 7)} />
+    </Tooltip>
+  );
+}
+
 const index = () => {
   const { data, loading } = useSelector((state) => state.analyseMBI);
   const [isShow, setIsShow] = useState(false);
@@ -37,6 +45,7 @@ const index = () => {
     <div>
       {loading && <MainLoader />}
       <Filter setIsShow={setIsShow} />
+      <OrderIdChip value={"CHIP"} />
       {show && !Array.isArray(data.stats) && <Stats data={data.stats} />}
       {show && data.MBIFields.length > 0 && (
         <Box>

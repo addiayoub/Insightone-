@@ -5,7 +5,7 @@ import AccordionBox from "../Ui/AccordionBox";
 import ToggleButtons from "../Ui/ToggleButtons";
 import Contrainte from "../Contrainte";
 import { Box, Button, Divider, TextField } from "@mui/material";
-import RangeSlider from "../SliderCom";
+import ContrainteSlider from "../ContrainteSlider";
 import { useDispatch } from "react-redux";
 import { getPortef } from "../../redux/actions/BacktestActions";
 import { notyf } from "../../utils/notyf";
@@ -257,7 +257,7 @@ function Filter({ setIsShow }) {
             </Contrainte>
 
             {/* <Contrainte label={"Potentiel Upside/Downside"} width={150}>
-          <RangeSlider
+          <ContrainteSlider
             min={0}
             minLabel={""}
             maxLabel={""}

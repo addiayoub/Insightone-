@@ -1,74 +1,60 @@
-import React from "react";
-import DarkChart from "./DarkChart";
+import React, { memo, useMemo } from "react";
+import { Box } from "@mui/material";
+import BarChart from "./Default/BarChart";
 
-function VolatiliteChart({ data }) {
-  const seriesData = [];
-  for (const key in data) {
-    seriesData.push({
-      name: key,
-      data: data[key].map((item) => [item.ANNEE, item.Volatilite * 100]),
-      marker: { enabled: false },
-      showInLegend: true,
-    });
-  }
+const generateSeriesData = (data) => {
+  return Object.entries(data).map(([key, items]) => ({
+    name: key,
+    type: "bar",
+    data: items.map((item) => item.Volatilite * 100),
+  }));
+};
 
-  const options = {
-    chart: {
-      type: "column",
-      height: 550,
-    },
-    title: {
-      text: "Volatilité",
-    },
-    xAxis: {
-      type: "date",
-    },
-    yAxis: {
+const VolatiliteChart = ({ data }) => {
+  console.log("data", data);
+  const series = useMemo(() => generateSeriesData(data), [data]);
+  console.log("series", series);
+  const seriesNames = Object.keys(data);
+  const years = data[seriesNames[0]].map((item) => item.ANNEE);
+  const options = useMemo(() => {
+    return {
       title: {
         text: "Volatilité",
+        left: "center",
       },
-      labels: {
-        format: "{value}%",
+      grid: {
+        right: "5%",
       },
-    },
-    series: seriesData,
-    tooltip: {
-      crosshairs: true,
-      shared: true,
-    },
-    accessibility: { enabled: false },
-    navigator: {
-      enabled: true,
-      height: 15,
       xAxis: {
-        labels: {
-          enabled: false,
+        type: "category",
+        data: years,
+      },
+      yAxis: {
+        axisLabel: {
+          formatter: "{value}%",
         },
       },
-    },
-    responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500,
-            maxHeight: 400,
-          },
-          chartOptions: {
-            legend: {
-              layout: "horizontal",
-              align: "center",
-              verticalAlign: "bottom",
-            },
-          },
-        },
-      ],
-    },
-  };
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
+      series: series,
+    };
+  }, [series, seriesNames]);
   return (
-    // <div style={{ maxWidth: "550px", width: "100%" }}>
-    <DarkChart options={options} />
-    // </div>
+    <Box>
+      <BarChart
+        options={options}
+        style={{
+          minHeight: 500,
+          margin: "15px 0",
+        }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+        showSeriesSelector
+      />
+    </Box>
   );
-}
+};
 
-export default VolatiliteChart;
+export default memo(VolatiliteChart);

@@ -16,9 +16,8 @@ import {
 } from "../../redux/actions/DataActions";
 import EvolutionB100 from "../charts/EvolutionB100";
 import MainLoader from "../loaders/MainLoader";
-import TabTest from "../OPCVM/TabTest";
+import PtfTabs from "../OPCVM/PtfTabs";
 import checkExistence from "../../utils/checkExistence";
-import selectStyle from "../../utils/SelectMultiple";
 import { ValidateButton } from "../Ui/Buttons";
 import { Tool } from "react-feather";
 import { PresentionChart } from "iconsax-react";
@@ -267,7 +266,7 @@ function ContraintesOptimisation({ contraintesOptimisation, dateDebut }) {
           </TabPanel>
         </Box>
       )} */}
-      {showPoids && <TabTest components={components} />}
+      {showPoids && <PtfTabs components={components} />}
       {showPoids && !evolutionB100.loading && evolutionB100.data.length > 0 && (
         <AccordionBox
           title={"Evolution B100 portefeuille simulé"}

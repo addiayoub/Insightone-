@@ -1,73 +1,76 @@
+import moment from "moment/moment";
 import React, { memo, useMemo } from "react";
-import DarkChart from "./DarkChart";
-import formatIndicesChartData from "../../utils/formatIndicesChartData";
-import moment from "moment";
-
-function IndicesChart({ data }) {
-  console.log("data", data);
+import { Box } from "@mui/material";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import generateXYChartSeries from "../../utils/chart/generateXYChartSeries";
+import LineChart from "./Default/LineChart";
+const IndicesChart = ({ data }) => {
+  console.log("EChartsPreview", data);
   const seriesData = useMemo(
-    () => formatIndicesChartData(data, "VALEUR"),
+    () => generateXYChartSeries(data, "VALEUR"),
     [data]
   );
+  const seriesNames = useMemo(
+    () => seriesData.map((serie) => serie.name),
+    [seriesData]
+  );
   const options = useMemo(() => {
+    console.log("memo run");
     return {
-      chart: {
-        type: "line",
-        height: 600,
-      },
       title: {
-        text: "",
+        text: "Evolution du volume des titres sélectionnés",
+        left: "center",
       },
       xAxis: {
-        type: "datetime",
-        labels: {
-          formatter: function () {
-            return moment(this.value).format("DD-MM-YYYY");
+        type: "time",
+        axisLabel: {
+          formatter: function (value) {
+            return moment(value).format("DD-MM-YYYY");
           },
         },
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       yAxis: {
-        title: {
-          text: "VALEUR",
-        },
+        type: "value",
+        nameLocation: "middle",
+        nameGap: 50,
+        name: "VALEUR",
       },
       series: seriesData,
       tooltip: {
-        shared: true,
-        crosshairs: true,
-        xDateFormat: "%d/%m/%Y",
-      },
-      accessibility: { enabled: false },
-      navigator: {
-        enabled: true,
-        height: 15,
-        xAxis: {
-          labels: {
-            enabled: false,
+        trigger: "axis",
+        confine: true,
+        valueFormatter: (value) => formatNumberWithSpaces(value),
+        axisPointer: {
+          type: "line",
+          label: {
+            show: false,
+            formatter: function (params) {
+              return moment(params.value).format("DD-MM-YYYY");
+            },
           },
         },
       },
-      responsive: {
-        rules: [
-          {
-            condition: {
-              maxWidth: 500,
-              minHeight: 400,
-              maxHeight: 800,
-            },
-            chartOptions: {
-              legend: {
-                layout: "horizontal",
-                align: "center",
-                verticalAlign: "bottom",
-              },
-            },
-          },
-        ],
+      grid: {
+        left: "50px",
+        right: "80px",
       },
     };
   }, [seriesData]);
-  return <DarkChart options={options} />;
-}
+  return (
+    <Box>
+      <LineChart
+        style={{ minHeight: 500, height: 600, maxHeight: 750 }}
+        options={options}
+        showSeriesSelector
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+      />
+    </Box>
+  );
+};
 
 export default memo(IndicesChart);

@@ -7,7 +7,6 @@ import ArticleSummary from "./ArticleSummary";
 import { Box, TextField } from "@mui/material";
 import MainArticle from "./MainArticle";
 import NewsSwiper from "./NewsSwiper";
-// import dn from "../../components/Test/news.json";
 
 function searchAndFilterNews(data, searchTerm) {
   searchTerm = searchTerm.toLowerCase().trim();
@@ -33,10 +32,6 @@ const index = () => {
     navigateTo(`/news/article/${index}`);
   };
   const filtered = searchAndFilterNews(news, searchTerm);
-  // useEffect(() => {
-  //   const titres = dn.map((item) => item.titres_bvc);
-  //   console.log("titres lib", [...new Set(titres)].sort());
-  // }, []);
   return (
     <>
       <Filter />

@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AccordionBox from "../Ui/AccordionBox";
-import RangeSlider from "../SliderCom";
+import ContrainteSlider from "../ContrainteSlider";
 import Contrainte from "../Contrainte";
 import {
   setFilteredDataSet,
@@ -55,7 +55,7 @@ function Contraintes() {
       >
         <Box>
           <Contrainte label="Performance">
-            <RangeSlider
+            <ContrainteSlider
               min={data.contraintes.performance.min}
               max={data.contraintes.performance.max}
               minLabel={"Moins Rentable"}
@@ -67,7 +67,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="Volatilité">
-            <RangeSlider
+            <ContrainteSlider
               min={data.contraintes.volatilite.min}
               max={data.contraintes.volatilite.max}
               label="volatilite"
@@ -79,7 +79,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="Encours (MMAD)">
-            <RangeSlider
+            <ContrainteSlider
               min={data.contraintes.cours.min}
               max={data.contraintes.cours.max}
               step={10}
@@ -92,7 +92,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="Nb. semaines">
-            <RangeSlider
+            <ContrainteSlider
               min={data.contraintes.nbSemaine.min}
               max={data.contraintes.nbSemaine.max}
               step={1}

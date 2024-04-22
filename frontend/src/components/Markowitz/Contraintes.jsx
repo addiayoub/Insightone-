@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilterMarkoData, setValeurs } from "../../redux/slices/DataSlice";
 import AccordionBox from "../Ui/AccordionBox";
-import RangeSlider from "../SliderCom";
+import ContrainteSlider from "../ContrainteSlider";
 import Contrainte from "../Contrainte";
 import ResetButton from "../ResetButton";
 import { Tool } from "react-feather";
@@ -69,7 +69,7 @@ function Contraintes() {
       >
         <Box>
           <Contrainte label="Performance">
-            <RangeSlider
+            <ContrainteSlider
               min={filterMarko.contraintes.performance.min}
               max={filterMarko.contraintes.performance.max}
               minLabel={"Moins Rentable"}
@@ -81,7 +81,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="Volatilité">
-            <RangeSlider
+            <ContrainteSlider
               min={filterMarko.contraintes.volatilite.min}
               max={filterMarko.contraintes.volatilite.max}
               label="volatilite"
@@ -93,7 +93,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="VQM">
-            <RangeSlider
+            <ContrainteSlider
               min={filterMarko.contraintes.vqm.min}
               max={filterMarko.contraintes.vqm.max}
               step={10}
@@ -106,7 +106,7 @@ function Contraintes() {
             />
           </Contrainte>
           <Contrainte label="Nb. semaines">
-            <RangeSlider
+            <ContrainteSlider
               min={filterMarko.contraintes.nbSemaine.min}
               max={filterMarko.contraintes.nbSemaine.max}
               step={1}

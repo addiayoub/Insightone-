@@ -27,7 +27,6 @@ import S_S2_P1 from "../../data/STATISTIQUES_SOCIETES_2_PARAM1.json";
 import P_C_P1 from "../../data/PRINCIPALES_CONTRIB_PARAM1.json";
 import VAR_SECTEURS from "../../data/VAR_SECTEUR_PARAM1.json";
 import { Loader2 } from "../loader/Loader.jsx";
-import DataTable from "./DataTable.jsx";
 import EV from "../../data/EVOLUTION_MASI_PARAM1.json";
 import EvolutionMasi from "../charts/EvolutionMasi.jsx";
 import VolumeEchange from "../charts/VolumeEchange.jsx";
@@ -54,6 +53,7 @@ import {
 } from "./columns.jsx";
 import GridContainer, { GridItem } from "../Ui/GridContainer.jsx";
 import PerfTable from "../PerfGlis/PerfTable.jsx";
+import Table from "../Table.jsx";
 
 const gridStyle = {
   display: "grid",
@@ -240,8 +240,8 @@ function Index() {
               <VolumeEchange chartData={dataObject.VOLUME_ECHANGE} />
             </GridItem>
           </GridContainer>
-          <DataTable
-            title={"Performance du macrhé"}
+          <Table
+            legend="Performance du macrhé"
             columns={PERFORMANCE_DU_MARCHE}
             rows={dataObject.PERFORMANCE_DU_MARCHE}
           />
@@ -274,55 +274,53 @@ function Index() {
             </>
           )}
           <div style={gridStyle}>
-            <DataTable
-              title={"Volume par marché"}
+            <Table
+              legend={"Volume par marché"}
               columns={VOLUME_PAR_MARCHE}
               rows={dataObject.VOLUME_PAR_MARCHE}
             />
             <Donut data={dataObject.VOLUME_PAR_MARCHE} />
           </div>
-          <DataTable
-            title={"Principaux volumes de marché central"}
+          <Table
+            legend={"Principaux volumes de marché central"}
             columns={PRINCIPAUX_VOLUMES_MC}
             rows={dataObject.PRINCIPAUX_VOLUMES_MC}
           />
-          <DataTable
-            title={"Principales variations"}
+          <Table
+            legend={"Principales variations"}
             columns={PRINCIPALES_VARIATIONS}
             rows={dataObject.PRINCIPALES_CONTRIB_PARAM1}
           />
-          <DataTable
-            title={"Titres les plus échangés sur le marché"}
+          <Table
+            legend={"Titres les plus échangés sur le marché"}
             columns={TITRES_PLUS_ECHANGES}
             rows={dataObject.TITRES_PLUS_ECHANGES_PARAM1}
           />
-          <DataTable
-            title={"Les plus fortes Hausses / Baisses du volume"}
+          <Table
+            legend={"Les plus fortes Hausses / Baisses du volume"}
             columns={PLUS_FORTES_HAUSSES_BAISSES_VOLUME}
             rows={dataObject.PLUS_FORTES_HAUSSES_BAISSES_VOLUME_PARAM1}
           />
-          <DataTable
-            title={"Plus fortes variations hebdomadaires"}
+          <Table
+            legend={"Plus fortes variations hebdomadaires"}
             columns={PLUS_FORTES_VARIATIONS}
             rows={dataObject.PLUS_FORTES_VARIATIONS}
           />
           <div style={gridStyle}>
-            <DataTable
-              title={"Statistiques sociétés"}
+            <Table
+              legend={"Statistiques sociétés"}
               columns={STATISTIQUES_SOCIETES}
               rows={dataObject.STATISTIQUES_SOCIETES}
             />
-            <DataTable
+            <Table
               columns={STATISTIQUES_SOCIETES_2}
               rows={dataObject.STATISTIQUES_SOCIETES_2}
-              my={false}
             />
           </div>
-          <DataTable
+          <Table
             columns={SECTEURS}
-            title={"les secteurs les plus/moins performants"}
+            legend={"les secteurs les plus/moins performants"}
             rows={dataObject.SECTEURS}
-            pagination={true}
           />
           <Commentaire date={date} />
         </>

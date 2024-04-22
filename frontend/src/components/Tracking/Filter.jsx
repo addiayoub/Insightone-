@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import AccordionBox from "../Ui/AccordionBox";
 import DateComponent from "../DateComponent";
 import { TextField, Box, Button, Typography, Divider } from "@mui/material";
-import IndicesComponent from "../IndicesComponent";
 import dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { generationPtfAlea } from "../../redux/actions/TrackingActions";
 import TitresComponent from "../TitresComponent";
-import Contrainte from "../Contrainte";
 import ToggleButtons from "../Ui/ToggleButtons";
 import {
   backtestAction,
   getEvolutionB100Portef,
 } from "../../redux/actions/BacktestActions";
 import { setSelectedPtf } from "../../redux/slices/BacktestSlice";
-import SelectedTitres from "../charts/SelectedTitres";
+import SelectedTitresCards from "../SelectedTitresCards";
 import GridContainer, { GridItem } from "../Ui/GridContainer";
 import { notyf } from "../../utils/notyf";
 import { SearchButton } from "../Ui/Buttons";
@@ -154,7 +152,7 @@ const Filter = ({ setIsShow }) => {
           );
         })}
         {list.length > 0 && <SelectedIndices list={list} />}
-        {list.length > 0 && <SelectedTitres selectedTitres={list} />}
+        {list.length > 0 && <SelectedTitresCards selectedTitres={list} />}
         <SearchButton
           className="w-fit mt-3"
           disabled={isDisabled}

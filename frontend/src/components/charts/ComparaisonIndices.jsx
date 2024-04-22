@@ -1,71 +1,73 @@
 import moment from "moment";
 import React, { memo, useMemo } from "react";
-import DarkChart from "./DarkChart";
-import formatIndicesChartData from "../../utils/formatIndicesChartData";
+import { Box } from "@mui/material";
+import { formatNumberWithSpaces } from "../../utils/formatNumberWithSpaces";
+import generateXYChartSeries from "../../utils/chart/generateXYChartSeries";
+import LineChart from "./Default/LineChart";
 
-function ComparaisonIndices({ data }) {
+const ComparaisonIndices = ({ data }) => {
+  console.log("EChartsPreview", data);
   const seriesData = useMemo(
-    () => formatIndicesChartData(data, "COTATION_B100"),
+    () => generateXYChartSeries(data, "COTATION_B100"),
     [data]
+  );
+  const seriesNames = useMemo(
+    () => seriesData.map((serie) => serie.name),
+    [seriesData]
   );
   const options = useMemo(() => {
     return {
-      chart: {
-        type: "line",
-        height: 600,
-      },
       title: {
         text: "Comparaison des indices",
+        left: "center",
       },
       xAxis: {
-        type: "datetime",
-        labels: {
-          formatter: function () {
-            return moment(this.value).format("DD-MM-YYYY");
+        type: "time",
+        axisLabel: {
+          formatter: function (value) {
+            return moment(value).format("DD-MM-YYYY");
           },
         },
       },
+      seriesNames: { seriesList: seriesNames, init: seriesNames },
       yAxis: {
-        title: {
-          text: "COTATION_B100",
-        },
+        nameLocation: "middle",
+        nameGap: 50,
+        name: "VALEUR",
       },
       series: seriesData,
       tooltip: {
-        shared: true,
-        crosshairs: true,
-        xDateFormat: "%d/%m/%Y",
-      },
-      accessibility: { enabled: false },
-      navigator: {
-        enabled: true,
-        height: 15,
-        xAxis: {
-          labels: {
-            enabled: false,
+        valueFormatter: (value) => formatNumberWithSpaces(value),
+        axisPointer: {
+          type: "line",
+          label: {
+            show: false,
+            formatter: function (params) {
+              return moment(params.value).format("DD-MM-YYYY");
+            },
           },
         },
       },
-      responsive: {
-        rules: [
-          {
-            condition: {
-              maxWidth: 500,
-              maxHeight: 400,
-            },
-            chartOptions: {
-              legend: {
-                layout: "horizontal",
-                align: "center",
-                verticalAlign: "bottom",
-              },
-            },
-          },
-        ],
+      grid: {
+        left: "50px",
+        right: "80px",
       },
     };
-  }, [seriesData]);
-  return <DarkChart options={options} />;
-}
+  }, [seriesData, seriesNames]);
+  return (
+    <Box>
+      <LineChart
+        options={options}
+        showSeriesSelector
+        style={{ minHeight: 500, height: 600, maxHeight: 750 }}
+        saveToExcel={{
+          show: true,
+          data,
+          fileName: options.title.text,
+        }}
+      />
+    </Box>
+  );
+};
 
 export default memo(ComparaisonIndices);

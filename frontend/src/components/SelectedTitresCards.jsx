@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ReactECharts from "echarts-for-react";
-import titresByCategory from "../../data/titresByCategory.json";
-import referenceData from "../../data/titresWithReference.json";
-import GridContainer, { GridItem } from "../Ui/GridContainer";
-import { Box } from "@mui/material";
-import { Award } from "react-feather";
+import React from "react";
+import referenceData from "../data/titresWithReference.json";
+import GridContainer, { GridItem } from "./Ui/GridContainer";
+import { Flag } from "react-feather";
 
-const CardHeader = ({ children, icon = Award }) => {
+const CardHeader = ({ children, icon = Flag }) => {
   return (
     <div className="flex gap-4 items-center">
       <div
@@ -37,7 +34,7 @@ const Card = ({ children }) => {
   );
 };
 
-const SelectedTitres = ({ selectedTitres }) => {
+const SelectedTitresCards = ({ selectedTitres }) => {
   const filteredData = referenceData.filter((item) =>
     selectedTitres.includes(item.TITRE)
   );
@@ -49,25 +46,25 @@ const SelectedTitres = ({ selectedTitres }) => {
   return (
     <GridContainer extraCss={"gap-4"}>
       <Card>
-        <CardHeader icon={Award}>
+        <CardHeader icon={Flag}>
           <h3>Groupes</h3>
         </CardHeader>
         <h2>{countGroupe}</h2>
       </Card>
       <Card>
-        <CardHeader icon={Award}>
+        <CardHeader icon={Flag}>
           <h3>Classes</h3>
         </CardHeader>
         <h2>{countClasse}</h2>
       </Card>
       <Card>
-        <CardHeader icon={Award}>
+        <CardHeader icon={Flag}>
           <h3>Catégories</h3>
         </CardHeader>
         <h2>{countCategorie}</h2>
       </Card>
       <Card>
-        <CardHeader icon={Award}>
+        <CardHeader icon={Flag}>
           <h3>Titres</h3>
         </CardHeader>
         <h2>{countTitres}</h2>
@@ -76,4 +73,4 @@ const SelectedTitres = ({ selectedTitres }) => {
   );
 };
 
-export default SelectedTitres;
+export default SelectedTitresCards;

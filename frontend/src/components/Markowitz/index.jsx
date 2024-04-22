@@ -79,18 +79,11 @@ function Markowitz() {
                   pageSize={25}
                 />
               </AccordionBox>
-
-              {/* <Univers
-                dateDebut={dateDebut}
-                dateFin={dateFin}
-                setContraintesOptimisation={setContraintesOptimisation}
-              /> */}
               <NewUnivers
                 dateDebut={dateDebut}
                 dateFin={dateFin}
                 setContraintesOptimisation={setContraintesOptimisation}
               />
-
               <ContraintesOptimisation
                 contraintesOptimisation={contraintesOptimisation}
                 dateDebut={dateDebut}

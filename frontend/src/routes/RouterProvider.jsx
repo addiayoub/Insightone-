@@ -27,7 +27,7 @@ import FixedIncome from "../components/FixedIncome/";
 // import BlackLitterman from "../components/BlackLitterman/";
 import MeanRisk from "../components/BlackLitterman/MeanRiskOpti/Index.jsx";
 import Consultation from "../components/Consultation/";
-import ScrollToTop from "../components/Ui/ScrollToTop.jsx";
+import ResetScorll from "../components/Ui/ResetScorll.jsx";
 import Ptfs from "../components/Consultation/Ptfs.jsx";
 import AnalyseMBI from "../components/AnalyseMBI/index.jsx";
 import News from "../pages/News/";
@@ -38,7 +38,7 @@ function RouterProvider() {
   return (
     <>
       <Router>
-        <ScrollToTop />
+        <ResetScorll />
         <Routes>
           <Route element={<AuthRoutes />}>
             {/* <Route path="/profil" element={<Profile />} /> */}

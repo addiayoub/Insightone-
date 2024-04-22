@@ -7,9 +7,7 @@ import {
   getDataSet,
 } from "../../redux/actions/DataActions";
 import AccordionBox from "../Ui/AccordionBox";
-import ChartPreview from "../charts/ChartPreview";
 import Heatmap from "../charts/Heatmap";
-import UniversB100 from "../charts/UniversB100";
 import MainLoader from "../loaders/MainLoader";
 import ChartContainer from "../ChartContainer";
 import groupBy from "../../utils/groupBy";
@@ -91,18 +89,12 @@ export default function NewUnivers({
         />
         {showChart && (
           <ChartContainer width={400}>
-            {/* <ChartPreview data={chartData} /> */}
             <EchartPreview data={chartData} />
             <NewUniversB100
               data={chartData}
               dateDebut={dateDebut}
               dateFin={dateFin}
             />
-            {/* <UniversB100
-              data={chartData}
-              dateDebut={dateDebut}
-              dateFin={dateFin}
-            /> */}
           </ChartContainer>
         )}
         <Box className="max-w-[400px] mx-auto mt-10">
