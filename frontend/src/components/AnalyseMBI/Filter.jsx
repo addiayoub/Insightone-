@@ -17,8 +17,8 @@ const Filter = ({ setIsShow }) => {
     setIsShow(false);
     dispatch(
       getData({
-        dateDebut: "25/02/2024",
-        dateFin: "25/03/2024",
+        dateDebut,
+        dateFin,
         bench,
       })
     )

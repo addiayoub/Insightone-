@@ -229,7 +229,7 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
   const sumLocked = calculateSumPoids(locked, field);
   let oldSum = calculateSumPoids(oldRows, field);
   // oldSum = oldSum === 0 ? 100 : oldSum;
-  const newSum = calculateSumPoids(newRows, field);
+  let newSum = calculateSumPoids(newRows, field);
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
@@ -242,6 +242,7 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
   console.log("unLocked", unLocked);
   console.log("sumUnlocked", sumUnlocked);
   console.log("unLockedTitres", unLockedTitres);
+  console.log("newRows =>", newRows);
   console.log("====================");
 
   setNewRows((prevData) =>
@@ -259,20 +260,12 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
             const count = unLockedTitres.length;
             newPoids = 100 / count;
           } else {
-            console.log("newPoids BEFORE", newPoids);
-
+            console.log("oldSum!==0", oldSum);
+            console.log("newSum", newSum);
             newPoids =
               isNaN(newPoids) || newPoids < 0 ? 0 : (newPoids * 100) / oldSum;
             newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
             console.log("newPoids AFTER", newPoids);
-
-            // console.log("newPoids", newPoids / oldSum);
-            console.log(
-              `poids should be: ${item.titre}: ${
-                (newPoids * 100) / oldSum
-              } #### ${newPoids}`,
-              item
-            );
           }
 
           return { ...item, [field]: newPoids };

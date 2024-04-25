@@ -13,10 +13,9 @@ import {
 
 export const getData = createAsyncThunk(
   "AnalyseMBI/getData",
-  async (
-    { dateDebut = "25/02/2024", dateFin = "25/03/2024", bench = "MBI CT" },
-    thunkAPI
-  ) => {
+  async ({ dateDebut, dateFin, bench }, thunkAPI) => {
+    dateDebut = formatDate(dateDebut["$d"]);
+    dateFin = formatDate(dateFin["$d"]);
     try {
       const urls = [
         {

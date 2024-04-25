@@ -45,7 +45,7 @@ const imgStorage = multer.diskStorage({
   },
 });
 const imgUpload = multer({ storage: imgStorage });
-
+// /api/users
 router.use(auth);
 router.get("/", isAdmin, userController.index);
 router.post("/", isAdmin, userController.store);

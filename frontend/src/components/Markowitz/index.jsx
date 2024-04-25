@@ -28,7 +28,6 @@ function Markowitz() {
   const [showData, setShowData] = useState(false);
   const [contraintesOptimisation, setContraintesOptimisation] = useState([]);
   const { filterMarko } = useSelector((state) => state.rapport);
-  const [filteredData, setFilteredData] = useState(filterMarko.data);
   console.log("filteredData rendered");
   const dispatch = useDispatch();
 
@@ -87,7 +86,6 @@ function Markowitz() {
               <ContraintesOptimisation
                 contraintesOptimisation={contraintesOptimisation}
                 dateDebut={dateDebut}
-                dateFin={dateFin}
               />
               <GenerationPortefeuilleAleatoire
                 titres={contraintesOptimisation}

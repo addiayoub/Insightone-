@@ -24,6 +24,13 @@ function getPerIndice(obj) {
 }
 
 function getResidu(perf, sum) {
+  console.log(
+    "===== Residu =====",
+    perf,
+    getPerIndice(sum),
+    parseFloat((perf - getPerIndice(sum)).toFixed(2))
+  );
+  perf = parseFloat((perf * 100).toFixed(2));
   return parseFloat((perf - getPerIndice(sum)).toFixed(2));
 }
 
