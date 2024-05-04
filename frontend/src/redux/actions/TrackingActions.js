@@ -4,7 +4,7 @@ import { formatDate } from "../../utils/FormatDate";
 import moment from "moment";
 import filterData from "../../utils/filterData";
 
-const apiTracking = "TRACK_OPC/";
+const apiTracking = "BACKTEST/TRACK_OPC/";
 
 export const generationPtfAlea = createAsyncThunk(
   "tacking/GENERATION_PORTEFEUILLES_ALEATOIRES",

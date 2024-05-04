@@ -6,7 +6,7 @@ import { formatDate } from "../../utils/FormatDate";
 import { transformToJSON } from "../../utils/transformToJSON";
 import getAPI from "../../api/getAPI";
 import apiNewMarko from "../../api/apiNewMarko";
-const apiNewMarkoUrl = "NEW_MARKO/";
+const apiNewMarkoUrl = "BACKTEST/NEW_MARKO/";
 
 export const getData = createAsyncThunk("data/getData", async (_, thunkAPI) => {
   try {

@@ -34,7 +34,7 @@ getAPI.interceptors.response.use(
     return response;
   },
   async function (error) {
-    await handleError(error);
+    // await handleError(error);
     return Promise.reject(error);
   }
 );

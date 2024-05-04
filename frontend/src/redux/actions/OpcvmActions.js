@@ -3,8 +3,7 @@ import axiosClient from "../../api/axios";
 import apiNewMarko from "../../api/apiNewMarko";
 import { handleActionsError } from "../../utils/handleActionsError";
 import { formatDate } from "../../utils/FormatDate";
-import axios from "axios";
-const apiOPCVMUrl = "OPCVM/";
+const apiOPCVMUrl = "BACKTEST/OPCVM/";
 
 export const getData = createAsyncThunk(
   "opcvm/getData",

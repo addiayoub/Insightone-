@@ -20,6 +20,7 @@ import ProfileFinReducer from "./slices/ProfileFinSlice";
 import AnalyseMBIReducer from "./slices/AnalyseMBISlice";
 import AdminReducer from "./slices/AdminSlice";
 import PtfReducer from "./slices/PtfSlice";
+import PerfIndiReducer from "./slices/PerfIndiSlice";
 
 export const store = configureStore({
   reducer: {
@@ -43,6 +44,7 @@ export const store = configureStore({
     compOpcvm: compOPCVMReducer,
     analyseMBI: AnalyseMBIReducer,
     ptf: PtfReducer,
+    perfIndi: PerfIndiReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

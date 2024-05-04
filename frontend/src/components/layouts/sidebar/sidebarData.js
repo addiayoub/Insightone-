@@ -55,6 +55,11 @@ export const sidebarData = [
         icon: DollarSign,
         link: "dashboard-taux",
       },
+      {
+        title: "Principaux indicateurs",
+        icon: Activity,
+        link: "dashboard-principaux-indicateurs",
+      },
     ],
   },
   {

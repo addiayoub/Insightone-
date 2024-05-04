@@ -5,6 +5,8 @@ import { transformBacktestData } from "../../utils/formatBacktestData";
 import { getLastItem, getLastItemWithFilter } from "../../utils/getLastItem";
 import moment from "moment";
 
+const endpoint = "BACKTEST/";
+
 export const valueAtRiskAction = createAsyncThunk(
   "BlackLitterman/valueAtRiskAction",
   async ({ dateDebut, dateFin, days, mcSims }, thunkAPI) => {
@@ -12,7 +14,7 @@ export const valueAtRiskAction = createAsyncThunk(
     const body = transformBacktestData([ptfToBacktest], "poids");
     try {
       const response = await apiNewMarko.post(
-        "Value_at_Risk/POST/Value_at_Risk/",
+        `${endpoint}Value_at_Risk/POST/Value_at_Risk/`,
         body,
         {
           params: {

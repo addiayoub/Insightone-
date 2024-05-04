@@ -4,6 +4,7 @@ import apiNewMarko from "../../api/apiNewMarko";
 import { transformForPtfAlloca } from "../../utils/formatBacktestData";
 
 const url = "OPCVM/";
+const endpoint = "BACKTEST";
 
 export const portfolioOptiAction = createAsyncThunk(
   "BlackLitterman/portfolioOptiAction",
@@ -18,7 +19,7 @@ export const portfolioOptiAction = createAsyncThunk(
       );
       // &list_valeur=BCP&list_valeur=ATW&list_valeur=BOA
       const response = await apiNewMarko.post(
-        `portfolio_optimization/POST/portfolio_optimization/?num_of_portfolios=${nbPtfs}&start=${formatDate(
+        `${endpoint}/portfolio_optimization/POST/portfolio_optimization/?num_of_portfolios=${nbPtfs}&start=${formatDate(
           dateDebut["$d"]
         )}&end=${formatDate(dateFin["$d"])}`,
         {},
@@ -80,7 +81,7 @@ export const portfolioAllocationAction = createAsyncThunk(
     try {
       // ?start=25%2F12%2F2020&end=02%2F02%2F2024&risk_free_rate=0.009
       const response = await apiNewMarko.post(
-        `Black_Litterman_Portfolio/POST/Portfolio_Allocation/`,
+        `${endpoint}/Black_Litterman_Portfolio/POST/Portfolio_Allocation/`,
         body1,
         {
           params: {
@@ -117,7 +118,7 @@ export const meanRiskOptiAction = createAsyncThunk(
     };
     try {
       const dataSetRes = await apiNewMarko.get(
-        `Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
+        `${endpoint}/Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
         {
           params: {
             start: formatDate(dateDebut["$d"]),
@@ -128,7 +129,7 @@ export const meanRiskOptiAction = createAsyncThunk(
       );
       const { dataset } = dataSetRes.data;
       const response = await apiNewMarko.post(
-        `Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/`,
+        `${endpoint}/Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/`,
         { dataset, ...body },
         {
           params: {
@@ -169,7 +170,7 @@ export const meanRiskOptiOpcAction = createAsyncThunk(
     };
     try {
       const dataSetRes = await apiNewMarko.get(
-        `Black_Litterman_Mean_Risk_Optimization_opc/POST/get_dataset/`,
+        `${endpoint}/Black_Litterman_Mean_Risk_Optimization_opc/POST/get_dataset/`,
         {
           params: {
             start: formatDate(dateDebut["$d"]),
@@ -180,7 +181,7 @@ export const meanRiskOptiOpcAction = createAsyncThunk(
       );
       const { dataset } = dataSetRes.data;
       const response = await apiNewMarko.post(
-        `Black_Litterman_Mean_Risk_Optimization_opc/POST/Black_Litterman_Mean_Risk_Optimization/`,
+        `${endpoint}/Black_Litterman_Mean_Risk_Optimization_opc/POST/Black_Litterman_Mean_Risk_Optimization/`,
         { dataset, ...body },
         {
           params: {
@@ -228,7 +229,7 @@ export const meanRiskOptiDataSetAction = createAsyncThunk(
     ];
     try {
       const response = await apiNewMarko.get(
-        `Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
+        `${endpoint}/Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/`,
         {
           params: {
             start: "25/12/2018",

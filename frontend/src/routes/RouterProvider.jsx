@@ -33,6 +33,7 @@ import AnalyseMBI from "../components/AnalyseMBI/index.jsx";
 import News from "../pages/News/";
 import ArticleDetails from "../pages/News/ArticleDetails.jsx";
 import RiskManage from "../components/RiskManage/";
+import PerfIndice from "../components/PerfIndice/";
 
 function RouterProvider() {
   return (
@@ -52,6 +53,10 @@ function RouterProvider() {
             {/* DASHBOARD */}
             <Route path="/dashboard-actions" element={<Dashboard />} />
             <Route path="/dashboard-taux" element={<FixedIncome />} />
+            <Route
+              path="/dashboard-principaux-indicateurs"
+              element={<PerfIndice />}
+            />
 
             {/* ANALYSE */}
             <Route path="/analyse-chartiste" element={<AnalyseChartiste />} />

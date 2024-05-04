@@ -12,3 +12,7 @@ export const getLastItemWithFilter = (array, condition) => {
   // Get the last element from the filtered array
   return filteredArray.pop();
 };
+
+export function isEmptyObject(obj) {
+  return Object.keys(obj).length === 0;
+}

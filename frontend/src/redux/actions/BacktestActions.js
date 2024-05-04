@@ -7,7 +7,7 @@ import {
 } from "../../utils/formatBacktestData";
 import moment from "moment";
 
-const apiTrading = "trading/";
+const apiTrading = "BACKTEST/trading/";
 
 export const getPortef = createAsyncThunk(
   "backtest/getPortef",
