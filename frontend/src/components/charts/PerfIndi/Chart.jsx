@@ -60,7 +60,7 @@ export const Chart = ({ data, xAxis, yAxis, title, isPerce, isArea }) => {
           saveToExcel={{ show: true, data, fileName: title }}
         />
         {data?.Source && (
-          <span className="absolute bottom-[-10px] right-[10%] text-muted underline hover:text-primary">
+          <span className="absolute bottom-[-10px] right-[10%] text-muted underline hover:text-primary text-sm">
             Source: {data?.Source}
           </span>
         )}

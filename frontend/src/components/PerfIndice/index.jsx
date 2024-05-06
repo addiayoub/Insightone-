@@ -34,9 +34,9 @@ const index = () => {
   return (
     <div>
       {loading && <MainLoader />}
-      <GridContainer extraCss="my-12">
+      <GridContainer extraCss="mb-12 items-end">
         {!isEmptyObject(PIB_VOLUME) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               xAxis="TRIMESTRE"
               yAxis="PRODUIT_INTERIEUR_BRUT_PIB"
@@ -46,7 +46,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(INFLATION) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               xAxis="MOIS_ANNEE"
               yAxis="INFLATION"
@@ -56,10 +56,8 @@ const index = () => {
             />
           </GridItem>
         )}
-      </GridContainer>
-      <GridContainer extraCss="my-12">
         {!isEmptyObject(CAMPAGNE_CEREALIERE) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               xAxis="ANNEE"
               yAxis="TOTAL_MQx"
@@ -70,7 +68,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(TAUX_REMPLISSAGE_BARRAGES) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               xAxis="date"
               yAxis="TAUX_REMPLISSAGE"
@@ -82,9 +80,18 @@ const index = () => {
           </GridItem>
         )}
       </GridContainer>
-      <GridContainer extraCss="my-12">
+      <GridContainer extraCss="mb-12">
+        {!isEmptyObject(RECETTES_TOURISTIQUE) && (
+          <GridItem cols={3}>
+            <ChartMulti
+              data={RECETTES_TOURISTIQUE}
+              xAxis="MOIS"
+              title="Recettes touristiques"
+            />
+          </GridItem>
+        )}
         {!isEmptyObject(RECETTES_IDE) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               xAxis="MOIS_ANNEE"
               yAxis="VALEUR"
@@ -94,7 +101,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(TRANSFERTS_MRE) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               data={TRANSFERTS_MRE}
               title="Transferts MRE"
@@ -102,11 +109,9 @@ const index = () => {
               yAxis="VALEUR"
             />
           </GridItem>
-        )}
-      </GridContainer>
-      <GridContainer extraCss="my-12">
+        )}{" "}
         {!isEmptyObject(DEFICIT_COMMERCIAL) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               data={DEFICIT_COMMERCIAL}
               title="Déficit commercial"
@@ -115,8 +120,10 @@ const index = () => {
             />
           </GridItem>
         )}
+      </GridContainer>
+      <GridContainer extraCss="mb-12 items-end">
         {!isEmptyObject(CONSOMMATION_ELECTRICITE) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               data={CONSOMMATION_ELECTRICITE}
               xAxis="MOIS_ANNEE"
@@ -125,10 +132,8 @@ const index = () => {
             />
           </GridItem>
         )}
-      </GridContainer>
-      <GridContainer extraCss="my-12">
         {!isEmptyObject(TAUX_DEBITEURS) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               data={TAUX_DEBITEURS}
               xAxis="MOIS_ANNEE"
@@ -139,7 +144,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(BOURSE_MASI) && (
-          <GridItem>
+          <GridItem cols={3}>
             <Chart
               data={BOURSE_MASI}
               xAxis="Seance"
@@ -149,24 +154,13 @@ const index = () => {
             />
           </GridItem>
         )}
-      </GridContainer>
-      <GridContainer extraCss="my-12">
         {!isEmptyObject(CHOMAGE_URBAIN) && (
-          <GridItem>
+          <GridItem cols={3}>
             <ChartMulti
               data={CHOMAGE_URBAIN}
               xAxis="TRIMESTRE"
               title="Chômage urbain"
               isPerce
-            />
-          </GridItem>
-        )}
-        {!isEmptyObject(RECETTES_TOURISTIQUE) && (
-          <GridItem>
-            <ChartMulti
-              data={RECETTES_TOURISTIQUE}
-              xAxis="MOIS"
-              title="Recettes touristiques"
             />
           </GridItem>
         )}
