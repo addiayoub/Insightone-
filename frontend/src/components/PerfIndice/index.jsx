@@ -7,6 +7,8 @@ import GridContainer, { GridItem } from "../Ui/GridContainer";
 import MainLoader from "../loaders/MainLoader";
 import TauxChange from "./TauxChange";
 
+const boxStyle = "border-1 border-solid border-muted p-2 rounded-lg";
+
 const index = () => {
   const {
     loading,
@@ -34,9 +36,9 @@ const index = () => {
   return (
     <div>
       {loading && <MainLoader />}
-      <GridContainer extraCss="mb-12 items-end">
+      <GridContainer extraCss="mb-12">
         {!isEmptyObject(PIB_VOLUME) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               xAxis="TRIMESTRE"
               yAxis="PRODUIT_INTERIEUR_BRUT_PIB"
@@ -46,7 +48,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(INFLATION) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               xAxis="MOIS_ANNEE"
               yAxis="INFLATION"
@@ -57,7 +59,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(CAMPAGNE_CEREALIERE) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               xAxis="ANNEE"
               yAxis="TOTAL_MQx"
@@ -68,7 +70,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(TAUX_REMPLISSAGE_BARRAGES) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               xAxis="date"
               yAxis="TAUX_REMPLISSAGE"
@@ -82,7 +84,7 @@ const index = () => {
       </GridContainer>
       <GridContainer extraCss="mb-12">
         {!isEmptyObject(RECETTES_TOURISTIQUE) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <ChartMulti
               data={RECETTES_TOURISTIQUE}
               xAxis="MOIS"
@@ -91,7 +93,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(RECETTES_IDE) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               xAxis="MOIS_ANNEE"
               yAxis="VALEUR"
@@ -101,7 +103,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(TRANSFERTS_MRE) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               data={TRANSFERTS_MRE}
               title="Transferts MRE"
@@ -111,7 +113,7 @@ const index = () => {
           </GridItem>
         )}{" "}
         {!isEmptyObject(DEFICIT_COMMERCIAL) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               data={DEFICIT_COMMERCIAL}
               title="Déficit commercial"
@@ -121,9 +123,9 @@ const index = () => {
           </GridItem>
         )}
       </GridContainer>
-      <GridContainer extraCss="mb-12 items-end">
+      <GridContainer extraCss="mb-12">
         {!isEmptyObject(CONSOMMATION_ELECTRICITE) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               data={CONSOMMATION_ELECTRICITE}
               xAxis="MOIS_ANNEE"
@@ -133,7 +135,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(TAUX_DEBITEURS) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               data={TAUX_DEBITEURS}
               xAxis="MOIS_ANNEE"
@@ -144,7 +146,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(BOURSE_MASI) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <Chart
               data={BOURSE_MASI}
               xAxis="Seance"
@@ -155,7 +157,7 @@ const index = () => {
           </GridItem>
         )}
         {!isEmptyObject(CHOMAGE_URBAIN) && (
-          <GridItem cols={3}>
+          <GridItem cols={3} extraCss={`${boxStyle}`}>
             <ChartMulti
               data={CHOMAGE_URBAIN}
               xAxis="TRIMESTRE"

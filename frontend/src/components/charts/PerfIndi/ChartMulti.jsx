@@ -6,7 +6,7 @@ const getSeries = (seriesNames, data) => {
   return seriesNames.map((serieName) => ({
     name: serieName,
     type: "line",
-    symbol: "none",
+    // symbol: "none",
     data: data.map((item) => item[serieName]),
   }));
 };
@@ -22,6 +22,7 @@ export const ChartMulti = ({ data, xAxis, title, isPerce }) => {
     return {
       title: { text: "", x: "center" },
       tooltip: {
+        trigger: "item",
         valueFormatter: (value) =>
           `${formatNumberWithSpaces(value)}${isPerce ? "%" : ""}`,
       },
@@ -49,7 +50,7 @@ export const ChartMulti = ({ data, xAxis, title, isPerce }) => {
         className=" w-full text-center flex flex-col gap-2"
         style={{ zIndex: 2 }}
       >
-        <h3 className="text-[22px] text-center">{title}</h3>
+        <h6 className="text-[22px] text-center">{title}</h6>
         <span className="text-muted">({data.maxX})</span>
         {data?.maxY && (
           <div className="flex flex-col gap-1">

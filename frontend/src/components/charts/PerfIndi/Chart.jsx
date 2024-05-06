@@ -43,7 +43,7 @@ export const Chart = ({ data, xAxis, yAxis, title, isPerce, isArea }) => {
         className=" w-full text-center flex flex-col gap-2"
         style={{ zIndex: 2 }}
       >
-        <h3 className="text-[22px] text-center">{title}</h3>
+        <h6 className="text-[22px] text-center">{title}</h6>
         <span className="text-muted">({data.maxX})</span>
         {data?.maxY && (
           <div className="flex flex-col gap-1">
