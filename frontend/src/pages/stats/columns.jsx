@@ -74,23 +74,4 @@ export const columns = [
       );
     },
   },
-  {
-    field: "Actions",
-    headerName: "Actions",
-    valueGetter: ({ row: { apiLog } }) => apiLog?.createdAt,
-    renderCell: ({ row: { apiLog } }) => {
-      return (
-        <IconButton
-          className="font-semibold"
-          onClick={() =>
-            alert(
-              `row: ${apiLog.baseURL} ## ${apiLog.type} ## ${apiLog.method}`
-            )
-          }
-        >
-          <Eye size={18} className="text-primary cursor-pointer" />
-        </IconButton>
-      );
-    },
-  },
 ];

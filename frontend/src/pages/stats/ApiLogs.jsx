@@ -18,11 +18,17 @@ const ApiLogs = () => {
   );
   return (
     <Box className="my-8">
-      <Table rows={rows} columns={columns} pageSize={10} legend="ApiLogs" />
-
+      <Table
+        rows={rows}
+        columns={columns}
+        pageSize={10}
+        legend="Historique d'API"
+      />
+      <br />
       {data?.apiLogsByUser?.length > 0 && (
         <ApiLogsByUserChart data={data.apiLogsByUser} />
       )}
+      <br />
       {data?.apiLogsByType && <ApiLogsByTypeChart data={data.apiLogsByType} />}
       {/* <ApiLogsChart /> */}
     </Box>

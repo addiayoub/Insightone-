@@ -8,7 +8,7 @@ const ApiLogsByTypeChart = ({ data }) => {
   const option = useMemo(() => {
     return {
       title: {
-        text: "API Count",
+        text: "Nombre d'appels API par type",
         x: "center",
       },
       tooltip: {

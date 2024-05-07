@@ -6,7 +6,7 @@ const ApiLogsByUserChart = ({ data }) => {
   const yValues = data.map((item) => item.count);
   const option = {
     title: {
-      text: "Nombre d'appels API",
+      text: "Nombre d'appels API par utilisateur",
       x: "center",
     },
     tooltip: {
