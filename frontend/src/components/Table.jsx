@@ -66,7 +66,7 @@ function Table({
   withCheckboxes,
   shouldHandleCellClick,
   setSelectedRows,
-  density = "standard",
+  density = "compact",
   withoutCellP,
   sx,
   legend,
