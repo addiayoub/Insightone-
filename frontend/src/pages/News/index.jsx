@@ -50,10 +50,7 @@ const index = () => {
               <span>{filtered.length}</span>/<span>{news.length}</span>
             </div>
           </Box>
-          <MainArticle
-            {...filtered[0]}
-            onClick={() => goToArticle(filtered[0]["id"])}
-          />
+       
           <NewsSwiper news={filtered} goToArticle={goToArticle} />
         </Box>
       )}

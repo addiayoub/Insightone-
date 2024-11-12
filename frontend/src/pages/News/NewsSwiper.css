@@ -1,0 +1,17 @@
+
+
+/* Smooth scrolling */
+.smooth-scroll {
+    scroll-behavior: smooth;
+  }
+  
+  /* Fade-in effect */
+  .fade-in {
+    opacity: 1 !important;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Fade-in trigger */
+  .fade-in-enter {
+    opacity: 0;
+  }
