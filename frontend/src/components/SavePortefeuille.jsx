@@ -35,8 +35,8 @@ const SavePortefeuille = ({
   console.log("saveAll", saveAll);
   console.log("oldParams", oldParams);
   console.log("pure data", data);
-  console.log("data to Save", dataToSave);
-  data = injectMinMax(dataToSave);
+  console.log("data to Save", data);
+  data = injectMinMax(data);
   console.log("data injectMinMax", data);
   useEffect(() => setTitle(ptfName), [ptfName]);
   const { params } =

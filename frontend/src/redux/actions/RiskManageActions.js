@@ -76,7 +76,7 @@ const handleResume = (data, days) => {
     // const condition = (element) => element.label === "Backtest";
     const item = getLastItem(data);
     if (item !== undefined) {
-      const { mean, min, max, seance } = item;
+      const { mean, min, max, seance ,last_value } = item;
       const based = [
         {
           type: "Moyenne",
@@ -94,7 +94,7 @@ const handleResume = (data, days) => {
       const resume = based.map(({ type, valeur }) => ({
         type,
         valeur: parseFloat(valeur.toFixed(2)),
-        rendement: parseFloat((valeur / mean - 1).toFixed(2)),
+        rendement: parseFloat((valeur / last_value - 1).toFixed(2)),
         date: moment(seance).format("DD/MM/YYYY"),
         days,
       }));

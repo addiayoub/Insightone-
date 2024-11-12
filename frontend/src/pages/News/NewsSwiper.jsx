@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import moment from "moment";
 import ArticleImage from "./ArticleImage";
-import "./NewsSwiper.css";
+import "./NewsSwiper.css"
 
 const NewsPage = ({ news, goToArticle }) => {
   const [selectedArticle, setSelectedArticle] = useState(null);
-  const [showFullArticle, setShowFullArticle] = useState(false);
   const containerRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const ITEM_HEIGHT = 238; // Height of each article item
@@ -25,7 +24,6 @@ const NewsPage = ({ news, goToArticle }) => {
 
   const handleArticleClick = (article) => {
     setSelectedArticle(article);
-    setShowFullArticle(false); // Reset to only show description when a new article is selected
   };
 
   // Start auto-scroll
@@ -46,13 +44,9 @@ const NewsPage = ({ news, goToArticle }) => {
     }
   };
 
-  const toggleArticleView = () => {
-    setShowFullArticle(!showFullArticle);
-  };
-
   return (
     <div className="max-w-7xl mx-auto p-4 flex flex-col md:flex-row gap-8">
-      {/* Main Article */}
+      {/* Article Principal */}
       <main className="flex-grow md:w-2/3">
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-[400px] overflow-hidden">
@@ -65,25 +59,18 @@ const NewsPage = ({ news, goToArticle }) => {
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
               {(selectedArticle || mainArticle).Titre}
             </h1>
-            
-            {/* Scrollable article content */}
-            <div className="max-h-[200px] overflow-y-auto text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
-              {showFullArticle
-                ? (selectedArticle || mainArticle).article
-                : (selectedArticle || mainArticle).descrip}
-            </div>
-            
-            <button
-              onClick={toggleArticleView}
-              className="text-blue-600 border-none bg-white font-semibold hover:underline"
-            >
-              {showFullArticle ? "Voir moins" : "Voir plus"}
-            </button>
+            <p className="text-gray-600 leading-relaxed ">
+              {(selectedArticle || mainArticle).descrip.replace(/\.\s*([A-Z])/g, ".\n\n$1")}
+            </p>
+            <p className="text-gray-600 leading-relaxed ">
+              {(selectedArticle || mainArticle).article.replace(/\.\s*([A-Z])/g, ".\n\n$1")}
+            </p>
+
           </div>
         </div>
       </main>
 
-      {/* Latest News List */}
+      {/* Liste déroulante des actualités */}
       <aside className="md:w-1/3">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-red-600 mb-6">
@@ -92,7 +79,7 @@ const NewsPage = ({ news, goToArticle }) => {
           
           <div 
             ref={containerRef}
-            className="h-[500px] overflow-auto smooth-scroll"
+            className="h-[900px] overflow-auto smooth-scroll"
           >
             {otherNews.map((item) => (
               <div 

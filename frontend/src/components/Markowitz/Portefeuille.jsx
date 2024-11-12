@@ -12,7 +12,7 @@ function Portefeuille({
   field,
   compare,
   saveAll = false,
-  dataToSave = [],
+  dataToSave = [data],
 }) {
   console.log("rows before", field, data);
   const dispatch = useDispatch();
