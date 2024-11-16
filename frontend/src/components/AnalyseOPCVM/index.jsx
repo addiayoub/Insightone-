@@ -29,7 +29,7 @@ import { PresentionChart } from "iconsax-react";
 const Index = () => {
   const { data, loading } = useSelector((state) => state.analyseOPCVM);
   const [isShow, setIsShow] = useState(false);
-  console.log("data", data);
+  console.log("data", ...data.fondsVersusCat1);
   const showData = !loading && isShow;
   const showEvol =
     showData &&
@@ -90,7 +90,7 @@ const Index = () => {
             Icon={Aperture}
           >
             <FondsVersus
-              data={[...data.fondsVersusCat3, ...data.fondsVersusCat2]}
+              data={[...data.fondsVersusCat3, ...data.fondsVersusCat2 , ...data.fondsVersusCat1]}
             />
           </AccordionBox>
         )}

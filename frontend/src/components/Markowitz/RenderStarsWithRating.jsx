@@ -1,23 +1,5 @@
 import React, { memo } from "react";
-import StarIcon from "@mui/icons-material/Star";
-import { StarOutline } from "@mui/icons-material";
 import { Square } from "react-feather";
-
-const defaultGetStarRating = (value) => {
-  if (value >= 0 && value < 10000) {
-    return 0;
-  } else if (value >= 10000 && value < 50000) {
-    return 1;
-  } else if (value >= 50000 && value < 200000) {
-    return 2;
-  } else if (value >= 200000 && value < 600000) {
-    return 3;
-  } else if (value >= 600000 && value < 1000000) {
-    return 4;
-  } else {
-    return 5;
-  }
-};
 
 const RatingIconFilled = ({ ratingIcon, color }) => {
   return ratingIcon === "star" ? (
@@ -26,6 +8,7 @@ const RatingIconFilled = ({ ratingIcon, color }) => {
     <Square color={color} style={{ fill: color }} size={15} />
   );
 };
+
 const RatingIconEmpty = ({ ratingIcon }) => {
   return ratingIcon === "star" ? (
     <StarOutline fontSize="small" />
@@ -38,21 +21,42 @@ const RenderStarsWithRating = ({
   value,
   getStarRating = defaultGetStarRating,
   ratingBy = value,
-  ratingIcon = "star",
+  ratingIcon = "square",
   starsNumber = 5,
-  color = "#faaf00",
   className = "",
 }) => {
   const rating = getStarRating(ratingBy);
-
-  const stars = Array.from({ length: starsNumber }, (_, index) =>
-    index < rating ? (
+  const stars = Array.from({ length: starsNumber }, (_, index) => {
+    const color = getColorFromRating(index + 1, rating);
+    return index < rating ? (
       <RatingIconFilled key={index} ratingIcon={ratingIcon} color={color} />
     ) : (
       <RatingIconEmpty key={index} ratingIcon={ratingIcon} />
-    )
-  );
+    );
+  });
 
   return <div className={className}>{stars}</div>;
 };
+
+const getColorFromRating = (starIndex, rating) => {
+  const redValue = Math.max(0, 240 - (rating - starIndex) * 51);
+  const greenValue = Math.max(0, 51 * (rating - starIndex));
+  const blueValue = 0;
+  return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+};
+
+const defaultGetStarRating = (value) => {
+  if (value >= 0 && value < 2) {
+    return 1;
+  } else if (value >= 2 && value < 4) {
+    return 2;
+  } else if (value >= 4 && value < 6) {
+    return 3;
+  } else if (value >= 6 && value < 8) {
+    return 4;
+  } else {
+    return 5;
+  }
+};
+
 export default memo(RenderStarsWithRating);

@@ -55,7 +55,6 @@ const rangeOpts = {
   },
   symbolSize: 0,
 };
-
 const PreQuantile = ({ data }) => {
   const allValues = useMemo(
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
@@ -83,8 +82,13 @@ const PreQuantile = ({ data }) => {
         : data[0][serie.name],
     type: "line",
     symbol: "none",
+    // Ajout de la couleur rouge pour DENOMINATION_OPCVM
+    itemStyle: {
+      color: serie.name === "DENOMINATION_OPCVM" ? "red" : "yellow"
+      
+    },
     data: data.map((item) => item[serie.data]),
-  }));
+}));
   const q_05 = useMemo(() => {
     return {
       name: "q_05",
@@ -95,7 +99,7 @@ const PreQuantile = ({ data }) => {
         show: false,
       },
       lineStyle: {
-        opacity: 0,
+        opacity: 1,
       },
       emphasis: {
         disabled: true,
@@ -108,9 +112,10 @@ const PreQuantile = ({ data }) => {
     return {
       name: "quart1",
       stack: "q_05",
+      symbol: "none",
       type: "line",
       data: rangeValues.quart1,
-      // areaStyle: {
+            // areaStyle: {
       //   color: "#8b8bc6",
       //   opacity: 1,
       //   origin: "start",
@@ -120,15 +125,18 @@ const PreQuantile = ({ data }) => {
         ...rangeOpts.areaStyle,
         opacity: 0.4,
       },
+
+     
     };
   }, [data]);
   const quart2 = useMemo(() => {
     return {
       name: "quart2",
       stack: "q_05",
+      symbol: "none",
       type: "line",
       data: rangeValues.quart2,
-      // areaStyle: {
+     // areaStyle: {
       //   color: "#4a4ac8",
       //   opacity: 1,
       //   origin: "start",
@@ -138,15 +146,17 @@ const PreQuantile = ({ data }) => {
         ...rangeOpts.areaStyle,
         opacity: 0.6,
       },
+      
     };
   }, [data]);
   const quart3 = useMemo(() => {
     return {
       name: "quart3",
       stack: "q_05",
+      symbol: "none",
       type: "line",
       data: rangeValues.quart3,
-      // areaStyle: {
+        // areaStyle: {
       //   color: "#5a5ad6",
       //   opacity: 1,
       //   origin: "start",
@@ -156,16 +166,18 @@ const PreQuantile = ({ data }) => {
         ...rangeOpts.areaStyle,
         opacity: 0.8,
       },
+      
     };
   }, [data]);
   const q_95 = useMemo(() => {
     return {
-      name: "q_95",
+      name: "quart4",
       stack: "q_05",
+      symbol: "none",
       type: "line",
       data: rangeValues.q_95,
       showInLegend: false,
-      // areaStyle: {
+        // areaStyle: {
       //   color: "#5500ff",
       //   opacity: 0.5,
       //   origin: "start",
@@ -174,13 +186,15 @@ const PreQuantile = ({ data }) => {
     };
   }, [data]);
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
+  const serieafficher = baseSeries.concat([ quart1, quart2, quart3, q_95]);
+
   const options = useMemo(() => {
     return {
       title: {
         text: "",
         left: "center",
       },
-      legend: { data: legendData },
+      legend: { data: serieafficher },
       grid: {
         right: "80px",
       },

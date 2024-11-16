@@ -237,13 +237,14 @@ export const bullColumns = createColumns(bullDef);
 const classementPerfRating = (value) => {
   switch (value) {
     case 4:
-      return 1;
-    case 3:
-      return 2;
-    case 2:
-      return 3;
-    default:
       return 4;
+    case 3:
+      return 3;
+    case 2:
+      return 2;
+    
+      case 1:
+        return 1;
   }
 };
 const loeilExpertRating = (value) => {
@@ -252,11 +253,13 @@ const loeilExpertRating = (value) => {
       return 5;
     case "Bon":
       return 4;
-    case "Mauvais":
+    case "Moyenne":
       return 3;
+      case "Mauvais":
+      return 2;
 
-    default:
-      return 1;
+      case "Très mauvais":
+        return 1;
   }
 };
 const barometreRating = (value) => {
@@ -268,7 +271,7 @@ const barometreRating = (value) => {
     case "Neutre":
       return 5;
     case "Baissier":
-      return 5;
+      return 4;
     case "Très baissier":
       return 5;
     default:
