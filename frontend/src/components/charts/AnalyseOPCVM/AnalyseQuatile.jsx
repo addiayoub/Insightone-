@@ -169,94 +169,84 @@ const AnalyseQuartile = ({
       ...rest,
     };
   }, [series, data, options, allValues, theme]);
+
   useEffect(() => {
     const chartInstance = chart.current.getEchartsInstance();
+    let startIndex = 0;
     
-    let refAjustB100 = 1;
-    let refOpcB100 = 1;
-    let refBencB100 = 1;
-    let startDate = null;
-    
-    chartInstance.on("datazoom", (params) => {
-      if (data && data.length > 0) {
-        const { start } = params;
-        const startIndex = Math.floor((start * data.length) / 100);
-        
-        const firstZoomedData = data[startIndex];
-        if (firstZoomedData) {
-          refAjustB100 = firstZoomedData.ajust_b100 || 1;
-          refOpcB100 = firstZoomedData.opc_b100 || 1;
-          refBencB100 = firstZoomedData.benc_b100 || 1;
-          startDate = moment(firstZoomedData.Date_VL).format("DD/MM/YYYY");
-          
-          console.log("Références calculées:", {
-            date_debut: startDate,
-            ajust_b100: refAjustB100,
-            opc_b100: refOpcB100,
-            benc_b100: refBencB100,
-          });
-          
-          chartInstance.setOption({
-            tooltip: {
-              ...computedOptions.tooltip,
-              formatter: (params) => {
-                const { dataIndex } = params[0];
-                const currentData = data[dataIndex];
-                
-                const items = [
-                  {
-                    seriesName: "Perf ajustée de la classe",
-                    value: dataIndex === startIndex
-                      ? 100
-                      : ((currentData.ajust_b100 / refAjustB100) * 100).toFixed(2),
-                    color: "#5470c6"
-                  },
-                  {
-                    seriesName: "CPG PERFORMANCE",
-                    value: dataIndex === startIndex
-                      ? 100
-                      : ((currentData.opc_b100 / refOpcB100) * 100).toFixed(2),
-                    color: "#91cc75"
-                  },
-                  {
-                    seriesName: "MASI RENTABILITE BRUT",
-                    value: dataIndex === startIndex
-                      ? 100
-                      : ((currentData.benc_b100 / refBencB100) * 100).toFixed(2),
-                    color: "#fac858"
-                  }
-                ];
-  
-                const dateSection = `
-                  <div style="margin-bottom: 10px;">
-                    <div style="font-weight: bold; ">Date de début: ${startDate}</div>
-                    <div style="font-weight: bold; ">Date actuelle: ${moment(currentData.Date_VL).format("DD/MM/YYYY")}</div>
-                  </div>
-                `;
-  
-                const itemsSection = items.map(item => `
-                  <div style="display: flex; align-items: center; margin-bottom: 2px;">
-                    <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
-                    <span style="flex: 1;">${item.seriesName}</span>
-                    <span style="font-weight: bold; margin-left: 12px;">${item.value}</span>
-                  </div>
-                `).join("");
-  
-                return dateSection + itemsSection;
-              }
-            }
-          });
+    const updateChartData = (startIdx) => {
+      if (!data || data.length === 0) return;
+      
+      const referenceData = data[startIdx];
+      const refValues = {
+        ajust_b100: referenceData.ajust_b100,
+        opc_b100: referenceData.opc_b100,
+        benc_b100: referenceData.benc_b100
+      };
+      
+      const newSeriesData = series.map(serie => ({
+        name: serie.name === "ajust_b100"
+          ? "Perf ajustée de la classe"
+          : (data[0][serie.name] || serie.name),
+        type: "line",
+        data: data.map((item, index) => {
+          if (index < startIdx) return null;
+          const baseValue = refValues[serie.data];
+          return baseValue ? (item[serie.data] / baseValue) * 100 : null;
+        }),
+        symbol: "none"
+      }));
+      
+      chartInstance.setOption({
+        series: newSeriesData,
+        tooltip: {
+          formatter: (params) => {
+            const currentData = data[params[0].dataIndex];
+            const startDate = moment(data[startIdx].Date_VL).format("DD/MM/YYYY");
+            const currentDate = moment(currentData.Date_VL).format("DD/MM/YYYY");
+            
+            const items = params.map(param => ({
+              seriesName: param.seriesName,
+              value: param.value?.toFixed(2) || '-',
+              color: param.color
+            }));
+
+            const dateSection = `
+              <div style="margin-bottom: 10px;">
+                <div style="font-weight: bold;">Date de début: ${startDate}</div>
+                <div style="font-weight: bold;">Date actuelle: ${currentDate}</div>
+              </div>
+            `;
+
+            const itemsSection = items.map(item => `
+              <div style="display: flex; align-items: center; margin-bottom: 2px;">
+                <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
+                <span style="flex: 1;">${item.seriesName}</span>
+                <span style="font-weight: bold; margin-left: 12px;">${item.value}</span>
+              </div>
+            `).join("");
+
+            return dateSection + itemsSection;
+          }
         }
-      }
+      });
+    };
+
+    // Initial update
+    updateChartData(0);
+
+    // DataZoom handler
+    chartInstance.on("datazoom", (params) => {
+      const { start } = params;
+      startIndex = Math.floor((start * data.length) / 100);
+      updateChartData(startIndex);
     });
     
     return () => {
       chartInstance.off("datazoom");
     };
   }, [data]);
-  
-////////origin
-  return (
+    return (
     <Box className="relative">
       {showSeriesSelector && <SeriesSelector />}
       <ReactECharts
