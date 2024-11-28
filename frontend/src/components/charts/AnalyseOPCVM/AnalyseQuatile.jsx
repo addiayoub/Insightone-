@@ -150,12 +150,69 @@ const AnalyseQuartile = ({
           myFullscreen,
           myExportToExcel,
           saveAsImage,
-          dataView,
+          dataView: {
+            show: true,
+            readOnly: true, // Empêcher l'édition directe pour garder un aperçu des données
+            optionToContent: function (opt) {
+              // Extraire les données des séries et les dates
+              const series = opt.series;
+              const xAxisData = opt.xAxis[0].data;
+      
+              // Construire les en-têtes des colonnes
+              const headers = `
+                <tr>
+                  <th style="padding: 3px; font-size:15px; text-align: center; border: 3px solid #ddd; background-color: #f9f9f9;">Date</th>
+                  ${series
+                    .map(
+                      (serie) => `
+                      <th style="padding: 5px; text-align: center; font-size:15px; border: 3px solid #ddd; background-color: #f9f9f9;">${serie.name}</th>
+                    `
+                    )
+                    .join("")}
+                </tr>
+              `;
+      
+              // Construire les lignes des données
+              const rows = xAxisData
+                .map((date, index) => {
+                  const values = series
+                    .map(
+                      (serie) => `
+                        <td style="padding: 8px; text-align: center; color: var(--primary-color);font-weight: bold; border: 3px solid #ddd;">
+                          ${serie.data[index]?.toFixed(2) ?? "-"}
+                        </td>
+                      `
+                    )
+                    .join("");
+                  return `
+                    <tr>
+                      <td style="padding: 8px; text-align: center; color: var(--primary-color) ;border: 3px solid #ddd;">${date}</td>
+                      ${values}
+                    </tr>
+                  `;
+                })
+                .join("");
+      
+              // Retourner le tableau HTML complet
+              return `
+                <div style="padding: 10px; font-family: Arial, sans-serif; color: #333;">
+                  <table style="width: 100%; border-collapse: collapse; border: 3px solid #ddd;">
+                    <thead>${headers}</thead>
+                    <tbody>${rows}</tbody>
+                  </table>
+                </div>
+              `;
+            },
+            backgroundColor: "#ffffff", // Couleur de fond
+            textareaBorderColor: "#ddd", // Bordures des champs de texte
+            textColor: "#333", // Couleur du texte
+            buttonTextColor: "#fff", // Couleur du texte des boutons
+          },
           dataZoom,
           restore,
         },
-        top: "20px",
       },
+      
       dataZoom: zoom,
       series: optionSeries || series.map((serie) => ({
         name:
@@ -190,7 +247,6 @@ const AnalyseQuartile = ({
           : (data[0][serie.name] || serie.name),
         type: "line",
         data: data.map((item, index) => {
-          if (index < startIdx) return null;
           const baseValue = refValues[serie.data];
           return baseValue ? (item[serie.data] / baseValue) * 100 : null;
         }),
