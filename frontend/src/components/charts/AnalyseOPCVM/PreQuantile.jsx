@@ -1,42 +1,19 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef, useEffect } from "react";
+import ReactECharts from "echarts-for-react";
 import moment from "moment";
-import LineChart from "../Default/LineChart";
+import { Box } from "@mui/material";
+import useChartTheme from "../../../hooks/useChartTheme";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import {
+  defaultOptions,
+  getExportToExcelFeature,
+  getFullscreenFeature,
+} from "../../../utils/chart/defaultOptions";
 
 const series = [
   { name: "DENOMINATION_OPCVM", data: "opc_b100" },
   { name: "Nom_Benchmark", data: "benc_b100" },
 ];
-
-const objh = {
-  f_vl: 207004.72550979865,
-  rang_perf_1M: 1,
-  rang_perf_3M: 1,
-  DENOMINATION_OPCVM: "RMA EXPANSION",
-  Nom_Benchmark: "MASI RENTABILITE BRUT",
-  Nb: 89,
-  ajust_b100: 100,
-  q_95: 0,
-  encours_OPC: 828053029.75,
-  ord: 1,
-  quart1: 0,
-  quart2: 0,
-  quartile: 1,
-  mini: 99.99999999999999,
-  quartile_graph_3M: 4,
-  quart3: 1.4210854715202004e-14,
-  q_05: 99.99999999999999,
-  Rang: 3,
-  quartile_perf_1S: 1,
-  cat_b100: 100,
-  rang_perf_1S: 3,
-  VL: 207004.72550979865,
-  maxi: 100.00000000000001,
-  Date_VL: "2019-01-03T23:00:00.000+00:00",
-  opc_b100: 100,
-  benc_b100: 100,
-  quartile_perf_3M: 1,
-  quartile_perf_1M: 1,
-};
 
 const rangeOpts = {
   z: -1,
@@ -55,7 +32,17 @@ const rangeOpts = {
   },
   symbolSize: 0,
 };
-const PreQuantile = ({ data }) => {
+
+const initSaveToExcel = {
+  show: false,
+  data: [],
+  fileName: new Date().getTime(),
+};
+
+const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveToExcel }) => {
+  const chart = useRef(null);
+  const theme = useChartTheme();
+  
   const allValues = useMemo(
     () => series.map((serie) => data.map((item) => item[serie.data])).flat(),
     [data]
@@ -68,162 +55,202 @@ const PreQuantile = ({ data }) => {
     quart3: data.map((item) => item.quart3),
     q_95: data.map((item) => item.q_95),
   };
+
   const yMin = Math.trunc(Math.min(...allValues, ...rangeValues.q_05));
 
-  console.log("allValues", allValues, yMin);
   const legendData = useMemo(
     () => series.map((serie) => data[0][serie.name]),
     [series, data]
   );
+
   const baseSeries = series.map((serie) => ({
-    name:
-      serie.name === "ajust_b100"
-        ? "Perf ajustée de la classe"
-        : data[0][serie.name],
+    name: serie.name === "ajust_b100" ? "Perf ajustée de la classe" : data[0][serie.name],
     type: "line",
     symbol: "none",
-    // Ajout de la couleur rouge pour DENOMINATION_OPCVM
     itemStyle: {
       color: serie.name === "DENOMINATION_OPCVM" ? "red" : "yellow"
-      
     },
     data: data.map((item) => item[serie.data]),
-}));
-  const q_05 = useMemo(() => {
-    return {
-      name: "q_05",
-      stack: "q_05",
-      type: "line",
-      symbol: "none",
-      tooltip: {
-        show: false,
-      },
-      lineStyle: {
-        opacity: 1,
-      },
-      emphasis: {
-        disabled: true,
-      },
-      symbolSize: 0,
-      data: rangeValues.q_05,
-    };
-  }, [data]);
-  const quart1 = useMemo(() => {
-    return {
-      name: "quart1",
-      stack: "q_05",
-      symbol: "none",
-      type: "line",
-      data: rangeValues.quart1,
-            // areaStyle: {
-      //   color: "#8b8bc6",
-      //   opacity: 1,
-      //   origin: "start",
-      // },
-      ...rangeOpts,
-      areaStyle: {
-        ...rangeOpts.areaStyle,
-        opacity: 0.4,
-      },
+  }));
 
-     
-    };
-  }, [data]);
-  const quart2 = useMemo(() => {
-    return {
-      name: "quart2",
-      stack: "q_05",
-      symbol: "none",
-      type: "line",
-      data: rangeValues.quart2,
-     // areaStyle: {
-      //   color: "#4a4ac8",
-      //   opacity: 1,
-      //   origin: "start",
-      // },
-      ...rangeOpts,
-      areaStyle: {
-        ...rangeOpts.areaStyle,
-        opacity: 0.6,
-      },
-      
-    };
-  }, [data]);
-  const quart3 = useMemo(() => {
-    return {
-      name: "quart3",
-      stack: "q_05",
-      symbol: "none",
-      type: "line",
-      data: rangeValues.quart3,
-        // areaStyle: {
-      //   color: "#5a5ad6",
-      //   opacity: 1,
-      //   origin: "start",
-      // },
-      ...rangeOpts,
-      areaStyle: {
-        ...rangeOpts.areaStyle,
-        opacity: 0.8,
-      },
-      
-    };
-  }, [data]);
-  const q_95 = useMemo(() => {
-    return {
-      name: "quart4",
-      stack: "q_05",
-      symbol: "none",
-      type: "line",
-      data: rangeValues.q_95,
-      showInLegend: false,
-        // areaStyle: {
-      //   color: "#5500ff",
-      //   opacity: 0.5,
-      //   origin: "start",
-      // },
-      ...rangeOpts,
-    };
-  }, [data]);
+  const q_05 = useMemo(() => ({
+    name: "q_05",
+    stack: "q_05",
+    type: "line",
+    symbol: "none",
+    tooltip: { show: false },
+    lineStyle: { opacity: 1 },
+    emphasis: { disabled: true },
+    symbolSize: 0,
+    data: rangeValues.q_05,
+  }), [data]);
+
+  const quart1 = useMemo(() => ({
+    name: "quart1",
+    stack: "q_05",
+    symbol: "none",
+    type: "line",
+    data: rangeValues.quart1,
+    ...rangeOpts,
+    areaStyle: {
+      ...rangeOpts.areaStyle,
+      opacity: 0.4,
+    },
+  }), [data]);
+
+  const quart2 = useMemo(() => ({
+    name: "quart2",
+    stack: "q_05",
+    symbol: "none",
+    type: "line",
+    data: rangeValues.quart2,
+    ...rangeOpts,
+    areaStyle: {
+      ...rangeOpts.areaStyle,
+      opacity: 0.6,
+    },
+  }), [data]);
+
+  const quart3 = useMemo(() => ({
+    name: "quart3",
+    stack: "q_05",
+    symbol: "none",
+    type: "line",
+    data: rangeValues.quart3,
+    ...rangeOpts,
+    areaStyle: {
+      ...rangeOpts.areaStyle,
+      opacity: 0.8,
+    },
+  }), [data]);
+
+  const q_95 = useMemo(() => ({
+    name: "quart4",
+    stack: "q_05",
+    symbol: "none",
+    type: "line",
+    data: rangeValues.q_95,
+    showInLegend: false,
+    ...rangeOpts,
+  }), [data]);
+
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
-  const serieafficher = baseSeries.concat([ quart1, quart2, quart3, q_95]);
+  const serieafficher = baseSeries.concat([quart1, quart2, quart3, q_95]);
 
-  const options = useMemo(() => {
-    return {
-      title: {
-        text: "",
-        left: "center",
+  const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
+  
+  const {
+    dataZoom: zoom,
+    toolbox: {
+      feature: { saveAsImage, dataZoom, restore, dataView },
+    },
+  } = defaultOptions;
+
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    serieafficher.map(s => s.name),
+    serieafficher.map(s => s.name)
+  );
+
+  const options = useMemo(() => ({
+    title: {
+      text: "",
+      left: "center",
+      ...theme.title,
+    },
+    legend: {
+      orient: "horizontal",
+      zLevel: 23,
+      width: "70%",
+      bottom: "9%",
+      type: "scroll",
+      textStyle: {
+        width: 150,
+        rich: {
+          fw600: {
+            fontWeight: 600,
+          },
+        },
       },
-      legend: { data: serieafficher },
-      grid: {
-        right: "80px",
+      selected: selectedLegend,
+      ...theme.legend,
+    },
+    grid: {
+      right: "100px",
+      top: "10%",
+      bottom: "15%",
+      containLabel: true,
+    },
+    xAxis: {
+      type: "category",
+      data: data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),
+      axisLabel: {
+        hideOverlap: true,
+        ...theme.xAxis.nameTextStyle,
       },
-      xAxis: {
-        type: "category",
-        data: data.map((item) => moment(item.Date_VL).format("DD/MM/YYYY")),
+      ...theme.xAxis,
+    },
+    yAxis: {
+      type: "value",
+      min: yMin,
+      axisLabel: {
+        hideOverlap: true,
+        ...theme.yAxis.nameTextStyle,
       },
-      yAxis: {
-        type: "value",
-        min: yMin,
+      min: function (value) {
+        return value?.min?.toFixed(2);
       },
-      series: seriesData,
-    };
-  }, [data, allValues, seriesData]);
+      max: function (value) {
+        return value?.max?.toFixed(2);
+      },
+      ...theme.yAxis,
+    },
+    tooltip: {
+      trigger: "axis",
+      textStyle: {
+        overflow: "breakAll",
+        width: 40,
+      },
+      confine: true,
+      valueFormatter: (value) => value?.toFixed(2),
+    },
+    toolbox: {
+      feature: {
+        myFullscreen,
+        myExportToExcel,
+        saveAsImage,
+        dataView,
+        dataZoom,
+        restore,
+      },
+      top: "20px",
+    },
+    dataZoom: zoom,
+    series: seriesData,
+  }), [data, allValues, seriesData, selectedLegend, theme]);
+
+  useEffect(() => {
+    const chartInstance = chart.current.getEchartsInstance();
+    chartInstance.dispatchAction({
+      type: "showDataView",
+    });
+  }, []);
+
   return (
-    <>
-      <LineChart
-        options={options}
+    <Box className="relative">
+      {showSeriesSelector && <SeriesSelector />}
+      <ReactECharts
+        option={options}
+        key={JSON.stringify(options)}
         style={{
-          height: "500px",
-          maxHeight: "600px",
+          minHeight: 500,
+          ...style,
         }}
-        saveToExcel={{
-          show: true,
-          data,
-        }}
+        ref={chart}
       />
-    </>
+    </Box>
   );
 };
 
 export default memo(PreQuantile);
+/////////
