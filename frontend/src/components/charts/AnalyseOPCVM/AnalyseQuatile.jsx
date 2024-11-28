@@ -192,7 +192,6 @@ const AnalyseQuartile = ({
                   `;
                 })
                 .join("");
-      
               // Retourner le tableau HTML complet
               return `
                 <div style="padding: 10px; font-family: Arial, sans-serif; color: #333;">

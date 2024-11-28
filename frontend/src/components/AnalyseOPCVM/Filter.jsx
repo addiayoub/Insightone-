@@ -20,7 +20,7 @@ const periodeOptions = ["YTD", "1an", "3ans", "5ans"];
 
 const Filter = ({ setIsShow }) => {
   const [date, setDate] = useState(dayjs());
-  const [opcvm, setOpcvm] = useState("CDG PERFORMANCE");
+  const [opcvm, setOpcvm] = useState("RMA EXPANSION");
   const [seuil, setSeuil] = useState(0.5);
   const [periode, setPeriode] = useState("5ans");
   const [pdf, setPdf] = useState(null);
