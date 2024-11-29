@@ -36,7 +36,8 @@ const FondsVersus = ({ data }) => {
     if (isDraggingRef.current === null || !sliderRef.current) return;
 
     const sliderRect = sliderRef.current.getBoundingClientRect();
-    const position = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
+    // Changed to use clientY and height for vertical slider
+    const position = 100 - (((e.clientY - sliderRect.top) / sliderRect.height) * 100);
     const value = getValueFromPosition(position);
 
     setEncoursSlicer(prev => {
@@ -67,7 +68,7 @@ const FondsVersus = ({ data }) => {
     };
   }, [handleMouseMove, handleMouseUp]);
 
-  // Rest of your existing code for charts and data processing
+  // Rest of your existing code for charts and data processing remains exactly the same
   const societeGes = useMemo(
     () => [...new Set(data.map((item) => item.Nom_Gerant))],
     [data]
@@ -155,6 +156,7 @@ const FondsVersus = ({ data }) => {
       },
       grid: {
         right: "250px",
+        left: "10px" // Added more space on the left for the slider
       },
       xAxis: {
         name: "Volatilité",
@@ -196,62 +198,66 @@ const FondsVersus = ({ data }) => {
   }, [seriesData, filteredData, seriesNames, axisValues]);
 
   return (
-    <>
-      <div className="mb-4">
-        <label className="font-medium">Filtrer par La Valeur EN COURS:</label>
-        <div className="relative w-full h-12 mt-2">
+    <div className="flex gap-4 ">
+      {/* Vertical Slider Container */}
+      <div className="w-16.2">
+      <div style={{whiteSpace:"nowrap", marginTop:""}} className="flex flex-col text-sm text-gray-500 ">
+          <div>{formatNumberWithSpaces(encoursSlicer[1])}</div>
+        </div>
+        <div className="relative h-[500px] mt-4  mx-auto">
           <div
             ref={sliderRef}
-            className="absolute w-full h-2 bg-gray-200 rounded-full top-1/2 -translate-y-1/2"
+            className="absolute h-full w-2 bg-gray-200 rounded-full left-1/2 -translate-x-1/2"
           >
             <div
-              className="absolute h-full bg-blue-500 rounded-full"
+              className="absolute w-full bg-blue-500 rounded-full"
               style={{
-                left: `${getPositionFromValue(encoursSlicer[0])}%`,
-                right: `${100 - getPositionFromValue(encoursSlicer[1])}%`
+                bottom: `${getPositionFromValue(encoursSlicer[0])}%`,
+                top: `${100 - getPositionFromValue(encoursSlicer[1])}%`
               }}
             />
           </div>
           
-          {/* Handles */}
+          {/* Vertical Handles */}
+          
           <div
-            className="absolute w-4 h-4 bg-blue-600 rounded-full top-1/2 -translate-y-1/2 -ml-2 cursor-pointer"
-            style={{ left: `${getPositionFromValue(encoursSlicer[0])}%` }}
+            className="absolute h-4 w-4 bg-blue-600 rounded-full left-1/2 -translate-x-1/2 -mb-2 cursor-pointer"
+            style={{ bottom: `${getPositionFromValue(encoursSlicer[0])}%` }}
             onMouseDown={handleMouseDown(0)}
           />
+         
           <div
-            className="absolute w-4 h-4 bg-blue-600 rounded-full top-1/2 -translate-y-1/2 -ml-2 cursor-pointer"
-            style={{ left: `${getPositionFromValue(encoursSlicer[1])}%` }}
+            className="absolute h-4 w-4 bg-blue-600 rounded-full left-1/2 -translate-x-1/2 -mb-2 cursor-pointer"
+            style={{ bottom: `${getPositionFromValue(encoursSlicer[1])}%` }}
             onMouseDown={handleMouseDown(1)}
           />
+
+          
         </div>
         
-        <div className="flex justify-between mt-2">
-          <div className="text-sm text-gray-500">
-            Min: {formatNumberWithSpaces(encoursSlicer[0])}
-          </div>
-          <div className="text-sm text-gray-500">
-            Max: {formatNumberWithSpaces(encoursSlicer[1])}
-          </div>
+        {/* Value labels */}
+        <div style={{whiteSpace:"nowrap"}} className="flex flex-col text-sm text-gray-500 mt-2">
+          <div>{formatNumberWithSpaces(encoursSlicer[0])}</div>
         </div>
       </div>
-
-      <ScatterChart
-        options={options}
-        style={{
-          height: "500px",
-          minWidth: "600px",
-          width: "100%",
-          margin: "15px auto",
-        }}
-        saveToExcel={{
-          data: filteredData,
-          show: true,
-          fileName: options.title.text,
-        }}
-        showSeriesSelector
-      />
-    </>
+      {/* Chart */}
+      <div className="flex-1">
+        <ScatterChart
+          options={options}
+          style={{
+            height: "500px",
+            minWidth: "600px",
+            width: "100%",
+          }}
+          saveToExcel={{
+            data: filteredData,
+            show: true,
+            fileName: options.title.text,
+          }}
+          showSeriesSelector
+        />
+      </div>
+    </div>
   );
 };
 
