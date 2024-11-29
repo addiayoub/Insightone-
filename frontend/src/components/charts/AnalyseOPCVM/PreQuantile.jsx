@@ -219,7 +219,67 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
         myFullscreen,
         myExportToExcel,
         saveAsImage,
-        dataView,
+        dataView: {
+          show: true,
+          readOnly: true,
+          optionToContent: function (opt) {
+            // On ne garde que les deux séries principales (DENOMINATION_OPCVM et Nom_Benchmark)
+            const mainSeries = opt.series.filter(s => 
+              s.name === opt.series[0].name || 
+              s.name === opt.series[1].name
+            );
+            const xAxisData = opt.xAxis[0].data;
+        
+            // Construction des en-têtes
+            const headers = `
+              <tr>
+                <th style="padding: 8px; font-size:15px; text-align: center; border: 1px solid #ddd; background-color: #f9f9f9;">Date</th>
+                ${mainSeries
+                  .map(
+                    (serie) => `
+                    <th style="padding: 8px; text-align: center; font-size:15px; border: 1px solid #ddd; background-color: #f9f9f9;">${serie.name}</th>
+                  `
+                  )
+                  .join("")}
+              </tr>
+            `;
+        
+            // Construction des lignes de données
+            const rows = xAxisData
+              .map((date, index) => {
+                const values = mainSeries
+                  .map(
+                    (serie) => `
+                      <td style="padding: 8px; text-align: center; color: var(--primary-color); font-weight: bold; border: 1px solid #ddd;">
+                        ${serie.data[index] !== undefined ? serie.data[index].toFixed(2) : "-"}
+                      </td>
+                    `
+                  )
+                  .join("");
+                return `
+                  <tr>
+                    <td style="padding: 8px; text-align: center;  color: var(--primary-color); border: 1px solid #ddd;">${date}</td>
+                    ${values}
+                  </tr>
+                `;
+              })
+              .join("");
+        
+            // Retour du tableau HTML
+            return `
+              <div style="padding: 10px; font-family: Arial, sans-serif; color: #333; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                  <thead>${headers}</thead>
+                  <tbody>${rows}</tbody>
+                </table>
+              </div>
+            `;
+          },
+          backgroundColor: "#ffffff",
+          textareaBorderColor: "#ddd",
+          textColor: "#333",
+          buttonTextColor: "#fff",
+        },
         dataZoom,
         restore,
       },
@@ -228,13 +288,90 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
     dataZoom: zoom,
     series: seriesData,
   }), [data, allValues, seriesData, selectedLegend, theme]);
-
   useEffect(() => {
     const chartInstance = chart.current.getEchartsInstance();
-    chartInstance.dispatchAction({
-      type: "showDataView",
+  
+    let refAjustB100 = 1;
+    let refOpcB100 = 1;
+    let startDate = null;
+    let newSeriesData = [];
+  
+    chartInstance.on("datazoom", (params) => {
+      if (data && data.length > 0) {
+        const { start } = params;
+        const startIndex = Math.floor((start * data.length) / 100);
+  
+        const firstZoomedData = data[startIndex];
+        if (firstZoomedData) {
+          refAjustB100 = firstZoomedData.ajust_b100 || 1;
+          refOpcB100 = firstZoomedData.opc_b100 || 1;
+          startDate = moment(firstZoomedData.Date_VL).format("DD/MM/YYYY");
+  
+          // Calculer les nouvelles séries en base 100
+          newSeriesData = seriesData.map(series => {
+            if (series.name === data[0]["DENOMINATION_OPCVM"]) {
+              return {
+                ...series,
+                data: data.map(item => ((item.opc_b100 / refOpcB100) * 100))
+              };
+            }
+            if (series.name === data[0]["Nom_Benchmark"]) {
+              return {
+                ...series,
+                data: data.map(item => ((item.ajust_b100 / refAjustB100) * 100))
+              };
+            }
+            return series; // Retourner les autres séries inchangées (quantiles)
+          });
+  
+          // Mettre à jour le graphique avec les nouvelles données
+          chartInstance.setOption({
+            series: newSeriesData,
+            tooltip: {
+              trigger: 'axis',
+              formatter: (params) => {
+                const { dataIndex } = params[0];
+                const currentData = data[dataIndex];
+                const isStartDate = moment(currentData.Date_VL).format("DD/MM/YYYY") === startDate;
+  
+                const header = `
+                  <div>
+                    <strong>Date de début:</strong> ${startDate}<br/>
+                    <strong>Date actuelle:</strong> ${moment(currentData.Date_VL).format("DD/MM/YYYY")}<br/>
+                  </div>
+                `;
+  
+                const content = params
+                  .map((item) => {
+                    if (item.seriesName === data[0]["DENOMINATION_OPCVM"] || item.seriesName === data[0]["Nom_Benchmark"]) {
+                      const baseValue = isStartDate ? "100.00" : item.value.toFixed(2);
+  
+                      return `
+                        <div style="display: flex; align-items: center; margin-bottom: 2px;">
+                          <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
+                          <span style="flex: 1;">${item.seriesName}</span>
+                          <span style="font-weight: bold;  margin-left: 12px;">${baseValue}</span>
+                        </div>
+                      `;
+                    }
+                    return '';
+                  })
+                  .filter(content => content !== '')
+                  .join("");
+  
+                return header + content;
+              }
+            }
+          });
+        }
+      }
     });
-  }, []);
+  
+    return () => {
+      chartInstance.off("datazoom");
+    };
+  }, [data, options.tooltip]);
+
 
   return (
     <Box className="relative">
