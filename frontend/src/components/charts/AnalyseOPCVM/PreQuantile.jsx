@@ -14,7 +14,12 @@ const series = [
   { name: "DENOMINATION_OPCVM", data: "opc_b100" },
   { name: "Nom_Benchmark", data: "benc_b100" },
 ];
-
+const quantileColors = {
+  quart4: "#5500ff",
+  quart3: "#5a5ad6",
+  quart2: "#4a4ac8",
+  quart1: "#8b8bc6"
+};
 const rangeOpts = {
   z: -1,
   tooltip: {
@@ -77,13 +82,13 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
     name: "q_05",
     stack: "q_05",
     type: "line",
-    symbol: "none",
     tooltip: { show: false },
-    lineStyle: { opacity: 1 },
-    emphasis: { disabled: true },
+    lineStyle: { opacity: 0 },
+    emphasis: { disabled: false },
     symbolSize: 0,
     data: rangeValues.q_05,
   }), [data]);
+
 
   const quart1 = useMemo(() => ({
     name: "quart1",
@@ -96,6 +101,9 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
       ...rangeOpts.areaStyle,
       opacity: 0.4,
     },
+    itemStyle: {
+      color: quantileColors.quart1
+    }
   }), [data]);
 
   const quart2 = useMemo(() => ({
@@ -109,6 +117,9 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
       ...rangeOpts.areaStyle,
       opacity: 0.6,
     },
+    itemStyle: {
+      color: quantileColors.quart2
+    }
   }), [data]);
 
   const quart3 = useMemo(() => ({
@@ -122,6 +133,9 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
       ...rangeOpts.areaStyle,
       opacity: 0.8,
     },
+    itemStyle: {
+      color: quantileColors.quart3
+    }
   }), [data]);
 
   const q_95 = useMemo(() => ({
@@ -132,11 +146,14 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
     data: rangeValues.q_95,
     showInLegend: false,
     ...rangeOpts,
+    itemStyle: {
+      color: quantileColors.quart4
+    }
   }), [data]);
 
   const seriesData = baseSeries.concat([q_05, quart1, quart2, quart3, q_95]);
   const serieafficher = baseSeries.concat([quart1, quart2, quart3, q_95]);
-
+  
   const myFullscreen = getFullscreenFeature(chart);
   const myExportToExcel = getExportToExcelFeature(saveToExcel);
   
