@@ -79,7 +79,7 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
   }));
 
   const q_05 = useMemo(() => ({
-    name: "q_05",
+    name: "",
     stack: "q_05",
     type: "line",
     tooltip: { show: false },
