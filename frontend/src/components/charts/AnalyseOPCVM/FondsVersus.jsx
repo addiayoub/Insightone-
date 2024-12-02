@@ -1,14 +1,189 @@
 import React, { memo, useMemo, useState, useCallback, useRef, useEffect } from "react";
+import ReactECharts from "echarts-for-react";
 import { generateRandomColorsArray } from "../../../utils/generateRandomColorsArray";
 import { formatNumberWithSpaces } from "../../../utils/formatNumberWithSpaces";
-import ScatterChart from "../Default/ScatterChart";
+import {
+  defaultOptions,
+  getFullscreenFeature,
+  getExportToExcelFeature,
+} from "../../../utils/chart/defaultOptions";
+import useChartTheme from "../../../hooks/useChartTheme";
+import useSeriesSelector from "../../../hooks/useSeriesSelector";
+import { Box } from "@mui/material";
+
+const initSaveToExcel = {
+  show: false,
+  data: [],
+  fileName: new Date().getTime(),
+};
+
+const ScatterChart = ({
+  options,
+  style,
+  onEvents,
+  showSeriesSelector,
+  saveToExcel = initSaveToExcel,
+}) => {
+  const chart = useRef(null);
+  const myFullscreen = getFullscreenFeature(chart);
+  const myExportToExcel = getExportToExcelFeature(saveToExcel);
+  const theme = useChartTheme();
+  const {
+    title,
+    grid,
+    tooltip,
+    xAxis,
+    series,
+    yAxis,
+    legend,
+    toolbox,
+    seriesNames: { seriesList = [], init = seriesList } = {},
+    ...rest
+  } = options;
+  const { SeriesSelector, selectedLegend } = useSeriesSelector(
+    seriesList,
+    init
+  );
+  const {
+    toolbox: {
+      feature: { saveAsImage, dataZoom, restore, dataView },
+    },
+  } = defaultOptions;
+  const baseOptions = useMemo(() => {
+    return {
+      title: {
+        ...(title ?? {}),
+        ...theme.title,
+      },
+      legend: {
+        orient: "vertical",
+        zLevel: 23,
+        height: 200,
+        type: "scroll",
+        right: 0,
+        textStyle: {
+          width: 150,
+          rich: {
+            fw600: {
+              fontWeight: 600,
+            },
+          },
+        },
+        selected: selectedLegend,
+        ...(legend ?? {}),
+        ...theme.legend,
+      },
+      xAxis: {
+        ...(xAxis ?? {}),
+        axisLabel: {
+          hideOverlap: true,
+          ...xAxis?.axisLabel,
+          ...theme.xAxis.nameTextStyle,
+        },
+        type: "value",
+        nameLocation: "middle",
+        nameGap: 30,
+        nameTextStyle: {
+          fontSize: 14,
+          ...theme.xAxis.nameTextStyle,
+        },
+        ...theme.xAxis,
+      },
+      yAxis: Array.isArray(yAxis)
+        ? yAxis.map((yAxisConfig) => ({
+            ...yAxisConfig,
+            type: "value",
+            nameLocation: "middle",
+            nameGap: 50,
+            axisLabel: {
+              hideOverlap: true,
+              ...yAxisConfig?.axisLabel,
+              ...theme.yAxis.nameTextStyle,
+            },
+            nameTextStyle: {
+              fontSize: 14,
+              ...theme.yAxis.nameTextStyle,
+            },
+            ...theme.yAxis,
+          }))
+        : [
+            {
+              ...yAxis,
+              type: "value",
+              nameLocation: "middle",
+              nameGap: 50,
+              axisLabel: {
+                hideOverlap: true,
+                ...yAxis?.axisLabel,
+                ...theme.yAxis.nameTextStyle,
+              },
+              nameTextStyle: {
+                fontSize: 14,
+                ...theme.yAxis.nameTextStyle,
+              },
+              ...theme.yAxis,
+            },
+          ],
+      grid: {
+        bottom: "50",
+        top: "10%",
+        containLabel: true,
+        ...(grid ?? {}),
+      },
+      tooltip: {
+        trigger: "item",
+        axisPointer: {
+          type: "cross",
+        },
+        textStyle: {
+          overflow: "breakAll",
+          width: 40,
+        },
+        confine: true,
+        valueFormatter: (value) => value?.toFixed(2) + "%",
+        ...(tooltip ?? {}),
+      },
+      toolbox: {
+        feature: {
+          myFullscreen,
+          myExportToExcel,
+          dataZoom,
+          restore,
+          saveAsImage,
+          dataView,
+        },
+        right: 0,
+        top: "10px",
+        ...(toolbox ?? {}),
+      },
+      series,
+      ...rest,
+    };
+  }, [series, selectedLegend, options, theme]);
+  return (
+    <Box className="relative w-full">
+      {showSeriesSelector && <SeriesSelector />}
+      <ReactECharts
+        option={baseOptions}
+        key={JSON.stringify(baseOptions)}
+        style={{
+          minHeight: 400,
+          ...style,
+        }}
+        ref={chart}
+        onEvents={onEvents}
+      />
+    </Box>
+  );
+};
 
 const FondsVersus = ({ data }) => {
   const [encoursSlicer, setEncoursSlicer] = useState([
     Math.min(...data.map(item => item.encours_OPC)),
     Math.max(...data.map(item => item.encours_OPC))
   ]);
-  
+  const [hiddenPoints, setHiddenPoints] = useState([]); 
+
   const sliderRef = useRef(null);
   const isDraggingRef = useRef(null);
   
@@ -36,7 +211,6 @@ const FondsVersus = ({ data }) => {
     if (isDraggingRef.current === null || !sliderRef.current) return;
 
     const sliderRect = sliderRef.current.getBoundingClientRect();
-    // Changed to use clientY and height for vertical slider
     const position = 100 - (((e.clientY - sliderRect.top) / sliderRect.height) * 100);
     const value = getValueFromPosition(position);
 
@@ -44,7 +218,6 @@ const FondsVersus = ({ data }) => {
       const newValues = [...prev];
       newValues[isDraggingRef.current] = value;
       
-      // Ensure handles don't cross
       if (isDraggingRef.current === 0) {
         newValues[0] = Math.min(newValues[0], newValues[1]);
       } else {
@@ -68,7 +241,6 @@ const FondsVersus = ({ data }) => {
     };
   }, [handleMouseMove, handleMouseUp]);
 
-  // Rest of your existing code for charts and data processing remains exactly the same
   const societeGes = useMemo(
     () => [...new Set(data.map((item) => item.Nom_Gerant))],
     [data]
@@ -84,10 +256,11 @@ const FondsVersus = ({ data }) => {
       data.filter(
         (item) =>
           item.encours_OPC >= encoursSlicer[0] &&
-          item.encours_OPC <= encoursSlicer[1]
-      ),
-    [data, encoursSlicer]
-  );
+        item.encours_OPC <= encoursSlicer[1] &&
+        !hiddenPoints.includes(item.denomination_OPCVM)
+    ),
+  [data, encoursSlicer, hiddenPoints]
+);
 
   const formatedData = useMemo(() => {
     return filteredData.map((item) => [
@@ -156,7 +329,7 @@ const FondsVersus = ({ data }) => {
       },
       grid: {
         right: "250px",
-        left: "10px" // Added more space on the left for the slider
+        left: "10px"
       },
       xAxis: {
         name: "Volatilité",
@@ -196,10 +369,22 @@ const FondsVersus = ({ data }) => {
       series: seriesData,
     };
   }, [seriesData, filteredData, seriesNames, axisValues]);
+  const handlePointClick = (params) => {
+    const pointName = params.value[2];
+    setHiddenPoints((prev) => [...prev, pointName]);
+  };
+
+  // Nouvelle implémentation de handleRestore
+  const handleRestore = () => {
+    // Réinitialiser les points cachés
+    setHiddenPoints([]);
+    
+    // Réinitialiser les limites du slider à ses valeurs initiales
+    setEncoursSlicer([minValue, maxValue]);
+  };
 
   return (
     <div className="flex gap-4 ">
-      {/* Vertical Slider Container */}
       <div className="w-16.2">
       <div style={{whiteSpace:"nowrap", marginTop:""}} className="flex flex-col text-sm text-gray-500 ">
           <div>{formatNumberWithSpaces(encoursSlicer[1])}</div>
@@ -218,8 +403,6 @@ const FondsVersus = ({ data }) => {
             />
           </div>
           
-          {/* Vertical Handles */}
-          
           <div
             className="absolute h-4 w-4 bg-blue-600 rounded-full left-1/2 -translate-x-1/2 -mb-2 cursor-pointer"
             style={{ bottom: `${getPositionFromValue(encoursSlicer[0])}%` }}
@@ -235,15 +418,16 @@ const FondsVersus = ({ data }) => {
           
         </div>
         
-        {/* Value labels */}
         <div style={{whiteSpace:"nowrap"}} className="flex flex-col text-sm text-gray-500 mt-2">
           <div>{formatNumberWithSpaces(encoursSlicer[0])}</div>
         </div>
       </div>
-      {/* Chart */}
       <div className="flex-1">
         <ScatterChart
           options={options}
+          onEvents={{ click: handlePointClick ,
+            restore: handleRestore  // Ajout de l'événement de restauration
+          }}
           style={{
             height: "500px",
             minWidth: "600px",
@@ -256,9 +440,11 @@ const FondsVersus = ({ data }) => {
           }}
           showSeriesSelector
         />
+        
       </div>
     </div>
   );
 };
 
 export default memo(FondsVersus);
+///////origin
