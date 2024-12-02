@@ -229,10 +229,72 @@ const AnalyseQuartile = ({
   useEffect(() => {
     const chartInstance = chart.current.getEchartsInstance();
     let startIndex = 0;
+    
+    const updateChartData = (startIdx) => {
+      if (!data || data.length === 0) return;
+      
+      const referenceData = data[startIdx];
+      const refValues = {
+        ajust_b100: referenceData.ajust_b100,
+        opc_b100: referenceData.opc_b100,
+        benc_b100: referenceData.benc_b100
+      };
+      
+      const newSeriesData = series.map(serie => ({
+        name: serie.name === "ajust_b100"
+          ? "Perf ajustée de la classe"
+          : (data[0][serie.name] || serie.name),
+        type: "line",
+        data: data.map((item, index) => {
+          const baseValue = refValues[serie.data];
+          return baseValue ? (item[serie.data] / baseValue) * 100 : null;
+        }),
+        symbol: "none"
+      }));
+      
+      chartInstance.setOption({
+        series: newSeriesData,
+        tooltip: {
+          formatter: (params) => {
+            const currentData = data[params[0].dataIndex];
+            const startDate = moment(data[startIdx].Date_VL).format("DD/MM/YYYY");
+            const currentDate = moment(currentData.Date_VL).format("DD/MM/YYYY");
+            
+            const items = params.map(param => ({
+              seriesName: param.seriesName,
+              value: param.value?.toFixed(2) || '-',
+              color: param.color
+            }));
+
+            const dateSection = `
+              <div style="margin-bottom: 10px;">
+                <div style="font-weight: bold;">Date de début: ${startDate}</div>
+                <div style="font-weight: bold;">Date actuelle: ${currentDate}</div>
+              </div>
+            `;
+
+            const itemsSection = items.map(item => `
+              <div style="display: flex; align-items: center; margin-bottom: 2px;">
+                <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
+                <span style="flex: 1;">${item.seriesName}</span>
+                <span style="font-weight: bold; margin-left: 12px;">${item.value}</span>
+              </div>
+            `).join("");
+
+            return dateSection + itemsSection;
+          }
+        }
+      });
+    };
+
+    // Initial update
+    updateChartData(0);
+
     // DataZoom handler
     chartInstance.on("datazoom", (params) => {
       const { start } = params;
       startIndex = Math.floor((start * data.length) / 100);
+      updateChartData(startIndex);
     });
     
     return () => {

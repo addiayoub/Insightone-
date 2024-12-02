@@ -308,12 +308,60 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
           startDate = moment(firstZoomedData.Date_VL).format("DD/MM/YYYY");
   
           // Calculer les nouvelles séries en base 100
-         
+          newSeriesData = seriesData.map(series => {
+            if (series.name === data[0]["DENOMINATION_OPCVM"]) {
+              return {
+                ...series,
+                data: data.map(item => ((item.opc_b100 / refOpcB100) * 100))
+              };
+            }
+            if (series.name === data[0]["Nom_Benchmark"]) {
+              return {
+                ...series,
+                data: data.map(item => ((item.ajust_b100 / refAjustB100) * 100))
+              };
+            }
+            return series; // Retourner les autres séries inchangées (quantiles)
+          });
   
           // Mettre à jour le graphique avec les nouvelles données
           chartInstance.setOption({
             series: newSeriesData,
-      
+            tooltip: {
+              trigger: 'axis',
+              formatter: (params) => {
+                const { dataIndex } = params[0];
+                const currentData = data[dataIndex];
+                const isStartDate = moment(currentData.Date_VL).format("DD/MM/YYYY") === startDate;
+  
+                const header = `
+                  <div>
+                    <strong>Date de début:</strong> ${startDate}<br/>
+                    <strong>Date actuelle:</strong> ${moment(currentData.Date_VL).format("DD/MM/YYYY")}<br/>
+                  </div>
+                `;
+  
+                const content = params
+                  .map((item) => {
+                    if (item.seriesName === data[0]["DENOMINATION_OPCVM"] || item.seriesName === data[0]["Nom_Benchmark"]) {
+                      const baseValue = isStartDate ? "100.00" : item.value.toFixed(2);
+  
+                      return `
+                        <div style="display: flex; align-items: center; margin-bottom: 2px;">
+                          <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
+                          <span style="flex: 1;">${item.seriesName}</span>
+                          <span style="font-weight: bold;  margin-left: 12px;">${baseValue}</span>
+                        </div>
+                      `;
+                    }
+                    return '';
+                  })
+                  .filter(content => content !== '')
+                  .join("");
+  
+                return header + content;
+              }
+            }
           });
         }
       }
@@ -323,6 +371,7 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
       chartInstance.off("datazoom");
     };
   }, [data, options.tooltip]);
+
 
   return (
     <Box className="relative">
@@ -341,3 +390,4 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
 };
 
 export default memo(PreQuantile);
+/////////
