@@ -55,7 +55,7 @@ function Secteurs() {
             legend={"Performance MASI"}
             columns={getColumns(perfMASI, true)}
             rows={perfMASI}
-            density="comfortable"
+            density="compact"
           />
         )}
         {perfMASI.length > 0 && (
@@ -63,7 +63,7 @@ function Secteurs() {
             legend={"Performance MASI Annualisée"}
             columns={getColumns(perfMASI, false)}
             rows={perfMASI}
-            density="comfortable"
+            density="compact"
           />
         )}
         {perfSectoriel.length > 0 && (
@@ -71,7 +71,7 @@ function Secteurs() {
             legend={"Performance Sectoriel"}
             columns={getColumns(perfSectoriel, true)}
             rows={perfSectoriel}
-            density="comfortable"
+            density="compact"
           />
         )}
         {perfSectoriel.length > 0 && (
@@ -79,7 +79,7 @@ function Secteurs() {
             legend={"Performance Sectoriel Annualisée"}
             columns={getColumns(perfSectoriel, false)}
             rows={perfSectoriel}
-            density="comfortable"
+            density="compact"
           />
         )}
         {!loading && news.length > 0 && <News data={news} />}

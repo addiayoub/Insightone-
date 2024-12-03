@@ -93,19 +93,11 @@ export const getColumns = (data, isFirst) => {
   console.log("{ min, max }", { min, max });
   return [
     {
-      field: "Seance",
-      headerName: "Séance",
-      renderCell: ({ row }) => (
-        <span>{moment(row.Seance).format("DD/MM/YYYY")}</span>
-      ),
-      flex: 0.4,
-    },
-    {
       field: "INDICE",
       headerName: "Indice",
-      flex: isFirst ? 0.8 : 0.7,
+      flex: 1.7,
       renderCell: ({ row }) => {
-        return <span className="font-semibold">{row.INDICE}</span>;
+        return <span className="font-semibold" style={{whiteSpace:"nowrap"}}>{row.INDICE}</span>;
       },
     },
     ...keys.map((key) => ({
