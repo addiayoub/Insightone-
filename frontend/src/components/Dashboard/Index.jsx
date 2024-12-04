@@ -241,19 +241,19 @@ function Index() {
             </GridItem>
           </GridContainer>
           <Table
-            legend={`Performance du marché ${seanceDate ? dayjs(seanceDate).format('DD/MM/YYYY') : ''}`}
+            legend="Performance du marché"
             columns={PERFORMANCE_DU_MARCHE}
             rows={dataObject.PERFORMANCE_DU_MARCHE}
           />
           {dataObject.perfMASI.length > 0 && (
             <>
               <PerfTable
-                title={`Performance MASI ${seanceDate ? dayjs(seanceDate).format('DD/MM/YYYY') : ''}`}
+                title={"Performance MASI"}
                 data={dataObject.perfMASI}
                 isFirst
               />
               <PerfTable
-                title={`Performance MASI Annualisée ${seanceDate ? dayjs(seanceDate).format('DD/MM/YYYY') : ''}`}
+                title={"Performance MASI Annualisée"}
                 data={dataObject.perfMASI}
               />
             </>
@@ -261,13 +261,13 @@ function Index() {
           {dataObject.perfSectoriel.length > 0 && (
             <>
               <PerfTable
-                title={`Performance Sectorielle ${seanceDate ? dayjs(seanceDate).format('DD/MM/YYYY') : ''}`}
+                title={"Performance Sectorielle"}
                 data={dataObject.perfSectoriel}
                 isFirst
                 density="compact"
               />
               <PerfTable
-                title={`Performance Sectorielle Annualisée ${seanceDate ? dayjs(seanceDate).format('DD/MM/YYYY') : ''}`}
+                title={"Performance Sectorielle Annualisée"}
                 data={dataObject.perfSectoriel}
                 density="compact"
               />

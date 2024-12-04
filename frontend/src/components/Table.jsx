@@ -90,7 +90,7 @@ function Table({
         className={` my-5 default-table w-full ${className}`}
         columns={columns}
         rows={rows}
-        hideFooter = {true}
+        hideFooter={rows.length < 5 && !showFooter}
         disableRowSelectionOnClick
         localeText={dataGridLocale}
         getRowId={(row) => row.id}
@@ -115,6 +115,7 @@ function Table({
         }}
         onCellClick={shouldHandleCellClick ? handleCellClick : null}
         getRowHeight={() => (autoHeight ? "auto" : 0)}
+        pageSizeOptions={paginationOptions}
         initialState={{
           pagination: { paginationModel: { pageSize } },
         }}
