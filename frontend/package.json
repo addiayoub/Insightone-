@@ -38,6 +38,7 @@
     "notyf": "^3.10.0",
     "pdfjs-dist": "^2.12.313",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.10",
     "react-feather": "^2.0.10",

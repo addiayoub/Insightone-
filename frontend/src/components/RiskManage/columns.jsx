@@ -91,7 +91,7 @@ const varCvarDef = [
 export const varCvarColumns = createColumns(varCvarDef);
 
 const cols = [
-  { field: "type", headerName: "" },
+  { field: "type", headerName: "Type" },
   {
     field: "valeur",
     headerName: "Valeur",

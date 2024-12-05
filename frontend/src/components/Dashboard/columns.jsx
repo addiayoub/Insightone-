@@ -116,19 +116,76 @@ const PRINCIPAUX_VOLUMES_MC = [
     headerName: "Volume",
     flex: 1,
     renderCell: (params) => {
-      const val = params.row.VOLUME / 1e6;
-      return formatNumberWithSpaces(val.toFixed(2));
+      const val = params.row.VOLUME / 1e6; // Convert volume to millions
+      const formattedValue = formatNumberWithSpaces(val.toFixed(2)); // Format the value
+      const barWidth = Math.min((val / 100) * 100, 100); // Percentage of bar width capped at 100%
+  
+      return (
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", width: "60%" }}>
+          {/* Graphique en barres */}
+          <div style={{ flexGrow: 1, height: "10px", position: "relative", backgroundColor: "#ddd", borderRadius: "5px" }}>
+            <div
+              style={{
+                height: "100%",
+                width: `${barWidth}%`, // Adjust the width based on value
+                backgroundColor: val > 50 ? "green" : val > 20 ? "orange" : "red",
+                borderRadius: "5px",
+                transition: "width 0.3s ease", // Smooth transition
+              }}
+            >
+            </div>
+          </div> 
+            <span>{formattedValue}</span>
+        </div>
+      );
     },
-  },
+  }
+,  
   {
     field: "poids",
     headerName: "Poids",
     flex: 1,
     renderCell: (params) => {
-      const val = params.row.poids;
-      return val.toFixed(2) + "%";
+      const val = params.row.poids * 100; // Convert to percentage
+      const rotation = (val / 100) * 360; // Convert to degrees
+      return (
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          {/* Graphique circulaire */}
+          <div
+            style={{
+              position: "relative",
+              width: "35px",
+              height: "30px",
+              borderRadius: "50%",
+              background: "conic-gradient(green 0deg, green " + rotation + "deg, lightgray " + rotation + "deg)",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "20px",
+                color:"black",
+                height: "20px",
+                borderRadius: "50%",
+                backgroundColor: "white",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontSize: "10px",
+                fontWeight: "bold",
+              }}
+            >
+          <span>{val.toFixed(2)}%</span>
+          </div>
+          </div>
+        </div>
+      );
     },
-  },
+  }
+  
 ];
 const PRINCIPALES_VARIATIONS = [
   {
