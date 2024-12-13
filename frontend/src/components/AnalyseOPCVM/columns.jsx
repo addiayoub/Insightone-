@@ -253,7 +253,7 @@ const loeilExpertRating = (value) => {
       return 5;
     case "Bon":
       return 4;
-    case "Moyenne":
+    case "Moyen":
       return 3;
       case "Mauvais":
       return 2;

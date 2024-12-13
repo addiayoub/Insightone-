@@ -34,15 +34,26 @@ const RenderStarsWithRating = ({
       <RatingIconEmpty key={index} ratingIcon={ratingIcon} />
     );
   });
-
   return <div className={className}>{stars}</div>;
 };
 
 const getColorFromRating = (starIndex, rating) => {
-  const redValue = Math.max(0, 240 - (rating - starIndex) * 51);
-  const greenValue = Math.max(0, 51 * (rating - starIndex));
-  const blueValue = 0;
-  return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  // Déterminer si la note est excellente (4 ou 5 étoiles)
+  const isExcellentRating = rating >= 4;
+
+  if (isExcellentRating) {
+    // Pour les excellentes notes, on inverse les couleurs rouge et vert
+    const greenValue = Math.max(0, 240 - (rating - starIndex) * 51);
+    const redValue = Math.max(0, 51 * (rating - starIndex));
+    const blueValue = 0;
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  } else {
+    // Pour les notes moyennes ou basses, on garde la logique originale
+    const redValue = Math.max(0, 240 - (rating - starIndex) * 51);
+    const greenValue = Math.max(0, 51 * (rating - starIndex));
+    const blueValue = 0;
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  }
 };
 
 const defaultGetStarRating = (value) => {

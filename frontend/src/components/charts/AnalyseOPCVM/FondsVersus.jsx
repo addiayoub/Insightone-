@@ -404,13 +404,13 @@ const FondsVersus = ({ data }) => {
           </div>
           
           <div
-            className="absolute h-4 w-4 bg-blue-600 rounded-full left-1/2 -translate-x-1/2 -mb-2 cursor-pointer"
+            className="absolute h-2 w-8 bg-blue-600 rounded-full right-8 -translate-x-1/2  cursor-pointer"
             style={{ bottom: `${getPositionFromValue(encoursSlicer[0])}%` }}
             onMouseDown={handleMouseDown(0)}
           />
          
           <div
-            className="absolute h-4 w-4 bg-blue-600 rounded-full left-1/2 -translate-x-1/2 -mb-2 cursor-pointer"
+            className="absolute h-2 w-8 bg-blue-600 rounded-full right-9 -translate-x-1/2 -mb-2 cursor-pointer"
             style={{ bottom: `${getPositionFromValue(encoursSlicer[1])}%` }}
             onMouseDown={handleMouseDown(1)}
           />
