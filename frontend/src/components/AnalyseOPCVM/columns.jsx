@@ -121,20 +121,24 @@ export const barometreColumns = [
     renderCell: (params) => <strong>{params.row.marche}</strong>,
   },
   {
-    field: "",
+    field: "classement",
     headerName: "Classement",
     flex: 0.3,
     renderCell: (params) => {
-      const value = params.row.valeur;
-      const marche = params.row.marche;
+      const quantile = params.row.quintile; // Quantile (numérique attendu)
+      const marche = params.row.marche; // Libellé du marché
+
       return (
-        <div className="flex gap-3 ">
+        <div className="flex gap-3 items-center">
+          
+          {/* Affichage des étoiles ou icônes selon le quantile */}
           <RenderStarsWithRating
-            value={null}
-            ratingBy={marche}
+            value={quantile} // Passer le quantile directement
+            ratingBy={quantile}
             getStarRating={barometreRating}
             ratingIcon="square"
             color="var(--primary-color)"
+            invertColors={true}
           />
         </div>
       );
@@ -262,19 +266,8 @@ const loeilExpertRating = (value) => {
         return 1;
   }
 };
-const barometreRating = (value) => {
-  switch (value) {
-    case "Très haussier":
-      return 1;
-    case "Haussier":
-      return 1;
-    case "Neutre":
-      return 5;
-    case "Baissier":
-      return 4;
-    case "Très baissier":
-      return 5;
-    default:
-      return 1;
-  }
+// Fonction inchangée mais simple
+const barometreRating = (quantile) => {
+  // Retourne directement le quantile comme rating si c'est un nombre
+  return typeof quantile === "number" ? quantile : 0;
 };

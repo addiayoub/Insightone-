@@ -183,7 +183,7 @@ const FondsVersus = ({ data }) => {
     Math.max(...data.map(item => item.encours_OPC))
   ]);
   const [hiddenPoints, setHiddenPoints] = useState([]); 
-
+  const [pointSize, setPointSize] = useState(1);
   const sliderRef = useRef(null);
   const isDraggingRef = useRef(null);
   
@@ -287,16 +287,15 @@ const FondsVersus = ({ data }) => {
           period: 4,
         },
         symbolSize: function () {
-          return Math.sqrt(z) / 10e2;
+          return (Math.sqrt(z) / 10e2) * pointSize; // Modifié pour utiliser pointSize
         },
         data: [[x, y, name, z]],
         itemStyle: {
           color: colors[societeGes.indexOf(sg)],
         },
       })),
-    [formatedData, societeGes, colors]
+    [formatedData, societeGes, colors, pointSize] // Ajout de pointSize comme dépendance
   );
-
   const xValues = useMemo(() => filteredData.map((item) => item.vol_opc * 100), [
     filteredData,
   ]);
@@ -378,7 +377,7 @@ const FondsVersus = ({ data }) => {
   const handleRestore = () => {
     // Réinitialiser les points cachés
     setHiddenPoints([]);
-    
+    setPointSize(1);
     // Réinitialiser les limites du slider à ses valeurs initiales
     setEncoursSlicer([minValue, maxValue]);
   };
@@ -440,7 +439,21 @@ const FondsVersus = ({ data }) => {
           }}
           showSeriesSelector
         />
-        
+         <div className="mt-4 w-full">
+          <label className="block mb-2">Taille des points</label>
+          <input 
+            type="range" 
+            min="0.05" 
+            max="1" 
+            step="0.05" 
+            value={pointSize} 
+            onChange={(e) => setPointSize(parseFloat(e.target.value))}
+            className="w-full"
+          />
+          <div className="text-center mt-2">
+            Taille actuelle : {pointSize.toFixed(1)}
+          </div>
+        </div>
       </div>
     </div>
   );

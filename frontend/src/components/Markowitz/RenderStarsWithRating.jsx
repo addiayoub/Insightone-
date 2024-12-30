@@ -24,10 +24,11 @@ const RenderStarsWithRating = ({
   ratingIcon = "square",
   starsNumber = 5,
   className = "",
+  invertColors , // Nouvelle propriété
 }) => {
   const rating = getStarRating(ratingBy);
   const stars = Array.from({ length: starsNumber }, (_, index) => {
-    const color = getColorFromRating(index + 1, rating);
+    const color = getColorFromRating(index + 1, rating, invertColors);
     return index < rating ? (
       <RatingIconFilled key={index} ratingIcon={ratingIcon} color={color} />
     ) : (
@@ -37,9 +38,16 @@ const RenderStarsWithRating = ({
   return <div className={className}>{stars}</div>;
 };
 
-const getColorFromRating = (starIndex, rating) => {
-  // Déterminer si la note est excellente (4 ou 5 étoiles)
+const getColorFromRating = (starIndex, rating, invertColors = false) => {
   const isExcellentRating = rating >= 4;
+
+  if (invertColors) {
+    // Inverser la logique des couleurs
+    const redValue = Math.max(0, 51 * (rating - starIndex));
+    const greenValue = Math.max(0, 240 - (rating - starIndex) * 51);
+    const blueValue = 0;
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  }
 
   if (isExcellentRating) {
     // Pour les excellentes notes, on inverse les couleurs rouge et vert
