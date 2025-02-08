@@ -40707,7 +40707,7 @@
           "TICKER": "UMR",
           "SECTEUR_ACTIVITE": "AGROALIMENTAIRE & PRODUCTION",
           "S_CATEGORIE": "AGRO",
-          "ptf2": 0.09999999999999998,
+          "ptf2": 10.20,
           "min": 0,
           "max": 1
         },
@@ -40716,7 +40716,7 @@
           "TICKER": "AFM",
           "SECTEUR_ACTIVITE": "ASSURANCES",
           "S_CATEGORIE": "ASSU",
-          "ptf2": 0.09999999999999998,
+          "ptf2": 10.20,
           "min": 0,
           "max": 1
         },
@@ -40725,7 +40725,7 @@
           "TICKER": "MLE",
           "SECTEUR_ACTIVITE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
           "S_CATEGORIE": "SOFI",
-          "ptf2": 0.09999999999999995,
+          "ptf2": 10.20,
           "min": 0,
           "max": 1
         },
@@ -40734,7 +40734,7 @@
           "TICKER": "BOA",
           "SECTEUR_ACTIVITE": "BANQUES",
           "S_CATEGORIE": "BANQ",
-          "ptf2": 0.08277780639426612,
+          "ptf2": 8.44,
           "min": 0,
           "max": 1
         },
@@ -40743,7 +40743,7 @@
           "TICKER": "CDM",
           "SECTEUR_ACTIVITE": "BANQUES",
           "S_CATEGORIE": "BANQ",
-          "ptf2": 0.08090417680203163,
+          "ptf2": 8.25,
           "min": 0,
           "max": 1
         },
@@ -40752,7 +40752,7 @@
           "TICKER": "S2M",
           "SECTEUR_ACTIVITE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
           "S_CATEGORIE": 0,
-          "ptf2": 0.05895772451803219,
+          "ptf2": 6.01,
           "min": 0,
           "max": 1
         },
@@ -40761,7 +40761,7 @@
           "TICKER": "SLF",
           "SECTEUR_ACTIVITE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
           "S_CATEGORIE": "SOFI",
-          "ptf2": 0.05891069961160743,
+          "ptf2": 6.01,
           "min": 0,
           "max": 1
         },
@@ -40770,7 +40770,7 @@
           "TICKER": "LES",
           "SECTEUR_ACTIVITE": "AGROALIMENTAIRE & PRODUCTION",
           "S_CATEGORIE": "AGRO",
-          "ptf2": 0.05332694895708684,
+          "ptf2": 5.44,
           "min": 0,
           "max": 1
         },
@@ -40779,7 +40779,7 @@
           "TICKER": "IAM",
           "SECTEUR_ACTIVITE": "TELECOMMUNICATIONS",
           "S_CATEGORIE": "TELE",
-          "ptf2": 0.05176751332193209,
+          "ptf2": 5.28,
           "min": 0,
           "max": 1
         },
@@ -40788,7 +40788,7 @@
           "TICKER": "LBV",
           "SECTEUR_ACTIVITE": "DISTRIBUTEURS",
           "S_CATEGORIE": "DIST",
-          "ptf2": 0.04619860025167307,
+          "ptf2": 4.71,
           "min": 0,
           "max": 1
         },
@@ -40797,7 +40797,7 @@
           "TICKER": "ATL",
           "SECTEUR_ACTIVITE": "ASSURANCES",
           "S_CATEGORIE": "ASSU",
-          "ptf2": 0.041546827358608575,
+          "ptf2": 4.23,
           "min": 0,
           "max": 1
         },
@@ -40806,7 +40806,7 @@
           "TICKER": "DWY",
           "SECTEUR_ACTIVITE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
           "S_CATEGORIE": 0,
-          "ptf2": 0.03700144643021834,
+          "ptf2": 3.77,
           "min": 0,
           "max": 1
         },
@@ -40815,7 +40815,7 @@
           "TICKER": "SOT",
           "SECTEUR_ACTIVITE": "INDUSTRIE PHARMACEUTIQUE",
           "S_CATEGORIE": "INDU",
-          "ptf2": 0.03346191548674684,
+          "ptf2": 3.41,
           "min": 0,
           "max": 1
         },
@@ -40824,7 +40824,7 @@
           "TICKER": "CIH",
           "SECTEUR_ACTIVITE": "BANQUES",
           "S_CATEGORIE": "BANQ",
-          "ptf2": 0.026650132081762576,
+          "ptf2": 2.72,
           "min": 0,
           "max": 1
         },
@@ -40833,7 +40833,7 @@
           "TICKER": "GAZ",
           "SECTEUR_ACTIVITE": "PETROLE & GAZ",
           "S_CATEGORIE": "PETR",
-          "ptf2": 0.01951930483109061,
+          "ptf2": 1.99,
           "min": 0,
           "max": 1
         },
@@ -40842,7 +40842,7 @@
           "TICKER": "TQM",
           "SECTEUR_ACTIVITE": "ELECTRICITE",
           "S_CATEGORIE": "ELEC",
-          "ptf2": 0.019108443404221877,
+          "ptf2": 1.95,
           "min": 0,
           "max": 1
         },
@@ -40851,7 +40851,7 @@
           "TICKER": "ATW",
           "SECTEUR_ACTIVITE": "BANQUES",
           "S_CATEGORIE": "BANQ",
-          "ptf2": 0.018564303973583333,
+          "ptf2": 1.89,
           "min": 0,
           "max": 1
         },
@@ -40860,7 +40860,7 @@
           "TICKER": "EQD",
           "SECTEUR_ACTIVITE": "SOCIETE DE FINANCEMENT & AUTRES ACTIVITES FINANCIERES",
           "S_CATEGORIE": "SOFI",
-          "ptf2": 0.014250817517543984,
+          "ptf2": 1.45,
           "min": 0,
           "max": 1
         },
@@ -40869,7 +40869,7 @@
           "TICKER": "CMA",
           "SECTEUR_ACTIVITE": "BATIMENT & MATERIAUX DE CONSTRUCTION",
           "S_CATEGORIE": "BATI",
-          "ptf2": 0.0139437639377608,
+          "ptf2": 1.42,
           "min": 0,
           "max": 1
         },
@@ -40878,7 +40878,7 @@
           "TICKER": "SMI",
           "SECTEUR_ACTIVITE": "MINES",
           "S_CATEGORIE": "MINE",
-          "ptf2": 0.013192001346901351,
+          "ptf2": 1.34,
           "min": 0,
           "max": 1
         },
@@ -40887,11 +40887,12 @@
           "TICKER": "MIC",
           "SECTEUR_ACTIVITE": "MATERIELS,LOGICIELS & SERVICES INFORMATIQUES",
           "S_CATEGORIE": 0,
-          "ptf2": 0.010735463166713274,
+          "ptf2": 1.09,
           "min": 0,
           "max": 1
         }
-      ],
+      ]
+    ,
       "params": {
         "dateDebut": "25/12/2015",
         "dateFin": "27/03/2024"

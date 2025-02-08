@@ -228,71 +228,50 @@ const ajuster = (newRows, setNewRows, field, oldRows) => {
   const locked = newRows.filter((item) => item.isLocked);
   const sumLocked = calculateSumPoids(locked, field);
   let oldSum = calculateSumPoids(oldRows, field);
-  // oldSum = oldSum === 0 ? 100 : oldSum;
   let newSum = calculateSumPoids(newRows, field);
   const unLocked = newRows.filter((item) => !item.isLocked);
   const sumUnlocked = calculateSumPoids(unLocked, field);
   const unLockedTitres = unLocked.map((item) => item.titre);
-  console.log("====================");
-  console.log("\x1b[1m\x1b[34m%s\x1b[0m", "CALLAJUSTER");
-  console.log("locked", locked);
-  console.log("sumLocked", sumLocked);
-  console.log("oldSum", oldSum);
-  console.log("newSum", newSum);
-  console.log("unLocked", unLocked);
-  console.log("sumUnlocked", sumUnlocked);
-  console.log("unLockedTitres", unLockedTitres);
-  console.log("newRows =>", newRows);
-  console.log("====================");
 
   setNewRows((prevData) =>
     prevData.map((item) => {
+      // Si aucun élément n'est verrouillé
       if (sumLocked === 0) {
-        const reliquat = oldSum - newSum;
-        console.log("reliquat", reliquat);
-        const diff = dataDiff(oldRows, newRows, field);
-        const count = countNonZero(diff, field);
-        const value = isNaN(reliquat / count) ? 0 : reliquat / count;
-        if (unLockedTitres.includes(item.titre) && reliquat >= 0) {
-          let newPoids = item[field] > 0 ? item[field] + value : item[field];
-          // FRESH PTF
-          if (oldSum === 0) {
-            const count = unLockedTitres.length;
-            newPoids = 100 / count;
-          } else {
-            console.log("oldSum!==0", oldSum);
-            console.log("newSum", newSum);
-            newPoids =
-              isNaN(newPoids) || newPoids < 0 ? 0 : (newPoids * 100) / oldSum;
-            newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
-            console.log("newPoids AFTER", newPoids);
-          }
-
-          return { ...item, [field]: newPoids };
-        }
-
-        return { ...item };
-      } else {
-        oldSum = oldSum === 0 ? 100 : oldSum;
-        const reliquat = oldSum - sumLocked;
-        console.log("sumLocked === 0", oldSum, reliquat);
         if (unLockedTitres.includes(item.titre)) {
-          if (item[field] == 0) {
-            let newPoids = reliquat / unLockedTitres.length;
-            newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
-            return { ...item, [field]: newPoids };
+          if (oldSum === 0) {
+            // Cas d'un nouveau portfolio
+            const count = unLockedTitres.length;
+            return { ...item, [field]: 100 / count };
           } else {
-            let newPoids = (item[field] * reliquat) / sumUnlocked;
-            newPoids = isNaN(newPoids) || newPoids < 0 ? 0 : newPoids;
-            // newPoids = isNaN(newPoids) ? 0 : newPoids;
+            // Normalisation des valeurs non nulles
+            let newPoids = item[field];
+            if (newPoids > 0) {
+              // Normaliser par rapport à la somme actuelle
+              newPoids = (newPoids * 100) / newSum;
+            }
             return { ...item, [field]: newPoids };
           }
         }
-        return { ...item };
+      } else {
+        // Si des éléments sont verrouillés
+        if (unLockedTitres.includes(item.titre)) {
+          const reliquat = 100 - sumLocked;
+          if (item[field] === 0) {
+            // Distribution égale du reliquat pour les valeurs nulles
+            const newPoids = reliquat / unLockedTitres.length;
+            return { ...item, [field]: Math.max(0, newPoids) };
+          } else {
+            // Distribution proportionnelle du reliquat pour les valeurs non nulles
+            const newPoids = (item[field] * reliquat) / sumUnlocked;
+            return { ...item, [field]: Math.max(0, newPoids) };
+          }
+        }
       }
+      return item;
     })
   );
 };
+
 
 const calculateEachSecteurSum = (data, field, sumOf = "SECTEUR_ACTIVITE") => {
   return data.reduce((acc, row) => {
