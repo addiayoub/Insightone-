@@ -13,6 +13,7 @@ import Login from "../pages/Login/index.jsx";
 import Dashboard from "../components/Dashboard/";
 import AnalyseChartiste from "../components/analyse/index.jsx";
 import ProfileFin from "../components/ProfileFin/";
+import AnalysePM from "../components/A-P-M/";
 import Users from "../pages/users/";
 import Stats from "../pages/stats/";
 import AnalyseSectorial from "../components/AnalyseSectorial/";
@@ -62,6 +63,8 @@ function RouterProvider() {
             <Route path="/analyse-chartiste" element={<AnalyseChartiste />} />
             <Route path="/analyse-sectorielle" element={<AnalyseSectorial />} />
             <Route path="/profil-financier" element={<ProfileFin />} />
+            <Route path="/Analyse-Prédictive-ML" element={<AnalysePM />} />
+
 
             {/* CREATION DE PTF */}
             <Route path="/markowitz" element={<Markowitz />} />

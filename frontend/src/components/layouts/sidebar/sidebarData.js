@@ -118,6 +118,11 @@ export const sidebarData = [
             link: "profil-financier",
             icon: BarChart2,
           },
+          {
+            title: "Analyse Prédictive ML",
+            link: "Analyse-Prédictive-ML",
+            icon: BarChart2,
+          },
         ],
       },
       {
