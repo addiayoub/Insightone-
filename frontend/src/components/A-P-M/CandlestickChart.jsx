@@ -76,6 +76,15 @@ const CandlestickChart = ({ data }) => {
         color0: '#14b143',
         borderColor: '#ef232a',
         borderColor0: '#14b143'
+      },
+      markPoint: {
+        data: [
+          { type: 'max', name: 'Max' },
+          { type: 'min', name: 'Min' }
+        ],
+        label: {
+          color: textColor
+        }
       }
     }];
     

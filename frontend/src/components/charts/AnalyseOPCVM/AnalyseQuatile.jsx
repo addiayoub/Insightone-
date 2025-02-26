@@ -1,4 +1,3 @@
-// AnalyseQuartile.jsx
 import React, { memo, useMemo, useRef, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
 import moment from "moment";
@@ -236,7 +235,7 @@ const AnalyseQuartile = ({
       })),
       ...rest,
     };
-  }, [series, data, options, allValues, theme, myFullscreen, myExportToExcel]);
+  }, [data, options, theme, myFullscreen, myExportToExcel]);
 
   useEffect(() => {
     const chartInstance = chart.current?.getEchartsInstance();
@@ -264,7 +263,7 @@ const AnalyseQuartile = ({
       };
       
       const newSeriesData = series.map(serie => {
-        const serieData = data.map((item, index) => {
+        const serieData = data.map((item) => {
           const baseValue = refValues[serie.data];
           if (baseValue == null || !item[serie.data]) return null;
           return (item[serie.data] / baseValue) * 100;
@@ -346,10 +345,36 @@ const AnalyseQuartile = ({
     // Listen for all zoom events
     chartInstance.on("datazoom", handleZoom);
     
+    // Solution pour le problème de dataZoom toolbox
+    // Écouter les événements spécifiques du toolbox
+    const handleToolboxAction = () => {
+      // Récupérer l'état actuel du zoom après l'action toolbox
+      const option = chartInstance.getOption();
+      if (option && option.dataZoom && option.dataZoom.length > 0) {
+        const zoomState = option.dataZoom[0];
+        if (typeof zoomState.start === 'number') {
+          const newStartIndex = Math.floor((zoomState.start * data.length) / 100);
+          if (newStartIndex >= 0 && newStartIndex < data.length) {
+            updateChartData(newStartIndex);
+          }
+        }
+      }
+    };
+    
+    // Écouter l'événement de restauration (reset)
+    chartInstance.on("restore", () => {
+      updateChartData(0);
+    });
+    
+    // Écouter l'événement dataZoom du toolbox
+    chartInstance.on("dataZoom", handleToolboxAction);
+
     return () => {
       chartInstance.off("datazoom", handleZoom);
+      chartInstance.off("restore");
+      chartInstance.off("dataZoom", handleToolboxAction);
     };
-  }, [data]);
+  }, [data, theme]); // Ajout de theme comme dépendance
 
   if (!data || data.length === 0) {
     return <Box className="relative">No data available</Box>;
@@ -360,7 +385,7 @@ const AnalyseQuartile = ({
       {showSeriesSelector && <SeriesSelector />}
       <ReactECharts
         option={computedOptions}
-        key={JSON.stringify(computedOptions)}
+        key={`${JSON.stringify(computedOptions)}-${theme ? JSON.stringify(Object.keys(theme)) : ''}`}
         style={{
           minHeight: 500,
           ...style,
@@ -372,5 +397,3 @@ const AnalyseQuartile = ({
 };
 
 export default memo(AnalyseQuartile);
-
-//stop 2

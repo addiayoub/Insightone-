@@ -94,7 +94,7 @@ const handleResume = (data, days) => {
       const resume = based.map(({ type, valeur }) => ({
         type,
         valeur: parseFloat(valeur.toFixed(2)),
-        rendement: parseFloat((valeur / last_value - 1).toFixed(2)),
+        rendement: parseFloat((valeur / last_value - 1).toFixed(4)),
         date: moment(seance).format("DD/MM/YYYY"),
         days,
       }));

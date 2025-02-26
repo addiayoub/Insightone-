@@ -97,7 +97,7 @@ const VolumeAnalysis = ({ data }) => {
           return `
             <div style="margin-bottom: 10px; color: ${textColor}">
               <strong>Date: ${params[0].axisValue}</strong><br/>
-              <span>Volume: ${params[0].data.toLocaleString()}</span>
+              <span>Volume: ${(params[0].data / 1000000).toLocaleString()} millions</span>
             </div>
           `;
         }
@@ -140,15 +140,10 @@ const VolumeAnalysis = ({ data }) => {
         axisLabel: {
           color: textColor,
           formatter: (value) => {
-            if (value >= 1000000) {
-              return (value / 1000000).toFixed(0) + '00000000';
-            } else if (value >= 1000) {
-              return (value / 1000).toFixed(0) + '0000000';
-            }
-            return value;
+            return (value / 1000000).toFixed(2) + ' M';
           }
         },
-        name: 'Volume',
+        name: 'Volume (millions)',
         nameLocation: 'middle',
         nameGap: 50,
         nameTextStyle: {
@@ -223,14 +218,14 @@ const VolumeAnalysis = ({ data }) => {
               const headers = `
                 <tr>
                   <th style="padding: 8px; font-size: 14px; text-align: center; border: 2px solid ${borderColor}; background-color: ${headerBgColor};">Date</th>
-                  <th style="padding: 8px; font-size: 14px; text-align: center; border: 2px solid ${borderColor}; background-color: ${headerBgColor};">Volume</th>
+                  <th style="padding: 8px; font-size: 14px; text-align: center; border: 2px solid ${borderColor}; background-color: ${headerBgColor};">Volume (millions)</th>
                 </tr>
               `;
 
               const rows = allData.map((item) => `
                 <tr>
                   <td style="padding: 6px; text-align: center; border: 1px solid ${borderColor};">${item.Date}</td>
-                  <td style="padding: 6px; text-align: center; border: 1px solid ${borderColor};">${item.Volume.toFixed(2)}</td>
+                  <td style="padding: 6px; text-align: center; border: 1px solid ${borderColor};">${(item.Volume / 1000000).toFixed(2)}</td>
                 </tr>
               `).join('');
 

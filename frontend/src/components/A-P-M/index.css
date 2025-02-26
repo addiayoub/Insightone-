@@ -1,0 +1,15 @@
+#butbacktest{
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color:#2564eb9a;
+    transition:  0.3s ease-in-out ;
+    padding:10px 50px;
+    border-radius: 50px;
+}
+#butbacktest:hover{
+    background-color: #2563EB;
+    cursor: pointer;
+    transform: scale(1.1);
+}

@@ -169,6 +169,30 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
     serieafficher.map(s => s.name)
   );
 
+  // Configuration du dataZoom améliorée (comme dans AnalyseQuartile)
+  const enhancedZoom = [
+    {
+      type: "slider",
+      show: true,
+      xAxisIndex: [0],
+      start: 0,
+      end: 100,
+      textStyle: {
+        fontSize: 11,
+      },
+      realtime: true,
+      showDataShadow: false
+    },
+    {
+      type: "inside",
+      xAxisIndex: [0],
+      start: 0,
+      end: 100,
+      realtime: true,
+      showDataShadow: false
+    }
+  ];
+
   const options = useMemo(() => ({
     title: {
       text: "",
@@ -302,93 +326,152 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
       },
       top: "20px",
     },
-    dataZoom: zoom,
+    dataZoom: enhancedZoom, // Utilisation de la configuration améliorée
     series: seriesData,
   }), [data, allValues, seriesData, selectedLegend, theme]);
+
   useEffect(() => {
-    const chartInstance = chart.current.getEchartsInstance();
-  
-    let refAjustB100 = 1;
-    let refOpcB100 = 1;
-    let startDate = null;
-    let newSeriesData = [];
-  
-    chartInstance.on("datazoom", (params) => {
-      if (data && data.length > 0) {
-        const { start } = params;
-        const startIndex = Math.floor((start * data.length) / 100);
-  
-        const firstZoomedData = data[startIndex];
-        if (firstZoomedData) {
-          refAjustB100 = firstZoomedData.ajust_b100 || 1;
-          refOpcB100 = firstZoomedData.opc_b100 || 1;
-          startDate = moment(firstZoomedData.Date_VL).format("DD/MM/YYYY");
-  
-          // Calculer les nouvelles séries en base 100
-          newSeriesData = seriesData.map(series => {
-            if (series.name === data[0]["DENOMINATION_OPCVM"]) {
-              return {
-                ...series,
-                data: data.map(item => ((item.opc_b100 / refOpcB100) * 100))
-              };
-            }
-            if (series.name === data[0]["Nom_Benchmark"]) {
-              return {
-                ...series,
-                data: data.map(item => ((item.ajust_b100 / refAjustB100) * 100))
-              };
-            }
-            return series; // Retourner les autres séries inchangées (quantiles)
-          });
-  
-          // Mettre à jour le graphique avec les nouvelles données
-          chartInstance.setOption({
-            series: newSeriesData,
-            tooltip: {
-              trigger: 'axis',
-              formatter: (params) => {
-                const { dataIndex } = params[0];
-                const currentData = data[dataIndex];
-                const isStartDate = moment(currentData.Date_VL).format("DD/MM/YYYY") === startDate;
-  
-                const header = `
-                  <div>
-                    <strong>Date de début:</strong> ${startDate}<br/>
-                    <strong>Date actuelle:</strong> ${moment(currentData.Date_VL).format("DD/MM/YYYY")}<br/>
+    const chartInstance = chart.current?.getEchartsInstance();
+    if (!chartInstance || !data || data.length === 0) return;
+    
+    let startIndex = 0;
+    
+    const updateChartData = (startIdx) => {
+      if (!data || !Array.isArray(data) || startIdx < 0 || startIdx >= data.length) {
+        console.warn('Invalid data or start index in updateChartData');
+        return;
+      }
+      
+      const referenceData = data[startIdx];
+      
+      if (!referenceData || typeof referenceData !== 'object') {
+        console.warn('Invalid reference data at index:', startIdx);
+        return;
+      }
+      
+      // Valeurs de référence pour les séries principales
+      const refOpcB100 = referenceData.opc_b100 || 1;
+      const refBencB100 = referenceData.benc_b100 || 1;
+      const startDate = moment(referenceData.Date_VL).format("DD/MM/YYYY");
+      
+      // Mettre à jour les séries principales pour base 100 à partir du point de zoom
+      const newSeriesData = seriesData.map(series => {
+        // Ne mettre à jour que les séries principales, pas les quantiles
+        if (series.name === data[0]["DENOMINATION_OPCVM"]) {
+          return {
+            ...series,
+            data: data.map(item => ((item.opc_b100 / refOpcB100) * 100))
+          };
+        }
+        if (series.name === data[0]["Nom_Benchmark"]) {
+          return {
+            ...series,
+            data: data.map(item => ((item.benc_b100 / refBencB100) * 100))
+          };
+        }
+        return series; // Retourner les autres séries inchangées (quantiles)
+      });
+      
+      // Mettre à jour le graphique avec les nouvelles données
+      chartInstance.setOption({
+        series: newSeriesData,
+        tooltip: {
+          formatter: (params) => {
+            if (!params || !Array.isArray(params) || params.length === 0) return '';
+            
+            const { dataIndex } = params[0];
+            const currentData = data[dataIndex];
+            if (!currentData) return '';
+            
+            const currentDate = moment(currentData.Date_VL).format("DD/MM/YYYY");
+            const isStartDate = currentDate === startDate;
+            
+            const dateSection = `
+              <div style="margin-bottom: 10px;">
+                <div style="font-weight: bold;">Date de début: ${startDate}</div>
+                <div style="font-weight: bold;">Date actuelle: ${currentDate}</div>
+              </div>
+            `;
+            
+            const itemsSection = params
+              .filter(param => {
+                // Ne montrer que les séries principales dans le tooltip
+                return param.seriesName === data[0]["DENOMINATION_OPCVM"] || 
+                       param.seriesName === data[0]["Nom_Benchmark"];
+              })
+              .map(param => {
+                const baseValue = isStartDate ? "100.00" : param.value?.toFixed(2) || '-';
+                return `
+                  <div style="display: flex; align-items: center; margin-bottom: 2px;">
+                    <span style="display: inline-block; width: 10px; height: 10px; background-color: ${param.color}; margin-right: 8px; border-radius: 50%;"></span>
+                    <span style="flex: 1;">${param.seriesName}</span>
+                    <span style="font-weight: bold; margin-left: 12px;">${baseValue}</span>
                   </div>
                 `;
-  
-                const content = params
-                  .map((item) => {
-                    if (item.seriesName === data[0]["DENOMINATION_OPCVM"] || item.seriesName === data[0]["Nom_Benchmark"]) {
-                      const baseValue = isStartDate ? "100.00" : item.value.toFixed(2);
-  
-                      return `
-                        <div style="display: flex; align-items: center; margin-bottom: 2px;">
-                          <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
-                          <span style="flex: 1;">${item.seriesName}</span>
-                          <span style="font-weight: bold;  margin-left: 12px;">${baseValue}</span>
-                        </div>
-                      `;
-                    }
-                    return '';
-                  })
-                  .filter(content => content !== '')
-                  .join("");
-  
-                return header + content;
-              }
-            }
-          });
+              })
+              .join("");
+            
+            return dateSection + itemsSection;
+          }
+        }
+      });
+    };
+    
+    // Initialisation avec toutes les données
+    updateChartData(0);
+    
+    // Gestionnaire unifié pour tous les événements de zoom
+    const handleZoom = (params) => {
+      if (!params || typeof params !== 'object') return;
+      
+      // Traitement pour zoom par lot (batch)
+      if (params.batch) {
+        const zoomInfo = params.batch[0];
+        if (typeof zoomInfo?.start === 'number') {
+          startIndex = Math.floor((zoomInfo.start * data.length) / 100);
+          updateChartData(startIndex);
+        }
+        return;
+      }
+      
+      // Traitement pour zoom simple
+      if (typeof params.start === 'number') {
+        startIndex = Math.floor((params.start * data.length) / 100);
+        updateChartData(startIndex);
+      }
+    };
+    
+    // Écouter les événements de zoom
+    chartInstance.on("datazoom", handleZoom);
+    
+    // Gestion des actions toolbox
+    const handleToolboxAction = () => {
+      const option = chartInstance.getOption();
+      if (option && option.dataZoom && option.dataZoom.length > 0) {
+        const zoomState = option.dataZoom[0];
+        if (typeof zoomState.start === 'number') {
+          const newStartIndex = Math.floor((zoomState.start * data.length) / 100);
+          if (newStartIndex >= 0 && newStartIndex < data.length) {
+            updateChartData(newStartIndex);
+          }
         }
       }
-    });
-  
-    return () => {
-      chartInstance.off("datazoom");
     };
-  }, [data, options.tooltip]);
-
+    
+    // Écouter l'événement de restauration (reset)
+    chartInstance.on("restore", () => {
+      updateChartData(0);
+    });
+    
+    // Écouter l'événement dataZoom du toolbox
+    chartInstance.on("dataZoom", handleToolboxAction);
+    
+    return () => {
+      chartInstance.off("datazoom", handleZoom);
+      chartInstance.off("restore");
+      chartInstance.off("dataZoom", handleToolboxAction);
+    };
+  }, [data, seriesData]); // Ajout de seriesData comme dépendance
 
   return (
     <Box className="relative">
@@ -407,4 +490,3 @@ const PreQuantile = ({ data, style, showSeriesSelector, saveToExcel = initSaveTo
 };
 
 export default memo(PreQuantile);
-/////////
