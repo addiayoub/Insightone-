@@ -232,6 +232,18 @@ const AnalyseQuartile = ({
         type: "line",
         data: (data || []).map((item) => item[serie.data]),
         symbol: "none",
+        markPoint: {
+          symbolSize: 1,
+          data: []
+        },
+        markLine: {
+          silent: true,
+          lineStyle: {
+            type: 'dashed',
+            width: 1,
+          },
+          data: []
+        }
       })),
       ...rest,
     };
@@ -242,6 +254,7 @@ const AnalyseQuartile = ({
     if (!chartInstance || !data || data.length === 0) return;
     
     let startIndex = 0;
+    let endIndex = data.length - 1;
     
     const updateChartData = (startIdx) => {
       if (!data || !Array.isArray(data) || startIdx < 0 || startIdx >= data.length) {
@@ -268,14 +281,91 @@ const AnalyseQuartile = ({
           if (baseValue == null || !item[serie.data]) return null;
           return (item[serie.data] / baseValue) * 100;
         });
-
+        
+        // Calcul de la performance
+        const startValue = serieData[startIndex] || 100;
+        const endValue = serieData[endIndex] || 100;
+        const performance = ((endValue / 100) - 1) * 100;
+        
         return {
           name: serie.name === "ajust_b100"
             ? "Perf ajustée de la classe"
             : (data[0]?.[serie.name] || serie.name),
           type: "line",
           data: serieData,
-          symbol: "none"
+          symbol: "none",
+          markPoint: {
+            symbolSize: 6,
+            label: {
+              show: true,
+              position: 'top',
+              formatter: (params) => {
+                if (params.dataIndex === startIndex) {
+                  return '100%';
+                } else if (params.dataIndex === endIndex) {
+                  return `${endValue.toFixed(2)}%\n(${performance >= 0 ? '+' : ''}${performance.toFixed(2)}%)`;
+                }
+                return '';
+              },
+              backgroundColor: 'rgba(255,255,255,0.8)',
+              padding: [4, 8],
+              borderRadius: 4,
+            },
+            data: [
+              { name: 'Start', xAxis: startIndex, yAxis: serieData[startIndex], itemStyle: { color: serie.name === "ajust_b100" ? '#ff0000' : '#a6a6a6' } },
+              { name: 'End', xAxis: endIndex, yAxis: serieData[endIndex], itemStyle: { color: serie.name === "ajust_b100" ? '#ff0000' : '#a6a6a6' } },
+            ],
+          },
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            lineStyle: {
+              color: serie.name === "ajust_b100" ? 'blue' : 
+                    serie.name === "DENOMINATION_OPCVM" || data[0]?.[serie.name] === "DENOMINATION_OPCVM" ? 'green' : 'yellow',
+              type: 'dashed', // Ligne pointillée comme demandé
+              width: 1.5,
+              opacity: 0.8,
+            },
+            label: {
+              show: true,
+              formatter: (params) => {
+                if (params.dataIndex === 0) {
+                  return '100%';
+                } else {
+                  return `${endValue.toFixed(2)}%\n(${performance >= 0 ? '+' : ''}${performance.toFixed(2)}%)`;
+                }
+              },
+              position: 'insideEndTop'
+            },
+            data: [
+              [{
+                name: 'Start',
+                xAxis: startIndex,
+                yAxis: serieData[startIndex],
+                label: {
+                  show: true,
+                  position: 'start',
+                  formatter: '100%',
+                  backgroundColor: 'rgba(255,255,255,0.8)',
+                  padding: [4, 8],
+                  borderRadius: 4
+                }
+              }, 
+              {
+                name: 'End',
+                xAxis: endIndex,
+                yAxis: serieData[endIndex],
+                label: {
+                  show: true,
+                  position: 'end',
+                  formatter: `${endValue.toFixed(2)}%\n(${performance >= 0 ? '+' : ''}${performance.toFixed(2)}%)`,
+                  backgroundColor: 'rgba(255,255,255,0.8)',
+                  padding: [4, 8],
+                  borderRadius: 4
+                }
+              }]
+            ]
+          }
         };
       });
       
@@ -291,11 +381,18 @@ const AnalyseQuartile = ({
             const startDate = moment(data[startIdx]?.Date_VL).format("DD/MM/YYYY");
             const currentDate = moment(currentData.Date_VL).format("DD/MM/YYYY");
             
-            const items = params.map(param => ({
-              seriesName: param.seriesName,
-              value: param.value?.toFixed(2) || '-',
-              color: param.color
-            }));
+            const items = params.map(param => {
+              const currentVal = param.value;
+              const startVal = 100; // Base value is always 100
+              const performance = ((currentVal / 100) - 1) * 100;
+              
+              return {
+                seriesName: param.seriesName,
+                value: currentVal?.toFixed(2) || '-',
+                performance: performance.toFixed(2),
+                color: param.color
+              };
+            });
 
             const dateSection = `
               <div style="margin-bottom: 10px;">
@@ -308,7 +405,7 @@ const AnalyseQuartile = ({
               <div style="display: flex; align-items: center; margin-bottom: 2px;">
                 <span style="display: inline-block; width: 10px; height: 10px; background-color: ${item.color}; margin-right: 8px; border-radius: 50%;"></span>
                 <span style="flex: 1;">${item.seriesName}</span>
-                <span style="font-weight: bold; margin-left: 12px;">${item.value}</span>
+                <span style="font-weight: bold; margin-left: 12px;">${item.value}% (${item.performance >= 0 ? '+' : ''}${item.performance}%)</span>
               </div>
             `).join("");
 
@@ -322,8 +419,11 @@ const AnalyseQuartile = ({
     const handleZoom = (params) => {
       if (!params || !params.batch) {
         // Handle non-batch zoom events
-        if (typeof params?.start === 'number') {
+        if (typeof params?.start === 'number' && typeof params?.end === 'number') {
           startIndex = Math.floor((params.start * data.length) / 100);
+          endIndex = Math.floor((params.end * data.length) / 100) - 1;
+          if (endIndex >= data.length) endIndex = data.length - 1;
+          if (endIndex < 0) endIndex = 0;
           updateChartData(startIndex);
         }
         return;
@@ -331,14 +431,18 @@ const AnalyseQuartile = ({
 
       // Handle batch zoom events
       const zoomInfo = params.batch[0];
-      if (typeof zoomInfo?.start === 'number') {
+      if (typeof zoomInfo?.start === 'number' && typeof zoomInfo?.end === 'number') {
         startIndex = Math.floor((zoomInfo.start * data.length) / 100);
+        endIndex = Math.floor((zoomInfo.end * data.length) / 100) - 1;
+        if (endIndex >= data.length) endIndex = data.length - 1;
+        if (endIndex < 0) endIndex = 0;
         updateChartData(startIndex);
       }
     };
 
     // Initialize chart
     if (data.length > 0) {
+      endIndex = data.length - 1;
       updateChartData(0);
     }
 
@@ -352,10 +456,14 @@ const AnalyseQuartile = ({
       const option = chartInstance.getOption();
       if (option && option.dataZoom && option.dataZoom.length > 0) {
         const zoomState = option.dataZoom[0];
-        if (typeof zoomState.start === 'number') {
+        if (typeof zoomState.start === 'number' && typeof zoomState.end === 'number') {
           const newStartIndex = Math.floor((zoomState.start * data.length) / 100);
+          const newEndIndex = Math.floor((zoomState.end * data.length) / 100) - 1;
+          
           if (newStartIndex >= 0 && newStartIndex < data.length) {
-            updateChartData(newStartIndex);
+            startIndex = newStartIndex;
+            endIndex = newEndIndex >= data.length ? data.length - 1 : (newEndIndex < 0 ? 0 : newEndIndex);
+            updateChartData(startIndex);
           }
         }
       }
@@ -363,6 +471,8 @@ const AnalyseQuartile = ({
     
     // Écouter l'événement de restauration (reset)
     chartInstance.on("restore", () => {
+      startIndex = 0;
+      endIndex = data.length - 1;
       updateChartData(0);
     });
     
