@@ -63,28 +63,28 @@ export const getMarketData = createAsyncThunk(
   async ({ date }, thunkAPI) => {
     try {
       date = formatDate(date["$d"]);
-      const perfMarche = await getAPI.get(`GETAPI?Perf_Indice&${date}`);
-      const volMarche = await getAPI.get(`GETAPI?Perf_volume&${date}`);
-      const princContrib = await getAPI.get(`GETAPI?Perf_contrib&${date}`);
-      const princVolumeMB = await getAPI.get(`GETAPI?Perf_volumes_MB&${date}`);
-      const princVolumeMC = await getAPI.get(`GETAPI?Perf_volumes_MC&${date}`);
-      const evolMasi = await getAPI.get(`GETAPI?Evol_masi&${date}`);
-      const volumeEchan = await getAPI.get(`GETAPI?Volume_echange&${date}`);
+      const perfMarche = await getAPI.get(`Perf_Indice?par1=${date}`);
+      const volMarche = await getAPI.get(`Perf_volume?par1=${date}`);
+      const princContrib = await getAPI.get(`Perf_contrib?par1=${date}`);
+      const princVolumeMB = await getAPI.get(`Perf_volumes_MB?par1=${date}`);
+      const princVolumeMC = await getAPI.get(`Perf_volumes_MC?par1=${date}`);
+      const evolMasi = await getAPI.get(`Evol_masi?par1=${date}`);
+      const volumeEchan = await getAPI.get(`Volume_echange?par1=${date}`);
       const PlusHaussesBaissesVolume = await getAPI.get(
-        `GETAPI?Plus_hausses_baisses_volume&${date}`
+        `Plus_hausses_baisses_volume?par1=${date}`
       );
-      const staticSociete = await getAPI.get(`GETAPI?Static_societe&${date}`);
-      const staticSociete2 = await getAPI.get(`GETAPI?static_societe2&${date}`);
+      const staticSociete = await getAPI.get(`Static_societe?par1=${date}`);
+      const staticSociete2 = await getAPI.get(`static_societe2?par1=${date}`);
       const perfMasiVolume = await getAPI.get(
-        `GETAPI?Perf_masi_volume&${date}`
+        `Perf_masi_volume?par1=${date}`
       );
-      const titreEchange = await getAPI.get(`GETAPI?Titre_echange&${date}`);
-      const plusFortesVar = await getAPI.get(`GETAPI?Hebdo_fortes_var&${date}`);
-      const perfSecteurs = await getAPI.get(`GETAPI?Perf_secteurs&${date}`);
-      const capmarche = await getAPI.get(`GETAPI?Cap_marche&${date}`);
-      const masiVolumeYTD = await getAPI.get(`GETAPI?Masi_volume_ytd&${date}`);
-      const masiVolume = await getAPI.get(`GETAPI?Masi_volume_1an&${date}`);
-      const commentaire = await getAPI.get(`GETAPI?comm_marche&${date}`);
+      const titreEchange = await getAPI.get(`Titre_echange?par1=${date}`);
+      const plusFortesVar = await getAPI.get(`Hebdo_fortes_var?par1=${date}`);
+      const perfSecteurs = await getAPI.get(`Perf_secteurs?par1=${date}`);
+      const capmarche = await getAPI.get(`Cap_marche?par1=${date}`);
+      const masiVolumeYTD = await getAPI.get(`Masi_volume_ytd?par1=${date}`);
+      const masiVolume = await getAPI.get(`Masi_volume_1an?par1=${date}`);
+      const commentaire = await getAPI.get(`comm_marche?par1=${date}`);
       const result = {
         perfMarche: perfMarche.data,
         volMarche: volMarche.data,
@@ -147,7 +147,7 @@ export const getSecteurs_2 = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://192.168.11.109:9090/GETAPI?Perf_secteurs&08-12-2023`,
+        `http://192.168.11.2:30001/report/GET/Perf_secteurs?par1=08-12-2023`,
         {
           headers: {
             Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb25zdW1lciIsImlhdCI6MTcwMjA0Mzg4MSwiZXhwIjoxNzAyMTMwMjgxfQ.eoZnIP_XGQtQdplz2WahEW-Rd2w3CtAnIo1m3b7Jajk`,
@@ -212,7 +212,7 @@ export const getMarketData_2 = createAsyncThunk(
         comm_marche,
       ] = await Promise.all(
         urls.map(async (url) => {
-          const response = await getAPI.get(`GETAPI?${url}&${date}`);
+          const response = await getAPI.get(`${url}?par1=${date}`);
           return { [url]: response.data };
         })
       );
@@ -283,7 +283,7 @@ export const getComments = createAsyncThunk(
     console.log("getComments");
     try {
       date = formatDate(date["$d"]);
-      const response = await getAPI.get(`GETAPI?comm_marche&${date}`);
+      const response = await getAPI.get(`comm_marche?par1=${date}`);
       console.log("comments data", response);
       return response.data;
     } catch (error) {

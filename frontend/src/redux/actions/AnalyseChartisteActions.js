@@ -83,42 +83,42 @@ export const getIndicateursData = createAsyncThunk(
       const urls = [
         {
           url: "INDICATEURS_TECHNIQUES_BVC",
-          params: `&${date}&${titre}`,
+          params: `?par1=${date}&par2=${titre}`,
           varName: "indecateurTech",
         },
         {
           url: "MOYENNE_MOBILE_BVC",
-          params: `&${date}&${titre}&0.1`,
+          params: `?par1=${date}&par2=${titre}&par3=0.1`,
           varName: "moyMobileBVC",
         },
         {
           url: "ANALYSES_TECHNIQUES_BVC",
-          params: `&${date}&${titre}&0.1`,
+          params: `?par1=${date}&par2=${titre}&par3=0.1`,
           varName: "analyseTech",
         },
         {
           url: "PATTERNS_DE_CHANDELIERS",
-          params: `&${date}&${titre}`,
+          params: `?par1=${date}&par2=${titre}`,
           varName: "patternsChand",
         },
         {
           url: "NEWS_BVC",
-          params: `&${date}&${titre}`,
+          params: `?par1=${date}&par2=${titre}`,
           varName: "news",
         },
         {
           url: "Bilan",
-          params: `&Annuel&${titre}`,
+          params: `?par1=Annuel&par2=${titre}`,
           varName: "bilan",
         },
         {
-          url: "Compte de résultat",
-          params: `&Annuel&${titre}`,
+          url: "Compte_de_resultat",
+          params: `?par1=Annuel&par2=${titre}`,
           varName: "compteRes",
         },
         {
           url: "EVOLUTION_COURS",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "evolCours",
         },
       ];
@@ -133,7 +133,7 @@ export const getIndicateursData = createAsyncThunk(
         { evolCours },
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
-          const response = await getAPI.get(`GETAPI?${url}${params}`);
+          const response = await getAPI.get(`${url}${params}`);
           return { [varName]: response.data };
         })
       );

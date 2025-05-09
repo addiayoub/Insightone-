@@ -1,6 +1,6 @@
 import axios from "axios";
 import { handleError, handleResponse } from "../utils/apiLogs";
-const apiUrl = "http://192.168.11.2:30000/";
+const apiUrl = "http://192.168.11.2:30001/";
 // const apiUrl = "http://192.168.11.104:30000/BACKTEST/";
 
 const apiNewMarko = axios.create({

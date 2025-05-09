@@ -20,62 +20,62 @@ export const getAnalyse = createAsyncThunk(
       const urls = [
         {
           url: "ANALYSE_QUARTILE_3",
-          params: `&${date}&${opcvm}&${periode}`,
+          params: `?par1=${date}&par2=${opcvm}&par3=${periode}`,
           varName: "analyseQuatile",
         },
         {
           url: "PERFORMANCE_PARAM_4",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "performance",
         },
         {
           url: "CLASSEMENT_PERFORMANCE",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "classementPerformance",
         },
         {
           url: "BAROMETRE_QUANTALYS",
-          params: `&${date}&${opcvm}&${periode}`,
+          params: `?par1=${date}&par2=${opcvm}&par3=${periode}`,
           varName: "barometreQuantalys",
         },
         {
-          url: "LŒIL_DE_LEXPERT",
-          params: `&${date}&${opcvm}`,
+          url: "LOEIL_DE_LEXPERT",
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "loeilExpert",
         },
         {
           url: "INDICATEURS_DE_RISQUE",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "indicateursRisque",
         },
         {
           url: "FONDS_VERSUS_CATEGORIE_1",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "fondsVersusCat1",
         },
         {
           url: "FONDS_VERSUS_CATEGORIE_2",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "fondsVersusCat2",
         },
         {
           url: "FONDS_VERSUS_CATEGORIE_3",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "fondsVersusCat3",
         },
         {
           url: "INDICATEURS_PERF_RISQUE",
-          params: `&${date}&${opcvm}`,
+          params: `?par1=${date}&par2=${opcvm}`,
           varName: "indicateursPerfRisque",
         },
         {
           url: "ANALYSE_LIPPER_1",
-          params: `&${date}&${opcvm}&${periode}&${seuil}`,
+          params: `?par1=${date}&par2=${opcvm}&par3=${periode}&par4=${seuil}`,
           varName: "analyseLipper1",
         },
         {
           url: "ANALYSE_LIPPER_2",
-          params: `&${date}&${opcvm}&${periode}&${seuil}`,
+          params: `?par1=${date}&par2=${opcvm}&par3=${periode}&par4=${seuil}`,
           varName: "analyseLipper2",
         },
       ];
@@ -95,7 +95,7 @@ export const getAnalyse = createAsyncThunk(
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
-            const response = await getAPI.get(`GETAPI?${url}${params}`);
+            const response = await getAPI.get(`${url}${params}`);
             return { [varName]: response.data };
           } catch (error) {
             console.log(error);

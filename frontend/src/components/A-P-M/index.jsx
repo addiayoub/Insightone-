@@ -27,7 +27,7 @@ const AnalysePM = () => {
       setBacktestData(null);
       setBacktestImage(null);
   
-      const response = await axios.get(`http://192.168.11.2:30000/PREDICTION/BVC/POST/get_predictions/`, {
+      const response = await axios.get(`http://192.168.11.2:30001/PREDICTION/BVC/POST/get_predictions/`, {
         params: {
           model_choice_friendly: params.selectedModel,
           date_deb: params.startDate,
@@ -80,7 +80,7 @@ const AnalysePM = () => {
       };
 
       const response = await axios.post(
-        'http://192.168.11.2:30000/PREDICTION/BVC/POST/get_backtest/',
+        'http://192.168.11.2:30001/PREDICTION/BVC/POST/get_backtest/',
         {
           params: filterParams,
           historical_data: data.historical_data

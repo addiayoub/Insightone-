@@ -502,7 +502,7 @@ export const filterMarkoAction = createAsyncThunk(
       const dd = formatDate(dateDebut["$d"]);
       const df = formatDate(dateFin["$d"]);
       console.log("filterMarkoAction dates", dd, df);
-      const response = await getAPI.get(`GETAPI?FILTER_MARKO&${dd}&${df}`);
+      const response = await getAPI.get(`FILTER_MARKO?par1=${dd}&par2=${df}`);
       console.log("FilterMarko", response.data);
       const result = response.data;
       const valeurs = result.map((item) => item.LIBELLE);

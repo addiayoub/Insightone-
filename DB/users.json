@@ -15389,8 +15389,8 @@
   ],
   "apiLogs": [
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Indice_TMP&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Indice_TMP?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.41,
       "status": 200,
@@ -15403,8 +15403,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_swap&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_swap?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.29,
       "status": 200,
@@ -15417,8 +15417,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Indice_Monia&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Indice_Monia?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.32,
       "status": 200,
@@ -15431,8 +15431,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?TMP_Interbancaire&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "TMP_Interbancaire?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.3,
       "status": 200,
@@ -15445,8 +15445,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Avance_7Jours&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Avance_7Jours?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.41,
       "status": 200,
@@ -15459,8 +15459,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Courbe_Taux_Secondaire&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Courbe_Taux_Secondaire?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.68,
       "status": 200,
@@ -15473,8 +15473,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?LEVEES_DU_TRESOR&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "LEVEES_DU_TRESOR?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.68,
       "status": 200,
@@ -15487,8 +15487,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_prets_garantis&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_prets_garantis?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.52,
       "status": 200,
@@ -15501,8 +15501,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Placements_Tresor&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Placements_Tresor?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.67,
       "status": 200,
@@ -15515,8 +15515,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_pension_livree&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_pension_livree?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.54,
       "status": 200,
@@ -15529,8 +15529,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Avance_24h&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Avance_24h?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.31,
       "status": 200,
@@ -15543,8 +15543,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Volume_Courbe_Secondaire&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Volume_Courbe_Secondaire?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.98,
       "status": 200,
@@ -15557,8 +15557,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?INSUFFISANCE&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "INSUFFISANCE?par1=09/02/2024",
       "method": "get",
       "executionTime": 1.29,
       "status": 200,
@@ -15571,8 +15571,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Courbe_Taux_Primaire&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Courbe_Taux_Primaire?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.68,
       "status": 200,
@@ -15585,8 +15585,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Evol_Insuffisance_Liquidite&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Evol_Insuffisance_Liquidite?par1=09/02/2024",
       "method": "get",
       "executionTime": 1.01,
       "status": 200,
@@ -15599,8 +15599,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Placements_Tresor_Par_Jour&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Placements_Tresor_Par_Jour?par1=09/02/2024",
       "method": "get",
       "executionTime": 0.77,
       "status": 200,
@@ -15613,8 +15613,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?COMMENTAIRE_FI_BKGR&09/02/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "COMMENTAIRE_FI_BKGR?par1=09/02/2024",
       "method": "get",
       "executionTime": 1.73,
       "status": 200,
@@ -34719,7 +34719,7 @@
   ],
   "apiLogs": [
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "TRACK_OPC/POST/GENERATION_PORTEFEUILLES_ALEATOIRES/",
       "method": "post",
       "executionTime": 5.04,
@@ -34733,7 +34733,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/CUMULATIVE_RETURNS",
       "method": "post",
       "executionTime": 0.094,
@@ -34747,7 +34747,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_VOLATILITY",
       "method": "post",
       "executionTime": 10,
@@ -34761,7 +34761,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/EOY_RETURNS_BARS",
       "method": "post",
       "executionTime": 0.137,
@@ -34775,7 +34775,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/RETURN_QUANTILES",
       "method": "post",
       "executionTime": 0.351,
@@ -34789,7 +34789,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/EOY_RETURNS_TABLE",
       "method": "post",
       "executionTime": 0.166,
@@ -34803,7 +34803,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/MONTHLY_RETURNS",
       "method": "post",
       "executionTime": 0.408,
@@ -34817,7 +34817,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/WORST_10_DRAWDOWNS",
       "method": "post",
       "executionTime": 0.288,
@@ -34831,7 +34831,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/MONTHLY_RELATIVE_RETURNS",
       "method": "post",
       "executionTime": 0.428,
@@ -34845,7 +34845,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_SHARPE",
       "method": "post",
       "executionTime": 0.19,
@@ -34859,7 +34859,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/UNDERWATER_PLOT",
       "method": "post",
       "executionTime": 0.451,
@@ -34873,7 +34873,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/KEY_PERFORMANCE_METRICS",
       "method": "post",
       "executionTime": 1.036,
@@ -34887,7 +34887,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/DISTRIBUTION_OF_MONTHLY_RETURNS",
       "method": "post",
       "executionTime": 0.168,
@@ -34901,7 +34901,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_BETA_TO_BENCHMARK",
       "method": "post",
       "executionTime": 0.533,
@@ -34915,7 +34915,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/DAILY_RETURNS",
       "method": "post",
       "executionTime": 0.509,
@@ -34929,7 +34929,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "TRACK_OPC/POST/GENERATION_PORTEFEUILLES_ALEATOIRES/",
       "method": "post",
       "executionTime": 4.977,
@@ -34943,7 +34943,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/CUMULATIVE_RETURNS",
       "method": "post",
       "executionTime": 0.132,
@@ -34957,7 +34957,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/EOY_RETURNS_TABLE",
       "method": "post",
       "executionTime": 0.21,
@@ -34971,7 +34971,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/DISTRIBUTION_OF_MONTHLY_RETURNS",
       "method": "post",
       "executionTime": 0.212,
@@ -34985,7 +34985,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/EOY_RETURNS_BARS",
       "method": "post",
       "executionTime": 0.128,
@@ -34999,7 +34999,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_SHARPE",
       "method": "post",
       "executionTime": 0.231,
@@ -35013,7 +35013,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/DAILY_RETURNS",
       "method": "post",
       "executionTime": 0.526,
@@ -35027,7 +35027,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/MONTHLY_RETURNS",
       "method": "post",
       "executionTime": 0.519,
@@ -35041,7 +35041,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_VOLATILITY",
       "method": "post",
       "executionTime": 0.337,
@@ -35055,7 +35055,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/RETURN_QUANTILES",
       "method": "post",
       "executionTime": 0.556,
@@ -35069,7 +35069,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/WORST_10_DRAWDOWNS",
       "method": "post",
       "executionTime": 0.368,
@@ -35083,7 +35083,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/MONTHLY_RELATIVE_RETURNS",
       "method": "post",
       "executionTime": 0.626,
@@ -35097,7 +35097,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/UNDERWATER_PLOT",
       "method": "post",
       "executionTime": 0.629,
@@ -35111,7 +35111,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/ROLLING_BETA_TO_BENCHMARK",
       "method": "post",
       "executionTime": 0.658,
@@ -35125,7 +35125,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "trading/POST/KEY_PERFORMANCE_METRICS",
       "method": "post",
       "executionTime": 1.199,
@@ -35139,8 +35139,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?CLASSEMENT_PERFORMANCE&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "CLASSEMENT_PERFORMANCE?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 0.643,
       "status": 200,
@@ -35153,8 +35153,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?LŒIL_DE_LEXPERT&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "LŒIL_DE_LEXPERT?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 0.898,
       "status": 200,
@@ -35167,8 +35167,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&16/03/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2?par1=16/03/2024&par2=RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 1.505,
       "status": 500,
@@ -35180,8 +35180,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?FONDS_VERSUS_CATEGORIE_1&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "FONDS_VERSUS_CATEGORIE_1?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 1.426,
       "status": 200,
@@ -35194,8 +35194,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?FONDS_VERSUS_CATEGORIE_2&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "FONDS_VERSUS_CATEGORIE_2?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 2.199,
       "status": 200,
@@ -35208,8 +35208,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?BAROMETRE_QUANTALYS&16/03/2024&RMA EXPANSION&5ans",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "BAROMETRE_QUANTALYS?par1=16/03/2024&par2=RMA EXPANSION&par3=5ans",
       "method": "get",
       "executionTime": 1.565,
       "status": 200,
@@ -35222,8 +35222,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?INDICATEURS_DE_RISQUE&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "INDICATEURS_DE_RISQUE?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 0.938,
       "status": 200,
@@ -35236,8 +35236,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_1&16/03/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_1?par1=16/03/2024&par2=RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.336,
       "status": 200,
@@ -35250,8 +35250,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?INDICATEURS_PERF_RISQUE&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "INDICATEURS_PERF_RISQUE?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 1.467,
       "status": 200,
@@ -35264,8 +35264,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?FONDS_VERSUS_CATEGORIE_3&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "FONDS_VERSUS_CATEGORIE_3?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 1.305,
       "status": 200,
@@ -35278,8 +35278,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_QUARTILE_3&16/03/2024&RMA EXPANSION&5ans",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_QUARTILE_3?par1=16/03/2024&par2=RMA EXPANSION&par3=5ans",
       "method": "get",
       "executionTime": 6.975,
       "status": 200,
@@ -35292,8 +35292,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERFORMANCE_PARAM_4&16/03/2024&RMA EXPANSION",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERFORMANCE_PARAM_4?par1=16/03/2024&par2=RMA EXPANSION",
       "method": "get",
       "executionTime": 7.773,
       "status": 200,
@@ -35306,7 +35306,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "portfolio_optimization/POST/portfolio_optimization/?num_of_portfolios=1000&start=25/12/2020&end=02/02/2024",
       "method": "post",
       "executionTime": 1.93,
@@ -35320,7 +35320,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.03,
@@ -35333,7 +35333,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.03,
@@ -35346,7 +35346,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Portfolio/POST/Portfolio_Allocation/",
       "method": "post",
       "executionTime": 1.26,
@@ -35360,7 +35360,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.05,
@@ -35373,7 +35373,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.39,
@@ -35387,7 +35387,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.29,
@@ -35401,7 +35401,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.3,
@@ -35415,7 +35415,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.32,
@@ -35429,7 +35429,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Value_at_Risk/POST/Value_at_Risk/",
       "method": "post",
       "executionTime": 0.42,
@@ -35443,7 +35443,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "portfolio_optimization/POST/portfolio_optimization/?num_of_portfolios=1000&start=25/12/2020&end=02/02/2024",
       "method": "post",
       "executionTime": 1.68,
@@ -35457,7 +35457,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.3,
@@ -35471,7 +35471,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.3,
@@ -35485,7 +35485,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.36,
@@ -35499,7 +35499,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.26,
@@ -35513,7 +35513,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.29,
@@ -35527,7 +35527,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.14,
@@ -35540,7 +35540,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.28,
@@ -35554,7 +35554,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.29,
@@ -35568,7 +35568,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.25,
@@ -35582,7 +35582,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.14,
@@ -35595,7 +35595,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/get_dataset/",
       "method": "get",
       "executionTime": 0.28,
@@ -35609,7 +35609,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.14,
@@ -35622,7 +35622,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.12,
@@ -35635,7 +35635,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.14,
@@ -35648,7 +35648,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.27,
@@ -35661,7 +35661,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.22,
@@ -35674,7 +35674,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.2,
@@ -35687,7 +35687,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.26,
@@ -35700,7 +35700,7 @@
       }
     },
     {
-      "baseURL": "http://192.168.11.2:30000/BACKTEST/",
+      "baseURL": "http://192.168.11.2:30001/BACKTEST/",
       "url": "Black_Litterman_Mean_Risk_Optimization/POST/Black_Litterman_Mean_Risk_Optimization/",
       "method": "post",
       "executionTime": 0.18,
@@ -35713,8 +35713,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&20/03/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&20/03/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.2,
       "status": 500,
@@ -35726,8 +35726,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&20/03/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&20/03/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.23,
       "status": 500,
@@ -35739,8 +35739,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&ALLIANCES",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&ALLIANCES",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -35752,8 +35752,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&AFRIC INDUSTRIES SA",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&AFRIC INDUSTRIES SA",
       "method": "get",
       "executionTime": 0.11,
       "status": 404,
@@ -35765,8 +35765,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.1,
       "status": 404,
@@ -35778,8 +35778,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -35791,8 +35791,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.1,
       "status": 404,
@@ -35804,8 +35804,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.1,
       "status": 404,
@@ -35817,8 +35817,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -35830,8 +35830,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Dividend_Info&DISWAY",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Dividend_Info&DISWAY",
       "method": "get",
       "executionTime": 0.11,
       "status": 404,
@@ -35843,8 +35843,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Tue, 26 Dec 2023 08:42:50 GMTTue, 26 Mar 2024 09:42:50 GMT",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Tue, 26 Dec 2023 08:42:50 GMTTue, 26 Mar 2024 09:42:50 GMT",
       "method": "get",
       "executionTime": 0.25,
       "status": 404,
@@ -35856,8 +35856,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?NEWS&Tue, 26 Dec 2023 08:43:30 GMTTue, 26 Mar 2024 09:43:30 GMT",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "NEWS&Tue, 26 Dec 2023 08:43:30 GMTTue, 26 Mar 2024 09:43:30 GMT",
       "method": "get",
       "executionTime": 0.15,
       "status": 400,
@@ -35869,8 +35869,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?NEWS&26/12/202326/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "NEWS&26/12/202326/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 400,
@@ -35882,8 +35882,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&01/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&01/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.53,
       "status": 500,
@@ -35895,8 +35895,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -35908,8 +35908,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.24,
       "status": 404,
@@ -35921,8 +35921,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -35934,8 +35934,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -35947,8 +35947,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -35960,8 +35960,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -35973,8 +35973,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -35986,8 +35986,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -35999,8 +35999,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 2.56,
       "status": 404,
@@ -36012,8 +36012,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 2.56,
       "status": 404,
@@ -36025,8 +36025,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36038,8 +36038,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -36051,8 +36051,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36064,8 +36064,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36077,8 +36077,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -36090,8 +36090,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36103,8 +36103,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.26,
       "status": 404,
@@ -36116,8 +36116,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36129,8 +36129,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -36142,8 +36142,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36155,8 +36155,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.38,
       "status": 404,
@@ -36168,8 +36168,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -36181,8 +36181,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -36194,8 +36194,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36207,8 +36207,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36220,8 +36220,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.28,
       "status": 404,
@@ -36233,8 +36233,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -36246,8 +36246,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36259,8 +36259,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -36272,8 +36272,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36285,8 +36285,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.24,
       "status": 404,
@@ -36298,8 +36298,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.24,
       "status": 404,
@@ -36311,8 +36311,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36324,8 +36324,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -36337,8 +36337,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36350,8 +36350,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.32,
       "status": 404,
@@ -36363,8 +36363,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36376,8 +36376,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -36389,8 +36389,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.22,
       "status": 404,
@@ -36402,8 +36402,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36415,8 +36415,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -36428,8 +36428,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.11,
       "status": 404,
@@ -36441,8 +36441,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36454,8 +36454,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -36467,8 +36467,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36480,8 +36480,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.24,
       "status": 404,
@@ -36493,8 +36493,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -36506,8 +36506,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -36519,8 +36519,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -36532,8 +36532,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36545,8 +36545,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -36558,8 +36558,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36571,8 +36571,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.22,
       "status": 404,
@@ -36584,8 +36584,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36597,8 +36597,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.22,
       "status": 404,
@@ -36610,8 +36610,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36623,8 +36623,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.24,
       "status": 404,
@@ -36636,8 +36636,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36649,8 +36649,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36662,8 +36662,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36675,8 +36675,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI GLOBAL&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI GLOBAL&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -36688,8 +36688,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI GLOBAL&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI GLOBAL&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36701,8 +36701,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36714,8 +36714,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -36727,8 +36727,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -36740,8 +36740,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36753,8 +36753,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.2,
       "status": 404,
@@ -36766,8 +36766,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -36779,8 +36779,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36792,8 +36792,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -36805,8 +36805,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -36818,8 +36818,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36831,8 +36831,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -36844,8 +36844,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.2,
       "status": 404,
@@ -36857,8 +36857,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.6,
       "status": 404,
@@ -36870,8 +36870,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.56,
       "status": 404,
@@ -36883,8 +36883,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.47,
       "status": 404,
@@ -36896,8 +36896,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.45,
       "status": 404,
@@ -36909,8 +36909,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36922,8 +36922,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -36935,8 +36935,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.42,
       "status": 404,
@@ -36948,8 +36948,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.44,
       "status": 404,
@@ -36961,8 +36961,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -36974,8 +36974,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -36987,8 +36987,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.4,
       "status": 404,
@@ -37000,8 +37000,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.44,
       "status": 404,
@@ -37013,8 +37013,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -37026,8 +37026,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -37039,8 +37039,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 4.03,
       "status": 500,
@@ -37052,8 +37052,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 1.89,
       "status": 500,
@@ -37065,8 +37065,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&04/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.33,
       "status": 500,
@@ -37078,8 +37078,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 1.27,
       "status": 404,
@@ -37091,8 +37091,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 1.37,
       "status": 404,
@@ -37104,8 +37104,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.3,
       "status": 404,
@@ -37117,8 +37117,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.2,
       "status": 404,
@@ -37130,8 +37130,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&05/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&05/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.12,
       "status": 500,
@@ -37143,8 +37143,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.22,
       "status": 404,
@@ -37156,8 +37156,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -37169,8 +37169,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.31,
       "status": 404,
@@ -37182,8 +37182,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.2,
       "status": 404,
@@ -37195,8 +37195,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI GLOBAL&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI GLOBAL&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.27,
       "status": 404,
@@ -37208,8 +37208,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI GLOBAL&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI GLOBAL&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.37,
       "status": 404,
@@ -37221,8 +37221,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -37234,8 +37234,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.31,
       "status": 404,
@@ -37247,8 +37247,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.25,
       "status": 404,
@@ -37260,8 +37260,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.48,
       "status": 404,
@@ -37273,8 +37273,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.36,
       "status": 404,
@@ -37286,8 +37286,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.25,
       "status": 404,
@@ -37299,8 +37299,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.34,
       "status": 404,
@@ -37312,8 +37312,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -37325,8 +37325,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.41,
       "status": 404,
@@ -37338,8 +37338,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.3,
       "status": 404,
@@ -37351,8 +37351,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -37364,8 +37364,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -37377,8 +37377,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.25,
       "status": 404,
@@ -37390,8 +37390,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.37,
       "status": 404,
@@ -37403,8 +37403,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.23,
       "status": 404,
@@ -37416,8 +37416,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.35,
       "status": 404,
@@ -37429,8 +37429,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.22,
       "status": 404,
@@ -37442,8 +37442,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.34,
       "status": 404,
@@ -37455,8 +37455,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.37,
       "status": 404,
@@ -37468,8 +37468,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.27,
       "status": 404,
@@ -37481,8 +37481,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -37494,8 +37494,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37507,8 +37507,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -37520,8 +37520,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -37533,8 +37533,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -37546,8 +37546,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37559,8 +37559,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -37572,8 +37572,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37585,8 +37585,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37598,8 +37598,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.18,
       "status": 404,
@@ -37611,8 +37611,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -37624,8 +37624,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -37637,8 +37637,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -37650,8 +37650,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -37663,8 +37663,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -37676,8 +37676,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.11,
       "status": 404,
@@ -37689,8 +37689,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37702,8 +37702,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37715,8 +37715,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -37728,8 +37728,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -37741,8 +37741,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -37754,8 +37754,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37767,8 +37767,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -37780,8 +37780,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37793,8 +37793,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.17,
       "status": 404,
@@ -37806,8 +37806,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37819,8 +37819,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37832,8 +37832,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37845,8 +37845,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -37858,8 +37858,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37871,8 +37871,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -37884,8 +37884,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -37897,8 +37897,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -37910,8 +37910,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -37923,8 +37923,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -37936,8 +37936,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -37949,8 +37949,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -37962,8 +37962,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.13,
       "status": 404,
@@ -37975,8 +37975,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": -464.64,
       "status": 404,
@@ -37988,8 +37988,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -38001,8 +38001,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.2,
       "status": 404,
@@ -38014,8 +38014,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -38027,8 +38027,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38040,8 +38040,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -38053,8 +38053,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -38066,8 +38066,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38079,8 +38079,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -38092,8 +38092,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.35,
       "status": 404,
@@ -38105,8 +38105,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.36,
       "status": 404,
@@ -38118,8 +38118,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.33,
       "status": 404,
@@ -38131,8 +38131,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.15,
       "status": 404,
@@ -38144,8 +38144,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38157,8 +38157,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38170,8 +38170,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI MLT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -38183,8 +38183,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.12,
       "status": 404,
@@ -38196,8 +38196,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.27,
       "status": 404,
@@ -38209,8 +38209,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38222,8 +38222,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.16,
       "status": 404,
@@ -38235,8 +38235,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.14,
       "status": 404,
@@ -38248,8 +38248,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.21,
       "status": 404,
@@ -38261,8 +38261,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&15/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&15/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 3.33,
       "status": 500,
@@ -38274,8 +38274,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&08/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&08/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.35,
       "status": 500,
@@ -38287,8 +38287,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&08/04/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&08/04/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 2.25,
       "status": 500,
@@ -38300,8 +38300,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?NEWS&23/04/2024&30/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "NEWS&23/04/2024&30/04/2024",
       "method": "get",
       "executionTime": 30.61,
       "status": 500,
@@ -38313,8 +38313,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?NEWS&23/04/2024&30/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "NEWS&23/04/2024&30/04/2024",
       "method": "get",
       "executionTime": 60.46,
       "status": 500,
@@ -38326,8 +38326,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Perf_volumes_MB&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Perf_volumes_MB&23/04/2024",
       "method": "get",
       "executionTime": 60.88,
       "status": 500,
@@ -38339,8 +38339,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Perf_volume&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Perf_volume&23/04/2024",
       "method": "get",
       "executionTime": 60.76,
       "status": 500,
@@ -38352,8 +38352,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Perf_contrib&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Perf_contrib&23/04/2024",
       "method": "get",
       "executionTime": 61.37,
       "status": 500,
@@ -38365,8 +38365,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Perf_Indice&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Perf_Indice&23/04/2024",
       "method": "get",
       "executionTime": 61,
       "status": 500,
@@ -38378,8 +38378,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Evol_masi&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Evol_masi&23/04/2024",
       "method": "get",
       "executionTime": 61.12,
       "status": 500,
@@ -38391,8 +38391,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Perf_volumes_MC&23/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Perf_volumes_MC&23/04/2024",
       "method": "get",
       "executionTime": 61.24,
       "status": 500,
@@ -38404,8 +38404,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?TMP_Interbancaire&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "TMP_Interbancaire&29/04/2024",
       "method": "get",
       "executionTime": 51.63,
       "status": 500,
@@ -38417,8 +38417,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Indice_Monia&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Indice_Monia&29/04/2024",
       "method": "get",
       "executionTime": 51.73,
       "status": 500,
@@ -38430,8 +38430,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_swap&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_swap&29/04/2024",
       "method": "get",
       "executionTime": 51.85,
       "status": 500,
@@ -38443,8 +38443,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Avance_7Jours&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Avance_7Jours&29/04/2024",
       "method": "get",
       "executionTime": 51.96,
       "status": 500,
@@ -38456,8 +38456,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Indice_TMP&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Indice_TMP&29/04/2024",
       "method": "get",
       "executionTime": 52.08,
       "status": 500,
@@ -38469,8 +38469,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Avance_24h&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Avance_24h&29/04/2024",
       "method": "get",
       "executionTime": 52.21,
       "status": 500,
@@ -38482,8 +38482,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_prets_garantis&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_prets_garantis&29/04/2024",
       "method": "get",
       "executionTime": 82.23,
       "status": 500,
@@ -38495,8 +38495,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Placements_Tresor_Par_Jour&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Placements_Tresor_Par_Jour&29/04/2024",
       "method": "get",
       "executionTime": 82.14,
       "status": 500,
@@ -38508,8 +38508,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Placements_Tresor&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Placements_Tresor&29/04/2024",
       "method": "get",
       "executionTime": 82.49,
       "status": 500,
@@ -38521,8 +38521,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Instrument_pension_livree&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Instrument_pension_livree&29/04/2024",
       "method": "get",
       "executionTime": 82.36,
       "status": 500,
@@ -38534,8 +38534,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?LEVEES_DU_TRESOR&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "LEVEES_DU_TRESOR&29/04/2024",
       "method": "get",
       "executionTime": 82.6,
       "status": 500,
@@ -38547,8 +38547,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Courbe_Taux_Primaire&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Courbe_Taux_Primaire&29/04/2024",
       "method": "get",
       "executionTime": 82.73,
       "status": 500,
@@ -38560,8 +38560,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Courbe_Taux_Secondaire&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Courbe_Taux_Secondaire&29/04/2024",
       "method": "get",
       "executionTime": 108.73,
       "status": 500,
@@ -38573,8 +38573,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?INSUFFISANCE&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "INSUFFISANCE&29/04/2024",
       "method": "get",
       "executionTime": 109.07,
       "status": 500,
@@ -38586,8 +38586,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Evol_Insuffisance_Liquidite&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Evol_Insuffisance_Liquidite&29/04/2024",
       "method": "get",
       "executionTime": 108.96,
       "status": 500,
@@ -38599,8 +38599,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?COMMENTAIRE_FI_BKGR&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "COMMENTAIRE_FI_BKGR&29/04/2024",
       "method": "get",
       "executionTime": 108.84,
       "status": 500,
@@ -38612,8 +38612,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?Volume_Courbe_Secondaire&29/04/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "Volume_Courbe_Secondaire&29/04/2024",
       "method": "get",
       "executionTime": 108.63,
       "status": 500,
@@ -41397,8 +41397,8 @@
   ],
   "apiLogs": [
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&27/03/2024&WINEO ACTIONS&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&27/03/2024&WINEO ACTIONS&5ans&par4=0.005",
       "method": "get",
       "executionTime": 1.49,
       "status": 500,
@@ -41410,8 +41410,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?ANALYSE_LIPPER_2&29/03/2024&RMA EXPANSION&5ans&0.005",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "ANALYSE_LIPPER_2&29/03/2024&RMA EXPANSION&par3=5ans&par4=0.005",
       "method": "get",
       "executionTime": 1.45,
       "status": 500,
@@ -41423,8 +41423,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_NOMINAL&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.19,
       "status": 404,
@@ -41436,8 +41436,8 @@
       }
     },
     {
-      "baseURL": "https://192.168.11.109:9090/",
-      "url": "GETAPI?PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
+      "baseURL": "http://192.168.11.2:30001/report/GET/",
+      "url": "PERF_GLIS_MBI&MBI CT&25/02/2024&25/03/2024",
       "method": "get",
       "executionTime": 0.3,
       "status": 404,

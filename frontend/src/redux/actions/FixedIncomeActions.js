@@ -11,87 +11,87 @@ export const getFixedIncome = createAsyncThunk(
       const urls = [
         {
           url: "TMP_Interbancaire",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "TMPInterbancaire",
         },
         {
           url: "Indice_TMP",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "indiceTMP",
         },
         {
           url: "Indice_Monia",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "indiceMonia",
         },
         {
           url: "Avance_7Jours",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "avance7j",
         },
         {
           url: "Instrument_swap",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "instrumentSwap",
         },
         {
           url: "Avance_24h",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "avance24h",
         },
         {
           url: "Instrument_prets_garantis",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "pretsGarantis",
         },
         {
           url: "Placements_Tresor",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "placementsTresor",
         },
         {
           url: "Placements_Tresor_Par_Jour",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "placementsTresorJour",
         },
         {
           url: "Instrument_pension_livree",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "pensionLivree",
         },
         {
           url: "LEVEES_DU_TRESOR",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "leveesTresor",
         },
         {
           url: "Courbe_Taux_Primaire",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "tauxPrimaire",
         },
         {
           url: "Courbe_Taux_Secondaire",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "tauxSecondaire",
         },
         {
           url: "Evol_Insuffisance_Liquidite",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "evolInsuffisanceLiquidite",
         },
         {
           url: "INSUFFISANCE",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "insuffisance",
         },
         {
           url: "COMMENTAIRE_FI_BKGR",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "commentaires",
         },
         {
           url: "Volume_Courbe_Secondaire",
-          params: `&${date}`,
+          params: `?par1=${date}`,
           varName: "volumeSecondaire",
         },
       ];
@@ -116,7 +116,7 @@ export const getFixedIncome = createAsyncThunk(
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
-            const response = await getApi.get(`GETAPI?${url}${params}`);
+            const response = await getApi.get(`${url}${params}`);
             return { [varName]: response.data };
           } catch (error) {
             console.log(error);

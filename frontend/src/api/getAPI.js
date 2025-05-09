@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiLogs, handleError, handleResponse } from "../utils/apiLogs";
-const apiUrl = "https://192.168.11.109:9090/";
+const apiUrl = "http://192.168.11.2:30001/report/GET/";
 
 const getAPI = axios.create({
   baseURL: apiUrl,

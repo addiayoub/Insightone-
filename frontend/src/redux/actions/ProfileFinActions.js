@@ -9,34 +9,34 @@ export const getData = createAsyncThunk(
     try {
       const urls = [
         {
-          url: "Compte de résultat",
-          params: `&${periode}&${titre}`,
+          url: "Compte_de_resultat",
+          params: `?par1=${periode}&par2=${titre}`,
           varName: "cmptRes",
         },
         {
           url: "Bilan",
-          params: `&${periode}&${titre}`,
+          params: `?par1=${periode}&par2=${titre}`,
           varName: "bilan",
         },
 
         {
           url: "Dividende_Info",
-          params: `&${titre}`,
+          params: `?par1=${titre}`,
           varName: "dividende",
         },
         {
           url: "BILAN_RESUME",
-          params: `&${periode}&${titre}`,
+          params: `?par1=${periode}&par2=${titre}`,
           varName: "bilanRes",
         },
         {
           url: "COMPTE_RESULTAT_RESUME",
-          params: `&${periode}&${titre}`,
+          params: `?par1=${periode}&par2=${titre}`,
           varName: "cmptResResu",
         },
         {
           url: "FLUX_TRESORERIE_RESUME",
-          params: `&${periode}&${titre}`,
+          params: `?par1=${periode}&par2=${titre}`,
           varName: "fluxRes",
         },
       ];
@@ -50,7 +50,7 @@ export const getData = createAsyncThunk(
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
-            const response = await getAPI.get(`GETAPI?${url}${params}`);
+            const response = await getAPI.get(`${url}${params}`);
             // console.log(`response ${varName}:`, response);
             return { [varName]: response.data };
           } catch (error) {
@@ -82,7 +82,7 @@ export const getNews = createAsyncThunk(
         formatDate(dateDebut["$d"]),
         formatDate(dateFin["$d"]),
       ];
-      const response = await getAPI.get(`GETAPI?NEWS&${dateDebut}&${dateFin}`);
+      const response = await getAPI.get(`NEWS?par1=${dateDebut}&par2=${dateFin}`);
       const news = response.data?.map((item, index) => ({
         ...item,
         id: index + 1,

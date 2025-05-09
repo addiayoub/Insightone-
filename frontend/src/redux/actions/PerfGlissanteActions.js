@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const url = "http://192.168.11.2:30000/perf/performance_glissante_indice/GET/";
+const url = "http://192.168.11.2:30001/perf/performance_glissante_indice/GET/";
 
 export const getPerfMASI = async (date = "19/03/2024") => {
   try {

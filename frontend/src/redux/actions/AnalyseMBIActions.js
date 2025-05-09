@@ -20,62 +20,62 @@ export const getData = createAsyncThunk(
       const urls = [
         {
           url: "Attrib_Cumul_AXA_BENCH",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "cumulAXABench",
         },
         {
           url: "Attrib_Cumul_CA_BENCH",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "cumulCABench",
         },
         {
           url: "PERF_GLISS_NOMINAL",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "perfGlisNomi",
         },
         {
           url: "Attrib_Cumul_STATPRO_BENCH",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "cumulStatproBench",
         },
         {
           url: "PERF_GLISS_MBI",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "perfGlisMBI",
         },
         {
           url: "EVOLUTION_MBI",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "evolMBI",
         },
         {
           url: "EVOLUTION_NOMINAL",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "evolNomi",
         },
         {
           url: "EVOLUTION_MBI_BASE_100",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "evolMBIB100",
         },
         {
           url: "EVOLUTION_NOMINAL_BASE_100",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "evolNomiB100",
         },
         {
           url: "COMPOSITION_FINAL_MBI",
-          params: `&${bench}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateFin}`,
           varName: "compFinMBI",
         },
         {
           url: "OPERATIONS_GISEMENTS",
-          params: `&${dateDebut}&${dateFin}`,
+          params: `?par1=${dateDebut}&par2=${dateFin}`,
           varName: "operGisements",
         },
         {
           url: "MBI_FIELDS",
-          params: `&${bench}&${dateDebut}&${dateFin}`,
+          params: `?par1=${bench}&par2=${dateDebut}&par3=${dateFin}`,
           varName: "MBIFields",
         },
       ];
@@ -95,7 +95,7 @@ export const getData = createAsyncThunk(
       ] = await Promise.all(
         urls.map(async ({ url, varName, params }) => {
           try {
-            const response = await getAPI.get(`GETAPI?${url}${params}`);
+            const response = await getAPI.get(`${url}${params}`);
             return { [varName]: response.data };
           } catch (error) {
             console.log(error);
